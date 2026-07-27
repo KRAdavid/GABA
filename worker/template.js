@@ -1421,7 +1421,7 @@ function response(body, status, contentType, cacheControl) {
       "referrer-policy": "strict-origin-when-cross-origin",
       "x-frame-options": "DENY",
       "permissions-policy": "camera=(), microphone=(), geolocation=()",
-      "content-security-policy": "default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+      "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
     }
   });
 }
