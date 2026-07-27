@@ -1,0 +1,12 @@
+{
+  "name": "gaba-evidence-index-kr",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "data": "node scripts/generate-data.mjs",
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "check": "npm run data && npm run build && npm run validate"
+  }
+}
