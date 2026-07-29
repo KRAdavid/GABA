@@ -33,14 +33,21 @@ assert.equal(api.status, 200);
 const db = await api.json();
 assert.equal(body.records, db.meta.total);
 assert.equal(db.records.length, db.meta.total);
+assert.equal(db.meta.literature, 174);
+assert.equal(db.meta.regulatory, 5);
+assert.equal(db.meta.total, 179);
 assert.equal(new Set(db.records.map((r) => r.id)).size, db.meta.total);
 assert.equal(db.records.filter((r) => r.kind === "임상").length, db.meta.clinical);
 assert.equal(db.records.filter((r) => r.kind === "동물").length, db.meta.animal);
+assert.equal(db.records.filter((r) => r.kind === "규제").length, db.meta.regulatory);
 assert.ok(db.records.every((r) => r.id && r.title && r.year));
+assert.ok(db.records.filter((r) => r.kind === "규제").every((r) => r.titleKo && r.summaryKo && r.sourceUrl));
 
 console.log(JSON.stringify({
   valid: true,
   records: db.records.length,
+  literature: db.meta.literature,
+  regulatory: db.meta.regulatory,
   clinical: db.meta.clinical,
   animal: db.meta.animal,
   projectId: hosting.project_id

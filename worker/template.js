@@ -6,8 +6,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b5f59">
-  <meta name="description" content="GABA 섭취 임상·동물시험 SCI/SCIE 문헌을 한국어로 검색하고 필터링하는 근거 인덱스">
-  <title>GABA 섭취 근거 인덱스</title>
+  <meta name="description" content="GABA 섭취 임상·동물시험 문헌과 식약처·해외 규제 안전성 자료를 제목과 내용의 한국어 검색으로 탐색하는 근거 인덱스">
+  <title>GABA 연구·규제 안전성 근거 인덱스</title>
   <style>
     :root {
       color-scheme: light;
@@ -221,7 +221,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
     .metric-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 12px;
       margin: 18px 0 0;
     }
@@ -372,6 +372,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 15px;
     }
     .search-box input::placeholder { color: #7c8c94; }
+    .search-help {
+      margin: 8px 2px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
     .search-clear {
       position: absolute;
       right: 8px;
@@ -576,6 +582,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     }
     .badge.clinical { background: var(--blue-soft); color: #1e4fc4; }
     .badge.animal { background: var(--teal-soft); color: var(--teal-dark); }
+    .badge.regulatory { background: #ede9fe; color: #5b21b6; }
     .badge.include, .badge.benefit { background: var(--green-soft); color: var(--green); }
     .badge.candidate, .badge.mixed { background: var(--amber-soft); color: var(--amber); }
     .badge.exclude, .badge.harm { background: var(--red-soft); color: var(--red); }
@@ -595,6 +602,21 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 13px;
     }
     .paper-meta strong { color: var(--ink-2); }
+    .original-title {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .regulatory-note {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-radius: 9px;
+      background: #fff8df;
+      color: #76570b;
+      font-size: 12px;
+      font-weight: 700;
+    }
     .finding {
       margin: 14px 0 0;
       padding: 13px 14px;
@@ -725,7 +747,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
     .guide-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
       padding: 20px 26px 26px;
     }
@@ -847,8 +869,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <a class="brand" href="#" aria-label="GABA 섭취 근거 인덱스 홈">
         <span class="brand-mark">GABA</span>
         <span class="brand-copy">
-          <strong>GABA 섭취 근거 인덱스</strong>
-          <span>임상·동물시험 문헌 탐색</span>
+          <strong>GABA 연구·안전성 근거 인덱스</strong>
+          <span>임상·동물·규제자료 통합 탐색</span>
         </span>
       </a>
       <div class="top-actions">
@@ -861,12 +883,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
   <main class="page">
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">EVIDENCE EXPLORER · 읽기 전용 공개 스냅샷</p>
-      <h1 id="page-title">GABA 섭취 연구를<br>한국어로 빠르게 탐색하세요</h1>
-      <p>인체 임상시험과 동물시험을 분리하고, 연구조건·핵심결과·안전성·원문 상태를 한 화면에서 비교할 수 있습니다.</p>
+      <h1 id="page-title">GABA 연구와 규제 안전성 자료를<br>한국어로 빠르게 탐색하세요</h1>
+      <p>인체 임상시험·동물시험과 식약처·해외 규제자료를 분리하고, 연구조건·핵심결과·안전성·심사 활용도를 한 화면에서 비교할 수 있습니다.</p>
       <div class="hero-meta">
         <span class="hero-pill"><span class="pulse" aria-hidden="true"></span><span id="snapshot-label"></span></span>
         <span class="hero-pill" id="coverage-label"></span>
-        <span class="hero-pill">매월 업데이트</span>
+        <span class="hero-pill">매주 업데이트</span>
       </div>
     </section>
 
@@ -896,6 +918,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <strong class="metric-value" id="metric-pdf">-</strong>
         <span class="metric-help">검증 후 연결된 원문 PDF</span>
       </article>
+      <article class="metric">
+        <span class="metric-label">규제·안전성 자료</span>
+        <strong class="metric-value" id="metric-regulatory">-</strong>
+        <span class="metric-help">식약처 직접근거와 해외 규제 참고</span>
+      </article>
     </section>
 
     <section class="section" aria-labelledby="distribution-title">
@@ -922,17 +949,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="search-row">
           <div class="search-box">
             <span class="search-icon" aria-hidden="true">⌕</span>
-            <label class="sr-only" for="search">문헌 통합검색</label>
+            <label class="sr-only" for="search">제목과 내용 통합검색</label>
             <input id="search" type="search" autocomplete="off"
-              placeholder="논문 제목, 저자, DOI, PMID, 종, 핵심결과 검색">
+              placeholder="한글로 제목·본문·안전성 내용 검색">
             <button class="search-clear" id="search-clear" type="button" aria-label="검색어 지우기">×</button>
           </div>
           <button class="mobile-filter" id="mobile-filter" type="button" aria-controls="filter-panel" aria-expanded="false">필터</button>
         </div>
+        <p class="search-help">원문 제목은 그대로 보존하며, 한국어 제목·요약과 수면→sleep, 혈압→blood pressure 같은 용어 확장을 함께 검색합니다.</p>
         <div class="quick-row" aria-label="연구구분 빠른 필터">
           <button class="quick-button active" type="button" data-kind="">전체</button>
           <button class="quick-button" type="button" data-kind="임상">인체 임상</button>
           <button class="quick-button" type="button" data-kind="동물">동물시험</button>
+          <button class="quick-button" type="button" data-kind="규제">규제·안전성</button>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
           <select class="sort-select" id="sort">
@@ -953,6 +982,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <div class="filter-group">
             <label for="status">관리 상태</label>
             <select id="status"><option value="">전체</option></select>
+          </div>
+          <div class="filter-group">
+            <label for="grade">규제 근거등급</label>
+            <select id="grade"><option value="">전체</option></select>
+          </div>
+          <div class="filter-group">
+            <label for="agency">규제기관</label>
+            <select id="agency"><option value="">전체</option></select>
+          </div>
+          <div class="filter-group">
+            <label for="safety-area">안전성 영역</label>
+            <select id="safety-area"><option value="">전체</option></select>
           </div>
           <div class="filter-group">
             <label for="sci">SCI/SCIE 상태</label>
@@ -1029,17 +1070,21 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <h3>SCIE와 PubMed</h3>
           <p>PubMed 등재와 SCIE 등재는 서로 다른 기준입니다. 이 인덱스는 저널의 SCI/SCIE 상태를 별도로 관리합니다.</p>
         </article>
+        <article class="guide-card">
+          <h3>식약처 직접근거 · 해외 규제 참고</h3>
+          <p><strong>식약처 직접근거</strong>는 국내 고시·공식 안내서이며, <strong>해외 규제 참고</strong>는 자료 구조와 유사사례를 찾는 용도입니다. 해외 승인만으로 국내 한시적 인정이 보장되지는 않습니다.</p>
+        </article>
       </div>
     </section>
 
     <div class="caution" role="note">
       <strong>해석 주의:</strong> 이 인덱스는 문헌 탐색과 관리 목적이며 의학적 진단·치료 지침이 아닙니다.
-      동물시험 결과를 인체 효능으로 직접 해석하지 마세요. 복합식품·혼합개입 연구는 GABA의 독립효과를 분리하기 어렵습니다.
+      동물시험 결과를 인체 효능으로 직접 해석하지 마세요. 규제자료는 신청전략 참고자료이며 식약처의 접수·인정 또는 개별 시험자료의 적합성을 보증하지 않습니다.
     </div>
 
     <footer class="site-footer">
       <p id="footer-snapshot"></p>
-      <p>데이터 원본: GABA 섭취 임상·동물시험 마스터 인덱스 · 웹 화면은 읽기 전용 스냅샷입니다.</p>
+      <p>데이터 원본: GABA 섭취 연구·규제 안전성 마스터 인덱스 · 웹 화면은 읽기 전용 스냅샷입니다.</p>
     </footer>
   </main>
 
@@ -1053,7 +1098,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var pageSize = 20;
       var state = {
         q: "", kind: "", status: "", sci: "", species: "", topic: "",
-        extraction: "", direction: "", source: "", from: DB.meta.minYear,
+        grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
         to: DB.meta.maxYear, sort: "latest", page: 1
       };
 
@@ -1061,6 +1106,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var controls = {
         q: el("search"),
         status: el("status"),
+        grade: el("grade"),
+        agency: el("agency"),
+        safetyArea: el("safety-area"),
         sci: el("sci"),
         species: el("species"),
         topic: el("topic"),
@@ -1105,12 +1153,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("sheet-link").href = DB.meta.sourceSheet;
         el("snapshot-label").textContent = "최종 갱신 " + koreanDate(DB.meta.snapshotDate);
         el("coverage-label").textContent = DB.meta.minYear + "–" + DB.meta.maxYear + "년";
-        el("metric-total").textContent = countText(DB.meta.total);
+        el("metric-total").textContent = countText(DB.meta.literature || DB.meta.total);
         el("metric-clinical").textContent = countText(DB.meta.clinical);
         el("metric-animal").textContent = countText(DB.meta.animal);
         el("metric-scie").textContent = countText(DB.meta.scie);
         el("metric-pdf").textContent = countText(DB.meta.drivePdf);
-        el("footer-snapshot").textContent = "게시 스냅샷: " + koreanDate(DB.meta.snapshotDate) + " · 전체 " + countText(DB.meta.total);
+        el("metric-regulatory").textContent = Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + "건";
+        el("footer-snapshot").textContent = "게시 스냅샷: " + koreanDate(DB.meta.snapshotDate) + " · 문헌 " + countText(DB.meta.literature || DB.meta.total) + " · 규제자료 " + Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + "건";
         controls.from.min = DB.meta.minYear;
         controls.from.max = DB.meta.maxYear;
         controls.to.min = DB.meta.minYear;
@@ -1118,6 +1167,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         controls.from.value = state.from;
         controls.to.value = state.to;
         addOptions(controls.status, DB.facets.status);
+        addOptions(controls.grade, DB.facets.grade || []);
+        addOptions(controls.agency, DB.facets.agency || []);
+        addOptions(controls.safetyArea, DB.facets.safetyArea || []);
         addOptions(controls.sci, DB.facets.sciGroup);
         addOptions(controls.species, DB.facets.species);
         addOptions(controls.topic, DB.facets.topic);
@@ -1140,7 +1192,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function loadUrlState() {
         var params = new URLSearchParams(location.search);
-        ["q", "kind", "status", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
+        ["q", "kind", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
           if (params.has(key)) state[key] = params.get(key) || "";
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
@@ -1158,7 +1210,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function persistUrl() {
         var params = new URLSearchParams();
-        ["q", "kind", "status", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
+        ["q", "kind", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
           if (state[key]) params.set(key, state[key]);
         });
         if (state.from !== DB.meta.minYear) params.set("from", state.from);
@@ -1173,17 +1225,60 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           record.id, record.title, record.author, record.journal, record.doi, record.pmid,
           record.population, record.model, record.form, record.dose, record.route,
           record.domain, record.outcome, record.finding, record.safety, record.limitation,
-          record.notes, record.species, record.topic, record.direction
+          record.notes, record.species, record.topic, record.direction, record.titleKo,
+          record.summaryKo, record.grade, record.agency, record.country, record.documentType,
+          record.safetyArea, record.ingredientKo, record.ingredientEn, record.useQuestion,
+          record.identity, record.useMatch, record.subject, record.exposure, record.safetyFinding,
+          record.noael, record.adverse, record.quality, record.guidelines, record.recognition
         ].join(" "));
       }
       records.forEach(function (record) { record._search = recordSearchText(record); });
 
+      var KOREAN_SEARCH_TERMS = {
+        "수면": ["sleep", "insomnia"], "불면": ["insomnia", "sleep"],
+        "혈압": ["blood pressure", "hypertension"], "고혈압": ["hypertension", "blood pressure"],
+        "불안": ["anxiety"], "스트레스": ["stress"], "기억": ["memory"],
+        "인지": ["cognition", "cognitive"], "뇌": ["brain", "neural"],
+        "안전성": ["safety", "tolerability"], "독성": ["toxicity", "toxicology"],
+        "이상반응": ["adverse event", "side effect"], "간": ["liver", "hepatic"],
+        "신장": ["kidney", "renal"], "혈당": ["glucose", "glycemic"],
+        "당뇨": ["diabetes"], "체중": ["body weight"], "비만": ["obesity"],
+        "염증": ["inflammation", "inflammatory"], "면역": ["immune", "immunological"],
+        "항산화": ["antioxidant", "oxidative"], "장건강": ["gut", "intestinal", "gastrointestinal", "microbiome"],
+        "소화": ["digestive", "gastrointestinal"], "알레르기": ["allergy", "allergenicity"],
+        "섭취": ["intake", "ingestion", "oral"], "노출": ["exposure", "dietary"],
+        "원료": ["ingredient"], "한시적": ["temporary", "provisional", "novel food"],
+        "인정": ["approval", "authorization", "recognition"], "식약처": ["mfds", "ministry of food and drug safety"],
+        "캐나다": ["canada", "health canada"], "심혈관": ["cardiovascular"],
+        "심박": ["heart rate"], "통증": ["pain"], "피로": ["fatigue"],
+        "근육": ["muscle"], "성장": ["growth"], "사료": ["feed", "diet"],
+        "닭": ["chicken", "poultry", "broiler"], "돼지": ["pig", "swine", "porcine"],
+        "소": ["cattle", "bovine"], "생쥐": ["mouse", "mice", "murine"],
+        "쥐": ["rat", "rats", "rodent"], "물고기": ["fish"]
+      };
+      function queryGroups(value) {
+        return normalize(value).split(" ").filter(Boolean).map(function (token) {
+          var terms = [token];
+          Object.keys(KOREAN_SEARCH_TERMS).forEach(function (key) {
+            if (token === key || (key.length > 1 && (token.includes(key) || key.includes(token)))) {
+              terms = terms.concat(KOREAN_SEARCH_TERMS[key]);
+            }
+          });
+          return Array.from(new Set(terms.map(normalize).filter(Boolean)));
+        });
+      }
+
       function filteredRecords() {
-        var needle = normalize(state.q);
+        var groups = queryGroups(state.q);
         var list = records.filter(function (record) {
-          if (needle && !record._search.includes(needle)) return false;
+          if (groups.length && !groups.every(function (group) {
+            return group.some(function (term) { return record._search.includes(term); });
+          })) return false;
           if (state.kind && record.kind !== state.kind) return false;
           if (state.status && record.status !== state.status) return false;
+          if (state.grade && record.grade !== state.grade) return false;
+          if (state.agency && record.agency !== state.agency) return false;
+          if (state.safetyArea && record.safetyArea !== state.safetyArea) return false;
           if (state.sci && record.sciGroup !== state.sci) return false;
           if (state.species && record.species !== state.species) return false;
           if (state.topic && record.topic !== state.topic) return false;
@@ -1196,17 +1291,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return true;
         });
         list.sort(function (a, b) {
-          if (state.sort === "oldest") return a.year - b.year || a.title.localeCompare(b.title, "ko");
-          if (state.sort === "title") return a.title.localeCompare(b.title, "ko") || b.year - a.year;
+          var aTitle = a.titleKo || a.title;
+          var bTitle = b.titleKo || b.title;
+          if (state.sort === "oldest") return a.year - b.year || aTitle.localeCompare(bTitle, "ko");
+          if (state.sort === "title") return aTitle.localeCompare(bTitle, "ko") || b.year - a.year;
           if (state.sort === "updated") return String(b.checked).localeCompare(String(a.checked)) || b.year - a.year;
-          return b.year - a.year || a.title.localeCompare(b.title, "ko");
+          return b.year - a.year || aTitle.localeCompare(bTitle, "ko");
         });
         return list;
       }
 
       function badgeClass(type, value) {
-        if (type === "kind") return value === "임상" ? "clinical" : "animal";
-        if (type === "status") return value === "포함" ? "include" : value === "후보" ? "candidate" : "exclude";
+        if (type === "kind") return value === "임상" ? "clinical" : value === "동물" ? "animal" : "regulatory";
+        if (type === "status") return value === "포함" || value === "유효" ? "include" : value === "후보" || value === "검토중" ? "candidate" : "exclude";
         if (type === "sci") return value === "SCIE" ? "scie" : "";
         if (type === "extraction") return value === "부분" ? "partial" : "include";
         if (type === "direction") return value === "유익" ? "benefit" : value === "혼재" ? "mixed" : value === "유해" ? "harm" : "";
@@ -1226,7 +1323,58 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return '<a class="paper-link' + (primary ? " primary" : "") + '" href="' + esc(safe) + '" target="_blank" rel="noopener noreferrer">' + esc(label) + ' ↗</a>';
       }
 
+      function regulatoryCard(record) {
+        var sourcePrimary = record.sourceUrl || record.fulltextUrl;
+        var decisionExtra = record.decisionUrl && record.decisionUrl !== sourcePrimary
+          ? linkButton(record.decisionUrl, "규제결정", false)
+          : "";
+        var originalTitle = record.title && record.title !== record.titleKo
+          ? '<p class="original-title" lang="en">' + esc(record.title) + '</p>'
+          : "";
+        return '<article class="paper-card regulatory-card">' +
+          '<div class="paper-badges">' +
+            '<span class="badge regulatory">규제·안전성</span>' +
+            '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
+            '<span class="badge">' + esc(record.grade) + '</span>' +
+            '<span class="badge">' + esc(record.agency) + '</span>' +
+            '<span class="badge">품질 ' + esc(record.quality) + '</span>' +
+          '</div>' +
+          '<h3 class="paper-title">' + esc(record.titleKo || record.title) + '</h3>' +
+          originalTitle +
+          '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.agency) + ' · ' + esc(record.country) + ' · ' + esc(record.documentType) + '</p>' +
+          '<p class="finding"><strong>한국어 요약</strong> · ' + esc(record.summaryKo || record.finding) + '</p>' +
+          '<dl class="fact-grid">' +
+            fact("안전성 영역", record.safetyArea) +
+            fact("원료 동일성", record.identity) +
+            fact("사용조건 일치", record.useMatch) +
+            fact("자료품질", record.quality) +
+          '</dl>' +
+          '<p class="regulatory-note">해외 규제자료는 식약처 인정의 자동 대체가 아닙니다. 국내 원료·공정·용도·노출량과 최신 고시를 함께 확인하세요.</p>' +
+          '<details class="paper-detail">' +
+            '<summary>심사 활용도·안전성 내용 자세히 보기</summary>' +
+            '<dl class="detail-grid">' +
+              detail("심사활용 질문", record.useQuestion) +
+              detail("원료명", [record.ingredientKo, record.ingredientEn].filter(Boolean).join(" / ")) +
+              detail("대상·시험계", record.subject) +
+              detail("용량·노출량", record.exposure) +
+              detail("시험기간", record.duration) +
+              detail("핵심안전성결과", record.safetyFinding) +
+              detail("NOAEL·안전역", record.noael) +
+              detail("유해·이상반응", record.adverse) +
+              detail("GLP·시험지침", record.guidelines) +
+              detail("국내외 인정상태", record.recognition) +
+              detail("업데이트메모", record.notes) +
+            '</dl>' +
+          '</details>' +
+          '<div class="paper-footer">' +
+            linkButton(sourcePrimary, "공식 원문", true) + decisionExtra +
+            '<span class="record-id">' + esc(record.id) + '</span>' +
+          '</div>' +
+        '</article>';
+      }
+
       function paperCard(record) {
+        if (record.kind === "규제") return regulatoryCard(record);
         var sourcePrimary = record.fulltextUrl || record.doiUrl || record.pubmedUrl;
         var sourceLabel = record.hasDrivePdf ? "Drive 원문" : record.fulltextUrl ? "원문·DOI" : record.doiUrl ? "DOI" : "PubMed";
         var pubmedExtra = record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "";
@@ -1273,7 +1421,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       var filterNames = {
-        q: "검색", kind: "구분", status: "상태", sci: "SCI", species: "종",
+        q: "검색", kind: "구분", status: "상태", grade: "규제등급", agency: "규제기관",
+        safetyArea: "안전성영역", sci: "SCI", species: "종",
         topic: "주제", extraction: "추출", direction: "결과", source: "원문"
       };
       function sourceLabel(value) {
@@ -1298,10 +1447,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (state.page > totalPages) state.page = totalPages;
         var start = (state.page - 1) * pageSize;
         var pageRecords = list.slice(start, start + pageSize);
-        el("result-count").innerHTML = '전체 ' + DB.meta.total.toLocaleString("ko-KR") + '편 중 <strong>' + list.length.toLocaleString("ko-KR") + '편</strong>';
+        el("result-count").innerHTML = '전체 ' + DB.meta.total.toLocaleString("ko-KR") + '건 중 <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>';
         el("papers").innerHTML = pageRecords.length
           ? pageRecords.map(paperCard).join("")
-          : '<div class="empty-state"><h3>조건에 맞는 문헌이 없습니다</h3><p>검색어를 줄이거나 상세 필터를 초기화해 보세요.</p></div>';
+          : '<div class="empty-state"><h3>조건에 맞는 자료가 없습니다</h3><p>검색어를 줄이거나 상세 필터를 초기화해 보세요.</p></div>';
         el("page-status").textContent = state.page + " / " + totalPages;
         el("prev").disabled = state.page <= 1;
         el("next").disabled = state.page >= totalPages;
@@ -1319,7 +1468,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function resetFilters() {
         state = {
           q: "", kind: "", status: "", sci: "", species: "", topic: "",
-          extraction: "", direction: "", source: "", from: DB.meta.minYear,
+          grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
         render();
@@ -1350,7 +1499,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         clearTimeout(searchTimer);
         searchTimer = setTimeout(function () { changeState("q", controls.q.value); }, 120);
       });
-      ["status", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
+      ["status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
         controls[key].addEventListener("change", function () { changeState(key, controls[key].value); });
       });
       controls.from.addEventListener("change", function () {
@@ -1362,7 +1511,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         state.page = 1; render();
       });
       document.querySelectorAll("[data-kind]").forEach(function (button) {
-        button.addEventListener("click", function () { changeState("kind", button.dataset.kind || ""); });
+        button.addEventListener("click", function () {
+          var kind = button.dataset.kind || "";
+          state.kind = kind;
+          if (kind === "규제") {
+            state.sci = ""; state.species = ""; state.topic = ""; state.extraction = ""; state.direction = "";
+          } else if (kind) {
+            state.grade = ""; state.agency = ""; state.safetyArea = "";
+          }
+          state.page = 1;
+          render();
+        });
       });
       document.addEventListener("click", function (event) {
         var bar = event.target.closest("[data-bar-field]");

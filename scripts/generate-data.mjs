@@ -4,6 +4,7 @@ import { basename, resolve } from "node:path";
 const siteRoot = resolve(new URL("..", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1"));
 const gabaRoot = resolve(siteRoot, "..");
 const outputsRoot = resolve(gabaRoot, "outputs");
+const regulatoryPath = resolve(siteRoot, "worker", "regulatory-data.json");
 
 async function findPayloads(dir) {
   const found = [];
@@ -21,6 +22,7 @@ const dated = await Promise.all(payloads.map(async (path) => ({ path, mtime: (aw
 dated.sort((a, b) => b.mtime - a.mtime);
 const payloadPath = dated[0].path;
 const payload = JSON.parse(await readFile(payloadPath, "utf8"));
+const regulatory = JSON.parse(await readFile(regulatoryPath, "utf8"));
 
 const indexWrite = payload.requests.find((request) => {
   const update = request.updateCells;
@@ -63,7 +65,7 @@ function normalizedKey(value) {
   return clean(value).toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//, "");
 }
 
-const records = indexWrite.rows.map((row) => {
+const literatureRecords = indexWrite.rows.map((row) => {
   const cells = Array.from({ length: 36 }, (_, index) => valueOf(row.values?.[index]));
   const doi = clean(cells[8]);
   const pubmedUrl = httpUrl(cells[27]);
@@ -120,6 +122,48 @@ const records = indexWrite.rows.map((row) => {
   };
 }).filter((record) => record.id);
 
+const regulatoryRecords = regulatory.records.map((record) => ({
+  ...record,
+  status: record.status || "검토중",
+  kind: "규제",
+  design: record.documentType || "",
+  author: record.agency || "",
+  journal: [record.country, record.agency].filter(Boolean).join(" · "),
+  doi: "",
+  pmid: "",
+  population: record.subject || "",
+  n: "",
+  model: [record.ingredientKo, record.ingredientEn].filter(Boolean).join(" / "),
+  form: record.documentType || "",
+  dose: record.exposure || "",
+  route: record.useMatch || "",
+  duration: record.duration || "",
+  comparator: record.identity || "",
+  domain: record.safetyArea || "",
+  outcome: record.useQuestion || "",
+  direction: "해당없음",
+  finding: record.safetyFinding || record.summaryKo || "",
+  safety: record.adverse || "",
+  limitation: record.notes || "",
+  pubmedStatus: "해당없음",
+  sciStatus: "해당없음",
+  sciGroup: "해당없음",
+  sciChecked: record.checked || "",
+  pubmedUrl: "",
+  fulltextUrl: record.sourceUrl || "",
+  doiUrl: "",
+  extraction: "검토완료",
+  added: regulatory.meta.snapshotDate,
+  checked: record.checked || regulatory.meta.snapshotDate,
+  notes: record.notes || "",
+  species: "규제자료",
+  topic: record.safetyArea || "종합평가",
+  hasDrivePdf: false,
+  linkType: "공식 원문"
+}));
+
+const records = [...literatureRecords, ...regulatoryRecords];
+
 const duplicates = (field) => {
   const seen = new Set();
   const repeated = [];
@@ -140,7 +184,7 @@ if (duplicateIds.length || duplicateDois.length || duplicatePmids.length) {
 }
 
 const count = (predicate) => records.reduce((total, record) => total + (predicate(record) ? 1 : 0), 0);
-const tally = (field) => Object.entries(records.reduce((result, record) => {
+const tally = (source, field) => Object.entries(source.reduce((result, record) => {
   const key = record[field] || "기타";
   result[key] = (result[key] || 0) + 1;
   return result;
@@ -156,6 +200,8 @@ const database = {
     minYear: Math.min(...years),
     maxYear: Math.max(...years),
     total: records.length,
+    literature: literatureRecords.length,
+    regulatory: regulatoryRecords.length,
     clinical: count((record) => record.kind === "임상"),
     animal: count((record) => record.kind === "동물"),
     scie: count((record) => record.sciGroup === "SCIE"),
@@ -170,12 +216,15 @@ const database = {
     notice: "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
   },
   facets: {
-    species: tally("species"),
-    topic: tally("topic"),
-    status: tally("status"),
-    sciGroup: tally("sciGroup"),
-    extraction: tally("extraction"),
-    direction: tally("direction")
+    species: tally(literatureRecords, "species"),
+    topic: tally(literatureRecords, "topic"),
+    status: tally(records, "status"),
+    sciGroup: tally(literatureRecords, "sciGroup"),
+    extraction: tally(literatureRecords, "extraction"),
+    direction: tally(literatureRecords, "direction"),
+    grade: tally(regulatoryRecords, "grade"),
+    agency: tally(regulatoryRecords, "agency"),
+    safetyArea: tally(regulatoryRecords, "safetyArea")
   },
   records
 };
