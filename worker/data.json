@@ -17,6 +17,30 @@
     "included": 131,
     "candidate": 34,
     "excluded": 9,
+    "dataQuality": {
+      "duplicateIds": 0,
+      "duplicateDois": 0,
+      "duplicatePmids": 0,
+      "literatureWithDoi": 170,
+      "literatureWithPmid": 171,
+      "extractionComplete": 118,
+      "extractionPartial": 56
+    },
+    "discovery": {
+      "snapshotDate": "2026-07-31",
+      "generatedAt": "2026-07-31T04:03:17.798Z",
+      "triageVersion": "2026-07-31.2",
+      "identifierExtraction": "PubMed primary ArticleIdList only",
+      "pubmedUnique": 2790,
+      "openAlexRetrieved": 800,
+      "mergedUnique": 3438,
+      "stagedCandidates": 1000,
+      "priority": 9,
+      "general": 830,
+      "low": 161,
+      "candidateSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
+      "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
+    },
     "sourceSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit",
     "sourceFile": "google_sync_payload.json",
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."

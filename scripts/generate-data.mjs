@@ -6,23 +6,29 @@ const gabaRoot = resolve(siteRoot, "..");
 const outputsRoot = resolve(gabaRoot, "outputs");
 const regulatoryPath = resolve(siteRoot, "worker", "regulatory-data.json");
 
-async function findPayloads(dir) {
+async function findNamedFiles(dir, fileName) {
   const found = [];
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const full = resolve(dir, entry.name);
-    if (entry.isDirectory()) found.push(...await findPayloads(full));
-    else if (entry.isFile() && entry.name === "google_sync_payload.json") found.push(full);
+    if (entry.isDirectory()) found.push(...await findNamedFiles(full, fileName));
+    else if (entry.isFile() && entry.name === fileName) found.push(full);
   }
   return found;
 }
 
-const payloads = await findPayloads(outputsRoot);
+const payloads = await findNamedFiles(outputsRoot, "google_sync_payload.json");
 if (!payloads.length) throw new Error(`No google_sync_payload.json under ${outputsRoot}`);
 const dated = await Promise.all(payloads.map(async (path) => ({ path, mtime: (await stat(path)).mtimeMs })));
 dated.sort((a, b) => b.mtime - a.mtime);
 const payloadPath = dated[0].path;
 const payload = JSON.parse(await readFile(payloadPath, "utf8"));
 const regulatory = JSON.parse(await readFile(regulatoryPath, "utf8"));
+const searchSummaries = await findNamedFiles(outputsRoot, "search-summary.json");
+const searchDated = await Promise.all(searchSummaries.map(async (path) => ({ path, mtime: (await stat(path)).mtimeMs })));
+searchDated.sort((a, b) => b.mtime - a.mtime);
+const discovery = searchDated.length
+  ? JSON.parse(await readFile(searchDated[0].path, "utf8"))
+  : null;
 
 const indexWrite = payload.requests.find((request) => {
   const update = request.updateCells;
@@ -211,6 +217,30 @@ const database = {
     included: count((record) => record.status === "포함"),
     candidate: count((record) => record.status === "후보"),
     excluded: count((record) => record.status === "제외"),
+    dataQuality: {
+      duplicateIds: duplicateIds.length,
+      duplicateDois: duplicateDois.length,
+      duplicatePmids: duplicatePmids.length,
+      literatureWithDoi: literatureRecords.filter((record) => record.doi).length,
+      literatureWithPmid: literatureRecords.filter((record) => record.pmid).length,
+      extractionComplete: literatureRecords.filter((record) => record.extraction === "완료").length,
+      extractionPartial: literatureRecords.filter((record) => record.extraction === "부분").length
+    },
+    discovery: discovery ? {
+      snapshotDate: discovery.snapshotDate,
+      generatedAt: discovery.generatedAt,
+      triageVersion: discovery.triageVersion,
+      identifierExtraction: discovery.identifierExtraction,
+      pubmedUnique: discovery.pubmed?.uniqueRetrieved || 0,
+      openAlexRetrieved: discovery.openAlex?.retrieved || 0,
+      mergedUnique: discovery.mergedUnique || 0,
+      stagedCandidates: discovery.newCandidates || 0,
+      priority: discovery.priority || 0,
+      general: discovery.general || 0,
+      low: discovery.low || 0,
+      candidateSheet: "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
+      disclaimer: "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
+    } : null,
     sourceSheet: "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit",
     sourceFile: basename(payloadPath),
     notice: "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."

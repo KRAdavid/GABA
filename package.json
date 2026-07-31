@@ -7,6 +7,8 @@
     "data": "node scripts/generate-data.mjs",
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
-    "check": "npm run data && npm run build && npm run validate"
+    "quality": "node scripts/data-quality.mjs",
+    "quality:remote": "node scripts/data-quality.mjs --remote",
+    "check": "npm run data && npm run quality && npm run build && npm run validate"
   }
 }

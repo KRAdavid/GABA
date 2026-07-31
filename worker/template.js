@@ -116,6 +116,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 13px;
       font-weight: 800;
       letter-spacing: -.04em;
+      white-space: nowrap;
       flex: 0 0 auto;
     }
     .brand-copy { display: grid; gap: 1px; min-width: 0; }
@@ -221,7 +222,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
     .metric-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
       margin: 18px 0 0;
     }
@@ -252,6 +253,57 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       margin-top: 3px;
       color: var(--ink-2);
       font-size: 12px;
+    }
+    .discovery-banner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      margin-top: 14px;
+      padding: 18px 20px;
+      border: 1px solid #b9d9d2;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #f2fbf8, #f8fbfa);
+    }
+    .discovery-banner h2 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: -.02em;
+    }
+    .discovery-banner p {
+      margin: 6px 0 0;
+      color: var(--ink-2);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .discovery-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+    .discovery-stat {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: inset 0 0 0 1px #c9e1dc;
+    }
+    .discovery-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 14px;
+      border-radius: 11px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     .section {
@@ -378,6 +430,27 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 12px;
       line-height: 1.5;
     }
+    .search-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 9px;
+    }
+    .suggestion-button {
+      min-height: 31px;
+      padding: 5px 10px;
+      border: 1px solid #d2dfdc;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .suggestion-button:hover {
+      border-color: var(--teal);
+      color: var(--teal-dark);
+    }
     .search-clear {
       position: absolute;
       right: 8px;
@@ -433,6 +506,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       background: #fff;
       color: var(--ink);
       font-size: 13px;
+      font-weight: 700;
+    }
+    .page-size-select {
+      min-height: 38px;
+      padding: 7px 30px 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink-2);
+      font-size: 12px;
       font-weight: 700;
     }
 
@@ -805,6 +888,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       .page { padding-top: 20px; }
       .hero { padding: 28px 22px; border-radius: 22px; }
       .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .discovery-banner { grid-template-columns: 1fr; }
+      .discovery-link { justify-self: start; }
       .distribution-grid { grid-template-columns: 1fr; }
       .explorer-toolbar { top: 62px; border-radius: 16px; }
       .mobile-filter { display: inline-flex; align-items: center; }
@@ -833,7 +918,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     }
     @media (max-width: 620px) {
       .topbar-inner { width: calc(100% - 20px); }
-      .brand-mark { width: 34px; height: 34px; border-radius: 10px; }
+      .brand-mark { width: 34px; height: 34px; border-radius: 10px; font-size: 11px; }
       .brand-copy strong { font-size: 13px; }
       .share-button { padding-inline: 11px; }
       .page { width: calc(100% - 20px); }
@@ -845,6 +930,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       .search-row { grid-template-columns: 1fr auto; }
       .quick-spacer { display: none; }
       .sort-select { width: 100%; order: 2; }
+      .page-size-select { flex: 1; order: 2; }
       .paper-card { padding: 17px 15px; }
       .detail-grid { grid-template-columns: 1fr; }
       .record-id { width: 100%; margin-left: 0; }
@@ -923,6 +1009,25 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <strong class="metric-value" id="metric-regulatory">-</strong>
         <span class="metric-help">식약처 직접근거와 해외 규제 참고</span>
       </article>
+      <article class="metric">
+        <span class="metric-label">대량 탐색 후보</span>
+        <strong class="metric-value" id="metric-candidates">-</strong>
+        <span class="metric-help">검증 전 별도 큐 · 문헌 수 미포함</span>
+      </article>
+      <article class="metric">
+        <span class="metric-label">PMID 또는 DOI</span>
+        <strong class="metric-value" id="metric-identifiers">-</strong>
+        <span class="metric-help">검증 문헌의 식별자 보유율</span>
+      </article>
+    </section>
+
+    <section class="discovery-banner" id="discovery-banner" aria-labelledby="discovery-title">
+      <div>
+        <h2 id="discovery-title">검증 인덱스와 자동 탐색 후보를 분리해 관리합니다</h2>
+        <p id="discovery-copy">대량 탐색 현황을 불러오는 중입니다.</p>
+        <div class="discovery-stats" id="discovery-stats" aria-label="대량 탐색 통계"></div>
+      </div>
+      <a class="discovery-link" id="candidate-link" target="_blank" rel="noopener noreferrer">후보 큐 열기 ↗</a>
     </section>
 
     <section class="section" aria-labelledby="distribution-title">
@@ -956,7 +1061,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           </div>
           <button class="mobile-filter" id="mobile-filter" type="button" aria-controls="filter-panel" aria-expanded="false">필터</button>
         </div>
-        <p class="search-help">원문 제목은 그대로 보존하며, 한국어 제목·요약과 수면→sleep, 혈압→blood pressure 같은 용어 확장을 함께 검색합니다.</p>
+        <p class="search-help">원문 제목은 그대로 보존하며 한국어 용어 확장을 제목·내용 전체에 적용합니다. 정확한 문구는 “따옴표”, 제외할 말은 -단어로 입력하세요. <kbd>/</kbd> 키로 바로 검색할 수 있습니다.</p>
+        <div class="search-suggestions" aria-label="추천 한글 검색어">
+          <button class="suggestion-button" type="button" data-query="수면">수면</button>
+          <button class="suggestion-button" type="button" data-query="혈압">혈압</button>
+          <button class="suggestion-button" type="button" data-query="불안 스트레스">불안·스트레스</button>
+          <button class="suggestion-button" type="button" data-query="안전성 독성">안전성·독성</button>
+          <button class="suggestion-button" type="button" data-query="돼지 장건강">돼지·장건강</button>
+          <button class="suggestion-button" type="button" data-query="수산 성장">수산·성장</button>
+          <button class="suggestion-button" type="button" data-query="한시적 인정">한시적 인정</button>
+        </div>
         <div class="quick-row" aria-label="연구구분 빠른 필터">
           <button class="quick-button active" type="button" data-kind="">전체</button>
           <button class="quick-button" type="button" data-kind="임상">인체 임상</button>
@@ -969,6 +1083,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <option value="oldest">과거 연도순</option>
             <option value="title">제목 가나다순</option>
             <option value="updated">최근 확인순</option>
+          </select>
+          <label class="sr-only" for="page-size">페이지당 결과 수</label>
+          <select class="page-size-select" id="page-size">
+            <option value="20">20개씩</option>
+            <option value="50">50개씩</option>
+            <option value="100">100개씩</option>
           </select>
         </div>
       </div>
@@ -1117,7 +1237,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         source: el("source"),
         from: el("year-from"),
         to: el("year-to"),
-        sort: el("sort")
+        sort: el("sort"),
+        pageSize: el("page-size")
       };
 
       function esc(value) {
@@ -1150,6 +1271,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       function initMeta() {
+        var discovery = DB.meta.discovery || {};
+        var quality = DB.meta.dataQuality || {};
+        var identified = records.filter(function (record) {
+          return record.kind !== "규제" && (record.pmid || record.doi);
+        }).length;
         el("sheet-link").href = DB.meta.sourceSheet;
         el("snapshot-label").textContent = "최종 갱신 " + koreanDate(DB.meta.snapshotDate);
         el("coverage-label").textContent = DB.meta.minYear + "–" + DB.meta.maxYear + "년";
@@ -1159,6 +1285,23 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("metric-scie").textContent = countText(DB.meta.scie);
         el("metric-pdf").textContent = countText(DB.meta.drivePdf);
         el("metric-regulatory").textContent = Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + "건";
+        el("metric-candidates").textContent = Number(discovery.stagedCandidates || 0).toLocaleString("ko-KR") + "건";
+        el("metric-identifiers").textContent = DB.meta.literature
+          ? Math.round(identified / DB.meta.literature * 100).toLocaleString("ko-KR") + "%"
+          : "-";
+        el("candidate-link").href = discovery.candidateSheet || DB.meta.sourceSheet;
+        el("discovery-copy").textContent = discovery.disclaimer
+          || "자동 탐색 후보는 검증 자료와 분리하며, 최종 판정 후에만 공개 인덱스로 승격합니다.";
+        el("discovery-stats").innerHTML = [
+          ["탐색일", koreanDate(discovery.snapshotDate || DB.meta.snapshotDate)],
+          ["PubMed", Number(discovery.pubmedUnique || 0).toLocaleString("ko-KR") + "건"],
+          ["OpenAlex", Number(discovery.openAlexRetrieved || 0).toLocaleString("ko-KR") + "건"],
+          ["통합 고유", Number(discovery.mergedUnique || 0).toLocaleString("ko-KR") + "건"],
+          ["우선검토", Number(discovery.priority || 0).toLocaleString("ko-KR") + "건"],
+          ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"]
+        ].map(function (item) {
+          return '<span class="discovery-stat">' + esc(item[0]) + " " + esc(item[1]) + '</span>';
+        }).join("");
         el("footer-snapshot").textContent = "게시 스냅샷: " + koreanDate(DB.meta.snapshotDate) + " · 문헌 " + countText(DB.meta.literature || DB.meta.total) + " · 규제자료 " + Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + "건";
         controls.from.min = DB.meta.minYear;
         controls.from.max = DB.meta.maxYear;
@@ -1197,11 +1340,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
         if (params.has("to")) state.to = Math.min(DB.meta.maxYear, Number(params.get("to")) || DB.meta.maxYear);
+        if (["20", "50", "100"].includes(params.get("pageSize"))) pageSize = Number(params.get("pageSize"));
       }
 
       function syncControls() {
         Object.keys(controls).forEach(function (key) {
-          if (controls[key]) controls[key].value = state[key];
+          if (controls[key]) controls[key].value = key === "pageSize" ? String(pageSize) : state[key];
         });
         document.querySelectorAll("[data-kind]").forEach(function (button) {
           button.classList.toggle("active", button.dataset.kind === state.kind);
@@ -1216,6 +1360,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (state.from !== DB.meta.minYear) params.set("from", state.from);
         if (state.to !== DB.meta.maxYear) params.set("to", state.to);
         if (state.sort !== "latest") params.set("sort", state.sort);
+        if (pageSize !== 20) params.set("pageSize", pageSize);
         var query = params.toString();
         history.replaceState(null, "", location.pathname + (query ? "?" + query : ""));
       }
@@ -1256,8 +1401,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         "소": ["cattle", "bovine"], "생쥐": ["mouse", "mice", "murine"],
         "쥐": ["rat", "rats", "rodent"], "물고기": ["fish"]
       };
-      function queryGroups(value) {
-        return normalize(value).split(" ").filter(Boolean).map(function (token) {
+      function expandQueryToken(token) {
           var terms = [token];
           Object.keys(KOREAN_SEARCH_TERMS).forEach(function (key) {
             if (token === key || (key.length > 1 && (token.includes(key) || key.includes(token)))) {
@@ -1265,13 +1409,29 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             }
           });
           return Array.from(new Set(terms.map(normalize).filter(Boolean)));
-        });
+      }
+      function queryPlan(value) {
+        var positive = [];
+        var negative = [];
+        var expression = /(-?)"([^"]+)"|(-?)([^\s"]+)/g;
+        var match;
+        while ((match = expression.exec(String(value || "")))) {
+          var isNegative = (match[1] || match[3]) === "-";
+          var token = normalize(match[2] || match[4]);
+          if (!token) continue;
+          var group = match[2] ? [token] : expandQueryToken(token);
+          (isNegative ? negative : positive).push(group);
+        }
+        return { positive: positive, negative: negative };
       }
 
       function filteredRecords() {
-        var groups = queryGroups(state.q);
+        var plan = queryPlan(state.q);
         var list = records.filter(function (record) {
-          if (groups.length && !groups.every(function (group) {
+          if (plan.positive.length && !plan.positive.every(function (group) {
+            return group.some(function (term) { return record._search.includes(term); });
+          })) return false;
+          if (plan.negative.some(function (group) {
             return group.some(function (term) { return record._search.includes(term); });
           })) return false;
           if (state.kind && record.kind !== state.kind) return false;
@@ -1379,12 +1539,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var sourceLabel = record.hasDrivePdf ? "Drive 원문" : record.fulltextUrl ? "원문·DOI" : record.doiUrl ? "DOI" : "PubMed";
         var pubmedExtra = record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "";
         var doiExtra = record.doiUrl && record.doiUrl !== sourcePrimary && record.doiUrl !== record.pubmedUrl ? linkButton(record.doiUrl, "DOI", false) : "";
+        var identifierLabel = record.pmid && record.doi ? "PMID·DOI" : record.pmid ? "PMID" : record.doi ? "DOI" : "식별자 미완";
         return '<article class="paper-card">' +
           '<div class="paper-badges">' +
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : "동물시험") + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
             '<span class="badge ' + badgeClass("extraction", record.extraction) + '">추출 ' + esc(record.extraction) + '</span>' +
+            '<span class="badge">' + esc(identifierLabel) + '</span>' +
             (record.direction ? '<span class="badge ' + badgeClass("direction", record.direction) + '">' + esc(record.direction) + '</span>' : "") +
           '</div>' +
           '<h3 class="paper-title">' + esc(record.title) + '</h3>' +
@@ -1442,12 +1604,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       function render() {
+        var renderStarted = performance.now();
         var list = filteredRecords();
         var totalPages = Math.max(1, Math.ceil(list.length / pageSize));
         if (state.page > totalPages) state.page = totalPages;
         var start = (state.page - 1) * pageSize;
         var pageRecords = list.slice(start, start + pageSize);
-        el("result-count").innerHTML = '전체 ' + DB.meta.total.toLocaleString("ko-KR") + '건 중 <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>';
+        var elapsed = Math.max(0, performance.now() - renderStarted);
+        el("result-count").innerHTML = '전체 ' + DB.meta.total.toLocaleString("ko-KR") + '건 중 <strong>' + list.length.toLocaleString("ko-KR") + '건</strong> · ' + elapsed.toFixed(elapsed < 10 ? 1 : 0) + 'ms';
         el("papers").innerHTML = pageRecords.length
           ? pageRecords.map(paperCard).join("")
           : '<div class="empty-state"><h3>조건에 맞는 자료가 없습니다</h3><p>검색어를 줄이거나 상세 필터를 초기화해 보세요.</p></div>';
@@ -1466,6 +1630,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         render();
       }
       function resetFilters() {
+        pageSize = 20;
         state = {
           q: "", kind: "", status: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
@@ -1502,6 +1667,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       ["status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
         controls[key].addEventListener("change", function () { changeState(key, controls[key].value); });
       });
+      controls.pageSize.addEventListener("change", function () {
+        pageSize = Number(controls.pageSize.value) || 20;
+        state.page = 1;
+        render();
+      });
       controls.from.addEventListener("change", function () {
         state.from = Math.min(Number(controls.to.value), Math.max(DB.meta.minYear, Number(controls.from.value) || DB.meta.minYear));
         state.page = 1; render();
@@ -1521,6 +1691,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           }
           state.page = 1;
           render();
+        });
+      });
+      document.querySelectorAll("[data-query]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          controls.q.value = button.dataset.query || "";
+          changeState("q", controls.q.value);
+          controls.q.focus();
         });
       });
       document.addEventListener("click", function (event) {
@@ -1547,7 +1724,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("next").addEventListener("click", function () { state.page += 1; render(); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
-      document.addEventListener("keydown", function (event) { if (event.key === "Escape") openFilters(false); });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") openFilters(false);
+        if (event.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || "")) {
+          event.preventDefault();
+          controls.q.focus();
+          controls.q.select();
+        }
+      });
       el("share-button").addEventListener("click", async function () {
         try {
           await navigator.clipboard.writeText(location.href);
