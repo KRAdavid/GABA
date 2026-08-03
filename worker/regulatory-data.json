@@ -33,7 +33,7 @@
       "recognition": "식약처 공식 민원인 안내서, 안내서-1294-02, 2025-07-31 등록",
       "sourceUrl": "https://www.mfds.go.kr/law/board/boardDetail.do?brdId=data0011&menuKey=29&seq=15697",
       "decisionUrl": "",
-      "checked": "2026-07-29",
+      "checked": "2026-08-03",
       "year": 2025,
       "notes": "해외 자료는 국내 원료·공정·용도·노출량과의 동등성 검토 후 활용"
     },
@@ -65,7 +65,7 @@
       "recognition": "식품의약품안전처고시 제2025-75호, 2025-12-02 시행",
       "sourceUrl": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000268780&chrClsCd=010201",
       "decisionUrl": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000268780&chrClsCd=010201",
-      "checked": "2026-07-29",
+      "checked": "2026-08-03",
       "year": 2025,
       "notes": "법령 개정 이력과 시행일을 매주 확인"
     },
@@ -97,7 +97,7 @@
       "recognition": "식품안전나라 식약처 공식 민원 안내",
       "sourceUrl": "https://www.foodsafetykorea.go.kr/portal/board/boardDetail.do?bbs_no=bbs018&menu_grp=MENU_NEW04&menu_no=2966&ntctxt_no=21226",
       "decisionUrl": "",
-      "checked": "2026-07-29",
+      "checked": "2026-08-03",
       "year": 2026,
       "notes": "공개 인정 품목과 신청자료 가이드는 분리하여 기록"
     },
@@ -129,7 +129,7 @@
       "recognition": "캐나다 신규식품 사전 안전성 평가 공식 가이드, 2022-07 업데이트",
       "sourceUrl": "https://www.canada.ca/en/health-canada/services/food-nutrition/legislation-guidelines/guidance-documents/guidelines-safety-assessment-novel-foods-2006.html",
       "decisionUrl": "",
-      "checked": "2026-07-29",
+      "checked": "2026-08-03",
       "year": 2022,
       "notes": "식약처 인정의 자동 대체가 아니며 국내 제출 가이드와 항목별 매핑 필요"
     },
@@ -161,9 +161,9 @@
       "recognition": "캐나다 보건부 공식 평가완료 목록; 개별 결정일과 신청자 공개",
       "sourceUrl": "https://www.canada.ca/en/health-canada/services/food-nutrition/genetically-modified-foods-other-novel-foods/approved-products.html",
       "decisionUrl": "https://www.canada.ca/en/health-canada/services/food-nutrition/genetically-modified-foods-other-novel-foods/approved-products.html",
-      "checked": "2026-07-29",
+      "checked": "2026-08-03",
       "year": 2026,
-      "notes": "2026-07-29 공개 목록 페이지 텍스트 검색에서 GABA 자체 항목은 확인되지 않음; 유사 원료의 직접성·동등성 별도 평가"
+      "notes": "2026-08-03 캐나다 평가완료 목록에서 GABA 및 gamma-aminobutyric acid 항목은 확인되지 않음; 원료·공정·용도·노출량 동등성 별도 평가"
     }
     ,
     {
