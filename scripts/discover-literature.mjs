@@ -10,6 +10,11 @@ const outputDir = outputArg
   : resolve(gabaRoot, "outputs", `literature-search-${snapshotDate}`);
 const maxCandidatesArg = process.argv.find((value) => value.startsWith("--max-candidates="));
 const maxCandidates = Number(maxCandidatesArg?.split("=")[1] || 1000);
+const sinceArg = process.argv.find((value) => value.startsWith("--since="));
+const overlapDaysArg = process.argv.find((value) => value.startsWith("--overlap-days="));
+const overlapDays = Number(overlapDaysArg?.split("=")[1] || 60);
+const overlapStart = sinceArg?.split("=")[1]
+  || new Date(Date.now() - overlapDays * 86400000).toISOString().slice(0, 10);
 
 const database = JSON.parse(await readFile(resolve(siteRoot, "worker", "data.json"), "utf8"));
 const existing = database.records.filter((record) => record.kind !== "규제");
@@ -136,7 +141,7 @@ const first = (block, pattern) => {
   return match ? decodeXml(match[1]) : "";
 };
 
-async function getJson(url, retries = 4) {
+async function getJson(url, retries = 6) {
   let error;
   for (let attempt = 1; attempt <= retries; attempt += 1) {
     try {
@@ -146,8 +151,14 @@ async function getJson(url, retries = 4) {
           "User-Agent": "GABA-evidence-index/2.0 (systematic literature discovery)"
         }
       });
-      if (response.ok) return response.json();
+      // Await body decoding inside the retry boundary. A dropped connection can
+      // fail while the response body is streaming even after headers succeeded.
+      if (response.ok) return await response.json();
       error = new Error(`${response.status} ${response.statusText}: ${url}`);
+      if (response.status === 429) {
+        const retryAfter = Number(response.headers.get("retry-after") || 0);
+        await pause(Math.max(retryAfter * 1000, 1500 * attempt));
+      }
     } catch (fetchError) {
       error = fetchError;
     }
@@ -156,14 +167,14 @@ async function getJson(url, retries = 4) {
   throw error;
 }
 
-async function getText(url, retries = 4) {
+async function getText(url, retries = 6) {
   let error;
   for (let attempt = 1; attempt <= retries; attempt += 1) {
     try {
       const response = await fetch(url, {
         headers: { "User-Agent": "GABA-evidence-index/2.0 (systematic literature discovery)" }
       });
-      if (response.ok) return response.text();
+      if (response.ok) return await response.text();
       error = new Error(`${response.status} ${response.statusText}: ${url}`);
     } catch (fetchError) {
       error = fetchError;
@@ -180,6 +191,25 @@ async function searchPubMed(query) {
     retmode: "json",
     retmax: "10000",
     sort: "pub date"
+  });
+  const data = await getJson(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?${params}`);
+  return {
+    label: query.label,
+    ids: data.esearchresult?.idlist ?? [],
+    count: Number(data.esearchresult?.count || 0)
+  };
+}
+
+async function searchPubMedOverlap(query) {
+  const params = new URLSearchParams({
+    db: "pubmed",
+    term: query.term.replace(/\s+/g, " ").trim(),
+    retmode: "json",
+    retmax: "10000",
+    sort: "pub date",
+    datetype: "mdat",
+    mindate: overlapStart.replaceAll("-", "/"),
+    maxdate: snapshotDate.replaceAll("-", "/")
   });
   const data = await getJson(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?${params}`);
   return {
@@ -457,9 +487,13 @@ function findExisting(record) {
 }
 
 const pubmedSearches = [];
+const pubmedOverlapSearches = [];
 for (const query of PUBMED_QUERIES) {
   const result = await searchPubMed(query);
   pubmedSearches.push(result);
+  await pause(350);
+  const overlapResult = await searchPubMedOverlap(query);
+  pubmedOverlapSearches.push(overlapResult);
   await pause(350);
 }
 const labelsByPmid = new Map();
@@ -473,11 +507,9 @@ const pubmedArticles = await fetchPubMedArticles([...labelsByPmid.keys()]);
 for (const article of pubmedArticles) article.queryLabels = labelsByPmid.get(article.pmid) ?? [];
 
 const openAlexSearches = [];
-for (let start = 0; start < OPENALEX_QUERIES.length; start += 4) {
-  const batch = OPENALEX_QUERIES.slice(start, start + 4);
-  const results = await Promise.all(batch.map((query, index) => searchOpenAlex(query, start + index)));
-  openAlexSearches.push(...results);
-  await pause(300);
+for (let index = 0; index < OPENALEX_QUERIES.length; index += 1) {
+  openAlexSearches.push(await searchOpenAlex(OPENALEX_QUERIES[index], index));
+  await pause(800);
 }
 
 const mergedRecords = [];
@@ -531,7 +563,15 @@ const summary = {
   existingLiterature: existing.length,
   pubmed: {
     queries: pubmedSearches.map(({ label, count, ids }) => ({ label, count, retrieved: ids.length })),
-    uniqueRetrieved: labelsByPmid.size
+    uniqueRetrieved: labelsByPmid.size,
+    overlap: {
+      dateType: "PubMed modification date",
+      from: overlapStart,
+      to: snapshotDate,
+      minimumDays: overlapDays,
+      queries: pubmedOverlapSearches.map(({ label, count, ids }) => ({ label, count, retrieved: ids.length })),
+      uniqueRetrieved: new Set(pubmedOverlapSearches.flatMap((search) => search.ids)).size
+    }
   },
   openAlex: {
     queries: openAlexSearches.map(({ label, query, count, records }) => ({ label, query, count, retrieved: records.length })),

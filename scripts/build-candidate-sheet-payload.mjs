@@ -5,6 +5,7 @@ const siteRoot = resolve(new URL("..", import.meta.url).pathname.replace(/^\/([A
 const gabaRoot = resolve(siteRoot, "..");
 const inputArg = process.argv.find((value) => value.startsWith("--input="));
 const outputArg = process.argv.find((value) => value.startsWith("--out="));
+const decisionsArg = process.argv.find((value) => value.startsWith("--decisions="));
 async function latestCandidatePath() {
   const outputsRoot = resolve(gabaRoot, "outputs");
   const directories = (await readdir(outputsRoot, { withFileTypes: true }))
@@ -32,6 +33,77 @@ const outputPath = outputArg
 const spreadsheetId = "1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ";
 const sheetId = 573213442;
 const { summary, candidates } = JSON.parse(await readFile(inputPath, "utf8"));
+const decisionsPath = decisionsArg
+  ? resolve(decisionsArg.slice("--decisions=".length))
+  : resolve(siteRoot, "scripts", "manual-candidate-decisions.json");
+let manualDecisions = [];
+try {
+  manualDecisions = JSON.parse(await readFile(decisionsPath, "utf8"));
+} catch (error) {
+  if (error?.code !== "ENOENT") throw error;
+}
+
+const normalizedDoi = (value) => String(value ?? "").trim().toLowerCase()
+  .replace(/^https?:\/\/(?:dx\.)?doi\.org\//, "")
+  .replace(/^doi:\s*/, "")
+  .replace(/[).,;]+$/, "");
+const normalizedTitle = (value) => String(value ?? "").trim().toLowerCase().normalize("NFKC")
+  .replace(/[^\p{L}\p{N}]+/gu, " ")
+  .replace(/\s+/g, " ")
+  .trim();
+const decisionFor = (record) => manualDecisions.find((decision) =>
+  (normalizedDoi(record.doi) && normalizedDoi(record.doi) === normalizedDoi(decision.doi))
+  || (String(record.pmid || "") && String(record.pmid) === String(decision.pmid || ""))
+  || (Number(record.year) === Number(decision.year)
+    && normalizedTitle(record.title) === normalizedTitle(decision.title))
+);
+
+const currentKeys = new Set(candidates.flatMap((record) => [
+  normalizedDoi(record.doi) ? `doi:${normalizedDoi(record.doi)}` : "",
+  record.pmid ? `pmid:${record.pmid}` : "",
+  record.title && record.year ? `title:${record.year}:${normalizedTitle(record.title)}` : ""
+]).filter(Boolean));
+const carryovers = manualDecisions
+  .filter((decision) => ![
+    normalizedDoi(decision.doi) ? `doi:${normalizedDoi(decision.doi)}` : "",
+    decision.pmid ? `pmid:${decision.pmid}` : "",
+    decision.title && decision.year ? `title:${decision.year}:${normalizedTitle(decision.title)}` : ""
+  ].filter(Boolean).some((key) => currentKeys.has(key)))
+  .map((decision) => ({
+    candidateId: "",
+    collectedDate: summary.snapshotDate,
+    source: ["수동결정 이월"],
+    queryLabels: ["manual_carryover"],
+    pmid: decision.pmid || "",
+    doi: decision.doi || "",
+    title: decision.title,
+    abstract: decision.abstract || "",
+    author: decision.author || "",
+    journal: decision.journal || "",
+    year: decision.year,
+    sourceUrl: decision.sourceUrl || (decision.pmid
+      ? `https://pubmed.ncbi.nlm.nih.gov/${decision.pmid}/`
+      : decision.doi ? `https://doi.org/${decision.doi}` : ""),
+    score: decision.score || 0,
+    bucket: decision.priority || "일반검토",
+    routeSignals: [],
+    exclusionSignals: [],
+    indirectTitleSignals: [],
+    productionSignals: [],
+    duplicateStatus: "수동결정 이월",
+    existingRecordId: ""
+  }));
+const priorityRank = { "우선검토": 0, "일반검토": 1, "낮은우선순위": 2 };
+const stagedCandidates = [...candidates, ...carryovers]
+  .sort((left, right) =>
+    (priorityRank[left.bucket] ?? 9) - (priorityRank[right.bucket] ?? 9)
+    || Number(right.score || 0) - Number(left.score || 0)
+  )
+  .slice(0, 1000)
+  .map((record, index) => ({
+    ...record,
+    candidateId: `C-${summary.snapshotDate.replaceAll("-", "")}-${String(index + 1).padStart(4, "0")}`
+  }));
 
 const headers = [
   "Candidate_ID", "수집일", "선별상태", "자동관련도점수", "우선순위",
@@ -95,12 +167,14 @@ const identifierStatus = (record) => {
   return "식별자 부족";
 };
 
-const rows = candidates.map((record) => [
+const rows = stagedCandidates.map((record) => {
+  const decision = decisionFor(record);
+  return [
   record.candidateId,
   record.collectedDate,
-  "미검토",
+  decision?.status || "미검토",
   record.score,
-  record.bucket,
+  decision?.priority || record.bucket,
   record.duplicateStatus,
   record.existingRecordId,
   (record.source ?? []).join(" + "),
@@ -115,9 +189,10 @@ const rows = candidates.map((record) => [
   exclusionLabels(record),
   truncate(record.abstract, 1600),
   text(record.sourceUrl),
-  "",
-  identifierStatus(record)
-]);
+  decision?.note || "",
+  decision?.identifierVerification || identifierStatus(record)
+  ];
+});
 
 const gridRange = (startRowIndex, endRowIndex, startColumnIndex = 0, endColumnIndex = 21) => ({
   sheetId, startRowIndex, endRowIndex, startColumnIndex, endColumnIndex
@@ -351,7 +426,20 @@ for (let start = 0; start < rows.length; start += rowsPerBatch) {
 const payload = {
   spreadsheetId,
   sheetId,
-  summary,
+  summary: {
+    ...summary,
+    manualDecisionsPreserved: rows.filter((row) => row[2] !== "미검토").length,
+    manualCarryovers: carryovers.length,
+    stagedPriority: rows.filter((row) => row[4] === "우선검토").length,
+    stagedGeneral: rows.filter((row) => row[4] === "일반검토").length,
+    stagedLow: rows.filter((row) => row[4] === "낮은우선순위").length,
+    screeningCounts: Object.fromEntries(
+      ["포함후보", "보류", "제외", "우선검토", "미검토"].map((status) => [
+        status,
+        rows.filter((row) => row[2] === status).length
+      ])
+    )
+  },
   rows: rows.length,
   columns: headers.length,
   setupRequests,

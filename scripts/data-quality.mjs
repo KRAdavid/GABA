@@ -23,6 +23,16 @@ const candidatePayload = JSON.parse(await readFile(
   "utf8"
 ));
 const { candidates, summary } = candidatePayload;
+const candidateSheetPayload = JSON.parse(await readFile(
+  resolve(candidateFiles[0].path, "..", "candidate-sheet-payload.json"),
+  "utf8"
+));
+const stagedRows = candidateSheetPayload.dataBatches.flatMap((batch) =>
+  batch.requests.flatMap((request) => request.updateCells?.rows || [])
+).map((row) => row.values.map((cell) => {
+  const value = cell.userEnteredValue || {};
+  return value.stringValue ?? value.numberValue ?? value.boolValue ?? "";
+}));
 
 const normalized = (value) => String(value || "").trim().toLowerCase()
   .replace(/^https?:\/\/(?:dx\.)?doi\.org\//, "")
@@ -53,8 +63,10 @@ const titleSimilarity = (left, right) => {
   return overlap / Math.max(a.size, b.size);
 };
 
-assert.equal(database.meta.literature, 174);
-assert.equal(database.meta.regulatory, 5);
+assert.ok(database.meta.literature >= 174);
+assert.ok(database.meta.regulatory >= 7);
+assert.equal(database.meta.literature, database.records.filter((record) => record.kind !== "규제").length);
+assert.equal(database.meta.regulatory, database.records.filter((record) => record.kind === "규제").length);
 assert.equal(database.records.length, database.meta.total);
 assert.deepEqual(duplicateValues(database.records, "id"), []);
 assert.deepEqual(duplicateValues(database.records, "doi"), []);
@@ -66,10 +78,16 @@ assert.equal(summary.identifierExtraction, "PubMed primary ArticleIdList only");
 assert.ok(summary.pubmed.uniqueRetrieved >= 2000);
 assert.equal(summary.openAlex.retrieved, 800);
 assert.equal(candidates.length, 1000);
+assert.equal(stagedRows.length, 1000);
 const idPrefix = `C-${summary.snapshotDate.replaceAll("-", "")}-`;
 assert.equal(candidates[0].candidateId, `${idPrefix}0001`);
 assert.equal(candidates.at(-1).candidateId, `${idPrefix}1000`);
 assert.deepEqual(duplicateValues(candidates, "candidateId"), []);
+assert.deepEqual(duplicateValues(stagedRows.map((row) => ({ id: row[0] })), "id"), []);
+assert.deepEqual(duplicateValues(stagedRows.map((row) => ({ doi: row[10] })), "doi"), []);
+assert.deepEqual(duplicateValues(stagedRows.map((row) => ({ pmid: row[9] })), "pmid"), []);
+assert.equal(candidateSheetPayload.summary.stagedPriority, stagedRows.filter((row) => row[4] === "우선검토").length);
+assert.equal(candidateSheetPayload.summary.manualDecisionsPreserved, stagedRows.filter((row) => row[2] !== "미검토").length);
 assert.ok(candidates.every((record) => record.title && record.score >= 25));
 assert.ok(candidates.filter((record) => record.bucket === "우선검토")
   .every((record) => !record.reviewSignal && !record.exclusionSignals.length && !record.indirectTitleSignals.length));
@@ -90,8 +108,10 @@ assert.ok(!candidates.some((record) =>
 
 let remoteChecked = 0;
 if (process.argv.includes("--remote")) {
+  // Validate eight identifiers even when one of the highest-ranked candidates
+  // is DOI-only. The candidate array is already priority/score ordered.
   const topPubmed = candidates
-    .filter((record) => record.bucket === "우선검토" && record.pmid)
+    .filter((record) => record.pmid)
     .slice(0, 8);
   const ids = topPubmed.map((record) => record.pmid).join(",");
   const response = await fetch(
@@ -115,6 +135,8 @@ console.log(JSON.stringify({
   verifiedRecords: database.records.length,
   candidates: candidates.length,
   priority: summary.priority,
+  stagedPriority: candidateSheetPayload.summary.stagedPriority,
+  screeningCounts: candidateSheetPayload.summary.screeningCounts,
   pubmedUnique: summary.pubmed.uniqueRetrieved,
   openAlexRetrieved: summary.openAlex.retrieved,
   remoteChecked

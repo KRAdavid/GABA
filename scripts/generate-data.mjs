@@ -26,9 +26,16 @@ const regulatory = JSON.parse(await readFile(regulatoryPath, "utf8"));
 const searchSummaries = await findNamedFiles(outputsRoot, "search-summary.json");
 const searchDated = await Promise.all(searchSummaries.map(async (path) => ({ path, mtime: (await stat(path)).mtimeMs })));
 searchDated.sort((a, b) => b.mtime - a.mtime);
-const discovery = searchDated.length
+const searchDiscovery = searchDated.length
   ? JSON.parse(await readFile(searchDated[0].path, "utf8"))
   : null;
+const candidateSheetPayloads = await findNamedFiles(outputsRoot, "candidate-sheet-payload.json");
+const candidateSheetDated = await Promise.all(candidateSheetPayloads.map(async (path) => ({ path, mtime: (await stat(path)).mtimeMs })));
+candidateSheetDated.sort((a, b) => b.mtime - a.mtime);
+const candidateSheetPayload = candidateSheetDated.length
+  ? JSON.parse(await readFile(candidateSheetDated[0].path, "utf8"))
+  : null;
+const discovery = candidateSheetPayload?.summary || searchDiscovery;
 
 const indexWrite = payload.requests.find((request) => {
   const update = request.updateCells;
@@ -234,10 +241,11 @@ const database = {
       pubmedUnique: discovery.pubmed?.uniqueRetrieved || 0,
       openAlexRetrieved: discovery.openAlex?.retrieved || 0,
       mergedUnique: discovery.mergedUnique || 0,
-      stagedCandidates: discovery.newCandidates || 0,
-      priority: discovery.priority || 0,
-      general: discovery.general || 0,
-      low: discovery.low || 0,
+      stagedCandidates: candidateSheetPayload?.rows || discovery.newCandidates || 0,
+      priority: discovery.stagedPriority ?? discovery.priority ?? 0,
+      general: discovery.stagedGeneral ?? discovery.general ?? 0,
+      low: discovery.stagedLow ?? discovery.low ?? 0,
+      screeningCounts: discovery.screeningCounts || null,
       candidateSheet: "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
       disclaimer: "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
     } : null,
