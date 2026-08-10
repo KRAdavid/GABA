@@ -15,19 +15,6 @@
   {
     "status": "포함후보",
     "priority": "우선검토",
-    "pmid": "33919136",
-    "doi": "10.3390/jcm10091807",
-    "year": 2021,
-    "title": "GABA Supplementation Negatively Affects Cognitive Flexibility Independent of Tyrosine",
-    "author": "Lee Wei Lim",
-    "journal": "Journal of Clinical Medicine",
-    "score": 100,
-    "note": "인체 무작위 이중맹검 48명 연구이며 GABA 단독군의 인지 유연성 저하 결과를 보고합니다. 부정적 결과도 보존하는 원칙에 따라 우선 검토합니다.",
-    "identifierVerification": "PubMed/PMC PMID·DOI 교차검증"
-  },
-  {
-    "status": "포함후보",
-    "priority": "우선검토",
     "pmid": "33025994",
     "doi": "10.1039/d0fo01729a",
     "year": 2020,
@@ -80,15 +67,15 @@
   {
     "status": "포함후보",
     "priority": "우선검토",
-    "pmid": "30601517",
-    "doi": "10.1039/c8fo02161a",
-    "year": 2019,
-    "title": "Effects of dietary gamma-aminobutyric acid supplementation on the intestinal functions in weaning piglets.",
-    "author": "Chen S",
-    "journal": "Food & function",
-    "score": 99,
-    "note": "이유자돈 식이 GABA 20 mg/kg, 3주 직접 급이 연구로 확인했습니다. 원문·SCIE·중복 최종 검토가 필요합니다.",
-    "identifierVerification": "PubMed PMID·DOI 일치"
+    "pmid": "33919136",
+    "doi": "10.3390/jcm10091807",
+    "year": 2021,
+    "title": "GABA Supplementation Negatively Affects Cognitive Flexibility Independent of Tyrosine",
+    "author": "Lee Wei Lim",
+    "journal": "Journal of Clinical Medicine",
+    "score": 100,
+    "note": "인체 무작위 이중맹검 48명 연구이며 GABA 단독군의 인지 유연성 저하 결과를 보고합니다. 부정적 결과도 보존하는 원칙에 따라 우선 검토합니다.",
+    "identifierVerification": "PubMed/PMC PMID·DOI 교차검증"
   },
   {
     "status": "포함후보",
@@ -132,14 +119,98 @@
   {
     "status": "포함후보",
     "priority": "우선검토",
+    "pmid": "30601517",
+    "doi": "10.1039/c8fo02161a",
+    "year": 2019,
+    "title": "Effects of dietary gamma-aminobutyric acid supplementation on the intestinal functions in weaning piglets.",
+    "author": "Chen S",
+    "journal": "Food & function",
+    "score": 99,
+    "note": "이유자돈 식이 GABA 20 mg/kg, 3주 직접 급이 연구로 확인했습니다. 원문·SCIE·중복 최종 검토가 필요합니다.",
+    "identifierVerification": "PubMed PMID·DOI 일치"
+  },
+  {
+    "status": "포함후보",
+    "priority": "우선검토",
     "pmid": "40544762",
     "doi": "10.1016/j.bbrc.2025.152208",
     "year": 2025,
     "title": "Dietary gamma-aminobutyric acid enhances endurance exercise capacity through mechanisms involving activation of peroxisome proliferator-activated receptor gamma coactivator-1 alpha.",
-    "author": "",
+    "author": "Sakashita M",
     "journal": "Biochemical and biophysical research communications",
     "score": 88,
     "note": "PubMed 공식 초록에서 마우스의 GABA 보충 식이와 운동훈련 4군 비교, 지구력 증가 및 PGC-1α·글리코겐·미토콘드리아 생합성 관련 결과를 확인했습니다. N·정확한 용량·원문·SCIE를 확인한 뒤 문헌인덱스 승격을 판단합니다.",
     "identifierVerification": "PubMed PMID·DOI 일치"
+  },
+  {
+    "status": "포함후보",
+    "priority": "우선검토",
+    "pmid": "28911262",
+    "doi": "10.1080/10253890.2017.1377177",
+    "year": 2017,
+    "title": "Alleviation by gamma amino butyric acid supplementation of chronic heat stress-induced degenerative changes in jejunum in commercial broiler chickens.",
+    "author": "El-Naggar K",
+    "journal": "Stress",
+    "score": 100,
+    "note": "육계 52마리 대상 직접 경구 GABA 열스트레스 시험으로 확인하여 문헌인덱스 A-2017-127로 승격했습니다.",
+    "identifierVerification": "PubMed ESummary·Crossref·OpenAlex PMID/DOI/제목 일치"
+  },
+  {
+    "status": "포함후보",
+    "priority": "우선검토",
+    "pmid": "28911464",
+    "doi": "10.1016/j.jfda.2014.03.005",
+    "year": 2014,
+    "title": "Effect of gamma-aminobutyric acid and nattokinase-enriched fermented beans on the blood pressure of spontaneously hypertensive rats.",
+    "author": "Suwanmanon K",
+    "journal": "Journal of Food and Drug Analysis",
+    "score": 100,
+    "note": "SHR/WKY 42마리 대상 경구 발효콩 분말 시험으로 확인하여 문헌인덱스 A-2014-126으로 승격했습니다. GABA와 나토키나제의 혼합 식품 매트릭스입니다.",
+    "identifierVerification": "PubMed·PMC·Crossref PMID/PMCID/DOI/제목 일치"
+  },
+  {
+    "status": "제외",
+    "priority": "일반검토",
+    "pmid": "42562514",
+    "year": 2026,
+    "title": "A systematic review of Cyperus rotundus L. as a novel food: bioactive components, pharmacological effects, safety, and prospects in functional food applications.",
+    "note": "신규 식품 관련 체계적 문헌고찰이며 GABA 자체의 직접 경구투여 원시험이 아니어서 제외합니다.",
+    "identifierVerification": "PubMed ESummary 제목·문헌유형 확인"
+  },
+  {
+    "status": "제외",
+    "priority": "일반검토",
+    "pmid": "30863359",
+    "year": 2019,
+    "title": "The therapeutic potential of vitamin E in Parkinson's disease.",
+    "note": "비타민 E 및 파킨슨병 검토문헌으로 직접 경구 GABA 개입시험이 아니어서 제외합니다.",
+    "identifierVerification": "PubMed ESummary 제목·문헌유형 확인"
+  },
+  {
+    "status": "제외",
+    "priority": "저우선",
+    "pmid": "42564208",
+    "year": 2026,
+    "title": "Integrated physiological and transcriptomic analysis of gamma-aminobutyric acid-mediated drought tolerance in plants.",
+    "note": "식물·농업 생리 연구로 사람 또는 동물의 경구 GABA 섭취시험 범위 밖입니다.",
+    "identifierVerification": "PubMed ESummary 제목·초록 확인"
+  },
+  {
+    "status": "제외",
+    "priority": "일반검토",
+    "pmid": "30308973",
+    "year": 2018,
+    "title": "Matcha and its components: anti-stress and related effects.",
+    "note": "말차 성분의 혼합·검토 문헌으로 GABA 자체를 직접 투여한 원시험이 아니어서 제외합니다.",
+    "identifierVerification": "PubMed ESummary 제목·문헌유형 확인"
+  },
+  {
+    "status": "제외",
+    "priority": "일반검토",
+    "pmid": "42236678",
+    "year": 2026,
+    "title": "Gabapentin for the treatment of postoperative pain: a randomized clinical trial.",
+    "note": "gabapentin 임상시험으로 GABA 자체 섭취시험이 아니어서 제외합니다.",
+    "identifierVerification": "PubMed ESummary 제목·개입물질 확인"
   }
 ]
