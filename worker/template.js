@@ -1076,6 +1076,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="quick-button" type="button" data-kind="임상">인체 임상</button>
           <button class="quick-button" type="button" data-kind="동물">동물시험</button>
           <button class="quick-button" type="button" data-kind="규제">규제·안전성</button>
+          <button class="quick-button" type="button" data-category="안전성">안전성 자료</button>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
           <select class="sort-select" id="sort">
@@ -1098,6 +1099,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <div class="filter-head">
             <h2>상세 필터</h2>
             <button class="filter-close" id="filter-close" type="button" aria-label="필터 닫기">×</button>
+          </div>
+          <div class="filter-group">
+            <label for="category">자료 카테고리</label>
+            <select id="category"><option value="">전체</option></select>
           </div>
           <div class="filter-group">
             <label for="status">관리 상태</label>
@@ -1217,7 +1222,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var records = DB.records;
       var pageSize = 20;
       var state = {
-        q: "", kind: "", status: "", sci: "", species: "", topic: "",
+        q: "", kind: "", category: "", status: "", sci: "", species: "", topic: "",
         grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
         to: DB.meta.maxYear, sort: "latest", page: 1
       };
@@ -1225,6 +1230,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var el = function (id) { return document.getElementById(id); };
       var controls = {
         q: el("search"),
+        category: el("category"),
         status: el("status"),
         grade: el("grade"),
         agency: el("agency"),
@@ -1310,6 +1316,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         controls.from.value = state.from;
         controls.to.value = state.to;
         addOptions(controls.status, DB.facets.status);
+        addOptions(controls.category, DB.facets.category || []);
         addOptions(controls.grade, DB.facets.grade || []);
         addOptions(controls.agency, DB.facets.agency || []);
         addOptions(controls.safetyArea, DB.facets.safetyArea || []);
@@ -1335,7 +1342,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function loadUrlState() {
         var params = new URLSearchParams(location.search);
-        ["q", "kind", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
+        ["q", "kind", "category", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
           if (params.has(key)) state[key] = params.get(key) || "";
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
@@ -1350,11 +1357,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         document.querySelectorAll("[data-kind]").forEach(function (button) {
           button.classList.toggle("active", button.dataset.kind === state.kind);
         });
+        document.querySelectorAll("[data-category]").forEach(function (button) {
+          button.classList.toggle("active", button.dataset.category === state.category);
+        });
       }
 
       function persistUrl() {
         var params = new URLSearchParams();
-        ["q", "kind", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
+        ["q", "kind", "category", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
           if (state[key]) params.set(key, state[key]);
         });
         if (state.from !== DB.meta.minYear) params.set("from", state.from);
@@ -1435,6 +1445,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             return group.some(function (term) { return record._search.includes(term); });
           })) return false;
           if (state.kind && record.kind !== state.kind) return false;
+          if (state.category && record.category !== state.category) return false;
           if (state.status && record.status !== state.status) return false;
           if (state.grade && record.grade !== state.grade) return false;
           if (state.agency && record.agency !== state.agency) return false;
@@ -1583,7 +1594,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       var filterNames = {
-        q: "검색", kind: "구분", status: "상태", grade: "규제등급", agency: "규제기관",
+        q: "검색", kind: "구분", category: "자료 카테고리", status: "상태", grade: "규제등급", agency: "규제기관",
         safetyArea: "안전성영역", sci: "SCI", species: "종",
         topic: "주제", extraction: "추출", direction: "결과", source: "원문"
       };
@@ -1632,7 +1643,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function resetFilters() {
         pageSize = 20;
         state = {
-          q: "", kind: "", status: "", sci: "", species: "", topic: "",
+          q: "", kind: "", category: "", status: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
@@ -1664,7 +1675,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         clearTimeout(searchTimer);
         searchTimer = setTimeout(function () { changeState("q", controls.q.value); }, 120);
       });
-      ["status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
+      ["category", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
         controls[key].addEventListener("change", function () { changeState(key, controls[key].value); });
       });
       controls.pageSize.addEventListener("change", function () {
@@ -1689,6 +1700,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           } else if (kind) {
             state.grade = ""; state.agency = ""; state.safetyArea = "";
           }
+          state.page = 1;
+          render();
+        });
+      });
+      document.querySelectorAll("[data-category]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var category = button.dataset.category || "";
+          state.category = state.category === category ? "" : category;
           state.page = 1;
           render();
         });

@@ -39,6 +39,8 @@ assert.equal(db.records.length, db.meta.total);
 assert.equal(db.meta.literature, 176);
 assert.equal(db.meta.regulatory, 7);
 assert.equal(db.meta.total, 183);
+assert.ok(db.meta.safetyCategory > 0);
+assert.ok(db.facets.category.some((item) => item.label === "안전성"));
 assert.equal(db.meta.discovery.stagedCandidates, 1000);
 assert.ok(db.meta.discovery.priority >= 0);
 assert.ok(db.meta.discovery.pubmedUnique >= 2000);

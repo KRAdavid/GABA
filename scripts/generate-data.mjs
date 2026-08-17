@@ -92,7 +92,7 @@ const literatureRecords = indexWrite.rows.map((row) => {
       : "현행 미확인";
   const hasDrivePdf = /drive\.google\.com\/file\/d\//i.test(fulltextUrl);
 
-  return {
+  const record = {
     id: clean(cells[0]),
     status: clean(cells[1]),
     kind: clean(cells[2]),
@@ -133,6 +133,11 @@ const literatureRecords = indexWrite.rows.map((row) => {
     hasDrivePdf,
     linkType: hasDrivePdf ? "Drive PDF" : fulltextUrl ? "원문·DOI" : doiUrl ? "DOI" : pubmedUrl ? "PubMed" : "링크 없음"
   };
+  const safetyText = [record.topic, record.domain, record.outcome, record.safety, record.limitation, record.notes].join(" ");
+  record.category = record.topic === "장기·독성·안전성" || /안전성|이상반응|독성|toxicity|toxicology|adverse|NOAEL|tolerability/i.test(safetyText)
+    ? "안전성"
+    : "연구 근거";
+  return record;
 }).filter((record) => record.id);
 
 const regulatoryRecords = regulatory.records.map((record) => ({
@@ -172,7 +177,8 @@ const regulatoryRecords = regulatory.records.map((record) => ({
   species: "규제자료",
   topic: record.safetyArea || "종합평가",
   hasDrivePdf: false,
-  linkType: "공식 원문"
+  linkType: "공식 원문",
+  category: "안전성"
 }));
 
 const records = [...literatureRecords, ...regulatoryRecords];
@@ -224,6 +230,7 @@ const database = {
     included: count((record) => record.status === "포함"),
     candidate: count((record) => record.status === "후보"),
     excluded: count((record) => record.status === "제외"),
+    safetyCategory: count((record) => record.category === "안전성"),
     dataQuality: {
       duplicateIds: duplicateIds.length,
       duplicateDois: duplicateDois.length,
@@ -262,7 +269,8 @@ const database = {
     direction: tally(literatureRecords, "direction"),
     grade: tally(regulatoryRecords, "grade"),
     agency: tally(regulatoryRecords, "agency"),
-    safetyArea: tally(regulatoryRecords, "safetyArea")
+    safetyArea: tally(regulatoryRecords, "safetyArea"),
+    category: tally(records, "category")
   },
   records
 };
