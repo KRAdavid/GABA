@@ -155,9 +155,9 @@ async function getJson(url, retries = 6) {
       // fail while the response body is streaming even after headers succeeded.
       if (response.ok) return await response.json();
       error = new Error(`${response.status} ${response.statusText}: ${url}`);
-      if (response.status === 429) {
+      if (response.status === 429 || response.status >= 500) {
         const retryAfter = Number(response.headers.get("retry-after") || 0);
-        await pause(Math.max(retryAfter * 1000, 1500 * attempt));
+        await pause(Math.max(retryAfter * 1000, 5000 * attempt));
       }
     } catch (fetchError) {
       error = fetchError;
