@@ -137,6 +137,20 @@ const literatureRecords = indexWrite.rows.map((row) => {
   record.category = record.topic === "장기·독성·안전성" || /안전성|이상반응|독성|toxicity|toxicology|adverse|NOAEL|tolerability/i.test(safetyText)
     ? "안전성"
     : "연구 근거";
+  const effectText = [record.title, record.topic, record.domain, record.outcome, record.finding, record.notes].join(" ");
+  record.effectCategory = /수면|불면|sleep|insomnia/i.test(effectText)
+    ? "수면"
+    : /성장호르몬|growth hormone|\bGH\b/i.test(effectText)
+      ? "성장호르몬"
+      : /근육|근비대|muscle|myogenesis|hypertrophy/i.test(effectText)
+        ? "근육발달"
+        : /다이어트|체중|비만|weight loss|body weight|obesity|adiposity|fat mass|adipose/i.test(effectText)
+          ? "다이어트"
+          : /고혈압|혈압|hypertension|hypertensive|blood pressure/i.test(effectText)
+            ? "고혈압"
+            : /당뇨|혈당|diabetes|glucose|glycemic|insulin resistance/i.test(effectText)
+              ? "당뇨"
+              : "기타";
   return record;
 }).filter((record) => record.id);
 
@@ -176,6 +190,7 @@ const regulatoryRecords = regulatory.records.map((record) => ({
   notes: record.notes || "",
   species: "규제자료",
   topic: record.safetyArea || "종합평가",
+  effectCategory: "안전성·규제",
   hasDrivePdf: false,
   linkType: "공식 원문",
   category: "안전성"
@@ -231,6 +246,7 @@ const database = {
     candidate: count((record) => record.status === "후보"),
     excluded: count((record) => record.status === "제외"),
     safetyCategory: count((record) => record.category === "안전성"),
+    effectCategory: count((record) => record.effectCategory !== "기타"),
     dataQuality: {
       duplicateIds: duplicateIds.length,
       duplicateDois: duplicateDois.length,
@@ -270,7 +286,8 @@ const database = {
     grade: tally(regulatoryRecords, "grade"),
     agency: tally(regulatoryRecords, "agency"),
     safetyArea: tally(regulatoryRecords, "safetyArea"),
-    category: tally(records, "category")
+    category: tally(records, "category"),
+    effectCategory: tally(records, "effectCategory")
   },
   records
 };
