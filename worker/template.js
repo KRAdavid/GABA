@@ -679,6 +679,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       letter-spacing: -.015em;
       word-break: normal;
     }
+    .paper-title-korean {
+      display: block;
+      font-size: clamp(18px, 2.35vw, 22px);
+      font-weight: 850;
+      line-height: 1.38;
+    }
+    .title-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .03em;
+    }
     .paper-meta {
       margin: 8px 0 0;
       color: var(--muted);
@@ -1493,6 +1507,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!safe) return "";
         return '<a class="paper-link' + (primary ? " primary" : "") + '" href="' + esc(safe) + '" target="_blank" rel="noopener noreferrer">' + esc(label) + ' ↗</a>';
       }
+      function koreanTitle(record) {
+        if (record.titleKo) return record.titleKo;
+        var kind = record.kind === "임상" ? "인체" : "동물";
+        var topic = record.topic || "임상·동물";
+        var matrix = record.form && /발효유|초콜릿|채소|클로렐라|음료|식품/i.test(record.form) ? " 식품매트릭스" : "";
+        return kind + matrix + " GABA " + topic + " 섭취 연구";
+      }
 
       function regulatoryCard(record) {
         var sourcePrimary = record.sourceUrl || record.fulltextUrl;
@@ -1510,7 +1531,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="badge">' + esc(record.agency) + '</span>' +
             '<span class="badge">품질 ' + esc(record.quality) + '</span>' +
           '</div>' +
-          '<h3 class="paper-title">' + esc(record.titleKo || record.title) + '</h3>' +
+          '<h3 class="paper-title"><span class="title-label">한국어 제목</span><span class="paper-title-korean">' + esc(koreanTitle(record)) + '</span></h3>' +
           originalTitle +
           '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.agency) + ' · ' + esc(record.country) + ' · ' + esc(record.documentType) + '</p>' +
           '<p class="finding"><strong>한국어 요약</strong> · ' + esc(record.summaryKo || record.finding) + '</p>' +
@@ -1560,7 +1581,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="badge">' + esc(identifierLabel) + '</span>' +
             (record.direction ? '<span class="badge ' + badgeClass("direction", record.direction) + '">' + esc(record.direction) + '</span>' : "") +
           '</div>' +
-          '<h3 class="paper-title">' + esc(record.title) + '</h3>' +
+          '<h3 class="paper-title"><span class="title-label">한국어 제목 요약</span><span class="paper-title-korean">' + esc(koreanTitle(record)) + '</span></h3>' +
+          '<p class="original-title" lang="en"><span class="title-label">영문 원제</span>' + esc(record.title) + '</p>' +
           '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.author || "저자 미상") + ' · ' + esc(record.journal || "저널 미상") + '</p>' +
           (record.finding ? '<p class="finding"><strong>핵심결과</strong> · ' + esc(record.finding) + '</p>' : "") +
           '<dl class="fact-grid">' +
