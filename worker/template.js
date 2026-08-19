@@ -612,6 +612,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-weight: 700;
     }
     .result-count strong { color: var(--teal-dark); font-size: 18px; }
+    .result-reset {
+      flex: 0 0 auto;
+      min-height: 36px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .result-reset:hover { border-color: var(--teal); color: var(--teal-dark); }
     .active-filters {
       display: flex;
       flex-wrap: wrap;
@@ -1187,6 +1200,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <section class="results-panel" id="results" aria-labelledby="explorer-title">
           <div class="result-top">
             <p class="result-count" id="result-count" aria-live="polite"></p>
+            <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
           </div>
           <div class="active-filters" id="active-filters" aria-label="적용된 필터"></div>
           <div class="papers" id="papers"></div>
@@ -1785,6 +1799,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       el("search-clear").addEventListener("click", function () { changeState("q", ""); controls.q.focus(); });
       el("reset").addEventListener("click", resetFilters);
+      el("result-reset").addEventListener("click", resetFilters);
       el("prev").addEventListener("click", function () { state.page -= 1; render(); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render(); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });
