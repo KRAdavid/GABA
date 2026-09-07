@@ -612,6 +612,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-weight: 700;
     }
     .result-count strong { color: var(--teal-dark); font-size: 18px; }
+    .result-count small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
     .result-reset {
       flex: 0 0 auto;
       min-height: 36px;
@@ -1032,9 +1039,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
     <section class="metric-grid" aria-label="데이터 요약">
       <article class="metric">
-        <span class="metric-label">전체 문헌</span>
+        <span class="metric-label">검증 레코드</span>
         <strong class="metric-value" id="metric-total">-</strong>
-        <span class="metric-help">후보·제외 포함 전체 레코드</span>
+        <span class="metric-help">문헌·규제자료 포함 · 후보 큐 별도</span>
       </article>
       <article class="metric">
         <span class="metric-label">인체 임상</span>
@@ -1731,7 +1738,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var start = (state.page - 1) * pageSize;
         var pageRecords = list.slice(start, start + pageSize);
         var elapsed = Math.max(0, performance.now() - renderStarted);
-        el("result-count").innerHTML = '전체 ' + DB.meta.total.toLocaleString("ko-KR") + '건 중 <strong>' + list.length.toLocaleString("ko-KR") + '건</strong> · ' + elapsed.toFixed(elapsed < 10 ? 1 : 0) + 'ms';
+        el("result-count").innerHTML = '검증 레코드 ' + DB.meta.total.toLocaleString("ko-KR") + '건 중 <strong>' + list.length.toLocaleString("ko-KR") + '건</strong> · ' + elapsed.toFixed(elapsed < 10 ? 1 : 0) + 'ms<small>문헌 ' + Number(DB.meta.literature || 0).toLocaleString("ko-KR") + '편 + 규제·안전성 자료 ' + Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + '건 · 자동 탐색 후보는 별도 큐</small>';
         el("papers").innerHTML = pageRecords.length
           ? pageRecords.map(paperCard).join("")
           : '<div class="empty-state"><h3>조건에 맞는 자료가 없습니다</h3><p>검색어를 줄이거나 상세 필터를 초기화해 보세요.</p></div>';
