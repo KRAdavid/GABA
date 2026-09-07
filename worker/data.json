@@ -29,17 +29,17 @@
       "extractionPartial": 57
     },
     "discovery": {
-      "snapshotDate": "2026-08-21",
-      "generatedAt": "2026-08-21T00:11:19.691Z",
+      "snapshotDate": "2026-09-03",
+      "generatedAt": "2026-09-03T03:20:56.598Z",
       "triageVersion": "2026-07-31.2",
       "identifierExtraction": "PubMed primary ArticleIdList only",
-      "pubmedUnique": 2797,
+      "pubmedUnique": 2807,
       "openAlexRetrieved": 800,
-      "mergedUnique": 3443,
+      "mergedUnique": 3451,
       "stagedCandidates": 1000,
       "priority": 11,
-      "general": 832,
-      "low": 156,
+      "general": 835,
+      "low": 153,
       "screeningCounts": {
         "포함후보": 11,
         "보류": 2,

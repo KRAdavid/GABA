@@ -736,6 +736,31 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       color: var(--ink-2);
       font-size: 14px;
     }
+    .interpretation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 10px;
+    }
+    .interpretation {
+      min-width: 0;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink-2);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .interpretation.action {
+      background: #f7f8fc;
+    }
+    .interpretation strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--teal-dark);
+      font-size: 11px;
+    }
     .fact-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1529,6 +1554,36 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!value) return "";
         return '<div class="detail-item"><dt>' + esc(label) + '</dt><dd>' + esc(value) + '</dd></div>';
       }
+      function researchMeaning(record) {
+        if (record.kind === "규제") {
+          return "이 자료는 " + (record.domain || "규제·안전성") + "에 관한 공식 검토 틀 또는 선례를 보여주며, " + (record.useQuestion || "국내 적용 가능성을 검토할 때 참고할 기준") + "로 활용할 수 있습니다. 해외 자료는 국내 인정이나 안전성 판단을 자동으로 대신하지 않습니다.";
+        }
+        var focus = [record.domain, record.outcome].filter(Boolean).join(" · ") || "주요 평가변수";
+        var condition = [record.form, record.route, record.dose, record.duration].filter(Boolean).join(" · ") || "기록된 투여 조건";
+        var status = record.status === "포함" ? "검토 가능한 직접 섭취 근거" : record.status === "후보" ? "추가 검증이 필요한 후보 근거" : "제한 또는 제외 사유를 함께 봐야 하는 근거";
+        return "이 연구의 의미는 " + focus + "에서 " + condition + " 조건의 결과를 보여주는 " + status + "라는 점입니다. 연구 결과는 해당 조건의 관찰값이지, 모든 제품·용량·대상에 대한 일반적 효능을 뜻하지 않습니다.";
+      }
+      function expectedAction(record) {
+        if (record.kind === "규제") {
+          return "원료 동일성·제조공정·사용조건·노출량을 국내 기준과 대조하고, 필요한 제출자료와 추가 확인 항목을 정리합니다.";
+        }
+        if (record.status === "제외") {
+          return "제외 사유를 확인하고 공개 효능 근거로 사용하지 않습니다.";
+        }
+        if (record.status === "후보" || record.extraction === "부분") {
+          return "원문에서 직접 GABA 섭취 여부, 용량·기간·대조군·안전성·SCI/SCIE 상태를 확인한 뒤 인덱스 승격 여부를 판단합니다.";
+        }
+        if (record.kind === "동물") {
+          return "인체 적용 전 용량·노출 비교, 독립 재현성, 안전성 자료를 추가 확인하며 동물 결과를 인체 효능으로 직접 확정하지 않습니다.";
+        }
+        return "제품 또는 표시 검토 시 연구의 대상·용량·기간이 실제 사용조건과 맞는지 비교하고, 단일 연구만으로 효능을 확정하지 않습니다.";
+      }
+      function interpretationBlock(record) {
+        return '<div class="interpretation-grid">' +
+          '<div class="interpretation"><strong>연구의 의미</strong>' + esc(researchMeaning(record)) + '</div>' +
+          '<div class="interpretation action"><strong>기대할 수 있는 행동</strong>' + esc(expectedAction(record)) + '</div>' +
+          '</div>';
+      }
       function fact(label, value) {
         return '<div class="fact"><dt>' + esc(label) + '</dt><dd>' + esc(value || "미보고") + '</dd></div>';
       }
@@ -1565,6 +1620,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           originalTitle +
           '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.agency) + ' · ' + esc(record.country) + ' · ' + esc(record.documentType) + '</p>' +
           '<p class="finding"><strong>한국어 요약</strong> · ' + esc(record.summaryKo || record.finding) + '</p>' +
+          interpretationBlock(record) +
           '<dl class="fact-grid">' +
             fact("안전성 영역", record.safetyArea) +
             fact("원료 동일성", record.identity) +
@@ -1615,6 +1671,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<p class="original-title" lang="en"><span class="title-label">영문 원제</span>' + esc(record.title) + '</p>' +
           '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.author || "저자 미상") + ' · ' + esc(record.journal || "저널 미상") + '</p>' +
           (record.finding ? '<p class="finding"><strong>핵심결과</strong> · ' + esc(record.finding) + '</p>' : "") +
+          interpretationBlock(record) +
           '<dl class="fact-grid">' +
             fact("대상", record.population || record.species) +
             fact("표본수", record.n) +
