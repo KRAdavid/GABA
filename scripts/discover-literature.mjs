@@ -115,6 +115,23 @@ const PUBMED_QUERIES = [
     )`
   },
   {
+    label: "human_combination_exercise_product",
+    term: `(
+      "gamma-aminobutyric acid"[Title/Abstract] OR GABA[Title]
+    ) AND (
+      exercise[Title/Abstract] OR training[Title/Abstract] OR caffeine[Title/Abstract]
+      OR theanine[Title/Abstract] OR probiotic*[Title/Abstract]
+      OR fermented[Title/Abstract] OR skin[Title/Abstract]
+    ) AND (
+      oral[Title/Abstract] OR intake[Title/Abstract] OR supplement*[Title/Abstract]
+      OR ingestion[Title/Abstract] OR administration[Title/Abstract]
+    ) AND (humans[MeSH Terms] OR clinical trial[Publication Type]
+      OR randomized controlled trial[Publication Type]) NOT (
+      review[Publication Type] OR meta-analysis[Publication Type]
+      OR systematic review[Publication Type]
+    )`
+  },
+  {
     label: "publication_followup",
     term: `(
       "gamma-aminobutyric acid"[Title/Abstract] OR GABA[Title]
@@ -148,14 +165,22 @@ const OPENALEX_QUERIES = [
   "gamma aminobutyric acid safety oral toxicity",
   "GABA negative cognition null trial adverse events",
   "GABA gavage rat mouse",
-  "GABA beverage intake human"
+  "GABA beverage intake human",
+  "GABA exercise supplementation randomized human",
+  "GABA caffeine crossover human",
+  "GABA theanine sleep trial",
+  "GABA fermented rice germ skin clinical trial"
 ];
 
 const CROSSREF_QUERIES = [
   "gamma-aminobutyric acid oral supplementation",
   "GABA randomized placebo human",
   "GABA dietary supplementation animal",
-  "GABA safety oral toxicity"
+  "GABA safety oral toxicity",
+  "GABA exercise supplementation human",
+  "GABA caffeine crossover trial",
+  "GABA theanine sleep human",
+  "GABA fermented food clinical trial"
 ];
 
 const pause = (ms) => new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
