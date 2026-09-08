@@ -37,10 +37,16 @@
       "openAlexRetrieved": 0,
       "mergedUnique": 4030,
       "stagedCandidates": 1000,
-      "priority": 0,
-      "general": 777,
-      "low": 223,
-      "screeningCounts": null,
+      "priority": 11,
+      "general": 785,
+      "low": 203,
+      "screeningCounts": {
+        "포함후보": 11,
+        "보류": 2,
+        "제외": 9,
+        "우선검토": 0,
+        "미검토": 976
+      },
       "candidateSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
       "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
     },

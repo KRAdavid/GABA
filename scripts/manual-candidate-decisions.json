@@ -251,5 +251,35 @@
     "score": 60,
     "note": "28명 건강 성인의 열처리 L. gasseri CP2305 postbiotic 단회시험. GABA는 배경 문헌으로만 언급되고 개입 원료가 GABA 또는 GABA 생성균이 아니므로 GABA 효능 인덱스에서 제외합니다. 인접 postbiotic 스트레스 자료로 별도 참고 가능하나 GABA 제품 근거로 일반화하지 않습니다.",
     "identifierVerification": "DOI·출판사 원문 일치"
+  },
+  {
+    "status": "제외",
+    "priority": "일반검토",
+    "pmid": "33292127",
+    "doi": "10.2174/1871530320666201208110945",
+    "year": 2021,
+    "title": "Evaluation of Gamma Amino Butyric Acid (GABA) and Glibenclamide Combination Therapy in Streptozotocin Induced Diabetes.",
+    "note": "당뇨 동물모델의 GABA·glibenclamide 병용 약리시험으로, 사람의 GABA 보충제 섭취·마케팅 효능 근거가 아니므로 제외합니다.",
+    "identifierVerification": "PubMed PMID·DOI 일치"
+  },
+  {
+    "status": "제외",
+    "priority": "일반검토",
+    "pmid": "6228746",
+    "doi": "10.1212/wnl.34.1.94",
+    "year": 1984,
+    "title": "Gamma-vinyl GABA treatment of Huntington's disease.",
+    "note": "gamma-vinyl GABA(vigabatrin) 의약품 치료시험이며 식이 GABA 자체의 경구 보충 연구가 아니므로 제외합니다.",
+    "identifierVerification": "PubMed PMID·DOI·개입물질 확인"
+  },
+  {
+    "status": "제외",
+    "priority": "일반검토",
+    "pmid": "33454439",
+    "doi": "10.1016/j.jchromb.2020.122519",
+    "year": 2021,
+    "title": "Development and validation of a UPLC-MS/MS method for the simultaneous determination of gamma-aminobutyric acid and glutamic acid in human plasma.",
+    "note": "사람 혈장 GABA 측정법 검증 연구로 섭취 개입·임상 효능을 평가하지 않으므로 마케팅 근거 인덱스에서 제외합니다.",
+    "identifierVerification": "PubMed PMID·DOI·문헌유형 확인"
   }
 ]
