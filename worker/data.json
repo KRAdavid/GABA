@@ -5,20 +5,20 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 230,
-    "literature": 222,
+    "total": 231,
+    "literature": 223,
     "regulatory": 8,
-    "clinical": 63,
+    "clinical": 64,
     "animal": 153,
     "scie": 160,
     "complete": 134,
-    "partial": 88,
+    "partial": 89,
     "drivePdf": 76,
-    "included": 140,
+    "included": 141,
     "candidate": 73,
     "excluded": 9,
     "safetyCategory": 169,
-    "effectCategory": 149,
+    "effectCategory": 150,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -26,7 +26,7 @@
       "literatureWithDoi": 212,
       "literatureWithPmid": 212,
       "extractionComplete": 134,
-      "extractionPartial": 88
+      "extractionPartial": 89
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 65
+        "value": 66
       },
       {
         "label": "축산",
@@ -135,6 +135,10 @@
         "value": 2
       },
       {
+        "label": "신경·행동·인지",
+        "value": 2
+      },
+      {
         "label": "운동·근육",
         "value": 2
       },
@@ -183,10 +187,6 @@
         "value": 1
       },
       {
-        "label": "신경·행동·인지",
-        "value": 1
-      },
-      {
         "label": "심혈관·염증",
         "value": 1
       },
@@ -214,7 +214,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 140
+        "value": 141
       },
       {
         "label": "후보",
@@ -236,7 +236,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 51
+        "value": 52
       },
       {
         "label": "ESCI",
@@ -254,13 +254,13 @@
       },
       {
         "label": "부분",
-        "value": 88
+        "value": 89
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 134
+        "value": 135
       },
       {
         "label": "혼재",
@@ -344,7 +344,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 61
+        "value": 62
       }
     ],
     "effectCategory": [
@@ -385,11 +385,11 @@
         "value": 6
       },
       {
-        "label": "인지",
-        "value": 1
+        "label": "인지기능",
+        "value": 2
       },
       {
-        "label": "인지기능",
+        "label": "인지",
         "value": 1
       }
     ]
@@ -9547,6 +9547,49 @@
       "added": "2026-09-08",
       "checked": "2026-09-08",
       "notes": "UMIN000036725. 연구의 의미: 200 mg/day 순수 GABA를 12주 섭취한 중년·고령 건강 성인에서 다영역 인지검사와 삶의 질 신호를 보고한 비교적 직접적인 인체 근거다. 기대 행동: ‘40세 이상 건강 성인·12주·특정 검사에서 관찰된 결과’로 한정해 인덱스와 내부 자료에 활용하고, 치매 예방·치료, 일반 소비자의 집중력 향상, 장기 효과로 확대 광고하지 않는다. 100 mg/day 시험(UMIN000036726)은 별도 논문이므로 중복 집계하지 않고 별도 확인 대상으로 관리한다.",
+      "species": "인체",
+      "topic": "신경·행동·인지",
+      "hasDrivePdf": false,
+      "linkType": "출판사 초록·시험등록",
+      "category": "연구 근거",
+      "effectCategory": "인지기능"
+    },
+    {
+      "id": "H-2020-141",
+      "status": "포함",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행군시험",
+      "year": 2020,
+      "title": "Improvement of Memory and Spatial Cognitive Function by Continuous Ingestion of 100 mg/day of γ-Aminobutyric Acid (GABA)—A Randomized, Double-blind, Placebo-controlled Parallel-group Clinical Trial—",
+      "author": "Yamatsu, Nakamura, Saddam, Horie, Kaneko, Kim",
+      "journal": "薬理と治療",
+      "doi": "",
+      "pmid": "",
+      "population": "인지기능 저하를 자각하는 40세 이상 건강한 일본 성인",
+      "n": "60명 등록, 58명 최종 분석( GABA 30명, 위약 28명)",
+      "model": "건강 성인의 기억·공간인지",
+      "form": "GABA 캡슐(제품·제조사 정보는 원문/시험등록 확인 필요)",
+      "dose": "GABA 100 mg/day",
+      "route": "경구",
+      "duration": "12주",
+      "comparator": "위약",
+      "domain": "인지기능",
+      "outcome": "Cognitrax, RBANS, SF-36, 안전성",
+      "direction": "유익",
+      "finding": "RBANS의 시공간/구성 및 지연기억 영역에서 GABA군이 위약군보다 유의하게 높은 결과를 보였고, 100 mg/day에서 기억·공간인지 기능 개선 신호가 보고됐다.",
+      "safety": "등록·요약 자료상 중대한 안전성 신호는 보고되지 않음",
+      "limitation": "최종 분석 58명, 12주, 일본의 40세 이상 건강 성인 대상이며 논문이 일본어 학술지에 게재되어 국제 데이터베이스 식별성이 낮다. 다수 인지 하위검사 평가와 제조사 관련성이 있어 독립 반복검증과 다중비교 검토가 필요하다.",
+      "pubmedStatus": "PubMed 미등재로 확인",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://rctportal.mhlw.go.jp/detail/um?trial_id=UMIN000036726",
+      "fulltextUrl": "https://www.pieronline.jp/content/article/0386-3603/48030/475",
+      "doiUrl": "",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "UMIN000036726. 연구의 의미: 100 mg/day 순수 GABA를 12주 섭취한 중년·고령 건강 성인에서 기억·공간인지에 대한 직접 인체시험 자료다. 기대 행동: ‘40세 이상 건강 성인·12주·RBANS 특정 하위영역 결과’로 한정해 활용하고, 치매 예방·치료나 전 연령 인지능력 향상으로 확대하지 않는다. 200 mg/day 시험(UMIN000036725)과 같은 연구군이지만 별도 논문·등록시험이므로 별도 기록하되, 전체 120명으로 합산해 주장하지 않는다.",
       "species": "인체",
       "topic": "신경·행동·인지",
       "hasDrivePdf": false,
