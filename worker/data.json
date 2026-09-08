@@ -18,7 +18,7 @@
     "candidate": 83,
     "excluded": 9,
     "safetyCategory": 169,
-    "effectCategory": 161,
+    "effectCategory": 160,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -99,11 +99,11 @@
     ],
     "topic": [
       {
-        "label": "신경·행동·수면",
-        "value": 52
+        "label": "성장·생산·육질",
+        "value": 51
       },
       {
-        "label": "성장·생산·육질",
+        "label": "신경·행동·수면",
         "value": 51
       },
       {
@@ -211,6 +211,10 @@
         "value": 1
       },
       {
+        "label": "신경·행동·안전성",
+        "value": 1
+      },
+      {
         "label": "심혈관·염증",
         "value": 1
       },
@@ -296,7 +300,7 @@
       },
       {
         "label": "혼재",
-        "value": 55
+        "value": 54
       },
       {
         "label": "무효",
@@ -316,7 +320,7 @@
       },
       {
         "label": "혼합",
-        "value": 3
+        "value": 4
       },
       {
         "label": "중립",
@@ -382,11 +386,11 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 85
+        "value": 86
       },
       {
         "label": "수면",
-        "value": 50
+        "value": 49
       },
       {
         "label": "다이어트",
@@ -1256,44 +1260,44 @@
       "id": "H-2015-031",
       "status": "포함",
       "kind": "임상",
-      "design": "무작위 이중눈가림 대조시험",
+      "design": "무작위 이중맹검 대조시험",
       "year": 2015,
-      "title": "Effect of GABA Extract of Black Sticky Rice with Giant Embryo on Alcohol-Related Indices After Acute Alcohol Intake in Social Drinkers.",
+      "title": "Effect of GABA Extract of Black Sticky Rice with Giant Embryo on Alcohol-Related Indices After Acute Alcohol Intake in Social Drinkers",
       "author": "Jung et al.",
       "journal": "Alcoholism: Clinical and Experimental Research",
       "doi": "10.1111/acer.12746",
       "pmid": "26010143",
-      "population": "성인",
-      "n": "초록 미보고",
-      "model": "사회적 음주자",
+      "population": "건강한 사회적 음주자",
+      "n": "50명; GABA 단독·GABA+알코올·위약+알코올 3군",
+      "model": "급성 알코올 섭취 후 자극·진정 반응",
       "form": "거대배아 흑찰미 GABA 추출물",
-      "dose": "GABA 200 mg/day",
+      "dose": "GABA 200 mg 단회(연구일 2·3일 오전)",
       "route": "경구",
-      "duration": "2일 단기",
-      "comparator": "위약; 알코올 병용 여부",
-      "domain": "알코올 반응/안전성",
-      "outcome": "혈중알코올농도, 자극·진정 척도, 이상반응",
-      "direction": "혼재",
-      "finding": "성별에 따라 자극·진정 및 BAC 반응이 상이했고, 명확한 일관된 유익성은 확인되지 않음.",
-      "safety": "모든 군에서 이상반응 보고 없음",
-      "limitation": "초록 기반 추출, 표본수 미확인; 단기 알코올 병용 시험이며 성별 하위분석 결과가 상반됨",
+      "duration": "2일 단기; 알코올은 연구 3일에 병용",
+      "comparator": "GABA 단독군 및 위약+알코올군",
+      "domain": "알코올 반응·안전성",
+      "outcome": "혈중알코올농도, Biphasic Alcohol Effects Scale 자극·진정 척도, 이상반응",
+      "direction": "혼합",
+      "finding": "GABA 추출물 200 mg 투여 후 알코올 반응은 성별에 따라 달랐다. 여성에서는 자극 척도, 남성에서는 진정 척도에서 GABA+알코올군과 위약+알코올군의 차이가 관찰됐으며, 일반적인 이완·숙취 개선 효과를 입증한 연구는 아니다.",
+      "safety": "초록상 이상반응은 보고되지 않음",
+      "limitation": "단회·소표본·알코올 병용 연구이며, 추출물 매트릭스의 효과와 GABA 효과를 분리할 수 없다. 성별 하위결과가 상반되고 일반 소비자 수면·스트레스 마케팅으로 일반화할 수 없다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "SCIE 확인",
       "sciGroup": "SCIE",
-      "sciChecked": "2026-07-27",
+      "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26010143/",
       "fulltextUrl": "https://onlinelibrary.wiley.com/doi/10.1111/acer.12746",
       "doiUrl": "https://doi.org/10.1111/acer.12746",
       "extraction": "부분",
-      "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "출판사 원문 접근 제한. 초록과 PubMed 메타데이터로 등록. 연구의 의미: 임상에서 성별에 따라 자극·진정 및 BAC 반응이 상이했고, 명확한 일관된 유익성은 확인되지 않음. 기대 행동: 인체 근거로 검토하되 대상·용량·기간·대조군과 제품 조건의 일치 여부를 확인한 뒤 제한적으로 활용한다.",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PMID 26010143와 PubMed 초록을 재확인해 표본수와 군 구조를 보강. 연구의 의미: GABA 추출물의 급성 알코올 병용 상황에서 성별에 따라 자극·진정 반응이 달라질 수 있음을 보여주는 안전·해석 경계 자료다. 기대 행동: 숙취·알코올 대사·일반 이완 광고에 사용하지 말고, 원문 확인 전에는 후보성 부분 추출로 취급하며 알코올 병용 위험을 명확히 분리한다.",
       "species": "인체",
-      "topic": "신경·행동·수면",
+      "topic": "신경·행동·안전성",
       "hasDrivePdf": false,
-      "linkType": "원문·DOI",
+      "linkType": "PubMed 초록·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "기타"
     },
     {
       "id": "H-2015-044",
