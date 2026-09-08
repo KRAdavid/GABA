@@ -5,6 +5,7 @@ const siteRoot = resolve(new URL("..", import.meta.url).pathname.replace(/^\/([A
 const gabaRoot = resolve(siteRoot, "..");
 const outputsRoot = resolve(gabaRoot, "outputs");
 const regulatoryPath = resolve(siteRoot, "worker", "regulatory-data.json");
+const curatedPath = resolve(siteRoot, "worker", "curated-records.json");
 
 async function findNamedFiles(dir, fileName) {
   const found = [];
@@ -23,6 +24,12 @@ dated.sort((a, b) => b.mtime - a.mtime);
 const payloadPath = dated[0].path;
 const payload = JSON.parse(await readFile(payloadPath, "utf8"));
 const regulatory = JSON.parse(await readFile(regulatoryPath, "utf8"));
+let curated = { records: [] };
+try {
+  curated = JSON.parse(await readFile(curatedPath, "utf8"));
+} catch {
+  curated = { records: [] };
+}
 const previousDataPath = resolve(siteRoot, "worker", "data.json");
 let previousData = null;
 try {
@@ -173,7 +180,31 @@ const preservedLiteratureRecords = (previousData?.records || [])
   .filter((record) => !sheetKeys.has(record.id)
     && !sheetKeys.has(normalizedKey(record.doi))
     && !sheetKeys.has(normalizedKey(record.pmid)));
-const literatureRecords = [...sheetLiteratureRecords, ...preservedLiteratureRecords];
+const curatedLiteratureRecords = (curated.records || [])
+  .filter((record) => record.kind !== "규제" && record.id)
+  .map((record) => ({
+    ...record,
+    status: record.status || "후보",
+    category: record.category || "연구 근거",
+    effectCategory: record.effectCategory || "기타",
+    species: record.species || "기타",
+    topic: record.topic || "기타",
+    linkType: record.linkType || (record.fulltextUrl ? "원문·DOI" : record.pubmedUrl ? "PubMed" : "링크 없음")
+  }));
+const literatureKeys = new Set(sheetLiteratureRecords.flatMap((record) => [
+  record.id, normalizedKey(record.doi), normalizedKey(record.pmid)
+].filter(Boolean)));
+const addUniqueLiterature = (recordsToAdd) => recordsToAdd.filter((record) => {
+  const keys = [record.id, normalizedKey(record.doi), normalizedKey(record.pmid)].filter(Boolean);
+  if (keys.some((key) => literatureKeys.has(key))) return false;
+  keys.forEach((key) => literatureKeys.add(key));
+  return true;
+});
+const literatureRecords = [
+  ...sheetLiteratureRecords,
+  ...addUniqueLiterature(curatedLiteratureRecords),
+  ...addUniqueLiterature(preservedLiteratureRecords)
+];
 
 const sheetRegulatoryRecords = regulatory.records.map((record) => ({
   ...record,
