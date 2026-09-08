@@ -5,17 +5,17 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 258,
-    "literature": 250,
+    "total": 259,
+    "literature": 251,
     "regulatory": 8,
-    "clinical": 82,
+    "clinical": 83,
     "animal": 159,
     "scie": 157,
     "complete": 146,
-    "partial": 104,
+    "partial": 105,
     "drivePdf": 76,
     "included": 149,
-    "candidate": 92,
+    "candidate": 93,
     "excluded": 9,
     "safetyCategory": 168,
     "effectCategory": 165,
@@ -23,10 +23,10 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 231,
-      "literatureWithPmid": 227,
+      "literatureWithDoi": 232,
+      "literatureWithPmid": 228,
       "extractionComplete": 146,
-      "extractionPartial": 104
+      "extractionPartial": 105
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 82
+        "value": 83
       },
       {
         "label": "축산",
@@ -271,6 +271,10 @@
         "value": 1
       },
       {
+        "label": "통증·구강",
+        "value": 1
+      },
+      {
         "label": "폐경기·수면",
         "value": 1
       },
@@ -294,7 +298,7 @@
       },
       {
         "label": "후보",
-        "value": 92
+        "value": 93
       },
       {
         "label": "제외",
@@ -312,7 +316,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 78
+        "value": 79
       },
       {
         "label": "ESCI",
@@ -334,7 +338,7 @@
       },
       {
         "label": "부분",
-        "value": 104
+        "value": 105
       }
     ],
     "direction": [
@@ -385,6 +389,10 @@
       {
         "label": "안전",
         "value": 1
+      },
+      {
+        "label": "GABA 세정 후 캡사이신 유발 작열통 감소",
+        "value": 1
       }
     ],
     "grade": [
@@ -432,13 +440,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 90
+        "value": 91
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 93
+        "value": 94
       },
       {
         "label": "수면",
@@ -10872,6 +10880,49 @@
       "species": "기타",
       "topic": "기타",
       "linkType": "링크 없음"
+    },
+    {
+      "id": "H-2017-011",
+      "status": "후보",
+      "kind": "임상",
+      "year": 2017,
+      "title": "γ-Aminobutyric acid (GABA) oral rinse reduces capsaicin-induced burning mouth pain sensation: An experimental quantitative sensory testing study",
+      "design": "무작위·이중눈가림·위약대조·교차시험",
+      "author": "Kern M; Illing T; Schmelz M et al.",
+      "journal": "European Journal of Pain",
+      "doi": "10.1002/ejp.1128",
+      "pmid": "29024230",
+      "population": "건강한 성인 남녀",
+      "n": "30명",
+      "model": "캡사이신 유발 구강 작열통",
+      "form": "GABA 구강 세정액",
+      "dose": "0.05 또는 0.5 mol/L GABA 용액으로 1회 세정",
+      "route": "구강 국소 세정(섭취용 경구 보충제 아님)",
+      "duration": "급성 단회 처치",
+      "comparator": "물 세정 및 1% 리도카인",
+      "domain": "통증·구강",
+      "outcome": "통증 VAS 면적 및 온도·기계적 감각 역치",
+      "direction": "GABA 세정 후 캡사이신 유발 작열통 감소",
+      "finding": "두 농도의 GABA 구강 세정액 모두 물보다 캡사이신 유발 통증 VAS 면적을 낮췄다.",
+      "safety": "단회 국소 세정의 안전성만 평가",
+      "limitation": "섭취용 GABA 보충제가 아닌 구강 국소 세정 연구이며, 건강한 30명의 급성 통증 모델이다. 수면·이완·전신효과 또는 일반적인 경구 섭취 효능으로 일반화할 수 없다.",
+      "pubmedStatus": "확인",
+      "sciStatus": "현행 미확인",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29024230/",
+      "fulltextUrl": "https://doi.org/10.1002/ejp.1128",
+      "doiUrl": "https://doi.org/10.1002/ejp.1128",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "species": "인체",
+      "topic": "통증·구강",
+      "effectCategory": "기타",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
+      "notes": "PMID 29024230와 초록의 연구설계를 확인. 연구의 의미: GABA가 전신 섭취가 아니라 구강 점막에 국소적으로 작용할 가능성을 건강한 성인에서 탐색한 임상자료다. 기대 행동: 구강 국소 제품의 제한적 탐색 근거로만 활용하고 경구 섭취 GABA의 수면·이완 효능이나 전신 진통효과로 확장하지 않으며, 제형·농도·사용법을 정확히 구분한다."
     },
     {
       "id": "A-2021-177",
