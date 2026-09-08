@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 362,
-    "literature": 354,
+    "total": 364,
+    "literature": 356,
     "regulatory": 8,
     "clinical": 109,
-    "animal": 184,
+    "animal": 186,
     "scie": 143,
-    "complete": 183,
+    "complete": 185,
     "partial": 104,
     "drivePdf": 73,
     "included": 198,
-    "candidate": 140,
+    "candidate": 142,
     "excluded": 16,
     "safetyCategory": 163,
-    "effectCategory": 263,
+    "effectCategory": 265,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 328,
-      "literatureWithPmid": 303,
-      "extractionComplete": 183,
+      "literatureWithDoi": 330,
+      "literatureWithPmid": 305,
+      "extractionComplete": 185,
       "extractionPartial": 104
     },
     "discovery": {
@@ -58,7 +58,7 @@
     "species": [
       {
         "label": "설치류",
-        "value": 104
+        "value": 106
       },
       {
         "label": "인체",
@@ -376,7 +376,7 @@
       },
       {
         "label": "소화·장건강",
-        "value": 14
+        "value": 15
       },
       {
         "label": "장기·독성·안전성",
@@ -409,6 +409,10 @@
       {
         "label": "GABA 생산·기능성 식품",
         "value": 3
+      },
+      {
+        "label": "대사·혈당",
+        "value": 2
       },
       {
         "label": "성장호르몬·내분비",
@@ -504,10 +508,6 @@
       },
       {
         "label": "대사·지질·기능성 식품",
-        "value": 1
-      },
-      {
-        "label": "대사·혈당",
         "value": 1
       },
       {
@@ -934,7 +934,7 @@
       },
       {
         "label": "후보",
-        "value": 140
+        "value": 142
       },
       {
         "label": "제외",
@@ -983,6 +983,10 @@
         "value": 2
       },
       {
+        "label": "미확인",
+        "value": 2
+      },
+      {
         "label": "기타",
         "value": 1
       },
@@ -994,7 +998,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 183
+        "value": 185
       },
       {
         "label": "부분",
@@ -1093,6 +1097,10 @@
       {
         "label": "철회됨; 마케팅 사용 금지",
         "value": 3
+      },
+      {
+        "label": "개선",
+        "value": 2
       },
       {
         "label": "원료·공정개발 가능성; 인체 효능 아님",
@@ -1531,6 +1539,10 @@
         "value": 2
       },
       {
+        "label": "효능",
+        "value": 2
+      },
+      {
         "label": "리뷰·배경",
         "value": 1
       }
@@ -1593,12 +1605,12 @@
         "value": 4
       },
       {
-        "label": "열스트레스",
+        "label": "대사",
         "value": 3
       },
       {
-        "label": "대사",
-        "value": 2
+        "label": "열스트레스",
+        "value": 3
       },
       {
         "label": "동물·대사",
@@ -1710,6 +1722,10 @@
       },
       {
         "label": "장-뇌축·간접",
+        "value": 1
+      },
+      {
+        "label": "장건강",
         "value": 1
       },
       {
@@ -16868,6 +16884,92 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "철 흡수"
+    },
+    {
+      "id": "A-2017-253",
+      "status": "후보",
+      "kind": "동물",
+      "design": "대조군 포함 용량반응 경구시험",
+      "year": 2017,
+      "title": "Gamma-Aminobutyric Acid Increases the Production of Short-Chain Fatty Acids and Decreases pH Values in Mouse Colon.",
+      "author": "Chen et al.",
+      "journal": "Molecules",
+      "doi": "10.3390/molecules22040653",
+      "pmid": "28425937",
+      "population": "암컷 Kunming 마우스",
+      "n": "60마리",
+      "model": "정상 마우스",
+      "form": "GABA 단독",
+      "dose": "5, 10, 20, 40 mg/kg/day",
+      "route": "경구 위관투여",
+      "duration": "14일",
+      "comparator": "식염수 대조",
+      "domain": "장내 환경·대장 건강",
+      "outcome": "acetate·propionate·butyrate·총 SCFA·장 내용물 중량·pH",
+      "direction": "개선",
+      "finding": "GABA 투여군에서 대장·맹장 내용물의 주요 SCFA와 총 SCFA가 증가하고 pH가 감소했다. 40 mg/kg/day군에서는 colon index와 길이가 대조군보다 유의하게 높았다.",
+      "safety": "초단기 동물시험으로 전신 안전성·이상반응 평가 제한",
+      "limitation": "암컷 단일 마우스 계통, 14일 관찰, 사람 장 건강으로의 외삽 불가",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/28425937/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6154700/",
+      "doiUrl": "https://doi.org/10.3390/molecules22040653",
+      "extraction": "완료",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 초록과 PMC 공개 전문의 투여경로·용량·결과를 대조했다. 연구의 의미: 직접 경구 GABA가 장내 발효산물과 대장 지표에 미치는 초기 생체근거를 제공한다. 기대 행동: 장 건강·프리바이오틱 효능으로 단정하지 말고 동물 탐색근거로만 사용하며, 사람 임상 확인 전에는 조건부 문구를 유지한다.",
+      "species": "설치류",
+      "topic": "소화·장건강",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·PMC·DOI",
+      "category": "효능",
+      "effectCategory": "장건강"
+    },
+    {
+      "id": "A-2005-254",
+      "status": "후보",
+      "kind": "동물",
+      "design": "당뇨 유발 후 대조군 포함 경구시험",
+      "year": 2005,
+      "title": "Protective effects of gamma-aminobutyric acid in rats with streptozotocin-induced diabetes.",
+      "author": "Nakagawa et al.",
+      "journal": "Journal of Nutritional Science and Vitaminology",
+      "doi": "10.3177/jnsv.51.278",
+      "pmid": "16262002",
+      "population": "성체 수컷 Wistar 랫드",
+      "n": "미상",
+      "model": "streptozotocin 유발 당뇨",
+      "form": "GABA 단독",
+      "dose": "100 또는 200 mg/kg/day",
+      "route": "경구투여",
+      "duration": "10일",
+      "comparator": "당뇨 대조군",
+      "domain": "혈당·산화스트레스",
+      "outcome": "혈청 glucose·glycosylated protein·TBA 반응물·간·신장 중량",
+      "direction": "개선",
+      "finding": "GABA 경구투여는 당뇨 랫드의 혈청 glucose와 glycosylated protein을 낮추고, 간·신장 비대와 일부 TBA 반응물 증가를 완화했다.",
+      "safety": "10일 질환모델 연구로 일반 소비자 안전성·장기 안전성 판단 불가",
+      "limitation": "소규모·단기간 동물 질환모델이며 사람 당뇨 치료·혈당 개선으로 외삽할 수 없음",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/16262002/",
+      "fulltextUrl": "https://www.jstage.jst.go.jp/article/jnsv1973/51/4/51_4_278/_pdf",
+      "doiUrl": "https://doi.org/10.3177/jnsv.51.278",
+      "extraction": "완료",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 기록과 J-STAGE 공개 PDF의 초록을 대조했다. 연구의 의미: 경구 GABA가 실험적 당뇨에서 혈당·산화스트레스 지표에 영향을 줄 가능성을 보여주는 초기 동물자료다. 기대 행동: 당뇨 예방·치료 또는 혈당조절 광고에 사용하지 말고, 후속 인체시험이 필요한 기전 탐색자료로만 분류한다.",
+      "species": "설치류",
+      "topic": "대사·혈당",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·J-STAGE PDF·DOI",
+      "category": "효능",
+      "effectCategory": "대사"
     },
     {
       "id": "A-2025-096",
