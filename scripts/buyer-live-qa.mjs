@@ -25,10 +25,10 @@ assert.match(initialBody, /대량 탐색 후보/);
 const liveLiterature = Number(initialBody.match(/검증 레코드\s+([\d,]+)편/)?.[1]?.replace(/,/g, ""));
 assert.ok(Number.isFinite(liveLiterature));
 const search = page.locator("input").first();
-await search.fill("42669294");
+await search.fill("10.1016/j.jia.2026.08.003");
 await page.waitForTimeout(800);
 const searchBody = await page.locator("body").innerText();
-assert.match(searchBody, /Effects of γ-aminobutyric acid-rich fermented rice bran|A-2026-122|42669294/i);
+assert.match(searchBody, /Dietary GABA improves growth and intestinal health|A-2026-123|10.1016\/j\.jia\.2026\.08\.003/i);
 assert.deepEqual(errors, []);
 console.log(JSON.stringify({
   valid: true,
@@ -36,7 +36,7 @@ console.log(JSON.stringify({
   title: await page.title(),
   url: page.url(),
   liveCount: liveLiterature,
-  newRecordSearch: "A-2026-122 / PMID 42669294",
+  newRecordSearch: "A-2026-123 / DOI 10.1016/j.jia.2026.08.003",
   errors
 }));
 await browser.close();
