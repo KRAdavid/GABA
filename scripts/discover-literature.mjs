@@ -115,6 +115,18 @@ const PUBMED_QUERIES = [
     )`
   },
   {
+    label: "publication_followup",
+    term: `(
+      "gamma-aminobutyric acid"[Title/Abstract] OR GABA[Title]
+    ) AND (
+      "retracted publication"[Publication Type]
+      OR retraction[Title/Abstract]
+      OR retracted[Title/Abstract]
+      OR "expression of concern"[Title/Abstract]
+      OR correction[Publication Type]
+    )`
+  },
+  {
     label: "recent_2024_plus",
     term: `(
       "gamma-aminobutyric acid"[Title/Abstract] OR GABA[Title]
@@ -450,7 +462,10 @@ const hardExclusionPatterns = [
   /\breceptor agonist\b/i, /\breceptor antagonist\b/i,
   /\bmagnetic resonance spectroscopy\b/i, /\bMRS\b/,
   /\bmagnetic resonance imag(?:e|ing)\b/i,
-  /\bbrain gaba (?:level|concentration)\b/i
+  /\bbrain gaba (?:level|concentration)\b/i,
+  /\bretract(?:ed|ion)\b/i,
+  /\bexpression of concern\b/i,
+  /\bcorrection\b/i
 ];
 const productionOnlyPatterns = [
   /\bfermentation\b/i, /\bproducer strain\b/i, /\bbiosynthesis\b/i,
@@ -638,14 +653,24 @@ const reviewed = mergedRecords.map((record) => {
   };
 });
 
+const hasPublicationFollowup = (record) => record.queryLabels?.includes("publication_followup")
+  && (/\bretract(?:ed|ion)?\b|\bexpression of concern\b|\bcorrection\b/i.test(record.title)
+    || (record.publicationTypes ?? []).some((type) => /retract|correct/i.test(type)));
+
 const candidates = reviewed
-  .filter((record) => !record.existingRecordId && record.score >= 25)
-  .sort((a, b) => b.score - a.score || (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title))
+  .filter((record) => !record.existingRecordId && (record.score >= 25 || hasPublicationFollowup(record)))
+  .sort((a, b) => {
+    const aFollowup = hasPublicationFollowup(a) ? 1 : 0;
+    const bFollowup = hasPublicationFollowup(b) ? 1 : 0;
+    return bFollowup - aFollowup || b.score - a.score || (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title);
+  })
   .slice(0, maxCandidates)
   .map((record, index) => ({
     candidateId: `C-${snapshotDate.replaceAll("-", "")}-${String(index + 1).padStart(4, "0")}`,
     collectedDate: snapshotDate,
-    screeningRecommendation: record.exclusionSignals.length
+    screeningRecommendation: hasPublicationFollowup(record)
+      ? "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인"
+      : record.exclusionSignals.length
       ? "경계자료: GABA성 의약품·수용체 연구 또는 비경구/비보충제 가능성 확인"
       : record.indirectTitleSignals.length || record.productionSignals.length
         ? "제외검토: 간접 기전·생산공정·비섭취 연구 여부 확인"
