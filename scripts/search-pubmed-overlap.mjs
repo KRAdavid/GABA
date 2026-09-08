@@ -3,10 +3,16 @@ import { resolve } from "node:path";
 
 const siteRoot = resolve(new URL("..", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1"));
 const gabaRoot = resolve(siteRoot, "..");
-const today = new Date().toISOString().slice(0, 10);
+const formatKstDate = (date) => new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Seoul",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+}).format(date);
+const today = formatKstDate(new Date());
 const sinceArg = process.argv.find((value) => value.startsWith("--since="));
 const since = sinceArg?.split("=")[1]
-  || new Date(Date.now() - 60 * 86400000).toISOString().slice(0, 10);
+  || formatKstDate(new Date(Date.now() - 60 * 86400000));
 const outputArg = process.argv.find((value) => value.startsWith("--out="));
 const outputPath = outputArg
   ? resolve(outputArg.slice("--out=".length))
