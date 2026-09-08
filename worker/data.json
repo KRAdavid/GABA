@@ -5,20 +5,20 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 291,
-    "literature": 283,
+    "total": 292,
+    "literature": 284,
     "regulatory": 8,
-    "clinical": 97,
+    "clinical": 98,
     "animal": 164,
     "scie": 151,
     "complete": 185,
     "partial": 92,
     "drivePdf": 74,
     "included": 188,
-    "candidate": 84,
+    "candidate": 85,
     "excluded": 11,
     "safetyCategory": 156,
-    "effectCategory": 190,
+    "effectCategory": 191,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 93
+        "value": 94
       },
       {
         "label": "축산",
@@ -271,6 +271,10 @@
         "value": 1
       },
       {
+        "label": "수면·등록시험",
+        "value": 1
+      },
+      {
         "label": "수면·식품·장-뇌 축",
         "value": 1
       },
@@ -422,7 +426,7 @@
       },
       {
         "label": "후보",
-        "value": 84
+        "value": 85
       },
       {
         "label": "제외",
@@ -465,6 +469,10 @@
       {
         "label": "기타",
         "value": 1
+      },
+      {
+        "label": "해당없음",
+        "value": 1
       }
     ],
     "extraction": [
@@ -483,6 +491,10 @@
       {
         "label": "초록검토",
         "value": 2
+      },
+      {
+        "label": "등록정보검토",
+        "value": 1
       }
     ],
     "direction": [
@@ -528,6 +540,10 @@
       },
       {
         "label": "간접 대사 신호; 효능 근거 아님",
+        "value": 1
+      },
+      {
+        "label": "결과 미확인",
         "value": 1
       },
       {
@@ -728,7 +744,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 135
+        "value": 136
       }
     ],
     "effectCategory": [
@@ -806,6 +822,10 @@
       },
       {
         "label": "수면·간접",
+        "value": 1
+      },
+      {
+        "label": "수면·결과 미확인",
         "value": 1
       },
       {
@@ -12767,6 +12787,50 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "인지"
+    },
+    {
+      "id": "H-REG-2021-001",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행군 등록시험",
+      "year": 2021,
+      "title": "A Randomized, Double-blind, Placebo-controlled, Parallel Clinical Study to Investigate the Sleep Quality Enhancing Effect and Safety of Lactobacillus-fermented GABA in Subjects With Mild, Transient Sleep Disorder",
+      "author": "Amorepacific Corporation",
+      "journal": "ClinicalTrials.gov 등록시험",
+      "doi": "",
+      "pmid": "",
+      "pmcid": "",
+      "population": "경미하고 일시적인 수면장애 성인",
+      "n": "실제 등록 60명",
+      "model": "Lactobacillus brevis 발효 GABA 수면시험",
+      "form": "Lactobacillus brevis-fermented GABA 캡슐",
+      "dose": "등록 페이지에 정량 용량 미기재",
+      "route": "경구",
+      "duration": "취침 전 1일 1회, 14일",
+      "comparator": "위약 캡슐",
+      "domain": "수면·안전성",
+      "outcome": "PSG 총 수면시간·입면잠복기·수면효율·NREM 3단계·각성시간·입면 후 각성, PSQI·ISI·Epworth·피로척도",
+      "direction": "결과 미확인",
+      "finding": "ClinicalTrials.gov상 2019년 시작, 2021년 6월 완료로 기록되어 있으며 60명이 실제 등록됐다. 그러나 공개 등록 페이지에서 결과값이나 결과 논문을 확인하지 못했으므로 수면 개선 여부는 판단할 수 없다.",
+      "safety": "안전성 평가가 계획됐으나 공개 결과값 미확인",
+      "limitation": "등록시험 계획·상태 자료일 뿐 결과 보고가 아니다. 발효 GABA의 정량 용량과 실제 결과가 공개되지 않았으므로 임상 효능·안전성 광고의 근거로 사용하지 않는다.",
+      "pubmedStatus": "PubMed 결과 논문 미확인",
+      "sciStatus": "해당없음",
+      "sciGroup": "해당없음",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://clinicaltrials.gov/study/NCT04857021",
+      "doiUrl": "",
+      "extraction": "등록정보검토",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "ClinicalTrials.gov NCT04857021 API와 공개 등록 페이지를 확인해 Amorepacific, 실제 등록 60명, 14일 취침 전 경구 GABA, PSG 및 설문 결과지표를 추출했다. 연구의 의미: GABA 수면효과를 검증하도록 설계된 완료 등록시험이지만, 결과값이 공개되지 않아 현재는 연구 존재와 설계만 확인할 수 있다. 기대 행동: 결과 논문 또는 등록소 결과가 확인될 때까지 수면 개선·안전성 주장에 사용하지 말고, ‘완료됐으나 결과 미확인’ 상태로 추적한다.",
+      "species": "인체",
+      "topic": "수면·등록시험",
+      "hasDrivePdf": false,
+      "linkType": "ClinicalTrials.gov",
+      "category": "연구 근거",
+      "effectCategory": "수면·결과 미확인"
     },
     {
       "id": "H-2024-172",
