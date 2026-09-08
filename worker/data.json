@@ -18,7 +18,7 @@
     "candidate": 141,
     "excluded": 16,
     "safetyCategory": 164,
-    "effectCategory": 257,
+    "effectCategory": 259,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -356,7 +356,7 @@
     "topic": [
       {
         "label": "성장·생산·육질",
-        "value": 50
+        "value": 49
       },
       {
         "label": "신경·행동·수면",
@@ -380,7 +380,7 @@
       },
       {
         "label": "장기·독성·안전성",
-        "value": 9
+        "value": 10
       },
       {
         "label": "기타",
@@ -1534,7 +1534,7 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 102
+        "value": 100
       },
       {
         "label": "수면",
@@ -1570,7 +1570,7 @@
       },
       {
         "label": "안전성",
-        "value": 10
+        "value": 11
       },
       {
         "label": "성장호르몬",
@@ -1650,6 +1650,10 @@
       },
       {
         "label": "면역·상호작용",
+        "value": 1
+      },
+      {
+        "label": "생산성",
         "value": 1
       },
       {
@@ -8896,20 +8900,20 @@
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "MJL 현행 미확인",
       "sciGroup": "현행 미확인",
-      "sciChecked": "2026-07-27",
+      "sciChecked": "2026-09-09",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42011235/",
       "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13091835/",
       "doiUrl": "https://doi.org/10.1016/j.toxrep.2026.102249",
       "extraction": "완료",
-      "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "PMCID PMC13091835; CC BY-NC-ND 공개 전문 재추출(2026-07-27). 전 저자가 Pharma Foods International 소속이며 1명은 이사회·지분 이해관계; 실험·자료수집은 독립 CRO 수행. 원본 PDF 자동확보는 실패. 연구의 의미: 동물에서 최고용량 2500 mg/kg/day까지 부모 전신독성·생식기능·임신결과·자손 생존과 발달에 유해한 용량반응 패턴이 없었다. 기대 행동: 전임상·기전 근거로만 활용하고 사람의 효능·용량·안전성으로 직접 일반화하지 않는다.",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMCID PMC13091835 공개 전문과 PubMed를 대조했다. 전 저자가 Pharma Foods International 소속이며 이해관계가 있어 독립적 재현과 함께 해석해야 한다. 연구의 의미: 반복 경구 GABA의 생식·발달 독성 공백을 OECD 421 기반으로 보완한 최신 안전성 자료다. 기대 행동: 사람의 장기 안전성이나 허용량으로 직접 일반화하지 말고, 시험물질·용량·기간·설계와 이해상충을 함께 표시한다.",
       "species": "설치류",
-      "topic": "성장·생산·육질",
+      "topic": "장기·독성·안전성",
       "hasDrivePdf": false,
-      "linkType": "원문·DOI",
+      "linkType": "PubMed·PMC·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "안전성"
     },
     {
       "id": "A-2026-056",
@@ -9025,20 +9029,20 @@
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "SCIE 확인",
       "sciGroup": "SCIE",
-      "sciChecked": "2026-07-27",
+      "sciChecked": "2026-09-09",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41594452/",
-      "fulltextUrl": "https://drive.google.com/file/d/1xy6a6wsd37YVRiXbVg1BQNUhH72O0w84/view?usp=drivesdk",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12837375/",
       "doiUrl": "https://doi.org/10.3390/ani16020262",
       "extraction": "완료",
-      "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "PMCID PMC12837375; 공개 PDF 서명·페이지·첫 페이지 검증 후 동물 Drive 저장. 12쪽 원문에서 18두, 0·3·6 g/day, 56일과 생산성·혈액 결과를 재검증. P1 공개전문 원문 재추출 완료(2026-07-27). 연구의 의미: 동물에서 유량 감소 완화 경향과 유지방·유당 개선이 있었으나 cortisol과 다수 대사지표에는 차이가 없었다. 기대 행동: 전임상·기전 근거로만 활용하고 사람의 효능·용량·안전성으로 직접 일반화하지 않는다.",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMCID PMC12837375, PubMed 및 공개 전문을 대조했다. 연구의 의미: 열스트레스 젖소에서 반추위 보호 GABA의 생산성·혈액 지표를 평가한 직접 사료 노출 자료지만 결과는 일부 지표에 국한된다. 기대 행동: 축산용 원료·동물 생산성 근거로만 활용하고 사람의 이완·수면·건강 효능으로 전환하지 않는다. 군당 6두와 이해관계·제형 차이를 병기한다.",
       "species": "축산",
       "topic": "성장·생산·육질",
       "hasDrivePdf": true,
-      "linkType": "Drive PDF",
+      "linkType": "PubMed·PMC·Drive PDF·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "생산성"
     },
     {
       "id": "A-2026-092",
