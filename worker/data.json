@@ -5,26 +5,26 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 357,
-    "literature": 349,
+    "total": 359,
+    "literature": 351,
     "regulatory": 8,
     "clinical": 109,
-    "animal": 179,
+    "animal": 181,
     "scie": 143,
     "complete": 183,
     "partial": 101,
     "drivePdf": 73,
     "included": 194,
-    "candidate": 139,
+    "candidate": 141,
     "excluded": 16,
     "safetyCategory": 164,
-    "effectCategory": 255,
+    "effectCategory": 257,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 323,
-      "literatureWithPmid": 299,
+      "literatureWithDoi": 325,
+      "literatureWithPmid": 300,
       "extractionComplete": 183,
       "extractionPartial": 101
     },
@@ -142,6 +142,10 @@
       },
       {
         "label": "발효식품·유산균",
+        "value": 1
+      },
+      {
+        "label": "브로일러·닭",
         "value": 1
       },
       {
@@ -338,6 +342,10 @@
       },
       {
         "label": "Limosilactobacillus fermentum·Levilactobacillus brevis",
+        "value": 1
+      },
+      {
+        "label": "Sprague-Dawley 랫드",
         "value": 1
       },
       {
@@ -588,6 +596,10 @@
       },
       {
         "label": "식이 GABA 섭취량",
+        "value": 1
+      },
+      {
+        "label": "식이 GABA·열스트레스·동물영양",
         "value": 1
       },
       {
@@ -903,6 +915,10 @@
         "value": 1
       },
       {
+        "label": "GABA·L-카르니틴·에탄올 동물시험",
+        "value": 1
+      },
+      {
         "label": "GABA(B1)·발작·철회",
         "value": 1
       },
@@ -918,7 +934,7 @@
       },
       {
         "label": "후보",
-        "value": 139
+        "value": 141
       },
       {
         "label": "제외",
@@ -940,7 +956,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 69
+        "value": 71
       },
       {
         "label": "해당 없음",
@@ -990,7 +1006,7 @@
       },
       {
         "label": "초록 기반",
-        "value": 12
+        "value": 14
       },
       {
         "label": "초록검토",
@@ -1163,6 +1179,10 @@
         "value": 1
       },
       {
+        "label": "동물 복합제 근거; 사람 효능 아님",
+        "value": 1
+      },
+      {
         "label": "동물 직접투여·기전 탐색",
         "value": 1
       },
@@ -1176,6 +1196,10 @@
       },
       {
         "label": "동물·세포 기전 가능성",
+        "value": 1
+      },
+      {
+        "label": "동물영양 근거; 사람 효능 아님",
         "value": 1
       },
       {
@@ -1480,7 +1504,7 @@
     "category": [
       {
         "label": "연구 근거",
-        "value": 175
+        "value": 177
       },
       {
         "label": "안전성",
@@ -1537,12 +1561,12 @@
         "value": 16
       },
       {
-        "label": "스트레스·이완",
+        "label": "근육발달",
         "value": 11
       },
       {
-        "label": "근육발달",
-        "value": 10
+        "label": "스트레스·이완",
+        "value": 11
       },
       {
         "label": "안전성",
@@ -1595,6 +1619,10 @@
       {
         "label": "흡수·결과 미확인",
         "value": 2
+      },
+      {
+        "label": "간·대사",
+        "value": 1
       },
       {
         "label": "기분·스트레스",
@@ -9269,6 +9297,88 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "A-2016-248",
+      "status": "후보",
+      "kind": "동물",
+      "design": "고온 스트레스 브로일러에서 식이 GABA·글루타민 상호작용 연구",
+      "year": 2016,
+      "title": "Interactive effects of glutamine and gamma-aminobutyric acid on growth performance and skeletal muscle amino acid metabolism of 22-42-day-old broilers exposed to hot environment",
+      "author": "Hu et al.",
+      "journal": "International Journal of Biometeorology",
+      "doi": "10.1007/s00484-015-1084-9",
+      "pmid": "26493197",
+      "population": "22~42일령 Arbor Acres 수컷 브로일러 360마리",
+      "n": "브로일러 360마리; 사람 중재 없음",
+      "model": "열중성·주기적 고온 스트레스에서 GABA 0 또는 100 mg/kg과 글루타민 식이요인 2×2 비교",
+      "form": "사료첨가 GABA",
+      "dose": "100 mg/kg 사료; 사람 용량으로 환산 불가",
+      "route": "경구(사료 섭취)",
+      "duration": "22~42일령, 28~42일 평가",
+      "comparator": "열중성·고온 스트레스 및 글루타민 조건 비교",
+      "domain": "GABA 섭취·동물영양·열스트레스",
+      "outcome": "GABA·글루타민이 고온 스트레스 브로일러의 증체·사료섭취와 근육 GABA 대사에 영향을 주었으나 사람 효능 아님",
+      "direction": "동물영양 근거; 사람 효능 아님",
+      "finding": "고온 스트레스 환경의 브로일러에서 식이 GABA와 글루타민의 성장 및 근육 아미노산 대사 상호작용을 평가했다.",
+      "safety": "가축 사료시험은 사람 보충제의 안전성·이완·수면 효과를 평가하지 않는다.",
+      "limitation": "브로일러 성장 결과를 사람의 체력·근육발달·스트레스 개선 광고로 사용할 수 없으며, GABA 단독 효과와 글루타민 상호작용을 구분해야 한다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·DOI 초록 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26493197/",
+      "doiUrl": "https://doi.org/10.1007/s00484-015-1084-9",
+      "extraction": "초록 기반",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 26493197의 PubMed 초록과 DOI를 확인했다. 연구의 의미: 경구 사료 GABA의 효과가 동물종·환경스트레스·동시 영양소에 의존할 수 있음을 보여주는 자료다. 기대 행동: 동물영양·후속 연구 설계에만 활용하고, 브로일러 결과를 사람의 이완·근육·피로 개선 근거로 광고하지 않는다.",
+      "species": "브로일러·닭",
+      "topic": "식이 GABA·열스트레스·동물영양",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "근육발달"
+    },
+    {
+      "id": "A-2003-247",
+      "status": "후보",
+      "kind": "동물",
+      "design": "만성 에탄올 투여 랫드에서 경구 GABA·L-카르니틴 보충 연구",
+      "year": 2003,
+      "title": "The Effects of Carnitine and/or Gamma-Aminobutyric Acid (GABA) Supplementation on the Recovery of Chronic Ethanol Administered Rats",
+      "author": "Soh et al.",
+      "journal": "Preventive Nutrition and Food Science",
+      "doi": "10.3746/jfn.2003.8.2.119",
+      "population": "만성 에탄올 투여 Sprague-Dawley 수컷 랫드",
+      "n": "랫드 연구; 사람 중재 없음",
+      "model": "6주 식이 에탄올 모델에서 GABA·L-카르니틴 단독·병용 경구 보충",
+      "form": "식이 GABA 및 L-카르니틴 복합제",
+      "dose": "GABA 0.5 g/kg; 병용 시 각 0.25 g/kg; 사람 용량 아님",
+      "route": "경구(식이)",
+      "duration": "6주",
+      "comparator": "대조식·에탄올 식이·GABA 단독·L-카르니틴 단독·병용 비교",
+      "domain": "GABA 섭취·복합제·동물대사",
+      "outcome": "에탄올 관련 혈중 지질과 일부 간 대사 지표 변화를 관찰했으나 사람 효능·금주 효과 아님",
+      "direction": "동물 복합제 근거; 사람 효능 아님",
+      "finding": "만성 에탄올 랫드에서 GABA와 L-카르니틴 보충이 지질 및 간 대사 지표에 미치는 영향을 평가했다.",
+      "safety": "고용량 랫드 식이시험은 사람 보충제의 안전성이나 알코올과의 병용 가능성을 지지하지 않는다.",
+      "limitation": "알코올 손상 회복·간 보호·숙취 개선 광고에 사용할 수 없고, GABA 단독 효과와 복합제 효과를 분리해 해석해야 한다.",
+      "pubmedStatus": "DOI·OpenAlex 확인; PubMed 식별정보 미확인",
+      "sciStatus": "DOI·학술지 초록 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "doiUrl": "https://doi.org/10.3746/jfn.2003.8.2.119",
+      "extraction": "초록 기반",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "DOI 10.3746/jfn.2003.8.2.119의 학술지 초록과 OpenAlex 서지정보를 확인했다. 연구의 의미: GABA 복합제 동물 대사자료는 사람 제품의 알코올 관련 효능이나 안전성을 대신할 수 없다는 점을 보여준다. 기대 행동: 복합제·동물영양 배경자료로만 활용하고, 숙취·간 보호·알코올 병용 광고를 금지한다.",
+      "species": "Sprague-Dawley 랫드",
+      "topic": "GABA·L-카르니틴·에탄올 동물시험",
+      "hasDrivePdf": false,
+      "linkType": "DOI·OpenAlex",
+      "category": "연구 근거",
+      "effectCategory": "간·대사"
     },
     {
       "id": "R-2026-243",
