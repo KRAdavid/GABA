@@ -212,5 +212,31 @@
     "title": "Gabapentin for the treatment of postoperative pain: a randomized clinical trial.",
     "note": "gabapentin 임상시험으로 GABA 자체 섭취시험이 아니어서 제외합니다.",
     "identifierVerification": "PubMed ESummary 제목·개입물질 확인"
+  },
+  {
+    "status": "후보",
+    "priority": "일반검토",
+    "pmid": "42518165",
+    "doi": "10.1007/s12602-026-11150-3",
+    "year": 2026,
+    "title": "Valorisation of Pea Pod Waste: Development of a GABA-Enriched Functional Beverage Using Probiotic Lactic Acid Bacteria",
+    "author": "Devecioglu, Ozkan, Kahveci, Karbancioglu-Guler",
+    "journal": "Probiotics and Antimicrobial Proteins",
+    "score": 55,
+    "note": "GABA 30.68 mg/mL 배양액 및 MSG 첨가 완두콩꼬투리 주스 34.46 mg/mL의 원료·제형 개발 연구. 인체 효능시험이 아니므로 제품 개발·원료 근거로만 검토합니다.",
+    "identifierVerification": "PubMed PMID·DOI 일치"
+  },
+  {
+    "status": "후보",
+    "priority": "일반검토",
+    "pmid": "42411622",
+    "doi": "10.31083/FBE44158",
+    "year": 2026,
+    "title": "Synergistic Enhancement of Fecal GABA Content by Bifidobacterium adolescentis 4-2 and Mannooligosaccharides in a Human Intestinal Flora Model",
+    "author": "Altaib, Suzuki, Morioka, Abe, Badr",
+    "journal": "Frontiers in Bioscience (Elite Edition)",
+    "score": 60,
+    "note": "KUHIMM in vitro 장내 미생물 모델에서 Bifidobacterium adolescentis 4-2와 MOS의 GABA 생성 상승작용을 평가한 연구. 사람 임상 효능·보충제 효과로 승격하지 않고 장-뇌 축 원료 가설로 검토합니다.",
+    "identifierVerification": "PubMed PMID·DOI 일치"
   }
 ]
