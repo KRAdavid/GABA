@@ -15,7 +15,7 @@
     "partial": 107,
     "drivePdf": 71,
     "included": 197,
-    "candidate": 160,
+    "candidate": 159,
     "excluded": 16,
     "safetyCategory": 159,
     "effectCategory": 286,
@@ -30,12 +30,12 @@
     },
     "discovery": {
       "snapshotDate": "2026-09-09",
-      "generatedAt": "2026-09-08T22:32:27.232Z",
+      "generatedAt": "2026-09-08T22:53:09.145Z",
       "triageVersion": "2026-09-09.1",
       "identifierExtraction": "PubMed primary ArticleIdList only",
       "pubmedUnique": 2952,
       "openAlexRetrieved": 0,
-      "mergedUnique": 3280,
+      "mergedUnique": 3334,
       "stagedCandidates": 200,
       "priority": 0,
       "general": 151,
@@ -1056,7 +1056,7 @@
       },
       {
         "label": "후보",
-        "value": 160
+        "value": 159
       },
       {
         "label": "제외",
@@ -1072,7 +1072,7 @@
       },
       {
         "label": "포함후보",
-        "value": 2
+        "value": 3
       }
     ],
     "sciGroup": [
@@ -16527,7 +16527,7 @@
     },
     {
       "id": "H-2026-173",
-      "status": "후보",
+      "status": "포함후보",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약(무카페인) 대조 교차시험",
       "year": 2026,
