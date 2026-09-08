@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 221,
-    "literature": 213,
+    "total": 222,
+    "literature": 214,
     "regulatory": 8,
-    "clinical": 58,
+    "clinical": 59,
     "animal": 153,
     "scie": 165,
-    "complete": 129,
+    "complete": 130,
     "partial": 84,
     "drivePdf": 77,
     "included": 140,
-    "candidate": 64,
+    "candidate": 65,
     "excluded": 9,
     "safetyCategory": 171,
-    "effectCategory": 142,
+    "effectCategory": 143,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 206,
       "literatureWithPmid": 206,
-      "extractionComplete": 129,
+      "extractionComplete": 130,
       "extractionPartial": 84
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 59
+        "value": 60
       },
       {
         "label": "축산",
@@ -100,7 +100,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 48
+        "value": 49
       },
       {
         "label": "심혈관·혈압",
@@ -190,7 +190,7 @@
       },
       {
         "label": "후보",
-        "value": 64
+        "value": 65
       },
       {
         "label": "제외",
@@ -216,13 +216,13 @@
       },
       {
         "label": "해당 없음",
-        "value": 1
+        "value": 2
       }
     ],
     "extraction": [
       {
         "label": "완료",
-        "value": 129
+        "value": 130
       },
       {
         "label": "부분",
@@ -251,12 +251,12 @@
         "value": 6
       },
       {
-        "label": "혼합",
+        "label": "미확인",
         "value": 2
       },
       {
-        "label": "미확인",
-        "value": 1
+        "label": "혼합",
+        "value": 2
       },
       {
         "label": "불리",
@@ -316,7 +316,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 50
+        "value": 51
       }
     ],
     "effectCategory": [
@@ -326,7 +326,7 @@
       },
       {
         "label": "수면",
-        "value": 48
+        "value": 49
       },
       {
         "label": "다이어트",
@@ -9134,6 +9134,49 @@
       "linkType": "UMIN 등록정보",
       "category": "연구 근거",
       "effectCategory": "스트레스"
+    },
+    {
+      "id": "H-2026-056",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 단일기관 등록시험(결과 미공개)",
+      "year": 2026,
+      "title": "Improvement Effects of Gamma Aminobutyric Acid (GABA) Supplementation on Treatment of Children With Insomnia",
+      "author": "Wang et al.",
+      "journal": "ClinicalTrials.gov 등록시험",
+      "doi": "",
+      "pmid": "",
+      "population": "불면증 진단 6–12세 아동",
+      "n": "목표 206명",
+      "model": "소아 불면증",
+      "form": "시판 GABA 보충제",
+      "dose": "100 mg/day",
+      "route": "경구, 취침 전",
+      "duration": "14일",
+      "comparator": "동일 수면위생교육+위약",
+      "domain": "수면·소아",
+      "outcome": "수면잠복기, 총수면시간, 수면효율, WASO, actigraphy, CSHQ, fNIRS, 정서·인지, 이상사건",
+      "direction": "미확인",
+      "finding": "GABA 100 mg/day와 위약을 14일 비교하도록 설계된 등록시험이나, 등록 페이지에 결과·분석·이상사건 결과가 게시되지 않았다.",
+      "safety": "결과 미공개로 소아 안전성 판단 불가",
+      "limitation": "등록시험 계획만 확인됐고 결과 논문·결과표가 없다. 소아 대상이므로 성인 GABA 연구나 일반 소비자 마케팅으로 일반화할 수 없으며 효능 주장에 사용할 수 없다.",
+      "pubmedStatus": "PubMed 미등재·결과 미공개",
+      "sciStatus": "해당 없음(등록시험)",
+      "sciGroup": "해당 없음",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://clinicaltrials.gov/study/NCT06226259",
+      "fulltextUrl": "https://clinicaltrials.gov/study/NCT06226259",
+      "doiUrl": "",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "ClinicalTrials.gov NCT06226259 등록정보 확인. 마지막 게시 업데이트 2024-06-20, 예상 완료 2025-12-22이나 결과 없음. 연구의 의미: 소아 불면증에서 GABA 100 mg/day 취침 전 투여를 평가하도록 설계된 등록시험으로, 향후 결과 누락을 감시할 기준점이다. 기대 행동: 결과 공개 전에는 효능·안전성 근거로 사용하지 않고 소아 대상이라는 점과 결과 발표 여부를 자동 추적한다.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "ClinicalTrials.gov 등록정보",
+      "category": "연구 근거",
+      "effectCategory": "수면"
     },
     {
       "id": "H-2025-052",
