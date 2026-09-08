@@ -30,7 +30,7 @@
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
-      "generatedAt": "2026-09-08T03:20:06.075Z",
+      "generatedAt": "2026-09-08T11:24:05.088Z",
       "triageVersion": "2026-07-31.2",
       "identifierExtraction": "PubMed primary ArticleIdList only",
       "pubmedUnique": 2810,
@@ -38,14 +38,14 @@
       "mergedUnique": 3452,
       "stagedCandidates": 1000,
       "priority": 11,
-      "general": 837,
-      "low": 151,
+      "general": 811,
+      "low": 177,
       "screeningCounts": {
         "포함후보": 11,
         "보류": 2,
         "제외": 5,
         "우선검토": 0,
-        "미검토": 982
+        "미검토": 980
       },
       "candidateSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
       "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
