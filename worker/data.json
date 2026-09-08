@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 254,
-    "literature": 246,
+    "total": 255,
+    "literature": 247,
     "regulatory": 8,
-    "clinical": 80,
+    "clinical": 81,
     "animal": 157,
     "scie": 158,
     "complete": 145,
-    "partial": 101,
+    "partial": 102,
     "drivePdf": 76,
     "included": 149,
-    "candidate": 88,
+    "candidate": 89,
     "excluded": 9,
     "safetyCategory": 169,
-    "effectCategory": 164,
+    "effectCategory": 165,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 228,
+      "literatureWithDoi": 229,
       "literatureWithPmid": 226,
       "extractionComplete": 145,
-      "extractionPartial": 101
+      "extractionPartial": 102
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 82
+        "value": 83
       },
       {
         "label": "축산",
@@ -271,6 +271,10 @@
         "value": 1
       },
       {
+        "label": "폐경기·수면",
+        "value": 1
+      },
+      {
         "label": "폐경기·스트레스·수면",
         "value": 1
       },
@@ -290,7 +294,7 @@
       },
       {
         "label": "후보",
-        "value": 88
+        "value": 89
       },
       {
         "label": "제외",
@@ -308,7 +312,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 74
+        "value": 75
       },
       {
         "label": "ESCI",
@@ -326,13 +330,13 @@
       },
       {
         "label": "부분",
-        "value": 101
+        "value": 102
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 150
+        "value": 151
       },
       {
         "label": "혼재",
@@ -416,7 +420,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 85
+        "value": 86
       }
     ],
     "effectCategory": [
@@ -426,7 +430,7 @@
       },
       {
         "label": "수면",
-        "value": 49
+        "value": 50
       },
       {
         "label": "다이어트",
@@ -10708,6 +10712,49 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타"
+    },
+    {
+      "id": "H-2025-177",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행시험(학회 초록)",
+      "year": 2025,
+      "title": "Effect of a Nonhormonal Sleep Supplement on Daytime Functioning in Menopausal Females: A Randomized, Double-Blind, Placebo-Controlled Trial",
+      "author": "Carbonneau et al.",
+      "journal": "Sleep",
+      "doi": "10.1093/sleep/zsaf090.0937",
+      "pmid": "",
+      "population": "수면장애가 있는 폐경 전후 여성 40–65세",
+      "n": "127명 완료(복합제 65, 위약 62)",
+      "model": "폐경 관련 중등도–중증 수면장애",
+      "form": "GABA·SAMe·propyl gallate·magnesium glycinate·theanine 복합 수면보충제",
+      "dose": "GABA 개별 용량 및 전체 제형 용량 초록상 미기재",
+      "route": "경구",
+      "duration": "취침 60분 전, 3주",
+      "comparator": "위약",
+      "domain": "수면·주간기능·폐경기",
+      "outcome": "PROMIS 수면관련 장애, 아침 편안함·몽롱함·주간 졸림·회복감, 안전성",
+      "direction": "유익",
+      "finding": "복합제군은 위약 대비 PROMIS 주간기능과 아침 편안함·몽롱함·주간 졸림·회복감 지표가 1–3주에 유의하게 개선됐다.",
+      "safety": "초록에서 안전성을 평가했으나 상세 이상반응 수치·표는 확인 필요",
+      "limitation": "학회 초록이며 GABA 단독군이 없고 5성분 복합제의 기여를 분리할 수 없다. 기업 지원(Bonafide Health) 연구이므로 GABA 단독 수면효과 또는 일반 여성·장기 섭취 효능으로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 미확인(학회 초록)",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://academic.oup.com/sleep/article/48/Supplement_1/A407/8134793",
+      "doiUrl": "https://doi.org/10.1093/sleep/zsaf090.0937",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "Sleep 2025 학회 초록의 원문 페이지를 확인. 연구의 의미: GABA를 포함한 복합 수면보충제가 폐경 전후 여성의 주간기능과 아침 증상에 미칠 가능성을 위약과 비교해 탐색한 자료다. 기대 행동: 폐경기 수면 복합제의 탐색 근거로만 활용하고 GABA 단독효과로 인용하지 않으며, GABA 용량·전체 조성·이상반응 상세와 정식 논문 출판 여부를 추가 확인한다.",
+      "species": "인체",
+      "topic": "폐경기·수면",
+      "hasDrivePdf": false,
+      "linkType": "학회 초록·DOI",
+      "category": "연구 근거",
+      "effectCategory": "수면"
     },
     {
       "id": "H-2025-052",
