@@ -14,8 +14,8 @@
     "complete": 158,
     "partial": 96,
     "drivePdf": 76,
-    "included": 162,
-    "candidate": 83,
+    "included": 163,
+    "candidate": 82,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 162
+        "value": 163
       },
       {
         "label": "후보",
-        "value": 83
+        "value": 82
       },
       {
         "label": "제외",
@@ -9927,7 +9927,7 @@
     },
     {
       "id": "H-2000-145",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "이중눈가림 대조 교차시험",
       "year": 2000,
