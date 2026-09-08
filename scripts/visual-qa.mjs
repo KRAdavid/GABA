@@ -39,7 +39,7 @@ await prepare(desktop);
 await desktop.goto("https://preview.local/", { waitUntil: "networkidle" });
 await desktop.locator("#metric-total").waitFor({ state: "visible" });
 await desktop.screenshot({ path: resolve(qaDir, "desktop-top.png"), fullPage: false });
-assert.equal((await desktop.locator("#metric-total").textContent()).trim(), "321편");
+assert.equal((await desktop.locator("#metric-total").textContent()).trim(), "322편");
 assert.equal((await desktop.locator("#metric-regulatory").textContent()).trim(), "8건");
 assert.equal((await desktop.locator("#metric-candidates").textContent()).trim(), "1,000건");
 assert.match((await desktop.locator("#metric-identifiers").textContent()).trim(), /^\d+%$/);
