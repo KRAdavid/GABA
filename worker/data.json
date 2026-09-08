@@ -14,8 +14,8 @@
     "complete": 158,
     "partial": 96,
     "drivePdf": 76,
-    "included": 163,
-    "candidate": 82,
+    "included": 164,
+    "candidate": 81,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 163
+        "value": 164
       },
       {
         "label": "후보",
-        "value": 82
+        "value": 81
       },
       {
         "label": "제외",
@@ -10142,7 +10142,7 @@
     },
     {
       "id": "H-2004-155",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중맹검 위약대조 평행시험",
       "year": 2004,
