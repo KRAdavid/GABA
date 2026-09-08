@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 306,
-    "literature": 298,
+    "total": 307,
+    "literature": 299,
     "regulatory": 8,
-    "clinical": 104,
+    "clinical": 105,
     "animal": 169,
     "scie": 150,
-    "complete": 188,
+    "complete": 189,
     "partial": 92,
     "drivePdf": 74,
     "included": 190,
-    "candidate": 97,
+    "candidate": 98,
     "excluded": 11,
     "safetyCategory": 159,
-    "effectCategory": 203,
+    "effectCategory": 204,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 277,
       "literatureWithPmid": 258,
-      "extractionComplete": 188,
+      "extractionComplete": 189,
       "extractionPartial": 92
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 100
+        "value": 101
       },
       {
         "label": "축산",
@@ -371,6 +371,10 @@
         "value": 1
       },
       {
+        "label": "신경·흡수·안전성",
+        "value": 1
+      },
+      {
         "label": "신체구성·운동수행·대사",
         "value": 1
       },
@@ -518,7 +522,7 @@
       },
       {
         "label": "후보",
-        "value": 97
+        "value": 98
       },
       {
         "label": "제외",
@@ -544,7 +548,7 @@
       },
       {
         "label": "해당 없음",
-        "value": 7
+        "value": 8
       },
       {
         "label": "ESCI",
@@ -574,7 +578,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 188
+        "value": 189
       },
       {
         "label": "부분",
@@ -635,6 +639,10 @@
         "value": 3
       },
       {
+        "label": "결과 미확인",
+        "value": 2
+      },
+      {
         "label": "중립",
         "value": 2
       },
@@ -644,10 +652,6 @@
       },
       {
         "label": "간접 대사 신호; 효능 근거 아님",
-        "value": 1
-      },
-      {
-        "label": "결과 미확인",
         "value": 1
       },
       {
@@ -908,7 +912,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 141
+        "value": 142
       },
       {
         "label": "동물시험",
@@ -962,7 +966,7 @@
       },
       {
         "label": "안전성",
-        "value": 4
+        "value": 5
       },
       {
         "label": "대사",
@@ -13658,6 +13662,49 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "장-뇌축·간접"
+    },
+    {
+      "id": "H-REG-2024-002",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위·위약대조 급성 경구 투여 생리·신경영상 연구",
+      "year": 2024,
+      "title": "Association Between Serum and Neuroimaging Measurements of the GABAergic System",
+      "author": "Corbin et al.",
+      "journal": "ClinicalTrials.gov 등록시험",
+      "doi": "",
+      "pmid": "",
+      "population": "건강한 성인",
+      "n": "등록정보에서 확인 필요",
+      "model": "GABAergic system의 혈청·뇌 영상·TMS 연계 평가",
+      "form": "순수 GABA 캡슐",
+      "dose": "1,800 mg 단회(600 mg 캡슐 3개)",
+      "route": "경구",
+      "duration": "급성 투여",
+      "comparator": "위약",
+      "domain": "중추신경계·흡수·약리·안전성",
+      "outcome": "혈청 GABA, 신경영상, 경두개 자기자극(TMS), 이상반응",
+      "direction": "결과 미확인",
+      "finding": "건강한 성인에서 경구 GABA 1,800mg과 위약을 비교하고 혈청 측정, 뇌 영상, TMS를 통해 말초 GABA와 중추 GABAergic system의 연관성 및 혈액뇌장벽 관련 질문을 탐색하는 등록시험이다. 결과는 등록정보상 아직 확인되지 않는다.",
+      "safety": "급성 이상반응 평가가 포함되지만 결과 미게시로 안전성 결론 불가",
+      "limitation": "등록시험이며 결과가 게시되지 않았다. 1,800mg 단회 투여 계획은 일반 소비자의 일상 섭취 효능·장기 안전성을 입증하지 않는다. 혈액뇌장벽 통과 여부도 이 시험의 결과 확인 전에는 주장할 수 없다.",
+      "pubmedStatus": "PubMed 미등재·결과 미확인",
+      "sciStatus": "해당 없음(등록시험)",
+      "sciGroup": "해당 없음",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://clinicaltrials.gov/study/NCT06464172",
+      "fulltextUrl": "https://clinicaltrials.gov/study/NCT06464172",
+      "doiUrl": "",
+      "extraction": "완료",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "ClinicalTrials.gov NCT06464172 등록정보와 공개 검색 결과를 대조했다. 연구의 의미: 순수 GABA 1,800mg 단회 경구 투여 후 말초 혈중치와 뇌 영상·TMS 지표를 함께 보도록 설계되어, 흡수와 중추 작용의 연결을 직접 검토할 수 있는 연구 공백을 보여준다. 기대 행동: 결과 게시 전에는 뇌 도달·집중력·불안완화·고용량 안전성 광고에 사용하지 말고, 결과와 실제 제품의 용량·제형·대상 차이를 확인한다.",
+      "species": "인체",
+      "topic": "신경·흡수·안전성",
+      "hasDrivePdf": false,
+      "linkType": "ClinicalTrials.gov 등록정보",
+      "category": "연구 근거",
+      "effectCategory": "안전성"
     },
     {
       "id": "R-2026-191",
