@@ -249,10 +249,10 @@
       "useMatch": "일치",
       "subject": "성인 18세 이상 NHP 제품",
       "exposure": "GABA 50~3,000 mg/day; 1회 750 mg 초과 금지",
-      "duration": "모노그래프의 용도·주의문구에 따름",
-      "safetyFinding": "GABA의 일시적 이완 도움 용도와 50~3,000 mg/day 기준을 공식 제시",
+      "duration": "GABA 300 mg/day 이상 제품은 4주 초과 사용 전 의료인 상담 문구 필요",
+      "safetyFinding": "GABA의 ‘일시적 이완에 도움’ 용도와 50~3,000 mg/day(1회 750 mg 이하) 기준을 제시하며, 300 mg/day 이상은 4주 초과 사용 전 상담 조건을 둔다",
       "noael": "해당없음",
-      "adverse": "해당없음",
+      "adverse": "300 mg/day 이상은 알코올과 함께 사용하지 않음; 운전·기계조작 시 졸림 주의; 임신·수유 전 상담; 어지러움·위장 불편·두통 등 발생 시 중단·상담 문구",
       "quality": "높음",
       "guidelines": "Health Canada NNHPD monograph guidance",
       "recognition": "Health Canada NNHPD 공식 Cognitive Function Products Monograph, 2026-01-30",
@@ -260,7 +260,7 @@
     "decisionUrl": "https://webprod.hc-sc.gc.ca/nhpid-bdipsn/atReq?atid=fonc.cognitive.func&lang=eng",
       "checked": "2026-09-08",
       "year": 2026,
-    "notes": "Health Canada NNHPD 공식 2026-01-30 Cognitive Function Products Monograph 원문 페이지와 사용자 제공 PDF를 대조 확인. GABA는 4-Aminobutanoic acid로 기재되고 ‘Helps to temporarily promote relaxation’, 50–3,000 mg/day 및 1회 750 mg 초과 금지 조건이 제시된다. 이는 캐나다 자연건강제품 허가·라벨 가이드이며 임상효능을 새로 입증한 논문이나 국내 표시 허가가 아니므로 개별 제품 허가·국내 표시 적합성과 구분한다."
+    "notes": "Health Canada NNHPD 공식 2026-01-30 Cognitive Function Products Monograph 원문 페이지와 사용자 제공 PDF를 대조 확인했다. Table 2.5는 GABA(4-Aminobutanoic acid)에 ‘Helps (to) temporarily promote relaxation’, 50–3,000 mg/day 및 1회 750 mg 초과 금지를 제시한다. Table 5는 GABA 300 mg/day 이상 제품에 4주 초과 사용 전 의료인 상담, 알코올 회피, 운전·기계조작 시 졸림 주의 및 임신·수유 전 상담 관련 문구를 연결한다. 이는 캐나다 자연건강제품 허가·라벨 가이드이며 임상효능을 새로 입증한 논문이나 국내 표시 허가가 아니므로 개별 제품 허가·국내 표시 적합성과 구분한다."
     }
   ]
 }
