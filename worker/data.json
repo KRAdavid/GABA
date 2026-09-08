@@ -11,11 +11,11 @@
     "clinical": 86,
     "animal": 159,
     "scie": 153,
-    "complete": 164,
-    "partial": 91,
+    "complete": 165,
+    "partial": 90,
     "drivePdf": 76,
-    "included": 174,
-    "candidate": 70,
+    "included": 175,
+    "candidate": 69,
     "excluded": 11,
     "safetyCategory": 160,
     "effectCategory": 167,
@@ -25,8 +25,8 @@
       "duplicatePmids": 0,
       "literatureWithDoi": 237,
       "literatureWithPmid": 230,
-      "extractionComplete": 164,
-      "extractionPartial": 91
+      "extractionComplete": 165,
+      "extractionPartial": 90
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -318,11 +318,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 174
+        "value": 175
       },
       {
         "label": "후보",
-        "value": 70
+        "value": 69
       },
       {
         "label": "제외",
@@ -358,11 +358,11 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 164
+        "value": 165
       },
       {
         "label": "부분",
-        "value": 91
+        "value": 90
       }
     ],
     "direction": [
@@ -8446,27 +8446,27 @@
     },
     {
       "id": "A-2024-104",
-      "status": "후보",
+      "status": "포함",
       "kind": "동물",
       "design": "식이 보충·다중오믹스·장 기능 시험",
       "year": 2024,
       "title": "Multi-Omics Reveal the Improvements of Nutrient Digestion, Absorption, and Metabolism and Intestinal Function via GABA Supplementation in Weanling Piglets",
-      "author": "Zeng, Hu, He, Deng, Guo, Zhou",
-      "journal": "Animals",
+      "author": "Yan Zeng; Hong Hu; Yiwen He; Zhiying Deng; Yiting Guo; Xihong Zhou",
+      "journal": "Animals 14(22):3177 (2024)",
       "doi": "10.3390/ani14223177",
       "pmid": "39595230",
       "population": "이유 자돈",
-      "n": "원문 확인 필요",
+      "n": "21마리(3군, 군별 7마리)",
       "model": "식이 GABA 보충 자돈 모델",
       "form": "식이 GABA",
       "dose": "80 또는 120 mg/kg",
       "route": "사료 경구",
-      "duration": "원문 확인 필요",
+      "duration": "28일",
       "comparator": "기초사료 대조군",
       "domain": "소화·장건강·대사",
       "outcome": "성장·설사, 장 형태, 염증, 장내미생물, 대사체·전사체, 소화효소·tight junction",
       "direction": "유익",
-      "finding": "식이 GABA는 이유 자돈의 성장·설사 지표와 장 형태·염증을 개선하고, 소화·흡수·장 장벽 관련 다중오믹스 신호를 변화시켰다.",
+      "finding": "식이 GABA는 이유 자돈의 성장·설사 지표와 장 형태·염증을 개선하고, 소화·흡수·장 장벽 관련 다중오믹스 신호를 변화시켰다. 80 mg/kg군이 120 mg/kg군보다 주요 성장·염증 지표에서 더 일관된 신호를 보였다.",
       "safety": "동물 사료시험이며 사람 안전성 자료가 아님",
       "limitation": "자돈 연구이며 사람용 장 건강·영양흡수 효능으로 직접 일반화할 수 없다.",
       "pubmedStatus": "PubMed 등재",
@@ -8476,10 +8476,10 @@
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39595230/",
       "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11591204/",
       "doiUrl": "https://doi.org/10.3390/ani14223177",
-      "extraction": "부분",
+      "extraction": "완료",
       "added": "2026-09-08",
       "checked": "2026-09-08",
-      "notes": "연구의 의미: 직접 식이 GABA와 장 장벽·소화·미생물 기전의 연결을 다중오믹스로 탐색한 최신 전임상 자료다. 기대 행동: 장-대사 기전 콘텐츠의 후보 근거로 활용하되 사람용 장 건강·체중·영양흡수 문구로 확장하지 않는다.",
+      "notes": "PMID 39595230·PMCID PMC11591204·DOI 10.3390/ani14223177의 PubMed·PMC 원문을 대조해 21일령 Duroc×Landrace×Yorkshire 이유 자돈 21마리, 3군·군별 7마리, GABA 80 또는 120 mg/kg 사료, 28일 설계를 확인했다. 연구의 의미: 직접 식이 GABA와 장 장벽·소화·미생물 기전의 연결을 다중오믹스로 탐색한 최신 전임상 자료다. 기대 행동: 장-대사 기전 콘텐츠의 동물 근거로 활용하되 사람용 장 건강·체중·영양흡수 문구로 확장하지 않으며, 120 mg/kg이 80 mg/kg보다 우월하지 않았다는 용량 반응 정보도 함께 표시한다.",
       "species": "축산",
       "topic": "소화·장건강",
       "hasDrivePdf": false,
