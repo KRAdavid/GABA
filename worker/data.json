@@ -14,8 +14,8 @@
     "complete": 157,
     "partial": 97,
     "drivePdf": 76,
-    "included": 154,
-    "candidate": 91,
+    "included": 155,
+    "candidate": 90,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 154
+        "value": 155
       },
       {
         "label": "후보",
-        "value": 91
+        "value": 90
       },
       {
         "label": "제외",
@@ -1929,7 +1929,7 @@
     },
     {
       "id": "H-2023-017",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약대조 평행군 시험",
       "year": 2023,
