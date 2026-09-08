@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 381,
-    "literature": 373,
+    "total": 382,
+    "literature": 374,
     "regulatory": 8,
     "clinical": 109,
     "animal": 203,
@@ -14,16 +14,16 @@
     "complete": 189,
     "partial": 106,
     "drivePdf": 71,
-    "included": 196,
+    "included": 197,
     "candidate": 160,
     "excluded": 16,
     "safetyCategory": 159,
-    "effectCategory": 281,
+    "effectCategory": 282,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 346,
+      "literatureWithDoi": 347,
       "literatureWithPmid": 320,
       "extractionComplete": 189,
       "extractionPartial": 106
@@ -156,6 +156,10 @@
       },
       {
         "label": "사람",
+        "value": 1
+      },
+      {
+        "label": "사람 배경 문헌(시험 대상 없음)",
         "value": 1
       },
       {
@@ -578,6 +582,10 @@
       },
       {
         "label": "불안·우울·프로바이오틱·GABA",
+        "value": 1
+      },
+      {
+        "label": "불안·이완·PharmaGABA·근거수준",
         "value": 1
       },
       {
@@ -1020,7 +1028,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 196
+        "value": 197
       },
       {
         "label": "후보",
@@ -1050,7 +1058,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 75
+        "value": 76
       },
       {
         "label": "미확인",
@@ -1100,7 +1108,7 @@
       },
       {
         "label": "완전",
-        "value": 21
+        "value": 22
       },
       {
         "label": "초록 기반",
@@ -1342,6 +1350,10 @@
       },
       {
         "label": "발효물 전임상 가능성; 복합물",
+        "value": 1
+      },
+      {
+        "label": "배경·가설; 직접 임상 효능 근거 아님",
         "value": 1
       },
       {
@@ -1665,16 +1677,16 @@
         "value": 6
       },
       {
+        "label": "리뷰·배경",
+        "value": 2
+      },
+      {
         "label": "약물·경계 근거",
         "value": 2
       },
       {
         "label": "임상 근거",
         "value": 2
-      },
-      {
-        "label": "리뷰·배경",
-        "value": 1
       }
     ],
     "effectCategory": [
@@ -1820,6 +1832,10 @@
       },
       {
         "label": "면역·상호작용",
+        "value": 1
+      },
+      {
+        "label": "불안·스트레스·수면",
         "value": 1
       },
       {
@@ -17820,6 +17836,49 @@
       "linkType": "출판사·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·동물영양"
+    },
+    {
+      "id": "R-2024-282",
+      "status": "포함",
+      "kind": "리뷰",
+      "design": "GABA·PharmaGABA와 불안 관련 치료적 고려사항 정규 칼럼",
+      "year": 2024,
+      "title": "The Effects of Gamma-Aminobutyric Acid (GABA) on Anxiety",
+      "author": "Ross SM",
+      "journal": "Holistic Nursing Practice",
+      "doi": "10.1097/HNP.0000000000000674",
+      "pmid": "",
+      "population": "불안장애·보완통합요법 배경 문헌",
+      "n": "임상시험 아님",
+      "model": "기존 불안 치료와 PharmaGABA 관련 문헌 서술",
+      "form": "PharmaGABA·GABA 보충제 배경",
+      "dose": "제품·권장량별 상이; 본 칼럼의 독립 용량시험 아님",
+      "route": "경구 보충제 배경; 본 칼럼의 독립 투여시험 아님",
+      "duration": "해당 없음(정규 칼럼)",
+      "comparator": "기존 약물·심리치료와 보완통합 접근 비교 서술",
+      "domain": "불안·이완·보완통합요법",
+      "outcome": "기존 GABA·PharmaGABA 관련 효능·안전성 서술",
+      "direction": "배경·가설; 직접 임상 효능 근거 아님",
+      "finding": "GABA와 PharmaGABA를 불안 및 이완 반응의 보완적 접근으로 소개하지만, 독립적인 무작위시험이나 신규 사람·동물 데이터를 제시하지 않는 정규 칼럼이다.",
+      "safety": "칼럼의 일반적 안전성 서술은 제품별 용량·제형·복용자 조건의 안전성 시험을 대체하지 않는다.",
+      "limitation": "원저 임상시험이 아니며 PharmaGABA라는 특정 상표 원료를 중심으로 서술한다. 불안장애 치료·완화 또는 일반 GABA 제품 효능 광고에 직접 사용하지 않는다.",
+      "pubmedStatus": "PubMed 미확인; DOI·출판사 원문 확인",
+      "sciStatus": "출판사 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://doi.org/10.1097/HNP.0000000000000674",
+      "doiUrl": "https://doi.org/10.1097/HNP.0000000000000674",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "DOI와 출판사 원문 사본의 서지정보·본문을 확인했다. 연구의 의미: GABA 관련 마케팅 문구가 독립 임상시험 결과와 보완통합 배경 서술을 혼동하지 않도록 구분하게 하는 자료다. 기대 행동: 불안·이완 콘텐츠의 배경 설명과 근거 수준 표시에만 활용하고, PharmaGABA의 서술을 순수 GABA의 불안 치료·즉각 효과 또는 제품 안전성 입증으로 확대하지 않는다.",
+      "species": "사람 배경 문헌(시험 대상 없음)",
+      "topic": "불안·이완·PharmaGABA·근거수준",
+      "hasDrivePdf": false,
+      "linkType": "DOI·출판사 원문",
+      "category": "리뷰·배경",
+      "effectCategory": "불안·스트레스·수면"
     },
     {
       "id": "A-2025-281",
