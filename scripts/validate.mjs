@@ -57,6 +57,29 @@ assert.equal(db.records.filter((r) => r.kind === "규제").length, db.meta.regul
 assert.ok(db.records.every((r) => r.id && r.title && r.year));
 assert.ok(db.records.filter((r) => r.kind === "규제").every((r) => r.titleKo && r.summaryKo && r.sourceUrl));
 
+const countBy = (records, field) => records.reduce((counts, record) => {
+  const key = record[field] || "기타";
+  counts[key] = (counts[key] || 0) + 1;
+  return counts;
+}, {});
+const assertFacetCounts = (facetName, records, field = facetName) => {
+  const actual = countBy(records, field);
+  const expected = Object.fromEntries(db.facets[facetName].map((item) => [item.label, item.value]));
+  assert.deepEqual(expected, actual, `${facetName} facet counts must match records`);
+};
+const literatureRecords = db.records.filter((record) => record.kind !== "규제");
+assertFacetCounts("species", literatureRecords);
+assertFacetCounts("topic", literatureRecords);
+assertFacetCounts("sciGroup", literatureRecords);
+assertFacetCounts("extraction", literatureRecords);
+assertFacetCounts("direction", literatureRecords);
+assertFacetCounts("status", db.records);
+assertFacetCounts("category", db.records);
+assertFacetCounts("effectCategory", db.records);
+assert.equal(db.meta.safetyCategory, db.records.filter((record) => record.category === "안전성").length);
+assert.equal(db.meta.effectCategory, db.records.filter((record) => record.effectCategory !== "기타").length);
+assert.equal(db.meta.dataQuality.extractionPartial, literatureRecords.filter((record) => record.extraction === "부분").length);
+
 console.log(JSON.stringify({
   valid: true,
   records: db.records.length,
