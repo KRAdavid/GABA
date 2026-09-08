@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 219,
-    "literature": 211,
+    "total": 220,
+    "literature": 212,
     "regulatory": 8,
     "clinical": 57,
-    "animal": 152,
+    "animal": 153,
     "scie": 165,
     "complete": 128,
-    "partial": 83,
+    "partial": 84,
     "drivePdf": 77,
     "included": 140,
-    "candidate": 62,
+    "candidate": 63,
     "excluded": 9,
     "safetyCategory": 171,
-    "effectCategory": 140,
+    "effectCategory": 141,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 205,
-      "literatureWithPmid": 205,
+      "literatureWithDoi": 206,
+      "literatureWithPmid": 206,
       "extractionComplete": 128,
-      "extractionPartial": 83
+      "extractionPartial": 84
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -58,7 +58,7 @@
     "species": [
       {
         "label": "설치류",
-        "value": 97
+        "value": 98
       },
       {
         "label": "인체",
@@ -135,6 +135,10 @@
         "value": 2
       },
       {
+        "label": "대사·신장",
+        "value": 1
+      },
+      {
         "label": "대사·염증",
         "value": 1
       },
@@ -186,7 +190,7 @@
       },
       {
         "label": "후보",
-        "value": 62
+        "value": 63
       },
       {
         "label": "제외",
@@ -204,7 +208,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 38
+        "value": 39
       },
       {
         "label": "ESCI",
@@ -218,13 +222,13 @@
       },
       {
         "label": "부분",
-        "value": 83
+        "value": 84
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 131
+        "value": 132
       },
       {
         "label": "혼재",
@@ -304,7 +308,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 48
+        "value": 49
       }
     ],
     "effectCategory": [
@@ -322,7 +326,7 @@
       },
       {
         "label": "당뇨",
-        "value": 22
+        "value": 23
       },
       {
         "label": "고혈압",
@@ -9036,6 +9040,49 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타"
+    },
+    {
+      "id": "A-2025-128",
+      "status": "후보",
+      "kind": "동물",
+      "design": "고지방식이 랫드의 GABA 경구투여·식이전환 전임상시험",
+      "year": 2025,
+      "title": "Exogenous GABA as a natural epigenetic modifier for managing glycemic memory and diabetic nephropathy by modifying the epigenetic axis",
+      "author": "Kushwaha et al.",
+      "journal": "Journal of Drug Targeting",
+      "doi": "10.1080/1061186X.2025.2523990",
+      "pmid": "40542614",
+      "population": "고지방식이·식이전환 Sprague-Dawley 랫드",
+      "n": "세부 군별 표본수 원문 확인 필요",
+      "model": "glycemic memory 및 당뇨성 신병증 전임상 모델",
+      "form": "GABA 외인성 투여",
+      "dose": "100 또는 200 mg/kg",
+      "route": "경구; 세부 투여법 원문 확인 필요",
+      "duration": "식이전환과 병행; 정확한 기간 원문 확인 필요",
+      "comparator": "식이·질환 대조군",
+      "domain": "대사·신장·후성유전",
+      "outcome": "지질·신장기능 지표, 산화스트레스, histone H3 acetylation, SIRT1 관련 기전, 신장 조직",
+      "direction": "유익",
+      "finding": "랫드에서 100 mg/kg은 혈액요소·크레아티닌 등 일부 신장 관련 지표와 조직병리를 개선했고, 200 mg/kg은 콜레스테롤·중성지방·LDL을 낮추고 HDL을 높이는 방향을 보였다.",
+      "safety": "세포·랫드 전임상시험으로 사람의 당뇨성 신병증 치료 안전성 자료가 아니다.",
+      "limitation": "분자도킹·세포시험과 고지방식이 랫드 결과가 혼합된 연구이며, 사람의 당뇨·신장질환 치료효과나 메트포르민 대체효과로 해석할 수 없다. 초록 기준 세부 표본수·투여기간은 미확정이다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40542614/",
+      "fulltextUrl": "https://doi.org/10.1080/1061186X.2025.2523990",
+      "doiUrl": "https://doi.org/10.1080/1061186X.2025.2523990",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "연구의 의미: 외인성 GABA가 산화스트레스·후성유전·대사 및 신장 손상 지표에 영향을 줄 수 있다는 전임상 가설을 제시한다. 기대 행동: 대사·신장 연구의 후속 기전 후보로만 활용하고, 당뇨·신병증 치료, 메트포르민 대체 또는 사람의 혈당 개선 문구로 사용하지 않는다. 동물 용량을 사람 섭취량으로 환산하지 않는다.",
+      "species": "설치류",
+      "topic": "대사·신장",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "당뇨"
     },
     {
       "id": "H-2025-052",
