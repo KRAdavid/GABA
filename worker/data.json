@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 189,
-    "literature": 181,
+    "total": 190,
+    "literature": 182,
     "regulatory": 8,
-    "clinical": 51,
+    "clinical": 52,
     "animal": 129,
-    "scie": 161,
+    "scie": 162,
     "complete": 120,
-    "partial": 61,
+    "partial": 62,
     "drivePdf": 77,
-    "included": 137,
+    "included": 138,
     "candidate": 35,
     "excluded": 9,
-    "safetyCategory": 141,
-    "effectCategory": 125,
+    "safetyCategory": 142,
+    "effectCategory": 126,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 176,
-      "literatureWithPmid": 176,
+      "literatureWithDoi": 177,
+      "literatureWithPmid": 177,
       "extractionComplete": 120,
-      "extractionPartial": 61
+      "extractionPartial": 62
     },
     "discovery": {
       "snapshotDate": "2026-09-03",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 52
+        "value": 53
       },
       {
         "label": "수산",
@@ -88,7 +88,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 42
+        "value": 43
       },
       {
         "label": "대사·내분비",
@@ -118,7 +118,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 137
+        "value": 138
       },
       {
         "label": "후보",
@@ -136,7 +136,7 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 161
+        "value": 162
       },
       {
         "label": "현행 미확인",
@@ -154,13 +154,13 @@
       },
       {
         "label": "부분",
-        "value": 61
+        "value": 62
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 109
+        "value": 110
       },
       {
         "label": "혼재",
@@ -216,7 +216,7 @@
     "category": [
       {
         "label": "안전성",
-        "value": 141
+        "value": 142
       },
       {
         "label": "연구 근거",
@@ -230,7 +230,7 @@
       },
       {
         "label": "수면",
-        "value": 42
+        "value": 43
       },
       {
         "label": "다이어트",
@@ -8040,6 +8040,49 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
+      "effectCategory": "수면"
+    },
+    {
+      "id": "H-2024-040",
+      "status": "포함",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 시험",
+      "year": 2024,
+      "title": "Effects of a combination of Poria Cocos, Ziziphus spinose, and gamma-aminobutyric acid (GABA) on sleep quality and skin health: A randomized double-blind placebo-controlled clinical trial",
+      "author": "Hao, Song, Qu",
+      "journal": "Food Science & Nutrition",
+      "doi": "10.1002/fsn3.4048",
+      "pmid": "38873452",
+      "population": "수면장애 성인 70명",
+      "n": "70명 무작위 배정",
+      "model": "수면장애 및 피부 상태",
+      "form": "복령(Poria cocos)+산조인(Ziziphus spinosa)+GABA 복합 액상 보충제",
+      "dose": "복합제 10 mL/day; GABA 개별 함량은 초록상 미기재",
+      "route": "경구",
+      "duration": "4주",
+      "comparator": "위약",
+      "domain": "신경·행동·수면/피부",
+      "outcome": "액티그래피 총수면시간, PSQI, 피부 수분·광채·탄력·주름·거칠기",
+      "direction": "유익",
+      "finding": "4주 후 복합제군은 위약 대비 총수면시간과 PSQI가 더 개선됐고, 피부 수분·주름·거칠기 등도 개선됐다. 초록상 이상반응은 보고되지 않았다.",
+      "safety": "초록상 이상반응 없이 내약성 양호로 보고",
+      "limitation": "GABA 단독이 아닌 복령·산조인과의 복합제이며 GABA 용량이 확인되지 않아 효과를 GABA에 귀속할 수 없다. 70명·4주 단기시험이고 제조·관련 회사 소속 저자가 포함되어 장기효과와 일반화에 제한이 있다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인",
+      "sciGroup": "SCIE",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38873452/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11167191/",
+      "doiUrl": "https://doi.org/10.1002/fsn3.4048",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PubMed·PMC 초록/서지정보 확인. 수면·피부 복합제 근거로 관리하며 GABA 단독효능 또는 단일 성분 인과로 확장하지 않음.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "안전성",
       "effectCategory": "수면"
     },
     {
