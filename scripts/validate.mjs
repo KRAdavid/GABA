@@ -57,6 +57,9 @@ assert.equal(db.records.filter((r) => r.kind === "규제").length, db.meta.regul
 assert.ok(db.records.every((r) => r.id && r.title && r.year));
 assert.ok(db.records.filter((r) => r.kind !== "규제").every((r) => r.notes && r.notes.includes("연구의 의미:") && r.notes.includes("기대 행동:")));
 assert.ok(db.records.filter((r) => r.kind === "규제").every((r) => r.titleKo && r.summaryKo && r.sourceUrl));
+const includedLiterature = db.records.filter((r) => r.status === "포함" && r.kind !== "규제");
+assert.ok(includedLiterature.every((r) => r.pubmedUrl || r.fulltextUrl || r.doiUrl), "included literature must have a verification link");
+assert.ok(includedLiterature.every((r) => !r.doi || r.doiUrl), "records with a DOI must have a DOI link");
 
 const countBy = (records, field) => records.reduce((counts, record) => {
   const key = record[field] || "기타";
