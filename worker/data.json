@@ -5,17 +5,17 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 197,
-    "literature": 189,
+    "total": 200,
+    "literature": 192,
     "regulatory": 8,
     "clinical": 54,
-    "animal": 133,
+    "animal": 136,
     "scie": 165,
     "complete": 123,
-    "partial": 66,
+    "partial": 69,
     "drivePdf": 77,
     "included": 140,
-    "candidate": 40,
+    "candidate": 43,
     "excluded": 9,
     "safetyCategory": 143,
     "effectCategory": 131,
@@ -23,10 +23,10 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 183,
-      "literatureWithPmid": 184,
+      "literatureWithDoi": 186,
+      "literatureWithPmid": 187,
       "extractionComplete": 123,
-      "extractionPartial": 66
+      "extractionPartial": 69
     },
     "discovery": {
       "snapshotDate": "2026-09-03",
@@ -65,12 +65,12 @@
         "value": 55
       },
       {
-        "label": "수산",
-        "value": 15
+        "label": "축산",
+        "value": 17
       },
       {
-        "label": "축산",
-        "value": 15
+        "label": "수산",
+        "value": 16
       },
       {
         "label": "가금",
@@ -104,11 +104,11 @@
       },
       {
         "label": "면역·염증·항산화",
-        "value": 20
+        "value": 21
       },
       {
         "label": "소화·장건강",
-        "value": 10
+        "value": 12
       },
       {
         "label": "장기·독성·안전성",
@@ -130,7 +130,7 @@
       },
       {
         "label": "후보",
-        "value": 40
+        "value": 43
       },
       {
         "label": "제외",
@@ -148,7 +148,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 16
+        "value": 19
       },
       {
         "label": "ESCI",
@@ -162,13 +162,13 @@
       },
       {
         "label": "부분",
-        "value": 66
+        "value": 69
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 116
+        "value": 118
       },
       {
         "label": "혼재",
@@ -185,6 +185,10 @@
       {
         "label": "유해",
         "value": 6
+      },
+      {
+        "label": "혼합",
+        "value": 1
       }
     ],
     "grade": [
@@ -232,13 +236,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 54
+        "value": 57
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 66
+        "value": 69
       },
       {
         "label": "수면",
@@ -8005,6 +8009,135 @@
       "checked": "2026-09-08",
       "notes": "연구의 의미: 순수 GABA의 직접 경구 노출과 위점막 방어 관련 전임상 신호를 제시한다. 기대 행동: 소화·위장관 연구 후보군으로 후속 검토하되, 소비자용 위 건강 문구나 질환 예방·치료 문구로 사용하지 않는다.",
       "species": "설치류",
+      "topic": "소화·장건강",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "A-2022-101",
+      "status": "후보",
+      "kind": "동물",
+      "design": "식이 보충·LPS challenge·면역·항산화 시험",
+      "year": 2022,
+      "title": "Dietary gamma-aminobutyric acid (GABA) improves non-specific immunity and alleviates lipopolysaccharide (LPS)-induced immune overresponse in juvenile Chinese mitten crab (Eriocheir sinensis)",
+      "author": "Zhang, He, Wang, Su, Huang, Qiao, Qin, Qin, Chen",
+      "journal": "Fish & Shellfish Immunology",
+      "doi": "10.1016/j.fsi.2022.04.028",
+      "pmid": "35489590",
+      "population": "어린 중국참게",
+      "n": "원문 확인 필요",
+      "model": "LPS 유도 면역 과반응 모델",
+      "form": "식이 GABA",
+      "dose": "40·80·160·320·640 mg/kg 건물",
+      "route": "사료 경구",
+      "duration": "8주 후 24시간 LPS challenge",
+      "comparator": "무첨가 대조군",
+      "domain": "면역·염증·항산화",
+      "outcome": "사망률, 면역·항산화 효소, 염증·세포사멸 유전자",
+      "direction": "유익",
+      "finding": "식이 GABA는 참게의 비특이적 면역·항산화 지표를 높이고 LPS 유도 면역 과반응과 사망률을 낮추는 방향을 보였다.",
+      "safety": "수산동물 시험이며 사람 안전성 자료가 아님",
+      "limitation": "수산동물 모델이고 사료 보충시험이다. 사람의 면역력 개선 또는 질환 예방 효능으로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/35489590/",
+      "fulltextUrl": "https://pubmed.ncbi.nlm.nih.gov/35489590/",
+      "doiUrl": "https://doi.org/10.1016/j.fsi.2022.04.028",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "연구의 의미: 직접 식이 GABA가 염증 challenge 상황의 면역·항산화 반응에 영향을 줄 가능성을 제시한다. 기대 행동: 사료·수산양식 기전 자료로만 활용하고 사람용 면역 마케팅으로 전환하지 않는다.",
+      "species": "수산",
+      "topic": "면역·염증·항산화",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "A-2020-102",
+      "status": "후보",
+      "kind": "동물",
+      "design": "식이 보충·ETEC challenge·장면역·장내미생물 시험",
+      "year": 2020,
+      "title": "Effects of dietary gamma-aminobutyric acid supplementation on amino acid profile, intestinal immunity, and microbiota in ETEC-challenged piglets",
+      "author": "Chen, Wu, Xia, Wang, Liao, Li, Yin, Ren, Tan, Yin",
+      "journal": "Food & Function",
+      "doi": "10.1039/d0fo01729a",
+      "pmid": "33025994",
+      "population": "ETEC challenge 자돈",
+      "n": "18마리",
+      "model": "ETEC K88 감염 장염 모델",
+      "form": "식이 GABA",
+      "dose": "20 mg/kg 사료",
+      "route": "사료 경구",
+      "duration": "3주, 15일째 ETEC challenge",
+      "comparator": "기초사료 대조군",
+      "domain": "소화·장건강·면역",
+      "outcome": "성장·설사, 장 형태, 혈청 아미노산, 장 면역·미생물",
+      "direction": "혼합",
+      "finding": "GABA 보충은 ETEC challenge 자돈에서 사료효율과 일부 장 면역·미생물 지표를 조절했으나 설사 점수와 장 형태에는 뚜렷한 개선이 없었다.",
+      "safety": "동물 사료시험이며 사람 안전성 자료가 아님",
+      "limitation": "자돈 감염모델의 소규모 연구이며 사람 장건강·면역 효능으로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/33025994/",
+      "fulltextUrl": "https://pubmed.ncbi.nlm.nih.gov/33025994/",
+      "doiUrl": "https://doi.org/10.1039/d0fo01729a",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "연구의 의미: 장 면역·미생물 관련 직접 식이 GABA의 작용 가능성과 함께 효과의 범위가 제한적임을 보여준다. 기대 행동: 장-면역 기전 콘텐츠의 균형 자료로 사용하고 사람용 장 건강 효능으로 확장하지 않는다.",
+      "species": "축산",
+      "topic": "소화·장건강",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "A-2019-103",
+      "status": "후보",
+      "kind": "동물",
+      "design": "식이 보충·ETEC challenge·장면역·미생물 대사 시험",
+      "year": 2019,
+      "title": "Effects of dietary gamma-aminobutyric acid supplementation on the intestinal functions in weaning piglets",
+      "author": "저자 목록 원문 확인 필요",
+      "journal": "Food & Function",
+      "doi": "10.1039/c8fo02161a",
+      "pmid": "30601517",
+      "population": "이유 자돈",
+      "n": "16마리",
+      "model": "정상·ETEC 감염 자돈 모델",
+      "form": "식이 GABA",
+      "dose": "20 mg/kg 사료",
+      "route": "사료 경구",
+      "duration": "3주",
+      "comparator": "기초사료 대조군",
+      "domain": "소화·장건강·면역",
+      "outcome": "성장, 장 면역, GABAergic system, 아미노산, 장내미생물",
+      "direction": "유익",
+      "finding": "식이 GABA는 이유 자돈의 일부 장 면역·아미노산·장내미생물 지표를 변화시켰다.",
+      "safety": "동물 사료시험이며 사람 안전성 자료가 아님",
+      "limitation": "소규모 축산동물 연구이며 사람의 장 건강·면역 효과로 직접 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/30601517/",
+      "fulltextUrl": "https://pubmed.ncbi.nlm.nih.gov/30601517/",
+      "doiUrl": "https://doi.org/10.1039/c8fo02161a",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "연구의 의미: 식이 GABA와 장 면역·미생물의 연계를 탐색한 전임상 자료다. 기대 행동: 축산·기전 자료로만 보관하고 사람용 기능성 문구에는 사용하지 않는다.",
+      "species": "축산",
       "topic": "소화·장건강",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
