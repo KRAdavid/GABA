@@ -11,11 +11,11 @@
     "clinical": 85,
     "animal": 159,
     "scie": 156,
-    "complete": 158,
-    "partial": 96,
+    "complete": 159,
+    "partial": 95,
     "drivePdf": 76,
-    "included": 165,
-    "candidate": 80,
+    "included": 166,
+    "candidate": 79,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -23,10 +23,10 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 235,
+      "literatureWithDoi": 236,
       "literatureWithPmid": 229,
-      "extractionComplete": 158,
-      "extractionPartial": 96
+      "extractionComplete": 159,
+      "extractionPartial": 95
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 165
+        "value": 166
       },
       {
         "label": "후보",
-        "value": 80
+        "value": 79
       },
       {
         "label": "제외",
@@ -346,11 +346,11 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 158
+        "value": 159
       },
       {
         "label": "부분",
-        "value": 96
+        "value": 95
       }
     ],
     "direction": [
@@ -8121,7 +8121,7 @@
     },
     {
       "id": "A-2024-098",
-      "status": "후보",
+      "status": "포함",
       "kind": "동물",
       "design": "수용체 결합·EEG·수면행동·면역조직화학 시험",
       "year": 2024,
@@ -8169,12 +8169,12 @@
       "design": "무작위 이중눈가림 위약대조 시험",
       "year": 2025,
       "title": "A double blinded randomized placebo trial of Bifidobacterium animalis subsp. lactis BLa80 on sleep quality and gut microbiota in healthy adults",
-      "author": "저자 목록 원문 확인 필요",
-      "journal": "2025년 논문, 학술지명 원문 확인 필요",
-      "doi": "",
+      "author": "Yinhua Liu; Yanyan Chen; Qingya Zhang; Yanyan Zhang; Fei Xu",
+      "journal": "Scientific Reports 15:11095 (2025)",
+      "doi": "10.1038/s41598-025-95208-2",
       "pmid": "40169760",
       "population": "건강 성인 106명",
-      "n": "106명, 8주",
+      "n": "110명 등록, 106명 분석대상, 101명 시험 완료로 원문 흐름도 표기; 8주",
       "model": "GABA 생성 가능 프로바이오틱·장-뇌 축",
       "form": "Bifidobacterium animalis subsp. lactis BLa80, 100억 CFU/일",
       "dose": "100억 CFU/일(GABA 투여량 아님)",
@@ -8184,20 +8184,20 @@
       "domain": "수면·장내미생물",
       "outcome": "PSQI, ISI, 장내미생물, 균주의 in-vitro GABA 생성능",
       "direction": "유익",
-      "finding": "BLa80군은 위약 대비 PSQI 총점이 감소해 수면의 질 개선을 보였고, 균주의 in-vitro GABA 생성능과 장내미생물 변화가 함께 평가됐다.",
-      "safety": "안전성 결과 원문 확인 필요",
-      "limitation": "GABA 보충제 임상시험이 아니라 프로바이오틱 시험이며, 사람에게 전달된 GABA 용량과 GABA 자체의 기여를 분리할 수 없다.",
+      "finding": "건강 성인 106명을 BLa80 100억 CFU/day 또는 말토덱스트린 위약에 무작위 배정해 8주간 평가했다. 8주 PSQI는 BLa80 4.0±2.8, 위약 5.5±2.6(p=0.005)로 낮았으나 ISI는 군간 유의차가 없었다. 수면잠복기·주간기능 일부가 개선됐고, BLa80 배양액의 in-vitro GABA 생성량은 5 µg/mL로 측정됐다. 장내 미생물 beta diversity와 일부 균·대사경로도 변했지만 alpha diversity는 유의하게 변하지 않았다.",
+      "safety": "논문은 BLa80 보충이 안전성을 확보하면서 수면 개선을 보였다고 서술하지만, 본 인덱스에서는 GABA 단독 안전성 자료로 해석하지 않는다.",
+      "limitation": "GABA 보충제 임상시험이 아니라 특정 프로바이오틱 균주 시험이며, 사람에게 전달된 GABA 용량과 GABA 자체의 기여를 분리할 수 없다. PSQI 중심의 주관 평가이고 ISI·수면시간·수면효율 등 일부 지표는 유의하지 않았다. 등록·분석 인원 표기가 106명/110명/101명으로 혼재하므로 수치 인용 시 흐름도를 함께 확인해야 한다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "SCIE 확인 필요",
       "sciGroup": "현행 미확인",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40169760/",
       "fulltextUrl": "https://pubmed.ncbi.nlm.nih.gov/40169760/",
-      "doiUrl": "",
-      "extraction": "부분",
+      "doiUrl": "https://doi.org/10.1038/s41598-025-95208-2",
+      "extraction": "완료",
       "added": "2026-09-08",
       "checked": "2026-09-08",
-      "notes": "연구의 의미: GABA 생성 프로바이오틱과 수면의 연관성을 인체에서 탐색한 간접 근거다. 기대 행동: 프로바이오틱·장-뇌 축 콘텐츠의 참고자료로만 활용하고, GABA 단독 수면효과나 특정 건강기능식품의 효능으로 전환하지 않는다.",
+      "notes": "PubMed 40169760 및 Scientific Reports 원문 확인. 연구의 의미: GABA 생성 가능 균주와 장-뇌 축을 통해 수면 변화를 탐색한 인체 RCT로, ‘GABA 관련 생물학적 경로’ 콘텐츠의 간접 근거가 될 수 있다. 기대 행동: BLa80/프로바이오틱 제품의 strain-specific 자료로만 활용하고, GABA 단독 수면효과·GABA 함량·일반 제품 효능으로 확장하지 않는다. PSQI p=0.005는 인용 가능하지만 ISI는 유의하지 않았고, 원문 표본 흐름도 수치(110명 등록, 106명 분석, 101명 완료)를 구분한다.",
       "species": "인체",
       "topic": "수면",
       "hasDrivePdf": false,
