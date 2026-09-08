@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 367,
-    "literature": 359,
+    "total": 368,
+    "literature": 360,
     "regulatory": 8,
     "clinical": 109,
-    "animal": 189,
+    "animal": 190,
     "scie": 142,
-    "complete": 187,
+    "complete": 188,
     "partial": 105,
     "drivePdf": 73,
     "included": 197,
-    "candidate": 146,
+    "candidate": 147,
     "excluded": 16,
     "safetyCategory": 162,
-    "effectCategory": 267,
+    "effectCategory": 268,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 332,
-      "literatureWithPmid": 308,
-      "extractionComplete": 187,
+      "literatureWithDoi": 333,
+      "literatureWithPmid": 309,
+      "extractionComplete": 188,
       "extractionPartial": 105
     },
     "discovery": {
@@ -58,7 +58,7 @@
     "species": [
       {
         "label": "설치류",
-        "value": 109
+        "value": 110
       },
       {
         "label": "인체",
@@ -372,7 +372,7 @@
       },
       {
         "label": "심혈관·혈압",
-        "value": 20
+        "value": 21
       },
       {
         "label": "소화·장건강",
@@ -938,7 +938,7 @@
       },
       {
         "label": "후보",
-        "value": 146
+        "value": 147
       },
       {
         "label": "제외",
@@ -967,12 +967,12 @@
         "value": 10
       },
       {
-        "label": "ESCI",
+        "label": "미확인",
         "value": 7
       },
       {
-        "label": "미확인",
-        "value": 6
+        "label": "ESCI",
+        "value": 7
       },
       {
         "label": "해당없음",
@@ -1002,7 +1002,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 187
+        "value": 188
       },
       {
         "label": "부분",
@@ -1063,6 +1063,10 @@
         "value": 8
       },
       {
+        "label": "개선",
+        "value": 6
+      },
+      {
         "label": "결과 미확인",
         "value": 6
       },
@@ -1073,10 +1077,6 @@
       {
         "label": "제품개발 가능성; 인체 효능 아님",
         "value": 6
-      },
-      {
-        "label": "개선",
-        "value": 5
       },
       {
         "label": "미확인",
@@ -1535,11 +1535,11 @@
         "value": 7
       },
       {
-        "label": "임상근거",
-        "value": 6
+        "label": "효능",
+        "value": 7
       },
       {
-        "label": "효능",
+        "label": "임상근거",
         "value": 6
       },
       {
@@ -1582,7 +1582,7 @@
       },
       {
         "label": "고혈압",
-        "value": 16
+        "value": 17
       },
       {
         "label": "스트레스·이완",
@@ -17107,6 +17107,48 @@
       "linkType": "PubMed",
       "category": "효능",
       "effectCategory": "장건강"
+    },
+    {
+      "id": "A-2018-262",
+      "status": "후보",
+      "kind": "동물",
+      "design": "본태성 고혈압 랫드 대조·용량 비교시험",
+      "year": 2018,
+      "title": "GABA tea attenuates cardiac apoptosis in spontaneously hypertensive rats (SHR) by enhancing PI3K/Akt-mediated survival pathway and suppressing Bax/Bak dependent apoptotic pathway.",
+      "author": "Chen et al.",
+      "journal": "Environmental Toxicology",
+      "doi": "10.1002/tox.22565",
+      "pmid": "29708300",
+      "population": "수컷 SHR 랫드 36마리",
+      "n": "36마리, 6군",
+      "model": "본태성 고혈압 랫드",
+      "form": "GABA 차 및 순수 GABA",
+      "dose": "GABA 차·순수 GABA 150 또는 300 mg/kg/day",
+      "route": "경구·섭취",
+      "duration": "12주",
+      "comparator": "물·녹차 대조",
+      "domain": "심장·고혈압·세포사멸",
+      "outcome": "심근 구조·Bcl2·caspase-3/9·IGF-I·PI3K/Akt",
+      "direction": "개선",
+      "finding": "GABA 차와 순수 GABA 투여군에서 고혈압 랫드의 심근 구조 이상과 apoptosis 관련 지표가 완화되고, Bcl2 및 IGF-I·PI3K/Akt 신호가 증가했다.",
+      "safety": "12주 동물시험으로 사람의 심혈관 안전성·혈압 치료효과 판단 불가",
+      "limitation": "고혈압 랫드 모델, 소표본, 차 매트릭스·순수 GABA·녹차 효과 분리 한계, 사람 임상 부재",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29708300/",
+      "doiUrl": "https://doi.org/10.1002/tox.22565",
+      "extraction": "완료",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 초록에서 군 구성·용량·기간·결과를 확인했다. 연구의 의미: GABA 차와 순수 GABA의 심장 세포사멸 관련 전임상 신호를 함께 비교한 자료다. 기대 행동: 혈압 저하·심장 보호·심혈관 질환 예방 광고에 사용하지 말고, 차 성분과 순수 GABA를 분리한 후속 사람시험 필요성을 병기한다.",
+      "species": "설치류",
+      "topic": "심혈관·혈압",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "효능",
+      "effectCategory": "고혈압"
     },
     {
       "id": "A-2025-096",
