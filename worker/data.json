@@ -14,8 +14,8 @@
     "complete": 145,
     "partial": 100,
     "drivePdf": 76,
-    "included": 148,
-    "candidate": 88,
+    "included": 149,
+    "candidate": 87,
     "excluded": 9,
     "safetyCategory": 169,
     "effectCategory": 164,
@@ -282,11 +282,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 148
+        "value": 149
       },
       {
         "label": "후보",
-        "value": 88
+        "value": 87
       },
       {
         "label": "제외",
@@ -9675,7 +9675,7 @@
     },
     {
       "id": "H-2026-054",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약대조 분산형 시험",
       "year": 2026,
