@@ -25,6 +25,8 @@ assert.match(html, /id="results"/);
 assert.match(html, /대량 탐색 후보/);
 assert.match(html, /정확한 문구는 “따옴표”/);
 assert.match(html, /data-query="한시적 인정"/);
+assert.match(html, /연구의 의미/);
+assert.match(html, /기대할 수 있는 행동/);
 
 const health = await worker.fetch(new Request("https://example.test/api/health"));
 assert.equal(health.status, 200);
