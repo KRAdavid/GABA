@@ -403,6 +403,8 @@ const hardExclusionPatterns = [
   /\bmicroinject(?:ion|ed)\b/i, /\binject(?:ion|ed)\b/i,
   /\bintraperitoneal\b/i, /\bintravenous\b/i, /\bsubcutaneous\b/i,
   /\bgabapentin\b/i, /\bpregabalin\b/i, /\bbaclofen\b/i,
+  /\bvalpro(?:ic acid|ate)\b/i, /\bmidazolam\b/i, /\bbasmisanil\b/i,
+  /\bcipepofol\b/i, /\bbenzodiazepine(?:s)?\b/i,
   /\bvigabatrin\b/i, /\bgamma[- ]vinyl gaba\b/i, /\bgaba[- ]transaminase inhibitor\b/i,
   /\breceptor agonist\b/i, /\breceptor antagonist\b/i,
   /\bmagnetic resonance spectroscopy\b/i, /\bMRS\b/,
