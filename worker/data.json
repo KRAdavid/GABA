@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 337,
-    "literature": 329,
+    "total": 339,
+    "literature": 331,
     "regulatory": 8,
     "clinical": 109,
     "animal": 173,
@@ -15,16 +15,16 @@
     "partial": 103,
     "drivePdf": 73,
     "included": 195,
-    "candidate": 122,
+    "candidate": 124,
     "excluded": 12,
     "safetyCategory": 158,
-    "effectCategory": 234,
+    "effectCategory": 236,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 303,
-      "literatureWithPmid": 279,
+      "literatureWithDoi": 305,
+      "literatureWithPmid": 281,
       "extractionComplete": 183,
       "extractionPartial": 103
     },
@@ -146,6 +146,14 @@
       },
       {
         "label": "사람·동물·식물·미세조류 문헌 종합",
+        "value": 1
+      },
+      {
+        "label": "사람·Limosilactobacillus fermentum PS150",
+        "value": 1
+      },
+      {
+        "label": "사람·Weizmannia coagulans BC99",
         "value": 1
       },
       {
@@ -435,6 +443,10 @@
         "value": 1
       },
       {
+        "label": "불안·우울·프로바이오틱·GABA",
+        "value": 1
+      },
+      {
         "label": "사료 GABA·장 건강·수산양식",
         "value": 1
       },
@@ -476,6 +488,10 @@
       },
       {
         "label": "수면·프로바이오틱·장-뇌축",
+        "value": 1
+      },
+      {
+        "label": "수면·프로바이오틱·GABA 관련 생체지표",
         "value": 1
       },
       {
@@ -758,7 +774,7 @@
       },
       {
         "label": "후보",
-        "value": 122
+        "value": 124
       },
       {
         "label": "제외",
@@ -780,7 +796,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 51
+        "value": 53
       },
       {
         "label": "해당 없음",
@@ -822,7 +838,7 @@
       },
       {
         "label": "완전",
-        "value": 14
+        "value": 16
       },
       {
         "label": "초록검토",
@@ -1183,6 +1199,14 @@
         "value": 1
       },
       {
+        "label": "특정 프로바이오틱의 예비 임상 신호; 순수 GABA 효능 아님",
+        "value": 1
+      },
+      {
+        "label": "특정 프로바이오틱의 제한적 수면 신호; GABA 단독 효능 아님",
+        "value": 1
+      },
+      {
         "label": "혼합·간접",
         "value": 1
       },
@@ -1272,6 +1296,10 @@
       },
       {
         "label": "약물·경계 근거",
+        "value": 2
+      },
+      {
+        "label": "임상 근거",
         "value": 2
       },
       {
@@ -1393,11 +1421,19 @@
         "value": 1
       },
       {
+        "label": "불안·스트레스",
+        "value": 1
+      },
+      {
         "label": "성장·면역",
         "value": 1
       },
       {
         "label": "수면·간접",
+        "value": 1
+      },
+      {
+        "label": "수면·회복",
         "value": 1
       },
       {
@@ -9021,6 +9057,92 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "H-2025-222",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "Weizmannia coagulans BC99 8주 무작위·위약대조 임상 파일럿",
+      "year": 2025,
+      "title": "The Impact of Weizmannia coagulans BC99 on Anxiety and Depression: An 8-Week Clinical Pilot Study Through the Gut Microbiota-Brain Axis",
+      "author": "Tie et al.",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu17193087",
+      "pmid": "41097163",
+      "population": "HAMA ≥7 또는 HAMD-17 ≥8인 성인",
+      "n": "79명 완료; BC99 3 g/day(5×10^9 CFU)와 위약 비교",
+      "model": "무작위·위약대조 8주 중재; HAMA·HAMD·염증·GABA·장내미생물 평가",
+      "form": "Weizmannia coagulans BC99 프로바이오틱",
+      "dose": "BC99 3 g/day, 5×10^9 CFU/day",
+      "route": "경구",
+      "duration": "8주",
+      "comparator": "덱스트린 위약 3 g/day",
+      "domain": "불안·우울·프로바이오틱·장-뇌 축",
+      "outcome": "BC99군 HAMD 2.40점·HAMA 5.53점 추가 감소 보고; 군×시간 차이는 유의하지 않음; GABA·NO와 미생물·SCFA 변화 탐색",
+      "direction": "특정 프로바이오틱의 예비 임상 신호; 순수 GABA 효능 아님",
+      "finding": "8주 BC99 투여 후 불안·우울 점수와 일부 GABA·염증·장내미생물 지표를 탐색했지만, HAMA·HAMD의 군×시간 차이는 유의하지 않아 확정적 임상효능으로 보기 어렵다.",
+      "safety": "파일럿 연구이며 장기 안전성, 다른 제품·균주로의 일반화, GABA가 효과를 매개하는지 여부를 확정하지 않았다.",
+      "limitation": "특정 균주 연구라 순수 GABA 또는 다른 프로바이오틱에 외삽할 수 없고, 탐색적 GABA 변화가 증상 개선의 원인임을 입증하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Nutrients·PMC 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41097163/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12525987/",
+      "doiUrl": "https://doi.org/10.3390/nu17193087",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 41097163의 PubMed·PMC 초록을 확인했다. 연구의 의미: 특정 프로바이오틱의 예비 불안·우울 신호와 GABA·장내미생물 변화를 함께 탐색한 사람 자료다. 기대 행동: BC99 제품의 균주·용량·8주 조건에 한정해 후속 RCT 근거로 활용하고, 순수 GABA의 불안·우울 치료 또는 일반 프로바이오틱 효능으로 확대하지 않는다.",
+      "species": "사람·Weizmannia coagulans BC99",
+      "topic": "불안·우울·프로바이오틱·GABA",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·PMC",
+      "category": "임상 근거",
+      "effectCategory": "불안·스트레스"
+    },
+    {
+      "id": "H-2025-221",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "열처리 Limosilactobacillus fermentum PS150 8주 무작위·이중맹검·위약대조 수면시험",
+      "year": 2025,
+      "title": "Heat-Treated Limosilactobacillus fermentum PS150 Improves Sleep Quality with Severity-Dependent Benefits: A Randomized, Placebo-Controlled Trial",
+      "author": "Lee et al.",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu18010014",
+      "pmid": "41515133",
+      "population": "PSQI ≥5, ISI <22인 20–60세 성인",
+      "n": "84명 배정; 위약 41명·HT-PS150 43명",
+      "model": "무작위·이중맹검·위약대조 8주; 수면척도·actigraphy·멜라토닌·코르티솔·GABA 등 평가",
+      "form": "열처리 L. fermentum PS150",
+      "dose": "HT-PS150 용량은 원문 제품 프로토콜 확인 필요",
+      "route": "경구",
+      "duration": "8주",
+      "comparator": "위약",
+      "domain": "수면·프로바이오틱·GABAergic signaling",
+      "outcome": "전체군 PSQI·ISI에서 유의한 군×시간 상호작용 없음; ISI ≥8 하위군에서 수면·불안 개선이 탐색적으로 관찰; 일부 멜라토닌·orexin·코르티솔 변화",
+      "direction": "특정 프로바이오틱의 제한적 수면 신호; GABA 단독 효능 아님",
+      "finding": "전체 분석에서 PSQI·ISI의 군 간 시간 상호작용은 유의하지 않았고, 불면 증상이 더 큰 하위군에서 수면·불안 개선이 사후 탐색적으로 관찰됐다.",
+      "safety": "특정 열처리 균주 시험이며 장기 안전성·일반화 가능성·GABA 변화와 수면 개선의 인과관계를 확정하지 않는다.",
+      "limitation": "사후 하위군 결과는 확증근거가 아니며, GABA가 측정됐더라도 GABA 단일 성분의 수면효과나 순수 GABA 보충제에 대한 근거가 아니다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Nutrients·PMC 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41515133/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12787598/",
+      "doiUrl": "https://doi.org/10.3390/nu18010014",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 41515133의 PubMed·PMC 초록을 확인했다. 연구의 의미: 특정 열처리 프로바이오틱이 수면 관련 지표와 일부 생체지표에 미치는 가능성을 사람에서 시험했으나 전체군 확증 결과는 아니었다. 기대 행동: HT-PS150의 균주·제형·대상 조건에만 제한해 검토하고, GABA 보충제의 수면효과나 전체 인구의 불면 치료 근거로 사용하지 않는다.",
+      "species": "사람·Limosilactobacillus fermentum PS150",
+      "topic": "수면·프로바이오틱·GABA 관련 생체지표",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·PMC",
+      "category": "임상 근거",
+      "effectCategory": "수면·회복"
     },
     {
       "id": "R-2022-220",
