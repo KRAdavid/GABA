@@ -36,7 +36,7 @@ assert.equal(api.status, 200);
 const db = await api.json();
 assert.equal(body.records, db.meta.total);
 assert.equal(db.records.length, db.meta.total);
-assert.equal(db.meta.literature, 249);
+assert.equal(db.meta.literature, 250);
 assert.equal(db.meta.regulatory, 8);
 assert.equal(db.meta.total, 257);
 assert.ok(db.meta.safetyCategory > 0);
