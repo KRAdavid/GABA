@@ -492,12 +492,21 @@ function findExisting(record) {
 
 const pubmedSearches = [];
 const pubmedOverlapSearches = [];
+const sourceErrors = [];
 for (const query of PUBMED_QUERIES) {
-  const result = await searchPubMed(query);
-  pubmedSearches.push(result);
+  try {
+    const result = await searchPubMed(query);
+    pubmedSearches.push(result);
+  } catch (error) {
+    sourceErrors.push({ source: `PubMed:${query.label}`, error: String(error?.message || error) });
+  }
   await pause(350);
-  const overlapResult = await searchPubMedOverlap(query);
-  pubmedOverlapSearches.push(overlapResult);
+  try {
+    const overlapResult = await searchPubMedOverlap(query);
+    pubmedOverlapSearches.push(overlapResult);
+  } catch (error) {
+    sourceErrors.push({ source: `PubMed overlap:${query.label}`, error: String(error?.message || error) });
+  }
   await pause(350);
 }
 const labelsByPmid = new Map();
@@ -507,12 +516,21 @@ for (const search of pubmedSearches) {
     labelsByPmid.get(pmid).push(search.label);
   }
 }
-const pubmedArticles = await fetchPubMedArticles([...labelsByPmid.keys()]);
+let pubmedArticles = [];
+try {
+  pubmedArticles = await fetchPubMedArticles([...labelsByPmid.keys()]);
+} catch (error) {
+  sourceErrors.push({ source: "PubMed efetch", error: String(error?.message || error) });
+}
 for (const article of pubmedArticles) article.queryLabels = labelsByPmid.get(article.pmid) ?? [];
 
 const openAlexSearches = [];
 for (let index = 0; index < OPENALEX_QUERIES.length; index += 1) {
-  openAlexSearches.push(await searchOpenAlex(OPENALEX_QUERIES[index], index));
+  try {
+    openAlexSearches.push(await searchOpenAlex(OPENALEX_QUERIES[index], index));
+  } catch (error) {
+    sourceErrors.push({ source: `OpenAlex:${OPENALEX_QUERIES[index]}`, error: String(error?.message || error) });
+  }
   await pause(800);
 }
 
@@ -587,7 +605,8 @@ const summary = {
   priority: candidates.filter((record) => record.bucket === "우선검토").length,
   general: candidates.filter((record) => record.bucket === "일반검토").length,
   low: candidates.filter((record) => record.bucket === "낮은우선순위").length,
-  maxCandidates
+  maxCandidates,
+  sourceErrors
 };
 
 await mkdir(outputDir, { recursive: true });
