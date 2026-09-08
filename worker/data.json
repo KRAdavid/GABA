@@ -5,16 +5,16 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 243,
-    "literature": 235,
+    "total": 244,
+    "literature": 236,
     "regulatory": 8,
-    "clinical": 74,
+    "clinical": 75,
     "animal": 155,
     "scie": 161,
-    "complete": 139,
+    "complete": 140,
     "partial": 96,
     "drivePdf": 76,
-    "included": 143,
+    "included": 144,
     "candidate": 83,
     "excluded": 9,
     "safetyCategory": 170,
@@ -23,9 +23,9 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 217,
-      "literatureWithPmid": 216,
-      "extractionComplete": 139,
+      "literatureWithDoi": 218,
+      "literatureWithPmid": 217,
+      "extractionComplete": 140,
       "extractionPartial": 96
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 76
+        "value": 77
       },
       {
         "label": "축산",
@@ -100,7 +100,7 @@
     "topic": [
       {
         "label": "신경·행동·수면",
-        "value": 53
+        "value": 54
       },
       {
         "label": "성장·생산·육질",
@@ -230,7 +230,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 143
+        "value": 144
       },
       {
         "label": "후보",
@@ -252,7 +252,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 61
+        "value": 62
       },
       {
         "label": "ESCI",
@@ -266,7 +266,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 139
+        "value": 140
       },
       {
         "label": "부분",
@@ -276,7 +276,7 @@
     "direction": [
       {
         "label": "유익",
-        "value": 143
+        "value": 144
       },
       {
         "label": "혼재",
@@ -360,13 +360,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 73
+        "value": 74
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 84
+        "value": 85
       },
       {
         "label": "수면",
@@ -10087,6 +10087,49 @@
       "topic": "신경·행동·수면",
       "hasDrivePdf": false,
       "linkType": "출판사 PDF",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "H-2025-157",
+      "status": "포함",
+      "kind": "임상",
+      "design": "무작위 이중맹검 위약대조 임상시험",
+      "year": 2025,
+      "title": "Psychobiotics Ameliorate Depression and Anxiety Status in Surgical Oncology Patients: Results from the ProDeCa Study",
+      "author": "Tzikos et al.",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu17050857",
+      "pmid": "40077722",
+      "population": "위장관암 수술 후 항암화학요법을 받는 성인 환자",
+      "n": "266명 무작위 배정",
+      "model": "수술 후 위장관암·항암화학요법 환자",
+      "form": "4종 psychobiotic 복합제: B. animalis subsp. lactis BS01, B. breve BR03, B. longum BL04, L. rhamnosus GG; 마그네슘·사프란 포함 상용 제형",
+      "dose": "1 sachet 1일 2회, 4주; 논문은 총 1.76×10^11 CFU/day로 기술하나 구성 균주별 표기와 산술상 혼동 가능",
+      "route": "경구",
+      "duration": "4주 투여; 기저·1개월·2개월 후 평가",
+      "comparator": "위약",
+      "domain": "불안·우울·스트레스·수면",
+      "outcome": "BDI, 17-item Hamilton Depression Rating Scale, GAD-7, Perceived Stress Scale",
+      "direction": "유익",
+      "finding": "1개월 psychobiotic 투여 후 2개월 추적에서 우울 상태 개선 60.4%, 불안 개선 57.0%, 스트레스 개선 60.4%가 보고됐고, 위약군에서는 악화 경향이 관찰됐다.",
+      "safety": "본문에서 중대한 안전성 신호는 확인되지 않았으나, 항암 환자 대상 연구이므로 일반 소비자 안전성으로 직접 일반화할 수 없음",
+      "limitation": "순수 GABA가 아닌 4종 프로바이오틱·마그네슘·사프란 복합제이며, 위장관암 수술 후 항암 환자에 한정된다. GABA 함량·생성량과 효과의 인과는 검증되지 않았다. Uni-Pharma 관련 이해상충이 보고됐다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40077722/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11901992/",
+      "doiUrl": "https://doi.org/10.3390/nu17050857",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PMID 40077722, DOI, PMCID PMC11901992의 원문·초록을 확인. ClinicalTrials.gov NCT06496438 등록시험. 연구의 의미: GABA 생성 가능성이 거론되는 psychobiotic 복합제의 사람 대상 정신건강 신호를 순수 GABA 근거와 분리해 보존한다. 기대 행동: GABA 단독 효능으로 광고하지 말고, 항암 환자군의 복합제 연구라는 맥락·제품 조성·이해상충을 함께 공개하며 후속 일반인 RCT를 우선 확인한다.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "PMC 원문",
       "category": "연구 근거",
       "effectCategory": "기타"
     },
