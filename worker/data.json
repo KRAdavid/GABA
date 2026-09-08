@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 222,
-    "literature": 214,
+    "total": 223,
+    "literature": 215,
     "regulatory": 8,
-    "clinical": 59,
+    "clinical": 60,
     "animal": 153,
     "scie": 165,
-    "complete": 130,
+    "complete": 131,
     "partial": 84,
     "drivePdf": 77,
     "included": 140,
-    "candidate": 65,
+    "candidate": 66,
     "excluded": 9,
     "safetyCategory": 171,
-    "effectCategory": 143,
+    "effectCategory": 144,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 206,
       "literatureWithPmid": 206,
-      "extractionComplete": 130,
+      "extractionComplete": 131,
       "extractionPartial": 84
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 60
+        "value": 61
       },
       {
         "label": "축산",
@@ -100,7 +100,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 49
+        "value": 50
       },
       {
         "label": "심혈관·혈압",
@@ -190,7 +190,7 @@
       },
       {
         "label": "후보",
-        "value": 65
+        "value": 66
       },
       {
         "label": "제외",
@@ -216,13 +216,13 @@
       },
       {
         "label": "해당 없음",
-        "value": 2
+        "value": 3
       }
     ],
     "extraction": [
       {
         "label": "완료",
-        "value": 130
+        "value": 131
       },
       {
         "label": "부분",
@@ -252,7 +252,7 @@
       },
       {
         "label": "미확인",
-        "value": 2
+        "value": 3
       },
       {
         "label": "혼합",
@@ -316,7 +316,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 51
+        "value": 52
       }
     ],
     "effectCategory": [
@@ -326,7 +326,7 @@
       },
       {
         "label": "수면",
-        "value": 49
+        "value": 50
       },
       {
         "label": "다이어트",
@@ -9171,6 +9171,49 @@
       "added": "2026-09-08",
       "checked": "2026-09-08",
       "notes": "ClinicalTrials.gov NCT06226259 등록정보 확인. 마지막 게시 업데이트 2024-06-20, 예상 완료 2025-12-22이나 결과 없음. 연구의 의미: 소아 불면증에서 GABA 100 mg/day 취침 전 투여를 평가하도록 설계된 등록시험으로, 향후 결과 누락을 감시할 기준점이다. 기대 행동: 결과 공개 전에는 효능·안전성 근거로 사용하지 않고 소아 대상이라는 점과 결과 발표 여부를 자동 추적한다.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "ClinicalTrials.gov 등록정보",
+      "category": "연구 근거",
+      "effectCategory": "수면"
+    },
+    {
+      "id": "H-2022-130",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 삼중눈가림 위약대조 교차 등록시험(결과 미게시)",
+      "year": 2022,
+      "title": "Clinical Study to Assess a Dietary Supplement on Sleep Health and Quality",
+      "author": "등록정보상 sponsor 정보 기준",
+      "journal": "ClinicalTrials.gov 등록시험",
+      "doi": "",
+      "pmid": "",
+      "population": "수면 건강·질 저하 성인",
+      "n": "30명",
+      "model": "수면 건강 및 불면 증상",
+      "form": "GABA·마그네슘·멜라토닌·lavender·ashwagandha·P5P를 포함한 proprietary 복합제",
+      "dose": "GABA 세부 함량 미공개",
+      "route": "경구",
+      "duration": "세척기 포함 총 6주; 각 투여기간 2주",
+      "comparator": "동일 외관 위약",
+      "domain": "수면",
+      "outcome": "수면 잠복·질 지표, ISI, LSEQ, 타액 melatonin 등",
+      "direction": "미확인",
+      "finding": "GABA를 포함한 복합 수면보충제와 위약을 교차 비교하도록 완료된 시험이지만, ClinicalTrials.gov에 결과표·논문·이상사건 결과가 게시되지 않았다.",
+      "safety": "결과 미게시로 안전성 판단 불가",
+      "limitation": "GABA 단독시험이 아니고 각 성분 함량이 공개되지 않아 GABA 효과를 분리할 수 없다. 결과 미게시 상태이므로 효능·안전성·제품 일반화 근거로 사용할 수 없다.",
+      "pubmedStatus": "PubMed 미등재·결과 미게시",
+      "sciStatus": "해당 없음(등록시험)",
+      "sciGroup": "해당 없음",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://clinicaltrials.gov/study/NCT05368909",
+      "fulltextUrl": "https://clinicaltrials.gov/study/NCT05368909",
+      "doiUrl": "",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "ClinicalTrials.gov NCT05368909 API·등록정보 확인. 전체 30명, 완료 상태, 마지막 제출 2022-07-11, 결과 섹션 없음. 연구의 의미: GABA 포함 복합 수면제품에 대한 완료 임상시험의 존재를 확인해 결과 미게시 누락을 방지한다. 기대 행동: GABA 단독 근거로 인용하지 않고, 결과 게시·논문 출판 여부만 추적한다.",
       "species": "인체",
       "topic": "신경·행동·수면",
       "hasDrivePdf": false,
