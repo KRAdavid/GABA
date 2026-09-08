@@ -14,8 +14,8 @@
     "complete": 167,
     "partial": 88,
     "drivePdf": 76,
-    "included": 177,
-    "candidate": 67,
+    "included": 178,
+    "candidate": 66,
     "excluded": 11,
     "safetyCategory": 160,
     "effectCategory": 167,
@@ -318,11 +318,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 177
+        "value": 178
       },
       {
         "label": "후보",
-        "value": 67
+        "value": 66
       },
       {
         "label": "제외",
@@ -9091,7 +9091,7 @@
     },
     {
       "id": "A-2024-120",
-      "status": "후보",
+      "status": "포함",
       "kind": "동물",
       "design": "DNBS 대장염 유도 랫드의 예방·치료 경구시험",
       "year": 2024,
