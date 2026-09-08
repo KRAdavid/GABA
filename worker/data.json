@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 335,
-    "literature": 327,
+    "total": 336,
+    "literature": 328,
     "regulatory": 8,
     "clinical": 110,
     "animal": 173,
@@ -15,16 +15,16 @@
     "partial": 103,
     "drivePdf": 73,
     "included": 195,
-    "candidate": 121,
+    "candidate": 122,
     "excluded": 11,
     "safetyCategory": 157,
-    "effectCategory": 232,
+    "effectCategory": 233,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 301,
-      "literatureWithPmid": 277,
+      "literatureWithDoi": 302,
+      "literatureWithPmid": 278,
       "extractionComplete": 184,
       "extractionPartial": 103
     },
@@ -105,6 +105,10 @@
         "value": 2
       },
       {
+        "label": "유산균·Lactiplantibacillus plantarum",
+        "value": 2
+      },
+      {
         "label": "기타동물",
         "value": 1
       },
@@ -178,10 +182,6 @@
       },
       {
         "label": "유산균·Enterococcus",
-        "value": 1
-      },
-      {
-        "label": "유산균·Lactiplantibacillus plantarum",
         "value": 1
       },
       {
@@ -679,6 +679,10 @@
         "value": 1
       },
       {
+        "label": "GABA 생성·발효 최적화·기능성 식품",
+        "value": 1
+      },
+      {
         "label": "GABA 생성·발효·기능성 식품",
         "value": 1
       },
@@ -738,7 +742,7 @@
       },
       {
         "label": "후보",
-        "value": 121
+        "value": 122
       },
       {
         "label": "제외",
@@ -760,7 +764,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 48
+        "value": 49
       },
       {
         "label": "해당 없음",
@@ -802,7 +806,7 @@
       },
       {
         "label": "완전",
-        "value": 11
+        "value": 12
       },
       {
         "label": "초록검토",
@@ -867,6 +871,10 @@
         "value": 4
       },
       {
+        "label": "공정·제품개발 가능성; 인체 효능 아님",
+        "value": 2
+      },
+      {
         "label": "중립",
         "value": 2
       },
@@ -880,10 +888,6 @@
       },
       {
         "label": "간접 대사 신호; 효능 근거 아님",
-        "value": 1
-      },
-      {
-        "label": "공정·제품개발 가능성; 인체 효능 아님",
         "value": 1
       },
       {
@@ -1228,7 +1232,7 @@
     "category": [
       {
         "label": "연구 근거",
-        "value": 162
+        "value": 163
       },
       {
         "label": "안전성",
@@ -1278,7 +1282,7 @@
       },
       {
         "label": "발효·배경",
-        "value": 15
+        "value": 16
       },
       {
         "label": "스트레스·이완",
@@ -8993,6 +8997,49 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "R-2026-218",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "Lactiplantibacillus plantarum XBMU-SN-23 분리·배지 및 발효조건 최적화 연구",
+      "year": 2026,
+      "title": "Isolation of a Gamma-Aminobutyric Acid (GABA)-Producing Lactiplantibacillus plantarum XBMU-SN-23 and Optimization of Its Culture Medium Composition and Fermentation Conditions",
+      "author": "Gao et al.",
+      "journal": "Food Science & Nutrition",
+      "doi": "10.1002/fsn3.71782",
+      "pmid": "41982494",
+      "population": "Lanzhou Jiangshui 유래 L. plantarum XBMU-SN-23",
+      "n": "균주 분리·배양 실험; 사람 중재 없음",
+      "model": "Box–Behnken·반응표면법으로 배지·pH·접종량·발효시간 최적화",
+      "form": "GABA 강화 발효식품용 균주 후보",
+      "dose": "해당 없음(공정 연구)",
+      "route": "해당 없음(섭취시험 아님)",
+      "duration": "최적 조건 pH 5·접종량 2.5%·36시간",
+      "comparator": "최적화 전·후 배양 조건 비교",
+      "domain": "GABA 생성·유산균·발효공정",
+      "outcome": "비최적 2.150 g/L, 배지 최적화 2.618 g/L, 발효조건 최적화 3.562 g/L; 최적화 후 65.7% 증가",
+      "direction": "공정·제품개발 가능성; 인체 효능 아님",
+      "finding": "Lanzhou Jiangshui에서 분리한 L. plantarum XBMU-SN-23의 GABA 생산을 최적화해 pH 5, 접종량 2.5%, 36시간 조건에서 3.562 g/L를 얻었다.",
+      "safety": "균주 분리와 발효 수율 연구로, 완제품 안전성·균주 특이적 유전체 안전성·사람의 섭취 효과는 확인하지 않았다.",
+      "limitation": "배양액 수율은 실제 제품 함량이나 사람의 이완·불안·수면 효과가 아니며, MSG·원료·유통 안정성 검토가 별도다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Wiley·PMC 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41982494/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13073049/",
+      "doiUrl": "https://doi.org/10.1002/fsn3.71782",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 41982494와 PMC 원문을 확인했다. 연구의 의미: 균주·배지·발효조건을 분리해 최적화한 GABA 생산 플랫폼 후보를 제시한다. 기대 행동: 제품개발의 공정 출발점과 후속 완제품 정량 기준으로 활용하고, 3.562 g/L를 사람의 1일 섭취량이나 이완·수면 효능으로 광고하지 않는다.",
+      "species": "유산균·Lactiplantibacillus plantarum",
+      "topic": "GABA 생성·발효 최적화·기능성 식품",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·PMC",
+      "category": "연구 근거",
+      "effectCategory": "발효·배경"
     },
     {
       "id": "R-2026-216",
