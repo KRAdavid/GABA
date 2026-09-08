@@ -2925,8 +2925,8 @@
       "effectCategory": "기타"
     }
     ,{
-      "id": "H-2026-175",
-      "status": "후보",
+      "id": "H-2026-021",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약대조 교차 파일럿 시험",
       "year": 2026,
@@ -2956,15 +2956,15 @@
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42197028/",
       "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13209747/",
       "doiUrl": "https://doi.org/10.3390/nu18101569",
-      "extraction": "부분",
+      "extraction": "완료",
       "added": "2026-09-08",
       "checked": "2026-09-08",
       "notes": "PMID 42197028·DOI 10.3390/nu18101569의 PubMed·PMC 원문 연결을 확인하고, GABA 250 mg + Melissa officinalis 추출물 50 mg을 하루 3회 투여한 복합제임을 보강 확인. 연구의 의미: GABA를 포함한 복합 보충제가 IBS-D 증상·정서적 삶의 질·염증 지표와 연결될 가능성을 탐색한 최신 인체 RCT다. 기대 행동: 장 건강 마케팅의 복합제 탐색 근거로만 사용하고, GABA 단독효과·‘IBS 치료’·‘장누수 개선’ 또는 모든 소비자에게 동일한 효과라는 표현은 피하며 대규모 재현시험을 먼저 확인한다.",
       "species": "인체",
       "topic": "소화·장건강",
-      "hasDrivePdf": false,
-      "linkType": "PubMed·PMC",
-      "category": "연구 근거",
+      "hasDrivePdf": true,
+      "linkType": "Drive PDF",
+      "category": "안전성",
       "effectCategory": "기타"
     }
   ]
