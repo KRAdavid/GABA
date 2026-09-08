@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 342,
-    "literature": 334,
+    "total": 344,
+    "literature": 336,
     "regulatory": 8,
     "clinical": 109,
     "animal": 173,
@@ -15,16 +15,16 @@
     "partial": 103,
     "drivePdf": 73,
     "included": 195,
-    "candidate": 127,
+    "candidate": 129,
     "excluded": 12,
-    "safetyCategory": 158,
-    "effectCategory": 239,
+    "safetyCategory": 159,
+    "effectCategory": 241,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 308,
-      "literatureWithPmid": 284,
+      "literatureWithDoi": 310,
+      "literatureWithPmid": 286,
       "extractionComplete": 183,
       "extractionPartial": 103
     },
@@ -209,7 +209,15 @@
         "value": 1
       },
       {
+        "label": "유산균·Lacticaseibacillus paracasei·L. rhamnosus",
+        "value": 1
+      },
+      {
         "label": "유산균·Levilactobacillus brevis·Lactiplantibacillus plantarum",
+        "value": 1
+      },
+      {
+        "label": "유산균·Weissella cibaria",
         "value": 1
       },
       {
@@ -759,6 +767,10 @@
         "value": 1
       },
       {
+        "label": "GABA 오렌지주스·발효 최적화",
+        "value": 1
+      },
+      {
         "label": "GABA 요거트·발효·제품개발",
         "value": 1
       },
@@ -772,6 +784,10 @@
       },
       {
         "label": "GABA 유사체·약동학·신장기능",
+        "value": 1
+      },
+      {
+        "label": "GABA 탈지유·postbiotic·유전체 안전성",
         "value": 1
       },
       {
@@ -790,7 +806,7 @@
       },
       {
         "label": "후보",
-        "value": 127
+        "value": 129
       },
       {
         "label": "제외",
@@ -812,7 +828,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 56
+        "value": 58
       },
       {
         "label": "해당 없음",
@@ -854,7 +870,7 @@
       },
       {
         "label": "완전",
-        "value": 19
+        "value": 21
       },
       {
         "label": "초록검토",
@@ -903,6 +919,10 @@
         "value": 6
       },
       {
+        "label": "제품개발 가능성; 인체 효능 아님",
+        "value": 6
+      },
+      {
         "label": "미확인",
         "value": 5
       },
@@ -911,16 +931,12 @@
         "value": 5
       },
       {
-        "label": "제품개발 가능성; 인체 효능 아님",
-        "value": 5
-      },
-      {
         "label": "개발 가능성",
         "value": 4
       },
       {
         "label": "공정·제품개발 가능성; 인체 효능 아님",
-        "value": 3
+        "value": 4
       },
       {
         "label": "원료·공정개발 가능성; 인체 효능 아님",
@@ -1300,11 +1316,11 @@
     "category": [
       {
         "label": "연구 근거",
-        "value": 166
+        "value": 167
       },
       {
         "label": "안전성",
-        "value": 158
+        "value": 159
       },
       {
         "label": "동물시험",
@@ -1345,12 +1361,12 @@
         "value": 23
       },
       {
-        "label": "스트레스",
-        "value": 20
+        "label": "발효·배경",
+        "value": 21
       },
       {
-        "label": "발효·배경",
-        "value": 19
+        "label": "스트레스",
+        "value": 20
       },
       {
         "label": "고혈압",
@@ -9077,6 +9093,92 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "R-2026-227",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "유산균 52종 선별 및 오렌지주스 발효 GABA 증대 반응표면 최적화",
+      "year": 2025,
+      "title": "Screening of Lactic Acid Bacteria and RSM-Based Optimization for Enhancing γ-Aminobutyric Acid (GABA) Accumulation in Orange Juice",
+      "author": "Yin et al.",
+      "journal": "Foods",
+      "doi": "10.3390/foods15010071",
+      "pmid": "41517137",
+      "population": "발효식품 유래 유산균 52종 및 실험실 규모 오렌지주스",
+      "n": "균주 52종 선별; 사람 중재 없음",
+      "model": "Lacticaseibacillus paracasei ZY·L. rhamnosus SN12 혼합 발효 및 RSM 최적화",
+      "form": "GABA 강화 발효 오렌지주스",
+      "dose": "해당 없음(공정 연구)",
+      "route": "해당 없음(섭취시험 아님)",
+      "duration": "최적 발효 37°C·96시간",
+      "comparator": "무접종 주스와 최적화 발효 주스 비교",
+      "domain": "GABA 생성·발효 음료·제품개발",
+      "outcome": "최적 조건 GABA 0.89 g/L; 무접종 주스 대비 39.06% 증가",
+      "direction": "제품개발 가능성; 인체 효능 아님",
+      "finding": "유산균 52종을 선별해 두 균주 혼합 발효를 최적화했고, 오렌지주스의 GABA가 0.89 g/L까지 증가했다.",
+      "safety": "실험실 발효 연구로 완제품 미생물 안전성·유통 안정성·사람 섭취 효과를 평가하지 않았다.",
+      "limitation": "발효주스의 GABA 함량은 사람의 이완·수면·스트레스 효과나 섭취량을 입증하지 않으며, 산도·당·생균수·보관을 별도 검증해야 한다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Foods·PMC 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41517137/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12785718/",
+      "doiUrl": "https://doi.org/10.3390/foods15010071",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 41517137의 PubMed·PMC 초록을 확인했다. 연구의 의미: 균주 조합과 발효 조건이 실제 주스 매트릭스의 GABA 함량을 좌우한다는 제품개발 근거다. 기대 행동: 완제품 함량·품질·안전성 시험의 공정 후보로 활용하고, 0.89 g/L를 사람의 이완·수면 효능이나 1회 섭취량으로 광고하지 않는다.",
+      "species": "유산균·Lacticaseibacillus paracasei·L. rhamnosus",
+      "topic": "GABA 오렌지주스·발효 최적화",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·PMC",
+      "category": "연구 근거",
+      "effectCategory": "발효·배경"
+    },
+    {
+      "id": "R-2026-226",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "Weissella cibaria UF-274의 탈지유 GABA 생산 최적화 및 전장유전체 안전성 분석",
+      "year": 2026,
+      "title": "Enhanced Postbiotic Metabolite GABA Production in Skim Milk Using Weissella cibaria UF-274 and Whole-Genome Analysis",
+      "author": "Yogeswara et al.",
+      "journal": "Metabolites",
+      "doi": "10.3390/metabo16030175",
+      "pmid": "41893326",
+      "population": "발리 발효 소시지 유래 Weissella cibaria UF-274 및 탈지유 발효 시스템",
+      "n": "사람 중재 없음; 균주·공정·유전체 연구",
+      "model": "Box–Behnken 설계로 포도당·MSG·PLP 최적화 및 전장유전체·항생제내성 분석",
+      "form": "GABA 생성 postbiotic 발효유 후보",
+      "dose": "최적 포도당 23.91 g/L·MSG 2.32 g/L·PLP 46 μM; 사람 섭취량 아님",
+      "route": "해당 없음(섭취시험 아님)",
+      "duration": "공정 조건별 평가",
+      "comparator": "배지 성분·발효 조건별 GABA 생산 비교",
+      "domain": "GABA 생성·발효유·유전체 안전성",
+      "outcome": "탈지유 GABA 생산 최적화; 전장유전체 2.53 Mb·coding sequence 2378개; 대부분 분석에서 항생제내성 유전자 예측 없음이나 van 유전자 신호가 한 분석에서 검출",
+      "direction": "공정·제품개발 가능성; 인체 효능 아님",
+      "finding": "W. cibaria UF-274를 탈지유에 적용해 GABA 생산 조건을 최적화하고, 전장유전체로 기능성과 안전성 관련 특징을 탐색했다.",
+      "safety": "van 유전자 신호가 한 분석에서 검출되어 균주 특이적 안전성·유전체·규제 검토가 필요하며, ‘안전하다’고 단정할 수 없다.",
+      "limitation": "균주·공정 및 유전체 결과는 사람의 혈중 GABA·이완·수면 효과나 완제품 안전성을 입증하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Metabolites·PMC 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41893326/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13028806/",
+      "doiUrl": "https://doi.org/10.3390/metabo16030175",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 41893326의 PubMed·PMC 초록을 확인했다. 연구의 의미: 발효유 GABA 생산과 전장유전체 안전성 검토를 함께 수행해 제품개발의 실제 검토 지점을 보여준다. 기대 행동: van 유전자 신호를 포함한 균주 안전성·완제품 검증을 먼저 수행하고, GABA 생산량을 사람의 이완·수면 효능으로 광고하지 않는다.",
+      "species": "유산균·Weissella cibaria",
+      "topic": "GABA 탈지유·postbiotic·유전체 안전성",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·PMC",
+      "category": "안전성",
+      "effectCategory": "발효·배경"
     },
     {
       "id": "R-2026-225",
