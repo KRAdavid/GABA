@@ -5,14 +5,14 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 389,
-    "literature": 381,
+    "total": 390,
+    "literature": 382,
     "regulatory": 8,
-    "clinical": 114,
+    "clinical": 115,
     "animal": 204,
     "scie": 139,
     "complete": 189,
-    "partial": 107,
+    "partial": 108,
     "drivePdf": 71,
     "included": 197,
     "candidate": 158,
@@ -23,10 +23,10 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 351,
-      "literatureWithPmid": 320,
+      "literatureWithDoi": 352,
+      "literatureWithPmid": 321,
       "extractionComplete": 189,
-      "extractionPartial": 107
+      "extractionPartial": 108
     },
     "discovery": {
       "snapshotDate": "2026-09-09",
@@ -56,7 +56,7 @@
       },
       {
         "label": "인체",
-        "value": 107
+        "value": 108
       },
       {
         "label": "축산",
@@ -713,6 +713,10 @@
         "value": 1
       },
       {
+        "label": "신경·행동·알코올 갈망",
+        "value": 1
+      },
+      {
         "label": "신경·행동·인지수행",
         "value": 1
       },
@@ -1079,11 +1083,11 @@
         "value": 8
       },
       {
-        "label": "보류",
-        "value": 5
+        "label": "포함후보",
+        "value": 6
       },
       {
-        "label": "포함후보",
+        "label": "보류",
         "value": 5
       }
     ],
@@ -1094,7 +1098,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 103
+        "value": 104
       },
       {
         "label": "SCIE 확인 필요",
@@ -1144,7 +1148,7 @@
       },
       {
         "label": "부분",
-        "value": 107
+        "value": 108
       },
       {
         "label": "완전",
@@ -1225,11 +1229,11 @@
         "value": 14
       },
       {
-        "label": "무효",
-        "value": 9
+        "label": "혼합",
+        "value": 10
       },
       {
-        "label": "혼합",
+        "label": "무효",
         "value": 9
       },
       {
@@ -1746,7 +1750,7 @@
     "category": [
       {
         "label": "연구 근거",
-        "value": 196
+        "value": 197
       },
       {
         "label": "안전성",
@@ -1780,7 +1784,7 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 100
+        "value": 101
       },
       {
         "label": "수면",
@@ -14860,6 +14864,50 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "혈압",
+      "duplicate": "없음"
+    },
+    {
+      "id": "H-2022-184",
+      "status": "포함후보",
+      "kind": "임상",
+      "design": "무작위 위약대조 병행시험",
+      "year": 2022,
+      "title": "Effect of Extract of Black Sticky Rice with Giant Embryo on Alcohol Cravings of Korean Social Drinkers: A 12-Week Randomized, Placebo-Controlled Trial",
+      "author": "Huh et al.",
+      "journal": "Journal of Medicinal Food",
+      "doi": "10.1089/jmf.2022.K.0020",
+      "pmid": "35834633",
+      "population": "한국인 사회적 음주자",
+      "n": "41명; GABA 추출물 21명, 위약 20명",
+      "model": "거대배아 흑찰미 추출물의 GABA 섭취와 알코올 갈망",
+      "form": "거대배아 흑찰미 GABA 추출물",
+      "dose": "GABA 30 mg/day",
+      "route": "경구",
+      "duration": "12주",
+      "comparator": "위약",
+      "domain": "알코올 갈망·행동",
+      "outcome": "Pennsylvania Alcohol Craving Scale(PACS), Obsessive-Compulsive Drinking Scale(OCDS)",
+      "direction": "혼합",
+      "finding": "PACS 총점의 시간×군 상호작용은 유의하지 않았으나(p=0.087), OCDS 강박 하위척도와 총점에서는 시간×군 상호작용이 유의했다(p=0.011).",
+      "safety": "PubMed 초록에서 중대한 안전성 결과가 충분히 제시되지 않아 원문 안전성 표 확인이 필요",
+      "limitation": "소표본 단일 연구이며 흑찰미 추출물의 다른 성분과 GABA 효과를 분리할 수 없다. 알코올 사용장애 치료·금주·재발 예방을 평가한 시험이 아니고, PACS와 OCDS 결과가 일관되지 않다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/35834633/",
+      "fulltextUrl": "https://journals.sagepub.com/doi/full/10.1089/jmf.2022.K.0020",
+      "doiUrl": "https://doi.org/10.1089/jmf.2022.K.0020",
+      "extraction": "부분",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 35834633 및 DOI 서지정보와 PubMed 초록을 확인. 연구의 의미: GABA가 포함된 식품 추출물을 12주 섭취한 사람 대상 시험에서 알코올 갈망의 일부 OCDS 지표가 개선됐지만, PACS 총점은 통계적 유의성에 도달하지 않아 결과가 일관되지 않음을 보여준다. 기대 행동: 일반적인 이완·수면·금주 또는 알코올 사용장애 치료 광고에 전용하지 말고, ‘GABA 단독’이 아닌 흑찰미 추출물 근거로 표시하며 소표본·단일시험·척도 불일치와 원문 안전성 확인 필요성을 함께 공개한다.",
+      "species": "인체",
+      "topic": "신경·행동·알코올 갈망",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI 원문",
+      "category": "연구 근거",
+      "effectCategory": "기타",
       "duplicate": "없음"
     },
     {
