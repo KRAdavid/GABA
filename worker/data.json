@@ -14,8 +14,8 @@
     "complete": 159,
     "partial": 95,
     "drivePdf": 76,
-    "included": 166,
-    "candidate": 79,
+    "included": 167,
+    "candidate": 78,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 166
+        "value": 167
       },
       {
         "label": "후보",
-        "value": 79
+        "value": 78
       },
       {
         "label": "제외",
@@ -10787,7 +10787,7 @@
     },
     {
       "id": "H-2025-177",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약대조 평행시험(학회 초록)",
       "year": 2025,
@@ -10820,7 +10820,7 @@
       "extraction": "부분",
       "added": "2026-09-08",
       "checked": "2026-09-08",
-      "notes": "Sleep 2025 학회 초록의 원문 페이지를 확인. 연구의 의미: GABA를 포함한 복합 수면보충제가 폐경 전후 여성의 주간기능과 아침 증상에 미칠 가능성을 위약과 비교해 탐색한 자료다. 기대 행동: 폐경기 수면 복합제의 탐색 근거로만 활용하고 GABA 단독효과로 인용하지 않으며, GABA 용량·전체 조성·이상반응 상세와 정식 논문 출판 여부를 추가 확인한다.",
+      "notes": "Sleep 2025 학회 초록 원문(0937)을 확인. 연구의 의미: GABA·SAMe·propyl gallate·magnesium glycinate·theanine 복합 수면보충제가 폐경 전후 여성의 주간기능과 아침 증상에 미칠 가능성을 위약과 비교해 탐색한 자료다. 기대 행동: 폐경기 복합제의 탐색 근거로만 활용하고 GABA 단독효과·GABA 용량·장기 효능으로 인용하지 않는다. 초록에 GABA 개별 용량과 상세 이상반응 수치가 없고 Bonafide Health 지원 연구이므로, 정식 논문 출판 및 전체 조성 확인 전에는 보조 근거로 표시한다.",
       "species": "인체",
       "topic": "폐경기·수면",
       "hasDrivePdf": false,
