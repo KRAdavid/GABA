@@ -29,6 +29,14 @@ await search.fill("10.1016/j.jia.2026.08.003");
 await page.waitForTimeout(800);
 const searchBody = await page.locator("body").innerText();
 assert.match(searchBody, /Dietary GABA improves growth and intestinal health|A-2026-123|10.1016\/j\.jia\.2026\.08\.003/i);
+await search.fill("NCT06464172");
+await page.waitForTimeout(800);
+const registryBody = await page.locator("body").innerText();
+assert.match(registryBody, /Association Between Serum and Neuroimaging Measurements|H-REG-2024-002|NCT06464172/i);
+await search.fill("NCT06997406");
+await page.waitForTimeout(800);
+const compositeRegistryBody = await page.locator("body").innerText();
+assert.match(compositeRegistryBody, /Inner Ear Support|H-REG-2026-004|NCT06997406/i);
 assert.deepEqual(errors, []);
 console.log(JSON.stringify({
   valid: true,
@@ -36,7 +44,7 @@ console.log(JSON.stringify({
   title: await page.title(),
   url: page.url(),
   liveCount: liveLiterature,
-  newRecordSearch: "A-2026-123 / DOI 10.1016/j.jia.2026.08.003",
+  newRecordSearch: "A-2026-123 / DOI 10.1016/j.jia.2026.08.003; H-REG-2024-002 / NCT06464172; H-REG-2026-004 / NCT06997406",
   errors
 }));
 await browser.close();
