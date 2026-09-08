@@ -5,20 +5,20 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 390,
-    "literature": 382,
+    "total": 391,
+    "literature": 383,
     "regulatory": 8,
-    "clinical": 115,
+    "clinical": 116,
     "animal": 204,
     "scie": 139,
     "complete": 189,
-    "partial": 108,
+    "partial": 109,
     "drivePdf": 71,
     "included": 197,
     "candidate": 158,
     "excluded": 16,
     "safetyCategory": 159,
-    "effectCategory": 289,
+    "effectCategory": 290,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -26,20 +26,20 @@
       "literatureWithDoi": 352,
       "literatureWithPmid": 321,
       "extractionComplete": 189,
-      "extractionPartial": 108
+      "extractionPartial": 109
     },
     "discovery": {
       "snapshotDate": "2026-09-09",
-      "generatedAt": "2026-09-08T23:15:50.474Z",
+      "generatedAt": "2026-09-08T23:27:12.940Z",
       "triageVersion": "2026-09-09.1",
       "identifierExtraction": "PubMed primary ArticleIdList only",
-      "pubmedUnique": 2962,
+      "pubmedUnique": 3234,
       "openAlexRetrieved": 0,
-      "mergedUnique": 3686,
+      "mergedUnique": 4051,
       "stagedCandidates": 1000,
       "priority": 0,
-      "general": 741,
-      "low": 259,
+      "general": 798,
+      "low": 202,
       "screeningCounts": null,
       "candidateSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
       "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
@@ -56,7 +56,7 @@
       },
       {
         "label": "인체",
-        "value": 108
+        "value": 109
       },
       {
         "label": "축산",
@@ -685,6 +685,10 @@
         "value": 1
       },
       {
+        "label": "스트레스·수면·피로·등록 결과",
+        "value": 1
+      },
+      {
         "label": "식욕·장-뇌 축",
         "value": 1
       },
@@ -1083,12 +1087,12 @@
         "value": 8
       },
       {
-        "label": "포함후보",
+        "label": "보류",
         "value": 6
       },
       {
-        "label": "보류",
-        "value": 5
+        "label": "포함후보",
+        "value": 6
       }
     ],
     "sciGroup": [
@@ -1110,7 +1114,7 @@
       },
       {
         "label": "해당 없음",
-        "value": 11
+        "value": 12
       },
       {
         "label": "ESCI",
@@ -1148,7 +1152,7 @@
       },
       {
         "label": "부분",
-        "value": 108
+        "value": 109
       },
       {
         "label": "완전",
@@ -1454,6 +1458,10 @@
       },
       {
         "label": "복합·GABA 단독효과 분리 불가",
+        "value": 1
+      },
+      {
+        "label": "부분적·불충분",
         "value": 1
       },
       {
@@ -1779,6 +1787,10 @@
       {
         "label": "임상 근거",
         "value": 2
+      },
+      {
+        "label": "등록·보강",
+        "value": 1
       }
     ],
     "effectCategory": [
@@ -1843,6 +1855,10 @@
         "value": 4
       },
       {
+        "label": "불안·스트레스·수면",
+        "value": 3
+      },
+      {
         "label": "열스트레스",
         "value": 3
       },
@@ -1856,10 +1872,6 @@
       },
       {
         "label": "불안·스트레스",
-        "value": 2
-      },
-      {
-        "label": "불안·스트레스·수면",
         "value": 2
       },
       {
@@ -18252,6 +18264,50 @@
       "linkType": "출판사·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·동물영양",
+      "duplicate": "없음"
+    },
+    {
+      "id": "R-2016-285",
+      "status": "보류",
+      "kind": "임상",
+      "design": "무작위 이중맹검 위약대조 평행군 시험(등록 결과)",
+      "year": 2016,
+      "title": "A study for evaluating the effect of the intake of a GABA-containing food on stress and sleep in worker: randomized, placebo-controlled, double blind trial",
+      "author": "Hokazono et al.",
+      "journal": "UMIN-CTR 등록 결과",
+      "doi": "",
+      "pmid": "",
+      "population": "30–60세 전일제 근로자; 수면·스트레스 기준을 충족한 건강 성인",
+      "n": "목표 표본수 60명; 실제 분석 인원은 등록 페이지에 미기재",
+      "model": "GABA 함유 식품의 12주 섭취와 스트레스·수면·피로",
+      "form": "GABA 함유 식품(정확한 제품·GABA 함량은 등록 페이지에 미기재)",
+      "dose": "등록 페이지에 미기재",
+      "route": "경구·식이",
+      "duration": "12주",
+      "comparator": "GABA 무함유 위약 식품",
+      "domain": "스트레스·수면·피로",
+      "outcome": "PSQI, POMS 2-A Short, AIS, 피로 VAS",
+      "direction": "부분적·불충분",
+      "finding": "시험은 완료 상태로 등록됐고, 등록 결과에는 위약군 대비 GABA군의 POMS 2 활력-활동 점수가 6주 시점 기저치 대비 유의하게 증가했다고 기재되어 있다(p=0.045). PSQI·POMS 전체·AIS·피로 등 전체 결과와 분석 대상 수는 공개 등록 페이지에서 확인되지 않는다.",
+      "safety": "등록 페이지에 새로운 이상반응·안전성 결과가 제시되지 않음",
+      "limitation": "논문 전문이나 상세 결과표·실제 분석 표본수·GABA 함량이 확인되지 않은 등록결과다. 단일 활력 지표만으로 스트레스·수면 개선이나 일반 GABA 효능을 주장할 수 없고, 연구비 제공자가 상업 기업이다.",
+      "pubmedStatus": "PubMed 논문 아님; UMIN 등록 결과",
+      "sciStatus": "해당 없음(등록 결과)",
+      "sciGroup": "해당 없음",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://center6.umin.ac.jp/cgi-bin/ctr_e/ctr_view.cgi?recptno=R000022245",
+      "doiUrl": "",
+      "extraction": "부분",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "UMIN000019308/R000022245 공식 등록 페이지를 확인했다. 연구의 의미: GABA 함유 식품의 스트레스·수면 시험에서 등록 결과와 출판 논문을 구분하고, 공개된 단일 결과만으로 전체 효능을 추정하지 않게 하는 자료다. 기대 행동: 마케팅 인용 시 ‘12주 무작위 위약대조 등록시험의 POMS 활력 결과’로만 표시하고, 스트레스·수면·피로 전체 개선이나 GABA 용량 효과로 확대하지 않는다. 실제 분석 수와 상세 결과표가 공개되면 원문 대조를 다시 수행한다.",
+      "species": "인체",
+      "topic": "스트레스·수면·피로·등록 결과",
+      "hasDrivePdf": false,
+      "linkType": "UMIN 등록",
+      "category": "등록·보강",
+      "effectCategory": "불안·스트레스·수면",
       "duplicate": "없음"
     },
     {
