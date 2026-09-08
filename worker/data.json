@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 190,
-    "literature": 182,
+    "total": 191,
+    "literature": 183,
     "regulatory": 8,
-    "clinical": 52,
+    "clinical": 53,
     "animal": 129,
-    "scie": 162,
-    "complete": 120,
+    "scie": 163,
+    "complete": 121,
     "partial": 62,
     "drivePdf": 77,
     "included": 138,
-    "candidate": 35,
+    "candidate": 36,
     "excluded": 9,
     "safetyCategory": 142,
-    "effectCategory": 126,
+    "effectCategory": 127,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 177,
-      "literatureWithPmid": 177,
-      "extractionComplete": 120,
+      "literatureWithDoi": 178,
+      "literatureWithPmid": 178,
+      "extractionComplete": 121,
       "extractionPartial": 62
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 53
+        "value": 54
       },
       {
         "label": "수산",
@@ -88,7 +88,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 43
+        "value": 44
       },
       {
         "label": "대사·내분비",
@@ -122,7 +122,7 @@
       },
       {
         "label": "후보",
-        "value": 35
+        "value": 36
       },
       {
         "label": "제외",
@@ -136,7 +136,7 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 162
+        "value": 163
       },
       {
         "label": "현행 미확인",
@@ -150,7 +150,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 120
+        "value": 121
       },
       {
         "label": "부분",
@@ -160,7 +160,7 @@
     "direction": [
       {
         "label": "유익",
-        "value": 110
+        "value": 111
       },
       {
         "label": "혼재",
@@ -220,7 +220,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 48
+        "value": 49
       }
     ],
     "effectCategory": [
@@ -230,7 +230,7 @@
       },
       {
         "label": "수면",
-        "value": 43
+        "value": 44
       },
       {
         "label": "다이어트",
@@ -8083,6 +8083,49 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
+      "effectCategory": "수면"
+    },
+    {
+      "id": "H-2026-054",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행시험",
+      "year": 2026,
+      "title": "Lactiplantibacillus plantarum Lp815 improves sleep and increases urinary GABA in a randomized, double-blind, placebo-controlled study of sleep disturbance",
+      "author": "Grant, Erfe, Delebecque, Keller, Zimmerman et al.",
+      "journal": "Scientific Reports",
+      "doi": "10.1038/s41598-025-27861-6",
+      "pmid": "41554764",
+      "population": "수면장애 성인 139명",
+      "n": "Lp815 70명, 위약 69명 평가",
+      "model": "자가보고 수면장애·중등도 이상 불면 증상",
+      "form": "GABA 생성 Lactiplantibacillus plantarum Lp815 프로바이오틱 캡슐",
+      "dose": "5 billion CFU/day",
+      "route": "경구",
+      "duration": "6주",
+      "comparator": "위약",
+      "domain": "신경·행동·수면",
+      "outcome": "ISI, GAD-7, 액티그래피·웨어러블 수면, 야간 발한, 요중 GABA, 이상반응",
+      "direction": "유익",
+      "finding": "6주 후 Lp815군은 위약 대비 불면 중증도와 불안 점수가 낮았고, 총 수면시간 등 객관적 수면지표가 개선됐다. 1주차 요중 GABA도 증가했고 관련 이상반응은 경미했다.",
+      "safety": "제품 관련 가능성이 있는 이상반응은 경미했으며 중대한 이상반응 보고 없음",
+      "limitation": "GABA 자체를 투여한 시험이 아니라 GABA 생성 프로바이오틱스 시험이다. 요중 GABA는 기전 연관 지표이지 경구 GABA의 생체이용률 증거가 아니다. 제조·연구 관련 회사의 연구비 지원과 저자 참여가 있으며, 6주·자가보고 수면장애 대상이라는 제한이 있다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인",
+      "sciGroup": "SCIE",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41554764/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12816741/",
+      "doiUrl": "https://doi.org/10.1038/s41598-025-27861-6",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PubMed·PMC 초록 및 이해상충 문구 확인. 직접 GABA 보충 근거가 아닌 간접 후보로 유지하며, GABA 생성 프로바이오틱 마케팅 자료와 순수 GABA 자료를 분리함.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
       "effectCategory": "수면"
     },
     {
