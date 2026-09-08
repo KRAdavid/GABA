@@ -5,20 +5,20 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 278,
-    "literature": 270,
+    "total": 279,
+    "literature": 271,
     "regulatory": 8,
-    "clinical": 91,
+    "clinical": 92,
     "animal": 161,
     "scie": 150,
     "complete": 180,
     "partial": 87,
     "drivePdf": 75,
     "included": 187,
-    "candidate": 72,
+    "candidate": 73,
     "excluded": 11,
     "safetyCategory": 157,
-    "effectCategory": 179,
+    "effectCategory": 180,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 87
+        "value": 88
       },
       {
         "label": "축산",
@@ -128,7 +128,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 47
+        "value": 48
       },
       {
         "label": "심혈관·혈압",
@@ -374,7 +374,7 @@
       },
       {
         "label": "후보",
-        "value": 72
+        "value": 73
       },
       {
         "label": "제외",
@@ -403,11 +403,11 @@
         "value": 7
       },
       {
-        "label": "기타",
-        "value": 1
+        "label": "기타 학술지",
+        "value": 2
       },
       {
-        "label": "기타 학술지",
+        "label": "기타",
         "value": 1
       }
     ],
@@ -422,7 +422,7 @@
       },
       {
         "label": "부분완료",
-        "value": 3
+        "value": 4
       }
     ],
     "direction": [
@@ -443,11 +443,11 @@
         "value": 7
       },
       {
-        "label": "유해",
-        "value": 6
+        "label": "혼합",
+        "value": 7
       },
       {
-        "label": "혼합",
+        "label": "유해",
         "value": 6
       },
       {
@@ -636,7 +636,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 121
+        "value": 122
       }
     ],
     "effectCategory": [
@@ -681,11 +681,11 @@
         "value": 4
       },
       {
-        "label": "대사",
-        "value": 2
+        "label": "스트레스·이완",
+        "value": 3
       },
       {
-        "label": "스트레스·이완",
+        "label": "대사",
         "value": 2
       },
       {
@@ -12183,6 +12183,46 @@
       "effectCategory": "스트레스·이완",
       "topic": "신경·행동·수면",
       "notes": "J-STAGE 공식 논문 페이지의 서지정보와 초록을 확인했다. 연구의 의미: 경도 정신적 스트레스 뒤 HRV를 wavelet transform으로 분석해 GABA가 스트레스 후 부교감신경 활동 저하를 완화할 가능성을 탐색한 최신 급성 인체시험이다. 기대 행동: ‘GABA 단회 섭취 후 특정 스트레스 과제에서 상대 HF power 감소가 관찰되지 않은 7명 연구’로만 활용하고, 일반적인 이완·불안 개선·장기 스트레스 감소로 확대하지 않는다. 정확한 용량·제형과 안전성은 원문 확인 전까지 미확정으로 표시한다."
+    },
+    {
+      "id": "H-2025-056",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 양성대조 교차시험",
+      "year": 2025,
+      "title": "Effect of SOYLAX® (a soybean-derived enzymatic hydrolysate peptide) for transient psychological stress in healthy adults: randomized, double-blind, positive-controlled, crossover study",
+      "author": "Matsukawa et al.",
+      "journal": "Japanese Pharmacology and Therapeutics",
+      "population": "건강한 성인",
+      "n": "28명",
+      "model": "일시적 정신적 스트레스·피로감·기분·불안",
+      "form": "GABA 양성대조군 및 SOYLAX® 시험식품",
+      "dose": "GABA 100 mg/day 또는 SOYLAX® 3 g/day, 각 3일",
+      "route": "경구",
+      "duration": "각 조건 3일; 1주 washout 후 교차",
+      "comparator": "활성 양성대조(GABA)",
+      "domain": "스트레스·이완",
+      "outcome": "VAS(기분·정신적 피로·불안; POMS·STAI 기반), 이상반응",
+      "direction": "혼합",
+      "finding": "공개 연구요약상 GABA군은 110개 VAS 항목 중 83개에서 군내 유의한 개선이 관찰됐으나, SOYLAX군과의 유의한 차이는 대부분의 항목에서 확인되지 않았다. 두 군 간 비교에서 일부 항목은 SOYLAX가 우수했으며, 시험식품 관련 이상반응은 보고되지 않았다.",
+      "safety": "공개 요약상 시험식품 관련 이상반응 없음; 단기·소표본 자료",
+      "limitation": "GABA가 위약이 아닌 양성대조군이므로 GABA의 절대적 효능을 입증하는 설계가 아니다. SOYLAX 제품시험의 GABA 비교군 결과이며, 원문 전문·정확한 GABA 제형과 세부 통계는 추가 확인 필요하다. 28명·각 3일의 단기시험으로 일반적·장기 스트레스 개선을 입증하지 않는다.",
+      "extraction": "부분완료",
+      "checked": "2026-09-08",
+      "added": "2026-09-08",
+      "pubmedStatus": "PubMed 미확인",
+      "sciStatus": "공식 목차·UMIN 등록 확인; 원문 추가 확인 필요",
+      "sciGroup": "기타 학술지",
+      "sciChecked": "2026-09-08",
+      "fulltextUrl": "https://www.lifescience.co.jp/yk/yk25/yke2510.html",
+      "doiUrl": "",
+      "pubmedUrl": "https://center6.umin.ac.jp/cgi-open-bin/icdr_e/ctr_view.cgi?recptno=R000065717",
+      "species": "인체",
+      "linkType": "공식 목차·UMIN·공개 요약",
+      "category": "연구 근거",
+      "effectCategory": "스트레스·이완",
+      "topic": "신경·행동·수면",
+      "notes": "Japanese Pharmacology and Therapeutics 공식 목차와 UMIN000057565 등록정보로 제목·저널·건강인 대상 무작위 교차설계를 확인하고, 공개 연구요약에서 28명·GABA 100 mg/day·3일·VAS 결과를 대조했다. 연구의 의미: GABA를 양성대조로 사용해 일시적 정신적 스트레스 관련 주관 지표를 비교한 제품 특이적 인체시험이다. 기대 행동: GABA의 위약대조 효능자료가 아니라 ‘100 mg/day GABA 양성대조군이 포함된 SOYLAX 비교시험’으로만 활용하고, GABA의 확정적 스트레스 완화·우월성 또는 장기효과로 확대하지 않는다. 원문 전문 확인 전까지 후보·부분완료 상태를 유지한다."
     },
     {
       "id": "A-2025-096",
