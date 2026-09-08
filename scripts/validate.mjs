@@ -60,7 +60,13 @@ assert.equal(db.records.filter((r) => r.kind === "임상").length, db.meta.clini
 assert.equal(db.records.filter((r) => r.kind === "동물").length, db.meta.animal);
 assert.equal(db.records.filter((r) => r.kind === "규제").length, db.meta.regulatory);
 assert.ok(db.records.every((r) => r.id && r.title && r.year));
-assert.ok(db.records.filter((r) => r.kind !== "규제").every((r) => r.notes && r.notes.includes("연구의 의미:") && r.notes.includes("기대 행동:")));
+const marketingEvidenceFields = ["finding", "notes", "limitation", "form", "route"];
+const incompleteMarketingEvidence = db.records
+  .filter((r) => r.kind !== "규제")
+  .filter((r) => marketingEvidenceFields.some((field) => !String(r[field] || "").trim()))
+  .map((r) => r.id);
+assert.deepEqual(incompleteMarketingEvidence, [], "every literature record must have marketing evidence fields");
+assert.ok(db.records.filter((r) => r.kind !== "규제").every((r) => r.notes.includes("연구의 의미:") && r.notes.includes("기대 행동:")));
 assert.ok(db.records.filter((r) => r.kind === "규제").every((r) => r.titleKo && r.summaryKo && r.sourceUrl));
 const includedLiterature = db.records.filter((r) => r.status === "포함" && r.kind !== "규제");
 assert.ok(includedLiterature.every((r) => r.pubmedUrl || r.fulltextUrl || r.doiUrl), "included literature must have a verification link");
