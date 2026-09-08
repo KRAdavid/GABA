@@ -5,17 +5,17 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 223,
-    "literature": 215,
+    "total": 224,
+    "literature": 216,
     "regulatory": 8,
     "clinical": 60,
     "animal": 153,
     "scie": 161,
-    "complete": 130,
+    "complete": 131,
     "partial": 85,
     "drivePdf": 76,
     "included": 138,
-    "candidate": 68,
+    "candidate": 69,
     "excluded": 9,
     "safetyCategory": 169,
     "effectCategory": 144,
@@ -23,9 +23,9 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 206,
-      "literatureWithPmid": 206,
-      "extractionComplete": 130,
+      "literatureWithDoi": 207,
+      "literatureWithPmid": 207,
+      "extractionComplete": 131,
       "extractionPartial": 85
     },
     "discovery": {
@@ -82,7 +82,7 @@
       },
       {
         "label": "기타",
-        "value": 1
+        "value": 2
       },
       {
         "label": "기타동물",
@@ -191,6 +191,10 @@
         "value": 1
       },
       {
+        "label": "종설·기전·안전성",
+        "value": 1
+      },
+      {
         "label": "폐경기·스트레스·수면",
         "value": 1
       }
@@ -202,7 +206,7 @@
       },
       {
         "label": "후보",
-        "value": 68
+        "value": 69
       },
       {
         "label": "제외",
@@ -220,7 +224,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 43
+        "value": 44
       },
       {
         "label": "ESCI",
@@ -234,7 +238,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 130
+        "value": 131
       },
       {
         "label": "부분",
@@ -248,7 +252,7 @@
       },
       {
         "label": "혼재",
-        "value": 51
+        "value": 52
       },
       {
         "label": "무효",
@@ -328,13 +332,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 54
+        "value": 55
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 79
+        "value": 80
       },
       {
         "label": "수면",
@@ -9189,6 +9193,49 @@
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
       "effectCategory": "수면"
+    },
+    {
+      "id": "R-2026-134",
+      "status": "후보",
+      "kind": "리뷰",
+      "design": "서술적 종설; 2000년 이후 PubMed 구조화 검색 기반",
+      "year": 2026,
+      "title": "Supplementation of γ-Aminobutyric Acid as a Functional Nutrient",
+      "author": "저자 목록 원문 확인 필요",
+      "journal": "Nutrients",
+      "doi": "10.3390/nu18142389",
+      "pmid": "42514458",
+      "population": "해당 없음(문헌 종설)",
+      "n": "해당 없음",
+      "model": "GABA의 경구 섭취·흡수·말초 생리·임상 근거 종합",
+      "form": "식품·미생물 유래 및 외인성 GABA",
+      "dose": "연구별 상이; 종설 자체의 권장량 아님",
+      "route": "주로 경구 보충 연구 검토",
+      "duration": "해당 없음",
+      "comparator": "해당 없음",
+      "domain": "흡수·장-뇌 축·면역·내분비·대사·안전성",
+      "outcome": "장 흡수·간 대사·수용체 신호·전임상 및 인체 연구의 효과와 한계",
+      "direction": "혼재",
+      "finding": "GABA를 필수영양소가 아닌 생리활성 기능성 대사물질로 정리하고, 흡수·간 대사·말초 수용체·장-뇌 축 가능성을 검토했다. 전임상 연구는 염증·대사 결과에서 유익한 경향을 보였지만, 인체 연구는 제한적이며 임상적 효능은 아직 확정되지 않았다고 결론냈다.",
+      "safety": "종설은 장기 안전성 평가와 조직별 노출·표적 결합 바이오마커가 추가로 필요하다고 제안함",
+      "limitation": "종설은 새로운 무작위 임상시험 결과가 아니며, 포함 연구의 설계·용량·제품 차이와 이질성을 그대로 가진다. 종설의 생물학적 가능성을 제품 효능 또는 규제 허용 문구로 직접 전환할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42514458/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13414921/",
+      "doiUrl": "https://doi.org/10.3390/nu18142389",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "연구의 의미: GABA의 흡수·말초 작용·장-뇌 축·임상 근거를 한 문헌에서 연결해, 기전적 가능성과 실제 인체 효능 사이의 간극을 설명하는 기준 종설이다. 기대 행동: 마케팅 검토의 배경·한계 문헌으로 활용하고, ‘인체 효능이 확정되지 않음’과 추가 용량반응·장기안전성 연구 필요성을 함께 제시한다. 종설 자체를 효능 입증 자료나 1차 임상 근거로 인용하지 않는다.",
+      "species": "기타",
+      "topic": "종설·기전·안전성",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·PMC·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
     },
     {
       "id": "H-2026-054",
