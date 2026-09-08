@@ -229,6 +229,38 @@
       "checked": "2026-08-24",
       "year": 2026,
       "notes": "2026-08-10 공식 페이지에서 GABA 및 gamma-aminobutyric acid 항목은 확인되지 않음. 국내 한시적 기준·규격 인정이나 안전성 입증의 자동 대체가 아님"
+    },
+    {
+      "id": "REG-CA-HC-NHPID-2026-001",
+      "kind": "규제",
+      "status": "유효",
+      "grade": "해외 규제 참고",
+      "agency": "캐나다 보건부 NNHPD",
+      "country": "캐나다",
+      "documentType": "규제 가이드",
+      "safetyArea": "종합평가",
+      "ingredientKo": "감마아미노부티르산(GABA)",
+      "ingredientEn": "Gamma-aminobutyric acid / 4-Aminobutanoic acid",
+      "titleKo": "캐나다 보건부 인지기능 제품 모노그래프(GABA 포함)",
+      "title": "Natural Health Product - Cognitive Function Products Monograph",
+      "summaryKo": "Health Canada NNHPD의 2026-01-30자 Cognitive Function Products Monograph는 GABA를 4-Aminobutanoic acid로 등재하고, Helps to temporarily promote relaxation 용도와 50~3,000 mg/day 용량(1회 750 mg 초과 금지)을 제시한다.",
+      "useQuestion": "캐나다 보건부가 제시한 GABA relaxation 용도·용량 및 라벨 조건 확인",
+      "identity": "동일",
+      "useMatch": "일치",
+      "subject": "성인 18세 이상 NHP 제품",
+      "exposure": "GABA 50~3,000 mg/day; 1회 750 mg 초과 금지",
+      "duration": "모노그래프의 용도·주의문구에 따름",
+      "safetyFinding": "GABA의 일시적 이완 도움 용도와 50~3,000 mg/day 기준을 공식 제시",
+      "noael": "해당없음",
+      "adverse": "해당없음",
+      "quality": "높음",
+      "guidelines": "Health Canada NNHPD monograph guidance",
+      "recognition": "Health Canada NNHPD 공식 Cognitive Function Products Monograph, 2026-01-30",
+      "sourceUrl": "https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing/compendium-monographs.html",
+      "decisionUrl": "https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing/compendium-monographs.html",
+      "checked": "2026-09-08",
+      "year": 2026,
+      "notes": "사용자 제공 공식 PDF Natural Health Product - Cognitive Function Products Monograph (2026)에서 본문 확인. 개별 제품 허가·국내 표시 적합성과 구분하여 관리한다."
     }
   ]
 }

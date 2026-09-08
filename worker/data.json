@@ -52,7 +52,7 @@
     },
     "sourceSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit",
     "sourceFile": "google_sync_payload.json",
-    "notice": "이 웹 인덱스는 2026-09-08 검토·배포 시점의 읽기 전용 스냅샷입니다."
+    "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
   },
   "facets": {
     "species": [
@@ -186,7 +186,7 @@
       },
       {
         "label": "해외 규제 참고",
-        "value": 3
+        "value": 4
       }
     ],
     "agency": [
@@ -197,12 +197,16 @@
       {
         "label": "캐나다 보건부",
         "value": 3
+      },
+      {
+        "label": "캐나다 보건부 NNHPD",
+        "value": 1
       }
     ],
     "safetyArea": [
       {
         "label": "종합평가",
-        "value": 5
+        "value": 6
       },
       {
         "label": "신규성·식용이력",
@@ -249,12 +253,12 @@
         "value": 9
       },
       {
-        "label": "성장호르몬",
-        "value": 7
-      },
-      {
         "label": "안전성·규제",
         "value": 8
+      },
+      {
+        "label": "성장호르몬",
+        "value": 7
       }
     ]
   },
@@ -8596,8 +8600,8 @@
       "ingredientEn": "Gamma-aminobutyric acid / 4-Aminobutanoic acid",
       "titleKo": "캐나다 보건부 인지기능 제품 모노그래프(GABA 포함)",
       "title": "Natural Health Product - Cognitive Function Products Monograph",
-      "summaryKo": "Health Canada NNHPD의 2026-01-30자 Cognitive Function Products Monograph는 GABA를 4-Aminobutanoic acid로 등재하고, ‘Helps to temporarily promote relaxation’ 용도와 50~3,000 mg/day 용량(1회 750 mg 초과 금지)을 제시한다.",
-      "useQuestion": "캐나다 보건부가 사전승인한 GABA relaxation 용도·용량 및 라벨 조건 확인",
+      "summaryKo": "Health Canada NNHPD의 2026-01-30자 Cognitive Function Products Monograph는 GABA를 4-Aminobutanoic acid로 등재하고, Helps to temporarily promote relaxation 용도와 50~3,000 mg/day 용량(1회 750 mg 초과 금지)을 제시한다.",
+      "useQuestion": "캐나다 보건부가 제시한 GABA relaxation 용도·용량 및 라벨 조건 확인",
       "identity": "동일",
       "useMatch": "일치",
       "subject": "성인 18세 이상 NHP 제품",
@@ -8613,25 +8617,25 @@
       "decisionUrl": "https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing/compendium-monographs.html",
       "checked": "2026-09-08",
       "year": 2026,
-      "notes": "사용자 제공 공식 PDF ‘Natural Health Product - Cognitive Function Products Monograph (2026)’에서 본문 확인. GABA 관련 근거는 제품허가 사례와 구분하여 모노그래프 기준으로 관리.",
-      "design": "제품 모노그래프",
+      "notes": "사용자 제공 공식 PDF Natural Health Product - Cognitive Function Products Monograph (2026)에서 본문 확인. 개별 제품 허가·국내 표시 적합성과 구분하여 관리한다.",
+      "design": "규제 가이드",
       "author": "캐나다 보건부 NNHPD",
-      "journal": "캐나다 · Health Canada NNHPD",
+      "journal": "캐나다 · 캐나다 보건부 NNHPD",
       "doi": "",
       "pmid": "",
       "population": "성인 18세 이상 NHP 제품",
       "n": "",
-      "model": "Cognitive Function Products Monograph",
-      "form": "제품 모노그래프",
+      "model": "감마아미노부티르산(GABA) / Gamma-aminobutyric acid / 4-Aminobutanoic acid",
+      "form": "규제 가이드",
       "dose": "GABA 50~3,000 mg/day; 1회 750 mg 초과 금지",
-      "route": "해당없음",
-      "comparator": "해당없음",
+      "route": "일치",
+      "comparator": "동일",
       "domain": "종합평가",
-      "outcome": "GABA relaxation 용도·용량 및 라벨 조건 확인",
+      "outcome": "캐나다 보건부가 제시한 GABA relaxation 용도·용량 및 라벨 조건 확인",
       "direction": "해당없음",
-      "finding": "GABA는 relaxation action 성분으로 50~3,000 mg/day 범위에 포함",
-      "safety": "300 mg/day 이상 GABA 제품은 사용 시 알코올 회피 문구가 요구됨",
-      "limitation": "모노그래프는 시장허가를 위한 지침이며 개별 제품의 제조·품질·표시 적합성은 별도 심사됨.",
+      "finding": "GABA의 일시적 이완 도움 용도와 50~3,000 mg/day 기준을 공식 제시",
+      "safety": "해당없음",
+      "limitation": "사용자 제공 공식 PDF Natural Health Product - Cognitive Function Products Monograph (2026)에서 본문 확인. 개별 제품 허가·국내 표시 적합성과 구분하여 관리한다.",
       "pubmedStatus": "해당없음",
       "sciStatus": "해당없음",
       "sciGroup": "해당없음",
@@ -8640,7 +8644,7 @@
       "fulltextUrl": "https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing/compendium-monographs.html",
       "doiUrl": "",
       "extraction": "검토완료",
-      "added": "2026-09-08",
+      "added": "2026-08-24",
       "species": "규제자료",
       "topic": "종합평가",
       "effectCategory": "안전성·규제",

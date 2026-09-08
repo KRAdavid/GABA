@@ -23,6 +23,13 @@ dated.sort((a, b) => b.mtime - a.mtime);
 const payloadPath = dated[0].path;
 const payload = JSON.parse(await readFile(payloadPath, "utf8"));
 const regulatory = JSON.parse(await readFile(regulatoryPath, "utf8"));
+const previousDataPath = resolve(siteRoot, "worker", "data.json");
+let previousData = null;
+try {
+  previousData = JSON.parse(await readFile(previousDataPath, "utf8"));
+} catch {
+  previousData = null;
+}
 const searchSummaries = await findNamedFiles(outputsRoot, "search-summary.json");
 const searchDated = await Promise.all(searchSummaries.map(async (path) => ({ path, mtime: (await stat(path)).mtimeMs })));
 searchDated.sort((a, b) => b.mtime - a.mtime);
@@ -78,7 +85,7 @@ function normalizedKey(value) {
   return clean(value).toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//, "");
 }
 
-const literatureRecords = indexWrite.rows.map((row) => {
+const sheetLiteratureRecords = indexWrite.rows.map((row) => {
   const cells = Array.from({ length: 36 }, (_, index) => valueOf(row.values?.[index]));
   const doi = clean(cells[8]);
   const pubmedUrl = httpUrl(cells[27]);
@@ -154,7 +161,21 @@ const literatureRecords = indexWrite.rows.map((row) => {
   return record;
 }).filter((record) => record.id);
 
-const regulatoryRecords = regulatory.records.map((record) => ({
+// Preserve verified local records while the source Sheet is temporarily read-only.
+// This prevents a stale Sheet snapshot from silently removing already-reviewed evidence.
+const sheetKeys = new Set(sheetLiteratureRecords.flatMap((record) => [
+  record.id,
+  normalizedKey(record.doi),
+  normalizedKey(record.pmid)
+].filter(Boolean)));
+const preservedLiteratureRecords = (previousData?.records || [])
+  .filter((record) => record.kind !== "규제" && record.id)
+  .filter((record) => !sheetKeys.has(record.id)
+    && !sheetKeys.has(normalizedKey(record.doi))
+    && !sheetKeys.has(normalizedKey(record.pmid)));
+const literatureRecords = [...sheetLiteratureRecords, ...preservedLiteratureRecords];
+
+const sheetRegulatoryRecords = regulatory.records.map((record) => ({
   ...record,
   status: record.status || "검토중",
   kind: "규제",
@@ -195,6 +216,11 @@ const regulatoryRecords = regulatory.records.map((record) => ({
   linkType: "공식 원문",
   category: "안전성"
 }));
+
+const regulatoryKeys = new Set(sheetRegulatoryRecords.map((record) => record.id).filter(Boolean));
+const preservedRegulatoryRecords = (previousData?.records || [])
+  .filter((record) => record.kind === "규제" && record.id && !regulatoryKeys.has(record.id));
+const regulatoryRecords = [...sheetRegulatoryRecords, ...preservedRegulatoryRecords];
 
 const records = [...literatureRecords, ...regulatoryRecords];
 
