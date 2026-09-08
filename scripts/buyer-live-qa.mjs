@@ -25,10 +25,10 @@ assert.match(initialBody, /대량 탐색 후보/);
 const liveLiterature = Number(initialBody.match(/검증 레코드\s+([\d,]+)편/)?.[1]?.replace(/,/g, ""));
 assert.ok(Number.isFinite(liveLiterature));
 const search = page.locator("input").first();
-await search.fill("10.19080/JPCR.2026.11.555815");
+await search.fill("42669294");
 await page.waitForTimeout(800);
 const searchBody = await page.locator("body").innerText();
-assert.match(searchBody, /Dietary Gamma-Aminobutyric Acid|A-2026-120|broiler/i);
+assert.match(searchBody, /Effects of γ-aminobutyric acid-rich fermented rice bran|A-2026-122|42669294/i);
 assert.deepEqual(errors, []);
 console.log(JSON.stringify({
   valid: true,
@@ -36,7 +36,7 @@ console.log(JSON.stringify({
   title: await page.title(),
   url: page.url(),
   liveCount: liveLiterature,
-  newRecordSearch: "A-2026-120 / DOI 10.19080/JPCR.2026.11.555815",
+  newRecordSearch: "A-2026-122 / PMID 42669294",
   errors
 }));
 await browser.close();
