@@ -14,8 +14,8 @@
     "complete": 177,
     "partial": 87,
     "drivePdf": 75,
-    "included": 185,
-    "candidate": 68,
+    "included": 186,
+    "candidate": 67,
     "excluded": 11,
     "safetyCategory": 158,
     "effectCategory": 175,
@@ -346,11 +346,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 185
+        "value": 186
       },
       {
         "label": "후보",
-        "value": 68
+        "value": 67
       },
       {
         "label": "제외",
@@ -400,7 +400,7 @@
       },
       {
         "label": "혼재",
-        "value": 56
+        "value": 55
       },
       {
         "label": "무효",
@@ -464,6 +464,10 @@
       },
       {
         "label": "생리반응 변화",
+        "value": 1
+      },
+      {
+        "label": "수면 개선; 기능·신체구성 군간 차이는 제한적",
         "value": 1
       },
       {
@@ -2604,44 +2608,44 @@
     },
     {
       "id": "H-2026-023",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
-      "design": "무작위 이중눈가림 위약대조 평행시험",
+      "design": "무작위 이중맹검 위약대조 평행시험",
       "year": 2026,
-      "title": "GABA supplementation combined with home-based exercise improves subjective sleep quality and body composition in elderly women: A randomized trial.",
-      "author": "Trindade et al.",
-      "journal": "The Journal of Nutritional Physiology",
+      "title": "GABA supplementation combined with home-based exercise improves subjective sleep quality and body composition in elderly women: A randomized trial",
+      "author": "Trindade, Pires, Moura, Alexandrino, Peixoto, Silva, Coelho, Oliveira, Becker",
+      "journal": "The Journal of Nutritional Physiology 6:100023",
       "doi": "10.1016/j.jnphys.2026.100023",
       "pmid": "",
-      "population": "고령 여성(등록기준 ≥65세; 본문 선별 기술 ≥60세와 상충)",
-      "n": "29명 선별, 22명 분석(위약 11명, GABA 11명)",
-      "model": "독립생활 고령 여성; 일부 근감소증 징후",
-      "form": "PharmaGABA(순수 GABA)+재택운동",
-      "dose": "100 mg/day",
-      "route": "경구 캡슐(취침 3시간 전)",
-      "duration": "16주",
-      "comparator": "동일 재택운동+미결정셀룰로오스 위약",
-      "domain": "수면/신체구성/신체기능",
-      "outcome": "PSQI, 체중·BMI·제지방량, 근감소증, 악력·STS·TUGT, GH·혈당·중성지방",
-      "direction": "혼재",
-      "finding": "GABA군은 위약군보다 PSQI 총점과 수면잠복기·기간·효율·장애·주간기능이 개선됐다. 기능수행과 신체구성은 두 군 간 유의차가 없었고 일부 신체구성 개선은 GABA군 내 변화에 그쳤다.",
-      "safety": "이상사건 또는 부작용 보고 없음",
-      "limitation": "소표본·여성만·재택운동 병행·자가보고 수면·완료자 분석; 연령기준 및 근감소증 분모에 본문 내부 불일치",
+      "population": "독립생활 고령 여성; 전문의 본문상 연령 기준 기술에 상충이 있음",
+      "n": "29명 적격 평가; GABA 11명·위약 11명 분석",
+      "model": "수면의 질·신체구성·신체기능·근감소증",
+      "form": "PharmaGABA® 순수 GABA + 재택운동",
+      "dose": "GABA 100 mg/day",
+      "route": "경구 캡슐",
+      "duration": "16주; 취침 3시간 전 1일 1회",
+      "comparator": "동일 재택운동 + 미결정셀룰로오스 위약",
+      "domain": "수면·신체구성·노인 건강",
+      "outcome": "PSQI·체중·BMI·제지방량·근감소증·악력·STS·TUGT·GH·혈당·중성지방",
+      "direction": "수면 개선; 기능·신체구성 군간 차이는 제한적",
+      "finding": "16주 후 GABA군은 위약군보다 PSQI 총점과 수면잠복기·수면기간·수면효율·수면장애·주간기능이 더 개선됐다(p<0.001). 신체기능은 두 군 모두 개선됐고, 체중·BMI·제지방량 변화는 일부 GABA군 내 변화로 군간 우월성이 확정되지 않았다.",
+      "safety": "16주 동안 이상사건 또는 보충제 관련 부작용이 보고되지 않았으나, 22명 분석의 단기 결과다.",
+      "limitation": "소표본·고령 여성·재택운동 병행·주관적 PSQI 중심이며, 운동 효과와 GABA 효과를 완전히 분리하기 어렵다. 본문에 연령 기준과 근감소증 분모 기술의 상충이 있고, 일반 성인·순수 GABA 단독 효과로 확대할 수 없다.",
       "pubmedStatus": "PubMed 미등재",
-      "sciStatus": "MJL 현행 미확인",
+      "sciStatus": "SCIE 확인 필요",
       "sciGroup": "현행 미확인",
-      "sciChecked": "2026-07-27",
-      "pubmedUrl": "https://doi.org/10.1016/j.jnphys.2026.100023",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
       "fulltextUrl": "https://www.sciencedirect.com/science/article/pii/S3050624726000094",
       "doiUrl": "https://doi.org/10.1016/j.jnphys.2026.100023",
       "extraction": "완료",
-      "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "RBR-5ftj2fy; CC BY 공개 전문 재추출(2026-07-27). 2025년 창간 저널로 현행 Clarivate MJL 등재를 확인하지 못해 후보 유지. 표·방법의 n=11/군과 근감소증 문단의 분모가 상충. 연구의 의미: 임상에서 GABA군은 위약군보다 PSQI 총점과 수면잠복기·기간·효율·장애·주간기능이 개선됐다. 기능수행과 신체구성은 두 군 간 유의차가 없었고 일부 신체구성 개선은 GABA군 내 변화에 그쳤다. 기대 행동: 인체 근거로 검토하되 대상·용량·기간·대조군과 제품 조건의 일치 여부를 확인한 뒤 제한적으로 활용한다.",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "출판사 초록과 공개 전문을 대조했다. 연구의 의미: 순수 GABA 100 mg/day를 고령 여성의 재택운동과 병행했을 때 주관적 수면의 추가 개선 가능성을 위약과 비교한 최신 무작위 연구다. 기대 행동: ‘재택운동을 병행한 고령 여성 22명 분석에서 16주 주관적 수면 개선’으로만 사용하고, GABA 단독 수면효과·근육 증가·근감소증 치료로 확대하지 않는다. 소표본, 운동 병행, 주관적 평가, 본문 연령·분모 불일치를 병기한다.",
       "species": "인체",
       "topic": "신경·행동·수면",
       "hasDrivePdf": false,
-      "linkType": "원문·DOI",
+      "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
       "effectCategory": "수면"
     },
