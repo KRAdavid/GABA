@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 265,
-    "literature": 257,
+    "total": 269,
+    "literature": 261,
     "regulatory": 8,
-    "clinical": 87,
+    "clinical": 89,
     "animal": 160,
     "scie": 152,
-    "complete": 170,
+    "complete": 174,
     "partial": 87,
     "drivePdf": 75,
-    "included": 182,
-    "candidate": 64,
+    "included": 183,
+    "candidate": 67,
     "excluded": 11,
-    "safetyCategory": 159,
-    "effectCategory": 169,
+    "safetyCategory": 158,
+    "effectCategory": 172,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 239,
-      "literatureWithPmid": 231,
-      "extractionComplete": 170,
+      "literatureWithDoi": 243,
+      "literatureWithPmid": 235,
+      "extractionComplete": 174,
       "extractionPartial": 87
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 83
+        "value": 84
       },
       {
         "label": "축산",
@@ -78,15 +78,15 @@
       },
       {
         "label": "기타",
-        "value": 10
+        "value": 11
+      },
+      {
+        "label": "미생물·식품",
+        "value": 4
       },
       {
         "label": "반려·기타동물",
         "value": 3
-      },
-      {
-        "label": "미생물·식품",
-        "value": 2
       },
       {
         "label": "고찰",
@@ -120,7 +120,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 46
+        "value": 45
       },
       {
         "label": "심혈관·혈압",
@@ -128,7 +128,7 @@
       },
       {
         "label": "대사·내분비",
-        "value": 23
+        "value": 22
       },
       {
         "label": "면역·염증·항산화",
@@ -139,16 +139,16 @@
         "value": 14
       },
       {
-        "label": "기타",
-        "value": 8
+        "label": "장기·독성·안전성",
+        "value": 10
       },
       {
-        "label": "장기·독성·안전성",
-        "value": 8
+        "label": "기타",
+        "value": 9
       },
       {
         "label": "신경·행동·스트레스",
-        "value": 5
+        "value": 6
       },
       {
         "label": "수면·불면",
@@ -172,6 +172,10 @@
       },
       {
         "label": "수면",
+        "value": 2
+      },
+      {
+        "label": "식품공정·발효",
         "value": 2
       },
       {
@@ -239,10 +243,6 @@
         "value": 1
       },
       {
-        "label": "식품공정·발효",
-        "value": 1
-      },
-      {
         "label": "식품안전·발효",
         "value": 1
       },
@@ -272,6 +272,10 @@
       },
       {
         "label": "인지·인지 유연성",
+        "value": 1
+      },
+      {
+        "label": "장-뇌 축·미생물",
         "value": 1
       },
       {
@@ -334,11 +338,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 182
+        "value": 183
       },
       {
         "label": "후보",
-        "value": 64
+        "value": 67
       },
       {
         "label": "제외",
@@ -356,7 +360,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 89
+        "value": 93
       },
       {
         "label": "ESCI",
@@ -374,7 +378,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 170
+        "value": 174
       },
       {
         "label": "부분",
@@ -384,7 +388,7 @@
     "direction": [
       {
         "label": "유익",
-        "value": 150
+        "value": 147
       },
       {
         "label": "혼재",
@@ -419,7 +423,23 @@
         "value": 1
       },
       {
+        "label": "간접 대사 신호; 효능 근거 아님",
+        "value": 1
+      },
+      {
+        "label": "개발 가능성",
+        "value": 1
+      },
+      {
+        "label": "기전 가능성·탐색적",
+        "value": 1
+      },
+      {
         "label": "기타",
+        "value": 1
+      },
+      {
+        "label": "무변화·간접 안전성 신호; 효능 근거 아님",
         "value": 1
       },
       {
@@ -444,6 +464,18 @@
       },
       {
         "label": "안전",
+        "value": 1
+      },
+      {
+        "label": "연관 신호·탐색적",
+        "value": 1
+      },
+      {
+        "label": "유익 신호·탐색적",
+        "value": 1
+      },
+      {
+        "label": "일시적 스트레스 감소 신호·근거 확실성 높음~중간",
         "value": 1
       },
       {
@@ -516,17 +548,17 @@
     "category": [
       {
         "label": "안전성",
-        "value": 159
+        "value": 158
       },
       {
         "label": "연구 근거",
-        "value": 106
+        "value": 111
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 96
+        "value": 97
       },
       {
         "label": "수면",
@@ -542,7 +574,7 @@
       },
       {
         "label": "스트레스",
-        "value": 18
+        "value": 19
       },
       {
         "label": "고혈압",
@@ -561,6 +593,10 @@
         "value": 7
       },
       {
+        "label": "안전성",
+        "value": 3
+      },
+      {
         "label": "인지·집중",
         "value": 2
       },
@@ -574,10 +610,6 @@
       },
       {
         "label": "스트레스·이완",
-        "value": 1
-      },
-      {
-        "label": "안전성",
         "value": 1
       },
       {
@@ -2508,17 +2540,17 @@
       "pmid": "42197028",
       "population": "설사형 과민성장증후군(IBS-D) 성인 환자",
       "n": "20명 무작위, 18명 완료",
-      "model": "GABA 대 위약, 각 4주 투여·2주 washout 교차설계",
+      "model": "IBS-D 증상·삶의 질·장 장벽·저강도 염증",
       "form": "GABA 250 mg + Melissa officinalis 건조 추출물 50 mg 정제",
       "dose": "1회 GABA 250 mg + 레몬밤 추출물 50 mg, 하루 3회(GABA 750 mg/day)",
       "route": "경구",
       "duration": "4주×2기간, 기간 사이 2주 washout",
       "comparator": "위약",
-      "domain": "소화·장건강·염증·삶의 질",
-      "outcome": "IBS-SSS, SF-36, LBP·TNF-α·IL-1β, 장내미생물",
-      "direction": "유익",
-      "finding": "GABA군은 위약군보다 IBS-SSS 총점과 장 만족도, SF-36의 정서적 제한 영역을 유의하게 개선했고, IL-1β도 감소했다. 장내미생물의 뚜렷한 재구성은 관찰되지 않았다.",
-      "safety": "초록상 중대한 안전성 신호는 제시되지 않았으나, 소규모 파일럿이며 상세 안전성 표는 원문 확인 필요",
+      "domain": "소화·장-뇌 축·염증·삶의 질",
+      "outcome": "IBS-SSS, SF-36, HADS, LBP·TNF-α·IL-1β, 장내미생물",
+      "direction": "유익 신호·탐색적",
+      "finding": "GABA-Melissa군의 IBS-SSS 임상반응(50점 이상 감소)은 66.7%로 위약 33.3%보다 높았고 IBS-SSS 총점(p=0.02), 배변 만족도(p=0.02), SF-36 정서적 역할 제한(p=0.009)이 개선됐다. IL-1β도 감소했지만(p=0.02), LBP는 비유의 경향(p=0.06)이었고 장내미생물의 큰 변화는 없었다.",
+      "safety": "활력징후에서 임상적으로 유의한 이상이 없었고 GABA-Melissa군과 위약군 모두 대체로 양호하게 내약됐다. 중대한 이상사건·사망·눈가림 해제는 없었으나, 18명 완료의 소규모 단기 파일럿으로 일반 GABA 또는 장기 안전성을 확정할 수 없음",
       "limitation": "20명 규모의 파일럿·교차시험으로 IBS-D 환자에 한정되며 GABA와 레몬밤의 기여를 분리할 수 없다. 이 복합제 결과를 일반 GABA 제품이나 건강인에게 확대할 수 없고, IBS 치료·장누수 개선 문구로 사용할 수 없다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "SCIE 확인 필요",
@@ -2530,7 +2562,7 @@
       "extraction": "완료",
       "added": "2026-09-08",
       "checked": "2026-09-08",
-      "notes": "PMID 42197028·DOI 10.3390/nu18101569의 PubMed·PMC 원문 연결을 확인하고, GABA 250 mg + Melissa officinalis 추출물 50 mg을 하루 3회 투여한 복합제임을 보강 확인. 연구의 의미: GABA를 포함한 복합 보충제가 IBS-D 증상·정서적 삶의 질·염증 지표와 연결될 가능성을 탐색한 최신 인체 RCT다. 기대 행동: 장 건강 마케팅의 복합제 탐색 근거로만 사용하고, GABA 단독효과·‘IBS 치료’·‘장누수 개선’ 또는 모든 소비자에게 동일한 효과라는 표현은 피하며 대규모 재현시험을 먼저 확인한다.",
+      "notes": "PMID 42197028·PMCID PMC13209747·DOI 10.3390/nu18101569의 PubMed·PMC 원문을 대조해 20명 무작위·18명 완료, GABA 250 mg + Melissa officinalis 추출물 50 mg을 하루 3회(GABA 750 mg/day), 4주 교차투여·2주 washout, IBS-SSS·SF-36·IL-1β 결과와 안전성 평가를 확인. 연구의 의미: GABA와 Melissa 병용제품이 IBS-D 환자의 전반적 증상과 정서적 삶의 질에 미칠 가능성을 탐색한 소규모 인체 교차시험이다. 기대 행동: ‘IBS-D 환자 18명 완료의 4주 병용제품 파일럿에서 증상 점수와 일부 정서 삶의 질 신호’로만 활용하고, GABA 단독의 장 건강·불안 개선 또는 질환 치료 문구로 확대하지 않는다. 1차 삶의 질·통증 결과의 제한, 병용성분, 소표본·질환집단을 함께 표시한다.",
       "species": "인체",
       "topic": "소화·장건강",
       "hasDrivePdf": true,
@@ -2602,10 +2634,10 @@
       "comparator": "GnRHa 단독",
       "domain": "성장/내분비/안전성",
       "outcome": "ΔHtSDS, 구간별 성장속도, 예측 성인키, IGF-1, 골연령, 이상사건",
-      "direction": "유익",
-      "finding": "12개월 ΔHtSDS는 GABA 병용군 0.53±0.22, 대조군 0.05±0.12(조정 차이 0.48, 95% CI 0.43–0.53, P<0.001)였고, 예측 성인키 변화 차이는 +2.75 cm였다. 3–6개월과 6–12개월 성장속도도 병용군이 높았다.",
-      "safety": "1건 이상 이상사건 22.2% 대 17.6%(P=0.67); 모두 경증·자기제한적이며 중대한 이상사건·중단·입원 없음. 위장증상, 졸림·어지럼, 발진, 주사부위 통증 보고",
-      "limitation": "후향·비무작위 단일기관 연구로 선택·사회경제적 교란 가능; 순응도 <80% 탈락자 제외, GH 동역학 미측정, 12개월 추적으로 최종 성인키 미확인",
+      "direction": "연관 신호·탐색적",
+      "finding": "12개월 ΔHtSDS는 GABA+GnRHa 병용군 0.53±0.22, GnRHa 단독군 0.05±0.12였고 조정 차이는 0.48(95% CI 0.43–0.53, P<0.001)이었다. 예측 성인키 변화 차이는 +2.75 cm였으며 3–6개월·6–12개월 성장속도도 병용군이 높았다.",
+      "safety": "이상사건은 병용군 22.2%, 대조군 17.6%(P=0.67)였고 모두 경증·자기제한적이었다. 중대한 이상사건·중단·입원은 없었으나, 후향 자료로 GABA의 일반 안전성을 확정할 수 없음",
+      "limitation": "후향·비무작위 단일기관 연구로 선택·사회경제적 교란 가능성이 있고, 순응도 80% 미만 탈락자를 제외했다. GnRHa 병용 치료이며 GH 동역학을 측정하지 않았고 12개월 추적으로 최종 성인키는 확인하지 않았다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "SCIE 확인",
       "sciGroup": "SCIE",
@@ -2616,12 +2648,12 @@
       "extraction": "완료",
       "added": "2026-07-27",
       "checked": "2026-07-27",
-      "notes": "PMCID PMC13351637; 출판사 CC BY-NC-ND 4.0 공개 16쪽 PDF 원문 검증·Drive 저장(2026-07-27). 비무작위 실제진료 연관성이므로 인과효과로 단정하지 않음. 연구의 의미: 임상에서 12개월 ΔHtSDS는 GABA 병용군 0.53±0.22, 대조군 0.05±0.12(조정 차이 0.48, 95% CI 0.43–0.53, P<0.001)였고, 예측 성인키 변화 차이는 +2.75 cm였다. 3–6개월과 6–12개월 성장속도도 병용군이 높았다. 기대 행동: 인체 근거로 검토하되 대상·용량·기간·대조군과 제품 조건의 일치 여부를 확인한 뒤 제한적으로 활용한다.",
-      "species": "인체",
-      "topic": "대사·내분비",
+      "notes": "PMID 42433946·PMCID PMC13351637와 공개 원문을 대조해 GABA 100 mg 취침 전, 99명 병용군·51명 대조군, 12개월 결과와 이상사건을 확인. 비무작위 후향 실제진료 자료이므로 인과효과로 단정하지 않음. 연구의 의미: GnRHa 치료 중 성장속도가 낮은 소아에서 GABA 병용군의 성장 관련 지표가 더 높았지만, 치료 선택과 교란요인의 영향을 받을 수 있는 연관 신호다. 기대 행동: ‘GnRHa 치료 소아에서 GABA 100 mg을 병용한 후향 코호트의 성장 연관 신호’로만 활용하고, GABA 단독 성장촉진·키 증가 보장·건강한 어린이 대상 광고로 확대하지 않는다. 의학적 치료 병용, 비무작위 설계, 최종 성인키 미확인을 반드시 표시한다.",
+      "species": "기타",
+      "topic": "기타",
       "hasDrivePdf": true,
-      "linkType": "Drive PDF",
-      "category": "안전성",
+      "linkType": "링크 없음",
+      "category": "연구 근거",
       "effectCategory": "기타"
     },
     {
@@ -8172,6 +8204,221 @@
       "effectCategory": "다이어트"
     },
     {
+      "id": "H-2015-158",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 이중맹검 위약대조 파일럿 연구",
+      "year": 2015,
+      "title": "Guanidinoacetic acid loading affects plasma γ-aminobutyric acid in healthy men",
+      "author": "Ostojić, Stojanović",
+      "journal": "European Journal of Nutrition 54(5):855-858",
+      "doi": "10.1007/s00394-015-0858-5",
+      "pmid": "25680689",
+      "population": "건강한 젊은 남성",
+      "n": "8명",
+      "model": "말초 혈장 GABA 항상성",
+      "form": "구아니디노아세트산(GAA); GABA를 투여한 연구가 아님",
+      "dose": "GAA 3 g/day",
+      "route": "경구",
+      "duration": "3주",
+      "comparator": "위약",
+      "domain": "대사·GABA 항상성·간접 안전성",
+      "outcome": "혈장 GABA·GAA·creatine·glutamine",
+      "direction": "간접 대사 신호; 효능 근거 아님",
+      "finding": "GAA 3 g/day를 3주 섭취한 조건에서 혈장 GABA가 기저치 대비 88.8 nmol/L 감소했고(P=0.03), GAA와 creatine은 증가했으며 glutamine은 변하지 않았다.",
+      "safety": "GAA 연구이므로 GABA 보충제의 안전성을 직접 판정하지 않는다. 초록만으로 중대한 이상반응 여부를 완결해석하지 않는다.",
+      "limitation": "GABA를 섭취시키지 않은 소규모 남성 8명 파일럿이며 말초 혈장 단일 지표다. GABA 제품의 이완·수면 효능이나 장기 안전성으로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/25680689/",
+      "fulltextUrl": "https://open.uns.ac.rs/handle/123456789/6016",
+      "doiUrl": "https://doi.org/10.1007/s00394-015-0858-5",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "직접 GABA 섭취 연구가 아닌 GAA 부하 연구다. 연구의 의미: GABA 관련 원료·대사 경로를 해석할 때 말초 GABA 항상성이 단순히 증가한다고 가정하면 안 된다는 간접 비교 근거다. 기대 행동: GABA 효능 광고에는 사용하지 말고, 복합 원료·대사 상호작용·안전성 검토의 참고자료로만 표시한다. 건강한 남성 8명, GAA 3 g/day, 3주, 혈장 endpoint라는 범위를 함께 제시한다.",
+      "species": "인체",
+      "topic": "장기·독성·안전성",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·기관 저장소·DOI",
+      "category": "연구 근거",
+      "effectCategory": "안전성"
+    },
+    {
+      "id": "H-2018-161",
+      "status": "후보",
+      "kind": "임상",
+      "design": "GAA 부하 후 뇌 1H-MRS 이차 분석",
+      "year": 2018,
+      "title": "Dietary guanidinoacetic acid does not accumulate in the brain of healthy men",
+      "author": "Ostojić, Stojanović",
+      "journal": "European Journal of Nutrition 57(5):1857-1862",
+      "doi": "10.1007/s00394-017-1600-2",
+      "pmid": "29255931",
+      "population": "건강한 남성",
+      "n": "5명",
+      "model": "뇌 GAA·glutamate 노출",
+      "form": "구아니디노아세트산(GAA); GABA를 투여한 연구가 아님",
+      "dose": "GAA 부하; 정확한 용량은 원문별 확인 필요",
+      "route": "경구",
+      "duration": "8주",
+      "comparator": "기저치 대비",
+      "domain": "뇌 노출·대사·간접 안전성",
+      "outcome": "뇌 GAA·glutamate 1H-MRS",
+      "direction": "무변화·간접 안전성 신호; 효능 근거 아님",
+      "finding": "GAA 부하 후 뇌 GAA는 유의하게 축적되지 않았고(변화 7.7%, 95% CI -24.1~39.5, P=0.88), glutamate도 유의한 변화가 없었다(P=0.64).",
+      "safety": "GAA의 뇌 축적 가능성에 관한 자료이지 GABA 보충제 안전성 시험이 아니다.",
+      "limitation": "5명 규모의 이차 분석이며 GABA를 직접 투여하지 않았다. 용량·대상·기간을 GABA 제품의 유효성·장기 안전성 주장에 전이할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29255931/",
+      "fulltextUrl": "",
+      "doiUrl": "https://doi.org/10.1007/s00394-017-1600-2",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "직접 GABA 섭취 연구가 아니다. 연구의 의미: 관련 대사체의 뇌 노출을 분리해 확인한 간접 안전성 자료다. 기대 행동: GABA 제품의 뇌 도달·효능을 입증한 것으로 인용하지 말고, 관련 대사·안전성 문맥의 보조자료로만 사용한다. 원문에서 GAA 용량과 이상반응 상세를 추가 확인해야 한다.",
+      "species": "인체",
+      "topic": "장기·독성·안전성",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "안전성"
+    },
+    {
+      "id": "H-2025-052",
+      "status": "포함",
+      "kind": "리뷰",
+      "design": "구조화 문헌검색 기반 체계적 문헌고찰(정성적 합성)",
+      "year": 2025,
+      "title": "Psychological stress-reducing effect of oral intake of gamma-aminobutyric acid―An updated systematic review―",
+      "author": "Yoshida, Kobayashi, Takahashi",
+      "journal": "Japanese Pharmacology and Therapeutics 53(4):293-314 (2025)",
+      "doi": "",
+      "pmid": "",
+      "population": "건강 성인 대상 경구 GABA 스트레스 시험",
+      "n": "7개 시험, 총 260명",
+      "model": "산술과제 등으로 일시 유발한 심리적 스트레스",
+      "form": "경구 GABA 함유 식품·보충제; 연구별 상이",
+      "dose": "연구별 상이",
+      "route": "경구",
+      "duration": "주로 단회 섭취",
+      "comparator": "위약 또는 무개입",
+      "domain": "스트레스·이완·심리생리",
+      "outcome": "뇌파·HRV·타액 cortisol·chromogranin A·IgA·POMS·VAS",
+      "direction": "일시적 스트레스 감소 신호·근거 확실성 높음~중간",
+      "finding": "7개 시험을 정성적으로 합성한 결과, 뇌파·HRV·타액 cortisol·chromogranin A·IgA 등 객관적 지표는 대부분 GABA 조건에서 유의한 영향을 보였고, POMS·VAS 등 주관적 지표는 결과가 다양했다. 연구 간 방법 차이로 메타분석은 수행하지 않았다.",
+      "safety": "문헌고찰의 주된 목적은 일시적 스트레스 효과이며, 제품별 장기 안전성을 확정하지 않음",
+      "limitation": "단회 섭취와 실험적 산술 스트레스가 중심이며 건강 성인에 한정된다. 정량 메타분석이 아니고 연구별 용량·제형·평가변수가 이질적이며, 저널 원문 접근·등록자료와 출판자료의 차이를 함께 고려해야 한다.",
+      "pubmedStatus": "PubMed 미확인",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://rctportal.mhlw.go.jp/s/detail/um?trial_id=UMIN000051927",
+      "fulltextUrl": "https://www.pieronline.jp/content/article/0386-3603/53040/293",
+      "doiUrl": "",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "Japanese Pharmacology and Therapeutics 공식 목차·초록과 UMIN000051927 등록정보를 대조. 연구의 의미: 기존 2020년 고찰을 업데이트해 건강 성인의 단회 경구 GABA가 산술과제로 유발된 일시적 스트레스의 객관적 지표에 영향을 줄 가능성을 정리한 최신 기준 자료다. 기대 행동: ‘일시적 스트레스 상황에서의 탐색적 근거’로만 활용하고, 만성 불안·우울·질환 치료 또는 모든 상황의 이완 효과로 확대하지 않는다. 7개 시험·260명, 정성적 합성, 주관 지표의 불일치와 연구별 제형·용량 차이를 함께 표시한다.",
+      "species": "인체",
+      "topic": "신경·행동·스트레스",
+      "hasDrivePdf": false,
+      "linkType": "공식 초록·UMIN",
+      "category": "연구 근거",
+      "effectCategory": "스트레스"
+    },
+    {
+      "id": "R-2026-177",
+      "status": "후보",
+      "kind": "고찰",
+      "design": "프로바이오틱 발효·제형 개발 연구",
+      "year": 2026,
+      "title": "Valorisation of Pea Pod Waste: Development of a GABA-Enriched Functional Beverage Using Probiotic Lactic Acid Bacteria",
+      "author": "Devecioglu, Ozkan, Kahveci, Karbancioglu-Guler",
+      "journal": "Probiotics and Antimicrobial Proteins",
+      "doi": "10.1007/s12602-026-11150-3",
+      "pmid": "42518165",
+      "population": "해당 없음(원료·제형 개발)",
+      "n": "해당 없음",
+      "model": "Lactiplantibacillus plantarum DD_T_B61 발효 완두콩꼬투리 주스",
+      "form": "GABA 강화 기능성 음료 원료",
+      "dose": "섭취 용량 연구 아님; 배양액 GABA 30.68 mg/mL, MSG 첨가 발효 주스 34.46 mg/mL",
+      "route": "해당 없음",
+      "duration": "발효·분석 공정 연구",
+      "comparator": "균주·배지 조건 비교",
+      "domain": "식품공정·발효·원료개발",
+      "outcome": "GABA 생성량·발효조건·기능성 음료 가능성",
+      "direction": "개발 가능성",
+      "finding": "Lactiplantibacillus plantarum DD_T_B61이 GABA를 생성했고, MSG를 보강한 완두콩꼬투리 주스 발효물에서 GABA 34.46 mg/mL가 측정됐다.",
+      "safety": "인체 안전성·내약성·유효성 시험이 아니며, 완제품의 안전성은 별도 평가가 필요",
+      "limitation": "원료·제형 개발 연구로 사람 또는 동물 섭취시험이 아니다. 발효물의 GABA 함량을 경구 GABA 보충제의 이완·수면·질환 효능으로 일반화할 수 없고, 저자들이 향후 in vivo 연구 필요성을 제시했다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42518165/",
+      "fulltextUrl": "https://doi.org/10.1007/s12602-026-11150-3",
+      "doiUrl": "https://doi.org/10.1007/s12602-026-11150-3",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PubMed PMID 42518165·DOI 일치 확인. 연구의 의미: 완두콩 부산물과 프로바이오틱 발효를 활용해 GABA 강화 음료 원료를 개발할 수 있는 공정 가능성을 제시한다. 기대 행동: 원료·제형 개발과 지속가능성 콘텐츠의 보조 근거로만 사용하고, 사람의 이완·수면효과나 안전성을 입증한 연구로 인용하지 않는다. 실제 섭취량·인체시험·완제품 안전성 자료를 별도로 확보한다.",
+      "species": "미생물·식품",
+      "topic": "식품공정·발효",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "R-2026-178",
+      "status": "후보",
+      "kind": "고찰",
+      "design": "인간 장내미생물 생태계 in vitro 모델",
+      "year": 2026,
+      "title": "Synergistic Enhancement of Fecal GABA Content by Bifidobacterium adolescentis 4-2 and Mannooligosaccharides in a Human Intestinal Flora Model",
+      "author": "Altaib, Suzuki, Morioka, Abe, Badr",
+      "journal": "Frontiers in Bioscience (Elite Edition)",
+      "doi": "10.31083/FBE44158",
+      "pmid": "42411622",
+      "population": "인간 장내미생물 모델(KUHIMM)",
+      "n": "해당 없음(in vitro)",
+      "model": "Bifidobacterium adolescentis 4-2와 mannooligosaccharides(MOS) 배양 모델",
+      "form": "GABA 생성 프로바이오틱·프리바이오틱 조합 가설",
+      "dose": "사람 섭취 용량 연구 아님",
+      "route": "해당 없음",
+      "duration": "in vitro 배양·분석",
+      "comparator": "균주·MOS 단독 및 병용 조건",
+      "domain": "장-뇌 축·미생물·원료개발",
+      "outcome": "분변 GABA 함량·균주별 생성·MOS 병용 상승작용",
+      "direction": "기전 가능성·탐색적",
+      "finding": "KUHIMM 인간 장내세균총 모델에서 Bifidobacterium adolescentis 4-2와 MOS 병용이 각 단독 조건보다 분변 GABA 함량을 높이는 상승작용을 보였다.",
+      "safety": "in vitro 연구로 사람의 안전성·내약성·임상효능을 평가하지 않음",
+      "limitation": "시험관 장내미생물 모델이며 실제 사람의 장내 정착, GABA 흡수, 뇌·행동 변화 또는 제품 안전성을 입증하지 않는다. 특정 균주·MOS 조합 결과를 일반 프로바이오틱 또는 GABA 제품으로 확대할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42411622/",
+      "fulltextUrl": "https://www.imrpress.com/journal/FBE/18/2/10.31083/FBE44158",
+      "doiUrl": "https://doi.org/10.31083/FBE44158",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PubMed PMID 42411622·DOI와 Frontiers in Bioscience 원문 연결을 확인. 연구의 의미: 특정 GABA 생성균과 MOS 조합이 장내 GABA 생성에 미칠 수 있는 원료·장-뇌 축 가설을 구체화한다. 기대 행동: 균주·프리바이오틱 원료 개발의 기초자료로만 사용하고, 사람의 GABA 상승·수면·불안 개선 또는 안전성을 주장하지 않는다. 인체 중재시험과 균주별 임상자료를 별도로 확인한다.",
+      "species": "미생물·식품",
+      "topic": "장-뇌 축·미생물",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
       "id": "H-2026-165",
       "status": "포함",
       "kind": "임상",
@@ -8780,7 +9027,7 @@
       "year": 2026,
       "title": "GABA Enhances Growth Hormone Expression by Modulating Somatotroph Pit-1 Transcription via Activation of Calmodulin-Dependent Kinases",
       "author": "Begazo-Jimenez, Lu",
-      "journal": "Nutrients",
+      "journal": "Nutrients 18(10):1569 (2026)",
       "doi": "10.3390/nu18050787",
       "pmid": "41829957",
       "population": "3~4주령 마우스·뇌하수체 절편·GH3 세포",
@@ -9728,7 +9975,7 @@
       "title": "Effects of Oral Gamma-Aminobutyric Acid (GABA) Administration on Stress and Sleep in Humans: A Systematic Review",
       "author": "Hepsomali, Groeger, Nishihira, Scholey",
       "journal": "Frontiers in Psychology",
-      "doi": "10.3389/fnins.2020.00923",
+      "doi": "10.3389/fpsyg.2020.00923",
       "pmid": "33041752",
       "population": "GABA·GABA 함유 식품·발효 GABA의 위약대조 인체시험",
       "n": "14개 연구 포함",
@@ -9750,7 +9997,7 @@
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/33041752/",
       "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7527439/",
-      "doiUrl": "https://doi.org/10.3389/fnins.2020.00923",
+      "doiUrl": "https://doi.org/10.3389/fpsyg.2020.00923",
       "extraction": "완료",
       "added": "2026-09-08",
       "checked": "2026-09-08",
@@ -11420,49 +11667,6 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "피부"
-    },
-    {
-      "id": "H-2025-052",
-      "status": "후보",
-      "kind": "고찰",
-      "design": "업데이트 체계적 문헌고찰(정성적 합성)",
-      "year": 2025,
-      "title": "Psychological stress-reducing effect of oral intake of gamma-aminobutyric acid―An updated systematic review―",
-      "author": "Yoshida, Kobayashi, Takahashi",
-      "journal": "Jpn Pharmacol Ther",
-      "doi": "",
-      "pmid": "",
-      "population": "질환이 없는 건강 성인",
-      "n": "7개 시험, 총 260명",
-      "model": "산술과제 등 실험적으로 유발한 심리적 스트레스",
-      "form": "경구 GABA 함유 식품(형태·용량은 연구별 상이)",
-      "dose": "연구별 상이; 단회 섭취 시험 중심",
-      "route": "경구",
-      "duration": "대부분 단회·일시적 스트레스 유발 후 평가",
-      "comparator": "GABA 비함유 식품 또는 무개입",
-      "domain": "스트레스·이완",
-      "outcome": "뇌파, HRV, 타액 cortisol·chromogranin A·IgA, POMS, VAS",
-      "direction": "유익",
-      "finding": "7개 시험(총 260명)을 정성적으로 합성했다. 객관적 지표(뇌파·HRV·타액 cortisol·chromogranin A·IgA)는 대부분 유의한 변화를 보였고, 주관적 지표는 일관성이 낮았다. 고찰은 건강 성인에서 산술과제로 일시 유발된 심리적 스트레스를 단회 경구 GABA가 일시적으로 줄일 가능성과 근거 확실성 높음~중간을 제시했다.",
-      "safety": "이 고찰 초록에는 통합 안전성 결과가 상세히 제시되지 않음",
-      "limitation": "이질성으로 메타분석을 수행하지 못한 정성적 합성이다. 단회·실험적 스트레스 중심이며 만성 스트레스·질환자·제품 간 용량·제형의 일반화는 제한된다. 원문 세부 추출과 GABA 단독성 확인이 남아 있어 후보로 유지.",
-      "pubmedStatus": "PubMed 미확인",
-      "sciStatus": "현행 미확인",
-      "sciGroup": "현행 미확인",
-      "sciChecked": "2026-09-08",
-      "pubmedUrl": "",
-      "fulltextUrl": "https://www.pieronline.jp/content/article/0386-3603/53040/293",
-      "doiUrl": "",
-      "extraction": "부분",
-      "added": "2026-09-08",
-      "checked": "2026-09-08",
-      "notes": "서지·초록은 Life Science Publishing/PierOnline 및 J-GLOBAL에서 확인. 연구 프로토콜 UMIN000051927(등록 2024-12-31, 종료/완료, 최종 갱신 2025-02-20)과 대조. 산업계 연구진(Kagome) 소속이므로 이해상충·원문 세부를 확인한 뒤 활용. 연구의 의미: 고찰에서 7개 시험(총 260명)을 정성적으로 합성했다. 객관적 지표(뇌파·HRV·타액 cortisol·chromogranin A·IgA)는 대부분 유의한 변화를 보였고, 주관적 지표는 일관성이 낮았다. 고찰은 건강 성인에서 산술과제로 일시 유발된 심리적 스트레스를 단회 경구 GABA가 일시적으로 줄일 가능성과 근거 확실성 높음~중간을 제시했다. 기대 행동: 배경·가설 정립 자료로 활용하고 원저 임상시험의 결과와 구분한다.",
-      "species": "인체",
-      "topic": "신경·행동·수면",
-      "hasDrivePdf": false,
-      "linkType": "원문·DOI",
-      "category": "연구 근거",
-      "effectCategory": "기타"
     },
     {
       "id": "H-2025-055",
