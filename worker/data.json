@@ -15,7 +15,7 @@
     "partial": 107,
     "drivePdf": 71,
     "included": 197,
-    "candidate": 159,
+    "candidate": 158,
     "excluded": 16,
     "safetyCategory": 159,
     "effectCategory": 287,
@@ -1060,7 +1060,7 @@
       },
       {
         "label": "후보",
-        "value": 159
+        "value": 158
       },
       {
         "label": "제외",
@@ -1072,7 +1072,7 @@
       },
       {
         "label": "포함후보",
-        "value": 4
+        "value": 5
       },
       {
         "label": "보류",
@@ -3907,7 +3907,7 @@
     },
     {
       "id": "H-2026-171",
-      "status": "후보",
+      "status": "포함후보",
       "kind": "임상",
       "design": "전향적 무작위 이중눈가림 위약대조 비교시험",
       "year": 2024,
