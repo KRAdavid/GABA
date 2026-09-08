@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 318,
-    "literature": 310,
+    "total": 319,
+    "literature": 311,
     "regulatory": 8,
     "clinical": 110,
     "animal": 172,
@@ -15,16 +15,16 @@
     "partial": 93,
     "drivePdf": 74,
     "included": 191,
-    "candidate": 108,
+    "candidate": 109,
     "excluded": 11,
     "safetyCategory": 159,
-    "effectCategory": 215,
+    "effectCategory": 216,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 284,
-      "literatureWithPmid": 265,
+      "literatureWithDoi": 285,
+      "literatureWithPmid": 266,
       "extractionComplete": 189,
       "extractionPartial": 93
     },
@@ -122,6 +122,10 @@
       },
       {
         "label": "사람·동물·식물·미세조류 문헌 종합",
+        "value": 1
+      },
+      {
+        "label": "생쥐·사람·프로바이오틱",
         "value": 1
       },
       {
@@ -555,6 +559,10 @@
         "value": 1
       },
       {
+        "label": "GABA 생성 프로바이오틱·장-뇌 축",
+        "value": 1
+      },
+      {
         "label": "GABA 생성·발효·기능성 식품",
         "value": 1
       },
@@ -586,7 +594,7 @@
       },
       {
         "label": "후보",
-        "value": 108
+        "value": 109
       },
       {
         "label": "제외",
@@ -608,7 +616,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 25
+        "value": 26
       },
       {
         "label": "해당 없음",
@@ -649,11 +657,11 @@
         "value": 93
       },
       {
-        "label": "원문검토",
-        "value": 8
+        "label": "초록검토",
+        "value": 9
       },
       {
-        "label": "초록검토",
+        "label": "원문검토",
         "value": 8
       },
       {
@@ -724,6 +732,10 @@
       },
       {
         "label": "균주 조합에 따른 GABA 생성 가능성을 시사하지만 인체 효능은 입증하지 않음",
+        "value": 1
+      },
+      {
+        "label": "기능성 원료 가능성; 인체 효능 미확정",
         "value": 1
       },
       {
@@ -1000,7 +1012,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 151
+        "value": 152
       },
       {
         "label": "동물시험",
@@ -1146,6 +1158,10 @@
       },
       {
         "label": "장건강·대사",
+        "value": 1
+      },
+      {
+        "label": "프로바이오틱·GABA",
         "value": 1
       },
       {
@@ -8741,6 +8757,49 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "R-2026-195",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "GABA 생성 프로바이오틱 균주 PL186의 생쥐·사람 장내 관련 특성 연구",
+      "year": 2026,
+      "title": "GABA-Producing Capabilities of Lactococcus lactis PL186 in Murine and Human.",
+      "author": "원문 저자 확인 필요",
+      "journal": "Journal of Microbiology and Biotechnology",
+      "doi": "10.4014/jmb.2512.12040",
+      "pmid": "41866909",
+      "population": "생쥐 및 사람 장내 관련 관찰·균주 평가",
+      "n": "원문 표본수 확인 필요",
+      "model": "Lactococcus lactis PL186의 GABA 생산·장내 부착·체내 GABA 지표 평가",
+      "form": "GABA 생성 프로바이오틱 PL186; 순수 GABA 보충제가 아님",
+      "dose": "원문 투여량 확인 필요",
+      "route": "경구 프로바이오틱 조건; 인체 효능 RCT 아님",
+      "duration": "원문 확인 필요",
+      "comparator": "원문 비교군 확인 필요",
+      "domain": "프로바이오틱·장-뇌 축·GABA 생체지표",
+      "outcome": "GABA 생산, 생쥐 혈청·뇌 GABA, 사람 장내 정착·소변 GABA",
+      "direction": "기능성 원료 가능성; 인체 효능 미확정",
+      "finding": "PL186의 GABA 생산과 생쥐에서의 장 부착·혈청 및 뇌 GABA 변화, 사람 장내 정착과 소변 GABA 증가 가능성을 보고한다. 그러나 초록 정보만으로 사람의 임상 증상 개선이나 GABA 보충제 효능을 판단할 수 없다.",
+      "safety": "프로바이오틱 균주의 안전성 주장과 전임상·장내 지표 자료가 혼재하며, 제품별 장기 안전성을 확정하지 않는다.",
+      "limitation": "순수 GABA 직접 투여 인체시험이 아니고, 사람 결과의 표본·대조·임상 결과 및 원문 방법을 추가 확인해야 한다. 소변·혈중 지표를 이완·수면·기분 효능으로 직접 해석하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "Journal of Microbiology and Biotechnology 서지·초록 확인; 원문 정량 검증 필요",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41866909/",
+      "fulltextUrl": "https://doi.org/10.4014/jmb.2512.12040",
+      "doiUrl": "https://doi.org/10.4014/jmb.2512.12040",
+      "extraction": "초록검토",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 41866909·DOI 초록을 확인했다. 연구의 의미: GABA 생성 프로바이오틱 균주가 장내 정착과 전신 GABA 관련 지표에 미칠 수 있는 경로를 탐색한 원료개발 자료다. 기대 행동: 균주 특이적 후속 임상·생체이용률 연구의 검토 대상으로 사용하고, PL186의 지표 변화나 저자 표현을 GABA 단독의 이완·수면·기분 효능으로 광고하지 않는다. 사람 표본·대조·임상결과와 원문 안전성 자료를 확인한 뒤 등급을 재평가한다.",
+      "species": "생쥐·사람·프로바이오틱",
+      "topic": "GABA 생성 프로바이오틱·장-뇌 축",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "프로바이오틱·GABA"
     },
     {
       "id": "H-2026-196",
