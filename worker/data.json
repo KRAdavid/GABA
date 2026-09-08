@@ -5,26 +5,26 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 302,
-    "literature": 294,
+    "total": 303,
+    "literature": 295,
     "regulatory": 8,
     "clinical": 104,
-    "animal": 165,
+    "animal": 166,
     "scie": 150,
     "complete": 188,
     "partial": 92,
     "drivePdf": 74,
     "included": 190,
-    "candidate": 93,
+    "candidate": 94,
     "excluded": 11,
     "safetyCategory": 158,
-    "effectCategory": 199,
+    "effectCategory": 200,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 273,
-      "literatureWithPmid": 256,
+      "literatureWithDoi": 274,
+      "literatureWithPmid": 257,
       "extractionComplete": 188,
       "extractionPartial": 92
     },
@@ -102,6 +102,10 @@
       },
       {
         "label": "기타동물",
+        "value": 1
+      },
+      {
+        "label": "랫드",
         "value": 1
       },
       {
@@ -477,6 +481,10 @@
       {
         "label": "GABA 유사체·약동학·신장기능",
         "value": 1
+      },
+      {
+        "label": "GABA 풍부 발효 쌀겨·간·장내미생물",
+        "value": 1
       }
     ],
     "status": [
@@ -486,7 +494,7 @@
       },
       {
         "label": "후보",
-        "value": 93
+        "value": 94
       },
       {
         "label": "제외",
@@ -508,7 +516,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 14
+        "value": 15
       },
       {
         "label": "해당 없음",
@@ -557,11 +565,11 @@
         "value": 4
       },
       {
-        "label": "등록정보검토",
-        "value": 2
+        "label": "초록검토",
+        "value": 3
       },
       {
-        "label": "초록검토",
+        "label": "등록정보검토",
         "value": 2
       },
       {
@@ -648,6 +656,10 @@
       },
       {
         "label": "기타",
+        "value": 1
+      },
+      {
+        "label": "동물 직접투여·복합 매트릭스·탐색적",
         "value": 1
       },
       {
@@ -863,12 +875,12 @@
         "value": 141
       },
       {
-        "label": "약물·경계 근거",
+        "label": "동물시험",
         "value": 2
       },
       {
-        "label": "동물시험",
-        "value": 1
+        "label": "약물·경계 근거",
+        "value": 2
       }
     ],
     "effectCategory": [
@@ -921,6 +933,10 @@
         "value": 2
       },
       {
+        "label": "동물·대사",
+        "value": 2
+      },
+      {
         "label": "인지",
         "value": 2
       },
@@ -938,10 +954,6 @@
       },
       {
         "label": "기분·스트레스",
-        "value": 1
-      },
-      {
-        "label": "동물·대사",
         "value": 1
       },
       {
@@ -13158,6 +13170,50 @@
       "linkType": "DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "운동·복합효과"
+    },
+    {
+      "id": "A-2026-122",
+      "status": "후보",
+      "kind": "동물",
+      "design": "식이 중재 비교 동물시험",
+      "year": 2026,
+      "title": "Effects of γ-aminobutyric acid-rich fermented rice bran on hepatic histology, gut microbiota, and fecal metabolites in a rat model of high-fat diet-induced NAFLD-like hepatic injury",
+      "author": "Huang et al.",
+      "journal": "Food & Function",
+      "doi": "10.1039/D6FO02614A",
+      "pmid": "42669294",
+      "pmcid": "",
+      "population": "고지방식이로 간 손상이 유도된 수컷 Sprague-Dawley 랫드",
+      "n": "원문 표본수 추가 확인 필요",
+      "model": "대조식·고지방식·GABA·저·고용량 GABA 풍부 발효 쌀겨 12주 중재",
+      "form": "GABA 풍부 발효 쌀겨(GFRB) 복합 식품 매트릭스 및 GABA 비교군",
+      "dose": "GFRB 저·고용량 및 GABA 비교; 정확한 투여량은 원문 방법 섹션 추가 확인 필요",
+      "route": "경구·식이",
+      "duration": "12주",
+      "comparator": "대조식·고지방식·GABA 단독 및 GFRB 용량별 비교",
+      "domain": "동물영양·간 조직·장내미생물·대사체",
+      "outcome": "NAFLD activity score·간 IL-6·간 조직·장내미생물·분변 단쇄지방산·대사체",
+      "direction": "동물 직접투여·복합 매트릭스·탐색적",
+      "finding": "GFRB는 고지방식이 랫드의 초기 지방변화·염증성 간 조직 소견을 완화했고, 저용량군에서 NAFLD activity score 감소, 고용량군에서 간 IL-6 감소가 관찰됐다. 장내미생물·분변 대사체 변화는 탐색적 결과로 제시됐다.",
+      "safety": "랫드 12주 식이 중재 자료이며 사람의 간 건강·체중·대사 안전성 자료가 아님",
+      "limitation": "GFRB는 GABA 외 아미노산·발효 대사체를 포함하는 복합 식품 매트릭스라 GABA 단독효과를 분리할 수 없다. 동물 모델의 초기 간 손상 결과이며 사람의 지방간 예방·치료, 체중감량 또는 간 보호 광고로 일반화할 수 없다. 초록 기반으로 일부 표본수·정량 투여량은 원문 추가 확인이 필요하다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "Food & Function 서지·초록 확인; 원문 정량 추출 추가 필요",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42669294/",
+      "fulltextUrl": "https://doi.org/10.1039/D6FO02614A",
+      "doiUrl": "https://doi.org/10.1039/D6FO02614A",
+      "extraction": "초록검토",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 42669294의 PubMed 등재 정보와 Food & Function 초록을 대조해 GFRB·GABA 비교군, 12주 고지방식이 랫드 모델, 간 조직·IL-6·장내미생물·대사체 결과를 확인했다. 연구의 의미: GABA 풍부 발효 쌀겨가 간 손상·장-대사체 축에 미치는 가능성을 탐색한 최신 전임상 근거다. 기대 행동: 원료·제품 개발과 후속 인체시험 설계 참고로만 활용하고, GABA 단독의 지방간·체중·간 보호 효능으로 확장하지 않는다. 복합 매트릭스, 동물시험, 탐색적 미생물 결과와 원문 정량 추출 필요성을 표시한다.",
+      "species": "랫드",
+      "topic": "GABA 풍부 발효 쌀겨·간·장내미생물",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "동물시험",
+      "effectCategory": "동물·대사"
     },
     {
       "id": "A-2026-120",
