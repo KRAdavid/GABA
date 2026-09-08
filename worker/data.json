@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 238,
-    "literature": 230,
+    "total": 239,
+    "literature": 231,
     "regulatory": 8,
-    "clinical": 71,
+    "clinical": 72,
     "animal": 153,
     "scie": 160,
-    "complete": 136,
+    "complete": 137,
     "partial": 94,
     "drivePdf": 76,
     "included": 142,
-    "candidate": 79,
+    "candidate": 80,
     "excluded": 9,
     "safetyCategory": 169,
-    "effectCategory": 157,
+    "effectCategory": 158,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 215,
       "literatureWithPmid": 213,
-      "extractionComplete": 136,
+      "extractionComplete": 137,
       "extractionPartial": 94
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 73
+        "value": 74
       },
       {
         "label": "축산",
@@ -95,11 +95,11 @@
     ],
     "topic": [
       {
-        "label": "성장·생산·육질",
-        "value": 51
+        "label": "신경·행동·수면",
+        "value": 52
       },
       {
-        "label": "신경·행동·수면",
+        "label": "성장·생산·육질",
         "value": 51
       },
       {
@@ -222,7 +222,7 @@
       },
       {
         "label": "후보",
-        "value": 79
+        "value": 80
       },
       {
         "label": "제외",
@@ -248,13 +248,13 @@
       },
       {
         "label": "해당 없음",
-        "value": 4
+        "value": 5
       }
     ],
     "extraction": [
       {
         "label": "완료",
-        "value": 136
+        "value": 137
       },
       {
         "label": "부분",
@@ -284,7 +284,7 @@
       },
       {
         "label": "미확인",
-        "value": 4
+        "value": 5
       },
       {
         "label": "혼합",
@@ -348,7 +348,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 69
+        "value": 70
       }
     ],
     "effectCategory": [
@@ -358,7 +358,7 @@
       },
       {
         "label": "수면",
-        "value": 50
+        "value": 51
       },
       {
         "label": "다이어트",
@@ -9942,6 +9942,49 @@
       "added": "2026-09-08",
       "checked": "2026-09-08",
       "notes": "ClinicalTrials.gov NCT05368909 API·등록정보 확인. 전체 30명, 완료 상태, 마지막 제출 2022-07-11, 결과 섹션 없음. 연구의 의미: GABA 포함 복합 수면제품에 대한 완료 임상시험의 존재를 확인해 결과 미게시 누락을 방지한다. 기대 행동: GABA 단독 근거로 인용하지 않고, 결과 게시·논문 출판 여부만 추적한다.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "ClinicalTrials.gov 등록정보",
+      "category": "연구 근거",
+      "effectCategory": "수면"
+    },
+    {
+      "id": "H-2025-151",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 2용량·위약대조 4군 평행시험",
+      "year": 2025,
+      "title": "Evaluation of the Beneficial Effects of a Product Containing Γ-aminobutyric Acid (GABA) on Climacteric Syndrome Disorders (GABAPAUSE).",
+      "author": "Cagnacci et al.",
+      "journal": "ClinicalTrials.gov 등록시험",
+      "doi": "",
+      "pmid": "",
+      "population": "폐경기 증상 여성",
+      "n": "예상 112명",
+      "model": "자연 또는 의인성 폐경, Greene 지수 ≥15",
+      "form": "GABA 250 mg + Melissa 추출물 50 mg 복합 캡슐",
+      "dose": "500 mg GABA/day(3캡슐군) 또는 250 mg GABA/day(2캡슐군)",
+      "route": "경구",
+      "duration": "12주",
+      "comparator": "동일 외관 위약; 2개 용량 비교",
+      "domain": "폐경기 증상·수면·기분",
+      "outcome": "Greene climacteric scale, hot-flash 일지, PSQI, STAI-Y1, SDS, MenQoL, 이상반응",
+      "direction": "미확인",
+      "finding": "GABA와 Melissa 복합제를 폐경기 증상 여성에게 12주 투여해 안면홍조·수면·불안·기분·삶의 질과 안전성을 평가하는 등록시험이다. 결과는 아직 게시되지 않았다.",
+      "safety": "시험 목적에 안전성 평가가 포함되지만 결과 미게시로 판단 불가",
+      "limitation": "순수 GABA 단독시험이 아니며 Melissa 복합제이다. 등록시험의 예상 모집수와 계획만 확인되므로 효능·안전성 주장의 근거로 사용할 수 없다.",
+      "pubmedStatus": "PubMed 미등재·결과 미게시",
+      "sciStatus": "해당 없음(등록시험)",
+      "sciGroup": "해당 없음",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://clinicaltrials.gov/study/NCT06864520",
+      "fulltextUrl": "https://clinicaltrials.gov/study/NCT06864520",
+      "doiUrl": "",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "ClinicalTrials.gov NCT06864520 등록정보를 확인. 2025-03-25 최초 게시, 모집 중으로 표시되며 예상 112명, 4군, GABA 250 mg + Melissa 50 mg을 2캡슐 또는 3캡슐로 12주 투여. 연구의 의미: 폐경기 증상이라는 새로운 임상 적용 영역에서 계획된 GABA 복합제 용량·평가변수와 결과 미게시 상태를 추적한다. 기대 행동: 결과 게시 전에는 마케팅 효능·안전성 근거로 사용하지 말고, 등록 상태와 결과 공개 여부를 재확인한다.",
       "species": "인체",
       "topic": "신경·행동·수면",
       "hasDrivePdf": false,
