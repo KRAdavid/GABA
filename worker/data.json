@@ -11,11 +11,11 @@
     "clinical": 86,
     "animal": 159,
     "scie": 155,
-    "complete": 159,
-    "partial": 96,
+    "complete": 160,
+    "partial": 95,
     "drivePdf": 76,
-    "included": 169,
-    "candidate": 75,
+    "included": 170,
+    "candidate": 74,
     "excluded": 11,
     "safetyCategory": 162,
     "effectCategory": 166,
@@ -25,8 +25,8 @@
       "duplicatePmids": 0,
       "literatureWithDoi": 237,
       "literatureWithPmid": 230,
-      "extractionComplete": 159,
-      "extractionPartial": 96
+      "extractionComplete": 160,
+      "extractionPartial": 95
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -310,11 +310,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 169
+        "value": 170
       },
       {
         "label": "후보",
-        "value": 75
+        "value": 74
       },
       {
         "label": "제외",
@@ -350,11 +350,11 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 159
+        "value": 160
       },
       {
         "label": "부분",
-        "value": 96
+        "value": 95
       }
     ],
     "direction": [
@@ -8266,7 +8266,7 @@
     },
     {
       "id": "A-2017-100",
-      "status": "후보",
+      "status": "포함",
       "kind": "동물",
       "design": "에탄올 유도 위점막 손상 랫드 모델·세포시험",
       "year": 2017,
@@ -8296,10 +8296,10 @@
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/28456544/",
       "fulltextUrl": "https://pubmed.ncbi.nlm.nih.gov/28456544/",
       "doiUrl": "https://doi.org/10.1016/j.cbi.2017.04.022",
-      "extraction": "부분",
+      "extraction": "완료",
       "added": "2026-09-08",
       "checked": "2026-09-08",
-      "notes": "연구의 의미: 순수 GABA의 직접 경구 노출과 위점막 방어 관련 전임상 신호를 제시한다. 기대 행동: 소화·위장관 연구 후보군으로 후속 검토하되, 소비자용 위 건강 문구나 질환 예방·치료 문구로 사용하지 않는다.",
+      "notes": "PMID 28456544·DOI 10.1016/j.cbi.2017.04.022의 PubMed·출판사 초록을 대조해 순수 GABA 10·20·40 mg/kg/day, 14일 전처치, 에탄올 위점막 손상 모델과 위궤양 지수·산화스트레스·염증 결과를 확인했다. 연구의 의미: 순수 GABA의 직접 경구 노출과 위점막 방어 관련 전임상 신호를 제시한다. 기대 행동: 소화·위장관 연구 근거로만 표시하고, 사람의 위 건강·위염·위궤양 예방 또는 치료 문구로 사용하지 않으며 사람 임상자료와 분리해 제시한다.",
       "species": "설치류",
       "topic": "소화·장건강",
       "hasDrivePdf": false,
