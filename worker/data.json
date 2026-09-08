@@ -18,7 +18,7 @@
     "candidate": 94,
     "excluded": 9,
     "safetyCategory": 167,
-    "effectCategory": 164,
+    "effectCategory": 163,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 83
+        "value": 82
       },
       {
         "label": "축산",
@@ -78,7 +78,7 @@
       },
       {
         "label": "기타",
-        "value": 7
+        "value": 8
       },
       {
         "label": "반려·기타동물",
@@ -116,7 +116,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 49
+        "value": 48
       },
       {
         "label": "심혈관·혈압",
@@ -136,7 +136,7 @@
       },
       {
         "label": "기타",
-        "value": 8
+        "value": 9
       },
       {
         "label": "장기·독성·안전성",
@@ -348,7 +348,7 @@
     "direction": [
       {
         "label": "유익",
-        "value": 151
+        "value": 150
       },
       {
         "label": "혼재",
@@ -388,6 +388,10 @@
       },
       {
         "label": "불리",
+        "value": 1
+      },
+      {
+        "label": "수면잠복기 단축·NREM 증가 신호; 혈중 GABA 30분 후 최고",
         "value": 1
       },
       {
@@ -462,11 +466,11 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 97
+        "value": 98
       },
       {
         "label": "수면",
-        "value": 49
+        "value": 48
       },
       {
         "label": "다이어트",
@@ -1429,37 +1433,37 @@
       "journal": "Food Science and Biotechnology",
       "doi": "10.1007/s10068-016-0076-9",
       "pmid": "30263304",
-      "population": "성인",
-      "n": "10명",
+      "population": "수면이 좋지 않은 성인 24–57세(PSQI >6)",
+      "n": "10명(남성 6, 여성 4)",
       "model": "수면상태 불량(PSQI>6)",
       "form": "GABA 캡슐",
-      "dose": "100 mg/day",
+      "dose": "GABA 100 mg + 소량의 글루탐산·기타 성분을 포함한 캡슐, 1일 1회",
       "route": "경구",
-      "duration": "1주",
-      "comparator": "덱스트린 위약",
-      "domain": "수면/흡수",
-      "outcome": "EEG 수면잠복기·NREM, 혈중 GABA",
-      "direction": "유익",
-      "finding": "수면잠복기 단축, 총 NREM 증가; 혈중 GABA는 투여 30분 후 최고치.",
+      "duration": "1주 섭취기간 2회, 기간 사이 1주 washout; 취침 30분 전",
+      "comparator": "112 mg 대조 캡슐(덱스트린)",
+      "domain": "수면·흡수",
+      "outcome": "EEG 수면잠복기·NREM 수면 및 PSQI·주관적 수면평가, 혈중 GABA",
+      "direction": "수면잠복기 단축·NREM 증가 신호; 혈중 GABA 30분 후 최고",
+      "finding": "GABA 조건에서 수면잠복기와 NREM 수면시간이 개선됐고, 경구 섭취 후 혈중 GABA는 약 30분에 최고치에 도달했다.",
       "safety": "보고 제한",
-      "limitation": "n=10·단일눈가림",
+      "limitation": "10명 단일눈가림 교차시험이며, GABA 외 소량 성분이 포함된 캡슐이고 제약·식품회사 소속 연구진의 자료다. 1주 단기 결과를 장기 수면효과나 일반 제품에 확대할 수 없다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "SCIE 확인",
       "sciGroup": "SCIE",
       "sciChecked": "2026-07-27",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/30263304/",
-      "fulltextUrl": "https://doi.org/10.1007/s10068-016-0076-9",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6049207/",
       "doiUrl": "https://doi.org/10.1007/s10068-016-0076-9",
       "extraction": "완료",
       "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "연구의 의미: 경구 GABA의 흡수와 EEG 기반 수면 변화를 함께 확인한 인체 교차시험으로, 섭취 후 약 30분 전후의 혈중 변화와 수면 관련 신호를 보여줍니다. 기대 행동: 취침 전 섭취 시점과 수면 연구 근거를 설명하는 데 활용하되, 소규모·단기 시험의 한계를 명시합니다.",
-      "species": "인체",
-      "topic": "신경·행동·수면",
+      "checked": "2026-09-08",
+      "notes": "PMID 30263304·PMCID PMC6049207 및 체계적 고찰의 표를 대조해 표본 구성, PSQI 기준, 100 mg 용량, 취침 30분 전 섭취와 30분 혈중 최고치를 보강. 연구의 의미: 수면이 좋지 않은 소규모 성인에서 단기 경구 GABA의 EEG 수면·흡수 시간 신호를 함께 측정한 초기 인체시험이다. 기대 행동: ‘100 mg·7일·PSQI>6’ 조건의 탐색 근거로만 활용하고, 모든 소비자의 수면 개선이나 장기효과로 일반화하지 않으며 캡슐의 복합 성분과 산업계 연구자 구성을 공개한다.",
+      "species": "기타",
+      "topic": "기타",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "기타"
     },
     {
       "id": "H-2016-032",
