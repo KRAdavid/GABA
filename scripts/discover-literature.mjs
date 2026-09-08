@@ -132,6 +132,23 @@ const PUBMED_QUERIES = [
     )`
   },
   {
+    label: "human_cognitive_sleep_stress_outcomes",
+    term: `(
+      "gamma-aminobutyric acid"[Title/Abstract] OR GABA[Title/Abstract]
+    ) AND (
+      cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract]
+      OR attention[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract]
+      OR anxiety[Title/Abstract] OR mood[Title/Abstract] OR relaxation[Title/Abstract]
+    ) AND (
+      oral[Title/Abstract] OR intake[Title/Abstract] OR supplement*[Title/Abstract]
+      OR ingestion[Title/Abstract] OR administration[Title/Abstract]
+    ) AND (humans[MeSH Terms] OR clinical trial[Publication Type]
+      OR randomized controlled trial[Publication Type]) NOT (
+      review[Publication Type] OR meta-analysis[Publication Type]
+      OR systematic review[Publication Type]
+    )`
+  },
+  {
     label: "publication_followup",
     term: `(
       "gamma-aminobutyric acid"[Title/Abstract] OR GABA[Title]
@@ -170,6 +187,7 @@ const OPENALEX_QUERIES = [
   "GABA caffeine crossover human",
   "GABA theanine sleep trial",
   "GABA fermented rice germ skin clinical trial"
+  ,"GABA cognitive sleep stress human trial"
 ];
 
 const CROSSREF_QUERIES = [
@@ -181,6 +199,7 @@ const CROSSREF_QUERIES = [
   "GABA caffeine crossover trial",
   "GABA theanine sleep human",
   "GABA fermented food clinical trial"
+  ,"GABA cognition memory sleep randomized human"
 ];
 
 const pause = (ms) => new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
