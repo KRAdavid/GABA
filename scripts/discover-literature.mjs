@@ -139,6 +139,13 @@ const OPENALEX_QUERIES = [
   "GABA beverage intake human"
 ];
 
+const CROSSREF_QUERIES = [
+  "gamma-aminobutyric acid oral supplementation",
+  "GABA randomized placebo human",
+  "GABA dietary supplementation animal",
+  "GABA safety oral toxicity"
+];
+
 const pause = (ms) => new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
 const clean = (value) => String(value ?? "").replace(/\s+/g, " ").trim();
 const normalizeDoi = (value) => clean(value).toLowerCase()
@@ -341,6 +348,34 @@ async function searchOpenAlex(query, index) {
       publicationTypes: [clean(work.type)].filter(Boolean),
       sourceUrl: clean(work.primary_location?.landing_page_url || work.id),
       queryLabels: [`openalex_${String(index + 1).padStart(2, "0")}`]
+    }))
+  };
+}
+
+async function searchCrossref(query, index) {
+  const params = new URLSearchParams({
+    query,
+    rows: "100",
+    filter: `from-pub-date:${overlapStart},until-pub-date:${snapshotDate}`,
+    select: "DOI,title,author,container-title,published,URL,type,abstract"
+  });
+  const data = await getJson(`https://api.crossref.org/works?${params}`, 3, 30_000);
+  return {
+    label: `crossref_${String(index + 1).padStart(2, "0")}`,
+    query,
+    count: Number(data.message?.["total-results"] || 0),
+    records: (data.message?.items ?? []).map((work) => ({
+      source: ["Crossref"],
+      doi: normalizeDoi(work.DOI || ""),
+      title: clean(work.title?.[0]),
+      abstract: decodeXml(work.abstract || ""),
+      authors: (work.author ?? []).map((item) => clean(`${item.given || ""} ${item.family || ""}`)).filter(Boolean),
+      author: clean(`${work.author?.[0]?.given || ""} ${work.author?.[0]?.family || ""}`),
+      journal: clean(work["container-title"]?.[0]),
+      year: Number(work.published?.["date-parts"]?.[0]?.[0]) || null,
+      publicationTypes: [clean(work.type)].filter(Boolean),
+      sourceUrl: clean(work.URL || (work.DOI ? `https://doi.org/${work.DOI}` : "")),
+      queryLabels: [`crossref_${String(index + 1).padStart(2, "0")}`]
     }))
   };
 }
@@ -560,13 +595,24 @@ for (let index = 0; index < OPENALEX_QUERIES.length; index += 1) {
   await pause(800);
 }
 
+const crossrefSearches = [];
+for (let index = 0; index < CROSSREF_QUERIES.length; index += 1) {
+  try {
+    crossrefSearches.push(await searchCrossref(CROSSREF_QUERIES[index], index));
+  } catch (error) {
+    sourceErrors.push({ source: `Crossref:${CROSSREF_QUERIES[index]}`, error: String(error?.message || error) });
+  }
+  await pause(350);
+}
+
 const mergedRecords = [];
 const mergedByDoi = new Map();
 const mergedByPmid = new Map();
 const mergedByTitle = new Map();
 for (const record of [
   ...pubmedArticles,
-  ...openAlexSearches.flatMap((search) => search.records)
+  ...openAlexSearches.flatMap((search) => search.records),
+  ...crossrefSearches.flatMap((search) => search.records)
 ]) {
   if (!record.title) continue;
   const titleKey = normalizeTitle(record.title);
@@ -631,6 +677,10 @@ const summary = {
   openAlex: {
     queries: openAlexSearches.map(({ label, query, count, records }) => ({ label, query, count, retrieved: records.length })),
     retrieved: openAlexSearches.reduce((sum, search) => sum + search.records.length, 0)
+  },
+  crossref: {
+    queries: crossrefSearches.map(({ label, query, count, records }) => ({ label, query, count, retrieved: records.length })),
+    retrieved: crossrefSearches.reduce((sum, search) => sum + search.records.length, 0)
   },
   mergedUnique: mergedRecords.length,
   existingMatches: reviewed.filter((record) => record.existingRecordId).length,
