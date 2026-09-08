@@ -140,12 +140,16 @@ const first = (block, pattern) => {
   const match = String(block ?? "").match(pattern);
   return match ? decodeXml(match[1]) : "";
 };
+const fetchWithTimeout = (url, options = {}) => fetch(url, {
+  ...options,
+  signal: AbortSignal.timeout(30_000)
+});
 
 async function getJson(url, retries = 6) {
   let error;
   for (let attempt = 1; attempt <= retries; attempt += 1) {
     try {
-      const response = await fetch(url, {
+      const response = await fetchWithTimeout(url, {
         headers: {
           Accept: "application/json",
           "User-Agent": "GABA-evidence-index/2.0 (systematic literature discovery)"
@@ -171,7 +175,7 @@ async function getText(url, retries = 6) {
   let error;
   for (let attempt = 1; attempt <= retries; attempt += 1) {
     try {
-      const response = await fetch(url, {
+      const response = await fetchWithTimeout(url, {
         headers: { "User-Agent": "GABA-evidence-index/2.0 (systematic literature discovery)" }
       });
       if (response.ok) return await response.text();
