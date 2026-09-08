@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 232,
-    "literature": 224,
+    "total": 234,
+    "literature": 226,
     "regulatory": 8,
-    "clinical": 65,
+    "clinical": 67,
     "animal": 153,
     "scie": 160,
-    "complete": 135,
-    "partial": 89,
+    "complete": 136,
+    "partial": 90,
     "drivePdf": 76,
-    "included": 141,
-    "candidate": 74,
+    "included": 142,
+    "candidate": 75,
     "excluded": 9,
     "safetyCategory": 169,
-    "effectCategory": 151,
+    "effectCategory": 153,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 212,
+      "literatureWithDoi": 213,
       "literatureWithPmid": 212,
-      "extractionComplete": 135,
-      "extractionPartial": 89
+      "extractionComplete": 136,
+      "extractionPartial": 90
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 67
+        "value": 69
       },
       {
         "label": "축산",
@@ -100,7 +100,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 48
+        "value": 49
       },
       {
         "label": "심혈관·혈압",
@@ -127,11 +127,11 @@
         "value": 5
       },
       {
-        "label": "소화·장-뇌 축",
-        "value": 2
+        "label": "신경·행동·스트레스",
+        "value": 3
       },
       {
-        "label": "신경·행동·스트레스",
+        "label": "소화·장-뇌 축",
         "value": 2
       },
       {
@@ -218,11 +218,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 141
+        "value": 142
       },
       {
         "label": "후보",
-        "value": 74
+        "value": 75
       },
       {
         "label": "제외",
@@ -240,7 +240,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 52
+        "value": 54
       },
       {
         "label": "ESCI",
@@ -254,17 +254,17 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 135
+        "value": 136
       },
       {
         "label": "부분",
-        "value": 89
+        "value": 90
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 135
+        "value": 137
       },
       {
         "label": "혼재",
@@ -348,7 +348,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 63
+        "value": 65
       }
     ],
     "effectCategory": [
@@ -358,7 +358,7 @@
       },
       {
         "label": "수면",
-        "value": 48
+        "value": 49
       },
       {
         "label": "다이어트",
@@ -386,7 +386,7 @@
       },
       {
         "label": "스트레스",
-        "value": 6
+        "value": 7
       },
       {
         "label": "인지기능",
@@ -9604,6 +9604,92 @@
       "linkType": "출판사 초록·시험등록",
       "category": "연구 근거",
       "effectCategory": "인지기능"
+    },
+    {
+      "id": "H-2008-144",
+      "status": "포함",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 교차시험",
+      "year": 2008,
+      "title": "Activation of Autonomic Nervous System Activity by the Oral Ingestion of GABA",
+      "author": "Fujibayashi, Kamiya, Takagaki, Moritani",
+      "journal": "Journal of Nutritional Science and Vitaminology",
+      "doi": "10.4327/jsnfs.61.129",
+      "pmid": "",
+      "population": "건강한 젊은 남성(평균 21.7세)",
+      "n": "12명",
+      "model": "자율신경·이완 반응",
+      "form": "GABA 캡슐",
+      "dose": "GABA 30 mg 단회",
+      "route": "경구, 공복 후",
+      "duration": "단회; 투여 후 30·60분 측정",
+      "comparator": "셀룰로오스 위약",
+      "domain": "스트레스·이완·자율신경",
+      "outcome": "심박변이도(HRV) 주파수 분석, 총 자율신경·부교감신경 활성",
+      "direction": "유익",
+      "finding": "GABA 30 mg 섭취 후 전체 자율신경 활성과 부교감신경 활성이 유의하게 증가했다.",
+      "safety": "단회 소표본 연구로 안전성 평가 범위가 제한됨",
+      "limitation": "건강한 젊은 남성 12명, 단회 투여, 30·60분의 급성 HRV 지표만 평가했다. 주관적 이완·임상 스트레스·장기 안전성을 입증하지 않으며, 기업 연구진이 포함되어 독립 재현이 필요하다.",
+      "pubmedStatus": "PubMed 미등재로 확인",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://www.jstage.jst.go.jp/article/jsnfs/61/3/61_3_129/_article",
+      "fulltextUrl": "https://www.jstage.jst.go.jp/article/jsnfs/61/3/61_3_129/_article",
+      "doiUrl": "https://doi.org/10.4327/jsnfs.61.129",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "2020년 체계적 문헌고찰의 포함 원저 목록과 J-STAGE 원문 초록을 대조. 연구의 의미: 순수 GABA 30 mg의 단회 섭취가 젊은 성인의 HRV 기반 부교감신경 활성에 미치는 급성 신호를 보고한 초기 인체시험이다. 기대 행동: ‘단회·젊은 남성·HRV 생리 지표’로만 활용하고, 스트레스 장애 치료나 지속적 이완 효과로 확대하지 않는다.",
+      "species": "인체",
+      "topic": "신경·행동·스트레스",
+      "hasDrivePdf": false,
+      "linkType": "J-STAGE·DOI",
+      "category": "연구 근거",
+      "effectCategory": "스트레스"
+    },
+    {
+      "id": "H-2000-145",
+      "status": "후보",
+      "kind": "임상",
+      "design": "이중눈가림 대조 교차시험",
+      "year": 2000,
+      "title": "Effect of the Defatted Rice Germ Enriched with GABA for Sleeplessness, Depression, Autonomic Disorder by Oral Administration",
+      "author": "Okada, Sugishita, Murakami et al.",
+      "journal": "Journal of the Japanese Society for Food Science and Technology",
+      "doi": "",
+      "pmid": "",
+      "population": "폐경 후 건강 여성(38–52세)",
+      "n": "20명",
+      "model": "불면·갱년기 관련 증상·자율신경",
+      "form": "GABA 강화 탈지 쌀눈 식품",
+      "dose": "GABA 26.4 mg/day(하루 3회 식품 섭취)",
+      "route": "경구",
+      "duration": "8주",
+      "comparator": "대조 식품(세부 조건 원문 확인 필요)",
+      "domain": "수면·갱년기 증상",
+      "outcome": "Kupperman Menopause Index의 불면·우울·자율신경 관련 항목",
+      "direction": "유익",
+      "finding": "GABA 강화 쌀눈 식품 섭취 4주 시점에 Kupperman 지수의 불면 관련 점수 개선이 보고됐다.",
+      "safety": "공개 서지·2차 고찰에서 통합 안전성 세부 확인 불가",
+      "limitation": "20명 규모의 오래된 식품 매트릭스 연구이며, 대조식품과 GABA 함량·무작위화·분석 세부가 공개 요약만으로 충분히 확인되지 않았다. 순수 GABA 보충제의 수면 효과로 일반화하지 않는다.",
+      "pubmedStatus": "PubMed 미등재로 확인",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://ndlsearch.ndl.go.jp/books/R100000136-I1572824500621960320",
+      "fulltextUrl": "https://ndlsearch.ndl.go.jp/books/R100000136-I1572824500621960320",
+      "doiUrl": "",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "2020년 체계적 문헌고찰의 원저 표와 국립국회도서관 서지정보를 대조. 연구의 의미: GABA 강화 쌀눈이라는 식품 형태가 폐경 후 여성의 불면 관련 증상에 미칠 가능성을 탐색한 초기 자료다. 기대 행동: 후보·부분 추출로 유지하고, 원문 확보 전에는 광고 근거로 사용하지 않으며 순수 GABA 수면 개선 주장과 분리한다.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "국립국회도서관·2차 고찰",
+      "category": "연구 근거",
+      "effectCategory": "수면"
     },
     {
       "id": "H-2025-142",
