@@ -5,17 +5,17 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 259,
-    "literature": 251,
+    "total": 260,
+    "literature": 252,
     "regulatory": 8,
     "clinical": 83,
     "animal": 159,
     "scie": 157,
-    "complete": 147,
+    "complete": 148,
     "partial": 104,
     "drivePdf": 76,
     "included": 149,
-    "candidate": 93,
+    "candidate": 94,
     "excluded": 9,
     "safetyCategory": 168,
     "effectCategory": 164,
@@ -23,9 +23,9 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 232,
+      "literatureWithDoi": 233,
       "literatureWithPmid": 228,
-      "extractionComplete": 147,
+      "extractionComplete": 148,
       "extractionPartial": 104
     },
     "discovery": {
@@ -89,6 +89,10 @@
         "value": 2
       },
       {
+        "label": "고찰",
+        "value": 1
+      },
+      {
         "label": "기타동물",
         "value": 1
       },
@@ -147,6 +151,10 @@
         "value": 3
       },
       {
+        "label": "종설·기전·안전성",
+        "value": 3
+      },
+      {
         "label": "소화·장-뇌 축",
         "value": 2
       },
@@ -156,10 +164,6 @@
       },
       {
         "label": "운동·근육",
-        "value": 2
-      },
-      {
-        "label": "종설·기전·안전성",
         "value": 2
       },
       {
@@ -298,7 +302,7 @@
       },
       {
         "label": "후보",
-        "value": 93
+        "value": 94
       },
       {
         "label": "제외",
@@ -316,7 +320,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 79
+        "value": 80
       },
       {
         "label": "ESCI",
@@ -334,7 +338,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 147
+        "value": 148
       },
       {
         "label": "부분",
@@ -391,6 +395,10 @@
         "value": 1
       },
       {
+        "label": "잠재적 유익 신호를 소개하지만 임상효능 확정에는 추가 연구 필요",
+        "value": 1
+      },
+      {
         "label": "GABA 세정 후 캡사이신 유발 작열통 감소",
         "value": 1
       }
@@ -440,13 +448,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 91
+        "value": 92
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 95
+        "value": 96
       },
       {
         "label": "수면",
@@ -10966,6 +10974,48 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "notes": "PMID 34763469와 출판사 원문 전체를 확인해 총 252마리, 하위군 n=14 및 뇌 분석 n=8을 보강. 연구의 의미: GABA와 호두 펩타이드 병용이 마우스의 약물 유발 수면시간·수면률에 미치는 조합 신호를 탐색한 자료이며, 수면잠복기 단축은 호두 펩타이드 기여가 큰 것으로 해석해야 한다. 기대 행동: 병용제품의 전임상 탐색 근거로만 활용하고 사람의 수면 개선이나 GABA 단독효과로 확대하지 않으며, 실제 제품의 호두 펩타이드 조성·GABA 용량·섭취 조건을 일치시킨다."
+    },
+    {
+      "id": "R-2024-019",
+      "status": "후보",
+      "kind": "고찰",
+      "year": 2024,
+      "title": "The Effect of Oral GABA on the Nervous System: Potential for Therapeutic Intervention",
+      "design": "서술적 문헌고찰",
+      "author": "Almutairi S; Sivadas A; Kwakowsky A",
+      "journal": "Nutraceuticals",
+      "doi": "10.3390/nutraceuticals4020015",
+      "population": "경구 GABA·장-뇌 축 관련 전임상 및 인체 문헌",
+      "n": "문헌고찰(개별 연구 수의 정량적 메타분석 아님)",
+      "model": "경구 GABA, 식품·보충제, BBB·장-뇌 축",
+      "form": "경구 GABA 및 GABA 함유 식품·보충제",
+      "dose": "개별 연구별 상이; 단일 권장 용량을 제시하지 않음",
+      "route": "경구",
+      "duration": "해당없음",
+      "comparator": "해당없음",
+      "domain": "신경·행동·인지·장-뇌 축",
+      "outcome": "뇌파·인지·수면·통증 관련 연구와 BBB·장-뇌 축 기전",
+      "direction": "잠재적 유익 신호를 소개하지만 임상효능 확정에는 추가 연구 필요",
+      "finding": "경구 GABA의 뇌 영향 가능성과 수면·통증·뇌파 관련 연구를 종합하면서, BBB 통과 여부와 임상효능은 불확실하고 용량·제형·기간·이상반응을 고려한 강건한 임상시험이 필요하다고 정리했다.",
+      "safety": "개별 제품·용량별 안전성 평가로 대체할 수 없음",
+      "limitation": "서술적 고찰이며 메타분석이 아니고, 경구 GABA의 BBB 통과와 임상효능에 대한 인체 근거가 제한적이다. 고찰의 기전·잠재효과를 원저 임상시험 결과나 제품 효능으로 직접 인용할 수 없다.",
+      "pubmedStatus": "미확인",
+      "sciStatus": "현행 미확인",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://www.mdpi.com/1661-3821/4/2/15",
+      "doiUrl": "https://doi.org/10.3390/nutraceuticals4020015",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "species": "고찰",
+      "topic": "종설·기전·안전성",
+      "effectCategory": "기타",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
+      "notes": "DOI 10.3390/nutraceuticals4020015의 MDPI 원문을 확인. 연구의 의미: 경구 GABA가 뇌에 영향을 미칠 수 있는 직접·간접 경로와 수면·통증·뇌파 문헌을 한데 정리한 최신 배경 고찰이지만, BBB 통과와 임상효능의 불확실성도 명시한다. 기대 행동: 마케팅 배경·추가 연구 필요성 설명에만 활용하고 고찰의 잠재효과를 임상효능으로 인용하지 않으며, 원저의 용량·제형·대상·결과를 별도로 확인한다."
     },
     {
       "id": "H-2025-052",
