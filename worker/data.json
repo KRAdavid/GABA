@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 274,
-    "literature": 266,
+    "total": 275,
+    "literature": 267,
     "regulatory": 8,
     "clinical": 91,
     "animal": 161,
@@ -15,7 +15,7 @@
     "partial": 88,
     "drivePdf": 75,
     "included": 187,
-    "candidate": 68,
+    "candidate": 69,
     "excluded": 11,
     "safetyCategory": 158,
     "effectCategory": 177,
@@ -23,7 +23,7 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 248,
+      "literatureWithDoi": 249,
       "literatureWithPmid": 238,
       "extractionComplete": 178,
       "extractionPartial": 88
@@ -114,6 +114,10 @@
       },
       {
         "label": "토끼",
+        "value": 1
+      },
+      {
+        "label": "in vitro",
         "value": 1
       }
     ],
@@ -311,6 +315,10 @@
         "value": 1
       },
       {
+        "label": "장내 미생물·대사",
+        "value": 1
+      },
+      {
         "label": "정신건강·장-뇌 축",
         "value": 1
       },
@@ -354,7 +362,7 @@
       },
       {
         "label": "후보",
-        "value": 68
+        "value": 69
       },
       {
         "label": "제외",
@@ -372,7 +380,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 99
+        "value": 100
       },
       {
         "label": "ESCI",
@@ -395,6 +403,10 @@
       {
         "label": "부분",
         "value": 88
+      },
+      {
+        "label": "부분완료",
+        "value": 1
       }
     ],
     "direction": [
@@ -519,6 +531,10 @@
         "value": 1
       },
       {
+        "label": "장내 대사·미생물 조절 가능성을 시사하지만 인체 효능은 입증하지 않음",
+        "value": 1
+      },
+      {
         "label": "전체 NREM 2 감소; 스트레스·피로·고령 하위군에서 NREM 3 증가 신호",
         "value": 1
       },
@@ -592,13 +608,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 116
+        "value": 117
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 97
+        "value": 98
       },
       {
         "label": "수면",
@@ -11720,6 +11736,48 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "notes": "PMID 34763469와 출판사 원문 전체를 확인해 총 252마리, 하위군 n=14 및 뇌 분석 n=8을 보강. 연구의 의미: GABA와 호두 펩타이드 병용이 마우스의 약물 유발 수면시간·수면률에 미치는 조합 신호를 탐색한 자료이며, 수면잠복기 단축은 호두 펩타이드 기여가 큰 것으로 해석해야 한다. 기대 행동: 병용제품의 전임상 탐색 근거로만 활용하고 사람의 수면 개선이나 GABA 단독효과로 확대하지 않으며, 실제 제품의 호두 펩타이드 조성·GABA 용량·섭취 조건을 일치시킨다."
+    },
+    {
+      "id": "R-2025-159",
+      "status": "후보",
+      "kind": "전임상",
+      "year": 2025,
+      "title": "Effect of γ-Aminobutyric acid and dietary monosodium glutamate supplementation on gut microbiota and short-chain fatty acid: Insights from an in vitro colonic fermentation model",
+      "design": "인체 분변 슬러리 기반 in vitro 대장 발효모델",
+      "author": "Jiarun Han; Xilian Zhao; Qiuqiu Ye; Yueting Wang; Yutong Wu; Shi Hu; Ping Li; Qing Gu",
+      "journal": "Food Bioscience 66:106304 (2025)",
+      "doi": "10.1016/j.fbio.2025.106304",
+      "population": "인체 분변 슬러리 발효모델(임상 참여자 효능시험 아님)",
+      "n": "분변 공여자·반복수 및 배양 조건은 원문 방법·표 확인 필요",
+      "model": "GABA 및 GABA 전구체 MSG를 처리한 in vitro 대장 발효",
+      "form": "GABA 표준품 및 MSG",
+      "dose": "여러 농도 수준; 임상 1일 섭취량으로 환산 불가",
+      "route": "in vitro 발효 처리",
+      "duration": "대장 발효 실험; 사람 투여기간 아님",
+      "comparator": "무처리 대조군 및 GABA·MSG 농도별 비교",
+      "domain": "장내 미생물·SCFA·GABA-장 상호작용",
+      "outcome": "미생물 상대 abundance, GABA·MSG 전환, 단쇄지방산",
+      "direction": "장내 대사·미생물 조절 가능성을 시사하지만 인체 효능은 입증하지 않음",
+      "finding": "GABA와 MSG 처리는 Actinobacteria 및 일부 Bifidobacterium 신호를 변화시켰고, 고농도 GABA는 총산·초산 생성을 증가시켰다. MSG의 GABA 전환율은 최대 73.25%로 보고되어 장내 미생물의 전환 가능성을 제시했다.",
+      "safety": "사람에게 투여하지 않아 안전성·내약성 자료 없음",
+      "limitation": "in vitro 분변 발효모델이라 실제 경구 흡수, 장내 생태계, 전신효과 및 임상적 유익을 판단할 수 없다. 농도·배양조건을 사람 제품 용량이나 장내 노출량으로 직접 환산할 수 없으며, 원문 표·방법에 대한 추가 확인이 필요하다.",
+      "pubmedStatus": "미확인",
+      "sciStatus": "현행 미확인",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://www.sciencedirect.com/science/article/pii/S2212429225004808",
+      "doiUrl": "https://doi.org/10.1016/j.fbio.2025.106304",
+      "extraction": "부분완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "species": "in vitro",
+      "topic": "장내 미생물·대사",
+      "effectCategory": "기타",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
+      "notes": "ScienceDirect/DOI 서지와 초록을 확인해 후보로 보존. 연구의 의미: GABA와 MSG가 장내 미생물 조성·SCFA 생성 및 MSG→GABA 전환과 연결될 수 있다는 기초 가설을 제공한다. 기대 행동: 장-뇌 축·발효식품·프리바이오틱스 연구의 후속 탐색 근거로만 활용하고, 장내 유익·수면·이완·혈당 개선을 사람 대상 GABA 제품 효능으로 광고하지 않으며 원문 방법·농도·공여자 수를 확인한 뒤 인체시험을 별도로 검토한다."
     },
     {
       "id": "R-2024-019",
