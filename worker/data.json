@@ -14,8 +14,8 @@
     "complete": 158,
     "partial": 96,
     "drivePdf": 76,
-    "included": 158,
-    "candidate": 87,
+    "included": 159,
+    "candidate": 86,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 158
+        "value": 159
       },
       {
         "label": "후보",
-        "value": 87
+        "value": 86
       },
       {
         "label": "제외",
@@ -9368,7 +9368,7 @@
     },
     {
       "id": "H-2015-147",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약대조 평행시험",
       "year": 2015,
