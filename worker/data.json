@@ -52,7 +52,7 @@
     },
     "sourceSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit",
     "sourceFile": "google_sync_payload.json",
-    "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
+    "notice": "이 웹 인덱스는 2026-09-08 검토·배포 시점의 읽기 전용 스냅샷입니다."
   },
   "facets": {
     "species": [
