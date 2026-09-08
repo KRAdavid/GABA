@@ -30,7 +30,7 @@
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
-      "generatedAt": "2026-09-08T13:27:16.534Z",
+      "generatedAt": "2026-09-08T14:33:12.747Z",
       "triageVersion": "2026-07-31.2",
       "identifierExtraction": "PubMed primary ArticleIdList only",
       "pubmedUnique": 2810,
@@ -38,8 +38,8 @@
       "mergedUnique": 3452,
       "stagedCandidates": 1000,
       "priority": 11,
-      "general": 802,
-      "low": 186,
+      "general": 800,
+      "low": 188,
       "screeningCounts": {
         "포함후보": 11,
         "보류": 2,
