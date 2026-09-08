@@ -14,8 +14,8 @@
     "complete": 158,
     "partial": 96,
     "drivePdf": 76,
-    "included": 164,
-    "candidate": 81,
+    "included": 165,
+    "candidate": 80,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 164
+        "value": 165
       },
       {
         "label": "후보",
-        "value": 81
+        "value": 80
       },
       {
         "label": "제외",
@@ -9497,7 +9497,7 @@
     },
     {
       "id": "H-2015-136",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 교차 영양시험",
       "year": 2015,
