@@ -238,5 +238,18 @@
     "score": 60,
     "note": "KUHIMM in vitro 장내 미생물 모델에서 Bifidobacterium adolescentis 4-2와 MOS의 GABA 생성 상승작용을 평가한 연구. 사람 임상 효능·보충제 효과로 승격하지 않고 장-뇌 축 원료 가설로 검토합니다.",
     "identifierVerification": "PubMed PMID·DOI 일치"
+  },
+  {
+    "status": "제외",
+    "priority": "일반검토",
+    "pmid": "",
+    "doi": "10.3389/fnut.2026.1796729",
+    "year": 2026,
+    "title": "Effects of heat-treated Lactobacillus gasseri CP2305 on brain oscillatory activity and mental stress in healthy adults: a double-blind, randomized, crossover, placebo-controlled trial",
+    "author": "Tanihiro, Hosaka, Sawada, Hirota",
+    "journal": "Frontiers in Nutrition",
+    "score": 60,
+    "note": "28명 건강 성인의 열처리 L. gasseri CP2305 postbiotic 단회시험. GABA는 배경 문헌으로만 언급되고 개입 원료가 GABA 또는 GABA 생성균이 아니므로 GABA 효능 인덱스에서 제외합니다. 인접 postbiotic 스트레스 자료로 별도 참고 가능하나 GABA 제품 근거로 일반화하지 않습니다.",
+    "identifierVerification": "DOI·출판사 원문 일치"
   }
 ]
