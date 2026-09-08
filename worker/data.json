@@ -10,7 +10,7 @@
     "regulatory": 8,
     "clinical": 86,
     "animal": 159,
-    "scie": 156,
+    "scie": 155,
     "complete": 159,
     "partial": 96,
     "drivePdf": 76,
@@ -18,13 +18,13 @@
     "candidate": 75,
     "excluded": 11,
     "safetyCategory": 162,
-    "effectCategory": 165,
+    "effectCategory": 166,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 237,
-      "literatureWithPmid": 229,
+      "literatureWithPmid": 230,
       "extractionComplete": 159,
       "extractionPartial": 96
     },
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 82
+        "value": 83
       },
       {
         "label": "축산",
@@ -78,7 +78,7 @@
       },
       {
         "label": "기타",
-        "value": 10
+        "value": 9
       },
       {
         "label": "반려·기타동물",
@@ -136,7 +136,7 @@
       },
       {
         "label": "기타",
-        "value": 9
+        "value": 8
       },
       {
         "label": "장기·독성·안전성",
@@ -180,6 +180,10 @@
       },
       {
         "label": "고혈압·심혈관",
+        "value": 1
+      },
+      {
+        "label": "내분비·대사·제1형 당뇨병",
         "value": 1
       },
       {
@@ -324,11 +328,11 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 156
+        "value": 155
       },
       {
         "label": "현행 미확인",
-        "value": 83
+        "value": 84
       },
       {
         "label": "ESCI",
@@ -364,7 +368,7 @@
       },
       {
         "label": "무효",
-        "value": 11
+        "value": 10
       },
       {
         "label": "정보부족",
@@ -385,6 +389,10 @@
       {
         "label": "중립",
         "value": 2
+      },
+      {
+        "label": "1차 β세포 기능 보존 실패; GABA+GAD군에서 일부 글루카곤 감소",
+        "value": 1
       },
       {
         "label": "기타",
@@ -494,7 +502,7 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 98
+        "value": 97
       },
       {
         "label": "수면",
@@ -531,6 +539,10 @@
       {
         "label": "인지기능",
         "value": 2
+      },
+      {
+        "label": "대사",
+        "value": 1
       },
       {
         "label": "스트레스·이완",
@@ -1703,7 +1715,7 @@
       "sciGroup": "ESCI",
       "sciChecked": "2026-07-27",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/31143310/",
-      "fulltextUrl": "https://doi.org/10.14740/jocmr3817",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6522239/",
       "doiUrl": "https://doi.org/10.14740/jocmr3817",
       "extraction": "완료",
       "added": "2026-07-27",
@@ -1712,7 +1724,7 @@
       "species": "기타",
       "topic": "기타",
       "hasDrivePdf": false,
-      "linkType": "링크 없음",
+      "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타"
     },
@@ -1849,44 +1861,44 @@
       "id": "H-2022-016",
       "status": "포함",
       "kind": "임상",
-      "design": "무작위 이중눈가림 평행시험",
+      "design": "단일기관 무작위 이중맹검 위약대조 3군 시험",
       "year": 2022,
-      "title": "A randomized trial of oral gamma aminobutyric acid (GABA) or the combination of GABA with glutamic acid decarboxylase (GAD) on pancreatic islet endocrine function in children with newly diagnosed type 1 diabetes.",
-      "author": "Martin et al.",
-      "journal": "Nature Communications",
+      "title": "A randomized trial of oral gamma aminobutyric acid (GABA) or the combination of GABA with glutamic acid decarboxylase (GAD) on pancreatic islet endocrine function in children with newly diagnosed type 1 diabetes",
+      "author": "Alexandra Martin; Gail J. Mick; Heather M. Choat; Alison A. Lunsford; Hubert M. Tse; Gerald G. McGwin Jr.; Kenneth L. McCormick",
+      "journal": "Nature Communications 13:7928 (2022)",
       "doi": "10.1038/s41467-022-35544-3",
       "pmid": "36566274",
-      "population": "소아",
-      "n": "97명",
+      "population": "새로 진단된 제1형 당뇨병 소아",
+      "n": "97명( GABA 41명, GABA+GAD 25명, 위약 31명)",
       "model": "신규 진단 제1형 당뇨병",
-      "form": "순수 GABA; GABA+GAD-alum",
+      "form": "경구 GABA 단독 또는 GAD-alum 병용",
       "dose": "GABA 1 g/m²/day, 최대 1.5 g/day, 아침·저녁 2회 분할",
       "route": "경구(하루 2회)",
       "duration": "1년",
       "comparator": "위약",
-      "domain": "당대사/췌도기능",
-      "outcome": "공복·식후 C-peptide, 글루카곤",
-      "direction": "무효",
-      "finding": "GABA 단독 및 조합은 β세포 기능 보존의 1차 평가변수를 달성하지 못함; 조합군에서 글루카곤 감소.",
-      "safety": "GABA 내약성 확인",
+      "domain": "췌도 내분비·제1형 당뇨병",
+      "outcome": "공복·식후 자극 C-peptide, 글루카곤, 혈당조절, 안전성·내약성",
+      "direction": "1차 β세포 기능 보존 실패; GABA+GAD군에서 일부 글루카곤 감소",
+      "finding": "1년 치료 후 GABA 단독 또는 GABA+GAD 병용은 공복·식후 자극 C-peptide 보존이라는 1차 결과를 달성하지 못했다. GABA+GAD군에서는 일부 글루카곤 지표가 감소했고, GABA의 안전성·내약성이 확인됐다.",
+      "safety": "중대한 안전성 문제 없이 내약성 확인",
       "limitation": "소아 신규 진단 제1형 당뇨병 대상의 질환 특이 시험이며, GABA 단독·GABA+GAD 병용군을 일반 성인이나 건강기능식품에 확대할 수 없다. 1차 β세포 기능 보존 결과는 유의하지 않았다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "SCIE 확인",
-      "sciGroup": "SCIE",
-      "sciChecked": "2026-07-27",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36566274/",
-      "fulltextUrl": "https://doi.org/10.1038/s41467-022-35544-3",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9790014/",
       "doiUrl": "https://doi.org/10.1038/s41467-022-35544-3",
       "extraction": "완료",
       "added": "2026-07-27",
       "checked": "2026-09-08",
       "notes": "PMID 36566274·PMCID PMC9790014의 PubMed·PMC 원문을 재확인해 GABA 용량을 보강. 연구의 의미: 소아 제1형 당뇨병에서 장기간 경구 GABA의 내약성과 췌도 호르몬 변화를 평가했으나 β세포 기능 보존이라는 1차 목표는 달성하지 못한 중요한 경계 근거다. 기대 행동: GABA 내약성·질환 특이 임상설계 자료로만 활용하고, 당뇨 개선·치료나 일반 소비자 효능으로 광고하지 않는다.",
-      "species": "기타",
-      "topic": "기타",
+      "species": "인체",
+      "topic": "내분비·대사·제1형 당뇨병",
       "hasDrivePdf": false,
-      "linkType": "링크 없음",
+      "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "대사"
     },
     {
       "id": "H-2022-035",
@@ -10971,10 +10983,14 @@
       "author": "Yining Hao; Weimin Song; Liping Qu",
       "journal": "Food Science & Nutrition 12(6):3883-3892 (2024)",
       "doi": "10.1002/fsn3.4048",
+      "pmid": "38873452",
       "n": "70명 무작위 배정(분석 60명; 각 군 30명)",
       "dose": "GABA 100 mg/10 mL, 1일 1회; 복령·산조인 추출물 포함",
       "duration": "4주(28일)",
       "extraction": "완료",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38873452/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11167191/",
+      "doiUrl": "https://doi.org/10.1002/fsn3.4048",
       "checked": "2026-09-08",
       "limitation": "GABA 단독이 아닌 복령·산조인과의 복합제이며 GABA의 독립 효과를 분리할 수 없다. 건강한 중국 여성 25–55세의 소규모 4주 시험이고, 제품 제공 회사 소속 저자가 포함되어 일반 소비자·장기효과로 일반화할 수 없다.",
       "notes": "PMID 38873452·PMCID PMC11167191의 PMC 원문을 재확인해 GABA 100 mg/10 mL와 분석표본 60명을 보강. 연구의 의미: GABA와 두 한약 추출물을 함께 섭취한 수면장애 여성에서 4주 동안 수면시간·PSQI와 일부 피부 지표가 위약보다 개선된 복합제 연구다. 기대 행동: 복합제의 조건부 수면·피부 탐색 근거로만 활용하고 GABA 단독효과나 불면증·피부질환 치료로 광고하지 않으며, 실제 제품의 조성·용량·대상 일치성을 확인한다.",
@@ -10982,7 +10998,7 @@
       "effectCategory": "기타",
       "species": "기타",
       "topic": "기타",
-      "linkType": "링크 없음"
+      "linkType": "원문·DOI"
     },
     {
       "id": "H-2017-011",
