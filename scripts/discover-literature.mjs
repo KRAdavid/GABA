@@ -605,7 +605,7 @@ const candidates = reviewed
 
 const summary = {
   generatedAt: new Date().toISOString(),
-  triageVersion: "2026-07-31.2",
+  triageVersion: "2026-09-09.1",
   identifierExtraction: "PubMed primary ArticleIdList only",
   snapshotDate,
   sourceSnapshotDate: database.meta.snapshotDate,
