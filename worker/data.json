@@ -5,17 +5,17 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 253,
-    "literature": 245,
+    "total": 254,
+    "literature": 246,
     "regulatory": 8,
     "clinical": 80,
     "animal": 157,
     "scie": 158,
     "complete": 145,
-    "partial": 100,
+    "partial": 101,
     "drivePdf": 76,
     "included": 149,
-    "candidate": 87,
+    "candidate": 88,
     "excluded": 9,
     "safetyCategory": 169,
     "effectCategory": 164,
@@ -23,10 +23,10 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 227,
-      "literatureWithPmid": 225,
+      "literatureWithDoi": 228,
+      "literatureWithPmid": 226,
       "extractionComplete": 145,
-      "extractionPartial": 100
+      "extractionPartial": 101
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -85,11 +85,11 @@
         "value": 3
       },
       {
-        "label": "기타동물",
-        "value": 1
+        "label": "미생물·식품",
+        "value": 2
       },
       {
-        "label": "미생물·식품",
+        "label": "기타동물",
         "value": 1
       },
       {
@@ -223,6 +223,10 @@
         "value": 1
       },
       {
+        "label": "식품공정·발효",
+        "value": 1
+      },
+      {
         "label": "식품안전·발효",
         "value": 1
       },
@@ -286,7 +290,7 @@
       },
       {
         "label": "후보",
-        "value": 87
+        "value": 88
       },
       {
         "label": "제외",
@@ -304,7 +308,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 73
+        "value": 74
       },
       {
         "label": "ESCI",
@@ -322,13 +326,13 @@
       },
       {
         "label": "부분",
-        "value": 100
+        "value": 101
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 149
+        "value": 150
       },
       {
         "label": "혼재",
@@ -412,13 +416,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 84
+        "value": 85
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 89
+        "value": 90
       },
       {
         "label": "수면",
@@ -10659,6 +10663,49 @@
       "topic": "피부·광노화",
       "hasDrivePdf": false,
       "linkType": "PubMed 초록",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "R-2026-176",
+      "status": "후보",
+      "kind": "고찰",
+      "design": "유산균 균주 선별·발효공정 최적화·대사체 및 관능 분석",
+      "year": 2026,
+      "title": "Metabolomics reveals the chemical basis of quality formation in GABA-enriched fermented green tea by lactic acid bacteria",
+      "author": "Zhang et al.",
+      "journal": "Food Research International",
+      "doi": "10.1016/j.foodres.2026.119516",
+      "pmid": "42270232",
+      "population": "사람 대상 아님(발효 녹차 시료)",
+      "n": "발효 조건·시료 분석 연구",
+      "model": "GABA 생성 유산균의 녹차 발효 시스템",
+      "form": "GABA 강화 유산균 발효 녹차",
+      "dose": "사람 섭취량 연구 아님",
+      "route": "해당 없음(식품공정)",
+      "duration": "최적 조건 24–36시간 발효",
+      "comparator": "비발효·균주별 발효 조건",
+      "domain": "식품공정·원료개발·관능품질",
+      "outcome": "GABA 생성, 휘발·비휘발성 대사체, 향·맛·폴리페놀 변화",
+      "direction": "유익",
+      "finding": "선별 유산균이 녹차 발효 중 GABA를 생성하고, 발효 조건에 따라 향·맛과 폴리페놀·페놀산·유기산 등 대사체가 함께 변화했다.",
+      "safety": "사람 섭취 안전성·임상 내약성 평가가 아닌 식품공정 연구",
+      "limitation": "사람 또는 동물 섭취시험이 아니며, 발효차의 GABA 함량·대사체 변화가 순수 GABA 보충제의 효능이나 안전성을 입증하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42270232/",
+      "fulltextUrl": "https://doi.org/10.1016/j.foodres.2026.119516",
+      "doiUrl": "https://doi.org/10.1016/j.foodres.2026.119516",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PMID 42270232·DOI 10.1016/j.foodres.2026.119516의 PubMed 초록·서지정보를 확인. 연구의 의미: GABA 강화 발효차 개발에서 균주와 발효시간이 GABA 생성뿐 아니라 향·맛·다른 대사체를 함께 결정한다는 점을 보여준다. 기대 행동: 원료·제품개발과 품질표준화 후보로만 활용하고, 발효차의 GABA 함량을 사람의 이완·수면·질환 개선 근거로 전환하지 않으며 섭취시험·안전성 자료를 별도로 확인한다.",
+      "species": "미생물·식품",
+      "topic": "식품공정·발효",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타"
     },
