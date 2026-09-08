@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 339,
-    "literature": 331,
+    "total": 340,
+    "literature": 332,
     "regulatory": 8,
     "clinical": 109,
     "animal": 173,
@@ -15,16 +15,16 @@
     "partial": 103,
     "drivePdf": 73,
     "included": 195,
-    "candidate": 124,
+    "candidate": 125,
     "excluded": 12,
     "safetyCategory": 158,
-    "effectCategory": 236,
+    "effectCategory": 237,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 305,
-      "literatureWithPmid": 281,
+      "literatureWithDoi": 306,
+      "literatureWithPmid": 282,
       "extractionComplete": 183,
       "extractionPartial": 103
     },
@@ -262,6 +262,10 @@
       },
       {
         "label": "해당없음",
+        "value": 1
+      },
+      {
+        "label": "흑색 고지대 보리",
         "value": 1
       },
       {
@@ -683,6 +687,10 @@
         "value": 1
       },
       {
+        "label": "GABA 강화 곡물·MSG·발아",
+        "value": 1
+      },
+      {
         "label": "GABA 강화 쌀·장벽·신경보호",
         "value": 1
       },
@@ -774,7 +782,7 @@
       },
       {
         "label": "후보",
-        "value": 124
+        "value": 125
       },
       {
         "label": "제외",
@@ -796,7 +804,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 53
+        "value": 54
       },
       {
         "label": "해당 없음",
@@ -838,7 +846,7 @@
       },
       {
         "label": "완전",
-        "value": 16
+        "value": 17
       },
       {
         "label": "초록검토",
@@ -904,6 +912,10 @@
       },
       {
         "label": "공정·제품개발 가능성; 인체 효능 아님",
+        "value": 2
+      },
+      {
+        "label": "원료·공정개발 가능성; 인체 효능 아님",
         "value": 2
       },
       {
@@ -1103,10 +1115,6 @@
         "value": 1
       },
       {
-        "label": "원료·공정개발 가능성; 인체 효능 아님",
-        "value": 1
-      },
-      {
         "label": "원료·스타터 후보; 인체 효능 아님",
         "value": 1
       },
@@ -1280,7 +1288,7 @@
     "category": [
       {
         "label": "연구 근거",
-        "value": 163
+        "value": 164
       },
       {
         "label": "안전성",
@@ -1329,11 +1337,11 @@
         "value": 20
       },
       {
-        "label": "고혈압",
-        "value": 16
+        "label": "발효·배경",
+        "value": 17
       },
       {
-        "label": "발효·배경",
+        "label": "고혈압",
         "value": 16
       },
       {
@@ -9057,6 +9065,49 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "R-2026-223",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "MSG 전구체 처리와 발아를 이용한 흑색 고지대 보리 GABA 축적·대사체 연구",
+      "year": 2026,
+      "title": "Effects of Exogenous Monosodium Glutamate on GABA Accumulation and Volatile/Nonvolatile Metabolites in Black Highland Barley",
+      "author": "Lu et al.",
+      "journal": "Food Science & Nutrition",
+      "doi": "10.1002/fsn3.72125",
+      "pmid": "42529230",
+      "population": "흑색 고지대 보리 발아 시료",
+      "n": "사람 중재 없음; 발아·식품공정 실험",
+      "model": "MSG 전구체 농도별 발아 처리와 UHPLC-MS·GC-MS·GC-IMS 대사체 분석",
+      "form": "GABA 강화 고지대 보리 식품 원료 후보",
+      "dose": "MSG 최적 범위 50–75 mmol/L; 사람 섭취량 아님",
+      "route": "해당 없음(식품 공정 연구)",
+      "duration": "발아 조건별 평가",
+      "comparator": "MSG·글루탐산·발아 조건 비교",
+      "domain": "GABA 축적·발아곡물·식품 대사체",
+      "outcome": "GABA 최대 2.55±0.12 mg/g; MSG가 글루탐산보다 GABA 축적을 높임; 1248개 대사체 확인",
+      "direction": "원료·공정개발 가능성; 인체 효능 아님",
+      "finding": "흑색 고지대 보리 발아 과정에서 MSG를 전구체로 사용해 GABA 축적을 평가했으며, 최적 조건에서 2.55±0.12 mg/g의 GABA가 보고됐다.",
+      "safety": "MSG 처리와 발아 원료의 식품 안전성·완제품 안정성·사람의 건강효과는 별도 검증이 필요하다.",
+      "limitation": "발아 원료의 GABA 함량은 경구 GABA 보충량이나 이완·수면·혈압 효과를 의미하지 않으며, 인체시험이 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Wiley·PMC 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42529230/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13416752/",
+      "doiUrl": "https://doi.org/10.1002/fsn3.72125",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 42529230의 PubMed·PMC 초록을 확인했다. 연구의 의미: MSG 전구체와 발아조건이 곡물의 GABA 및 향미 대사체를 어떻게 바꾸는지 보여주는 최신 원료개발 자료다. 기대 행동: 완제품의 실제 GABA·MSG·관능·안전성 검증에 활용하고, 2.55 mg/g을 사람의 이완·수면·혈압 효능 근거로 광고하지 않는다.",
+      "species": "흑색 고지대 보리",
+      "topic": "GABA 강화 곡물·MSG·발아",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·PMC",
+      "category": "연구 근거",
+      "effectCategory": "발효·배경"
     },
     {
       "id": "H-2025-222",
