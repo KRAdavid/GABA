@@ -214,7 +214,18 @@ const curatedLiteratureRecords = (curated.records || [])
     topic: record.topic || "기타",
     linkType: record.linkType || (record.fulltextUrl ? "원문·DOI" : record.pubmedUrl ? "PubMed" : "링크 없음")
   }));
-const literatureKeys = new Set(sheetLiteratureRecords.flatMap((record) => [
+const curatedOverrideByKey = new Map(curatedLiteratureRecords.flatMap((record) => [
+  [record.id, record],
+  [normalizedKey(record.doi), record],
+  [normalizedKey(record.pmid), record]
+].filter(([key]) => Boolean(key))));
+const overriddenSheetLiteratureRecords = sheetLiteratureRecords.map((record) => {
+  const override = [record.id, normalizedKey(record.doi), normalizedKey(record.pmid)]
+    .map((key) => curatedOverrideByKey.get(key))
+    .find(Boolean);
+  return override ? { ...record, ...override } : record;
+});
+const literatureKeys = new Set(overriddenSheetLiteratureRecords.flatMap((record) => [
   record.id, normalizedKey(record.doi), normalizedKey(record.pmid)
 ].filter(Boolean)));
 const addUniqueLiterature = (recordsToAdd) => recordsToAdd.filter((record) => {
@@ -224,7 +235,7 @@ const addUniqueLiterature = (recordsToAdd) => recordsToAdd.filter((record) => {
   return true;
 });
 const literatureRecords = [
-  ...sheetLiteratureRecords,
+  ...overriddenSheetLiteratureRecords,
   ...addUniqueLiterature(curatedLiteratureRecords),
   ...addUniqueLiterature(preservedLiteratureRecords)
 ].map((record) => ({ ...record, notes: enrichLiteratureNote(record) }));
