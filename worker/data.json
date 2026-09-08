@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 316,
-    "literature": 308,
+    "total": 317,
+    "literature": 309,
     "regulatory": 8,
     "clinical": 109,
     "animal": 172,
@@ -15,16 +15,16 @@
     "partial": 93,
     "drivePdf": 74,
     "included": 191,
-    "candidate": 106,
+    "candidate": 107,
     "excluded": 11,
     "safetyCategory": 159,
-    "effectCategory": 213,
+    "effectCategory": 214,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 282,
-      "literatureWithPmid": 263,
+      "literatureWithDoi": 283,
+      "literatureWithPmid": 264,
       "extractionComplete": 189,
       "extractionPartial": 93
     },
@@ -134,6 +134,10 @@
       },
       {
         "label": "수산동물",
+        "value": 1
+      },
+      {
+        "label": "유산균·기능성 식품 문헌",
         "value": 1
       },
       {
@@ -547,6 +551,10 @@
         "value": 1
       },
       {
+        "label": "GABA 생성·발효·기능성 식품",
+        "value": 1
+      },
+      {
         "label": "GABA 생성·해삼 발효·기능성 원료",
         "value": 1
       },
@@ -574,7 +582,7 @@
       },
       {
         "label": "후보",
-        "value": 106
+        "value": 107
       },
       {
         "label": "제외",
@@ -596,7 +604,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 23
+        "value": 24
       },
       {
         "label": "해당 없음",
@@ -641,11 +649,11 @@
         "value": 8
       },
       {
-        "label": "부분완료",
-        "value": 6
+        "label": "초록검토",
+        "value": 7
       },
       {
-        "label": "초록검토",
+        "label": "부분완료",
         "value": 6
       },
       {
@@ -764,6 +772,10 @@
       },
       {
         "label": "발효물 전임상 가능성; 복합물",
+        "value": 1
+      },
+      {
+        "label": "배경·원료개발 종합; 사람 효능 확정 아님",
         "value": 1
       },
       {
@@ -980,7 +992,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 149
+        "value": 150
       },
       {
         "label": "동물시험",
@@ -1038,7 +1050,7 @@
       },
       {
         "label": "발효·배경",
-        "value": 3
+        "value": 4
       },
       {
         "label": "대사",
@@ -8717,6 +8729,49 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "R-2026-194",
+      "status": "후보",
+      "kind": "리뷰",
+      "design": "유산균 유래 GABA의 생산·기능성 식품·규제 종설",
+      "year": 2026,
+      "title": "Lactic Acid Bacteria-Derived γ-Aminobutyric Acid: From Targeted Screening and Biosynthesis to Functional Food Applications and Health Benefits.",
+      "author": "원문 저자 확인 필요",
+      "journal": "Foods",
+      "doi": "10.3390/foods15152642",
+      "pmid": "42587902",
+      "population": "유산균 GABA 생산 및 기능성 식품 문헌",
+      "n": "종설; 개별 연구 표본수는 참고문헌별 상이",
+      "model": "균주 선별·GAD 대사·발효·정제·기능성·규제 문헌 종합",
+      "form": "유산균 발효 GABA 및 GABA 함유 기능성 식품",
+      "dose": "해당 없음; 개별 연구 조건은 상이",
+      "route": "혼합·해당 없음",
+      "duration": "해당 없음",
+      "comparator": "해당 없음",
+      "domain": "발효·원료개발·기능성 식품·규제",
+      "outcome": "GABA 생산량, 균주 선별, 대사공학, 기능성·건강효과·산업화 장벽",
+      "direction": "배경·원료개발 종합; 사람 효능 확정 아님",
+      "finding": "종설은 유산균의 GABA 생산 균주 선별, GAD 대사경로, 발효·정제 및 기능성 식품 적용과 규제·관능 과제를 정리한다. 불안·혈압·면역 관련 가능성을 논의하지만, 서로 다른 원료·제형과 전임상·임상 자료를 종합한 배경 문헌이다.",
+      "safety": "종설 자체는 안전성 시험이 아니며 제품별 장기 섭취 안전성을 확정하지 않는다.",
+      "limitation": "1차 인체시험이 아니고 유산균 발효 GABA와 순수 GABA, 복합 식품을 함께 다룬다. 종설의 건강효과 서술을 특정 제품의 이완·수면·혈압 효능으로 직접 전환하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "Foods 서지·초록 확인; 인용문헌별 원문 검증 필요",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42587902/",
+      "fulltextUrl": "https://www.mdpi.com/2304-8158/15/15/2642",
+      "doiUrl": "https://doi.org/10.3390/foods15152642",
+      "extraction": "초록검토",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 42587902·DOI 초록을 확인했다. 연구의 의미: GABA 생성 유산균의 생산공정부터 기능성 식품 적용·규제 과제까지 연결해 원료개발 연구의 탐색 지도를 제공한다. 기대 행동: 균주·발효 원료 차별화와 후속 1차시험 설계에 참고하고, 종설의 불안·혈압·면역 서술을 특정 제품의 사람 효능으로 인용하지 않는다. 순수 GABA, 발효 GABA, 복합식품, 사람 RCT를 별도 분류해 원문을 재검증한다.",
+      "species": "유산균·기능성 식품 문헌",
+      "topic": "GABA 생성·발효·기능성 식품",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·출판사",
+      "category": "연구 근거",
+      "effectCategory": "발효·배경"
     },
     {
       "id": "A-2026-185",
