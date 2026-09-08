@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 227,
-    "literature": 219,
+    "total": 228,
+    "literature": 220,
     "regulatory": 8,
     "clinical": 61,
     "animal": 153,
     "scie": 160,
-    "complete": 133,
+    "complete": 134,
     "partial": 86,
     "drivePdf": 76,
     "included": 139,
-    "candidate": 71,
+    "candidate": 72,
     "excluded": 9,
     "safetyCategory": 169,
-    "effectCategory": 146,
+    "effectCategory": 147,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 210,
-      "literatureWithPmid": 210,
-      "extractionComplete": 133,
+      "literatureWithDoi": 211,
+      "literatureWithPmid": 211,
+      "extractionComplete": 134,
       "extractionPartial": 86
     },
     "discovery": {
@@ -78,7 +78,7 @@
       },
       {
         "label": "기타",
-        "value": 3
+        "value": 4
       },
       {
         "label": "반려·기타동물",
@@ -195,6 +195,10 @@
         "value": 1
       },
       {
+        "label": "종설·수면·기전",
+        "value": 1
+      },
+      {
         "label": "종설·스트레스·수면",
         "value": 1
       },
@@ -210,7 +214,7 @@
       },
       {
         "label": "후보",
-        "value": 71
+        "value": 72
       },
       {
         "label": "제외",
@@ -228,7 +232,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 48
+        "value": 49
       },
       {
         "label": "ESCI",
@@ -242,7 +246,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 133
+        "value": 134
       },
       {
         "label": "부분",
@@ -256,7 +260,7 @@
       },
       {
         "label": "혼재",
-        "value": 54
+        "value": 55
       },
       {
         "label": "무효",
@@ -336,7 +340,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 58
+        "value": 59
       }
     ],
     "effectCategory": [
@@ -346,7 +350,7 @@
       },
       {
         "label": "수면",
-        "value": 46
+        "value": 47
       },
       {
         "label": "다이어트",
@@ -9240,6 +9244,49 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "고혈압"
+    },
+    {
+      "id": "R-2025-138",
+      "status": "후보",
+      "kind": "리뷰",
+      "design": "체계적 검색을 포함한 기전 중심 종설; 메타분석 미실시",
+      "year": 2025,
+      "title": "Progress in Research on the Mechanism of GABA in Improving Sleep",
+      "author": "Li, Li, Xue, Zhang et al.",
+      "journal": "Foods",
+      "doi": "10.3390/foods14223856",
+      "pmid": "41300013",
+      "population": "해당 없음(임상·동물·기전 연구 종설)",
+      "n": "36개 연구 질적 종합(임상 12, 동물 15, 기전 9)",
+      "model": "GABA와 수면의 장-뇌 축·혈액뇌장벽·대사 경로",
+      "form": "경구 GABA·GABA 강화 식품·GABA 생성 프로바이오틱 등",
+      "dose": "연구별 상이; 종설 자체의 권장량 아님",
+      "route": "주로 경구 및 식품 연구 검토",
+      "duration": "연구별 상이",
+      "comparator": "연구별 상이",
+      "domain": "수면·장-뇌 축·BBB·GABA 대사",
+      "outcome": "수면 구조, 수면잠복기, 장-뇌 축, HPA·면역, BBB·GHB 경로",
+      "direction": "혼재",
+      "finding": "GABA 수면 작용을 미주신경·신경내분비·면역 경로, BBB·수송체, GHB 대사 등으로 설명하고 36개 연구를 질적으로 종합했다. 다만 GABA의 경구 생체이용률과 BBB 통과 여부는 논쟁 중이며, 종설은 임상시험의 이질성을 정량 통합하지 않았다.",
+      "safety": "종설은 기능성 식품·수면 관리 응용을 제안하지만, 제품별 장기 안전성을 확정하지 않음",
+      "limitation": "기전·동물·임상 연구를 함께 포함한 종설이며 메타분석이 없다. BBB·GHB 등 기전 가설을 사람의 수면 효능으로 직접 해석할 수 없고, 포함된 복합제·프로바이오틱 결과를 순수 GABA 제품에 적용할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41300013/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12651798/",
+      "doiUrl": "https://doi.org/10.3390/foods14223856",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "연구의 의미: GABA 수면 연구를 장-뇌 축·BBB·대사라는 기전 틀로 연결하고, 12개 임상 연구를 포함한 최신 질적 종합을 제공한다. 기대 행동: 수면 관련 콘텐츠의 기전 배경과 연구 공백 설명에만 활용하고, BBB 통과·GHB 전환·수면 개선을 확정적 제품 효능으로 표현하지 않는다. 임상·동물·기전 근거와 순수 GABA·복합제·프로바이오틱을 반드시 구분한다.",
+      "species": "기타",
+      "topic": "종설·수면·기전",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·PMC·DOI",
+      "category": "연구 근거",
+      "effectCategory": "수면"
     },
     {
       "id": "R-2020-137",
