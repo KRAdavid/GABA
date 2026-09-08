@@ -11,11 +11,11 @@
     "clinical": 86,
     "animal": 159,
     "scie": 153,
-    "complete": 161,
-    "partial": 94,
+    "complete": 162,
+    "partial": 93,
     "drivePdf": 76,
-    "included": 171,
-    "candidate": 73,
+    "included": 172,
+    "candidate": 72,
     "excluded": 11,
     "safetyCategory": 160,
     "effectCategory": 167,
@@ -25,8 +25,8 @@
       "duplicatePmids": 0,
       "literatureWithDoi": 237,
       "literatureWithPmid": 230,
-      "extractionComplete": 161,
-      "extractionPartial": 94
+      "extractionComplete": 162,
+      "extractionPartial": 93
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -318,11 +318,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 171
+        "value": 172
       },
       {
         "label": "후보",
-        "value": 73
+        "value": 72
       },
       {
         "label": "제외",
@@ -358,11 +358,11 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 161
+        "value": 162
       },
       {
         "label": "부분",
-        "value": 94
+        "value": 93
       }
     ],
     "direction": [
@@ -8360,7 +8360,7 @@
     },
     {
       "id": "A-2020-102",
-      "status": "후보",
+      "status": "포함",
       "kind": "동물",
       "design": "식이 보충·ETEC challenge·장면역·장내미생물 시험",
       "year": 2020,
@@ -8390,10 +8390,10 @@
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/33025994/",
       "fulltextUrl": "https://pubmed.ncbi.nlm.nih.gov/33025994/",
       "doiUrl": "https://doi.org/10.1039/d0fo01729a",
-      "extraction": "부분",
+      "extraction": "완료",
       "added": "2026-09-08",
       "checked": "2026-09-08",
-      "notes": "연구의 의미: 장 면역·미생물 관련 직접 식이 GABA의 작용 가능성과 함께 효과의 범위가 제한적임을 보여준다. 기대 행동: 장-면역 기전 콘텐츠의 균형 자료로 사용하고 사람용 장 건강 효능으로 확장하지 않는다.",
+      "notes": "PMID 33025994·DOI 10.1039/d0fo01729a의 PubMed·RSC 초록을 대조해 18마리 무작위 2군, GABA 20 mg/kg 사료, 3주 투여 및 15일째 ETEC K88 challenge 설계를 확인했다. 연구의 의미: 장 면역·미생물 관련 직접 식이 GABA의 작용 가능성과 함께 효과의 범위가 제한적임을 보여준다. 기대 행동: 장-면역 기전 콘텐츠의 균형 자료로 사용하고 사람용 장 건강 효능으로 확장하지 않으며, 설사 점수와 장 형태에는 뚜렷한 개선이 없었다는 결과도 함께 표시한다.",
       "species": "축산",
       "topic": "소화·장건강",
       "hasDrivePdf": false,
