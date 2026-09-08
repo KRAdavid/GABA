@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 321,
-    "literature": 313,
+    "total": 323,
+    "literature": 315,
     "regulatory": 8,
     "clinical": 110,
     "animal": 173,
     "scie": 150,
     "complete": 189,
-    "partial": 95,
+    "partial": 97,
     "drivePdf": 74,
     "included": 191,
-    "candidate": 111,
+    "candidate": 113,
     "excluded": 11,
     "safetyCategory": 159,
-    "effectCategory": 218,
+    "effectCategory": 220,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 287,
+      "literatureWithDoi": 289,
       "literatureWithPmid": 266,
       "extractionComplete": 189,
-      "extractionPartial": 95
+      "extractionPartial": 97
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -117,6 +117,10 @@
         "value": 1
       },
       {
+        "label": "발효식품·유산균",
+        "value": 1
+      },
+      {
         "label": "사람·동물 문헌 종합",
         "value": 1
       },
@@ -142,6 +146,10 @@
       },
       {
         "label": "시험관 세포 공동배양",
+        "value": 1
+      },
+      {
+        "label": "시험관·식품소재",
         "value": 1
       },
       {
@@ -571,6 +579,14 @@
         "value": 1
       },
       {
+        "label": "GABA 강화 유제품·발효",
+        "value": 1
+      },
+      {
+        "label": "GABA 당화물·식품첨가물",
+        "value": 1
+      },
+      {
         "label": "GABA 생산·장-뇌 축",
         "value": 1
       },
@@ -610,7 +626,7 @@
       },
       {
         "label": "후보",
-        "value": 111
+        "value": 113
       },
       {
         "label": "제외",
@@ -632,7 +648,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 28
+        "value": 30
       },
       {
         "label": "해당 없음",
@@ -670,7 +686,7 @@
       },
       {
         "label": "부분",
-        "value": 95
+        "value": 97
       },
       {
         "label": "초록검토",
@@ -867,6 +883,10 @@
         "value": 1
       },
       {
+        "label": "식품소재 탐색; 인체 효능 아님",
+        "value": 1
+      },
+      {
         "label": "안전",
         "value": 1
       },
@@ -892,6 +912,10 @@
       },
       {
         "label": "용량 의존성 아님; 100 mg/kg 성장, 50·100 mg/kg 생존 신호",
+        "value": 1
+      },
+      {
+        "label": "원료·제품 개발 가능성; 인체 효능 아님",
         "value": 1
       },
       {
@@ -1036,7 +1060,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 153
+        "value": 155
       },
       {
         "label": "동물시험",
@@ -1090,7 +1114,7 @@
       },
       {
         "label": "발효·배경",
-        "value": 5
+        "value": 6
       },
       {
         "label": "안전성",
@@ -1170,6 +1194,10 @@
       },
       {
         "label": "스트레스·신경",
+        "value": 1
+      },
+      {
+        "label": "식품소재·기전",
         "value": 1
       },
       {
@@ -8785,6 +8813,92 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "R-2026-197",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "산 내성 Lactiplantibacillus plantarum LH46 발효 GABA 강화 유제품 기능성 식품 개발",
+      "year": 2026,
+      "title": "GABA-enriched dairy functional food fermented by acid-resistant Lactiplantibacillus plantarum LH46 isolated from human milk",
+      "author": "Lusine V. Danielyan et al.",
+      "journal": "Functional Food Science",
+      "doi": "10.31989/ffs.v6i8.2100",
+      "pmid": "",
+      "population": "발효 유제품 원료·균주 평가",
+      "n": "사람 대상 표본수 없음",
+      "model": "산 내성 유산균 LH46의 발효 및 GABA 강화 기능성 식품 평가",
+      "form": "GABA 강화 발효 유제품; 복합 식품 매트릭스",
+      "dose": "해당 없음(식품 개발 연구)",
+      "route": "해당 없음(섭취 임상시험 아님)",
+      "duration": "발효조건 원문 확인 필요",
+      "comparator": "비발효·균주 조건 비교 여부 원문 확인 필요",
+      "domain": "GABA 생성·발효 유제품·기능성 원료",
+      "outcome": "GABA 생성량, 발효 특성, 산 내성·식품 기능성 지표",
+      "direction": "원료·제품 개발 가능성; 인체 효능 아님",
+      "finding": "산 내성 Lactiplantibacillus plantarum LH46을 이용한 GABA 강화 발효 유제품 기능성 식품 개발 연구로 확인된다. DOI 메타데이터만 우선 확인했으며, 사람의 이완·수면·건강 결과는 평가하지 않은 것으로 분류한다.",
+      "safety": "식품 개발 자료이며 사람 대상 안전성·장기 섭취 안전성을 확정하지 않는다.",
+      "limitation": "DOI-only 후보로 원문 정량값·대조조건·완제품 안전성은 미확인이다. 발효식품 전체 효과를 GABA 단독 효과로 해석하지 않는다.",
+      "pubmedStatus": "PubMed PMID 미확인",
+      "sciStatus": "Functional Food Science DOI 확인; 원문 검토 필요",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://doi.org/10.31989/ffs.v6i8.2100",
+      "doiUrl": "https://doi.org/10.31989/ffs.v6i8.2100",
+      "extraction": "부분",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "Crossref DOI 메타데이터를 확인했다. 연구의 의미: 산 내성 GABA 생성 유산균과 발효 유제품을 결합한 제품개발 후보를 보여준다. 기대 행동: 균주·발효공정·완제품 GABA 함량과 안전성 검토 대상으로 사용하고, 유제품의 GABA 함량을 사람의 이완·수면·장 건강 효능으로 광고하지 않는다. 원문 표본·대조·정량 분석을 확보한 뒤 등급을 재평가한다.",
+      "species": "발효식품·유산균",
+      "topic": "GABA 강화 유제품·발효",
+      "hasDrivePdf": false,
+      "linkType": "DOI-only",
+      "category": "연구 근거",
+      "effectCategory": "발효·배경"
+    },
+    {
+      "id": "R-2026-198",
+      "status": "후보",
+      "kind": "문헌",
+      "design": "GABA 당화물 생성·항산화 및 ACE 억제 활성 식품첨가물 연구",
+      "year": 2026,
+      "title": "Elevated antioxidant and ACE-inhibitory capacities of GABA via glycation, and efficient preparation of glycation product Fru-GABA as potential food additive",
+      "author": "Tingting Li, Lianfu Zhang",
+      "journal": "Food Bioscience",
+      "doi": "10.1016/j.fbio.2026.109695",
+      "pmid": "",
+      "population": "GABA 당화·식품첨가물 시험계",
+      "n": "사람 대상 표본수 없음",
+      "model": "GABA 당화 반응과 Fru-GABA 제조·기능성 분석",
+      "form": "Fru-GABA 당화물; 식품첨가물 후보",
+      "dose": "해당 없음(화학·식품 기능성 평가)",
+      "route": "해당 없음(섭취 임상시험 아님)",
+      "duration": "반응·제조조건 원문 확인 필요",
+      "comparator": "비당화 GABA 및 반응조건 비교; 원문 확인 필요",
+      "domain": "GABA 유도체·식품첨가물·항산화·ACE 억제",
+      "outcome": "항산화 활성, ACE 억제 활성, Fru-GABA 제조 효율",
+      "direction": "식품소재 탐색; 인체 효능 아님",
+      "finding": "GABA의 당화로 항산화·ACE 억제 활성을 높이고 Fru-GABA를 제조하는 식품첨가물 후보 연구로 확인된다. 사람의 혈압·항산화·건강 결과를 평가한 임상시험은 아니다.",
+      "safety": "시험관·식품소재 연구이며 Fru-GABA의 독성·노출·장기 섭취 안전성은 별도 확인이 필요하다.",
+      "limitation": "DOI-only 후보로 사람의 흡수·대사·유효용량을 알 수 없다. 시험관 항산화·ACE 억제 결과를 혈압 개선이나 질환 예방·치료 효능으로 전환하지 않는다.",
+      "pubmedStatus": "PubMed PMID 미확인",
+      "sciStatus": "Food Bioscience DOI 확인; 원문 정량·안전성 검토 필요",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://doi.org/10.1016/j.fbio.2026.109695",
+      "doiUrl": "https://doi.org/10.1016/j.fbio.2026.109695",
+      "extraction": "부분",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "Crossref DOI 메타데이터를 확인했다. 연구의 의미: GABA를 새로운 식품소재 형태로 전환하는 공정·기능성 탐색 자료다. 기대 행동: Fru-GABA의 제조 재현성·독성·흡수·노출량을 후속 검토하고, 시험관 ACE 억제·항산화 활성을 사람의 혈압·항산화 건강효능으로 광고하지 않는다. 순수 GABA와 유도체를 별도 표시한다.",
+      "species": "시험관·식품소재",
+      "topic": "GABA 당화물·식품첨가물",
+      "hasDrivePdf": false,
+      "linkType": "DOI-only",
+      "category": "연구 근거",
+      "effectCategory": "식품소재·기전"
     },
     {
       "id": "R-2026-196",
