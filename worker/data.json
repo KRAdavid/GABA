@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 269,
-    "literature": 261,
+    "total": 270,
+    "literature": 262,
     "regulatory": 8,
-    "clinical": 89,
+    "clinical": 90,
     "animal": 160,
     "scie": 151,
-    "complete": 174,
+    "complete": 175,
     "partial": 87,
     "drivePdf": 75,
-    "included": 183,
+    "included": 184,
     "candidate": 67,
     "excluded": 11,
     "safetyCategory": 158,
-    "effectCategory": 172,
+    "effectCategory": 173,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 243,
-      "literatureWithPmid": 235,
-      "extractionComplete": 174,
+      "literatureWithDoi": 244,
+      "literatureWithPmid": 236,
+      "extractionComplete": 175,
       "extractionPartial": 87
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 84
+        "value": 85
       },
       {
         "label": "축산",
@@ -148,7 +148,7 @@
       },
       {
         "label": "신경·행동·스트레스",
-        "value": 6
+        "value": 7
       },
       {
         "label": "수면·불면",
@@ -338,7 +338,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 183
+        "value": 184
       },
       {
         "label": "후보",
@@ -360,7 +360,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 94
+        "value": 95
       },
       {
         "label": "ESCI",
@@ -378,7 +378,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 174
+        "value": 175
       },
       {
         "label": "부분",
@@ -428,6 +428,10 @@
       },
       {
         "label": "개발 가능성",
+        "value": 1
+      },
+      {
+        "label": "군 간 유의한 차이 없음; 복합제 내 변화 신호",
         "value": 1
       },
       {
@@ -556,7 +560,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 111
+        "value": 112
       }
     ],
     "effectCategory": [
@@ -607,6 +611,10 @@
       {
         "label": "인지기능",
         "value": 2
+      },
+      {
+        "label": "기분·스트레스",
+        "value": 1
       },
       {
         "label": "대사",
@@ -8206,6 +8214,49 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "H-2024-167",
+      "status": "포함",
+      "kind": "임상",
+      "design": "무작위 이중맹검 위약대조 파일럿 연구",
+      "year": 2024,
+      "title": "Effects of the PREMEN-CALM® in the Management of the Premenstrual Syndrome: A Randomized, Double-Blind, Placebo-Controlled Pilot Study",
+      "author": "Herrera, Al Adib, Rodríguez, Carrasco",
+      "journal": "Journal of Dietary Supplements",
+      "doi": "10.1080/19390211.2023.2301398",
+      "pmid": "38213037",
+      "population": "월경전증후군 여성",
+      "n": "42명; 복합제 21명·위약 21명",
+      "model": "월경전증후군 증상·기분·수면·염증·항산화 지표",
+      "form": "PREMEN-CALM®(GABA·Rhodiola rosea·Vitex agnus-castus·vitamin B6·melatonin) 복합제",
+      "dose": "제품 복용량; GABA 단독 용량 미보고",
+      "route": "경구",
+      "duration": "3개월",
+      "comparator": "위약",
+      "domain": "월경전증후군·기분·수면·복합제",
+      "outcome": "항산화 상태·기분·정서 증상·수면·삶의 질·월경주기·염증·체성분",
+      "direction": "군 간 유의한 차이 없음; 복합제 내 변화 신호",
+      "finding": "복합제군 내에서 총 항산화 상태와 기분·정서 증상이 개선됐지만, 위약군과의 군 간 비교에서는 통계적으로 유의한 차이가 없었다.",
+      "safety": "초록상 이상반응은 보고되지 않았으나, GABA 단독 안전성을 평가한 연구는 아니다.",
+      "limitation": "표본이 작고 GABA 용량이 분리 보고되지 않은 다성분 제품이다. 군 내 변화만으로 효과를 판단할 수 없으며, GABA 단독 효능·월경전증후군 치료로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38213037/",
+      "fulltextUrl": "",
+      "doiUrl": "https://doi.org/10.1080/19390211.2023.2301398",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "연구의 의미: GABA가 포함된 상용 복합제가 월경전증후군에서 보인 신호를 위약 대조로 검증했을 때, 복합제군 내부의 개선이 군 간 효과로 확인되지 않을 수 있음을 보여준다. 기대 행동: 마케팅에는 ‘GABA 포함 복합제의 군 내 변화’로만 표현하고, GABA 단독 효과나 월경전증후군 치료 주장으로 확장하지 않는다. GABA 용량 미보고, 42명, 3개월, 군 간 차이 없음과 다성분 구성을 반드시 병기한다.",
+      "species": "인체",
+      "topic": "신경·행동·스트레스",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기분·스트레스"
     },
     {
       "id": "H-2015-158",
