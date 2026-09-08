@@ -22,19 +22,21 @@ assert.equal(response?.status(), 200);
 const initialBody = await page.locator("body").innerText();
 assert.match(initialBody, /검증 레코드/);
 assert.match(initialBody, /대량 탐색 후보/);
+const liveLiterature = Number(initialBody.match(/검증 레코드\s+([\d,]+)편/)?.[1]?.replace(/,/g, ""));
+assert.ok(Number.isFinite(liveLiterature));
 const search = page.locator("input").first();
-await search.fill("7419665");
+await search.fill("10.19080/JPCR.2026.11.555815");
 await page.waitForTimeout(800);
 const searchBody = await page.locator("body").innerText();
-assert.match(searchBody, /성장호르몬|growth hormone/i);
+assert.match(searchBody, /Dietary Gamma-Aminobutyric Acid|A-2026-120|broiler/i);
 assert.deepEqual(errors, []);
 console.log(JSON.stringify({
   valid: true,
   status: response?.status(),
   title: await page.title(),
   url: page.url(),
-  liveCount: 300,
-  newRecordSearch: "H-1980-181 / PMID 7419665",
+  liveCount: liveLiterature,
+  newRecordSearch: "A-2026-120 / DOI 10.19080/JPCR.2026.11.555815",
   errors
 }));
 await browser.close();
