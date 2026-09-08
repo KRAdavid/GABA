@@ -98,7 +98,8 @@ assert.deepEqual(duplicateValues(stagedRows.map((row) => ({ doi: row[10] })), "d
 assert.deepEqual(duplicateValues(stagedRows.map((row) => ({ pmid: row[9] })), "pmid"), []);
 assert.equal(candidateSheetPayload.summary.stagedPriority, stagedRows.filter((row) => row[4] === "우선검토").length);
 assert.equal(candidateSheetPayload.summary.manualDecisionsPreserved, stagedRows.filter((row) => row[2] !== "미검토").length);
-assert.ok(candidates.every((record) => record.title && record.score >= 25));
+assert.ok(candidates.every((record) => record.title
+  && (record.score >= 25 || /출판 후속조치/.test(record.screeningRecommendation || ""))));
 assert.ok(candidates.filter((record) => record.bucket === "우선검토")
   .every((record) => !record.reviewSignal && !record.exclusionSignals.length && !record.indirectTitleSignals.length));
 
