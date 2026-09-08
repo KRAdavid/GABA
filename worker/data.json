@@ -2664,7 +2664,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "clinicalTrialId": "NCT06787443"
     },
     {
       "id": "H-2025-024",
@@ -2837,7 +2838,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "clinicalTrialId": "NCT06755489"
     },
     {
       "id": "H-2026-023",
@@ -10590,6 +10592,7 @@
       "journal": "Scientific Reports",
       "doi": "10.1038/s41598-025-27861-6",
       "pmid": "41554764",
+      "clinicalTrialId": "NCT06789718",
       "population": "불면 증상이 있는 성인, 평균 44±13세",
       "n": "139명 평가(프로바이오틱 70명, 위약 69명); 소집단 소변 분석 17명",
       "model": "수면장애·불안 및 장-뇌 축",
