@@ -95,6 +95,21 @@ function httpUrl(value) {
   return /^https?:\/\//i.test(text) ? text : "";
 }
 
+function enrichLiteratureNote(record) {
+  if (record.kind === "규제") return record.notes;
+  if (record.notes.includes("연구의 의미:") && record.notes.includes("기대 행동:")) return record.notes;
+  const meaning = record.finding
+    ? `${record.kind || "문헌"}에서 ${record.finding}`
+    : `${record.kind || "문헌"}의 GABA 섭취·노출과 ${record.outcome || record.domain || "관련 지표"}를 탐색한 자료`;
+  const action = record.kind === "임상"
+    ? "인체 근거로 검토하되 대상·용량·기간·대조군과 제품 조건의 일치 여부를 확인한 뒤 제한적으로 활용한다."
+    : record.kind === "고찰"
+      ? "배경·가설 정립 자료로 활용하고 원저 임상시험의 결과와 구분한다."
+      : "전임상·기전 근거로만 활용하고 사람의 효능·용량·안전성으로 직접 일반화하지 않는다.";
+  const prefix = record.notes ? `${record.notes} ` : "";
+  return `${prefix}연구의 의미: ${meaning} 기대 행동: ${action}`;
+}
+
 function normalizedKey(value) {
   return clean(value).toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//, "");
 }
@@ -154,6 +169,7 @@ const sheetLiteratureRecords = indexWrite.rows.map((row) => {
     hasDrivePdf,
     linkType: hasDrivePdf ? "Drive PDF" : fulltextUrl ? "원문·DOI" : doiUrl ? "DOI" : pubmedUrl ? "PubMed" : "링크 없음"
   };
+  record.notes = enrichLiteratureNote(record);
   const safetyText = [record.topic, record.domain, record.outcome, record.safety, record.limitation, record.notes].join(" ");
   record.category = record.topic === "장기·독성·안전성" || /안전성|이상반응|독성|toxicity|toxicology|adverse|NOAEL|tolerability/i.test(safetyText)
     ? "안전성"
@@ -211,7 +227,7 @@ const literatureRecords = [
   ...sheetLiteratureRecords,
   ...addUniqueLiterature(curatedLiteratureRecords),
   ...addUniqueLiterature(preservedLiteratureRecords)
-];
+].map((record) => ({ ...record, notes: enrichLiteratureNote(record) }));
 
 const sheetRegulatoryRecords = regulatory.records.map((record) => ({
   ...record,

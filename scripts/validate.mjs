@@ -55,6 +55,7 @@ assert.equal(db.records.filter((r) => r.kind === "임상").length, db.meta.clini
 assert.equal(db.records.filter((r) => r.kind === "동물").length, db.meta.animal);
 assert.equal(db.records.filter((r) => r.kind === "규제").length, db.meta.regulatory);
 assert.ok(db.records.every((r) => r.id && r.title && r.year));
+assert.ok(db.records.filter((r) => r.kind !== "규제").every((r) => r.notes && r.notes.includes("연구의 의미:") && r.notes.includes("기대 행동:")));
 assert.ok(db.records.filter((r) => r.kind === "규제").every((r) => r.titleKo && r.summaryKo && r.sourceUrl));
 
 const countBy = (records, field) => records.reduce((counts, record) => {
