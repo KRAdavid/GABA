@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 186,
-    "literature": 178,
+    "total": 187,
+    "literature": 179,
     "regulatory": 8,
-    "clinical": 49,
+    "clinical": 50,
     "animal": 128,
-    "scie": 158,
+    "scie": 159,
     "complete": 119,
-    "partial": 59,
+    "partial": 60,
     "drivePdf": 77,
-    "included": 134,
+    "included": 135,
     "candidate": 35,
     "excluded": 9,
-    "safetyCategory": 138,
+    "safetyCategory": 139,
     "effectCategory": 123,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 173,
-      "literatureWithPmid": 173,
+      "literatureWithDoi": 174,
+      "literatureWithPmid": 174,
       "extractionComplete": 119,
-      "extractionPartial": 59
+      "extractionPartial": 60
     },
     "discovery": {
       "snapshotDate": "2026-09-03",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 49
+        "value": 50
       },
       {
         "label": "수산",
@@ -88,7 +88,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 40
+        "value": 41
       },
       {
         "label": "대사·내분비",
@@ -118,7 +118,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 134
+        "value": 135
       },
       {
         "label": "후보",
@@ -136,11 +136,11 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 158
+        "value": 159
       },
       {
         "label": "현행 미확인",
-        "value": 10
+        "value": 9
       },
       {
         "label": "ESCI",
@@ -154,13 +154,13 @@
       },
       {
         "label": "부분",
-        "value": 59
+        "value": 60
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 105
+        "value": 106
       },
       {
         "label": "혼재",
@@ -216,7 +216,7 @@
     "category": [
       {
         "label": "안전성",
-        "value": 138
+        "value": 139
       },
       {
         "label": "연구 근거",
@@ -7908,6 +7908,49 @@
       "notes": "ScienceDirect 초록 및 DOI 서지정보 확인. 연구 제품(RG30) 특이적 근거로 관리하며, 순수 GABA 일반 효능 근거로 확장하지 않음. 저자: Ye Li Lee, Kyoung-min Rheu, Sang Yeoup Lee.",
       "species": "인체",
       "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "안전성",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "H-2025-054",
+      "status": "포함",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행시험",
+      "year": 2025,
+      "title": "Targeting Aging Skin with GABALAGEN®: A Synergistic Marine Nutricosmetic Ingredient Validated Through Human Randomized Trials",
+      "author": "Hyun, Rheu, Lee, Ryu",
+      "journal": "Antioxidants (Basel)",
+      "doi": "10.3390/antiox14030245",
+      "pmid": "40227205",
+      "population": "35~60세 성인",
+      "n": "100명 등록, 94% 완료; 분석 n=47/군",
+      "model": "피부 노화·광노화 관련 피부 상태",
+      "form": "GABALAGEN®(저분자 어류 콜라겐+유산균 발효 GABA, GABA 약 10%) 젤리",
+      "dose": "GABALAGEN 1,500 mg/day(제품 내 GABA 약 150 mg/day)",
+      "route": "경구",
+      "duration": "12주",
+      "comparator": "위약",
+      "domain": "피부·항산화",
+      "outcome": "피부 수분, 주름 깊이, 피부 밀도·탄력, 피부장벽; UVB 각질형성세포 기전시험",
+      "direction": "유익",
+      "finding": "12주 후 GABALAGEN군에서 피부 수분이 약 20% 증가하고 주름 깊이가 약 15% 감소했으며 피부 밀도·탄력도 개선됐다. 초록상 이상반응은 보고되지 않았다.",
+      "safety": "이상반응 없음으로 보고; 12주 내약성 양호",
+      "limitation": "순수 GABA 단독제가 아닌 콜라겐·발효 GABA 복합 원료이므로 피부효과를 GABA 단독효과로 귀속할 수 없다. 단일 제품·12주·35~60세 대상이며 장기효과와 다양한 인구집단 일반화는 제한된다. 저자 중 제품 제조사 소속이 있고 제품 관련 이해상충을 공개함.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인",
+      "sciGroup": "SCIE",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40227205/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11939556/",
+      "doiUrl": "https://doi.org/10.3390/antiox14030245",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PubMed·PMC 초록/서지정보 확인. 인체 적용 근거는 GABALAGEN 제품 특이적이며 순수 GABA 일반 효능으로 확장하지 않음. 제품 제조사 소속 저자와 이해상충 공개를 마케팅 검토에 반영.",
+      "species": "인체",
+      "topic": "기타",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
