@@ -17,8 +17,8 @@
     "included": 135,
     "candidate": 35,
     "excluded": 9,
-    "safetyCategory": 139,
-    "effectCategory": 123,
+    "safetyCategory": 140,
+    "effectCategory": 124,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 50
+        "value": 51
       },
       {
         "label": "수산",
@@ -112,7 +112,7 @@
       },
       {
         "label": "기타",
-        "value": 3
+        "value": 4
       }
     ],
     "status": [
@@ -130,7 +130,7 @@
       },
       {
         "label": "유효",
-        "value": 7
+        "value": 8
       }
     ],
     "sciGroup": [
@@ -140,7 +140,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 9
+        "value": 12
       },
       {
         "label": "ESCI",
@@ -160,7 +160,7 @@
     "direction": [
       {
         "label": "유익",
-        "value": 106
+        "value": 107
       },
       {
         "label": "혼재",
@@ -216,17 +216,17 @@
     "category": [
       {
         "label": "안전성",
-        "value": 139
+        "value": 140
       },
       {
         "label": "연구 근거",
-        "value": 46
+        "value": 47
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 60
+        "value": 63
       },
       {
         "label": "수면",
@@ -254,7 +254,7 @@
       },
       {
         "label": "안전성·규제",
-        "value": 7
+        "value": 8
       }
     ]
   },
