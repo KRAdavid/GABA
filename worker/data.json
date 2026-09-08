@@ -10,22 +10,22 @@
     "regulatory": 8,
     "clinical": 109,
     "animal": 193,
-    "scie": 140,
-    "complete": 190,
+    "scie": 139,
+    "complete": 189,
     "partial": 106,
-    "drivePdf": 72,
+    "drivePdf": 71,
     "included": 195,
     "candidate": 152,
     "excluded": 16,
-    "safetyCategory": 160,
-    "effectCategory": 272,
+    "safetyCategory": 159,
+    "effectCategory": 273,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 336,
       "literatureWithPmid": 312,
-      "extractionComplete": 190,
+      "extractionComplete": 189,
       "extractionPartial": 106
     },
     "discovery": {
@@ -376,7 +376,7 @@
       },
       {
         "label": "면역·염증·항산화",
-        "value": 21
+        "value": 20
       },
       {
         "label": "소화·장건강",
@@ -600,6 +600,10 @@
       },
       {
         "label": "스트레스·기분·인지",
+        "value": 1
+      },
+      {
+        "label": "스트레스·불안·신경염증",
         "value": 1
       },
       {
@@ -972,7 +976,7 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 140
+        "value": 139
       },
       {
         "label": "현행 미확인",
@@ -984,7 +988,7 @@
       },
       {
         "label": "미확인",
-        "value": 12
+        "value": 13
       },
       {
         "label": "해당 없음",
@@ -1022,7 +1026,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 190
+        "value": 189
       },
       {
         "label": "부분",
@@ -1042,7 +1046,7 @@
       },
       {
         "label": "원문검토",
-        "value": 7
+        "value": 8
       },
       {
         "label": "부분완료",
@@ -1068,7 +1072,7 @@
     "direction": [
       {
         "label": "유익",
-        "value": 139
+        "value": 138
       },
       {
         "label": "혼재",
@@ -1076,7 +1080,7 @@
       },
       {
         "label": "개선",
-        "value": 10
+        "value": 11
       },
       {
         "label": "무효",
@@ -1548,11 +1552,11 @@
       },
       {
         "label": "안전성",
-        "value": 160
+        "value": 159
       },
       {
         "label": "효능",
-        "value": 12
+        "value": 13
       },
       {
         "label": "동물시험",
@@ -1578,7 +1582,7 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 99
+        "value": 98
       },
       {
         "label": "수면",
@@ -1730,6 +1734,10 @@
       },
       {
         "label": "스트레스·기분",
+        "value": 1
+      },
+      {
+        "label": "스트레스·불안",
         "value": 1
       },
       {
@@ -8433,47 +8441,47 @@
       "effectCategory": "근육발달"
     },
     {
-      "id": "A-2025-026",
+      "id": "A-2025-271",
       "status": "포함",
       "kind": "동물",
-      "design": "반복 위관투여 행동시험",
+      "design": "만성 구속 스트레스 마우스 모델·반복 경구 GABA 투여",
       "year": 2025,
-      "title": "Long-term GABA supplementation mitigates anxiety by modulating complement and neuroinflammatory pathways.",
+      "title": "Long-term GABA supplementation mitigates anxiety by modulating complement and neuroinflammatory pathways",
       "author": "Xu et al.",
-      "journal": "NPJ Science of Food",
+      "journal": "npj Science of Food",
       "doi": "10.1038/s41538-025-00423-w",
       "pmid": "40274802",
-      "population": "male C57BL/6J mice",
-      "n": "4군; 분석별 n=3–8/군(총 N 미기재)",
-      "model": "만성 구속 스트레스",
-      "form": "순수 GABA",
+      "population": "수컷 C57BL/6J 마우스의 만성 구속 스트레스 모델",
+      "n": "원문 보강 필요",
+      "model": "14일, 하루 2시간 만성 구속 스트레스(CRS) 유발 불안 유사행동 모델",
+      "form": "GABA 순수물질",
       "dose": "10 또는 20 mg/kg/day",
-      "route": "위관",
-      "duration": "14일 투여; 행동 15–16일, 조직 17일",
-      "comparator": "비스트레스 및 스트레스 대조군",
-      "domain": "불안/신경염증",
-      "outcome": "불안행동, complement, 신경염증",
-      "direction": "유익",
-      "finding": "GABA가 불안 유사행동과 complement·신경염증 경로 변화를 완화함.",
-      "safety": "별도 안전성 평가 미보고",
-      "limitation": "마우스 스트레스 모델; 총 표본수 미기재, 행동·분자 다중평가",
+      "route": "경구 위내투여",
+      "duration": "14일; 행동평가에 따라 16일",
+      "comparator": "정상 대조·CRS 모델·GABA 저용량·고용량",
+      "domain": "불안 유사행동·스트레스·신경염증",
+      "outcome": "Elevated-plus maze·open-field, 전전두엽 GABA, IL-10·TGF-β1, 해마 보체 단백질",
+      "direction": "개선",
+      "finding": "GABA 10·20 mg/kg/day 경구 투여는 CRS 마우스의 불안 유사행동을 완화했고, 전전두엽 GABA와 항염증 인자 IL-10·TGF-β1을 높였으며 C3·C4b·Cfh·Cfi 보체 이상을 회복시켰다. 20 mg/kg에서 효과가 더 일관되게 나타났다.",
+      "safety": "동물시험에서 중대한 안전성 신호는 보고되지 않았지만 사람의 불안장애 안전성·치료효과 자료가 아니다.",
+      "limitation": "마우스 CRS 모델이며 불안장애 치료 근거가 아니다. 업체(Bloomage Biotechnology) 소속 저자가 포함된 전임상 연구이고, 사람 용량·체내 노출·장기 안전성은 확립되지 않았다.",
       "pubmedStatus": "PubMed 등재",
-      "sciStatus": "SCIE 확인",
-      "sciGroup": "SCIE",
-      "sciChecked": "2026-07-27",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40274802/",
-      "fulltextUrl": "https://drive.google.com/file/d/1UhF4un4h0n93jlbvDBhlx0jUxavB2s-2/view?usp=drivesdk",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12022253/",
       "doiUrl": "https://doi.org/10.1038/s41538-025-00423-w",
-      "extraction": "완료",
-      "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "PMCID PMC12022253; OA PDF Drive 저장(2026-07-27). 연구의 의미: 동물에서 GABA가 불안 유사행동과 complement·신경염증 경로 변화를 완화함. 기대 행동: 전임상·기전 근거로만 활용하고 사람의 효능·용량·안전성으로 직접 일반화하지 않는다.",
+      "extraction": "원문검토",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 및 PMC 전문에서 10·20 mg/kg/day 위내투여, 14일 CRS 모델, 행동·전전두엽 GABA·항염증·보체 결과를 확인했다. 연구의 의미: 직접 경구 GABA의 반복 섭취가 스트레스 동물모델에서 행동과 면역·신경염증 지표에 미치는 연결고리를 제시한다. 기대 행동: ‘스트레스 마우스에서 관찰된 전임상 결과’로만 사용하고, 사람의 불안·우울 치료나 장기 복용 효과로 확대하지 않는다. Bloomage Biotechnology 소속 저자와 동물모델 한계를 함께 병기한다.",
       "species": "설치류",
-      "topic": "면역·염증·항산화",
-      "hasDrivePdf": true,
-      "linkType": "Drive PDF",
-      "category": "안전성",
-      "effectCategory": "기타"
+      "topic": "스트레스·불안·신경염증",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·PMC·DOI",
+      "category": "효능",
+      "effectCategory": "스트레스·불안"
     },
     {
       "id": "A-2025-027",
