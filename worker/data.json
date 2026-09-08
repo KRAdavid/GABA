@@ -5,10 +5,10 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 386,
-    "literature": 378,
+    "total": 387,
+    "literature": 379,
     "regulatory": 8,
-    "clinical": 111,
+    "clinical": 112,
     "animal": 204,
     "scie": 139,
     "complete": 189,
@@ -18,12 +18,12 @@
     "candidate": 159,
     "excluded": 16,
     "safetyCategory": 159,
-    "effectCategory": 286,
+    "effectCategory": 287,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 350,
+      "literatureWithDoi": 351,
       "literatureWithPmid": 320,
       "extractionComplete": 189,
       "extractionPartial": 107
@@ -56,7 +56,7 @@
       },
       {
         "label": "인체",
-        "value": 104
+        "value": 105
       },
       {
         "label": "축산",
@@ -893,6 +893,10 @@
         "value": 1
       },
       {
+        "label": "GABA 강화 발효 굴 추출물·소아 성장·안전성",
+        "value": 1
+      },
+      {
         "label": "GABA 강화 쌀·장벽·신경보호",
         "value": 1
       },
@@ -1067,11 +1071,11 @@
         "value": 8
       },
       {
-        "label": "보류",
-        "value": 3
+        "label": "포함후보",
+        "value": 4
       },
       {
-        "label": "포함후보",
+        "label": "보류",
         "value": 3
       }
     ],
@@ -1086,7 +1090,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 76
+        "value": 77
       },
       {
         "label": "미확인",
@@ -1169,6 +1173,10 @@
       {
         "label": "초록·출판사 페이지 기반",
         "value": 2
+      },
+      {
+        "label": "원문 확인 완료·GABA 단독효과 분리 불가",
+        "value": 1
       },
       {
         "label": "초록·메타데이터검토",
@@ -1645,6 +1653,10 @@
         "value": 1
       },
       {
+        "label": "FGO군 우세(제품 복합효과)",
+        "value": 1
+      },
+      {
         "label": "GABA 생성 균주와 장 장벽·미생물 조절 가능성을 시사하지만 인체 효능은 입증하지 않음",
         "value": 1
       },
@@ -1714,7 +1726,7 @@
     "category": [
       {
         "label": "연구 근거",
-        "value": 193
+        "value": 194
       },
       {
         "label": "안전성",
@@ -1908,6 +1920,10 @@
       },
       {
         "label": "성장·면역",
+        "value": 1
+      },
+      {
+        "label": "성장·복합효과",
         "value": 1
       },
       {
@@ -18425,6 +18441,50 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "대사·안전성",
+      "duplicate": "없음"
+    },
+    {
+      "id": "H-2026-175",
+      "status": "포함후보",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행시험",
+      "year": 2026,
+      "title": "Fermented oyster extract promotes height growth in children with mild short stature: a randomized, double-blind, placebo-controlled trial",
+      "trialId": "PNUKHIRB 2022-01-004-007",
+      "author": "Kim et al.",
+      "journal": "Nutrition Research and Practice 20(3):461",
+      "doi": "10.4162/nrp.2026.20.3.461",
+      "population": "한국 6–9세 경도 저신장 아동",
+      "n": "80명 무작위; 66명 최종 분석(군별 33명)",
+      "model": "Lactobacillus brevis BJ-20 발효 GABA 강화 굴 추출물(FGO)",
+      "form": "20 mL 사셰, FGO 500 mg( GABA 57.5 mg)",
+      "dose": "FGO 500 mg/day( GABA 57.5 mg/day)",
+      "route": "경구, 취침 전 1일 1회",
+      "duration": "24주",
+      "comparator": "정제수 위약",
+      "domain": "소아 성장·뼈 대사·안전성",
+      "outcome": "신장, 신장 SDS, 연간 신장속도, 골연령, IGF-1·GH·IGFBP-3·요 DPD, 성호르몬·이상반응",
+      "direction": "FGO군 우세(제품 복합효과)",
+      "finding": "24주 후 FGO군은 위약군보다 신장 증가(3.40±0.51 vs 2.48±0.61 cm; 군간 차이 0.92 cm, p<0.001), 신장 SDS와 연간 신장속도(7.32 vs 5.40 cm/year, p<0.001), 골연령·골연령 지연 및 IGF-1·요 DPD 변화가 개선됐다. 중대한 이상반응은 없었으나 FGO군 2명에서 경미한 발진이 보고됐다.",
+      "safety": "중대한 이상반응 없음; FGO군 경미한 발진 2명; 성호르몬 증가 없음",
+      "limitation": "굴 추출물·아미노산·미네랄·기타 생리활성물질이 함께 포함되어 GABA 단독효과를 분리할 수 없다. 80명 배정 후 66명 per-protocol 분석, 6–9세 경도 저신장 아동에 한정되며 식이·수면을 완전히 통제하지 않았다. 성장·저신장 치료 또는 성인 효과로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 미확인",
+      "sciStatus": "Nutrition Research and Practice 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://www.e-nrp.org/DOIx.php?id=10.4162/nrp.2026.20.3.461",
+      "doiUrl": "https://doi.org/10.4162/nrp.2026.20.3.461",
+      "extraction": "원문 확인 완료·GABA 단독효과 분리 불가",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "Nutrition Research and Practice 원문에서 80명 무작위배정, 66명 per-protocol 분석, FGO 500 mg/day와 GABA 57.5 mg/day, 24주 경구 투여, 성장·IGF-1·골연령·안전성 결과를 확인했다. 연구의 의미: GABA를 강화한 발효 굴 추출물을 실제 소아에게 투여한 24주 위약대조 인체시험으로, 제품 수준의 성장·안전성 신호를 제공한다. 기대 행동: GABA 단독 성장효능이나 저신장 치료로 광고하지 말고, ‘FGO 복합원료에서 관찰된 결과’로만 검토하며 굴 알레르기·소아 대상·복합원료·per-protocol 분석 한계를 함께 표시한다.",
+      "species": "인체",
+      "topic": "GABA 강화 발효 굴 추출물·소아 성장·안전성",
+      "hasDrivePdf": false,
+      "linkType": "출판사 원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "성장·복합효과",
       "duplicate": "없음"
     },
     {
