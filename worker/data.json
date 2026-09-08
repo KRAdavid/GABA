@@ -8121,7 +8121,7 @@
     },
     {
       "id": "A-2024-098",
-      "status": "포함",
+      "status": "후보",
       "kind": "동물",
       "design": "수용체 결합·EEG·수면행동·면역조직화학 시험",
       "year": 2024,
@@ -8164,7 +8164,7 @@
     },
     {
       "id": "H-2025-057",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약대조 시험",
       "year": 2025,
@@ -8192,7 +8192,7 @@
       "sciGroup": "현행 미확인",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40169760/",
-      "fulltextUrl": "https://pubmed.ncbi.nlm.nih.gov/40169760/",
+      "fulltextUrl": "https://www.nature.com/articles/s41598-025-95208-2",
       "doiUrl": "https://doi.org/10.1038/s41598-025-95208-2",
       "extraction": "완료",
       "added": "2026-09-08",
