@@ -92,6 +92,23 @@ const PUBMED_QUERIES = [
     ) NOT review[Publication Type]`
   },
   {
+    label: "human_negative_null_adverse",
+    term: `(
+      "gamma-aminobutyric acid"[Title/Abstract] OR GABA[Title]
+    ) AND (
+      negative[Title/Abstract] OR null[Title/Abstract] OR no effect[Title/Abstract]
+      OR impairment[Title/Abstract] OR worsened[Title/Abstract]
+      OR adverse[Title/Abstract] OR tolerability[Title/Abstract]
+      OR cognitive flexibility[Title/Abstract] OR attention[Title/Abstract]
+    ) AND (
+      oral[Title/Abstract] OR intake[Title/Abstract] OR supplement*[Title/Abstract]
+      OR ingestion[Title/Abstract] OR administration[Title/Abstract]
+    ) AND (humans[MeSH Terms] OR clinical trial[Publication Type]) NOT (
+      review[Publication Type] OR meta-analysis[Publication Type]
+      OR systematic review[Publication Type]
+    )`
+  },
+  {
     label: "recent_2024_plus",
     term: `(
       "gamma-aminobutyric acid"[Title/Abstract] OR GABA[Title]
@@ -111,6 +128,7 @@ const OPENALEX_QUERIES = [
   "GABA feed aquaculture fish shrimp",
   "GABA enriched food clinical trial human",
   "gamma aminobutyric acid safety oral toxicity",
+  "GABA negative cognition null trial adverse events",
   "GABA gavage rat mouse",
   "GABA beverage intake human"
 ];
