@@ -11,22 +11,22 @@
     "clinical": 85,
     "animal": 159,
     "scie": 156,
-    "complete": 153,
-    "partial": 101,
+    "complete": 154,
+    "partial": 100,
     "drivePdf": 75,
-    "included": 150,
-    "candidate": 95,
+    "included": 149,
+    "candidate": 96,
     "excluded": 9,
-    "safetyCategory": 166,
-    "effectCategory": 163,
+    "safetyCategory": 165,
+    "effectCategory": 162,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 235,
       "literatureWithPmid": 229,
-      "extractionComplete": 153,
-      "extractionPartial": 101
+      "extractionComplete": 154,
+      "extractionPartial": 100
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 82
+        "value": 81
       },
       {
         "label": "축산",
@@ -78,7 +78,7 @@
       },
       {
         "label": "기타",
-        "value": 9
+        "value": 10
       },
       {
         "label": "반려·기타동물",
@@ -116,7 +116,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 46
+        "value": 45
       },
       {
         "label": "심혈관·혈압",
@@ -136,7 +136,7 @@
       },
       {
         "label": "기타",
-        "value": 10
+        "value": 11
       },
       {
         "label": "장기·독성·안전성",
@@ -298,11 +298,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 150
+        "value": 149
       },
       {
         "label": "후보",
-        "value": 95
+        "value": 96
       },
       {
         "label": "제외",
@@ -338,11 +338,11 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 153
+        "value": 154
       },
       {
         "label": "부분",
-        "value": 101
+        "value": 100
       }
     ],
     "direction": [
@@ -468,21 +468,21 @@
     "category": [
       {
         "label": "안전성",
-        "value": 166
+        "value": 165
       },
       {
         "label": "연구 근거",
-        "value": 96
+        "value": 97
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 99
+        "value": 100
       },
       {
         "label": "수면",
-        "value": 48
+        "value": 47
       },
       {
         "label": "다이어트",
@@ -2081,7 +2081,7 @@
     },
     {
       "id": "H-2024-018",
-      "status": "포함",
+      "status": "후보",
       "kind": "임상",
       "design": "무작위 이중눈가림 평행시험",
       "year": 2024,
@@ -2091,36 +2091,36 @@
       "doi": "10.1080/19390211.2024.2308262",
       "pmid": "38321713",
       "population": "여성",
-      "n": "30명",
+      "n": "38명 시작; 26명 완료(GABA 14, 위약 12)",
       "model": "좌식생활 과체중/비만 여성+운동",
       "form": "순수 GABA 200 mg 캡슐+운동",
-      "dose": "200 mg/day(1일 1회)",
+      "dose": "GABA 200 mg/day, 1일 1회, 90일(총 90회)",
       "route": "경구",
-      "duration": "90일(90회 복용)",
+      "duration": "90일; 양군 모두 주 3회 기능성 운동 병행",
       "comparator": "동일 운동+위약",
       "domain": "정서/수면/HRV",
       "outcome": "HRV, 정서, 수면효율, 우울",
       "direction": "유익",
-      "finding": "운동과 병행한 GABA군에서 HRV·정서·수면효율 및 우울 지표 개선이 보고됨.",
-      "safety": "원 논문 초록에는 이상반응 결과 미보고; 동일 등록시험 후속 보고서에서 혈압·심박·혈청 지표의 유해 신호 없음",
-      "limitation": "n=30·운동 병행·여성 비만 집단; 원 논문 상세 방법·탈락·이상사건 표는 접근 제한, 동일 시험 후속 보고서와 대조",
+      "finding": "운동을 병행한 GABA군에서 수면 효율과 운동 후 자율신경 지표가 위약군보다 유리한 방향이었다. 연구 등록 결과에서 GABA군 LF는 81.3→76.4 n.u.(p=0.031), HF는 18.6→23.4 n.u.(p=0.035), SD1/SD2는 2.85→2.47(p=0.034)로 변했으며, 우울·불안·스트레스 점수 감소는 통계적으로 유의하지 않았다.",
+      "safety": "시험 등록 결과에는 이상반응이 없다고 기재되어 있으나, 90일·소표본 연구로 장기 및 일반 인구 안전성을 확정할 수 없음",
+      "limitation": "운동을 양군에 함께 적용해 GABA 단독 효과와 운동 효과를 분리하기 어렵고, 38명 시작 후 26명만 완료한 이탈이 크다. 여성·과체중/비만·좌식 성인에 한정되며, 수면·정신건강 일부 결과는 비유의이고 자율신경 결과는 연구 등록 요약에 의존한다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "ESCI 확인",
       "sciGroup": "ESCI",
       "sciChecked": "2026-07-27",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38321713/",
-      "fulltextUrl": "https://www.tandfonline.com/doi/full/10.1080/19390211.2024.2308262",
+      "fulltextUrl": "https://ensaiosclinicos.gov.br/rg/RBR-8t7h259",
       "doiUrl": "https://doi.org/10.1080/19390211.2024.2308262",
-      "extraction": "부분",
+      "extraction": "완료",
       "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "Taylor & Francis 출판사 HTML·연구윤리(CAAE 40000620.3.0000.5150)와 동일 등록시험 후속 원문(H-2025-024)을 대조(2026-07-27). 원 논문 상세 본문 접근 제한으로 부분 유지. 연구의 의미: 임상에서 운동과 병행한 GABA군에서 HRV·정서·수면효율 및 우울 지표 개선이 보고됨. 기대 행동: 인체 근거로 검토하되 대상·용량·기간·대조군과 제품 조건의 일치 여부를 확인한 뒤 제한적으로 활용한다.",
-      "species": "인체",
-      "topic": "신경·행동·수면",
+      "checked": "2026-09-08",
+      "notes": "PMID 38321713의 PubMed 초록과 브라질 ReBEC 등록 결과를 대조해 200 mg/day·90일, 38명 시작/26명 완료, 수면효율·HRV 수치를 보강. 연구의 의미: 운동을 병행한 과체중·비만 여성에서 GABA의 수면 효율 유지와 운동 후 부교감신경 우세 신호를 탐색한 인체 무작위시험이다. 기대 행동: ‘운동을 병행한 특정 여성 집단에서 수면 효율·운동 후 HRV 신호가 관찰됨’으로만 사용하고, GABA 단독의 우울·불안·스트레스 개선 또는 모든 사람의 수면 개선으로 확대하지 않는다. 운동 병행, 이탈, 심리척도 비유의라는 제한을 함께 표시한다.",
+      "species": "기타",
+      "topic": "기타",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
-      "category": "안전성",
-      "effectCategory": "수면"
+      "category": "연구 근거",
+      "effectCategory": "기타"
     },
     {
       "id": "H-2024-038",
