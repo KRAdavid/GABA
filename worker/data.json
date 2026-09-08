@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 191,
-    "literature": 183,
+    "total": 192,
+    "literature": 184,
     "regulatory": 8,
     "clinical": 53,
-    "animal": 129,
-    "scie": 163,
-    "complete": 121,
+    "animal": 130,
+    "scie": 164,
+    "complete": 122,
     "partial": 62,
     "drivePdf": 77,
-    "included": 138,
+    "included": 139,
     "candidate": 36,
     "excluded": 9,
     "safetyCategory": 142,
-    "effectCategory": 127,
+    "effectCategory": 128,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 178,
-      "literatureWithPmid": 178,
-      "extractionComplete": 121,
+      "literatureWithDoi": 179,
+      "literatureWithPmid": 179,
+      "extractionComplete": 122,
       "extractionPartial": 62
     },
     "discovery": {
@@ -58,7 +58,7 @@
     "species": [
       {
         "label": "설치류",
-        "value": 83
+        "value": 84
       },
       {
         "label": "인체",
@@ -88,7 +88,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 44
+        "value": 45
       },
       {
         "label": "대사·내분비",
@@ -118,7 +118,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 138
+        "value": 139
       },
       {
         "label": "후보",
@@ -136,7 +136,7 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 163
+        "value": 164
       },
       {
         "label": "현행 미확인",
@@ -150,7 +150,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 121
+        "value": 122
       },
       {
         "label": "부분",
@@ -160,7 +160,7 @@
     "direction": [
       {
         "label": "유익",
-        "value": 111
+        "value": 112
       },
       {
         "label": "혼재",
@@ -224,7 +224,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 49
+        "value": 50
       }
     ],
     "effectCategory": [
@@ -234,7 +234,7 @@
       },
       {
         "label": "수면",
-        "value": 44
+        "value": 45
       },
       {
         "label": "다이어트",
@@ -8126,6 +8126,49 @@
       "checked": "2026-09-08",
       "notes": "PubMed·PMC 초록 및 이해상충 문구 확인. 직접 GABA 보충 근거가 아닌 간접 후보로 유지하며, GABA 생성 프로바이오틱 마케팅 자료와 순수 GABA 자료를 분리함.",
       "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "수면"
+    },
+    {
+      "id": "A-2025-097",
+      "status": "포함",
+      "kind": "동물",
+      "design": "발효·수면행동·EEG·수용체 기전 시험",
+      "year": 2025,
+      "title": "Sleep-enhancing activity of fermented pea protein hydrolysate with enhanced GABA content by Lactobacillus brevis SYLB 0016 fermentation",
+      "author": "Kim, Suh, Chung, Byun, Yoo, Lee",
+      "journal": "Journal of the Science of Food and Agriculture",
+      "doi": "10.1002/jsfa.14173",
+      "pmid": "39912453",
+      "population": "ICR 마우스 및 Sprague-Dawley 랫드",
+      "n": "원문 초록상 세부 군별 표본수 미기재",
+      "model": "펜토바비탈 유도 수면·카페인 유도 불면 모델",
+      "form": "Lactobacillus brevis SYLB 0016 발효 완두단백 가수분해물(PPF)",
+      "dose": "PPF 150 mg/kg 등; 저·고용량 비교",
+      "route": "경구",
+      "duration": "단회 및 3주 반복 투여",
+      "comparator": "정상·대조·카페인·플루마제닐 비교군",
+      "domain": "신경·행동·수면",
+      "outcome": "수면시간·NREM·δ파 EEG, GABAA/GABAB 수용체, GABA 함량",
+      "direction": "유익",
+      "finding": "발효로 GABA 함량이 3.16에서 90.35 mmol/L로 증가했고, PPF는 펜토바비탈 수면시간과 NREM·δ파를 증가시켰다. 플루마제닐 병용 시 효과가 줄어 GABAA 관련 기전이 시사됐다.",
+      "safety": "동물 수면모델 연구에서 별도 독성·이상반응 평가 결과는 핵심 초록에 제시되지 않음",
+      "limitation": "발효 완두단백 복합물이며 순수 GABA 단독시험이 아니다. 마우스·랫드 모델과 약물 유도 수면 조건이므로 사람의 수면 개선으로 일반화할 수 없다. 연구비와 저자 소속에 Samyang Foods가 포함된다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인",
+      "sciGroup": "SCIE",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39912453/",
+      "fulltextUrl": "https://doi.org/10.1002/jsfa.14173",
+      "doiUrl": "https://doi.org/10.1002/jsfa.14173",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PubMed·OpenAlex·대학 연구기록의 초록·서지정보 교차확인. 발효 GABA 원료의 동물 수면·기전 자료로만 활용.",
+      "species": "설치류",
       "topic": "신경·행동·수면",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
