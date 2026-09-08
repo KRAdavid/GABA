@@ -14,8 +14,8 @@
     "complete": 161,
     "partial": 94,
     "drivePdf": 76,
-    "included": 170,
-    "candidate": 74,
+    "included": 171,
+    "candidate": 73,
     "excluded": 11,
     "safetyCategory": 160,
     "effectCategory": 167,
@@ -318,11 +318,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 170
+        "value": 171
       },
       {
         "label": "후보",
-        "value": 74
+        "value": 73
       },
       {
         "label": "제외",
@@ -8317,7 +8317,7 @@
     },
     {
       "id": "A-2022-101",
-      "status": "후보",
+      "status": "포함",
       "kind": "동물",
       "design": "식이 보충·LPS challenge·면역·항산화 시험",
       "year": 2022,
@@ -8326,8 +8326,8 @@
       "journal": "Fish & Shellfish Immunology",
       "doi": "10.1016/j.fsi.2022.04.028",
       "pmid": "35489590",
-      "population": "어린 중국참게",
-      "n": "원문 확인 필요",
+      "population": "어린 중국참게(Eriocheir sinensis)",
+      "n": "PubMed 초록에 표본수 미기재; 원문 확인 필요",
       "model": "LPS 유도 면역 과반응 모델",
       "form": "식이 GABA",
       "dose": "40·80·160·320·640 mg/kg 건물",
@@ -8350,7 +8350,7 @@
       "extraction": "부분",
       "added": "2026-09-08",
       "checked": "2026-09-08",
-      "notes": "연구의 의미: 직접 식이 GABA가 염증 challenge 상황의 면역·항산화 반응에 영향을 줄 가능성을 제시한다. 기대 행동: 사료·수산양식 기전 자료로만 활용하고 사람용 면역 마케팅으로 전환하지 않는다.",
+      "notes": "PMID 35489590·DOI 10.1016/j.fsi.2022.04.028의 PubMed·출판사 초록을 대조해 0·40·80·160·320·640 mg/kg 건물의 8주 식이와 24시간 LPS challenge, 면역·항산화·사망률 결과를 확인했다. 표본수와 세부 원문 수치는 추가 확인 대상으로 남긴다. 연구의 의미: 직접 식이 GABA가 염증 challenge 상황의 면역·항산화 반응에 영향을 줄 가능성을 제시한다. 기대 행동: 사료·수산양식 기전 자료로만 활용하고 사람용 면역 마케팅이나 질환 예방 문구로 전환하지 않는다.",
       "species": "수산",
       "topic": "면역·염증·항산화",
       "hasDrivePdf": false,
