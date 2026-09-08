@@ -1587,6 +1587,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (type === "direction") return value === "유익" ? "benefit" : value === "혼재" ? "mixed" : value === "유해" ? "harm" : "";
         return "";
       }
+      function marketingLabel(record) {
+        if (record.kind === "규제") return "규제 참고";
+        if (record.status === "제외" || /철회|사용 금지/.test(record.direction || "")) return "마케팅 사용 금지";
+        if (record.status === "후보" || record.extraction === "부분" || record.kind === "동물") return "조건부 검토";
+        return "직접 근거 검토";
+      }
+      function marketingClass(record) {
+        var label = marketingLabel(record);
+        return label === "마케팅 사용 금지" ? "exclude" : label === "조건부 검토" ? "candidate" : label === "규제 참고" ? "regulatory" : "include";
+      }
 
       function detail(label, value) {
         if (!value) return "";
@@ -1650,6 +1660,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge regulatory">규제·안전성</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
+            '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
             '<span class="badge">' + esc(record.grade) + '</span>' +
             '<span class="badge">' + esc(record.agency) + '</span>' +
             '<span class="badge">품질 ' + esc(record.quality) + '</span>' +
@@ -1700,6 +1711,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
+            '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
             '<span class="badge ' + badgeClass("extraction", record.extraction) + '">추출 ' + esc(record.extraction) + '</span>' +
             '<span class="badge">' + esc(identifierLabel) + '</span>' +
