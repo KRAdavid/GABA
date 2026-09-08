@@ -20,7 +20,7 @@ const response = await page.goto("https://gaba-evidence-index-kr.dubaissday.chat
 await page.waitForTimeout(3_000);
 assert.equal(response?.status(), 200);
 const initialBody = await page.locator("body").innerText();
-assert.match(initialBody, /298\s*건/);
+assert.match(initialBody, /299\s*건/);
 const search = page.locator("input").first();
 await search.fill("7419665");
 await page.waitForTimeout(800);
@@ -32,7 +32,7 @@ console.log(JSON.stringify({
   status: response?.status(),
   title: await page.title(),
   url: page.url(),
-  liveCount: 298,
+  liveCount: 299,
   newRecordSearch: "H-1980-181 / PMID 7419665",
   errors
 }));
