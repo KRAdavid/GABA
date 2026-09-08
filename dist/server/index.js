@@ -1452,7 +1452,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function recordSearchText(record) {
         return normalize([
-          record.id, record.title, record.author, record.journal, record.doi, record.pmid,
+          record.id, record.title, record.author, record.journal, record.doi, record.pmid, record.clinicalTrialId,
           record.population, record.model, record.form, record.dose, record.route,
           record.domain, record.outcome, record.finding, record.safety, record.limitation,
           record.notes, record.species, record.topic, record.direction, record.titleKo,
@@ -1698,7 +1698,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var identifierLabel = record.pmid && record.doi ? "PMID·DOI" : record.pmid ? "PMID" : record.doi ? "DOI" : "식별자 미완";
         return '<article class="paper-card">' +
           '<div class="paper-badges">' +
-            '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : "동물시험") + '</span>' +
+            '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
             '<span class="badge ' + badgeClass("extraction", record.extraction) + '">추출 ' + esc(record.extraction) + '</span>' +
@@ -1731,6 +1731,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               detail("비고", record.notes) +
               detail("DOI", record.doi) +
               detail("PMID", record.pmid) +
+              detail("임상시험 등록번호", record.clinicalTrialId) +
             '</dl>' +
           '</details>' +
           '<div class="paper-footer">' +
