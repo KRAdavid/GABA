@@ -5,10 +5,10 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 388,
-    "literature": 380,
+    "total": 389,
+    "literature": 381,
     "regulatory": 8,
-    "clinical": 113,
+    "clinical": 114,
     "animal": 204,
     "scie": 139,
     "complete": 189,
@@ -18,7 +18,7 @@
     "candidate": 158,
     "excluded": 16,
     "safetyCategory": 159,
-    "effectCategory": 288,
+    "effectCategory": 289,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -30,16 +30,16 @@
     },
     "discovery": {
       "snapshotDate": "2026-09-09",
-      "generatedAt": "2026-09-08T22:53:09.145Z",
+      "generatedAt": "2026-09-08T23:15:50.474Z",
       "triageVersion": "2026-09-09.1",
       "identifierExtraction": "PubMed primary ArticleIdList only",
-      "pubmedUnique": 2952,
+      "pubmedUnique": 2962,
       "openAlexRetrieved": 0,
-      "mergedUnique": 3334,
-      "stagedCandidates": 200,
+      "mergedUnique": 3686,
+      "stagedCandidates": 1000,
       "priority": 0,
-      "general": 151,
-      "low": 49,
+      "general": 741,
+      "low": 259,
       "screeningCounts": null,
       "candidateSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
       "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
@@ -56,7 +56,7 @@
       },
       {
         "label": "인체",
-        "value": 106
+        "value": 107
       },
       {
         "label": "축산",
@@ -585,6 +585,10 @@
         "value": 1
       },
       {
+        "label": "발효 보리 GABA·13주 섭취·안전성",
+        "value": 1
+      },
+      {
         "label": "발효 보리 GABA·과량섭취·안전성",
         "value": 1
       },
@@ -1075,12 +1079,12 @@
         "value": 8
       },
       {
-        "label": "포함후보",
+        "label": "보류",
         "value": 5
       },
       {
-        "label": "보류",
-        "value": 4
+        "label": "포함후보",
+        "value": 5
       }
     ],
     "sciGroup": [
@@ -1094,7 +1098,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 78
+        "value": 79
       },
       {
         "label": "미확인",
@@ -1175,12 +1179,12 @@
         "value": 2
       },
       {
-        "label": "초록·출판사 페이지 기반",
+        "label": "원문 확인 완료·출판품질 보류",
         "value": 2
       },
       {
-        "label": "원문 확인 완료·출판품질 보류",
-        "value": 1
+        "label": "초록·출판사 페이지 기반",
+        "value": 2
       },
       {
         "label": "원문 확인 완료·GABA 단독효과 분리 불가",
@@ -1625,6 +1629,10 @@
         "value": 1
       },
       {
+        "label": "중대한 안전성 신호 없음으로 보고(제품 특이적·출판품질 보류)",
+        "value": 1
+      },
+      {
         "label": "직접 경구 GABA 동물 안전성 경계·인간 관찰 연관",
         "value": 1
       },
@@ -1738,7 +1746,7 @@
     "category": [
       {
         "label": "연구 근거",
-        "value": 195
+        "value": 196
       },
       {
         "label": "안전성",
@@ -1859,6 +1867,10 @@
         "value": 2
       },
       {
+        "label": "안전성·보류",
+        "value": 2
+      },
+      {
         "label": "인지",
         "value": 2
       },
@@ -1976,10 +1988,6 @@
       },
       {
         "label": "신경계",
-        "value": 1
-      },
-      {
-        "label": "안전성·보류",
         "value": 1
       },
       {
@@ -18541,6 +18549,50 @@
       "notes": "논문 PDF와 UMIN000047414 등록정보를 대조해 48명, 건강한 20–64세 성인, FB-GABA 1,341.9 mg/day 4주, 혈액·소변·이상반응 결과를 확인했다. 연구의 의미: 발효 보리 GABA 제품의 단기 과량섭취 안전성 신호를 제공하지만, 제품 특이성과 기업 관여 때문에 독립 근거로는 제한적이다. 기대 행동: ‘GABA의 장기·일반적 안전성’ 또는 ‘5배 용량 안전’으로 광고하지 말고, 제품명·1,341.9 mg FB-GABA/day·4주·48명·기업 자금·출판품질 보류를 함께 표시한다.",
       "species": "인체",
       "topic": "발효 보리 GABA·과량섭취·안전성",
+      "hasDrivePdf": false,
+      "linkType": "출판사 PDF·UMIN",
+      "category": "연구 근거",
+      "effectCategory": "안전성·보류",
+      "duplicate": "없음"
+    },
+    {
+      "id": "H-2024-183",
+      "status": "보류",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행시험",
+      "year": 2024,
+      "title": "Safety Evaluation of Long-term Intake of Fermented Barley GABA 90% – A Placebo-controlled, Double-blind, Randomized, Parallel-group Comparative Trial",
+      "trialId": "UMIN000047209",
+      "author": "Uehara et al.",
+      "journal": "Nutrition and Food Toxicology 5(1):22–42",
+      "doi": "",
+      "population": "건강한 성인 남녀 20–64세",
+      "n": "48명(시험군 24, 위약군 24)",
+      "model": "Enterococcus malodoratus FC 301 발효 보리 GABA 90%",
+      "form": "발효 보리 GABA 정제",
+      "dose": "FB-GABA 268.4 mg/day(약 GABA 241.4 mg/day), 13주",
+      "route": "경구",
+      "duration": "13주",
+      "comparator": "덱스트린 위약 268.4 mg/day",
+      "domain": "장기섭취 안전성·내약성",
+      "outcome": "신체계측, 신체검사, 혈액·소변검사, 이상반응",
+      "direction": "중대한 안전성 신호 없음으로 보고(제품 특이적·출판품질 보류)",
+      "finding": "FB-GABA 268.4 mg/day를 13주 섭취한 시험군 24명에서 신체계측·신체검사·혈액·소변검사 및 이상반응을 평가했고, 시험식품과 관련된 중대한 안전성 문제는 없다고 보고했다. 시험 기간 총 33건의 이상반응은 모두 시험식품과 관련 없음으로 판정됐다.",
+      "safety": "13주 시험에서 중대한 시험식품 관련 안전성 신호 없음으로 보고됐으나, 장기간·대규모 안전성을 확정하지 않음",
+      "limitation": "출판사가 Nutrition and Food Toxicology로 독립적 학술 품질을 추가 확인해야 한다. 시험비는 Sanwa Shurui Co., Ltd.가 제공했고 저자 2명이 해당 회사 직원이다. FB-GABA의 약 10% 비GABA 성분이 명확히 규명되지 않았으며, 건강한 성인 48명·13주 자료를 모든 GABA 제품·임신부·질환자·장기 복용으로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 미확인",
+      "sciStatus": "출판사 PDF 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://www.scientiaricerca.com/srnuft/pdf/SRNUFT-05-0107.pdf",
+      "doiUrl": "",
+      "extraction": "원문 확인 완료·출판품질 보류",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "장기섭취 논문 PDF와 UMIN000047209 등록정보를 대조해 48명, FB-GABA 268.4 mg/day, GABA 약 241.4 mg/day, 13주 섭취, 검사실 결과와 이상반응을 확인했다. 연구의 의미: 특정 발효 보리 GABA 제품에서 13주 반복섭취의 단기·중기 안전성 신호를 제공하며, 4주 과량섭취 시험과 구별되는 장기 추적 자료다. 기대 행동: ‘모든 GABA의 장기 안전성’으로 광고하지 말고 제품·용량·13주·48명·기업 자금·출판품질 보류를 함께 표시하며, 장기·독립 재현 근거로는 사용하지 않는다.",
+      "species": "인체",
+      "topic": "발효 보리 GABA·13주 섭취·안전성",
       "hasDrivePdf": false,
       "linkType": "출판사 PDF·UMIN",
       "category": "연구 근거",
