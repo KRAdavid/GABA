@@ -3800,8 +3800,9 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·신경"
-    }
-    ,{
+    },
+    },
+    {
       "id": "H-2026-021",
       "status": "포함",
       "kind": "임상",
