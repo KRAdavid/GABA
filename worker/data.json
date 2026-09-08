@@ -1561,16 +1561,16 @@
         "value": 16
       },
       {
-        "label": "근육발달",
-        "value": 11
-      },
-      {
         "label": "스트레스·이완",
         "value": 11
       },
       {
         "label": "안전성",
         "value": 11
+      },
+      {
+        "label": "근육발달",
+        "value": 10
       },
       {
         "label": "성장호르몬",
@@ -1686,6 +1686,10 @@
       },
       {
         "label": "신경계",
+        "value": 1
+      },
+      {
+        "label": "염증",
         "value": 1
       },
       {
@@ -9111,24 +9115,24 @@
       "direction": "혼재",
       "finding": "조직·세포별로 IL-1β·IL-4·IL-10 반응이 달랐고, 본문은 GABA가 IL-1β와 IL-10을 증가시키며 IL-4를 가변적으로 조절했다고 해석했다.",
       "safety": "별도 독성·이상반응 평가 미보고",
-      "limitation": "Clarivate 현행 ESCI로 SCIE가 아니며 용액 농도·군별 n·정식 무작위배정·정량 통계가 원문에 미보고다. 반정량 면역조직화학이고 기능검사·전신 사이토카인 측정이 없으며, 초록의 IL-1β 감소 서술이 본문 표·결론의 증가 방향과 불일치해 효능 해석을 보류",
+      "limitation": "용액 농도·군별 n·정식 무작위배정·정량 통계가 원문에 미보고다. 반정량 면역조직화학이며 초록과 본문에서 IL-1β 방향이 불일치해 효능 해석을 보류",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "ESCI 확인",
       "sciGroup": "ESCI",
-      "sciChecked": "2026-07-27",
+      "sciChecked": "2026-09-09",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41670394/",
       "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13088062/",
       "doiUrl": "https://doi.org/10.4081/ejtm.2026.14718",
       "extraction": "완료",
-      "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "PMCID PMC13088062 공개 전문·Europe PMC XML 재추출 완료. Bulgarian National Science Fund KP-06-N71/4 지원; 원문에서 이해상충·데이터가용성 진술은 확인되지 않음. SCIE 범위 밖이고 보고 불일치가 있어 후보 유지. 연구의 의미: 동물에서 조직·세포별로 IL-1β·IL-4·IL-10 반응이 달랐고, 본문은 GABA가 IL-1β와 IL-10을 증가시키며 IL-4를 가변적으로 조절했다고 해석했다. 기대 행동: 전임상·기전 근거로만 활용하고 사람의 효능·용량·안전성으로 직접 일반화하지 않는다.",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMCID PMC13088062 공개 전문을 대조했다. SCIE가 아닌 ESCI이고 용액 농도·표본 배정·정량 통계가 불명확하며 결과 방향 보고도 불일치한다. 연구의 의미: 노화 동물에서 GABA 섭취와 근육·장 조직의 염증표지 변화를 탐색한 자료지만 방향성과 설계 정보가 불충분하다. 기대 행동: 염증 개선·노화 방지·근육 건강 광고에 사용하지 말고, 불확실한 전임상 후보로만 보관한다.",
       "species": "설치류",
       "topic": "면역·염증·항산화",
       "hasDrivePdf": false,
-      "linkType": "원문·DOI",
+      "linkType": "PubMed·PMC·DOI",
       "category": "안전성",
-      "effectCategory": "근육발달"
+      "effectCategory": "염증"
     },
     {
       "id": "A-2026-097",
