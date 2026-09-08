@@ -5,26 +5,26 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 372,
-    "literature": 364,
+    "total": 377,
+    "literature": 369,
     "regulatory": 8,
     "clinical": 109,
-    "animal": 194,
+    "animal": 199,
     "scie": 139,
     "complete": 189,
     "partial": 106,
     "drivePdf": 71,
     "included": 196,
-    "candidate": 152,
+    "candidate": 157,
     "excluded": 16,
     "safetyCategory": 159,
-    "effectCategory": 274,
+    "effectCategory": 277,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 337,
-      "literatureWithPmid": 313,
+      "literatureWithDoi": 342,
+      "literatureWithPmid": 318,
       "extractionComplete": 189,
       "extractionPartial": 106
     },
@@ -58,7 +58,7 @@
     "species": [
       {
         "label": "설치류",
-        "value": 113
+        "value": 114
       },
       {
         "label": "인체",
@@ -133,6 +133,10 @@
         "value": 1
       },
       {
+        "label": "밍크",
+        "value": 1
+      },
+      {
         "label": "발효 미생물·식물성 음료",
         "value": 1
       },
@@ -142,6 +146,10 @@
       },
       {
         "label": "발효식품·유산균",
+        "value": 1
+      },
+      {
+        "label": "병아리·닭",
         "value": 1
       },
       {
@@ -174,6 +182,10 @@
       },
       {
         "label": "사람·Weizmannia coagulans BC99",
+        "value": 1
+      },
+      {
+        "label": "산란계·닭",
         "value": 1
       },
       {
@@ -242,6 +254,10 @@
       },
       {
         "label": "육계",
+        "value": 1
+      },
+      {
+        "label": "육우",
         "value": 1
       },
       {
@@ -495,6 +511,10 @@
         "value": 1
       },
       {
+        "label": "급성 스트레스·면역·동물영양",
+        "value": 1
+      },
+      {
         "label": "내분비·대사·제1형 당뇨병",
         "value": 1
       },
@@ -504,6 +524,10 @@
       },
       {
         "label": "당뇨·안전성",
+        "value": 1
+      },
+      {
+        "label": "당뇨·인슐린 감수성·GABA 식품",
         "value": 1
       },
       {
@@ -532,6 +556,10 @@
       },
       {
         "label": "동물영양·열 스트레스·간·신장",
+        "value": 1
+      },
+      {
+        "label": "면역·항산화·장내미생물",
         "value": 1
       },
       {
@@ -664,6 +692,14 @@
       },
       {
         "label": "약동학·고용량·경구섭취",
+        "value": 1
+      },
+      {
+        "label": "열스트레스·산란·면역·항산화",
+        "value": 1
+      },
+      {
+        "label": "열스트레스·성장·동물영양",
         "value": 1
       },
       {
@@ -966,7 +1002,7 @@
       },
       {
         "label": "후보",
-        "value": 152
+        "value": 157
       },
       {
         "label": "제외",
@@ -992,7 +1028,7 @@
       },
       {
         "label": "미확인",
-        "value": 14
+        "value": 19
       },
       {
         "label": "해당 없음",
@@ -1042,7 +1078,7 @@
       },
       {
         "label": "초록 기반",
-        "value": 15
+        "value": 20
       },
       {
         "label": "원문검토",
@@ -1084,7 +1120,7 @@
       },
       {
         "label": "개선",
-        "value": 12
+        "value": 14
       },
       {
         "label": "무효",
@@ -1156,6 +1192,10 @@
       },
       {
         "label": "간접 대사 신호; 효능 근거 아님",
+        "value": 1
+      },
+      {
+        "label": "개선(혈당 자체는 변화 없음)",
         "value": 1
       },
       {
@@ -1399,6 +1439,10 @@
         "value": 1
       },
       {
+        "label": "일부 개선",
+        "value": 1
+      },
+      {
         "label": "일시적 스트레스 감소 신호·근거 확실성 높음~중간",
         "value": 1
       },
@@ -1499,6 +1543,10 @@
         "value": 1
       },
       {
+        "label": "GABA군 증체 개선; 병용군 일부 지표 추가 개선",
+        "value": 1
+      },
+      {
         "label": "GABA는 입면잠복기, AVLE는 NREM 수면시간에 각각 신호",
         "value": 1
       },
@@ -1552,7 +1600,7 @@
     "category": [
       {
         "label": "연구 근거",
-        "value": 181
+        "value": 186
       },
       {
         "label": "안전성",
@@ -1586,7 +1634,7 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 98
+        "value": 100
       },
       {
         "label": "수면",
@@ -1602,7 +1650,7 @@
       },
       {
         "label": "당뇨",
-        "value": 22
+        "value": 23
       },
       {
         "label": "스트레스",
@@ -1665,11 +1713,19 @@
         "value": 2
       },
       {
+        "label": "스트레스·불안",
+        "value": 2
+      },
+      {
         "label": "인지",
         "value": 2
       },
       {
         "label": "인지기능",
+        "value": 2
+      },
+      {
+        "label": "장 건강·염증",
         "value": 2
       },
       {
@@ -1745,10 +1801,6 @@
         "value": 1
       },
       {
-        "label": "스트레스·불안",
-        "value": 1
-      },
-      {
         "label": "스트레스·신경",
         "value": 1
       },
@@ -1770,10 +1822,6 @@
       },
       {
         "label": "운동·체성분",
-        "value": 1
-      },
-      {
-        "label": "장 건강·염증",
         "value": 1
       },
       {
@@ -17373,6 +17421,216 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
       "effectCategory": "당뇨·신경"
+    },
+    {
+      "id": "A-2020-273",
+      "status": "후보",
+      "kind": "동물",
+      "design": "고지방·저용량 STZ 제2형 당뇨 마우스의 GABA 농축 요거트 경구투여시험",
+      "year": 2020,
+      "title": "Effect of γ-aminobutyric acid-rich yogurt on insulin sensitivity in a mouse model of type 2 diabetes mellitus",
+      "author": "Chen et al.",
+      "journal": "Journal of Dairy Science",
+      "doi": "10.3168/jds.2019-17757",
+      "pmid": "32684454",
+      "population": "고지방식·저용량 STZ 유발 제2형 당뇨 마우스",
+      "n": "동물시험; 사람 중재 없음; 원문 보강 필요",
+      "model": "GABA 농축 요거트를 0.5·1·2 g/L로 하루 1회 12주 투여",
+      "form": "GABA 농축 요거트(복합 식품)",
+      "dose": "요거트 중 GABA 0.5·1·2 g/L; 순수 GABA 사람 용량으로 환산 불가",
+      "route": "경구(위내투여)",
+      "duration": "12주",
+      "comparator": "무처치 당뇨 마우스 및 용량별 비교",
+      "domain": "GABA·요거트·인슐린 감수성·당뇨 동물시험",
+      "outcome": "혈청 인슐린·혈당곡선·인슐린 감수성 지수·HOMA-β·지질·췌도 형태",
+      "direction": "개선(혈당 자체는 변화 없음)",
+      "finding": "GABA 농축 요거트, 특히 2 g/L 투여군에서 인슐린 감수성·HOMA-β·일부 지질 및 췌도 형태가 개선됐지만 혈당과 체중은 변하지 않았다.",
+      "safety": "초록상 중대한 안전성 신호는 제시되지 않았으나 사람의 당뇨 치료 안전성 자료가 아니다.",
+      "limitation": "마우스 복합식품 시험이며 순수 GABA의 효과와 발효식품 매트릭스 효과를 분리할 수 없다. 사람의 당뇨 치료·혈당 개선으로 확대하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32684454/",
+      "doiUrl": "https://doi.org/10.3168/jds.2019-17757",
+      "extraction": "초록 기반",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 32684454 초록에서 GABA 농축 요거트의 경구 위내투여와 12주 대사 결과를 확인했다. 연구의 의미: GABA의 효과가 순수 원료뿐 아니라 식품 매트릭스와 대사질환 모델에 따라 달라질 수 있음을 보여준다. 기대 행동: 복합식품의 전임상 근거로만 활용하고, 사람의 혈당·당뇨 치료 효능으로 광고하지 않으며 혈당 자체가 변하지 않았다는 결과를 함께 표시한다.",
+      "species": "설치류",
+      "topic": "당뇨·인슐린 감수성·GABA 식품",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "당뇨"
+    },
+    {
+      "id": "A-2012-274",
+      "status": "후보",
+      "kind": "동물",
+      "design": "열스트레스 산란계의 식이 GABA 용량반응시험",
+      "year": 2012,
+      "title": "Effect of dietary γ-aminobutyric acid on laying performance, egg quality, immune activity and endocrine hormone in heat-stressed Roman hens",
+      "author": "Chen et al.",
+      "journal": "Journal of Animal Science",
+      "doi": "10.1111/j.1740-0929.2011.00939.x",
+      "pmid": "22339695",
+      "population": "열스트레스 Roman 산란계",
+      "n": "동물시험; 사람 중재 없음; 원문 보강 필요",
+      "model": "GABA 0·25·50·75·100 mg/kg을 기초사료에 첨가",
+      "form": "식이 GABA",
+      "dose": "25~100 mg/kg 사료; 50 mg/kg이 본 시험 최적 수준",
+      "route": "경구(사료 섭취)",
+      "duration": "60일",
+      "comparator": "GABA 0·25·50·75·100 mg/kg 용량 비교",
+      "domain": "GABA·열스트레스·산란·면역·항산화",
+      "outcome": "산란율·난중·난각강도·사료효율·콜레스테롤·SOD·GSH-Px·MDA·면역·호르몬",
+      "direction": "개선",
+      "finding": "50 mg/kg GABA 사료가 열스트레스 산란계의 산란성적·난질·항산화 및 면역 지표를 개선했고, 본 시험에서 최적 수준으로 보고됐다.",
+      "safety": "가금 사료시험은 사람 보충제의 안전성·이완·수면 효과를 평가하지 않는다.",
+      "limitation": "종·목적·사료 단위가 사람과 다르며 사람의 스트레스·피로·호르몬 개선으로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/22339695/",
+      "doiUrl": "https://doi.org/10.1111/j.1740-0929.2011.00939.x",
+      "extraction": "초록 기반",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 22339695 초록에서 식이 GABA 25~100 mg/kg, 60일 및 50 mg/kg 결과를 확인했다. 연구의 의미: 경구 GABA의 효과가 대상 종과 열스트레스 환경에 의존할 수 있음을 보여준다. 기대 행동: 동물영양 참고자료로만 사용하고 사람의 이완·면역·호르몬 효능으로 광고하지 않는다.",
+      "species": "산란계·닭",
+      "topic": "열스트레스·산란·면역·항산화",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "A-2020-275",
+      "status": "후보",
+      "kind": "동물",
+      "design": "열스트레스 육우의 반추위 보호 GABA 사료시험",
+      "year": 2020,
+      "title": "The anti-heat stress effects of Chinese herbal medicine prescriptions and rumen-protected γ-aminobutyric acid on growth performance, apparent nutrient digestibility, and health status in beef cattle",
+      "author": "Li et al.",
+      "journal": "Animal Science Journal",
+      "doi": "10.1111/asj.13361",
+      "pmid": "32219958",
+      "population": "열스트레스 육우 40마리",
+      "n": "4군, 총 40마리; 사람 중재 없음; 원문 보강 필요",
+      "model": "기초사료·한약·반추위 보호 GABA·한약+GABA 비교",
+      "form": "반추위 보호 GABA 사료첨가",
+      "dose": "초록에 정확한 용량 미제시",
+      "route": "경구(사료 섭취)",
+      "duration": "원문 보강 필요",
+      "comparator": "기초사료·한약·GABA·병용군",
+      "domain": "GABA·열스트레스·육우·성장·염증",
+      "outcome": "증체량·사료섭취·영양소 소화율·호르몬·면역글로불린·이온·염증성 사이토카인",
+      "direction": "GABA군 증체 개선; 병용군 일부 지표 추가 개선",
+      "finding": "반추위 보호 GABA가 열스트레스 육우의 평균일일증체량을 개선했으며, 한약과의 병용은 일부 소화율·섭취량·혈청 건강지표에서 더 큰 효과를 보였다.",
+      "safety": "육우 사료시험은 사람 제품의 안전성·이완 효능을 입증하지 않는다.",
+      "limitation": "GABA 단독과 병용 효과를 구분해야 하고 정확한 용량·기간은 원문 확인 전 미확정이다. 사람에 직접 적용할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32219958/",
+      "doiUrl": "https://doi.org/10.1111/asj.13361",
+      "extraction": "초록 기반",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 32219958 초록에서 반추위 보호 GABA의 사료 섭취와 열스트레스 육우 결과를 확인했다. 연구의 의미: 제형·동물종·열환경이 GABA 전임상 결과를 좌우할 수 있음을 보여준다. 기대 행동: 축산·전임상 배경자료로만 활용하고 사람의 체력·피로·열스트레스 개선으로 광고하지 않으며 용량·기간 미확인을 유지한다.",
+      "species": "육우",
+      "topic": "열스트레스·성장·동물영양",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "A-2024-276",
+      "status": "후보",
+      "kind": "동물",
+      "design": "성장 밍크의 식이 GABA 용량반응시험",
+      "year": 2024,
+      "title": "Effects of γ-Aminobutyric Acid on Growth Performance, Immunity, Antioxidant Capacity, and Intestinal Microbiota of Growing Minks",
+      "author": "Wang et al.",
+      "journal": "Veterinary Sciences",
+      "doi": "10.3390/vetsci11090398",
+      "pmid": "39330777",
+      "population": "성장 밍크 100마리(수컷·암컷)",
+      "n": "5군, 군당 20마리; 사람 중재 없음",
+      "model": "기초사료에 GABA 0·10·20·30·40 mg/kg 첨가",
+      "form": "식이 GABA",
+      "dose": "10·20·30·40 mg/kg 사료; 30 mg/kg에서 일부 결과 개선",
+      "route": "경구(사료 섭취)",
+      "duration": "8주",
+      "comparator": "GABA 0·10·20·30·40 mg/kg 용량 비교",
+      "domain": "GABA·면역·항산화·장내미생물·밍크",
+      "outcome": "증체·사료섭취·면역글로불린·T-AOC·GSH-Px·사이토카인·장내미생물",
+      "direction": "일부 개선",
+      "finding": "20~40 mg/kg 사료에서 면역·항산화 지표가 개선됐고, 30 mg/kg에서 평균일일섭취량·일부 면역·염증 지표와 장내미생물 구성이 개선됐다.",
+      "safety": "밍크 사료시험은 사람의 안전성·효능 자료가 아니다.",
+      "limitation": "동물종과 사료 단위가 사람과 다르고 다중 지표·성별 차이가 있어 사람 면역·장 건강 광고로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39330777/",
+      "doiUrl": "https://doi.org/10.3390/vetsci11090398",
+      "extraction": "초록 기반",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 39330777 초록에서 GABA 10~40 mg/kg 사료, 8주 및 용량별 면역·항산화·장내미생물 결과를 확인했다. 연구의 의미: 직접 섭취 GABA가 동물의 면역·산화스트레스 지표와 장내미생물에 영향을 줄 가능성을 탐색한다. 기대 행동: 밍크 전임상 참고자료로만 활용하고 사람의 면역·장 건강 개선으로 확대하지 않는다.",
+      "species": "밍크",
+      "topic": "면역·항산화·장내미생물",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "장 건강·염증"
+    },
+    {
+      "id": "A-2013-277",
+      "status": "후보",
+      "kind": "동물",
+      "design": "부리 절단 스트레스 병아리의 식이·음수 GABA 보충시험",
+      "year": 2013,
+      "title": "Effect of γ-aminobutyric acid on growth performance and immune function in chicks under beak trimming stress",
+      "author": "Zhang et al.",
+      "journal": "Animal Science Journal",
+      "doi": "10.1111/j.1740-0929.2012.01051.x",
+      "pmid": "23384353",
+      "population": "부리 절단 스트레스 병아리",
+      "n": "동물시험; 사람 중재 없음; 원문 보강 필요",
+      "model": "GABA 결핍 음수와 GABA 보충을 비교하고 60·80 mg/kg 수준 평가",
+      "form": "GABA 보충 사료·음수",
+      "dose": "60·80 mg/kg 중심; 투여 기준은 원문 보강 필요",
+      "route": "경구(음수·사료 섭취)",
+      "duration": "부리 절단 후 1·3·5일 등 단기 평가",
+      "comparator": "GABA 결핍·보충군 및 스트레스 조건 비교",
+      "domain": "GABA·급성 스트레스·면역·병아리",
+      "outcome": "체중·사료섭취·비장중량·ACTH·CD4/CD8·IL-1β·TNF-α·IL-6",
+      "direction": "개선",
+      "finding": "부리 절단 스트레스 병아리에서 GABA 80 mg/kg은 체중·섭취량·비장 관련 결과와 일부 염증성 사이토카인을 개선했고, 60 mg/kg은 CD4·CD8 비율에 영향을 줬다.",
+      "safety": "급성 가금 스트레스 시험은 사람의 불안·스트레스 안전성 자료가 아니다.",
+      "limitation": "종·스트레스 자극·단기 평가가 사람과 다르며, 사람의 면역·스트레스 완화 효능으로 일반화할 수 없다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/23384353/",
+      "doiUrl": "https://doi.org/10.1111/j.1740-0929.2012.01051.x",
+      "extraction": "초록 기반",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 23384353 초록에서 병아리의 GABA 보충과 체중·면역 결과를 확인했다. 연구의 의미: 급성 스트레스 상황에서 경구 GABA의 면역·내분비 지표 변화를 탐색한 전임상 자료다. 기대 행동: 가금류 전임상 참고자료로만 사용하고 사람의 불안·스트레스·면역 개선 광고에 직접 사용하지 않는다.",
+      "species": "병아리·닭",
+      "topic": "급성 스트레스·면역·동물영양",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "스트레스·불안"
     },
     {
       "id": "A-2025-096",
