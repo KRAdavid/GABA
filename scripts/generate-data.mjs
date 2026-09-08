@@ -6,6 +6,7 @@ const gabaRoot = resolve(siteRoot, "..");
 const outputsRoot = resolve(gabaRoot, "outputs");
 const regulatoryPath = resolve(siteRoot, "worker", "regulatory-data.json");
 const curatedPath = resolve(siteRoot, "worker", "curated-records.json");
+const annotationsPath = resolve(siteRoot, "worker", "record-annotations.json");
 
 async function findNamedFiles(dir, fileName) {
   const found = [];
@@ -29,6 +30,12 @@ try {
   curated = JSON.parse(await readFile(curatedPath, "utf8"));
 } catch {
   curated = { records: [] };
+}
+let annotations = {};
+try {
+  annotations = JSON.parse(await readFile(annotationsPath, "utf8"));
+} catch {
+  annotations = {};
 }
 const previousDataPath = resolve(siteRoot, "worker", "data.json");
 let previousData = null;
@@ -141,7 +148,7 @@ const sheetLiteratureRecords = indexWrite.rows.map((row) => {
     extraction: clean(cells[29]),
     added: dateFromSerial(cells[30]),
     checked: dateFromSerial(cells[31]),
-    notes: clean(cells[33]),
+    notes: clean(annotations[clean(cells[0])] || cells[33]),
     species: clean(cells[34]) || "기타",
     topic: clean(cells[35]) || "기타",
     hasDrivePdf,
