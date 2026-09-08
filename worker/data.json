@@ -10,23 +10,23 @@
     "regulatory": 8,
     "clinical": 82,
     "animal": 158,
-    "scie": 158,
-    "complete": 145,
-    "partial": 104,
+    "scie": 157,
+    "complete": 146,
+    "partial": 103,
     "drivePdf": 76,
     "included": 149,
     "candidate": 91,
     "excluded": 9,
-    "safetyCategory": 169,
-    "effectCategory": 165,
+    "safetyCategory": 168,
+    "effectCategory": 164,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 231,
-      "literatureWithPmid": 227,
-      "extractionComplete": 145,
-      "extractionPartial": 104
+      "literatureWithDoi": 230,
+      "literatureWithPmid": 226,
+      "extractionComplete": 146,
+      "extractionPartial": 103
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 83
+        "value": 82
       },
       {
         "label": "축산",
@@ -78,7 +78,7 @@
       },
       {
         "label": "기타",
-        "value": 5
+        "value": 6
       },
       {
         "label": "반려·기타동물",
@@ -112,7 +112,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 50
+        "value": 49
       },
       {
         "label": "심혈관·혈압",
@@ -136,7 +136,7 @@
       },
       {
         "label": "기타",
-        "value": 6
+        "value": 7
       },
       {
         "label": "신경·행동·스트레스",
@@ -308,7 +308,7 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 158
+        "value": 157
       },
       {
         "label": "현행 미확인",
@@ -321,22 +321,26 @@
       {
         "label": "해당 없음",
         "value": 6
+      },
+      {
+        "label": "기타",
+        "value": 1
       }
     ],
     "extraction": [
       {
         "label": "완료",
-        "value": 145
+        "value": 146
       },
       {
         "label": "부분",
-        "value": 104
+        "value": 103
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 152
+        "value": 151
       },
       {
         "label": "혼재",
@@ -365,6 +369,10 @@
       {
         "label": "중립",
         "value": 2
+      },
+      {
+        "label": "기타",
+        "value": 1
       },
       {
         "label": "불리",
@@ -416,21 +424,21 @@
     "category": [
       {
         "label": "안전성",
-        "value": 169
+        "value": 168
       },
       {
         "label": "연구 근거",
-        "value": 88
+        "value": 89
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 92
+        "value": 93
       },
       {
         "label": "수면",
-        "value": 49
+        "value": 48
       },
       {
         "label": "다이어트",
@@ -10843,6 +10851,25 @@
       "effectCategory": "스트레스"
     },
     {
+      "id": "H-2024-040",
+      "status": "포함",
+      "kind": "임상",
+      "year": 2024,
+      "title": "Effects of a combination of Poria Cocos, Ziziphus spinose, and gamma-aminobutyric acid (GABA) on sleep quality and skin health: A randomized double-blind placebo-controlled clinical trial",
+      "n": "70명 무작위 배정(분석 60명; 각 군 30명)",
+      "dose": "GABA 100 mg/10 mL, 1일 1회; 복령·산조인 추출물 포함",
+      "duration": "4주(28일)",
+      "extraction": "완료",
+      "checked": "2026-09-08",
+      "limitation": "GABA 단독이 아닌 복령·산조인과의 복합제이며 GABA의 독립 효과를 분리할 수 없다. 건강한 중국 여성 25–55세의 소규모 4주 시험이고, 제품 제공 회사 소속 저자가 포함되어 일반 소비자·장기효과로 일반화할 수 없다.",
+      "notes": "PMID 38873452·PMCID PMC11167191의 PMC 원문을 재확인해 GABA 100 mg/10 mL와 분석표본 60명을 보강. 연구의 의미: GABA와 두 한약 추출물을 함께 섭취한 수면장애 여성에서 4주 동안 수면시간·PSQI와 일부 피부 지표가 위약보다 개선된 복합제 연구다. 기대 행동: 복합제의 조건부 수면·피부 탐색 근거로만 활용하고 GABA 단독효과나 불면증·피부질환 치료로 광고하지 않으며, 실제 제품의 조성·용량·대상 일치성을 확인한다.",
+      "category": "연구 근거",
+      "effectCategory": "기타",
+      "species": "기타",
+      "topic": "기타",
+      "linkType": "링크 없음"
+    },
+    {
       "id": "H-2025-052",
       "status": "후보",
       "kind": "고찰",
@@ -11055,49 +11082,6 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
-    },
-    {
-      "id": "H-2024-040",
-      "status": "포함",
-      "kind": "임상",
-      "design": "무작위 이중눈가림 위약대조 시험",
-      "year": 2024,
-      "title": "Effects of a combination of Poria Cocos, Ziziphus spinose, and gamma-aminobutyric acid (GABA) on sleep quality and skin health: A randomized double-blind placebo-controlled clinical trial",
-      "author": "Hao, Song, Qu",
-      "journal": "Food Science & Nutrition",
-      "doi": "10.1002/fsn3.4048",
-      "pmid": "38873452",
-      "population": "수면장애 성인 70명",
-      "n": "70명 무작위 배정",
-      "model": "수면장애 및 피부 상태",
-      "form": "복령(Poria cocos)+산조인(Ziziphus spinosa)+GABA 복합 액상 보충제",
-      "dose": "복합제 10 mL/day; GABA 개별 함량은 초록상 미기재",
-      "route": "경구",
-      "duration": "4주",
-      "comparator": "위약",
-      "domain": "신경·행동·수면/피부",
-      "outcome": "액티그래피 총수면시간, PSQI, 피부 수분·광채·탄력·주름·거칠기",
-      "direction": "유익",
-      "finding": "4주 후 복합제군은 위약 대비 총수면시간과 PSQI가 더 개선됐고, 피부 수분·주름·거칠기 등도 개선됐다. 초록상 이상반응은 보고되지 않았다.",
-      "safety": "초록상 이상반응 없이 내약성 양호로 보고",
-      "limitation": "GABA 단독이 아닌 복령·산조인과의 복합제이며 GABA 용량이 확인되지 않아 효과를 GABA에 귀속할 수 없다. 70명·4주 단기시험이고 제조·관련 회사 소속 저자가 포함되어 장기효과와 일반화에 제한이 있다.",
-      "pubmedStatus": "PubMed 등재",
-      "sciStatus": "SCIE 확인",
-      "sciGroup": "SCIE",
-      "sciChecked": "2026-09-08",
-      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38873452/",
-      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11167191/",
-      "doiUrl": "https://doi.org/10.1002/fsn3.4048",
-      "extraction": "부분",
-      "added": "2026-09-08",
-      "checked": "2026-09-08",
-      "notes": "PubMed·PMC 초록/서지정보 확인. 수면·피부 복합제 근거로 관리하며 GABA 단독효능 또는 단일 성분 인과로 확장하지 않음. 연구의 의미: 임상에서 4주 후 복합제군은 위약 대비 총수면시간과 PSQI가 더 개선됐고, 피부 수분·주름·거칠기 등도 개선됐다. 초록상 이상반응은 보고되지 않았다. 기대 행동: 인체 근거로 검토하되 대상·용량·기간·대조군과 제품 조건의 일치 여부를 확인한 뒤 제한적으로 활용한다.",
-      "species": "인체",
-      "topic": "신경·행동·수면",
-      "hasDrivePdf": false,
-      "linkType": "원문·DOI",
-      "category": "안전성",
       "effectCategory": "수면"
     },
     {
