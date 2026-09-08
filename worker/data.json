@@ -208,7 +208,7 @@
       },
       {
         "label": "장기·독성·안전성",
-        "value": 10
+        "value": 9
       },
       {
         "label": "기타",
@@ -280,6 +280,10 @@
       },
       {
         "label": "내분비·대사·제1형 당뇨병",
+        "value": 1
+      },
+      {
+        "label": "당뇨·안전성",
         "value": 1
       },
       {
@@ -731,6 +735,10 @@
         "value": 1
       },
       {
+        "label": "무효·안전성 주의",
+        "value": 1
+      },
+      {
         "label": "배경·한계",
         "value": 1
       },
@@ -867,10 +875,6 @@
         "value": 1
       },
       {
-        "label": "효능 부재·안전성 신호",
-        "value": 1
-      },
-      {
         "label": "GABA 생성 균주와 장 장벽·미생물 조절 가능성을 시사하지만 인체 효능은 입증하지 않음",
         "value": 1
       },
@@ -966,7 +970,7 @@
       },
       {
         "label": "당뇨",
-        "value": 22
+        "value": 23
       },
       {
         "label": "스트레스",
@@ -994,7 +998,7 @@
       },
       {
         "label": "안전성",
-        "value": 6
+        "value": 5
       },
       {
         "label": "대사",
@@ -2773,47 +2777,49 @@
       "effectCategory": "고혈압"
     },
     {
-      "id": "H-2025-019",
+      "id": "H-2025-180",
       "status": "포함",
       "kind": "임상",
-      "design": "무작위 임상시험; GABA 3개 군과 병용군",
+      "design": "무작위 3군 1상·2상 임상시험",
       "year": 2025,
       "title": "Long-term gamma-aminobutyric acid (GABA) treatment fails to regain beta-cell function in longstanding type 1 diabetes in a randomized trial",
-      "author": "Lindberg et al.",
-      "journal": "Diabetologia",
-      "doi": "10.1007/s00125-025-06407-7",
+      "author": "Hill et al.",
+      "journal": "Scientific Reports",
+      "doi": "10.1038/s41598-025-95751-y",
       "pmid": "40185824",
-      "population": "장기간 제1형 당뇨병을 가진 성인 남성",
-      "n": "35명",
-      "model": "췌장 β세포 기능·저혈당 대응",
+      "population": "장기간 제1형 당뇨병 성인 남성",
+      "n": "35명 무작위; 효능 분석 33명",
+      "model": "베타세포 기능·저혈당 대응·안전성",
       "form": "서방형 경구 GABA(Remygen)",
-      "dose": "GABA 200 mg/day 또는 600 mg/day; 일부 GABA 600 mg+alprazolam 0.5 mg 병용",
+      "dose": "GABA 200 mg 또는 600 mg/day; 일부 3개월 alprazolam 병용",
       "route": "경구",
-      "duration": "6개월; 병용군 alprazolam은 처음 3개월",
-      "comparator": "무작위 치료군 비교",
-      "domain": "대사·당뇨·장기 안전성",
-      "outcome": "C-peptide·CGM·HbA1c·저혈당 호르몬 대응·이상반응",
-      "direction": "효능 부재·안전성 신호",
-      "finding": "6개월 치료 후 공복·자극 C-peptide, CGM 지표, HbA1c 또는 저혈당 시 호르몬 대응에서 β세포 재생 효과가 관찰되지 않았다.",
-      "safety": "AST 상승이 9명에서 발생했고 2명은 중단했다. 대부분은 일시적이었으나 이상반응이 흔하게 관찰됐다.",
-      "limitation": "장기간 제1형 당뇨병 남성 35명 대상이며 무위약·소표본이고 alprazolam 병용군이 포함됐다. 일반 건강인용 GABA 제품의 효과·안전성으로 직접 일반화할 수 없다.",
-      "pubmedStatus": "PubMed 등재",
+      "duration": "6개월",
+      "comparator": "무위약 3군·기저치 비교",
+      "domain": "당뇨·안전성",
+      "outcome": "C-peptide, HbA1c, CGM, 저혈당 호르몬, AST/ALT",
+      "direction": "무효·안전성 주의",
+      "finding": "6개월 치료 후 fasting·stimulated C-peptide, HbA1c, CGM 지표 및 저혈당 대응 호르몬에서 베타세포 재생 효과가 관찰되지 않았다. AST 상승은 9명에서 보고됐고 2명은 치료를 중단했다.",
+      "safety": "AST/ALT 상승, 위장관 증상 및 피로가 보고됨; 2명은 간 transaminase 상승으로 중단",
+      "limitation": "질환 치료 목적의 서방형 제제 연구로 일반 식이 GABA 보충제에 직접 일반화할 수 없고, 위약군 부재·소표본·남성만 포함됐다.",
+      "pubmedStatus": "PubMed·PMC 등재",
       "sciStatus": "SCIE 확인 필요",
       "sciGroup": "현행 미확인",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40185824/",
-      "fulltextUrl": "",
-      "doiUrl": "https://doi.org/10.1007/s00125-025-06407-7",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11971400/",
+      "doiUrl": "https://doi.org/10.1038/s41598-025-95751-y",
       "extraction": "완료",
       "added": "2026-09-08",
       "checked": "2026-09-08",
-      "notes": "직접 경구 GABA를 6개월 사용한 임상 자료다. 연구의 의미: 장기 복용의 효능 부재와 간기능 관련 안전성 신호를 동시에 보여 주어, 단기 스트레스 연구 결과를 장기 질환 개선 주장으로 확대할 수 없음을 분명히 한다. 기대 행동: 장기·고용량·질환 대상 마케팅에는 사용하지 말고, AST 상승과 2명 중단 사례를 안전성 검토에 반영한다. 대상 질환, 남성 표본, 무위약 설계, 병용군을 함께 표시한다.",
+      "notes": "PMID 40185824·PMCID PMC11971400 및 원문 결론을 확인. 연구의 의미: 동물·초기 연구의 당뇨 기대를 장기 인체시험에서 검증한 결과, GABA의 베타세포 재생·혈당 개선 주장을 지지하지 않는 중요한 반증 자료다. 기대 행동: 당뇨·혈당·췌장 재생 마케팅에 사용하지 말고, 간효소 상승과 위약군 부재를 안전성 검토에 반영한다.",
       "species": "인체",
-      "topic": "장기·독성·안전성",
+      "topic": "당뇨·안전성",
       "hasDrivePdf": false,
-      "linkType": "PubMed·DOI",
+      "linkType": "PMC 원문·PubMed·DOI·ClinicalTrials.gov",
       "category": "안전성",
-      "effectCategory": "안전성"
+      "effectCategory": "당뇨",
+      "pmcid": "PMC11971400",
+      "clinicalTrialId": "NCT03635437"
     },
     {
       "id": "H-2025-115",
