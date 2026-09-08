@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 364,
-    "literature": 356,
+    "total": 366,
+    "literature": 358,
     "regulatory": 8,
     "clinical": 109,
-    "animal": 186,
+    "animal": 188,
     "scie": 143,
-    "complete": 185,
-    "partial": 104,
+    "complete": 186,
+    "partial": 105,
     "drivePdf": 73,
     "included": 198,
-    "candidate": 142,
+    "candidate": 144,
     "excluded": 16,
     "safetyCategory": 163,
-    "effectCategory": 265,
+    "effectCategory": 266,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 330,
-      "literatureWithPmid": 305,
-      "extractionComplete": 185,
-      "extractionPartial": 104
+      "literatureWithDoi": 332,
+      "literatureWithPmid": 307,
+      "extractionComplete": 186,
+      "extractionPartial": 105
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -58,7 +58,7 @@
     "species": [
       {
         "label": "설치류",
-        "value": 106
+        "value": 108
       },
       {
         "label": "인체",
@@ -391,6 +391,10 @@
         "value": 8
       },
       {
+        "label": "대사·혈당",
+        "value": 3
+      },
+      {
         "label": "수면·불면",
         "value": 3
       },
@@ -409,10 +413,6 @@
       {
         "label": "GABA 생산·기능성 식품",
         "value": 3
-      },
-      {
-        "label": "대사·혈당",
-        "value": 2
       },
       {
         "label": "성장호르몬·내분비",
@@ -488,6 +488,10 @@
       },
       {
         "label": "내분비·대사·제1형 당뇨병",
+        "value": 1
+      },
+      {
+        "label": "내분비·산화스트레스",
         "value": 1
       },
       {
@@ -934,7 +938,7 @@
       },
       {
         "label": "후보",
-        "value": 142
+        "value": 144
       },
       {
         "label": "제외",
@@ -967,6 +971,10 @@
         "value": 7
       },
       {
+        "label": "미확인",
+        "value": 4
+      },
+      {
         "label": "해당없음",
         "value": 4
       },
@@ -983,10 +991,6 @@
         "value": 2
       },
       {
-        "label": "미확인",
-        "value": 2
-      },
-      {
         "label": "기타",
         "value": 1
       },
@@ -998,11 +1002,11 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 185
+        "value": 186
       },
       {
         "label": "부분",
-        "value": 104
+        "value": 105
       },
       {
         "label": "완전",
@@ -1087,6 +1091,10 @@
         "value": 4
       },
       {
+        "label": "개선",
+        "value": 3
+      },
+      {
         "label": "전임상 기전; 인체 효능 아님",
         "value": 3
       },
@@ -1097,10 +1105,6 @@
       {
         "label": "철회됨; 마케팅 사용 금지",
         "value": 3
-      },
-      {
-        "label": "개선",
-        "value": 2
       },
       {
         "label": "원료·공정개발 가능성; 인체 효능 아님",
@@ -1184,6 +1188,10 @@
       },
       {
         "label": "기전·제품개발 후보; 임상 효능 아님",
+        "value": 1
+      },
+      {
+        "label": "기전상 개선",
         "value": 1
       },
       {
@@ -1531,15 +1539,15 @@
         "value": 6
       },
       {
+        "label": "효능",
+        "value": 4
+      },
+      {
         "label": "약물·경계 근거",
         "value": 2
       },
       {
         "label": "임상 근거",
-        "value": 2
-      },
-      {
-        "label": "효능",
         "value": 2
       },
       {
@@ -1550,7 +1558,7 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 99
+        "value": 100
       },
       {
         "label": "수면",
@@ -1597,16 +1605,16 @@
         "value": 8
       },
       {
+        "label": "대사",
+        "value": 4
+      },
+      {
         "label": "인지·집중",
         "value": 4
       },
       {
         "label": "프로바이오틱·GABA",
         "value": 4
-      },
-      {
-        "label": "대사",
-        "value": 3
       },
       {
         "label": "열스트레스",
@@ -16970,6 +16978,92 @@
       "linkType": "PubMed·J-STAGE PDF·DOI",
       "category": "효능",
       "effectCategory": "대사"
+    },
+    {
+      "id": "A-2020-255",
+      "status": "후보",
+      "kind": "동물",
+      "design": "STZ 유발 당뇨 마우스 및 유전자 결손 비교시험",
+      "year": 2020,
+      "title": "GABA requires GLP-1R to exert its pancreatic function during STZ challenge.",
+      "author": "Shao et al.",
+      "journal": "Journal of Endocrinology",
+      "doi": "10.1530/JOE-20-0109",
+      "pmid": "32544878",
+      "population": "야생형·GLP-1R 결손 마우스",
+      "n": "미상",
+      "model": "STZ 유발 당뇨",
+      "form": "GABA 단독",
+      "dose": "본문 용량 확인 필요",
+      "route": "경구투여",
+      "duration": "STZ challenge 후 관찰",
+      "comparator": "대조군·GLP-1R 결손군",
+      "domain": "췌장 β세포·GLP-1R 신호",
+      "outcome": "β세포량·TxNIP·cAMP·β-catenin·당뇨 지표",
+      "direction": "기전상 개선",
+      "finding": "STZ 처리 야생형 마우스에서 경구 GABA는 일부 당뇨 관련 지표와 β세포량 개선과 연관됐으나, GLP-1R 결손에서는 이러한 효과가 거의 나타나지 않았다.",
+      "safety": "동물 질환모델·기전 연구로 일반 소비자 안전성 평가 아님",
+      "limitation": "인체 임상 근거가 아니며, 경구 용량·표본 등 전문 원문 확인이 추가로 필요",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32544878/",
+      "fulltextUrl": "https://doi.org/10.1530/JOE-20-0109",
+      "doiUrl": "https://doi.org/10.1530/JOE-20-0109",
+      "extraction": "부분",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 초록에서 경구 투여와 결과를 확인했으나 공개 전문 부재로 정확한 용량·표본은 보강 큐에 남겼다. 연구의 의미: 외인성 GABA의 췌장 효과가 GLP-1R 신호와 연결될 가능성을 제시한다. 기대 행동: 혈당·당뇨 치료 문구로 사용하지 말고, 기전 탐색 및 후속 인체시험 필요성을 설명하는 자료로만 활용한다.",
+      "species": "설치류",
+      "topic": "대사·혈당",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "효능",
+      "effectCategory": "대사"
+    },
+    {
+      "id": "A-2019-256",
+      "status": "후보",
+      "kind": "동물",
+      "design": "불소 노출 질환모델 용량반응 경구시험",
+      "year": 2019,
+      "title": "Analysis of the protective effects of γ-aminobutyric acid during fluoride-induced hypothyroidism in male Kunming mice.",
+      "author": "Yang et al.",
+      "journal": "Pharmaceutical Biology",
+      "doi": "10.1080/13880209.2018.1563621",
+      "pmid": "30676163",
+      "population": "수컷 Kunming 마우스",
+      "n": "90마리(주요 비교군 각 10마리)",
+      "model": "NaF 유발 갑상선 기능저하",
+      "form": "순수 GABA 및 실험 분리 GABA",
+      "dose": "50, 75, 100 mg/kg/day",
+      "route": "경구투여",
+      "duration": "GABA 14일; NaF 모델 30일",
+      "comparator": "물 대조·갑상선제 대조",
+      "domain": "갑상선·산화스트레스·간·심근",
+      "outcome": "T3·T4·TG·TPO·NIS·redox 지표·조직 변화",
+      "direction": "개선",
+      "finding": "불소 노출 마우스에서 순수 GABA와 분리 GABA는 갑상선 관련 유전자·호르몬 지표와 산화환원 상태를 개선했고, 간 대사 및 심근 형태 변화도 완화했다.",
+      "safety": "14일 동물시험의 제한적 이상반응 관찰로 사람 안전성 확립 아님",
+      "limitation": "불소 독성으로 유발한 특정 질환모델, 수컷 단일 계통, 사람 갑상선 질환으로 외삽 불가",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/30676163/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6346718/",
+      "doiUrl": "https://doi.org/10.1080/13880209.2018.1563621",
+      "extraction": "완료",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 초록과 PMC 공개 전문의 투여조건을 대조했다. 연구의 의미: 직접 경구 GABA의 내분비·산화스트레스 관련 동물 신호를 보여주지만, 원인 질환이 불소 독성 모델이다. 기대 행동: 갑상선 질환 개선·치료 광고에 사용하지 말고, 질환 특이적 동물 탐색근거로만 제시한다.",
+      "species": "설치류",
+      "topic": "내분비·산화스트레스",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·PMC·DOI",
+      "category": "효능",
+      "effectCategory": "기타"
     },
     {
       "id": "A-2025-096",
