@@ -5,27 +5,27 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 220,
-    "literature": 212,
+    "total": 221,
+    "literature": 213,
     "regulatory": 8,
-    "clinical": 57,
+    "clinical": 58,
     "animal": 153,
     "scie": 165,
-    "complete": 128,
+    "complete": 129,
     "partial": 84,
     "drivePdf": 77,
     "included": 140,
-    "candidate": 63,
+    "candidate": 64,
     "excluded": 9,
     "safetyCategory": 171,
-    "effectCategory": 141,
+    "effectCategory": 142,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 206,
       "literatureWithPmid": 206,
-      "extractionComplete": 128,
+      "extractionComplete": 129,
       "extractionPartial": 84
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 58
+        "value": 59
       },
       {
         "label": "축산",
@@ -100,7 +100,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 47
+        "value": 48
       },
       {
         "label": "심혈관·혈압",
@@ -190,7 +190,7 @@
       },
       {
         "label": "후보",
-        "value": 63
+        "value": 64
       },
       {
         "label": "제외",
@@ -213,12 +213,16 @@
       {
         "label": "ESCI",
         "value": 8
+      },
+      {
+        "label": "해당 없음",
+        "value": 1
       }
     ],
     "extraction": [
       {
         "label": "완료",
-        "value": 128
+        "value": 129
       },
       {
         "label": "부분",
@@ -249,6 +253,10 @@
       {
         "label": "혼합",
         "value": 2
+      },
+      {
+        "label": "미확인",
+        "value": 1
       },
       {
         "label": "불리",
@@ -308,7 +316,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 49
+        "value": 50
       }
     ],
     "effectCategory": [
@@ -346,7 +354,7 @@
       },
       {
         "label": "스트레스",
-        "value": 1
+        "value": 2
       },
       {
         "label": "인지",
@@ -9083,6 +9091,49 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "당뇨"
+    },
+    {
+      "id": "H-2026-055",
+      "status": "후보",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행군 등록시험(결과 미공개)",
+      "year": 2026,
+      "title": "Impact of Pre-exam GABA Administration on Stress and Psychophysiological Conditions: A Parallel-Group Comparison Trial",
+      "author": "Wakui et al.",
+      "journal": "UMIN-ICDS 등록시험",
+      "doi": "",
+      "pmid": "",
+      "population": "건강한 성인 남녀, 18–28세",
+      "n": "목표 36명",
+      "model": "시험 전 스트레스·심리생리 상태",
+      "form": "GABA 캡슐",
+      "dose": "500 mg 1회, 기상 직후",
+      "route": "경구",
+      "duration": "단회 시험; 최종 추적 2026-02-22로 등록됨",
+      "comparator": "감자전분 위약",
+      "domain": "스트레스·불안·수면",
+      "outcome": "STAI, PSQI, 스마트워치 수면비율, WHO-5, 타액 alpha-amylase, 주관적 집중도",
+      "direction": "미확인",
+      "finding": "UMIN 등록상 GABA 500 mg 단회 투여가 시험 전 불안·수면·스트레스에 미치는 효과를 평가하도록 설계됐으나, 결과·참가자 수·이상반응 결과는 공개되지 않았다.",
+      "safety": "등록시험 결과가 미공개이므로 안전성 판단 불가",
+      "limitation": "등록시험 계획만 확인됐고 결과 논문·결과표·분석자료가 공개되지 않았다. 효능 또는 안전성 근거로 인용하지 않고 결과 발표 여부를 추적해야 한다.",
+      "pubmedStatus": "PubMed 미등재·결과 미공개",
+      "sciStatus": "해당 없음(등록시험)",
+      "sciGroup": "해당 없음",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://center6.umin.ac.jp/cgi-open-bin/icdr_e/ctr_view.cgi?recptno=R000068507",
+      "fulltextUrl": "https://center6.umin.ac.jp/cgi-open-bin/icdr_e/ctr_view.cgi?recptno=R000068507",
+      "doiUrl": "",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "UMIN000059902 등록정보 확인. 최종 추적일은 2026-02-22이나 결과 공개란은 미기재. 연구의 의미: 500 mg 단회 경구 GABA의 시험 전 스트레스·불안·수면 평가를 계획한 최신 등록시험으로, 향후 결과 논문 누락을 감시할 기준점이다. 기대 행동: 등록시험을 효능 근거로 사용하지 말고 결과 공개·논문 출판 여부를 매일 자동 추적한다.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "UMIN 등록정보",
+      "category": "연구 근거",
+      "effectCategory": "스트레스"
     },
     {
       "id": "H-2025-052",
