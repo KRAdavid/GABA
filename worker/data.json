@@ -10,22 +10,22 @@
     "regulatory": 8,
     "clinical": 109,
     "animal": 193,
-    "scie": 141,
-    "complete": 191,
+    "scie": 140,
+    "complete": 190,
     "partial": 106,
-    "drivePdf": 73,
-    "included": 196,
-    "candidate": 151,
+    "drivePdf": 72,
+    "included": 195,
+    "candidate": 152,
     "excluded": 16,
-    "safetyCategory": 161,
-    "effectCategory": 271,
+    "safetyCategory": 160,
+    "effectCategory": 272,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
       "literatureWithDoi": 336,
       "literatureWithPmid": 312,
-      "extractionComplete": 191,
+      "extractionComplete": 190,
       "extractionPartial": 106
     },
     "discovery": {
@@ -371,12 +371,12 @@
         "value": 22
       },
       {
-        "label": "면역·염증·항산화",
+        "label": "심혈관·혈압",
         "value": 22
       },
       {
-        "label": "심혈관·혈압",
-        "value": 22
+        "label": "면역·염증·항산화",
+        "value": 21
       },
       {
         "label": "소화·장건강",
@@ -711,6 +711,10 @@
         "value": 1
       },
       {
+        "label": "장·염증·통증",
+        "value": 1
+      },
+      {
         "label": "장건강·ferroptosis·GABA",
         "value": 1
       },
@@ -950,11 +954,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 196
+        "value": 195
       },
       {
         "label": "후보",
-        "value": 151
+        "value": 152
       },
       {
         "label": "제외",
@@ -968,7 +972,7 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 141
+        "value": 140
       },
       {
         "label": "현행 미확인",
@@ -980,7 +984,7 @@
       },
       {
         "label": "미확인",
-        "value": 11
+        "value": 12
       },
       {
         "label": "해당 없음",
@@ -1018,7 +1022,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 191
+        "value": 190
       },
       {
         "label": "부분",
@@ -1030,7 +1034,7 @@
       },
       {
         "label": "초록 기반",
-        "value": 14
+        "value": 15
       },
       {
         "label": "초록검토",
@@ -1064,7 +1068,7 @@
     "direction": [
       {
         "label": "유익",
-        "value": 140
+        "value": 139
       },
       {
         "label": "혼재",
@@ -1072,7 +1076,7 @@
       },
       {
         "label": "개선",
-        "value": 9
+        "value": 10
       },
       {
         "label": "무효",
@@ -1544,11 +1548,11 @@
       },
       {
         "label": "안전성",
-        "value": 161
+        "value": 160
       },
       {
         "label": "효능",
-        "value": 11
+        "value": 12
       },
       {
         "label": "동물시험",
@@ -1574,7 +1578,7 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 100
+        "value": 99
       },
       {
         "label": "수면",
@@ -1750,6 +1754,10 @@
       },
       {
         "label": "운동·체성분",
+        "value": 1
+      },
+      {
+        "label": "장 건강·염증",
         "value": 1
       },
       {
@@ -8167,47 +8175,47 @@
       "effectCategory": "당뇨"
     },
     {
-      "id": "A-2024-123",
-      "status": "포함",
+      "id": "A-2024-269",
+      "status": "후보",
       "kind": "동물",
-      "design": "2×2 무작위 colitis 시험",
+      "design": "DSS 유발 대장염 마우스 모델·경구 GABA 투여시험",
       "year": 2024,
-      "title": "Experimental colitis-induced visceral hypersensitivity is attenuated by GABA treatment in mice.",
-      "author": "Gold and Loeza-Alcocer",
+      "title": "Experimental colitis-induced visceral hypersensitivity is attenuated by GABA treatment in mice",
+      "author": "Gold, Loeza-Alcocer",
       "journal": "American Journal of Physiology-Gastrointestinal and Liver Physiology",
       "doi": "10.1152/ajpgi.00012.2023",
       "pmid": "38193198",
-      "population": "7주령 수컷 C57BL/6 mice",
-      "n": "48마리(4군×12; 지표별 n=4–8)",
-      "model": "3% DSS 유도 colitis",
-      "form": "순수 GABA",
-      "dose": "40 mg/kg/day",
-      "route": "위관 경구",
-      "duration": "7일+1일 회복",
-      "comparator": "물/식염수·DSS/식염수·물/GABA·DSS/GABA",
-      "domain": "위장관/염증/통증",
-      "outcome": "DAI·장길이·투과성·조직점수·cytokine·visceral sensitivity",
-      "direction": "유익",
-      "finding": "GABA는 DSS colitis의 질환중증도·조직손상·투과성·염증성 cytokine과 내장과민을 완화하고 IL-10을 높였다.",
-      "safety": "별도 독성평가는 없고 7일 단기 질환모델",
-      "limitation": "DSS 표현형 때문에 완전 눈가림이 불가능했고 지표별로 하위 코호트를 사용했으며 경구 GABA가 결장에 도달했다는 직접 약동학 증거는 없음",
+      "population": "DSS로 대장염을 유도한 마우스",
+      "n": "주요 비교군 n=8; 일부 조직·GABA 분석 n=4~6",
+      "model": "3% DSS 식수로 유발한 염증성 대장염 및 내장과민성 모델",
+      "form": "GABA 순수물질",
+      "dose": "40 mg/kg",
+      "route": "경구",
+      "duration": "7일",
+      "comparator": "DSS 대조 및 비DSS 대조",
+      "domain": "장·염증·내장과민성",
+      "outcome": "장 투과성, 질병활성도, 조직학적 점수, 체중·결장 길이, 내장통증, 염증성 사이토카인",
+      "direction": "개선",
+      "finding": "GABA 40 mg/kg 경구 투여는 DSS 대장염 마우스에서 장 투과성 증가, 질병활성도, 조직학적 손상, 체중·결장 길이 변화 및 내장과민성을 완화했다. TNF-α·IFN-γ·IL-12 증가는 억제하고 IL-10 발현은 높였다.",
+      "safety": "초록상 중대한 안전성 신호는 제시되지 않았으나, 7일 동물시험은 사람 안전성 자료가 아니다.",
+      "limitation": "마우스 대장염 모델이며 사람의 IBS·염증성 장질환 치료효과를 입증하지 않는다. 표본이 작고 40 mg/kg은 사람 섭취량으로 직접 환산할 수 없으며, 임상 번역과 장기 안전성은 미확인이다.",
       "pubmedStatus": "PubMed 등재",
-      "sciStatus": "SCIE 확인",
-      "sciGroup": "SCIE",
-      "sciChecked": "2026-07-27",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38193198/",
-      "fulltextUrl": "https://drive.google.com/file/d/1sCqo1zZbPHVg5QBXHWsaNgeJMerVLujD/view?usp=drivesdk",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11211035/",
       "doiUrl": "https://doi.org/10.1152/ajpgi.00012.2023",
-      "extraction": "완료",
-      "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "IACUC 20087706; Pfizer grant 59547553 및 NIH R01DK124955 지원, Pfizer는 설계·분석·출판에 관여하지 않았다고 진술; 이해상충 없음. 연구의 의미: 동물에서 GABA는 DSS colitis의 질환중증도·조직손상·투과성·염증성 cytokine과 내장과민을 완화하고 IL-10을 높였다. 기대 행동: 전임상·기전 근거로만 활용하고 사람의 효능·용량·안전성으로 직접 일반화하지 않는다.",
+      "extraction": "초록 기반",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 초록과 PMC 전문 그림 설명에서 순수 GABA 40 mg/kg, 7일 경구 투여, 주요 비교군 n=8 및 일부 분석 n=4~6, 장·염증·내장과민성 결과를 확인했다. 연구의 의미: 직접 섭취한 GABA가 장 염증과 통증 민감도에 미치는 전임상 가능성을 보여주지만, 사람 질환 치료 근거는 아니다. 기대 행동: 장 건강·복부 불편감 마케팅에는 ‘마우스 대장염 모델에서 관찰된 전임상 결과’로만 사용하고, IBS·염증성 장질환 치료 또는 사람의 장 투과성 개선으로 확대하지 않는다. 저자들은 이해상충이 없다고 보고했다.",
       "species": "설치류",
-      "topic": "면역·염증·항산화",
-      "hasDrivePdf": true,
-      "linkType": "Drive PDF",
-      "category": "안전성",
-      "effectCategory": "기타"
+      "topic": "장·염증·통증",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "효능",
+      "effectCategory": "장 건강·염증"
     },
     {
       "id": "A-2024-124",
