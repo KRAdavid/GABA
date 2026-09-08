@@ -14,8 +14,8 @@
     "complete": 180,
     "partial": 87,
     "drivePdf": 75,
-    "included": 187,
-    "candidate": 73,
+    "included": 188,
+    "candidate": 72,
     "excluded": 11,
     "safetyCategory": 157,
     "effectCategory": 180,
@@ -370,11 +370,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 187
+        "value": 188
       },
       {
         "label": "후보",
-        "value": 73
+        "value": 72
       },
       {
         "label": "제외",
@@ -11049,7 +11049,7 @@
     },
     {
       "id": "H-2026-163",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "건강인 단면 관찰연구·2차 데이터 분석",
       "year": 2026,
