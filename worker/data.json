@@ -18,7 +18,7 @@
     "candidate": 93,
     "excluded": 9,
     "safetyCategory": 168,
-    "effectCategory": 165,
+    "effectCategory": 164,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 83
+        "value": 82
       },
       {
         "label": "축산",
@@ -78,7 +78,7 @@
       },
       {
         "label": "기타",
-        "value": 6
+        "value": 7
       },
       {
         "label": "반려·기타동물",
@@ -108,7 +108,7 @@
     "topic": [
       {
         "label": "성장·생산·육질",
-        "value": 51
+        "value": 50
       },
       {
         "label": "신경·행동·수면",
@@ -131,12 +131,12 @@
         "value": 15
       },
       {
-        "label": "장기·독성·안전성",
+        "label": "기타",
         "value": 8
       },
       {
-        "label": "기타",
-        "value": 7
+        "label": "장기·독성·안전성",
+        "value": 8
       },
       {
         "label": "신경·행동·스트레스",
@@ -446,7 +446,7 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 94
+        "value": 95
       },
       {
         "label": "수면",
@@ -470,7 +470,7 @@
       },
       {
         "label": "근육발달",
-        "value": 11
+        "value": 10
       },
       {
         "label": "성장호르몬",
@@ -1628,20 +1628,20 @@
       "journal": "Journal of Clinical Medicine Research",
       "doi": "10.14740/jocmr3817",
       "pmid": "31143310",
-      "population": "남성",
-      "n": "21명",
+      "population": "규칙적 운동을 하지 않는 건강한 일본 남성 26–48세",
+      "n": "26명 무작위 배정, 21명 완료·분석(유청 10명, 유청+GABA 11명)",
       "model": "26–48세 건강 남성, 저항훈련",
       "form": "GABA+유청단백",
-      "dose": "GABA 100 mg + 유청 10 g/day",
+      "dose": "GABA 100 mg + 유청단백질 10 g, 1일 1회",
       "route": "경구",
-      "duration": "12주",
-      "comparator": "유청단백 10 g/day",
+      "duration": "12주; 저항운동 주 2회",
+      "comparator": "유청단백질 10 g 단독",
       "domain": "체성분/운동",
       "outcome": "제지방량, 근육량",
       "direction": "유익",
-      "finding": "전신 제지방량 증가가 GABA+유청군에서 더 컸으나 GABA 단독군이 없어 독립효과는 분리 불가.",
+      "finding": "유청+GABA군에서 4·8주 안정시 혈장 GH가 기저치보다 증가했고, 12주 전신 제지방량 증가가 유청 단독군보다 컸다.",
       "safety": "보고 제한",
-      "limitation": "소표본·혼합 개입·GABA 단독군 없음",
+      "limitation": "소표본·완료자 분석이며 GABA 단독군이 없어 제지방량 변화에 대한 GABA 독립효과를 분리할 수 없다. 운동·유청단백질·낮은 단백질 섭취 조건의 복합 결과이고 근력의 군 간 차이는 유의하지 않았다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "ESCI 확인",
       "sciGroup": "ESCI",
@@ -1651,14 +1651,14 @@
       "doiUrl": "https://doi.org/10.14740/jocmr3817",
       "extraction": "완료",
       "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "혼합 개입. 연구의 의미: 임상에서 전신 제지방량 증가가 GABA+유청군에서 더 컸으나 GABA 단독군이 없어 독립효과는 분리 불가. 기대 행동: 인체 근거로 검토하되 대상·용량·기간·대조군과 제품 조건의 일치 여부를 확인한 뒤 제한적으로 활용한다.",
-      "species": "인체",
-      "topic": "성장·생산·육질",
+      "checked": "2026-09-08",
+      "notes": "PMID 31143310·PMCID PMC6522239의 PMC 원문과 UMIN 등록정보를 대조해 무작위 26명, 분석 21명, 100 mg GABA+10 g 유청/일, 12주 및 주 2회 저항운동을 보강. 연구의 의미: 낮은 유청 단백질 섭취와 저항운동을 병행한 비훈련 남성에서 GABA·유청 복합 섭취가 유청 단독보다 전신 제지방량과 일부 안정시 GH 지표에 유리한 신호를 보인 연구다. 기대 행동: 운동·유청·GABA가 일치하는 복합제품의 제한적 근거로만 활용하고, GABA 단독 근비대·성장호르몬 효능으로 광고하지 않으며 실제 제품의 용량·운동·단백질 조건을 확인한다.",
+      "species": "기타",
+      "topic": "기타",
       "hasDrivePdf": false,
-      "linkType": "원문·DOI",
+      "linkType": "링크 없음",
       "category": "연구 근거",
-      "effectCategory": "근육발달"
+      "effectCategory": "기타"
     },
     {
       "id": "H-2019-045",
