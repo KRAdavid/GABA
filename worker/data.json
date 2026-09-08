@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 273,
-    "literature": 265,
+    "total": 274,
+    "literature": 266,
     "regulatory": 8,
     "clinical": 91,
     "animal": 161,
     "scie": 151,
     "complete": 178,
-    "partial": 87,
+    "partial": 88,
     "drivePdf": 75,
     "included": 187,
-    "candidate": 67,
+    "candidate": 68,
     "excluded": 11,
     "safetyCategory": 158,
-    "effectCategory": 176,
+    "effectCategory": 177,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 247,
+      "literatureWithDoi": 248,
       "literatureWithPmid": 238,
       "extractionComplete": 178,
-      "extractionPartial": 87
+      "extractionPartial": 88
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -78,7 +78,7 @@
       },
       {
         "label": "기타",
-        "value": 11
+        "value": 12
       },
       {
         "label": "미생물·식품",
@@ -196,6 +196,10 @@
       },
       {
         "label": "내분비·대사·제1형 당뇨병",
+        "value": 1
+      },
+      {
+        "label": "대사·기능식품",
         "value": 1
       },
       {
@@ -350,7 +354,7 @@
       },
       {
         "label": "후보",
-        "value": 67
+        "value": 68
       },
       {
         "label": "제외",
@@ -368,7 +372,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 98
+        "value": 99
       },
       {
         "label": "ESCI",
@@ -390,7 +394,7 @@
       },
       {
         "label": "부분",
-        "value": 87
+        "value": 88
       }
     ],
     "direction": [
@@ -444,6 +448,10 @@
       },
       {
         "label": "기전 가능성·탐색적",
+        "value": 1
+      },
+      {
+        "label": "기전·개발 가능성; 임상 효능 미확정",
         "value": 1
       },
       {
@@ -584,7 +592,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 115
+        "value": 116
       }
     ],
     "effectCategory": [
@@ -629,6 +637,10 @@
         "value": 4
       },
       {
+        "label": "대사",
+        "value": 2
+      },
+      {
         "label": "인지·집중",
         "value": 2
       },
@@ -638,10 +650,6 @@
       },
       {
         "label": "기분·스트레스",
-        "value": 1
-      },
-      {
-        "label": "대사",
         "value": 1
       },
       {
@@ -8242,6 +8250,49 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "R-2026-179",
+      "status": "후보",
+      "kind": "리뷰",
+      "design": "서술적 문헌고찰",
+      "year": 2026,
+      "title": "Dietary Gamma-aminobutyric acid (GABA) in glucose and lipids metabolism: A review of biosynthesis, mechanisms, and functional food applications",
+      "author": "저자 정보 원문 확인 필요",
+      "journal": "Trends in Food Science & Technology 175:105882",
+      "doi": "10.1016/j.tifs.2026.105882",
+      "pmid": "",
+      "population": "식이 GABA·기능식품 관련 전임상·식품과학 문헌",
+      "n": "해당 없음(문헌고찰)",
+      "model": "GABA 생합성·장기별 대사·당지질 대사·기능식품",
+      "form": "발효·발아 식품 및 GABA 강화 기능식품",
+      "dose": "연구별 상이",
+      "route": "식이·경구 문헌 중심",
+      "duration": "연구별 상이",
+      "comparator": "연구별 상이",
+      "domain": "대사·기능식품·식품공정",
+      "outcome": "GABA 생합성·장기별 작용·당지질 대사·식품 응용",
+      "direction": "기전·개발 가능성; 임상 효능 미확정",
+      "finding": "식이 GABA의 생합성 방식, 장기별·용량별 양방향 대사 효과, 기능식품 응용 가능성을 정리하고, 표준화된 용량-반응 연구와 인체 임상검증이 필요하다고 제시한다.",
+      "safety": "문헌고찰 자체가 특정 GABA 제품의 안전성을 확정하지 않으며, 연구별 제형·용량·대상에 따라 안전성 자료가 다르다.",
+      "limitation": "리뷰이며 개별 인체시험의 효과 크기나 제품별 안전성을 대신하지 않는다. 당지질 대사 효능 주장은 주로 전임상·기전 자료에 의존하며, 임상적 번역 가능성은 추가 검증이 필요하다.",
+      "pubmedStatus": "PubMed 미확인",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://www.sciencedirect.com/science/article/pii/S0924224426003547",
+      "doiUrl": "https://doi.org/10.1016/j.tifs.2026.105882",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "출판사 검색결과의 서지정보·초록 요약을 확인했으며 저자와 전문 세부사항은 원문 추가 확인이 필요하다. 연구의 의미: 식이 GABA의 생산·대사·기능식품 개발을 한데 정리한 최신 배경자료지만, 임상 효능을 직접 입증하는 연구는 아니다. 기대 행동: 기능식품 원료 개발과 후속 임상 설계의 참고자료로만 사용하고, 당뇨·지질 개선 또는 특정 건강효과를 소비자에게 확정적으로 광고하지 않는다. ‘임상검증 필요’와 원문 확인 상태를 함께 표시한다.",
+      "species": "기타",
+      "topic": "대사·기능식품",
+      "hasDrivePdf": false,
+      "linkType": "출판사 초록·DOI",
+      "category": "연구 근거",
+      "effectCategory": "대사"
     },
     {
       "id": "H-2026-166",
