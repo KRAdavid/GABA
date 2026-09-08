@@ -18,7 +18,7 @@
     "candidate": 95,
     "excluded": 9,
     "safetyCategory": 167,
-    "effectCategory": 164,
+    "effectCategory": 163,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 83
+        "value": 82
       },
       {
         "label": "축산",
@@ -78,7 +78,7 @@
       },
       {
         "label": "기타",
-        "value": 8
+        "value": 9
       },
       {
         "label": "반려·기타동물",
@@ -116,7 +116,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 48
+        "value": 47
       },
       {
         "label": "심혈관·혈압",
@@ -136,7 +136,7 @@
       },
       {
         "label": "기타",
-        "value": 9
+        "value": 10
       },
       {
         "label": "장기·독성·안전성",
@@ -352,7 +352,7 @@
       },
       {
         "label": "혼재",
-        "value": 57
+        "value": 56
       },
       {
         "label": "무효",
@@ -417,6 +417,10 @@
       {
         "label": "GABA군 내 수면잠복기 감소·N3 증가 신호; 주요 변화의 위약 대비 차이는 제한적",
         "value": 1
+      },
+      {
+        "label": "GABA는 입면잠복기, AVLE는 NREM 수면시간에 각각 신호",
+        "value": 1
       }
     ],
     "grade": [
@@ -470,11 +474,11 @@
     "effectCategory": [
       {
         "label": "기타",
-        "value": 98
+        "value": 99
       },
       {
         "label": "수면",
-        "value": 49
+        "value": 48
       },
       {
         "label": "다이어트",
@@ -1308,37 +1312,37 @@
       "journal": "Journal of Nutritional Science and Vitaminology",
       "doi": "10.3177/jnsv.61.182",
       "pmid": "26052150",
-      "population": "성인",
-      "n": "16명",
+      "population": "수면이 좋지 않은 성인",
+      "n": "16명(수면이 좋지 않은 성인; PSQI>6)",
       "model": "수면상태 불량(PSQI>6)",
       "form": "순수 GABA 및 AVLE 조합",
-      "dose": "GABA 100 mg/day",
+      "dose": "GABA 100 mg 및 Apocynum venetum 잎 추출물 50 mg, 경구",
       "route": "경구",
-      "duration": "1주",
-      "comparator": "AVLE 단독; 덱스트린 위약",
+      "duration": "1주 교차시험",
+      "comparator": "각 성분 단독·대조 조건",
       "domain": "수면",
-      "outcome": "PSQI, VAS, EEG",
-      "direction": "혼재",
-      "finding": "GABA 단독은 수면잠복기 감소 경향만 보였고 다수 수면지표는 유의하지 않음.",
+      "outcome": "EEG 수면잠복기·NREM 수면시간 및 주관적 수면평가",
+      "direction": "GABA는 입면잠복기, AVLE는 NREM 수면시간에 각각 신호",
+      "finding": "GABA 단독은 수면잠복기를 5.3분 단축했고, AVLE는 NREM 수면시간을 7.6% 늘렸다. 병용 시 수면잠복기는 4.3분 단축되고 NREM 수면시간은 5.1% 증가했다.",
       "safety": "보고 제한",
-      "limitation": "소표본·단일눈가림·다중 개입",
+      "limitation": "16명 산업계 연구진의 소규모 단기 교차시험이며, GABA와 AVLE 복합·단독 조건이 함께 평가됐다. 장기효과·일반 소비자·질환 치료로 일반화할 수 없다.",
       "pubmedStatus": "PubMed 등재",
       "sciStatus": "SCIE 확인",
       "sciGroup": "SCIE",
       "sciChecked": "2026-07-27",
-      "pubmedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7527439/",
-      "fulltextUrl": "https://doi.org/10.3177/jnsv.61.182",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/26052150/",
+      "fulltextUrl": "https://www.jstage.jst.go.jp/article/jnsv/61/2/61_182/_article/-char/en",
       "doiUrl": "https://doi.org/10.3177/jnsv.61.182",
       "extraction": "완료",
       "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "연구의 의미: GABA와 두충잎 추출물 복합 섭취가 수면에 미치는 영향을 평가한 연구로, GABA 단독 효과를 분리하기 어렵습니다. 기대 행동: 수면 관련 복합제 참고자료로만 표시하고, 순수 GABA 수면 개선 주장에는 단독 GABA 연구를 우선 사용합니다.",
-      "species": "인체",
-      "topic": "신경·행동·수면",
+      "checked": "2026-09-08",
+      "notes": "PMID 26052150와 J-STAGE 원문 초록을 대조해 GABA 100 mg·AVLE 50 mg 및 EEG 결과를 보강. 연구의 의미: 수면이 좋지 않은 성인에서 GABA는 입면, AVLE는 NREM 수면에 서로 다른 신호를 보이는지 탐색한 복합 성분 연구다. 기대 행동: GABA+AVLE 제품의 제한적 근거로만 활용하고 GABA 단독 또는 장기 수면효과로 확대하지 않으며, 두 성분의 용량·조합·대상을 함께 명시한다.",
+      "species": "기타",
+      "topic": "기타",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "기타"
     },
     {
       "id": "H-2015-031",
