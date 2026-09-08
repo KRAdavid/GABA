@@ -5,8 +5,8 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 325,
-    "literature": 317,
+    "total": 328,
+    "literature": 320,
     "regulatory": 8,
     "clinical": 110,
     "animal": 173,
@@ -14,17 +14,17 @@
     "complete": 184,
     "partial": 102,
     "drivePdf": 73,
-    "included": 191,
+    "included": 194,
     "candidate": 115,
     "excluded": 11,
     "safetyCategory": 157,
-    "effectCategory": 222,
+    "effectCategory": 225,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 291,
-      "literatureWithPmid": 266,
+      "literatureWithDoi": 294,
+      "literatureWithPmid": 269,
       "extractionComplete": 184,
       "extractionPartial": 102
     },
@@ -101,6 +101,10 @@
         "value": 2
       },
       {
+        "label": "유산균·요거트",
+        "value": 2
+      },
+      {
         "label": "기타동물",
         "value": 1
       },
@@ -162,6 +166,10 @@
       },
       {
         "label": "유산균·식물성 음료",
+        "value": 1
+      },
+      {
+        "label": "유산균·유제품",
         "value": 1
       },
       {
@@ -647,6 +655,18 @@
         "value": 1
       },
       {
+        "label": "GABA 요거트·발효·제품개발",
+        "value": 1
+      },
+      {
+        "label": "GABA 요거트·프로즌 요거트·규제",
+        "value": 1
+      },
+      {
+        "label": "GABA 요거트·향미·대사체",
+        "value": 1
+      },
+      {
         "label": "GABA 유사체·약동학·신장기능",
         "value": 1
       },
@@ -662,7 +682,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 191
+        "value": 194
       },
       {
         "label": "후보",
@@ -688,7 +708,7 @@
       },
       {
         "label": "SCIE 확인 필요",
-        "value": 38
+        "value": 41
       },
       {
         "label": "해당 없음",
@@ -741,12 +761,12 @@
         "value": 6
       },
       {
-        "label": "등록정보검토",
-        "value": 4
+        "label": "완전",
+        "value": 5
       },
       {
-        "label": "완전",
-        "value": 2
+        "label": "등록정보검토",
+        "value": 4
       },
       {
         "label": "초록·메타데이터검토",
@@ -791,6 +811,10 @@
         "value": 4
       },
       {
+        "label": "제품개발 가능성; 인체 효능 아님",
+        "value": 2
+      },
+      {
         "label": "중립",
         "value": 2
       },
@@ -824,6 +848,10 @@
       },
       {
         "label": "기능성 원료 가능성; 인체 효능 미확정",
+        "value": 1
+      },
+      {
+        "label": "기술·시장화 배경; 임상 효능 아님",
         "value": 1
       },
       {
@@ -1136,7 +1164,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 153
+        "value": 155
       },
       {
         "label": "동물시험",
@@ -1149,6 +1177,10 @@
       {
         "label": "약물·경계 근거",
         "value": 2
+      },
+      {
+        "label": "리뷰·배경",
+        "value": 1
       }
     ],
     "effectCategory": [
@@ -1177,16 +1209,16 @@
         "value": 16
       },
       {
+        "label": "발효·배경",
+        "value": 11
+      },
+      {
         "label": "스트레스·이완",
         "value": 11
       },
       {
         "label": "근육발달",
         "value": 10
-      },
-      {
-        "label": "발효·배경",
-        "value": 8
       },
       {
         "label": "성장호르몬",
@@ -8893,6 +8925,135 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "다이어트"
+    },
+    {
+      "id": "R-2024-208",
+      "status": "포함",
+      "kind": "문헌",
+      "design": "GABA 생성 유산균을 이용한 요거트 제조·품질 최적화 연구",
+      "year": 2024,
+      "title": "Production and quality evaluation of a novel γ-aminobutyric acid-enriched yogurt",
+      "author": "Zhu et al.",
+      "journal": "Frontiers in Nutrition",
+      "doi": "10.3389/fnut.2024.1404743",
+      "pmid": "38784135",
+      "population": "GABA 생성 유산균·요거트 공정",
+      "n": "사람 대상 없음",
+      "model": "Levilactobacillus brevis CGMCC 1306 발효·다요인 공정 최적화",
+      "form": "GABA 강화 요거트",
+      "dose": "완제품 GABA 약 75.3 mg/100 g(최적 조건)",
+      "route": "해당 없음(제품개발)",
+      "duration": "최적 발효 40시간; 냉장 3주 안정성 평가",
+      "comparator": "상용 요거트·공정조건 비교",
+      "domain": "GABA 생성·요거트·관능·저장안정성",
+      "outcome": "GABA 수율, pH·산도, 생균수, 관능, 저장 안정성",
+      "direction": "제품개발 가능성; 인체 효능 아님",
+      "finding": "L. brevis와 Streptococcus thermophilus 혼합 발효 및 L-MSG·당·접종량 최적화로 GABA 약 75.3 mg/100 g 요거트를 제조했고, 관능·생균수·저장 특성을 평가했다.",
+      "safety": "사람 섭취 안전성·임상 효능은 평가하지 않았다.",
+      "limitation": "공정·제품 품질 연구로, 완제품의 건강효과나 사람의 수면·혈압·불안 개선을 입증하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Frontiers 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38784135/",
+      "fulltextUrl": "https://doi.org/10.3389/fnut.2024.1404743",
+      "doiUrl": "https://doi.org/10.3389/fnut.2024.1404743",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 38784135와 Frontiers 원문을 확인했다. 연구의 의미: GABA 생성 균주·발효조건·관능·저장 안정성을 연결해 실제 유제품 개발에 필요한 공정 기준을 제시한다. 기대 행동: 균주·발효·완제품 정량과 제품개발 근거로만 활용하고, 요거트의 GABA 함량을 사람의 수면·혈압·불안 효능으로 광고하지 않는다.",
+      "species": "유산균·요거트",
+      "topic": "GABA 요거트·발효·제품개발",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·출판사",
+      "category": "연구 근거",
+      "effectCategory": "발효·배경"
+    },
+    {
+      "id": "R-2022-209",
+      "status": "포함",
+      "kind": "문헌",
+      "design": "GABA 생성 L. brevis 발효 향미 요거트 개발·대사체 분석",
+      "year": 2022,
+      "title": "Characterization of a novel flavored yogurt enriched in γ-aminobutyric acid fermented by Levilactobacillus brevis CGMCC1.5954",
+      "author": "Fan et al.",
+      "journal": "Journal of Dairy Science",
+      "doi": "10.3168/jds.2022-22590",
+      "pmid": "36494222",
+      "population": "GABA 생성 유산균·요거트 공정",
+      "n": "사람 대상 없음",
+      "model": "L. brevis CGMCC1.5954 발효 요거트와 향미·대사체 비교",
+      "form": "GABA 강화 향미 요거트",
+      "dose": "GABA 147.36 mg/100 mL; 대조군보다 317.06% 높음",
+      "route": "해당 없음(제품개발)",
+      "duration": "발효·제품 분석; 사람 중재 없음",
+      "comparator": "일반 스타터 요거트",
+      "domain": "GABA 생성·요거트·향미·대사체",
+      "outcome": "GABA 함량, 휘발성 향미성분 58종, 관능·물성",
+      "direction": "제품개발 가능성; 인체 효능 아님",
+      "finding": "L. brevis CGMCC1.5954로 GABA 강화 요거트를 제조해 GABA 147.36 mg/100 mL와 향미·물성 변화를 확인하고, 58개 휘발성 향미성분을 분석했다.",
+      "safety": "사람 섭취 안전성·임상 효능을 평가하지 않았다.",
+      "limitation": "제품개발·분석 연구이며 GABA 함량 증가가 사람의 수면·스트레스·인지 효능을 의미하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Journal of Dairy Science 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36494222/",
+      "fulltextUrl": "https://doi.org/10.3168/jds.2022-22590",
+      "doiUrl": "https://doi.org/10.3168/jds.2022-22590",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 36494222와 Journal of Dairy Science 원문을 확인했다. 연구의 의미: GABA 함량·향미·물성을 동시에 최적화해 소비자형 발효 유제품의 제품개발 경로를 보여준다. 기대 행동: 완제품 차별화와 관능 설계 자료로만 사용하고, 147.36 mg/100 mL를 사람의 건강효능이나 임상 용량으로 전환하지 않는다.",
+      "species": "유산균·요거트",
+      "topic": "GABA 요거트·향미·대사체",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·출판사",
+      "category": "연구 근거",
+      "effectCategory": "발효·배경"
+    },
+    {
+      "id": "R-2026-210",
+      "status": "포함",
+      "kind": "리뷰",
+      "design": "GABA 강화 요거트·프로즌 요거트 기술 종설",
+      "year": 2026,
+      "title": "Engineering Strategies and Operations of Frozen Yogurt Formulated With GABA-Enriched Yogurt: A Review",
+      "author": "Wan-Mazlan et al.",
+      "journal": "Journal of Food Science",
+      "doi": "10.1111/1750-3841.71258",
+      "pmid": "42494182",
+      "population": "GABA 강화 유제품 제조·공정 문헌",
+      "n": "임상시험 아님",
+      "model": "균주 선별·발효·균질화·숙성·동결·저장·관능 기술 종합",
+      "form": "GABA 강화 요거트·프로즌 요거트",
+      "dose": "제품·공정별 상이",
+      "route": "해당 없음(기술 종설)",
+      "duration": "2000–2025년 문헌 검토",
+      "comparator": "기술·공정·저장 조건 비교",
+      "domain": "GABA 유제품·공정·안정성·규제",
+      "outcome": "GABA 생성·안정성, 물성, 오버런, 관능, 제조·규제 과제",
+      "direction": "기술·시장화 배경; 임상 효능 아님",
+      "finding": "GABA 강화 요거트·프로즌 요거트의 균주 선택, 발효 최적화, 동결공정, 저장 안정성, 관능·규제 과제를 종합했으며 해당 유제품의 제품특이적 임상근거는 확립되지 않았다고 정리한다.",
+      "safety": "기술 종설이며 제품의 사람 안전성 시험을 새로 수행하지 않았다.",
+      "limitation": "요거트 제조기술과 기존 연구를 종합한 리뷰로 특정 제품의 이완·인지·수면 효능을 입증하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "PubMed·Wiley 원문 확인",
+      "sciGroup": "SCIE 확인 필요",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42494182/",
+      "fulltextUrl": "https://doi.org/10.1111/1750-3841.71258",
+      "doiUrl": "https://doi.org/10.1111/1750-3841.71258",
+      "extraction": "완전",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 42494182와 Wiley 원문 초록을 확인했다. 연구의 의미: GABA 강화 유제품을 실제 시장 제품으로 발전시킬 때 필요한 균주·공정·동결·저장·관능·규제 의사결정 지점을 정리한 최신 기술 지도다. 기대 행동: 제조·품질·규제·임상시험 계획에 활용하고, 기술 종설의 건강효과 서술을 제품의 사람 효능 광고로 직접 사용하지 않는다. 제품특이적 임상근거 부재를 명시한다.",
+      "species": "유산균·유제품",
+      "topic": "GABA 요거트·프로즌 요거트·규제",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI·출판사",
+      "category": "리뷰·배경",
+      "effectCategory": "발효·배경"
     },
     {
       "id": "R-2026-199",
