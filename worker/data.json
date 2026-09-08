@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 185,
-    "literature": 177,
+    "total": 186,
+    "literature": 178,
     "regulatory": 8,
-    "clinical": 48,
+    "clinical": 49,
     "animal": 128,
-    "scie": 157,
+    "scie": 158,
     "complete": 119,
-    "partial": 58,
+    "partial": 59,
     "drivePdf": 77,
-    "included": 133,
+    "included": 134,
     "candidate": 35,
     "excluded": 9,
-    "safetyCategory": 137,
+    "safetyCategory": 138,
     "effectCategory": 123,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 172,
+      "literatureWithDoi": 173,
       "literatureWithPmid": 173,
       "extractionComplete": 119,
-      "extractionPartial": 57
+      "extractionPartial": 59
     },
     "discovery": {
       "snapshotDate": "2026-09-03",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 48
+        "value": 49
       },
       {
         "label": "수산",
@@ -88,7 +88,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 39
+        "value": 40
       },
       {
         "label": "대사·내분비",
@@ -118,11 +118,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 133
+        "value": 134
       },
       {
         "label": "후보",
-        "value": 34
+        "value": 35
       },
       {
         "label": "제외",
@@ -136,11 +136,11 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 157
+        "value": 158
       },
       {
         "label": "현행 미확인",
-        "value": 11
+        "value": 10
       },
       {
         "label": "ESCI",
@@ -154,13 +154,13 @@
       },
       {
         "label": "부분",
-        "value": 57
+        "value": 59
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 104
+        "value": 105
       },
       {
         "label": "혼재",
@@ -216,7 +216,7 @@
     "category": [
       {
         "label": "안전성",
-        "value": 137
+        "value": 138
       },
       {
         "label": "연구 근거",
@@ -7868,6 +7868,49 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "H-2026-053",
+      "status": "포함",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 평행시험",
+      "year": 2026,
+      "title": "Effects of GABA-enriched rice germ extract fermented by Lactobacillus brevis BJ20 on stress symptoms and related biomarkers in adults: a randomized, double-blind, placebo-controlled trial",
+      "author": "Lee, Rheu, Lee",
+      "journal": "Journal of Functional Foods",
+      "doi": "10.1016/j.jff.2026.107183",
+      "pmid": "",
+      "population": "경도~중등도 지각 스트레스 성인",
+      "n": "80명",
+      "model": "경도~중등도 지각 스트레스",
+      "form": "Lactobacillus brevis BJ20 발효 GABA 강화 쌀배아 추출물(RG30)",
+      "dose": "RG30 500 mg/day( GABA 120 mg/day)",
+      "route": "경구",
+      "duration": "8주",
+      "comparator": "위약",
+      "domain": "스트레스·이완",
+      "outcome": "Stress Response Inventory, EuroQol VAS, 혈장 serotonin, 이상반응",
+      "direction": "유익",
+      "finding": "RG30은 위약 대비 8주 후 Stress Response Inventory를 유의하게 낮췄다(보정 평균차 -5.39, 95% CI -10.25~-0.54, p=0.035). 삶의 질(EuroQol VAS)도 개선됐고 혈장 serotonin은 상대적으로 보존됐다(p=0.036).",
+      "safety": "중대한 이상반응 없음; 8주 내약성 양호",
+      "limitation": "순수 GABA 단독제가 아니라 발효 쌀배아 추출물이며, GABA 120 mg의 독립효과와 발효·추출물 성분의 기여를 분리할 수 없다. 경도~중등도 지각 스트레스 성인 80명, 8주 연구이고 장기효과·질환자·다른 제형으로의 일반화는 제한된다.",
+      "pubmedStatus": "PubMed 미확인",
+      "sciStatus": "SCIE 확인",
+      "sciGroup": "SCIE",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://doi.org/10.1016/j.jff.2026.107183",
+      "doiUrl": "https://doi.org/10.1016/j.jff.2026.107183",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "ScienceDirect 초록 및 DOI 서지정보 확인. 연구 제품(RG30) 특이적 근거로 관리하며, 순수 GABA 일반 효능 근거로 확장하지 않음. 저자: Ye Li Lee, Kyoung-min Rheu, Sang Yeoup Lee.",
+      "species": "인체",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "안전성",
       "effectCategory": "기타"
     },
     {
