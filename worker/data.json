@@ -15,8 +15,8 @@
     "partial": 95,
     "drivePdf": 76,
     "included": 168,
-    "candidate": 76,
-    "excluded": 10,
+    "candidate": 75,
+    "excluded": 11,
     "safetyCategory": 162,
     "effectCategory": 164,
     "dataQuality": {
@@ -310,11 +310,11 @@
       },
       {
         "label": "후보",
-        "value": 76
+        "value": 75
       },
       {
         "label": "제외",
-        "value": 10
+        "value": 11
       },
       {
         "label": "유효",
@@ -10935,7 +10935,7 @@
     },
     {
       "id": "H-2017-011",
-      "status": "후보",
+      "status": "제외",
       "kind": "임상",
       "year": 2017,
       "title": "γ-Aminobutyric acid (GABA) oral rinse reduces capsaicin-induced burning mouth pain sensation: An experimental quantitative sensory testing study",
@@ -10974,7 +10974,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "notes": "PMID 29024230와 초록의 연구설계를 확인. 연구의 의미: GABA가 전신 섭취가 아니라 구강 점막에 국소적으로 작용할 가능성을 건강한 성인에서 탐색한 임상자료다. 기대 행동: 구강 국소 제품의 제한적 탐색 근거로만 활용하고 경구 섭취 GABA의 수면·이완 효능이나 전신 진통효과로 확장하지 않으며, 제형·농도·사용법을 정확히 구분한다."
+      "notes": "PMID 29024230와 초록의 연구설계를 확인. 연구의 의미: GABA가 전신 섭취가 아니라 구강 점막에 국소적으로 작용할 가능성을 건강한 성인에서 탐색한 임상자료다. 기대 행동: 본 사이트의 경구 섭취 근거 범위와 맞지 않으므로 검색 결과에서 제외하고, 구강 국소 제품을 별도 인덱스로 만들 때만 재활용한다. 경구 섭취 GABA의 수면·이완 효능이나 전신 진통효과로 확장하지 않는다."
     },
     {
       "id": "A-2021-177",
