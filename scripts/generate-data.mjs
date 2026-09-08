@@ -214,6 +214,8 @@ const curatedLiteratureRecords = (curated.records || [])
   .map((record) => ({
     ...record,
     status: record.status || "후보",
+    fulltextUrl: record.fulltextUrl || record.doiUrl || record.pubmedUrl || "",
+    duplicate: record.duplicate || "없음",
     category: record.category || "연구 근거",
     effectCategory: record.effectCategory || "기타",
     species: record.species || "기타",

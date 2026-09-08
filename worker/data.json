@@ -2170,7 +2170,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "임상근거",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "duplicate": "없음"
     },
     {
       "id": "H-2006-002",
@@ -2213,7 +2214,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2008-003",
@@ -2299,7 +2301,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "임상근거",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "duplicate": "없음"
     },
     {
       "id": "H-2009-206",
@@ -2342,7 +2345,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·J-STAGE",
       "category": "임상근거",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "duplicate": "없음"
     },
     {
       "id": "H-2009-027",
@@ -2428,7 +2432,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "임상근거",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "duplicate": "없음"
     },
     {
       "id": "H-2009-043",
@@ -2471,7 +2476,8 @@
       "hasDrivePdf": true,
       "linkType": "PDF·PubMed",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2011-204",
@@ -2514,7 +2520,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·J-STAGE",
       "category": "임상근거",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "duplicate": "없음"
     },
     {
       "id": "H-2012-158",
@@ -2557,7 +2564,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2012-030",
@@ -2772,7 +2780,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2015-031",
@@ -2815,7 +2824,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed 초록·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2015-219",
@@ -2858,7 +2868,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC·철회 공지",
       "category": "안전성",
-      "effectCategory": "인지·집중"
+      "effectCategory": "인지·집중",
+      "duplicate": "없음"
     },
     {
       "id": "H-2016-011",
@@ -2901,7 +2912,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2016-032",
@@ -2987,7 +2999,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC 원문",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2018-033",
@@ -3073,7 +3086,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·출판사",
       "category": "임상근거",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "duplicate": "없음"
     },
     {
       "id": "H-2019-014",
@@ -3116,7 +3130,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2019-045",
@@ -3288,7 +3303,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "대사"
+      "effectCategory": "대사",
+      "duplicate": "없음"
     },
     {
       "id": "H-2022-035",
@@ -3374,7 +3390,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "duplicate": "없음"
     },
     {
       "id": "H-2023-022",
@@ -3460,7 +3477,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2023-037",
@@ -3546,7 +3564,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2024-166",
@@ -3589,7 +3608,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "혈당"
+      "effectCategory": "혈당",
+      "duplicate": "없음"
     },
     {
       "id": "H-2024-039",
@@ -3677,7 +3697,8 @@
       "category": "안전성",
       "effectCategory": "당뇨",
       "pmcid": "PMC11971400",
-      "clinicalTrialId": "NCT03635437"
+      "clinicalTrialId": "NCT03635437",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-115",
@@ -3721,7 +3742,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "clinicalTrialId": "NCT06787443"
+      "clinicalTrialId": "NCT06787443",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-024",
@@ -3753,7 +3775,7 @@
       "sciGroup": "ESCI",
       "sciChecked": "2026-07-27",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40345658/",
-      "fulltextUrl": "https://www.researchgate.net/publication/391588621_Effects_of_Combined_Gamma_Aminobutyric_Acid_Supplementation_and_Exercise_Training_on_the_Body_Composition_of_Women_A_Randomized_Double-Blind_Trial",
+      "fulltextUrl": "",
       "doiUrl": "https://doi.org/10.1016/j.clnesp.2025.04.028",
       "extraction": "완료",
       "added": "2026-07-27",
@@ -3764,7 +3786,8 @@
       "hasDrivePdf": false,
       "linkType": "링크 없음",
       "category": "연구 근거",
-      "effectCategory": "운동·체성분"
+      "effectCategory": "운동·체성분",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-132",
@@ -3807,7 +3830,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-171",
@@ -3852,7 +3876,8 @@
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
       "pmcid": "PMC11867345",
-      "clinicalTrialId": "CTRI/2021/08/035694"
+      "clinicalTrialId": "CTRI/2021/08/035694",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-021",
@@ -3896,7 +3921,8 @@
       "linkType": "Drive PDF",
       "category": "안전성",
       "effectCategory": "기타",
-      "clinicalTrialId": "NCT06755489"
+      "clinicalTrialId": "NCT06755489",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-023",
@@ -3940,7 +3966,8 @@
       "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "clinicalTrialId": "RBR-5ftj2fy"
+      "clinicalTrialId": "RBR-5ftj2fy",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-025",
@@ -3972,7 +3999,7 @@
       "sciGroup": "SCIE",
       "sciChecked": "2026-07-27",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42433946/",
-      "fulltextUrl": "https://drive.google.com/file/d/1ogCR_aZBOPeypO2djhVhlOgIDU_wBmUY/view?usp=drivesdk",
+      "fulltextUrl": "",
       "doiUrl": "https://doi.org/10.21037/tp-2026-1-0024",
       "extraction": "완료",
       "added": "2026-07-27",
@@ -3983,7 +4010,8 @@
       "hasDrivePdf": true,
       "linkType": "링크 없음",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-022",
@@ -4026,7 +4054,8 @@
       "hasDrivePdf": false,
       "linkType": "초록·원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "A-1961-030",
@@ -4370,7 +4399,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "효능",
-      "effectCategory": "장건강"
+      "effectCategory": "장건강",
+      "duplicate": "없음"
     },
     {
       "id": "A-1995-034",
@@ -5961,7 +5991,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "열스트레스"
+      "effectCategory": "열스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "A-2017-006",
@@ -8369,7 +8400,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "효능",
-      "effectCategory": "장 건강·염증"
+      "effectCategory": "장 건강·염증",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-124",
@@ -8498,7 +8530,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·Wiley·DOI",
       "category": "효능",
-      "effectCategory": "지방간·대사"
+      "effectCategory": "지방간·대사",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-010",
@@ -8627,7 +8660,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
-      "effectCategory": "스트레스·불안"
+      "effectCategory": "스트레스·불안",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-027",
@@ -9143,7 +9177,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "안전성",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-056",
@@ -9272,7 +9307,8 @@
       "hasDrivePdf": true,
       "linkType": "PubMed·PMC·Drive PDF·DOI",
       "category": "안전성",
-      "effectCategory": "생산성"
+      "effectCategory": "생산성",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-092",
@@ -9358,7 +9394,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "안전성",
-      "effectCategory": "염증"
+      "effectCategory": "염증",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-097",
@@ -9444,7 +9481,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "duplicate": "없음"
     },
     {
       "id": "A-2017-127",
@@ -9487,7 +9525,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-098",
@@ -9572,7 +9611,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "fulltextUrl": "https://doi.org/10.1007/s00484-015-1084-9",
+      "duplicate": "없음"
     },
     {
       "id": "A-2003-247",
@@ -9612,7 +9653,9 @@
       "hasDrivePdf": false,
       "linkType": "DOI·OpenAlex",
       "category": "연구 근거",
-      "effectCategory": "간·대사"
+      "effectCategory": "간·대사",
+      "fulltextUrl": "https://doi.org/10.3746/jfn.2003.8.2.119",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-243",
@@ -9654,7 +9697,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·철회 공지",
       "category": "안전성",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "fulltextUrl": "https://doi.org/10.1093/plphys/kiag231",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-244",
@@ -9696,7 +9741,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·원 논문 연결",
       "category": "안전성",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "fulltextUrl": "https://doi.org/10.1093/plphys/kiag360",
+      "duplicate": "없음"
     },
     {
       "id": "A-2015-245",
@@ -9738,7 +9785,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·철회 공지",
       "category": "안전성",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "fulltextUrl": "https://doi.org/10.1007/s12017-014-8337-3",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-246",
@@ -9780,7 +9829,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·원 논문 연결",
       "category": "안전성",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "fulltextUrl": "https://doi.org/10.1007/s12017-026-08946-5",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-239",
@@ -9822,7 +9873,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "fulltextUrl": "https://doi.org/10.1016/j.foodres.2026.120054",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-238",
@@ -9864,7 +9917,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "fulltextUrl": "https://doi.org/10.1016/j.foodres.2026.119214",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-237",
@@ -9906,7 +9961,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "fulltextUrl": "https://doi.org/10.1016/j.foodres.2026.119516",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-236",
@@ -9948,7 +10005,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "fulltextUrl": "https://doi.org/10.1039/d5fo04374c",
+      "duplicate": "없음"
     },
     {
       "id": "R-2023-235",
@@ -9990,7 +10049,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "신경계"
+      "effectCategory": "신경계",
+      "fulltextUrl": "https://doi.org/10.1186/s40035-023-00391-9",
+      "duplicate": "없음"
     },
     {
       "id": "R-2024-234",
@@ -10033,7 +10094,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·원문",
       "category": "연구 근거",
-      "effectCategory": "불안·스트레스"
+      "effectCategory": "불안·스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-233",
@@ -10075,7 +10137,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "fulltextUrl": "https://doi.org/10.1007/s12602-026-10941-y",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-232",
@@ -10117,7 +10181,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "안전성",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "fulltextUrl": "https://doi.org/10.1007/s12602-025-10628-w",
+      "duplicate": "없음"
     },
     {
       "id": "R-2025-231",
@@ -10160,7 +10226,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·원문",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2024-230",
@@ -10202,7 +10269,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "fulltextUrl": "https://doi.org/10.1080/10826068.2023.2252047",
+      "duplicate": "없음"
     },
     {
       "id": "R-2024-229",
@@ -10245,7 +10314,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
-      "effectCategory": "장내미생물"
+      "effectCategory": "장내미생물",
+      "duplicate": "없음"
     },
     {
       "id": "R-2024-228",
@@ -10287,7 +10357,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "섭취량·배경"
+      "effectCategory": "섭취량·배경",
+      "fulltextUrl": "https://doi.org/10.33029/0042-8833-2024-93-1-120-124",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-227",
@@ -10330,7 +10402,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-226",
@@ -10373,7 +10446,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "안전성",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-225",
@@ -10416,7 +10490,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2025-224",
@@ -10459,7 +10534,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-223",
@@ -10502,7 +10578,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-222",
@@ -10545,7 +10622,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "임상 근거",
-      "effectCategory": "불안·스트레스"
+      "effectCategory": "불안·스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-221",
@@ -10588,7 +10666,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "임상 근거",
-      "effectCategory": "수면·회복"
+      "effectCategory": "수면·회복",
+      "duplicate": "없음"
     },
     {
       "id": "R-2022-220",
@@ -10631,7 +10710,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "안전성",
-      "effectCategory": "인지·집중"
+      "effectCategory": "인지·집중",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-218",
@@ -10674,7 +10754,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-216",
@@ -10717,7 +10798,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2024-217",
@@ -10760,7 +10842,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "프로바이오틱·GABA"
+      "effectCategory": "프로바이오틱·GABA",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-215",
@@ -10803,7 +10886,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2025-214",
@@ -10846,7 +10930,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2025-213",
@@ -10889,7 +10974,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
-      "effectCategory": "프로바이오틱·GABA"
+      "effectCategory": "프로바이오틱·GABA",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-212",
@@ -10932,7 +11018,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "프로바이오틱·GABA"
+      "effectCategory": "프로바이오틱·GABA",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-211",
@@ -10975,7 +11062,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2024-208",
@@ -11018,7 +11106,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2022-209",
@@ -11061,7 +11150,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-210",
@@ -11104,7 +11194,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·출판사",
       "category": "리뷰·배경",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-199",
@@ -11147,7 +11238,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-200",
@@ -11190,7 +11282,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-197",
@@ -11233,7 +11326,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI-only",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-198",
@@ -11276,7 +11370,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI-only",
       "category": "연구 근거",
-      "effectCategory": "식품소재·기전"
+      "effectCategory": "식품소재·기전",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-196",
@@ -11319,7 +11414,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI-only",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-187",
@@ -11362,7 +11458,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI-only",
       "category": "동물시험",
-      "effectCategory": "동물·장 건강"
+      "effectCategory": "동물·장 건강",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-195",
@@ -11405,7 +11502,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "프로바이오틱·GABA"
+      "effectCategory": "프로바이오틱·GABA",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-196",
@@ -11448,7 +11546,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스·기분"
+      "effectCategory": "스트레스·기분",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-194",
@@ -11491,7 +11590,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-185",
@@ -11534,7 +11634,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "동물시험",
-      "effectCategory": "동물·수면"
+      "effectCategory": "동물·수면",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-186",
@@ -11577,7 +11678,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "동물시험",
-      "effectCategory": "동물·청각"
+      "effectCategory": "동물·청각",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-193",
@@ -11620,7 +11722,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-192",
@@ -11664,7 +11767,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "H-REG-2013-003",
@@ -11708,7 +11812,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov",
       "category": "연구 근거",
-      "effectCategory": "흡수·결과 미확인"
+      "effectCategory": "흡수·결과 미확인",
+      "duplicate": "없음"
     },
     {
       "id": "H-REG-2025-007",
@@ -11752,7 +11857,8 @@
       "hasDrivePdf": false,
       "linkType": "UMIN 등록정보",
       "category": "연구 근거",
-      "effectCategory": "수면·결과 미확인"
+      "effectCategory": "수면·결과 미확인",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-179",
@@ -11795,7 +11901,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 초록·DOI",
       "category": "연구 근거",
-      "effectCategory": "대사"
+      "effectCategory": "대사",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-166",
@@ -11838,7 +11945,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC 원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "A-2022-102",
@@ -11881,7 +11989,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "성장·면역"
+      "effectCategory": "성장·면역",
+      "duplicate": "없음"
     },
     {
       "id": "R-2015-158",
@@ -11924,7 +12033,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·Frontiers 원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2024-167",
@@ -11956,7 +12066,7 @@
       "sciGroup": "현행 미확인",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38213037/",
-      "fulltextUrl": "",
+      "fulltextUrl": "https://doi.org/10.1080/19390211.2023.2301398",
       "doiUrl": "https://doi.org/10.1080/19390211.2023.2301398",
       "extraction": "완료",
       "added": "2026-09-08",
@@ -11967,7 +12077,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기분·스트레스"
+      "effectCategory": "기분·스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2015-158",
@@ -12010,7 +12121,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·기관 저장소·DOI",
       "category": "연구 근거",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "duplicate": "없음"
     },
     {
       "id": "H-2018-161",
@@ -12042,7 +12154,7 @@
       "sciGroup": "현행 미확인",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/29255931/",
-      "fulltextUrl": "",
+      "fulltextUrl": "https://doi.org/10.1007/s00394-017-1600-2",
       "doiUrl": "https://doi.org/10.1007/s00394-017-1600-2",
       "extraction": "부분",
       "added": "2026-09-08",
@@ -12053,7 +12165,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-052",
@@ -12096,7 +12209,8 @@
       "hasDrivePdf": false,
       "linkType": "공식 초록·UMIN",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-177",
@@ -12139,7 +12253,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-178",
@@ -12182,7 +12297,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-165",
@@ -12224,7 +12340,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "인지·집중"
+      "effectCategory": "인지·집중",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-098",
@@ -12267,7 +12384,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-057",
@@ -12310,7 +12428,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "A-2017-100",
@@ -12353,7 +12472,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2022-101",
@@ -12396,7 +12516,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2020-102",
@@ -12439,7 +12560,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2019-103",
@@ -12482,7 +12604,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-104",
@@ -12525,7 +12648,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2023-105",
@@ -12568,7 +12692,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2020-106",
@@ -12611,7 +12736,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-1985-107",
@@ -12654,7 +12780,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2021-108",
@@ -12697,7 +12824,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-109",
@@ -12740,7 +12868,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-110",
@@ -12783,7 +12912,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "성장호르몬"
+      "effectCategory": "성장호르몬",
+      "duplicate": "없음"
     },
     {
       "id": "A-2014-111",
@@ -12826,7 +12956,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2021-112",
@@ -12869,7 +13000,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "인지"
+      "effectCategory": "인지",
+      "duplicate": "없음"
     },
     {
       "id": "H-2022-113",
@@ -12912,7 +13044,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "duplicate": "없음"
     },
     {
       "id": "H-2024-114",
@@ -12955,7 +13088,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-116",
@@ -12998,7 +13132,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-117",
@@ -13041,7 +13176,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-118",
@@ -13084,7 +13220,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-119",
@@ -13127,7 +13264,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-120",
@@ -13170,7 +13308,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-121",
@@ -13213,7 +13352,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-126",
@@ -13256,7 +13396,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-127",
@@ -13299,7 +13440,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-128",
@@ -13342,7 +13484,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-055",
@@ -13386,7 +13529,8 @@
       "hasDrivePdf": false,
       "linkType": "UMIN 등록정보",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-056",
@@ -13429,7 +13573,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2015-147",
@@ -13472,7 +13617,8 @@
       "hasDrivePdf": false,
       "linkType": "J-STAGE·DOI·2차 고찰",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2019-148",
@@ -13515,7 +13661,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI·ISRCTN",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2015-149",
@@ -13558,7 +13705,8 @@
       "hasDrivePdf": false,
       "linkType": "J-GLOBAL·2차 고찰",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2015-136",
@@ -13601,7 +13749,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "duplicate": "없음"
     },
     {
       "id": "H-2010-139",
@@ -13644,7 +13793,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "R-2025-138",
@@ -13687,7 +13837,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "R-2020-137",
@@ -13730,7 +13881,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-135",
@@ -13773,7 +13925,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-134",
@@ -13816,7 +13969,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-054",
@@ -13860,7 +14014,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2020-140",
@@ -13903,7 +14058,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 초록·시험등록",
       "category": "연구 근거",
-      "effectCategory": "인지기능"
+      "effectCategory": "인지기능",
+      "duplicate": "없음"
     },
     {
       "id": "H-2020-141",
@@ -13946,7 +14102,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 초록·시험등록",
       "category": "연구 근거",
-      "effectCategory": "인지기능"
+      "effectCategory": "인지기능",
+      "duplicate": "없음"
     },
     {
       "id": "H-2008-144",
@@ -13989,7 +14146,8 @@
       "hasDrivePdf": false,
       "linkType": "J-STAGE·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2000-145",
@@ -14032,7 +14190,8 @@
       "hasDrivePdf": false,
       "linkType": "국립국회도서관·2차 고찰",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2013-146",
@@ -14075,7 +14234,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 초록·J-GLOBAL",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-142",
@@ -14118,7 +14278,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "duplicate": "없음"
     },
     {
       "id": "H-2022-130",
@@ -14161,7 +14322,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-151",
@@ -14204,7 +14366,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2004-155",
@@ -14247,7 +14410,8 @@
       "hasDrivePdf": false,
       "linkType": "J-GLOBAL·2차 자료",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-156",
@@ -14290,7 +14454,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 PDF",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-157",
@@ -14333,7 +14498,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC 원문",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "R-2021-175",
@@ -14377,7 +14543,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC 원문·PubMed·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-1980-181",
@@ -14420,7 +14587,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "성장호르몬"
+      "effectCategory": "성장호르몬",
+      "duplicate": "없음"
     },
     {
       "id": "R-2023-182",
@@ -14463,7 +14631,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2018-160",
@@ -14506,7 +14675,8 @@
       "hasDrivePdf": false,
       "linkType": "J-GLOBAL·공개 초록",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2024-161",
@@ -14549,7 +14719,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2019-162",
@@ -14592,7 +14763,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "혈압"
+      "effectCategory": "혈압",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-163",
@@ -14635,7 +14807,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·Nature 원문",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-164",
@@ -14678,7 +14851,8 @@
       "hasDrivePdf": false,
       "linkType": "bioRxiv preprint",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2023-153",
@@ -14721,7 +14895,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC 원문",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-174",
@@ -14764,7 +14939,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC 원문",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-170",
@@ -14807,7 +14983,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC 원문",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-171",
@@ -14850,7 +15027,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed 초록",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-167",
@@ -14893,7 +15071,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·ScienceDirect 초록",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-166",
@@ -14936,7 +15115,8 @@
       "hasDrivePdf": false,
       "linkType": "Journal of Dairy Science 원문",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2007-154",
@@ -14979,7 +15159,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed 초록",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-182",
@@ -15022,7 +15203,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC 원문",
       "category": "연구 근거",
-      "effectCategory": "장건강·대사"
+      "effectCategory": "장건강·대사",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-183",
@@ -15065,7 +15247,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스·신경"
+      "effectCategory": "스트레스·신경",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-177",
@@ -15108,7 +15291,8 @@
       "hasDrivePdf": false,
       "linkType": "학회 초록·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "A-2019-176",
@@ -15151,7 +15335,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-177",
@@ -15194,7 +15379,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "인지·집중"
+      "effectCategory": "인지·집중",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-178",
@@ -15237,7 +15423,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·ScienceDirect",
       "category": "연구 근거",
-      "effectCategory": "스트레스"
+      "effectCategory": "스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-278",
@@ -15280,7 +15467,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면·스트레스"
+      "effectCategory": "수면·스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "H-2024-040",
@@ -15306,6 +15494,7 @@
       "checked": "2026-09-08",
       "limitation": "GABA 단독이 아닌 복령·산조인과의 복합제이며 GABA의 독립 효과를 분리할 수 없다. 건강한 중국 여성 25–55세의 소규모 4주 시험이고, 제품 제공 회사 소속 저자가 포함되어 일반 소비자·장기효과로 일반화할 수 없다.",
       "notes": "PMID 38873452·PMCID PMC11167191의 PMC 원문을 재확인해 GABA 100 mg/10 mL와 분석표본 60명을 보강. 연구의 의미: GABA와 두 한약 추출물을 함께 섭취한 수면장애 여성에서 4주 동안 수면시간·PSQI와 일부 피부 지표가 위약보다 개선된 복합제 연구다. 기대 행동: 복합제의 조건부 수면·피부 탐색 근거로만 활용하고 GABA 단독효과나 불면증·피부질환 치료로 광고하지 않으며, 실제 제품의 조성·용량·대상 일치성을 확인한다.",
+      "duplicate": "없음",
       "category": "연구 근거",
       "effectCategory": "기타",
       "species": "기타",
@@ -15353,7 +15542,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "notes": "PMID 29024230와 초록의 연구설계를 확인. 연구의 의미: GABA가 전신 섭취가 아니라 구강 점막에 국소적으로 작용할 가능성을 건강한 성인에서 탐색한 임상자료다. 기대 행동: 본 사이트의 경구 섭취 근거 범위와 맞지 않으므로 검색 결과에서 제외하고, 구강 국소 제품을 별도 인덱스로 만들 때만 재활용한다. 경구 섭취 GABA의 수면·이완 효능이나 전신 진통효과로 확장하지 않는다."
+      "notes": "PMID 29024230와 초록의 연구설계를 확인. 연구의 의미: GABA가 전신 섭취가 아니라 구강 점막에 국소적으로 작용할 가능성을 건강한 성인에서 탐색한 임상자료다. 기대 행동: 본 사이트의 경구 섭취 근거 범위와 맞지 않으므로 검색 결과에서 제외하고, 구강 국소 제품을 별도 인덱스로 만들 때만 재활용한다. 경구 섭취 GABA의 수면·이완 효능이나 전신 진통효과로 확장하지 않는다.",
+      "duplicate": "없음"
     },
     {
       "id": "A-2021-177",
@@ -15396,7 +15586,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "notes": "PMID 34763469와 출판사 원문 전체를 확인해 총 252마리, 하위군 n=14 및 뇌 분석 n=8을 보강. 연구의 의미: GABA와 호두 펩타이드 병용이 마우스의 약물 유발 수면시간·수면률에 미치는 조합 신호를 탐색한 자료이며, 수면잠복기 단축은 호두 펩타이드 기여가 큰 것으로 해석해야 한다. 기대 행동: 병용제품의 전임상 탐색 근거로만 활용하고 사람의 수면 개선이나 GABA 단독효과로 확대하지 않으며, 실제 제품의 호두 펩타이드 조성·GABA 용량·섭취 조건을 일치시킨다."
+      "notes": "PMID 34763469와 출판사 원문 전체를 확인해 총 252마리, 하위군 n=14 및 뇌 분석 n=8을 보강. 연구의 의미: GABA와 호두 펩타이드 병용이 마우스의 약물 유발 수면시간·수면률에 미치는 조합 신호를 탐색한 자료이며, 수면잠복기 단축은 호두 펩타이드 기여가 큰 것으로 해석해야 한다. 기대 행동: 병용제품의 전임상 탐색 근거로만 활용하고 사람의 수면 개선이나 GABA 단독효과로 확대하지 않으며, 실제 제품의 호두 펩타이드 조성·GABA 용량·섭취 조건을 일치시킨다.",
+      "duplicate": "없음"
     },
     {
       "id": "R-2025-159",
@@ -15438,7 +15629,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "notes": "ScienceDirect/DOI 서지와 초록을 확인해 후보로 보존. 연구의 의미: GABA와 MSG가 장내 미생물 조성·SCFA 생성 및 MSG→GABA 전환과 연결될 수 있다는 기초 가설을 제공한다. 기대 행동: 장-뇌 축·발효식품·프리바이오틱스 연구의 후속 탐색 근거로만 활용하고, 장내 유익·수면·이완·혈당 개선을 사람 대상 GABA 제품 효능으로 광고하지 않으며 원문 방법·농도·공여자 수를 확인한 뒤 인체시험을 별도로 검토한다."
+      "notes": "ScienceDirect/DOI 서지와 초록을 확인해 후보로 보존. 연구의 의미: GABA와 MSG가 장내 미생물 조성·SCFA 생성 및 MSG→GABA 전환과 연결될 수 있다는 기초 가설을 제공한다. 기대 행동: 장-뇌 축·발효식품·프리바이오틱스 연구의 후속 탐색 근거로만 활용하고, 장내 유익·수면·이완·혈당 개선을 사람 대상 GABA 제품 효능으로 광고하지 않으며 원문 방법·농도·공여자 수를 확인한 뒤 인체시험을 별도로 검토한다.",
+      "duplicate": "없음"
     },
     {
       "id": "R-2023-160",
@@ -15481,7 +15673,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "notes": "PubMed·PMC 원문을 대조해 L18의 GABA 생성, Caco-2 장벽, 분변 발효 결과를 확인. 연구의 의미: 사람 유래 GABA 생성 프로바이오틱스 균주가 GABA-enriched 발효식품과 장-미생물 상호작용 연구의 후보가 될 수 있음을 보여주는 플랫폼 연구다. 기대 행동: 균주·발효식품 개발과 인체시험 설계의 배경 근거로만 활용하고, L18 또는 GABA 생성 프로바이오틱스가 사람의 장 건강·이완·수면을 개선한다고 광고하지 않으며 실제 완제품의 균주 동일성·생존성·GABA 함량과 인체 임상자료를 별도로 확인한다."
+      "notes": "PubMed·PMC 원문을 대조해 L18의 GABA 생성, Caco-2 장벽, 분변 발효 결과를 확인. 연구의 의미: 사람 유래 GABA 생성 프로바이오틱스 균주가 GABA-enriched 발효식품과 장-미생물 상호작용 연구의 후보가 될 수 있음을 보여주는 플랫폼 연구다. 기대 행동: 균주·발효식품 개발과 인체시험 설계의 배경 근거로만 활용하고, L18 또는 GABA 생성 프로바이오틱스가 사람의 장 건강·이완·수면을 개선한다고 광고하지 않으며 실제 완제품의 균주 동일성·생존성·GABA 함량과 인체 임상자료를 별도로 확인한다.",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-180",
@@ -15523,7 +15716,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
-      "notes": "Oxford Academic 출판사 원문과 DOI를 확인. 연구의 의미: 사람 유래·발효식품 유래 균주의 조합이 장내 조건에서 GABA 생성과 SCFA 대사를 조절할 수 있다는 최신 플랫폼 근거를 제공한다. 기대 행동: 차세대 프로바이오틱스·GABA 발효식품 개발과 후속 인체시험 설계에만 활용하고, 해당 균주 조합이 사람의 이완·수면·장 건강을 개선한다고 광고하지 않으며 실제 균주·제조공정·함량과 인체 임상자료를 별도로 확인한다."
+      "notes": "Oxford Academic 출판사 원문과 DOI를 확인. 연구의 의미: 사람 유래·발효식품 유래 균주의 조합이 장내 조건에서 GABA 생성과 SCFA 대사를 조절할 수 있다는 최신 플랫폼 근거를 제공한다. 기대 행동: 차세대 프로바이오틱스·GABA 발효식품 개발과 후속 인체시험 설계에만 활용하고, 해당 균주 조합이 사람의 이완·수면·장 건강을 개선한다고 광고하지 않으며 실제 균주·제조공정·함량과 인체 임상자료를 별도로 확인한다.",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-181",
@@ -15565,7 +15759,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사 DOI·초록",
       "category": "연구 근거",
-      "notes": "출판사 DOI 페이지의 초록·서지정보를 확인해 ahead-of-print 후보로 보존했다. 연구의 의미: GABA 강화 식품의 원료·가공·기전·수면 문헌을 연결해, 제품 개발 시 식품 매트릭스와 용량·대상 차이를 함께 고려해야 함을 보여주는 최신 종설이다. 기대 행동: 수면 제품 기획과 근거 공백 정리에만 활용하고, 정식 본문·출판 상태가 확정되기 전에는 효능 확정 자료로 사용하지 않으며 식품 형태·GABA 함량·대상·임상시험 결과가 일치하는 원저를 별도로 확인한다."
+      "notes": "출판사 DOI 페이지의 초록·서지정보를 확인해 ahead-of-print 후보로 보존했다. 연구의 의미: GABA 강화 식품의 원료·가공·기전·수면 문헌을 연결해, 제품 개발 시 식품 매트릭스와 용량·대상 차이를 함께 고려해야 함을 보여주는 최신 종설이다. 기대 행동: 수면 제품 기획과 근거 공백 정리에만 활용하고, 정식 본문·출판 상태가 확정되기 전에는 효능 확정 자료로 사용하지 않으며 식품 형태·GABA 함량·대상·임상시험 결과가 일치하는 원저를 별도로 확인한다.",
+      "duplicate": "없음"
     },
     {
       "id": "R-2024-019",
@@ -15607,7 +15802,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "notes": "DOI 10.3390/nutraceuticals4020015의 MDPI 원문을 확인. 연구의 의미: 경구 GABA가 뇌에 영향을 미칠 수 있는 직접·간접 경로와 수면·통증·뇌파 문헌을 한데 정리한 최신 배경 고찰이지만, BBB 통과와 임상효능의 불확실성도 명시한다. 기대 행동: 마케팅 배경·추가 연구 필요성 설명에만 활용하고 고찰의 잠재효과를 임상효능으로 인용하지 않으며, 원저의 용량·제형·대상·결과를 별도로 확인한다."
+      "notes": "DOI 10.3390/nutraceuticals4020015의 MDPI 원문을 확인. 연구의 의미: 경구 GABA가 뇌에 영향을 미칠 수 있는 직접·간접 경로와 수면·통증·뇌파 문헌을 한데 정리한 최신 배경 고찰이지만, BBB 통과와 임상효능의 불확실성도 명시한다. 기대 행동: 마케팅 배경·추가 연구 필요성 설명에만 활용하고 고찰의 잠재효과를 임상효능으로 인용하지 않으며, 원저의 용량·제형·대상·결과를 별도로 확인한다.",
+      "duplicate": "없음"
     },
     {
       "id": "H-2022-020",
@@ -15650,7 +15846,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "notes": "PMID 35796273·PMCID PMC9262463의 원문을 확인. 연구의 의미: 현미배아 유래 천연 GABA 75 mg을 불면 증상 환자에게 4주 투여해 저용량 조건의 객관적 수면 지표와 안전성을 탐색한 인체시험이며, 수면잠복기 개선 신호가 있었지만 위약 대비 효과는 제한적이었다. 기대 행동: ‘75 mg·4주·불면 증상 대상’ 조건의 제한적 자료로 활용하고, 위약 대비 수면 개선이 확정됐다고 표현하거나 모든 GABA 제품·건강인에게 일반화하지 않으며 제형과 대상 일치성을 확인한다."
+      "notes": "PMID 35796273·PMCID PMC9262463의 원문을 확인. 연구의 의미: 현미배아 유래 천연 GABA 75 mg을 불면 증상 환자에게 4주 투여해 저용량 조건의 객관적 수면 지표와 안전성을 탐색한 인체시험이며, 수면잠복기 개선 신호가 있었지만 위약 대비 효과는 제한적이었다. 기대 행동: ‘75 mg·4주·불면 증상 대상’ 조건의 제한적 자료로 활용하고, 위약 대비 수면 개선이 확정됐다고 표현하거나 모든 GABA 제품·건강인에게 일반화하지 않으며 제형과 대상 일치성을 확인한다.",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-179",
@@ -15692,7 +15889,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "notes": "DOI 10.1186/s41606-024-00122-7의 Springer 원문을 확인. 연구의 의미: GABA를 포함한 다성분 수면보조제의 6주 교차시험에서 주관적 입면·멜라토닌 신호를 탐색했지만, 객관적 Fitbit 수면지표는 유의하지 않았고 GABA의 독립효과와 성분별 기여는 평가하지 못했다. 기대 행동: 다성분 제품의 제한적 탐색 근거로만 활용하고 GABA 단독 수면효능·불면증 치료로 광고하지 않으며, GABA 함량 비공개·다른 성분·제조사 지원 및 직원·지인 중심 모집방식을 함께 공개한다."
+      "notes": "DOI 10.1186/s41606-024-00122-7의 Springer 원문을 확인. 연구의 의미: GABA를 포함한 다성분 수면보조제의 6주 교차시험에서 주관적 입면·멜라토닌 신호를 탐색했지만, 객관적 Fitbit 수면지표는 유의하지 않았고 GABA의 독립효과와 성분별 기여는 평가하지 못했다. 기대 행동: 다성분 제품의 제한적 탐색 근거로만 활용하고 GABA 단독 수면효능·불면증 치료로 광고하지 않으며, GABA 함량 비공개·다른 성분·제조사 지원 및 직원·지인 중심 모집방식을 함께 공개한다.",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-053",
@@ -15732,7 +15930,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
-      "notes": "ScienceDirect 오픈액세스 논문 초록과 DOI 서지정보를 대조해 RG30 500 mg/day, 정량 GABA 120 mg/day, 80명·8주, SRI 보정 평균차와 신뢰구간·p값을 보강. 연구의 의미: 발효 쌀배아 추출물이라는 실제 제품 원료 조건에서 스트레스 증상과 삶의 질의 위약 대비 차이를 평가한 최신 인체 무작위시험이다. 기대 행동: ‘RG30(500 mg, GABA 120 mg) 8주 연구에서 지각 스트레스 점수가 감소’로만 활용하고, 순수 GABA의 일반 효능·우울증 치료·모든 스트레스 상태로 확대하지 않는다. 원료·용량·대상·기간과 복합 성분 한계를 반드시 병기한다."
+      "notes": "ScienceDirect 오픈액세스 논문 초록과 DOI 서지정보를 대조해 RG30 500 mg/day, 정량 GABA 120 mg/day, 80명·8주, SRI 보정 평균차와 신뢰구간·p값을 보강. 연구의 의미: 발효 쌀배아 추출물이라는 실제 제품 원료 조건에서 스트레스 증상과 삶의 질의 위약 대비 차이를 평가한 최신 인체 무작위시험이다. 기대 행동: ‘RG30(500 mg, GABA 120 mg) 8주 연구에서 지각 스트레스 점수가 감소’로만 활용하고, 순수 GABA의 일반 효능·우울증 치료·모든 스트레스 상태로 확대하지 않는다. 원료·용량·대상·기간과 복합 성분 한계를 반드시 병기한다.",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-054",
@@ -15775,7 +15974,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "피부"
+      "effectCategory": "피부",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-055",
@@ -15815,7 +16015,8 @@
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
       "topic": "신경·행동·수면",
-      "notes": "J-STAGE 공식 논문 페이지의 서지정보와 초록을 확인했다. 연구의 의미: 경도 정신적 스트레스 뒤 HRV를 wavelet transform으로 분석해 GABA가 스트레스 후 부교감신경 활동 저하를 완화할 가능성을 탐색한 최신 급성 인체시험이다. 기대 행동: ‘GABA 단회 섭취 후 특정 스트레스 과제에서 상대 HF power 감소가 관찰되지 않은 7명 연구’로만 활용하고, 일반적인 이완·불안 개선·장기 스트레스 감소로 확대하지 않는다. 정확한 용량·제형과 안전성은 원문 확인 전까지 미확정으로 표시한다."
+      "notes": "J-STAGE 공식 논문 페이지의 서지정보와 초록을 확인했다. 연구의 의미: 경도 정신적 스트레스 뒤 HRV를 wavelet transform으로 분석해 GABA가 스트레스 후 부교감신경 활동 저하를 완화할 가능성을 탐색한 최신 급성 인체시험이다. 기대 행동: ‘GABA 단회 섭취 후 특정 스트레스 과제에서 상대 HF power 감소가 관찰되지 않은 7명 연구’로만 활용하고, 일반적인 이완·불안 개선·장기 스트레스 감소로 확대하지 않는다. 정확한 용량·제형과 안전성은 원문 확인 전까지 미확정으로 표시한다.",
+      "duplicate": "없음"
     },
     {
       "id": "H-2025-056",
@@ -15855,7 +16056,8 @@
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
       "topic": "신경·행동·수면",
-      "notes": "Japanese Pharmacology and Therapeutics 공식 목차와 UMIN000057565 등록정보로 제목·저널·건강인 대상 무작위 교차설계를 확인하고, 공개 연구요약에서 28명·GABA 100 mg/day·3일·VAS 결과를 대조했다. 연구의 의미: GABA를 양성대조로 사용해 일시적 정신적 스트레스 관련 주관 지표를 비교한 제품 특이적 인체시험이다. 기대 행동: GABA의 위약대조 효능자료가 아니라 ‘100 mg/day GABA 양성대조군이 포함된 SOYLAX 비교시험’으로만 활용하고, GABA의 확정적 스트레스 완화·우월성 또는 장기효과로 확대하지 않는다. 원문 전문 확인 전까지 후보·부분완료 상태를 유지한다."
+      "notes": "Japanese Pharmacology and Therapeutics 공식 목차와 UMIN000057565 등록정보로 제목·저널·건강인 대상 무작위 교차설계를 확인하고, 공개 연구요약에서 28명·GABA 100 mg/day·3일·VAS 결과를 대조했다. 연구의 의미: GABA를 양성대조로 사용해 일시적 정신적 스트레스 관련 주관 지표를 비교한 제품 특이적 인체시험이다. 기대 행동: GABA의 위약대조 효능자료가 아니라 ‘100 mg/day GABA 양성대조군이 포함된 SOYLAX 비교시험’으로만 활용하고, GABA의 확정적 스트레스 완화·우월성 또는 장기효과로 확대하지 않는다. 원문 전문 확인 전까지 후보·부분완료 상태를 유지한다.",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-183",
@@ -15898,7 +16100,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·출판사",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-184",
@@ -15930,7 +16133,7 @@
       "sciGroup": "SCIE 확인 필요",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42632744/",
-      "fulltextUrl": "",
+      "fulltextUrl": "https://doi.org/10.1016/j.foodres.2026.119908",
       "doiUrl": "https://doi.org/10.1016/j.foodres.2026.119908",
       "extraction": "부분",
       "added": "2026-09-08",
@@ -15941,7 +16144,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-185",
@@ -15973,7 +16177,7 @@
       "sciGroup": "SCIE 확인 필요",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/42330643/",
-      "fulltextUrl": "",
+      "fulltextUrl": "https://doi.org/10.1016/j.foodchem.2026.150096",
       "doiUrl": "https://doi.org/10.1016/j.foodchem.2026.150096",
       "extraction": "완료",
       "added": "2026-09-08",
@@ -15984,7 +16188,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-186",
@@ -16028,7 +16233,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-167",
@@ -16072,7 +16278,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "피부"
+      "effectCategory": "피부",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-168",
@@ -16116,7 +16323,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-169",
@@ -16160,7 +16368,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-170",
@@ -16204,7 +16413,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "인지"
+      "effectCategory": "인지",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-174",
@@ -16249,7 +16459,8 @@
       "hasDrivePdf": false,
       "linkType": "PMC·PubMed·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "H-2026-173",
@@ -16294,7 +16505,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "운동·복합효과"
+      "effectCategory": "운동·복합효과",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-125",
@@ -16338,7 +16550,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "안전성",
-      "effectCategory": "면역·상호작용"
+      "effectCategory": "면역·상호작용",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-123",
@@ -16382,7 +16595,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI·출판사",
       "category": "동물시험",
-      "effectCategory": "동물·장건강"
+      "effectCategory": "동물·장건강",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-124",
@@ -16426,7 +16640,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI·출판사",
       "category": "동물시험",
-      "effectCategory": "동물·근육"
+      "effectCategory": "동물·근육",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-122",
@@ -16470,7 +16685,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "동물시험",
-      "effectCategory": "동물·대사"
+      "effectCategory": "동물·대사",
+      "duplicate": "없음"
     },
     {
       "id": "A-2026-120",
@@ -16514,7 +16730,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI·출판사",
       "category": "동물시험",
-      "effectCategory": "동물·대사"
+      "effectCategory": "동물·대사",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-002",
@@ -16558,7 +16775,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI·출판사",
       "category": "연구 근거",
-      "effectCategory": "발효·배경"
+      "effectCategory": "발효·배경",
+      "duplicate": "없음"
     },
     {
       "id": "H-REG-2019-002",
@@ -16602,7 +16820,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov",
       "category": "연구 근거",
-      "effectCategory": "흡수·결과 미확인"
+      "effectCategory": "흡수·결과 미확인",
+      "duplicate": "없음"
     },
     {
       "id": "H-REG-2021-001",
@@ -16646,7 +16865,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov",
       "category": "연구 근거",
-      "effectCategory": "수면·결과 미확인"
+      "effectCategory": "수면·결과 미확인",
+      "duplicate": "없음"
     },
     {
       "id": "H-2024-172",
@@ -16679,7 +16899,7 @@
       "sciGroup": "SCIE 확인 필요",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/39385735/",
-      "fulltextUrl": "",
+      "fulltextUrl": "https://doi.org/10.1039/D4FO01684J",
       "doiUrl": "https://doi.org/10.1039/D4FO01684J",
       "extraction": "초록검토",
       "added": "2026-09-08",
@@ -16690,7 +16910,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면·간접"
+      "effectCategory": "수면·간접",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-164",
@@ -16723,7 +16944,7 @@
       "sciGroup": "SCIE 확인 필요",
       "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38828862/",
-      "fulltextUrl": "",
+      "fulltextUrl": "https://doi.org/10.1002/jsfa.13634",
       "doiUrl": "https://doi.org/10.1002/jsfa.13634",
       "extraction": "초록검토",
       "added": "2026-09-08",
@@ -16734,7 +16955,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "장-뇌축·간접"
+      "effectCategory": "장-뇌축·간접",
+      "duplicate": "없음"
     },
     {
       "id": "H-REG-2026-004",
@@ -16777,7 +16999,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "duplicate": "없음"
     },
     {
       "id": "H-REG-2026-003",
@@ -16820,7 +17043,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "duplicate": "없음"
     },
     {
       "id": "H-REG-2024-002",
@@ -16863,7 +17087,8 @@
       "hasDrivePdf": false,
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
-      "effectCategory": "안전성"
+      "effectCategory": "안전성",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-191",
@@ -16907,7 +17132,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "약물·경계 근거",
-      "effectCategory": "GABA 유사체"
+      "effectCategory": "GABA 유사체",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-187",
@@ -16951,7 +17177,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "약물·경계 근거",
-      "effectCategory": "GABA 수용체 약물"
+      "effectCategory": "GABA 수용체 약물",
+      "duplicate": "없음"
     },
     {
       "id": "R-2026-190",
@@ -16995,7 +17222,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "duplicate": "없음"
     },
     {
       "id": "A-2019-249",
@@ -17038,7 +17266,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "열스트레스"
+      "effectCategory": "열스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "A-2016-250",
@@ -17081,7 +17310,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "열스트레스"
+      "effectCategory": "열스트레스",
+      "duplicate": "없음"
     },
     {
       "id": "A-2020-251",
@@ -17124,7 +17354,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "철 흡수"
+      "effectCategory": "철 흡수",
+      "duplicate": "없음"
     },
     {
       "id": "A-2017-253",
@@ -17167,7 +17398,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
-      "effectCategory": "장건강"
+      "effectCategory": "장건강",
+      "duplicate": "없음"
     },
     {
       "id": "A-2005-254",
@@ -17210,7 +17442,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·J-STAGE PDF·DOI",
       "category": "효능",
-      "effectCategory": "대사"
+      "effectCategory": "대사",
+      "duplicate": "없음"
     },
     {
       "id": "A-2020-255",
@@ -17253,7 +17486,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "효능",
-      "effectCategory": "대사"
+      "effectCategory": "대사",
+      "duplicate": "없음"
     },
     {
       "id": "A-2019-256",
@@ -17296,7 +17530,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "duplicate": "없음"
     },
     {
       "id": "A-1998-258",
@@ -17339,7 +17574,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed",
       "category": "효능",
-      "effectCategory": "장건강"
+      "effectCategory": "장건강",
+      "duplicate": "없음"
     },
     {
       "id": "A-2018-262",
@@ -17381,7 +17617,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "효능",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "fulltextUrl": "https://doi.org/10.1002/tox.22565",
+      "duplicate": "없음"
     },
     {
       "id": "A-2020-263",
@@ -17424,7 +17662,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·RSC·DOI",
       "category": "효능",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "duplicate": "없음"
     },
     {
       "id": "A-2023-264",
@@ -17467,7 +17706,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·RSC·DOI",
       "category": "효능",
-      "effectCategory": "혈당·대사"
+      "effectCategory": "혈당·대사",
+      "duplicate": "없음"
     },
     {
       "id": "A-2015-265",
@@ -17510,7 +17750,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "효능",
-      "effectCategory": "섭식·대사"
+      "effectCategory": "섭식·대사",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-272",
@@ -17553,7 +17794,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
-      "effectCategory": "당뇨·신경"
+      "effectCategory": "당뇨·신경",
+      "duplicate": "없음"
     },
     {
       "id": "A-2020-273",
@@ -17595,7 +17837,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "fulltextUrl": "https://doi.org/10.3168/jds.2019-17757",
+      "duplicate": "없음"
     },
     {
       "id": "A-2012-274",
@@ -17637,7 +17881,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "fulltextUrl": "https://doi.org/10.1111/j.1740-0929.2011.00939.x",
+      "duplicate": "없음"
     },
     {
       "id": "A-2020-275",
@@ -17679,7 +17925,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "fulltextUrl": "https://doi.org/10.1111/asj.13361",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-276",
@@ -17721,7 +17969,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "장 건강·염증"
+      "effectCategory": "장 건강·염증",
+      "fulltextUrl": "https://doi.org/10.3390/vetsci11090398",
+      "duplicate": "없음"
     },
     {
       "id": "A-2013-277",
@@ -17763,7 +18013,9 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스·불안"
+      "effectCategory": "스트레스·불안",
+      "fulltextUrl": "https://doi.org/10.1111/j.1740-0929.2012.01051.x",
+      "duplicate": "없음"
     },
     {
       "id": "A-2024-279",
@@ -17805,7 +18057,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스·안전성"
+      "effectCategory": "스트레스·안전성",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-280",
@@ -17847,7 +18100,8 @@
       "hasDrivePdf": false,
       "linkType": "출판사·DOI",
       "category": "연구 근거",
-      "effectCategory": "스트레스·동물영양"
+      "effectCategory": "스트레스·동물영양",
+      "duplicate": "없음"
     },
     {
       "id": "R-2025-283",
@@ -17890,7 +18144,8 @@
       "hasDrivePdf": false,
       "linkType": "UMIN 등록",
       "category": "리뷰·배경",
-      "effectCategory": "불안·스트레스·수면"
+      "effectCategory": "불안·스트레스·수면",
+      "duplicate": "없음"
     },
     {
       "id": "R-2024-282",
@@ -17933,7 +18188,8 @@
       "hasDrivePdf": false,
       "linkType": "DOI·출판사 원문",
       "category": "리뷰·배경",
-      "effectCategory": "불안·스트레스·수면"
+      "effectCategory": "불안·스트레스·수면",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-281",
@@ -17976,7 +18232,8 @@
       "hasDrivePdf": false,
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
-      "effectCategory": "대사·안전성"
+      "effectCategory": "대사·안전성",
+      "duplicate": "없음"
     },
     {
       "id": "A-2025-096",
