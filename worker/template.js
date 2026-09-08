@@ -1467,7 +1467,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var KOREAN_SEARCH_TERMS = {
         "수면": ["sleep", "insomnia"], "불면": ["insomnia", "sleep"],
         "혈압": ["blood pressure", "hypertension"], "고혈압": ["hypertension", "blood pressure"],
-        "불안": ["anxiety"], "스트레스": ["stress"], "기억": ["memory"],
+        "불안": ["anxiety"], "스트레스": ["stress"], "릴렉세이션": ["relaxation", "relax", "calmness", "stress"],
+        "이완": ["relaxation", "relax", "calmness"], "긴장완화": ["relaxation", "stress", "calmness"],
+        "진정": ["calmness", "calming", "relaxation"], "마음안정": ["calmness", "relaxation"], "기억": ["memory"],
         "인지": ["cognition", "cognitive"], "뇌": ["brain", "neural"],
         "안전성": ["safety", "tolerability"], "독성": ["toxicity", "toxicology"],
         "이상반응": ["adverse event", "side effect"], "간": ["liver", "hepatic"],
@@ -1495,19 +1497,45 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           });
           return Array.from(new Set(terms.map(normalize).filter(Boolean)));
       }
+      function parseDoseRange(token) {
+        var match = String(token || "").match(/^(\d+(?:\.\d+)?)\s*(?:~|–|-|to)\s*(\d+(?:\.\d+)?)\s*mg(?:\/day)?$/i);
+        if (!match) return null;
+        var from = Number(match[1]);
+        var to = Number(match[2]);
+        return { from: Math.min(from, to), to: Math.max(from, to) };
+      }
       function queryPlan(value) {
         var positive = [];
         var negative = [];
+        var doseRanges = [];
         var expression = /(-?)"([^"]+)"|(-?)([^\s"]+)/g;
         var match;
         while ((match = expression.exec(String(value || "")))) {
           var isNegative = (match[1] || match[3]) === "-";
           var token = normalize(match[2] || match[4]);
           if (!token) continue;
+          var doseRange = parseDoseRange(token);
+          if (doseRange && !isNegative) {
+            doseRanges.push(doseRange);
+            continue;
+          }
           var group = match[2] ? [token] : expandQueryToken(token);
           (isNegative ? negative : positive).push(group);
         }
-        return { positive: positive, negative: negative };
+        return { positive: positive, negative: negative, doseRanges: doseRanges };
+      }
+
+      function recordDoseValues(record) {
+        return [record.dose, record.exposure].join(" ")
+          .match(/\d+(?:\.\d+)?\s*mg(?:\s*\/\s*(?:day|d))?/gi);
+      }
+
+      function doseMatchesRange(record, range) {
+        var values = recordDoseValues(record) || [];
+        return values.some(function (value) {
+          var amount = Number(String(value).match(/\d+(?:\.\d+)?/)[0]);
+          return amount >= range.from && amount <= range.to;
+        });
       }
 
       function filteredRecords() {
@@ -1518,6 +1546,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           })) return false;
           if (plan.negative.some(function (group) {
             return group.some(function (term) { return record._search.includes(term); });
+          })) return false;
+          if (plan.doseRanges.length && !plan.doseRanges.every(function (range) {
+            return doseMatchesRange(record, range);
           })) return false;
           if (state.kind && record.kind !== state.kind) return false;
           if (state.category && record.category !== state.category) return false;
