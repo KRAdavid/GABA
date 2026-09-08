@@ -14,8 +14,8 @@
     "complete": 158,
     "partial": 96,
     "drivePdf": 76,
-    "included": 160,
-    "candidate": 85,
+    "included": 161,
+    "candidate": 84,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 160
+        "value": 161
       },
       {
         "label": "후보",
-        "value": 85
+        "value": 84
       },
       {
         "label": "제외",
@@ -8809,7 +8809,7 @@
     },
     {
       "id": "H-2022-113",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 위약대조 임상시험·12주 보행 병행",
       "year": 2022,
