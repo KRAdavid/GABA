@@ -2,30 +2,30 @@
   "meta": {
     "title": "GABA 섭취 근거 인덱스",
     "subtitle": "임상·동물시험 SCI/SCIE 문헌 탐색",
-    "snapshotDate": "2026-09-08",
+    "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 296,
-    "literature": 288,
+    "total": 297,
+    "literature": 289,
     "regulatory": 8,
-    "clinical": 101,
+    "clinical": 102,
     "animal": 164,
     "scie": 150,
-    "complete": 186,
+    "complete": 187,
     "partial": 92,
     "drivePdf": 74,
-    "included": 188,
+    "included": 189,
     "candidate": 89,
     "excluded": 11,
     "safetyCategory": 157,
-    "effectCategory": 194,
+    "effectCategory": 195,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 267,
-      "literatureWithPmid": 251,
-      "extractionComplete": 186,
+      "literatureWithDoi": 268,
+      "literatureWithPmid": 252,
+      "extractionComplete": 187,
       "extractionPartial": 92
     },
     "discovery": {
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 97
+        "value": 98
       },
       {
         "label": "축산",
@@ -203,6 +203,10 @@
         "value": 3
       },
       {
+        "label": "성장호르몬·내분비",
+        "value": 2
+      },
+      {
         "label": "소화·장-뇌 축",
         "value": 2
       },
@@ -272,10 +276,6 @@
       },
       {
         "label": "성장·소화·섭식",
-        "value": 1
-      },
-      {
-        "label": "성장호르몬·내분비",
         "value": 1
       },
       {
@@ -450,7 +450,7 @@
     "status": [
       {
         "label": "포함",
-        "value": 188
+        "value": 189
       },
       {
         "label": "후보",
@@ -472,7 +472,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 104
+        "value": 105
       },
       {
         "label": "SCIE 확인 필요",
@@ -506,7 +506,7 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 186
+        "value": 187
       },
       {
         "label": "부분",
@@ -751,6 +751,10 @@
         "value": 1
       },
       {
+        "label": "GH 증가·기전 탐색",
+        "value": 1
+      },
+      {
         "label": "PSQI 및 일부 웨어러블 지표 개선",
         "value": 1
       }
@@ -800,7 +804,7 @@
       },
       {
         "label": "연구 근거",
-        "value": 139
+        "value": 140
       }
     ],
     "effectCategory": [
@@ -833,12 +837,12 @@
         "value": 10
       },
       {
-        "label": "안전성·규제",
+        "label": "성장호르몬",
         "value": 8
       },
       {
-        "label": "성장호르몬",
-        "value": 7
+        "label": "안전성·규제",
+        "value": 8
       },
       {
         "label": "스트레스·이완",
@@ -11161,6 +11165,49 @@
       "linkType": "PMC 원문·PubMed·DOI",
       "category": "안전성",
       "effectCategory": "기타"
+    },
+    {
+      "id": "H-1980-181",
+      "status": "포함",
+      "kind": "임상",
+      "design": "대조 임상 생리학 시험·약리학적 길항시험",
+      "year": 1980,
+      "title": "Effect of gamma-aminobutyric acid on growth hormone and prolactin secretion in man: influence of pimozide and domperidone",
+      "author": "Cavagnini et al.",
+      "journal": "The Journal of Clinical Endocrinology & Metabolism",
+      "doi": "10.1210/jcem-51-4-789",
+      "pmid": "7419665",
+      "population": "건강한 성인 자원자",
+      "n": "GABA군 9명·대조 14명; 추가 domperidone군 8명",
+      "model": "성장호르몬·프로락틴 분비",
+      "form": "GABA",
+      "dose": "GABA 5 g 단회 경구; pimozide 6 mg/day 4일 또는 domperidone 병용",
+      "route": "경구(비교 약물 일부 정맥)",
+      "duration": "단회 GABA 평가; 길항제 전처치 4일",
+      "comparator": "대조군·pimozide·domperidone",
+      "domain": "성장호르몬·내분비",
+      "outcome": "혈장 성장호르몬·프로락틴",
+      "direction": "GH 증가·기전 탐색",
+      "finding": "건강한 자원자에서 GABA 5 g 단회 경구 투여 후 혈장 성장호르몬이 증가했다. 뇌혈관장벽을 통과하는 pimozide는 이 반응을 약화했지만 domperidone은 영향을 주지 않아 중추 도파민 경로 가능성을 시사했다.",
+      "safety": "초록에 안전성 결과가 충분히 보고되지 않음; 5 g 약리학적 용량과 병용 약물 시험임",
+      "limitation": "소표본의 1980년 약리학 시험이며, 성장호르몬의 단기 변화만 측정했다. 근육 증가·회복·신체기능 또는 일반 제품의 장기 효능을 입증하지 않는다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/7419665/",
+      "fulltextUrl": "https://doi.org/10.1210/jcem-51-4-789",
+      "doiUrl": "https://doi.org/10.1210/jcem-51-4-789",
+      "extraction": "완료",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PMID 7419665의 PubMed 초록과 DOI 서지정보를 확인. 연구의 의미: GABA 5 g의 급성 내분비 반응과 중추 도파민 경로 가능성을 보여 주지만, 성장호르몬 상승을 제품의 근육·회복 효능으로 곧바로 번역할 수 없는 초기 약리학 자료다. 기대 행동: 성장호르몬·근육·회복 광고의 직접 근거로 사용하지 말고, 약리학적 고용량·단기 호르몬 변화·소표본이라는 제한을 명시한다.",
+      "species": "인체",
+      "topic": "성장호르몬·내분비",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·DOI",
+      "category": "연구 근거",
+      "effectCategory": "성장호르몬"
     },
     {
       "id": "H-2018-160",
