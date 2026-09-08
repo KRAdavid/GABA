@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-09",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 368,
-    "literature": 360,
+    "total": 370,
+    "literature": 362,
     "regulatory": 8,
     "clinical": 109,
-    "animal": 190,
+    "animal": 192,
     "scie": 142,
     "complete": 188,
-    "partial": 105,
+    "partial": 107,
     "drivePdf": 73,
     "included": 197,
-    "candidate": 147,
+    "candidate": 149,
     "excluded": 16,
     "safetyCategory": 162,
-    "effectCategory": 268,
+    "effectCategory": 270,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 333,
-      "literatureWithPmid": 309,
+      "literatureWithDoi": 335,
+      "literatureWithPmid": 311,
       "extractionComplete": 188,
-      "extractionPartial": 105
+      "extractionPartial": 107
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -58,7 +58,7 @@
     "species": [
       {
         "label": "설치류",
-        "value": 110
+        "value": 112
       },
       {
         "label": "인체",
@@ -372,7 +372,7 @@
       },
       {
         "label": "심혈관·혈압",
-        "value": 21
+        "value": 22
       },
       {
         "label": "소화·장건강",
@@ -775,6 +775,10 @@
         "value": 1
       },
       {
+        "label": "혈당·대사·장건강",
+        "value": 1
+      },
+      {
         "label": "혈압·대사",
         "value": 1
       },
@@ -938,7 +942,7 @@
       },
       {
         "label": "후보",
-        "value": 147
+        "value": 149
       },
       {
         "label": "제외",
@@ -968,7 +972,7 @@
       },
       {
         "label": "미확인",
-        "value": 7
+        "value": 9
       },
       {
         "label": "ESCI",
@@ -1006,7 +1010,7 @@
       },
       {
         "label": "부분",
-        "value": 105
+        "value": 107
       },
       {
         "label": "완전",
@@ -1059,12 +1063,12 @@
         "value": 9
       },
       {
-        "label": "혼합",
+        "label": "개선",
         "value": 8
       },
       {
-        "label": "개선",
-        "value": 6
+        "label": "혼합",
+        "value": 8
       },
       {
         "label": "결과 미확인",
@@ -1531,11 +1535,11 @@
         "value": 162
       },
       {
-        "label": "동물시험",
-        "value": 7
+        "label": "효능",
+        "value": 9
       },
       {
-        "label": "효능",
+        "label": "동물시험",
         "value": 7
       },
       {
@@ -1582,7 +1586,7 @@
       },
       {
         "label": "고혈압",
-        "value": 17
+        "value": 18
       },
       {
         "label": "스트레스·이완",
@@ -1750,6 +1754,10 @@
       },
       {
         "label": "혈당",
+        "value": 1
+      },
+      {
+        "label": "혈당·대사",
         "value": 1
       },
       {
@@ -17149,6 +17157,92 @@
       "linkType": "PubMed·DOI",
       "category": "효능",
       "effectCategory": "고혈압"
+    },
+    {
+      "id": "A-2020-263",
+      "status": "후보",
+      "kind": "동물",
+      "design": "GABA 강화 발효식품 식이 비교시험",
+      "year": 2020,
+      "title": "Production of GABA-enriched idli with ACE inhibitory and antioxidant properties using Aspergillus oryzae: the antihypertensive effects in spontaneously hypertensive rats.",
+      "author": "Zareian et al.",
+      "journal": "Food & Function",
+      "doi": "10.1039/c9fo02854d",
+      "pmid": "32363356",
+      "population": "SHR 랫드",
+      "n": "원문 보강 필요",
+      "model": "자발성 고혈압 랫드",
+      "form": "GABA 강화 발효식품(idli)",
+      "dose": "GABA 최대 451.7 mg/kg(발효 120시간; 식이 중 농도)",
+      "route": "경구·식이섭취",
+      "duration": "원문 보강 필요",
+      "comparator": "일반 idli 식이 대조",
+      "domain": "혈압·항산화·혈관염증",
+      "outcome": "수축기 혈압·지질과산화·항산화효소·혈관 유전자 발현",
+      "direction": "개선",
+      "finding": "GABA 강화 발효 idli 식이군은 일반 idli 식이군보다 SHR의 수축기 혈압이 낮았고, 지질과산화 감소·항산화효소 증가 및 ET-1·HSP70·NF-κB·iNOS 발현 억제가 관찰됐다.",
+      "safety": "동물 식이시험으로 사람의 혈압 개선·안전성 판단 불가; 식품 매트릭스와 발효 부산물의 기여 분리 필요",
+      "limitation": "순수 GABA 단독 효과가 아닌 발효식품 복합효과, 정확한 동물수·섭취량·기간 원문 보강 필요, 사람 임상 부재",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/32363356/",
+      "fulltextUrl": "https://pubs.rsc.org/en/content/articlelanding/2020/fo/c9fo02854d",
+      "doiUrl": "https://doi.org/10.1039/c9fo02854d",
+      "extraction": "부분",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 초록에서 GABA 농도와 식이섭취·혈압 결과를 확인했다. 연구의 의미: GABA 강화 발효식품이라는 실제 섭취 매트릭스의 전임상 가능성을 보여준다. 기대 행동: GABA 단독 혈압 저하 주장으로 전환하지 말고, 발효식품 복합효과·사람 근거 부재를 명시한다.",
+      "species": "설치류",
+      "topic": "심혈관·혈압",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·RSC·DOI",
+      "category": "효능",
+      "effectCategory": "고혈압"
+    },
+    {
+      "id": "A-2023-264",
+      "status": "후보",
+      "kind": "동물",
+      "design": "GABA 생성 프로바이오틱 발효 두유요거트 투여 비교시험",
+      "year": 2023,
+      "title": "Soy yoghurts produced with efficient GABA (γ-aminobutyric acid)-producing Lactiplantibacillus plantarum ameliorate hyperglycaemia and re-establish gut microbiota in streptozotocin (STZ)-induced diabetic mice.",
+      "author": "Weng et al.",
+      "journal": "Food & Function",
+      "doi": "10.1039/d2fo02708a",
+      "pmid": "36722409",
+      "population": "STZ 유발 당뇨 마우스",
+      "n": "원문 보강 필요",
+      "model": "고혈당·실험적 당뇨 모델",
+      "form": "GABA 생성 L. plantarum 발효 두유요거트 및 GABA 30 mg/g 강화 요거트",
+      "dose": "추가 GABA 30 mg/g(강화군); 실제 섭취량 원문 보강 필요",
+      "route": "경구 위관투여",
+      "duration": "원문 보강 필요",
+      "comparator": "물·두유·저생성균 발효요거트 대조",
+      "domain": "혈당·인슐린·장내미생물",
+      "outcome": "혈당 항상성·내당능·신장조직·혈장 GABA·인슐린·장내미생물",
+      "direction": "개선",
+      "finding": "GABA 생성균 발효 두유요거트군에서 체중 유지, 혈당 항상성·내당능·신장조직 개선과 혈장 GABA 상승이 관찰됐고, GABA 강화군에서는 혈장 인슐린 회복이 보고됐다. 일부 장내미생물 군집도 회복됐다.",
+      "safety": "실험적 당뇨 마우스 연구로 사람의 혈당조절·프로바이오틱 안전성 판단 불가",
+      "limitation": "GABA·대두 이소플라본·발효균의 독립 효과 분리 한계, 정확한 투여량·기간·표본 원문 보강 필요, 사람 임상 부재",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "미확인",
+      "sciChecked": "2026-09-09",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/36722409/",
+      "fulltextUrl": "https://pubs.rsc.org/en/content/articlelanding/2023/fo/d2fo02708a",
+      "doiUrl": "https://doi.org/10.1039/d2fo02708a",
+      "extraction": "부분",
+      "added": "2026-09-09",
+      "checked": "2026-09-09",
+      "notes": "PubMed 초록에서 GABA 생성균·GABA 강화 요거트의 경구 위관투여와 비교 결과를 확인했다. 연구의 의미: GABA를 포함한 발효식품·프로바이오틱 조합의 대사·장내미생물 탐색 근거다. 기대 행동: 혈당 개선이나 당뇨 치료 광고에 사용하지 말고, GABA 단독 근거가 아닌 복합식품 연구로만 분류한다.",
+      "species": "설치류",
+      "topic": "혈당·대사·장건강",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·RSC·DOI",
+      "category": "효능",
+      "effectCategory": "혈당·대사"
     },
     {
       "id": "A-2025-096",
