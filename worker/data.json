@@ -10,14 +10,14 @@
     "regulatory": 8,
     "clinical": 86,
     "animal": 159,
-    "scie": 153,
+    "scie": 152,
     "complete": 169,
     "partial": 86,
-    "drivePdf": 76,
-    "included": 180,
-    "candidate": 64,
+    "drivePdf": 75,
+    "included": 181,
+    "candidate": 63,
     "excluded": 11,
-    "safetyCategory": 160,
+    "safetyCategory": 159,
     "effectCategory": 167,
     "dataQuality": {
       "duplicateIds": 0,
@@ -128,7 +128,7 @@
       },
       {
         "label": "대사·내분비",
-        "value": 24
+        "value": 23
       },
       {
         "label": "면역·염증·항산화",
@@ -200,6 +200,10 @@
       },
       {
         "label": "대사·혈당",
+        "value": 1
+      },
+      {
+        "label": "대사·GLP-1·식후반응",
         "value": 1
       },
       {
@@ -318,11 +322,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 180
+        "value": 181
       },
       {
         "label": "후보",
-        "value": 64
+        "value": 63
       },
       {
         "label": "제외",
@@ -336,11 +340,11 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 153
+        "value": 152
       },
       {
         "label": "현행 미확인",
-        "value": 86
+        "value": 87
       },
       {
         "label": "ESCI",
@@ -500,11 +504,11 @@
     "category": [
       {
         "label": "안전성",
-        "value": 160
+        "value": 159
       },
       {
         "label": "연구 근거",
-        "value": 103
+        "value": 104
       }
     ],
     "effectCategory": [
@@ -522,7 +526,7 @@
       },
       {
         "label": "당뇨",
-        "value": 24
+        "value": 23
       },
       {
         "label": "스트레스",
@@ -566,6 +570,10 @@
       },
       {
         "label": "피부",
+        "value": 1
+      },
+      {
+        "label": "혈당",
         "value": 1
       },
       {
@@ -2167,47 +2175,47 @@
       "effectCategory": "기타"
     },
     {
-      "id": "H-2024-038",
-      "status": "후보",
+      "id": "H-2024-166",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약대조 교차시험",
       "year": 2024,
-      "title": "Effect of Single Oral Coingestion of GABA and Malic Acid on Postprandial GLP-1, Glucose, and Insulin Responses in Healthy Volunteers: A Randomized, Double-Blind, Placebo-Controlled, Crossover Study.",
-      "author": "Noguchi et al.",
-      "journal": "Molecular Nutrition & Food Research",
+      "title": "Effect of Single Oral Coingestion of GABA and Malic Acid on Postprandial GLP-1, Glucose, and Insulin Responses in Healthy Volunteers: A Randomized, Double-Blind, Placebo-Controlled, Crossover Study",
+      "author": "Noguchi, Ikenaga, Ueno, Kohashi, Matsumura, Kakumoto, Kohda, Hara, Hira",
+      "journal": "Molecular Nutrition & Food Research 68(7):e2300610 (2024)",
       "doi": "10.1002/mnfr.202300610",
       "pmid": "38487986",
-      "population": "성인",
-      "n": "22명",
-      "model": "건강 성인(당뇨 전단계 일부 포함)",
-      "form": "GABA + 말산 수용액",
-      "dose": "GABA 400 mg + 말산 400 mg 1회",
+      "population": "건강한 성인 22명",
+      "n": "22명; GABA+말산과 위약 교차 비교",
+      "model": "식사 전 단회 보충 후 식후 대사반응",
+      "form": "GABA+말산 음료",
+      "dose": "GABA 400 mg + 말산 400 mg, 식사 20분 전 단회",
       "route": "경구",
-      "duration": "식사 20분 전 단회",
-      "comparator": "구연산 400 mg",
-      "domain": "대사/장호르몬",
-      "outcome": "식후 GLP-1, 포도당, 인슐린",
+      "duration": "단회 투여; 식후 180분 혈액채취",
+      "comparator": "400 mg 구연산 위약",
+      "domain": "대사·GLP-1·식후반응",
+      "outcome": "총·활성 GLP-1, 식후 혈당·인슐린",
       "direction": "혼재",
-      "finding": "총·활성 GLP-1 iAUC가 각각 1.2배·1.6배 증가했으나 포도당과 인슐린은 차이가 없었음.",
-      "safety": "시험용량은 기존 안전범위 내로 기술; 중대한 이상반응 보고 없음",
-      "limitation": "GABA와 말산 동시투여로 GABA 단독효과 분리 불가; 단회 바이오마커 연구",
+      "finding": "GABA 400 mg과 말산 400 mg을 식사 전 함께 섭취했을 때 위약 대비 식후 GLP-1 총량·활성형 AUC가 각각 약 1.2배·1.6배 증가했지만 식후 혈당과 인슐린에는 유의한 차이가 없었다.",
+      "safety": "단회 인체 교차시험이며 초록상 안전성 신호가 별도로 보고되지 않았다. 장기 안전성 근거는 아니다.",
+      "limitation": "GABA 단독이 아닌 말산 병용시험이고 표본이 22명인 단회 생리반응 연구다. GLP-1 증가가 혈당·인슐린 개선으로 이어지지 않았으므로 혈당조절·체중감량 효능으로 일반화할 수 없다.",
       "pubmedStatus": "PubMed 등재",
-      "sciStatus": "SCIE 확인",
-      "sciGroup": "SCIE",
-      "sciChecked": "2026-07-27",
+      "sciStatus": "SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/38487986/",
-      "fulltextUrl": "https://drive.google.com/file/d/1Lv_6_9qloTEEk1uuU-W9t0zR8uQkQvJd/view?usp=drivesdk",
+      "fulltextUrl": "https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/95583/1/1_Manuscript_Text_v13_Main.pdf",
       "doiUrl": "https://doi.org/10.1002/mnfr.202300610",
       "extraction": "완료",
-      "added": "2026-07-27",
-      "checked": "2026-07-27",
-      "notes": "후보 유지: 복합개입. 저자 원고 38쪽 렌더링 검수 완료. 연구의 의미: 임상에서 총·활성 GLP-1 iAUC가 각각 1.2배·1.6배 증가했으나 포도당과 인슐린은 차이가 없었음. 기대 행동: 인체 근거로 검토하되 대상·용량·기간·대조군과 제품 조건의 일치 여부를 확인한 뒤 제한적으로 활용한다.",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "연구의 의미: GABA와 말산의 식사 전 병용이 장 호르몬 GLP-1에 미치는 단기 인체 반응을 무작위 교차설계로 확인한 자료다. 기대 행동: 식후 GLP-1 반응과 장-대사 기전 콘텐츠의 보조 근거로만 활용하고, GABA 단독 혈당조절·인슐린 개선·체중감량으로 표현하지 않는다. 22명·단회·말산 병용이며 혈당과 인슐린에는 유의한 차이가 없었다는 점을 반드시 병기한다.",
       "species": "인체",
-      "topic": "대사·내분비",
-      "hasDrivePdf": true,
-      "linkType": "Drive PDF",
-      "category": "안전성",
-      "effectCategory": "당뇨"
+      "topic": "대사·GLP-1·식후반응",
+      "hasDrivePdf": false,
+      "linkType": "PubMed·원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "혈당"
     },
     {
       "id": "H-2024-039",
