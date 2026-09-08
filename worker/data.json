@@ -5,17 +5,17 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 247,
-    "literature": 239,
+    "total": 248,
+    "literature": 240,
     "regulatory": 8,
-    "clinical": 78,
+    "clinical": 79,
     "animal": 155,
     "scie": 159,
     "complete": 143,
-    "partial": 96,
+    "partial": 97,
     "drivePdf": 76,
     "included": 146,
-    "candidate": 84,
+    "candidate": 85,
     "excluded": 9,
     "safetyCategory": 169,
     "effectCategory": 160,
@@ -23,10 +23,10 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 221,
+      "literatureWithDoi": 222,
       "literatureWithPmid": 220,
       "extractionComplete": 143,
-      "extractionPartial": 96
+      "extractionPartial": 97
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -62,7 +62,7 @@
       },
       {
         "label": "인체",
-        "value": 80
+        "value": 81
       },
       {
         "label": "축산",
@@ -147,6 +147,10 @@
         "value": 2
       },
       {
+        "label": "장-뇌 축·신경화학",
+        "value": 2
+      },
+      {
         "label": "종설·기전·안전성",
         "value": 2
       },
@@ -223,10 +227,6 @@
         "value": 1
       },
       {
-        "label": "장-뇌 축·신경화학",
-        "value": 1
-      },
-      {
         "label": "정신건강·장-뇌 축",
         "value": 1
       },
@@ -258,7 +258,7 @@
       },
       {
         "label": "후보",
-        "value": 84
+        "value": 85
       },
       {
         "label": "제외",
@@ -284,7 +284,7 @@
       },
       {
         "label": "해당 없음",
-        "value": 5
+        "value": 6
       }
     ],
     "extraction": [
@@ -294,7 +294,7 @@
       },
       {
         "label": "부분",
-        "value": 96
+        "value": 97
       }
     ],
     "direction": [
@@ -319,11 +319,11 @@
         "value": 6
       },
       {
-        "label": "미확인",
-        "value": 5
+        "label": "혼합",
+        "value": 6
       },
       {
-        "label": "혼합",
+        "label": "미확인",
         "value": 5
       },
       {
@@ -384,13 +384,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 78
+        "value": 79
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 87
+        "value": 88
       },
       {
         "label": "수면",
@@ -10287,6 +10287,49 @@
       "topic": "장-뇌 축·신경화학",
       "hasDrivePdf": false,
       "linkType": "PubMed·Nature 원문",
+      "category": "연구 근거",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "H-2026-164",
+      "status": "후보",
+      "kind": "임상",
+      "design": "건강인 단면 관찰연구·preprint",
+      "year": 2026,
+      "title": "Gut Microbiota Signatures of Brain and Peripheral gamma-amino butyric acid (GABA) in Healthy Adult Males",
+      "author": "Monteagudo-Mera et al.",
+      "journal": "bioRxiv",
+      "doi": "10.1101/2026.09.01.748531",
+      "pmid": "",
+      "population": "건강한 성인 남성 251명",
+      "n": "251명",
+      "model": "장내미생물 구성·뇌 MRS GABA·혈중 GABA 연관 분석",
+      "form": "보충제 개입 없음; 뇌 MRS·혈중 GABA·분변 16S 분석",
+      "dose": "해당 없음",
+      "route": "해당 없음",
+      "duration": "기저 단면 평가",
+      "comparator": "개입·위약 비교 없음",
+      "domain": "장-뇌 축·GABA·신경화학",
+      "outcome": "운동피질 GABA+, 혈중 GABA, 세균군, GABA·propionate·butyrate 생합성 경로",
+      "direction": "혼합",
+      "finding": "운동피질 GABA+는 Bacteroides/Prevotella 세균 수와, 혈중 GABA는 유산균·일부 세균군 및 GABA·SCFA 관련 예측 경로와 연관됐다. 뇌 GABA와 혈중 GABA 사이의 연관은 관찰되지 않았다.",
+      "safety": "보충제 개입이 없는 preprint 관찰연구로 제품 안전성 자료가 아님",
+      "limitation": "동료심사 전 preprint이며 단면·비인과 연구다. 실제 대사산물·보충제 섭취 효과를 측정하지 않았고, 특정 GABA 생성균이나 경구 GABA 효능을 입증하지 않는다.",
+      "pubmedStatus": "PubMed 미등재 preprint",
+      "sciStatus": "동료심사 전",
+      "sciGroup": "해당 없음",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://www.biorxiv.org/content/10.1101/2026.09.01.748531v1",
+      "doiUrl": "https://doi.org/10.1101/2026.09.01.748531",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "bioRxiv preprint 식별정보와 초록을 확인. 연구의 의미: 사람에서 장내 세균군과 뇌·혈중 GABA의 연관을 동시에 탐색한 최신 기전 자료지만, 뇌 GABA와 혈중 GABA의 직접 연결은 관찰되지 않았다. 기대 행동: 장-뇌 축 콘텐츠의 탐색적 배경으로만 사용하고, 보충제 효능·불안·수면 개선·인과관계로 표현하지 않는다. 동료심사와 후속 종단·중재 연구 결과를 추적한다.",
+      "species": "인체",
+      "topic": "장-뇌 축·신경화학",
+      "hasDrivePdf": false,
+      "linkType": "bioRxiv preprint",
       "category": "연구 근거",
       "effectCategory": "기타"
     },
