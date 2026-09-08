@@ -14,8 +14,8 @@
     "complete": 158,
     "partial": 96,
     "drivePdf": 76,
-    "included": 159,
-    "candidate": 86,
+    "included": 160,
+    "candidate": 85,
     "excluded": 9,
     "safetyCategory": 162,
     "effectCategory": 164,
@@ -306,11 +306,11 @@
     "status": [
       {
         "label": "포함",
-        "value": 159
+        "value": 160
       },
       {
         "label": "후보",
-        "value": 86
+        "value": 85
       },
       {
         "label": "제외",
@@ -2359,7 +2359,7 @@
     },
     {
       "id": "H-2025-132",
-      "status": "후보",
+      "status": "포함",
       "kind": "임상",
       "design": "무작위 이중눈가림 위약대조 교차시험",
       "year": 2025,
