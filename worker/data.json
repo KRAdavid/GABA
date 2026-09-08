@@ -5,28 +5,28 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 187,
-    "literature": 179,
+    "total": 189,
+    "literature": 181,
     "regulatory": 8,
-    "clinical": 50,
-    "animal": 128,
-    "scie": 159,
-    "complete": 119,
-    "partial": 60,
+    "clinical": 51,
+    "animal": 129,
+    "scie": 161,
+    "complete": 120,
+    "partial": 61,
     "drivePdf": 77,
-    "included": 135,
+    "included": 137,
     "candidate": 35,
     "excluded": 9,
-    "safetyCategory": 140,
-    "effectCategory": 124,
+    "safetyCategory": 141,
+    "effectCategory": 125,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 174,
-      "literatureWithPmid": 174,
-      "extractionComplete": 119,
-      "extractionPartial": 60
+      "literatureWithDoi": 176,
+      "literatureWithPmid": 176,
+      "extractionComplete": 120,
+      "extractionPartial": 61
     },
     "discovery": {
       "snapshotDate": "2026-09-03",
@@ -58,11 +58,11 @@
     "species": [
       {
         "label": "설치류",
-        "value": 82
+        "value": 83
       },
       {
         "label": "인체",
-        "value": 51
+        "value": 52
       },
       {
         "label": "수산",
@@ -88,7 +88,7 @@
       },
       {
         "label": "신경·행동·수면",
-        "value": 41
+        "value": 42
       },
       {
         "label": "대사·내분비",
@@ -112,13 +112,13 @@
       },
       {
         "label": "기타",
-        "value": 4
+        "value": 5
       }
     ],
     "status": [
       {
         "label": "포함",
-        "value": 135
+        "value": 137
       },
       {
         "label": "후보",
@@ -136,7 +136,7 @@
     "sciGroup": [
       {
         "label": "SCIE",
-        "value": 159
+        "value": 161
       },
       {
         "label": "현행 미확인",
@@ -150,17 +150,17 @@
     "extraction": [
       {
         "label": "완료",
-        "value": 119
+        "value": 120
       },
       {
         "label": "부분",
-        "value": 60
+        "value": 61
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 107
+        "value": 109
       },
       {
         "label": "혼재",
@@ -216,21 +216,21 @@
     "category": [
       {
         "label": "안전성",
-        "value": 140
+        "value": 141
       },
       {
         "label": "연구 근거",
-        "value": 47
+        "value": 48
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 63
+        "value": 64
       },
       {
         "label": "수면",
-        "value": 41
+        "value": 42
       },
       {
         "label": "다이어트",
@@ -7955,6 +7955,92 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "기타"
+    },
+    {
+      "id": "H-2025-055",
+      "status": "포함",
+      "kind": "임상",
+      "design": "무작위 이중눈가림 위약대조 시험",
+      "year": 2025,
+      "title": "Effect of oral intake of lactic acid bacterium fermented rice germ extract (LFRGE) on human skin: a randomized, double-blinded, placebo-controlled study",
+      "author": "Park, Won, Kim, Kim, Kim, Lee",
+      "journal": "Food Science and Biotechnology",
+      "doi": "10.1007/s10068-025-02075-8",
+      "pmid": "41695810",
+      "population": "성인 111명",
+      "n": "111명 등록, 12주 시험",
+      "model": "피부 노화·피부장벽",
+      "form": "유산균 발효 쌀눈 추출물(LFRGE, GABA 풍부 원료)",
+      "dose": "초록상 제품 투여량·GABA 정량 미기재",
+      "route": "경구",
+      "duration": "12주",
+      "comparator": "위약",
+      "domain": "피부·항산화",
+      "outcome": "주름 중증도, 피부 탄력·수분·진피 밀도·턴오버, 경피수분손실(TEWL), 안전성",
+      "direction": "유익",
+      "finding": "LFRGE군은 위약 대비 주름 중증도, 피부 탄력·수분·진피 밀도·턴오버가 유의하게 개선되고 TEWL이 감소했다. 이상반응은 보고되지 않았다.",
+      "safety": "12주 시험에서 이상반응 없음으로 보고",
+      "limitation": "순수 GABA 단독시험이 아닌 LFRGE 복합 원료 시험이며 초록에서 GABA 투여량이 정량되지 않아 피부효과를 GABA 단독효과로 귀속할 수 없다. 제조사 소속 저자가 포함되고 장기·다양한 인구집단 검증이 필요하다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인",
+      "sciGroup": "SCIE",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41695810/",
+      "fulltextUrl": "https://doi.org/10.1007/s10068-025-02075-8",
+      "doiUrl": "https://doi.org/10.1007/s10068-025-02075-8",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PubMed 초록·서지정보 확인. 피부 기능성·안전성 자료로 활용하되 GABA 단독 일반효능으로 확장하지 않음.",
+      "species": "인체",
+      "topic": "기타",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "안전성",
+      "effectCategory": "기타"
+    },
+    {
+      "id": "A-2025-096",
+      "status": "포함",
+      "kind": "동물",
+      "design": "수면행동·EEG·수용체 결합·면역조직화학 시험",
+      "year": 2025,
+      "title": "Fermented rice germ extract with high concentration of gamma-aminobutyric acid enhances pentobarbital-induced sleep via GABAergic system in rats",
+      "author": "Ye, Jeong, Yu, Rheu, Lee, Shim",
+      "journal": "PLOS One",
+      "doi": "10.1371/journal.pone.0326859",
+      "pmid": "40794701",
+      "population": "수컷 랫드",
+      "n": "군별 5~8마리",
+      "model": "펜토바비탈 유도 수면 모델",
+      "form": "고 GABA 발효 쌀눈 추출물 RG30(GABA 함량 31.04±0.94%)",
+      "dose": "RG30 40 또는 90 mg/kg",
+      "route": "경구",
+      "duration": "단회 수면행동·EEG 평가",
+      "comparator": "정상·대조·디아제팜 비교군",
+      "domain": "신경·행동·수면",
+      "outcome": "EEG 수면구조, 각성·NREM·REM·총수면, GABAA·5-HT2C 수용체 결합, orexin·수용체 면역반응",
+      "direction": "유익",
+      "finding": "RG30은 랫드에서 각성시간을 줄이고 NREM 및 총수면을 늘렸다. GABAA 수용체 결합(IC50 5.911 µg/mL), orexin 감소 및 시상하부 전시각영역 GABAA 수용체 변화가 관찰됐다.",
+      "safety": "동물 수면모델 논문에서 별도 독성·이상반응 평가는 핵심 결과로 보고되지 않음",
+      "limitation": "순수 GABA가 아닌 발효 쌀눈 추출물이며 펜토바비탈 유도 랫드 모델이다. 사람의 수면 개선이나 제품 효능으로 직접 일반화할 수 없고, 제조사 소속 저자가 포함된다.",
+      "pubmedStatus": "PubMed 등재",
+      "sciStatus": "SCIE 확인",
+      "sciGroup": "SCIE",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/40794701/",
+      "fulltextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12342256/",
+      "doiUrl": "https://doi.org/10.1371/journal.pone.0326859",
+      "extraction": "완료",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "PubMed·PLOS One·PMC 원문 교차확인. 동물 기전·수면 탐색 근거로만 표시하고 인체 마케팅 문구로 직접 전환하지 않음.",
+      "species": "설치류",
+      "topic": "신경·행동·수면",
+      "hasDrivePdf": false,
+      "linkType": "원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "수면"
     },
     {
       "id": "REG-KR-MFDS-2025-001",
