@@ -11,7 +11,11 @@ const candidateFiles = [];
 for (const directory of outputDirectories) {
   const path = resolve(gabaRoot, "outputs", directory.name, "candidates.json");
   try {
-    candidateFiles.push({ path, mtime: (await stat(path)).mtimeMs });
+    const mtime = (await stat(path)).mtimeMs;
+    // A discovery run is complete only when its staged-sheet payload also
+    // exists. Partial runs must not shadow the latest complete QA input.
+    await stat(resolve(gabaRoot, "outputs", directory.name, "candidate-sheet-payload.json"));
+    candidateFiles.push({ path, mtime });
   } catch (_) {
     // Ignore incomplete runs.
   }
