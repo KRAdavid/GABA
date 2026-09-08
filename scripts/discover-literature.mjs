@@ -593,6 +593,13 @@ const candidates = reviewed
   .map((record, index) => ({
     candidateId: `C-${snapshotDate.replaceAll("-", "")}-${String(index + 1).padStart(4, "0")}`,
     collectedDate: snapshotDate,
+    screeningRecommendation: record.exclusionSignals.length
+      ? "경계자료: GABA성 의약품·수용체 연구 또는 비경구/비보충제 가능성 확인"
+      : record.indirectTitleSignals.length || record.productionSignals.length
+        ? "제외검토: 간접 기전·생산공정·비섭취 연구 여부 확인"
+        : record.bucket === "우선검토"
+          ? "직접근거 우선검토"
+          : "일반 원문검토",
     ...record
   }));
 
