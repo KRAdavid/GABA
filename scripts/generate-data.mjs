@@ -56,7 +56,13 @@ candidateSheetDated.sort((a, b) => b.mtime - a.mtime);
 const candidateSheetPayload = candidateSheetDated.length
   ? JSON.parse(await readFile(candidateSheetDated[0].path, "utf8"))
   : null;
-const discovery = candidateSheetPayload?.summary || searchDiscovery;
+// Prefer the newest discovery artifact. Candidate-sheet payloads can remain
+// unchanged while the daily PubMed/Crossref search continues to refresh.
+const latestCandidateSheetMtime = candidateSheetDated[0]?.mtime ?? 0;
+const latestSearchMtime = searchDated[0]?.mtime ?? 0;
+const discovery = latestSearchMtime >= latestCandidateSheetMtime
+  ? searchDiscovery
+  : (candidateSheetPayload?.summary || searchDiscovery);
 
 const indexWrite = payload.requests.find((request) => {
   const update = request.updateCells;
@@ -355,7 +361,7 @@ const database = {
       pubmedUnique: discovery.pubmed?.uniqueRetrieved || 0,
       openAlexRetrieved: discovery.openAlex?.retrieved || 0,
       mergedUnique: discovery.mergedUnique || 0,
-      stagedCandidates: candidateSheetPayload?.rows || discovery.newCandidates || 0,
+      stagedCandidates: discovery.newCandidates ?? candidateSheetPayload?.rows ?? 0,
       priority: discovery.stagedPriority ?? discovery.priority ?? 0,
       general: discovery.stagedGeneral ?? discovery.general ?? 0,
       low: discovery.stagedLow ?? discovery.low ?? 0,
