@@ -158,12 +158,12 @@ const first = (block, pattern) => {
   const match = String(block ?? "").match(pattern);
   return match ? decodeXml(match[1]) : "";
 };
-const fetchWithTimeout = (url, options = {}) => fetch(url, {
+const fetchWithTimeout = (url, options = {}, timeoutMs = 30_000) => fetch(url, {
   ...options,
-  signal: AbortSignal.timeout(30_000)
+  signal: AbortSignal.timeout(timeoutMs)
 });
 
-async function getJson(url, retries = 6) {
+async function getJson(url, retries = 6, timeoutMs = 30_000) {
   let error;
   for (let attempt = 1; attempt <= retries; attempt += 1) {
     try {
@@ -172,12 +172,12 @@ async function getJson(url, retries = 6) {
           Accept: "application/json",
           "User-Agent": "GABA-evidence-index/2.0 (systematic literature discovery)"
         }
-      });
+      }, timeoutMs);
       // Await body decoding inside the retry boundary. A dropped connection can
       // fail while the response body is streaming even after headers succeeded.
       if (response.ok) return await response.json();
       error = new Error(`${response.status} ${response.statusText}: ${url}`);
-      if (response.status === 429 || response.status >= 500) {
+      if ((response.status === 429 || response.status >= 500) && attempt < retries) {
         const retryAfter = Number(response.headers.get("retry-after") || 0);
         await pause(Math.max(retryAfter * 1000, 5000 * attempt));
       }
@@ -315,7 +315,7 @@ async function searchOpenAlex(query, index) {
     "per-page": "100",
     page: "1"
   });
-  const data = await getJson(`https://api.openalex.org/works?${params}`);
+  const data = await getJson(`https://api.openalex.org/works?${params}`, 1, 8_000);
   return {
     label: `openalex_${String(index + 1).padStart(2, "0")}`,
     query,
