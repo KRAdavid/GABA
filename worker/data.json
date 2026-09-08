@@ -5,17 +5,17 @@
     "snapshotDate": "2026-09-08",
     "minYear": 1961,
     "maxYear": 2026,
-    "total": 255,
-    "literature": 247,
+    "total": 256,
+    "literature": 248,
     "regulatory": 8,
     "clinical": 81,
-    "animal": 157,
+    "animal": 158,
     "scie": 158,
     "complete": 145,
-    "partial": 102,
+    "partial": 103,
     "drivePdf": 76,
     "included": 149,
-    "candidate": 89,
+    "candidate": 90,
     "excluded": 9,
     "safetyCategory": 169,
     "effectCategory": 165,
@@ -23,10 +23,10 @@
       "duplicateIds": 0,
       "duplicateDois": 0,
       "duplicatePmids": 0,
-      "literatureWithDoi": 229,
+      "literatureWithDoi": 230,
       "literatureWithPmid": 226,
       "extractionComplete": 145,
-      "extractionPartial": 102
+      "extractionPartial": 103
     },
     "discovery": {
       "snapshotDate": "2026-09-08",
@@ -74,7 +74,7 @@
       },
       {
         "label": "가금",
-        "value": 13
+        "value": 14
       },
       {
         "label": "기타",
@@ -124,7 +124,7 @@
       },
       {
         "label": "면역·염증·항산화",
-        "value": 21
+        "value": 22
       },
       {
         "label": "소화·장건강",
@@ -294,7 +294,7 @@
       },
       {
         "label": "후보",
-        "value": 89
+        "value": 90
       },
       {
         "label": "제외",
@@ -312,7 +312,7 @@
       },
       {
         "label": "현행 미확인",
-        "value": 75
+        "value": 76
       },
       {
         "label": "ESCI",
@@ -330,13 +330,13 @@
       },
       {
         "label": "부분",
-        "value": 102
+        "value": 103
       }
     ],
     "direction": [
       {
         "label": "유익",
-        "value": 151
+        "value": 152
       },
       {
         "label": "혼재",
@@ -420,13 +420,13 @@
       },
       {
         "label": "연구 근거",
-        "value": 86
+        "value": 87
       }
     ],
     "effectCategory": [
       {
         "label": "기타",
-        "value": 90
+        "value": 91
       },
       {
         "label": "수면",
@@ -10755,6 +10755,49 @@
       "linkType": "학회 초록·DOI",
       "category": "연구 근거",
       "effectCategory": "수면"
+    },
+    {
+      "id": "A-2019-176",
+      "status": "후보",
+      "kind": "동물",
+      "design": "무작위 3군 사료·음수 보충시험",
+      "year": 2019,
+      "title": "Effect of GABA on Hematological, Biochemical, Antioxidant and Immunological Parameters in Laying Hens",
+      "author": "Elkomy et al.",
+      "journal": "Advances in Pharmacology & Clinical Trials",
+      "doi": "10.23880/apct-16000170",
+      "pmid": "",
+      "population": "Lohmann Brown 산란계 32주령",
+      "n": "60마리, 군별 20마리(일부 혈액 분석 n=10)",
+      "model": "산란계의 혈액·항산화·면역 지표",
+      "form": "GABA 음수 보충",
+      "dose": "40 또는 80 mg/kg 체중",
+      "route": "음수 경구",
+      "duration": "4주",
+      "comparator": "무처치 대조군",
+      "domain": "동물영양·면역·항산화",
+      "outcome": "혈구·Hb·HDL·LDL·SOD·GSH·MDA·IgG·cortisol·haptoglobin",
+      "direction": "유익",
+      "finding": "GABA 보충군에서 일부 혈액·항산화·면역 지표가 대조군과 달라졌으며, 초록은 RBC·Hb·HDL·SOD·GSH·IgG 증가와 MDA·콜레스테롤·LDL 감소를 보고했다.",
+      "safety": "사람 안전성 자료가 아니며 동물시험에서 일반 안전성 평가 범위는 제한적",
+      "limitation": "사람 대상이 아니고 SCI/SCIE 및 출판품질을 추가 확인해야 한다. 음수 투여량과 사람 경구 보충제 용량은 직접 비교할 수 없으며, 동물 면역·항산화 결과를 사람 건강효능으로 전환할 수 없다.",
+      "pubmedStatus": "PubMed 미확인",
+      "sciStatus": "SCI/SCIE 확인 필요",
+      "sciGroup": "현행 미확인",
+      "sciChecked": "2026-09-08",
+      "pubmedUrl": "",
+      "fulltextUrl": "https://medwinpublishers.com/article/APCT/10.23880/apct-16000170/full",
+      "doiUrl": "https://doi.org/10.23880/apct-16000170",
+      "extraction": "부분",
+      "added": "2026-09-08",
+      "checked": "2026-09-08",
+      "notes": "우선검토 후보의 DOI·출판사 원문 페이지와 초록을 확인. 연구의 의미: GABA를 음수로 공급한 산란계에서 혈액·항산화·면역 지표를 함께 탐색한 전임상 자료로, 동물영양과 원료 기전의 범위를 보여준다. 기대 행동: 동물사료·원료 연구 후보로만 보관하고 사람용 면역·항산화 광고나 GABA 인체 효능으로 사용하지 않으며, 출판품질과 상세 통계·안전성 자료를 추가 확인한다.",
+      "species": "가금",
+      "topic": "면역·염증·항산화",
+      "hasDrivePdf": false,
+      "linkType": "출판사 원문·DOI",
+      "category": "연구 근거",
+      "effectCategory": "기타"
     },
     {
       "id": "H-2025-052",
