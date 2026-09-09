@@ -83,10 +83,11 @@ assert.ok(database.records.every((record) => record.id && record.title && record
 assert.match(summary.triageVersion, /^\d{4}-\d{2}-\d{2}(?:\.\d+)?$/);
 assert.equal(summary.identifierExtraction, "PubMed primary ArticleIdList only");
 assert.ok(summary.pubmed.uniqueRetrieved >= 2000);
-const openAlexRateLimited = summary.sourceErrors?.some((entry) =>
-  entry.source?.startsWith("OpenAlex:") && /429|Too Many Requests/i.test(entry.error || ""));
-assert.ok(summary.openAlex.retrieved === 800 || openAlexRateLimited,
-  "OpenAlex must retrieve the expected batch or explicitly record a rate-limit error");
+const openAlexUnavailable = summary.sourceErrors?.some((entry) =>
+  entry.source?.startsWith("OpenAlex:")
+  && /429|Too Many Requests|503|Service Unavailable/i.test(entry.error || ""));
+assert.ok(summary.openAlex.retrieved === 800 || openAlexUnavailable,
+  "OpenAlex must retrieve the expected batch or explicitly record an unavailable/rate-limit error");
 assert.equal(candidates.length, 1000);
 assert.equal(stagedRows.length, 1000);
 const idPrefix = `C-${summary.snapshotDate.replaceAll("-", "")}-`;
