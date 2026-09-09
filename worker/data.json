@@ -18,7 +18,7 @@
     "candidate": 157,
     "excluded": 16,
     "safetyCategory": 159,
-    "effectCategory": 290,
+    "effectCategory": 344,
     "dataQuality": {
       "duplicateIds": 0,
       "duplicateDois": 0,
@@ -30,23 +30,17 @@
     },
     "discovery": {
       "snapshotDate": "2026-09-09",
-      "generatedAt": "2026-09-08T23:51:11.924Z",
+      "generatedAt": "2026-09-09T00:01:46.291Z",
       "triageVersion": "2026-09-09.1",
       "identifierExtraction": "PubMed primary ArticleIdList only",
       "pubmedUnique": 3234,
       "openAlexRetrieved": 0,
-      "mergedUnique": 4030,
+      "mergedUnique": 3326,
       "stagedCandidates": 1000,
-      "priority": 11,
-      "general": 785,
-      "low": 203,
-      "screeningCounts": {
-        "포함후보": 11,
-        "보류": 2,
-        "제외": 9,
-        "우선검토": 0,
-        "미검토": 976
-      },
+      "priority": 0,
+      "general": 680,
+      "low": 320,
+      "screeningCounts": null,
       "candidateSheet": "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
       "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
     },
@@ -431,10 +425,6 @@
         "value": 10
       },
       {
-        "label": "기타",
-        "value": 8
-      },
-      {
         "label": "신경·행동·스트레스",
         "value": 8
       },
@@ -444,6 +434,10 @@
       },
       {
         "label": "성장호르몬·내분비",
+        "value": 3
+      },
+      {
+        "label": "수면",
         "value": 3
       },
       {
@@ -471,11 +465,11 @@
         "value": 2
       },
       {
-        "label": "수면",
+        "label": "운동·근육",
         "value": 2
       },
       {
-        "label": "운동·근육",
+        "label": "운동·체성분",
         "value": 2
       },
       {
@@ -595,6 +589,10 @@
         "value": 1
       },
       {
+        "label": "발암·안전성",
+        "value": 1
+      },
+      {
         "label": "발효 보리 GABA·13주 섭취·안전성",
         "value": 1
       },
@@ -624,6 +622,10 @@
       },
       {
         "label": "섭식·대사",
+        "value": 1
+      },
+      {
+        "label": "성장·내분비",
         "value": 1
       },
       {
@@ -664,6 +666,14 @@
       },
       {
         "label": "수면·프로바이오틱·GABA 관련 생체지표",
+        "value": 1
+      },
+      {
+        "label": "수면·피부 건강",
+        "value": 1
+      },
+      {
+        "label": "수면·흡수",
         "value": 1
       },
       {
@@ -844,6 +854,10 @@
       },
       {
         "label": "장내 GABA·SHIME·psychobiotic",
+        "value": 1
+      },
+      {
+        "label": "정서·수면·자율신경",
         "value": 1
       },
       {
@@ -1817,12 +1831,16 @@
     ],
     "effectCategory": [
       {
-        "label": "기타",
-        "value": 102
+        "label": "수면",
+        "value": 51
       },
       {
-        "label": "수면",
+        "label": "기타",
         "value": 48
+      },
+      {
+        "label": "스트레스·이완",
+        "value": 34
       },
       {
         "label": "다이어트",
@@ -1845,8 +1863,8 @@
         "value": 18
       },
       {
-        "label": "스트레스·이완",
-        "value": 11
+        "label": "장건강·소화",
+        "value": 17
       },
       {
         "label": "안전성",
@@ -1858,18 +1876,22 @@
       },
       {
         "label": "성장호르몬",
-        "value": 8
+        "value": 9
       },
       {
         "label": "안전성·규제",
         "value": 8
       },
       {
-        "label": "대사",
-        "value": 4
+        "label": "운동·체성분",
+        "value": 6
       },
       {
         "label": "인지·집중",
+        "value": 5
+      },
+      {
+        "label": "대사",
         "value": 4
       },
       {
@@ -1890,6 +1912,10 @@
       },
       {
         "label": "동물·대사",
+        "value": 2
+      },
+      {
+        "label": "면역·염증",
         "value": 2
       },
       {
@@ -1918,6 +1944,10 @@
       },
       {
         "label": "장 건강·염증",
+        "value": 2
+      },
+      {
+        "label": "체온조절",
         "value": 2
       },
       {
@@ -2042,10 +2072,6 @@
       },
       {
         "label": "운동·복합효과",
-        "value": 1
-      },
-      {
-        "label": "운동·체성분",
         "value": 1
       },
       {
@@ -2743,7 +2769,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "체온조절"
     },
     {
       "id": "H-2013-027",
@@ -2911,11 +2937,11 @@
       "checked": "2026-09-08",
       "notes": "PMID 26052150와 J-STAGE 원문 초록을 대조해 GABA 100 mg·AVLE 50 mg 및 EEG 결과를 보강. 연구의 의미: 수면이 좋지 않은 성인에서 GABA는 입면, AVLE는 NREM 수면에 서로 다른 신호를 보이는지 탐색한 복합 성분 연구다. 기대 행동: GABA+AVLE 제품의 제한적 근거로만 활용하고 GABA 단독 또는 장기 수면효과로 확대하지 않으며, 두 성분의 용량·조합·대상을 함께 명시한다.",
       "species": "기타",
-      "topic": "기타",
+      "topic": "수면",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타",
+      "effectCategory": "수면",
       "duplicate": "없음"
     },
     {
@@ -3043,11 +3069,11 @@
       "checked": "2026-09-08",
       "notes": "PMID 30263304·PMCID PMC6049207 및 체계적 고찰의 표를 대조해 표본 구성, PSQI 기준, 100 mg 용량, 취침 30분 전 섭취와 30분 혈중 최고치를 보강. 연구의 의미: 수면이 좋지 않은 소규모 성인에서 단기 경구 GABA의 EEG 수면·흡수 시간 신호를 함께 측정한 초기 인체시험이다. 기대 행동: ‘100 mg·7일·PSQI>6’ 조건의 탐색 근거로만 활용하고, 모든 소비자의 수면 개선이나 장기효과로 일반화하지 않으며 캡슐의 복합 성분과 산업계 연구자 구성을 공개한다.",
       "species": "기타",
-      "topic": "기타",
+      "topic": "수면·흡수",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타",
+      "effectCategory": "수면",
       "duplicate": "없음"
     },
     {
@@ -3261,11 +3287,11 @@
       "checked": "2026-09-08",
       "notes": "PMID 31143310·PMCID PMC6522239의 PMC 원문과 UMIN 등록정보를 대조해 무작위 26명, 분석 21명, 100 mg GABA+10 g 유청/일, 12주 및 주 2회 저항운동을 보강. 연구의 의미: 낮은 유청 단백질 섭취와 저항운동을 병행한 비훈련 남성에서 GABA·유청 복합 섭취가 유청 단독보다 전신 제지방량과 일부 안정시 GH 지표에 유리한 신호를 보인 연구다. 기대 행동: 운동·유청·GABA가 일치하는 복합제품의 제한적 근거로만 활용하고, GABA 단독 근비대·성장호르몬 효능으로 광고하지 않으며 실제 제품의 용량·운동·단백질 조건을 확인한다.",
       "species": "기타",
-      "topic": "기타",
+      "topic": "운동·체성분",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타",
+      "effectCategory": "운동·체성분",
       "duplicate": "없음"
     },
     {
@@ -3391,11 +3417,11 @@
       "checked": "2026-07-27",
       "notes": "연구의 의미: 추운 환경에서 운동하는 선수의 체온조절 관련 반응에 대한 경구 GABA의 가능성을 탐색한 예비 인체연구입니다. 기대 행동: 스포츠·운동 보조 메시지의 탐색 근거로만 사용하고, 체온조절 개선이나 운동능력 향상을 확정적으로 표현하지 않습니다.",
       "species": "인체",
-      "topic": "기타",
+      "topic": "운동·체성분",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타"
+      "effectCategory": "체온조절"
     },
     {
       "id": "H-2022-016",
@@ -3695,11 +3721,11 @@
       "checked": "2026-09-08",
       "notes": "PMID 38321713의 PubMed 초록과 브라질 ReBEC 등록 결과를 대조해 200 mg/day·90일, 38명 시작/26명 완료, 수면효율·HRV 수치를 보강. 연구의 의미: 운동을 병행한 과체중·비만 여성에서 GABA의 수면 효율 유지와 운동 후 부교감신경 우세 신호를 탐색한 인체 무작위시험이다. 기대 행동: ‘운동을 병행한 특정 여성 집단에서 수면 효율·운동 후 HRV 신호가 관찰됨’으로만 사용하고, GABA 단독의 우울·불안·스트레스 개선 또는 모든 사람의 수면 개선으로 확대하지 않는다. 운동 병행, 이탈, 심리척도 비유의라는 제한을 함께 표시한다.",
       "species": "기타",
-      "topic": "기타",
+      "topic": "정서·수면·자율신경",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "기타",
+      "effectCategory": "스트레스·이완",
       "duplicate": "없음"
     },
     {
@@ -4141,11 +4167,11 @@
       "checked": "2026-07-27",
       "notes": "PMID 42433946·PMCID PMC13351637와 공개 원문을 대조해 GABA 100 mg 취침 전, 99명 병용군·51명 대조군, 12개월 결과와 이상사건을 확인. 비무작위 후향 실제진료 자료이므로 인과효과로 단정하지 않음. 연구의 의미: GnRHa 치료 중 성장속도가 낮은 소아에서 GABA 병용군의 성장 관련 지표가 더 높았지만, 치료 선택과 교란요인의 영향을 받을 수 있는 연관 신호다. 기대 행동: ‘GnRHa 치료 소아에서 GABA 100 mg을 병용한 후향 코호트의 성장 연관 신호’로만 활용하고, GABA 단독 성장촉진·키 증가 보장·건강한 어린이 대상 광고로 확대하지 않는다. 의학적 치료 병용, 비무작위 설계, 최종 성인키 미확인을 반드시 표시한다.",
       "species": "기타",
-      "topic": "기타",
+      "topic": "성장·내분비",
       "hasDrivePdf": true,
       "linkType": "링크 없음",
       "category": "연구 근거",
-      "effectCategory": "기타",
+      "effectCategory": "성장호르몬",
       "duplicate": "없음"
     },
     {
@@ -4319,7 +4345,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-1981-045",
@@ -4448,7 +4474,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-1986-033",
@@ -4621,7 +4647,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-1999-035",
@@ -4660,11 +4686,11 @@
       "checked": "2026-07-27",
       "notes": "SCI 원저이나 GABA 귀속 불확실성 때문에 후보로 분류. OpenAlex/OUP의 bronze OA PDF는 현재 403으로 차단되며, Gifu Pharmaceutical University 저장소 자료는 원논문이 아닌 1쪽 초록 모음임을 첫 페이지로 확인(2026-07-27); 원문 PDF 미확보·부분 상태 유지. 연구의 의미: 동물에서 GABA 강화 탈지 쌀눈은 ACF 형성과 후개시기 대장선암 빈도를 낮췄지만, 일반 쌀눈도 유사한 보호효과를 보여 GABA 독립효과는 분리되지 않았다. 기대 행동: 전임상·기전 근거로만 활용하고 사람의 효능·용량·안전성으로 직접 일반화하지 않는다.",
       "species": "설치류",
-      "topic": "기타",
+      "topic": "발암·안전성",
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2002-001",
@@ -4922,7 +4948,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2004-038",
@@ -5395,7 +5421,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2011-101",
@@ -5524,7 +5550,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2013-004",
@@ -5610,7 +5636,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "운동·체성분"
     },
     {
       "id": "A-2014-005",
@@ -5696,7 +5722,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2014-062",
@@ -5739,7 +5765,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2015-047",
@@ -5825,7 +5851,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2015-103",
@@ -5997,7 +6023,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2016-064",
@@ -6040,7 +6066,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2016-065",
@@ -6083,7 +6109,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2016-252",
@@ -6256,7 +6282,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2017-067",
@@ -6299,7 +6325,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2017-105",
@@ -6471,7 +6497,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2018-108",
@@ -6772,7 +6798,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2020-069",
@@ -6858,7 +6884,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2020-071",
@@ -6901,7 +6927,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2020-111",
@@ -6987,7 +7013,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2020-113",
@@ -7116,7 +7142,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2021-018",
@@ -7202,7 +7228,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2021-115",
@@ -7245,7 +7271,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "면역·염증"
     },
     {
       "id": "A-2021-116",
@@ -7331,7 +7357,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2022-020",
@@ -7503,7 +7529,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2022-074",
@@ -7546,7 +7572,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2022-075",
@@ -7589,7 +7615,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2022-076",
@@ -7632,7 +7658,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2022-117",
@@ -7675,7 +7701,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2022-118",
@@ -7804,7 +7830,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2023-052",
@@ -7933,7 +7959,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "운동·체성분"
     },
     {
       "id": "A-2023-079",
@@ -8062,7 +8088,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2023-120",
@@ -8234,7 +8260,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "면역·염증"
     },
     {
       "id": "A-2024-053",
@@ -8277,7 +8303,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2024-054",
@@ -8406,7 +8432,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "운동·체성분"
     },
     {
       "id": "A-2024-084",
@@ -8882,7 +8908,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2025-085",
@@ -8968,7 +8994,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2025-087",
@@ -9097,7 +9123,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2025-093",
@@ -9183,7 +9209,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2025-095",
@@ -9226,7 +9252,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2026-028",
@@ -9269,7 +9295,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "인지·집중"
     },
     {
       "id": "A-2026-029",
@@ -9356,7 +9382,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "운동·체성분"
     },
     {
       "id": "A-2026-090",
@@ -9399,7 +9425,7 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2026-091",
@@ -9486,7 +9512,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "스트레스·이완"
     },
     {
       "id": "A-2026-096",
@@ -9573,7 +9599,7 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "장건강·소화"
     },
     {
       "id": "A-2014-126",
@@ -15651,6 +15677,8 @@
     },
     {
       "id": "H-2024-040",
+      "topic": "수면·피부 건강",
+      "effectCategory": "수면",
       "status": "포함",
       "kind": "임상",
       "year": 2024,
@@ -15682,9 +15710,7 @@
       "notes": "PMID 38873452·PMCID PMC11167191의 PMC 원문을 재확인해 GABA 100 mg/10 mL와 분석표본 60명을 보강. 연구의 의미: GABA와 두 한약 추출물을 함께 섭취한 수면장애 여성에서 4주 동안 수면시간·PSQI와 일부 피부 지표가 위약보다 개선된 복합제 연구다. 기대 행동: 복합제의 조건부 수면·피부 탐색 근거로만 활용하고 GABA 단독효과나 불면증·피부질환 치료로 광고하지 않으며, 실제 제품의 조성·용량·대상 일치성을 확인한다.",
       "duplicate": "없음",
       "category": "연구 근거",
-      "effectCategory": "기타",
       "species": "기타",
-      "topic": "기타",
       "linkType": "원문·DOI"
     },
     {

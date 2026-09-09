@@ -175,6 +175,24 @@ const sheetLiteratureRecords = indexWrite.rows.map((row) => {
     hasDrivePdf,
     linkType: hasDrivePdf ? "Drive PDF" : fulltextUrl ? "원문·DOI" : doiUrl ? "DOI" : pubmedUrl ? "PubMed" : "링크 없음"
   };
+  // Fill only genuinely blank topics from the study text so verified records
+  // remain searchable even when the source row has not yet been classified.
+  const topicText = [record.title, record.domain, record.outcome, record.finding].join(" ");
+  if (record.topic === "기타") {
+    record.topic = /수면|불면|sleep|insomnia/i.test(topicText)
+      ? "수면"
+      : /인지|주의|기억|attention|memory|cognitive/i.test(topicText)
+        ? "신경·행동·인지"
+        : /스트레스|불안|기분|이완|stress|anxiety|mood|relax/i.test(topicText)
+          ? "스트레스·이완"
+          : /체성분|제지방|근육|운동|운동능력|exercise|muscle|fat-free/i.test(topicText)
+            ? "운동·체성분"
+            : /성장|내분비|growth|endocrine/i.test(topicText)
+              ? "성장·내분비"
+              : /발암|암|carcinogenesis|cancer/i.test(topicText)
+                ? "발암·안전성"
+                : record.topic;
+  }
   record.notes = enrichLiteratureNote(record);
   const safetyText = [record.topic, record.domain, record.outcome, record.safety, record.limitation, record.notes].join(" ");
   record.category = record.topic === "장기·독성·안전성" || /안전성|이상반응|독성|toxicity|toxicology|adverse|NOAEL|tolerability/i.test(safetyText)
@@ -193,7 +211,23 @@ const sheetLiteratureRecords = indexWrite.rows.map((row) => {
             ? "고혈압"
             : /당뇨|혈당|diabetes|glucose|glycemic|insulin resistance/i.test(effectText)
               ? "당뇨"
-              : "기타";
+              : /스트레스|불안|기분|이완|stress|anxiety|mood|relax/i.test(effectText)
+                ? "스트레스·이완"
+                : /인지|주의|기억|attention|memory|cognitive/i.test(effectText)
+                  ? "인지·집중"
+                  : /체온|열환경|thermoregulation|temperature regulation/i.test(effectText)
+                    ? "체온조절"
+                    : /운동|체성분|제지방|운동능력|exercise|fat-free|performance/i.test(effectText)
+                      ? "운동·체성분"
+                      : /장|소화|대변|미생물|IBS|gut|intestinal|microbiota|digest/i.test(effectText)
+                        ? "장건강·소화"
+                        : /피부|skin|주름|노화|collagen/i.test(effectText)
+                          ? "피부"
+                          : /발암|암|carcinogenesis|cancer/i.test(effectText)
+                            ? "발암·안전성"
+                            : /면역|염증|항산화|immune|inflammation|oxidative/i.test(effectText)
+                              ? "면역·염증"
+                              : "기타";
   return record;
 }).filter((record) => record.id);
 
