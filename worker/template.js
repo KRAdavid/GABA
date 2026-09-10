@@ -1613,32 +1613,34 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
       function researchMeaning(record) {
         if (record.kind === "규제") {
-          return "이 자료는 " + (record.domain || "규제·안전성") + "에 관한 공식 검토 틀 또는 선례를 보여주며, " + (record.useQuestion || "국내 적용 가능성을 검토할 때 참고할 기준") + "로 활용할 수 있습니다. 해외 자료는 국내 인정이나 안전성 판단을 자동으로 대신하지 않습니다.";
+          return "이 자료가 직접 보여주는 것은 " + (record.domain || "규제·안전성") + "에 관한 공식 기준 또는 선례입니다. 따라서 " + (record.useQuestion || "국내 적용 가능성을 검토할 때 참고할 기준") + "으로 해석할 수 있지만, 해외 자료가 국내 인정이나 안전성 판단을 자동으로 대신하지는 않습니다.";
         }
         var focus = [record.domain, record.outcome].filter(Boolean).join(" · ") || "주요 평가변수";
         var condition = [record.form, record.route, record.dose, record.duration].filter(Boolean).join(" · ") || "기록된 투여 조건";
         var status = record.status === "포함" ? "검토 가능한 직접 섭취 근거" : record.status === "후보" ? "추가 검증이 필요한 후보 근거" : "제한 또는 제외 사유를 함께 봐야 하는 근거";
-        return "이 연구의 의미는 " + focus + "에서 " + condition + " 조건의 결과를 보여주는 " + status + "라는 점입니다. 연구 결과는 해당 조건의 관찰값이지, 모든 제품·용량·대상에 대한 일반적 효능을 뜻하지 않습니다.";
+        var finding = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않았습니다.";
+        var limitation = record.limitation ? " 한계는 " + record.limitation + "입니다." : " 다른 대상·제형·용량으로 자동 확대할 수 없습니다.";
+        return "이 연구는 " + finding + " 따라서 " + focus + "에 대한 " + status + "이며, " + condition + " 조건에서 관찰된 결과로 해석해야 합니다." + limitation;
       }
-      function expectedAction(record) {
+      function utilizationDirection(record) {
         if (record.kind === "규제") {
-          return "원료 동일성·제조공정·사용조건·노출량을 국내 기준과 대조하고, 필요한 제출자료와 추가 확인 항목을 정리합니다.";
+          return "원료 동일성·제조공정·사용조건·노출량을 국내 기준과 대조하는 규제 검토 자료로 활용합니다. 필요한 제출자료와 추가 확인 항목을 함께 정리합니다.";
         }
         if (record.status === "제외") {
-          return "제외 사유를 확인하고 공개 효능 근거로 사용하지 않습니다.";
+          return "제외 사유를 확인하는 품질관리 자료로만 활용하고, 공개 효능 근거 또는 광고 문구의 근거로 사용하지 않습니다.";
         }
         if (record.status === "후보" || record.extraction === "부분") {
-          return "원문에서 직접 GABA 섭취 여부, 용량·기간·대조군·안전성·SCI/SCIE 상태를 확인한 뒤 인덱스 승격 여부를 판단합니다.";
+          return "원문 확인 우선 자료로 활용합니다. 직접 GABA 섭취 여부, 용량·기간·대조군·안전성·SCI/SCIE 상태를 확인한 뒤 인덱스 승격과 인용 가능성을 판단합니다.";
         }
         if (record.kind === "동물") {
-          return "인체 적용 전 용량·노출 비교, 독립 재현성, 안전성 자료를 추가 확인하며 동물 결과를 인체 효능으로 직접 확정하지 않습니다.";
+          return "인체 연구의 가설 설정, 제품·시험 설계, 용량·노출 비교를 위한 전임상 자료로 활용합니다. 동물 결과를 인체 효능 문구로 직접 전환하지 않습니다.";
         }
-        return "제품 또는 표시 검토 시 연구의 대상·용량·기간이 실제 사용조건과 맞는지 비교하고, 단일 연구만으로 효능을 확정하지 않습니다.";
+        return "제품·표시·추가 연구를 검토할 때 대상·용량·기간이 실제 사용조건과 맞는지 비교 자료로 활용합니다. 여러 인체 연구와 안전성 자료를 함께 검토한 뒤 표현 범위를 정합니다.";
       }
       function interpretationBlock(record) {
         return '<div class="interpretation-grid">' +
           '<div class="interpretation"><strong>연구의 의미</strong>' + esc(researchMeaning(record)) + '</div>' +
-          '<div class="interpretation action"><strong>기대할 수 있는 행동</strong>' + esc(expectedAction(record)) + '</div>' +
+          '<div class="interpretation action"><strong>논문의 활용 방향</strong>' + esc(utilizationDirection(record)) + '</div>' +
           '</div>';
       }
       function fact(label, value) {

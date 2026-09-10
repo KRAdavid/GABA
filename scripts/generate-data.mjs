@@ -103,7 +103,7 @@ function httpUrl(value) {
 
 function enrichLiteratureNote(record) {
   if (record.kind === "규제") return record.notes;
-  if (record.notes.includes("연구의 의미:") && record.notes.includes("기대 행동:")) return record.notes;
+  if (record.notes.includes("연구의 의미:") && record.notes.includes("논문의 활용 방향:")) return record.notes;
   const meaning = record.finding
     ? `${record.kind || "문헌"}에서 ${record.finding}`
     : `${record.kind || "문헌"}의 GABA 섭취·노출과 ${record.outcome || record.domain || "관련 지표"}를 탐색한 자료`;
@@ -113,7 +113,7 @@ function enrichLiteratureNote(record) {
       ? "배경·가설 정립 자료로 활용하고 원저 임상시험의 결과와 구분한다."
       : "전임상·기전 근거로만 활용하고 사람의 효능·용량·안전성으로 직접 일반화하지 않는다.";
   const prefix = record.notes ? `${record.notes} ` : "";
-  return `${prefix}연구의 의미: ${meaning} 기대 행동: ${action}`;
+  return `${prefix}연구의 의미: ${meaning} 논문의 활용 방향: ${action}`;
 }
 
 function normalizedKey(value) {
