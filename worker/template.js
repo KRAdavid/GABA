@@ -341,51 +341,67 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       color: var(--ink-2);
       font-size: 14px;
     }
-    .bar-list { display: grid; gap: 9px; }
-    .bar-row {
+    .distribution-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .distribution-item {
       width: 100%;
       display: grid;
-      grid-template-columns: minmax(88px, 130px) 1fr 38px 46px;
+      grid-template-columns: 54px 1fr;
       align-items: center;
-      gap: 10px;
-      padding: 3px 0;
-      border: 0;
-      background: none;
+      gap: 11px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
       color: var(--ink);
       text-align: left;
       cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
     }
-    .bar-row:hover .bar-track { background: #dce9e7; }
-    .bar-label {
+    .distribution-item:hover,
+    .distribution-item:focus-visible {
+      border-color: var(--teal);
+      box-shadow: 0 6px 16px rgba(15, 118, 110, .12);
+      transform: translateY(-1px);
+    }
+    .distribution-ring {
+      position: relative;
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border-radius: 50%;
+      background: conic-gradient(var(--distribution-color) calc(var(--distribution-percent) * 1%), #e8efed 0);
+    }
+    .distribution-ring::after {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      content: "";
+    }
+    .distribution-percent {
+      position: relative;
+      z-index: 1;
+      color: var(--ink-2);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .distribution-label {
       overflow: hidden;
       font-size: 13px;
       font-weight: 700;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .bar-track {
-      height: 9px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: #e8efed;
-      transition: background .2s ease;
-    }
-    .bar-fill {
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--teal), #44aa9e);
-    }
-    .bar-value {
-      color: var(--ink-2);
-      font-size: 12px;
-      font-weight: 800;
-      text-align: right;
-    }
-    .bar-percent {
+    .distribution-value {
+      margin-top: 3px;
       color: var(--muted);
-      font-size: 11px;
-      text-align: right;
-      white-space: nowrap;
+      font-size: 12px;
     }
 
     .explorer {
@@ -1105,11 +1121,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="distribution-grid">
         <div class="distribution">
           <h3>대상 종 그룹</h3>
-          <div class="bar-list" id="species-bars"></div>
+          <div class="distribution-list" id="species-bars"></div>
         </div>
         <div class="distribution">
           <h3>결과 방향</h3>
-          <div class="bar-list" id="direction-bars"></div>
+          <div class="distribution-list" id="direction-bars"></div>
         </div>
       </div>
     </section>
@@ -1408,16 +1424,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function renderBars(targetId, items, field) {
         var target = el(targetId);
         var visible = items.slice(0, field === "species" ? 8 : 6);
-        var max = Math.max.apply(null, items.map(function (item) { return item.value; }));
         var total = items.reduce(function (sum, item) { return sum + item.value; }, 0);
+        var colors = ["#0f766e", "#2563eb", "#b7791f", "#b42318", "#7c3aed", "#0f766e", "#2563eb", "#b7791f"];
         target.innerHTML = visible.map(function (item) {
-          var width = max ? (item.value / max * 100).toFixed(2) : 0;
           var percent = total ? (item.value / total * 100).toFixed(1) : "0.0";
-          return '<button class="bar-row" type="button" data-bar-field="' + esc(field) + '" data-bar-value="' + esc(item.label) + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
-            '<span class="bar-label">' + esc(item.label) + '</span>' +
-            '<span class="bar-track"><span class="bar-fill" style="width:' + width + '%"></span></span>' +
-            '<span class="bar-value">' + item.value.toLocaleString("ko-KR") + '</span>' +
-            '<span class="bar-percent">' + percent + '%</span></button>';
+          return '<button class="distribution-item" type="button" data-bar-field="' + esc(field) + '" data-bar-value="' + esc(item.label) + '" style="--distribution-color:' + colors[visible.indexOf(item) % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
+            '<span class="distribution-ring" aria-hidden="true"><span class="distribution-percent">' + percent + '%</span></span>' +
+            '<span><span class="distribution-label">' + esc(item.label) + '</span><span class="distribution-value">' + item.value.toLocaleString("ko-KR") + '편</span></span></button>';
         }).join("");
       }
 
