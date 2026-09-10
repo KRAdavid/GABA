@@ -220,6 +220,46 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       box-shadow: 0 0 0 5px rgba(143, 240, 214, .13);
     }
 
+    .goal-studio {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+      padding: 22px;
+      border: 1px solid #b9d9d2;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #f5fbfa, #fff);
+      box-shadow: var(--shadow);
+    }
+    .goal-studio-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+    .goal-studio h2 { margin: 0; font-size: 21px; letter-spacing: -.025em; }
+    .goal-studio-intro { margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .goal-status { display: inline-flex; align-items: center; gap: 7px; min-height: 32px; padding: 6px 10px; border: 1px solid #b9d9d2; border-radius: 999px; background: #fff; color: var(--teal-dark); font-size: 12px; font-weight: 800; white-space: nowrap; }
+    .goal-input-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: stretch; }
+    .goal-input { width: 100%; min-height: 52px; resize: vertical; padding: 13px 14px; border: 1px solid #bdcbc8; border-radius: 12px; background: #fff; color: var(--ink); font: inherit; font-size: 14px; line-height: 1.5; }
+    .goal-primary, .goal-secondary { min-height: 48px; padding: 10px 15px; border-radius: 11px; font-size: 13px; font-weight: 800; cursor: pointer; }
+    .goal-primary { border: 1px solid var(--teal); background: var(--teal); color: #fff; }
+    .goal-secondary { border: 1px solid var(--line); background: #fff; color: var(--ink-2); }
+    .goal-primary:hover, .goal-primary:focus-visible { background: var(--teal-dark); }
+    .goal-secondary:hover, .goal-secondary:focus-visible { border-color: var(--teal); color: var(--teal-dark); }
+    .goal-workspace { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr); gap: 14px; }
+    .goal-panel { padding: 16px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
+    .goal-panel h3 { margin: 0 0 11px; color: var(--ink-2); font-size: 14px; }
+    .goal-contract { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; }
+    .goal-field { display: grid; gap: 3px; min-width: 0; }
+    .goal-field-wide { grid-column: 1 / -1; }
+    .goal-field-label { color: var(--muted); font-size: 11px; font-weight: 800; }
+    .goal-field-value { color: var(--ink); font-size: 13px; line-height: 1.45; }
+    .goal-team, .goal-graph, .goal-report { display: grid; gap: 8px; }
+    .goal-team-item, .goal-task { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 10px; border: 1px solid #dce7e4; border-radius: 9px; background: #fbfdfc; font-size: 12px; }
+    .goal-team-item strong, .goal-task strong { color: var(--ink-2); }
+    .goal-team-item span, .goal-task span { color: var(--muted); text-align: right; }
+    .goal-task[data-state="done"] { border-color: #b9d9d2; background: #f2fbf8; }
+    .goal-task[data-state="active"] { border-color: #e6c87b; background: #fffaf0; }
+    .goal-report { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .goal-report p { margin: 0; color: var(--ink-2); font-size: 12px; line-height: 1.55; }
+    .goal-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .goal-log { min-height: 55px; padding: 10px; border-radius: 9px; background: #f6f9f8; color: var(--muted); font-size: 12px; line-height: 1.55; }
+
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -961,6 +1001,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       .paper-card { padding: 17px 15px; }
       .detail-grid { grid-template-columns: 1fr; }
       .record-id { width: 100%; margin-left: 0; }
+      .goal-studio { padding: 17px; }
+      .goal-studio-head, .goal-input-row, .goal-workspace { display: grid; grid-template-columns: 1fr; }
+      .goal-studio-head { gap: 10px; }
+      .goal-status { justify-self: start; }
+      .goal-contract { grid-template-columns: 1fr; }
+      .goal-field-wide { grid-column: auto; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
@@ -1002,6 +1048,43 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <span class="hero-pill"><span class="pulse" aria-hidden="true"></span><span id="snapshot-label"></span></span>
         <span class="hero-pill" id="coverage-label"></span>
         <span class="hero-pill">매주 업데이트</span>
+      </div>
+    </section>
+
+    <section class="goal-studio" aria-labelledby="goal-studio-title">
+      <div class="goal-studio-head">
+        <div>
+          <h2 id="goal-studio-title">목표 실행실</h2>
+          <p class="goal-studio-intro">한 문장 목표를 근거 인덱스 작업으로 바꾸고, 안전한 샌드박스에서 실행 결과와 승인 대상을 확인합니다.</p>
+        </div>
+        <span class="goal-status" id="goal-status" role="status"><span class="pulse" aria-hidden="true"></span>대기 중</span>
+      </div>
+      <div class="goal-input-row">
+        <label class="sr-only" for="goal-input">실행할 목표 한 문장</label>
+        <textarea class="goal-input" id="goal-input" rows="2">공개용 GABA 논문 기반 마스터 인덱스를 구축하고 최신 근거를 검색·검증·공개하라.</textarea>
+        <button class="goal-primary" id="goal-generate" type="button">계약·TF 생성</button>
+      </div>
+      <div class="goal-workspace" id="goal-workspace" hidden>
+        <article class="goal-panel">
+          <h3>Goal Contract</h3>
+          <div class="goal-contract" id="goal-contract"></div>
+          <div class="goal-actions">
+            <button class="goal-primary" id="goal-run" type="button">샌드박스 실행</button>
+            <button class="goal-secondary" id="goal-copy-report" type="button">승인 보고서 복사</button>
+          </div>
+        </article>
+        <article class="goal-panel">
+          <h3>목표별 TF</h3>
+          <div class="goal-team" id="goal-team"></div>
+          <div class="goal-report">
+            <h3>결과·승인 보고</h3>
+            <div class="goal-log" id="goal-log">아직 실행하지 않았습니다. 샌드박스 실행은 공개 사이트의 데이터만 읽습니다.</div>
+          </div>
+        </article>
+      </div>
+      <div class="goal-panel" id="goal-graph-panel" hidden>
+        <h3>업무 그래프</h3>
+        <div class="goal-graph" id="goal-graph"></div>
       </div>
     </section>
 
@@ -1313,6 +1396,89 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           option.textContent = optionLabel(item);
           select.appendChild(option);
         });
+      }
+
+      var goalState = { contract: null, tasks: [], generatedAt: "", ran: false };
+      function goalContractFor(input) {
+        var normalized = normalize(input) || "공개용 GABA 논문 기반 마스터 인덱스를 구축하고 최신 근거를 검색·검증·공개하라.";
+        return {
+          goalId: "GL-GABA-MASTER-INDEX-2026",
+          intent: normalized,
+          outcome: "공개용 GABA 논문 기반 마스터 인덱스 구축",
+          done: ["검색 가능한 공개 인덱스", "문헌·규제자료 출처 연결", "연구 의미·마케팅 활용 방안·한계 표시", "배포 전 품질 검증 통과"],
+          scope: "경구 GABA 인체·동물 연구, 종설, 철회·정정, 규제·안전성 자료",
+          constraints: "원문·경로·용량·기간을 확인하고 근거를 넘는 효능·치료 주장을 금지",
+          authority: "읽기·분석·샌드박스 실행은 자동화; 외부 공개 변경은 승인 필요",
+          stop: "출처 불명확, 중대한 충돌, 중복, 권한 오류 또는 문구 오인 위험",
+          confidence: "0.86"
+        };
+      }
+      function renderGoalStudio() {
+        var contract = goalState.contract;
+        if (!contract) return;
+        el("goal-workspace").hidden = false;
+        el("goal-graph-panel").hidden = false;
+        el("goal-contract").innerHTML = [
+          ["Goal ID", contract.goalId, false], ["신뢰도", contract.confidence, false],
+          ["원문 목표", contract.intent, true], ["정규화 결과", contract.outcome, true],
+          ["범위", contract.scope, true], ["제약", contract.constraints, true],
+          ["권한", contract.authority, true], ["중단 조건", contract.stop, true],
+          ["완료 정의", contract.done.join(" · "), true]
+        ].map(function (item) {
+          return '<div class="goal-field' + (item[2] ? ' goal-field-wide' : '') + '"><span class="goal-field-label">' + esc(item[0]) + '</span><span class="goal-field-value">' + esc(item[1]) + '</span></div>';
+        }).join("");
+        el("goal-team").innerHTML = [
+          ["TF 리더", "Atlas · 실행 조정"], ["근거 담당", "Scout · 문헌 탐색"],
+          ["규제·안전", "Regula · 경계 검토"], ["독립 검증", "Median · 품질 감사"]
+        ].map(function (item) { return '<div class="goal-team-item"><strong>' + esc(item[0]) + '</strong><span>' + esc(item[1]) + '</span></div>'; }).join("");
+        el("goal-graph").innerHTML = goalState.tasks.map(function (task) {
+          return '<div class="goal-task" data-state="' + esc(task.state) + '"><strong>' + esc(task.id + " · " + task.name) + '</strong><span>' + esc(task.owner + " · " + task.stateLabel) + '</span></div>';
+        }).join("");
+        el("goal-status").innerHTML = '<span class="pulse" aria-hidden="true"></span>' + (goalState.ran ? "승인 보고 준비" : "샌드박스 준비");
+      }
+      function generateGoal() {
+        goalState.contract = goalContractFor(el("goal-input").value);
+        goalState.generatedAt = new Date().toISOString();
+        goalState.ran = false;
+        goalState.tasks = [
+          { id: "A1", name: "목표 수신·정규화", owner: "Atlas", state: "ready", stateLabel: "실행 대기" },
+          { id: "A2", name: "GABA 근거 검색·출처 연결", owner: "Scout", state: "ready", stateLabel: "실행 대기" },
+          { id: "A3", name: "레코드 품질·규제 경계 검토", owner: "Regula", state: "ready", stateLabel: "실행 대기" },
+          { id: "A4", name: "독립 검증 및 공개 권고", owner: "Median", state: "ready", stateLabel: "실행 대기" }
+        ];
+        el("goal-log").textContent = "Goal Contract가 생성되었습니다. 공개 인덱스 데이터만 읽는 샌드박스 실행을 시작할 수 있습니다.";
+        renderGoalStudio();
+      }
+      function runGoalSandbox() {
+        if (!goalState.contract) generateGoal();
+        goalState.tasks.forEach(function (task, index) {
+          task.state = index < 3 ? "done" : "active";
+          task.stateLabel = index < 3 ? "검증 완료" : "승인 대기";
+        });
+        goalState.ran = true;
+        var literature = Number(DB.meta.literature || 0).toLocaleString("ko-KR");
+        var regulatory = Number(DB.meta.regulatory || 0).toLocaleString("ko-KR");
+        el("goal-log").innerHTML = '<p><strong>샌드박스 결과:</strong> 공개 스냅샷 ' + literature + '편과 규제·안전성 자료 ' + regulatory + '건을 대상으로 검색·분류·품질 검토 단계를 시뮬레이션했습니다.</p><p><strong>승인 필요:</strong> 외부 공개 변경이나 마케팅 문구 확정은 승인 전 상태로 유지합니다.</p>';
+        renderGoalStudio();
+      }
+      function goalReportText() {
+        if (!goalState.contract) return "먼저 Goal Contract를 생성하세요.";
+        return [
+          "[GABA Goal Approval Report]", "Goal ID: " + goalState.contract.goalId,
+          "목표: " + goalState.contract.intent, "상태: " + (goalState.ran ? "샌드박스 검증 완료 · 공개 변경 승인 대기" : "계약 생성 · 실행 대기"),
+          "근거 범위: " + goalState.contract.scope, "완료 정의: " + goalState.contract.done.join("; "),
+          "승인 사유: 외부 공개 변경 및 마케팅 문구 확정은 대표 승인 필요", "생성시각: " + goalState.generatedAt
+        ].join("\n");
+      }
+      function initGoalStudio() {
+        el("goal-generate").addEventListener("click", generateGoal);
+        el("goal-run").addEventListener("click", runGoalSandbox);
+        el("goal-copy-report").addEventListener("click", async function () {
+          var report = goalReportText();
+          try { await navigator.clipboard.writeText(report); toast("승인 보고서를 복사했습니다"); }
+          catch (_) { window.prompt("승인 보고서를 복사하세요", report); }
+        });
+        generateGoal();
       }
 
       function initMeta() {
@@ -1794,6 +1960,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         toastTimer = setTimeout(function () { el("toast").classList.remove("show"); }, 1800);
       }
 
+      initGoalStudio();
       loadUrlState();
       initMeta();
       renderDistribution("species-distribution", DB.facets.species, "species");
