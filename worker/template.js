@@ -1915,8 +1915,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       document.addEventListener("click", function (event) {
         var distribution = event.target.closest("[data-distribution-field]");
         if (distribution) {
-          var field = bar.dataset.barField;
-          changeState(field, bar.dataset.barValue);
+          var field = distribution.dataset.distributionField;
+          changeState(field, distribution.dataset.distributionValue);
           document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
         }
         var chip = event.target.closest("[data-remove]");
