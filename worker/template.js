@@ -346,6 +346,23 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 10px;
     }
+    .distribution-more {
+      min-height: 34px;
+      margin-top: 9px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-2);
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .distribution-more:hover,
+    .distribution-more:focus-visible {
+      border-color: var(--teal);
+      background: var(--teal-soft);
+    }
     .distribution-item {
       width: 100%;
       display: grid;
@@ -520,6 +537,42 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       color: var(--teal-dark);
     }
     .quick-spacer { flex: 1; }
+    .quick-more {
+      position: relative;
+    }
+    .quick-more summary {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--ink-2);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    .quick-more summary::-webkit-details-marker { display: none; }
+    .quick-more summary::after { content: "＋"; margin-left: 6px; color: var(--muted); }
+    .quick-more[open] summary { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
+    .quick-more[open] summary::after { content: "－"; }
+    .quick-more-menu {
+      position: absolute;
+      z-index: 2;
+      top: calc(100% + 7px);
+      left: 0;
+      display: grid;
+      min-width: 150px;
+      gap: 4px;
+      padding: 7px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(25, 54, 64, .12);
+    }
+    .quick-more-menu .quick-button { width: 100%; border-radius: 8px; text-align: left; }
     .sort-select {
       min-height: 38px;
       padding: 7px 32px 7px 12px;
@@ -1115,7 +1168,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="section-head">
         <div>
           <h2 id="distribution-title">근거 분포</h2>
-          <p>막대를 선택하면 해당 조건으로 바로 필터링됩니다.</p>
+          <p>상위 항목을 선택해 결과를 좁힐 수 있습니다. 나머지 항목은 전체 분포에서 확인합니다.</p>
         </div>
       </div>
       <div class="distribution-grid">
@@ -1159,11 +1212,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="quick-button" type="button" data-kind="규제">규제·안전성</button>
           <button class="quick-button" type="button" data-category="안전성">안전성 자료</button>
           <button class="quick-button" type="button" data-effect-category="수면">수면</button>
-          <button class="quick-button" type="button" data-effect-category="성장호르몬">성장호르몬</button>
-          <button class="quick-button" type="button" data-effect-category="근육발달">근육발달</button>
-          <button class="quick-button" type="button" data-effect-category="다이어트">다이어트</button>
-          <button class="quick-button" type="button" data-effect-category="고혈압">고혈압</button>
-          <button class="quick-button" type="button" data-effect-category="당뇨">당뇨</button>
+          <details class="quick-more">
+            <summary>분야 더보기</summary>
+            <div class="quick-more-menu" aria-label="추가 분야 빠른 필터">
+              <button class="quick-button" type="button" data-effect-category="성장호르몬">성장호르몬</button>
+              <button class="quick-button" type="button" data-effect-category="근육발달">근육발달</button>
+              <button class="quick-button" type="button" data-effect-category="다이어트">다이어트</button>
+              <button class="quick-button" type="button" data-effect-category="고혈압">고혈압</button>
+              <button class="quick-button" type="button" data-effect-category="당뇨">당뇨</button>
+            </div>
+          </details>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
           <select class="sort-select" id="sort">
@@ -1423,15 +1481,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function renderDistribution(targetId, items, field) {
         var target = el(targetId);
-        var visible = items.slice(0, field === "species" ? 8 : 6);
+        var visible = items.slice(0, 4);
+        var extra = items.slice(4, field === "species" ? 8 : 6);
         var total = items.reduce(function (sum, item) { return sum + item.value; }, 0);
         var colors = ["#0f766e", "#2563eb", "#b7791f", "#b42318", "#7c3aed", "#0f766e", "#2563eb", "#b7791f"];
-        target.innerHTML = visible.map(function (item) {
+        var renderItem = function (item, index, hidden) {
           var percent = total ? (item.value / total * 100).toFixed(1) : "0.0";
-          return '<button class="distribution-item" type="button" data-distribution-field="' + esc(field) + '" data-distribution-value="' + esc(item.label) + '" style="--distribution-color:' + colors[visible.indexOf(item) % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
+          return '<button class="distribution-item' + (hidden ? ' distribution-item-extra' : '') + '" type="button"' + (hidden ? ' hidden' : '') + ' data-distribution-field="' + esc(field) + '" data-distribution-value="' + esc(item.label) + '" style="--distribution-color:' + colors[index % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
             '<span class="distribution-ring" aria-hidden="true"><span class="distribution-percent">' + percent + '%</span></span>' +
             '<span><span class="distribution-label">' + esc(item.label) + '</span><span class="distribution-value">' + item.value.toLocaleString("ko-KR") + '편</span></span></button>';
-        }).join("");
+        };
+        target.innerHTML = visible.map(function (item, index) { return renderItem(item, index, false); }).join("") +
+          extra.map(function (item, index) { return renderItem(item, index + visible.length, true); }).join("") +
+          (extra.length ? '<button class="distribution-more" type="button" data-distribution-more="' + esc(targetId) + '" aria-expanded="false">전체 분포 보기</button>' : '');
       }
 
       function loadUrlState() {
@@ -1913,6 +1975,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         });
       });
       document.addEventListener("click", function (event) {
+        var distributionMore = event.target.closest("[data-distribution-more]");
+        if (distributionMore) {
+          var distributionTarget = el(distributionMore.dataset.distributionMore);
+          var isOpen = distributionMore.getAttribute("aria-expanded") === "true";
+          distributionTarget.querySelectorAll(".distribution-item-extra").forEach(function (item) { item.hidden = isOpen; });
+          distributionMore.setAttribute("aria-expanded", String(!isOpen));
+          distributionMore.textContent = isOpen ? "전체 분포 보기" : "상위 항목만 보기";
+          return;
+        }
         var distribution = event.target.closest("[data-distribution-field]");
         if (distribution) {
           var field = distribution.dataset.distributionField;
