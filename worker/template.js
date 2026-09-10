@@ -345,7 +345,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .bar-row {
       width: 100%;
       display: grid;
-      grid-template-columns: minmax(88px, 130px) 1fr 38px;
+      grid-template-columns: minmax(88px, 130px) 1fr 38px 46px;
       align-items: center;
       gap: 10px;
       padding: 3px 0;
@@ -380,6 +380,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 12px;
       font-weight: 800;
       text-align: right;
+    }
+    .bar-percent {
+      color: var(--muted);
+      font-size: 11px;
+      text-align: right;
+      white-space: nowrap;
     }
 
     .explorer {
@@ -1402,13 +1408,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function renderBars(targetId, items, field) {
         var target = el(targetId);
         var visible = items.slice(0, field === "species" ? 8 : 6);
-        var max = Math.max.apply(null, visible.map(function (item) { return item.value; }));
+        var max = Math.max.apply(null, items.map(function (item) { return item.value; }));
+        var total = items.reduce(function (sum, item) { return sum + item.value; }, 0);
         target.innerHTML = visible.map(function (item) {
-          var width = Math.max(4, Math.round(item.value / max * 100));
-          return '<button class="bar-row" type="button" data-bar-field="' + esc(field) + '" data-bar-value="' + esc(item.label) + '" aria-label="' + esc(item.label + " " + item.value + "편 필터") + '">' +
+          var width = max ? (item.value / max * 100).toFixed(2) : 0;
+          var percent = total ? (item.value / total * 100).toFixed(1) : "0.0";
+          return '<button class="bar-row" type="button" data-bar-field="' + esc(field) + '" data-bar-value="' + esc(item.label) + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
             '<span class="bar-label">' + esc(item.label) + '</span>' +
             '<span class="bar-track"><span class="bar-fill" style="width:' + width + '%"></span></span>' +
-            '<span class="bar-value">' + item.value.toLocaleString("ko-KR") + '</span></button>';
+            '<span class="bar-value">' + item.value.toLocaleString("ko-KR") + '</span>' +
+            '<span class="bar-percent">' + percent + '%</span></button>';
         }).join("");
       }
 
