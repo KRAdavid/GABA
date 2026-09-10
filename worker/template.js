@@ -1665,11 +1665,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return '<a class="paper-link' + (primary ? " primary" : "") + '" href="' + esc(safe) + '" target="_blank" rel="noopener noreferrer">' + esc(label) + ' ↗</a>';
       }
       function koreanTitle(record) {
-        if (record.titleKo) return record.titleKo;
-        var kind = record.kind === "임상" ? "인체" : "동물";
-        var topic = record.topic || "임상·동물";
-        var matrix = record.form && /발효유|초콜릿|채소|클로렐라|음료|식품/i.test(record.form) ? " 식품매트릭스" : "";
-        return kind + matrix + " GABA " + topic + " 섭취 연구";
+        var clean = function (value) { return String(value || "").trim().replace(/\s+/g, " ").replace(/연구 연구/g, "연구"); };
+        if (record.titleKo) return clean(record.titleKo);
+        var kind = record.kind === "임상" ? "인체" : record.kind === "동물" ? "동물" : "자료";
+        var topic = clean(record.domain || record.topic || "주요 평가");
+        var matrix = record.form && /발효유|초콜릿|채소|클로렐라|음료|식품/i.test(record.form) ? " 식품 기반" : "";
+        return kind + matrix + " GABA 섭취의 " + topic + " 관련 연구";
       }
 
       function regulatoryCard(record) {
