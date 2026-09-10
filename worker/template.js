@@ -1630,7 +1630,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return "제외 사유를 확인하는 품질관리 자료로만 활용하고, 공개 효능 근거 또는 광고 문구의 근거로 사용하지 않습니다.";
         }
         if (record.status === "후보" || record.extraction === "부분") {
-          return "원문 확인 우선 자료로 활용합니다. 직접 GABA 섭취 여부, 용량·기간·대조군·안전성·SCI/SCIE 상태를 확인한 뒤 인덱스 승격과 인용 가능성을 판단합니다.";
+          return "아직 마케팅 근거로 바로 사용하지 않습니다. 원문에서 직접 GABA 섭취 여부, 용량·기간·대조군·안전성·SCI/SCIE 상태를 확인한 뒤 인덱스 승격과 인용 가능성을 판단합니다.";
         }
         if (record.kind === "동물") {
           return "인체 연구의 가설 설정, 제품·시험 설계, 용량·노출 비교를 위한 전임상 자료로 활용합니다. 동물 결과를 인체 효능 문구로 직접 전환하지 않습니다.";
@@ -1640,7 +1640,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function interpretationBlock(record) {
         return '<div class="interpretation-grid">' +
           '<div class="interpretation"><strong>연구의 의미</strong>' + esc(researchMeaning(record)) + '</div>' +
-          '<div class="interpretation action"><strong>마케팅 활용 방안</strong>' + esc(utilizationDirection(record)) + '</div>' +
+          '<div class="interpretation action"><strong>마케팅 활용 방안</strong>: ' + esc(utilizationDirection(record)) + '</div>' +
           '</div>';
       }
       function fact(label, value) {
