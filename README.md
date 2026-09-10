@@ -26,3 +26,11 @@ https://gaba-evidence-index-kr.dubaissday.chatgpt.site/
 배포 전 중복 ID·DOI·PMID, 필수 필드, 연구 분류, 철회·정정 상태와 문구 안전성을
 검증합니다. 마케팅 표현은 각 연구의 대상·용량·기간·제형·한계를 함께 검토해야
 합니다.
+
+## 목표 실행 운영체제 기준
+
+이 공개 작업트리는 목표·완료증거·검증·중단조건을 기준으로 운영합니다.
+세부 목표 계약은 [docs/GABA-GOAL-CONTRACT.md](docs/GABA-GOAL-CONTRACT.md),
+작업·검증·배포 절차는 [docs/OPERATING-PROTOCOL.md](docs/OPERATING-PROTOCOL.md)에
+기록합니다. 이 문서는 공개 릴리스에 필요한 운영 기준만 담으며, 내부 권한이나
+민감한 연결정보는 저장하지 않습니다.
