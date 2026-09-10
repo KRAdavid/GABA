@@ -1121,11 +1121,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="distribution-grid">
         <div class="distribution">
           <h3>대상 종 그룹</h3>
-          <div class="distribution-list" id="species-bars"></div>
+          <div class="distribution-list" id="species-distribution"></div>
         </div>
         <div class="distribution">
           <h3>결과 방향</h3>
-          <div class="distribution-list" id="direction-bars"></div>
+          <div class="distribution-list" id="direction-distribution"></div>
         </div>
       </div>
     </section>
@@ -1421,14 +1421,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         addOptions(controls.direction, DB.facets.direction);
       }
 
-      function renderBars(targetId, items, field) {
+      function renderDistribution(targetId, items, field) {
         var target = el(targetId);
         var visible = items.slice(0, field === "species" ? 8 : 6);
         var total = items.reduce(function (sum, item) { return sum + item.value; }, 0);
         var colors = ["#0f766e", "#2563eb", "#b7791f", "#b42318", "#7c3aed", "#0f766e", "#2563eb", "#b7791f"];
         target.innerHTML = visible.map(function (item) {
           var percent = total ? (item.value / total * 100).toFixed(1) : "0.0";
-          return '<button class="distribution-item" type="button" data-bar-field="' + esc(field) + '" data-bar-value="' + esc(item.label) + '" style="--distribution-color:' + colors[visible.indexOf(item) % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
+          return '<button class="distribution-item" type="button" data-distribution-field="' + esc(field) + '" data-distribution-value="' + esc(item.label) + '" style="--distribution-color:' + colors[visible.indexOf(item) % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
             '<span class="distribution-ring" aria-hidden="true"><span class="distribution-percent">' + percent + '%</span></span>' +
             '<span><span class="distribution-label">' + esc(item.label) + '</span><span class="distribution-value">' + item.value.toLocaleString("ko-KR") + '편</span></span></button>';
         }).join("");
@@ -1849,8 +1849,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       loadUrlState();
       initMeta();
-      renderBars("species-bars", DB.facets.species, "species");
-      renderBars("direction-bars", DB.facets.direction, "direction");
+      renderDistribution("species-distribution", DB.facets.species, "species");
+      renderDistribution("direction-distribution", DB.facets.direction, "direction");
       syncControls();
       render();
 
@@ -1912,8 +1912,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         });
       });
       document.addEventListener("click", function (event) {
-        var bar = event.target.closest("[data-bar-field]");
-        if (bar) {
+        var distribution = event.target.closest("[data-distribution-field]");
+        if (distribution) {
           var field = bar.dataset.barField;
           changeState(field, bar.dataset.barValue);
           document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
