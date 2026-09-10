@@ -1640,7 +1640,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function interpretationBlock(record) {
         return '<div class="interpretation-grid">' +
           '<div class="interpretation"><strong>연구의 의미</strong>' + esc(researchMeaning(record)) + '</div>' +
-          '<div class="interpretation action"><strong>논문의 활용 방향</strong>' + esc(utilizationDirection(record)) + '</div>' +
+          '<div class="interpretation action"><strong>마케팅 활용 방안</strong>' + esc(utilizationDirection(record)) + '</div>' +
           '</div>';
       }
       function fact(label, value) {

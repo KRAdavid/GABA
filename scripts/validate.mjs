@@ -26,7 +26,7 @@ assert.match(html, /대량 탐색 후보/);
 assert.match(html, /정확한 문구는 “따옴표”/);
 assert.match(html, /data-query="한시적 인정"/);
 assert.match(html, /연구의 의미/);
-assert.match(html, /논문의 활용 방향/);
+assert.match(html, /마케팅 활용 방안/);
 
 const health = await worker.fetch(new Request("https://example.test/api/health"));
 assert.equal(health.status, 200);
@@ -66,7 +66,7 @@ const incompleteMarketingEvidence = db.records
   .filter((r) => marketingEvidenceFields.some((field) => !String(r[field] || "").trim()))
   .map((r) => r.id);
 assert.deepEqual(incompleteMarketingEvidence, [], "every literature record must have marketing evidence fields");
-assert.ok(db.records.filter((r) => r.kind !== "규제").every((r) => r.notes.includes("연구의 의미:") && r.notes.includes("논문의 활용 방향:")));
+assert.ok(db.records.filter((r) => r.kind !== "규제").every((r) => r.notes.includes("연구의 의미:") && r.notes.includes("마케팅 활용 방안:")));
 assert.ok(db.records.filter((r) => r.kind === "규제").every((r) => r.titleKo && r.summaryKo && r.sourceUrl));
 const includedLiterature = db.records.filter((r) => r.status === "포함" && r.kind !== "규제");
 assert.ok(includedLiterature.every((r) => r.pubmedUrl || r.fulltextUrl || r.doiUrl), "included literature must have a verification link");
