@@ -147,6 +147,14 @@ try {
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-brief]'))"), true);
   await evaluate(client, "document.querySelector('#intelligence-detail-close').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('record')"), false);
+  await evaluate(client, "history.pushState({}, '', '/?q=%EB%B6%88%EC%95%88&kind=%EC%9E%84%EC%83%81'); window.dispatchEvent(new PopStateEvent('popstate'))");
+  assert.equal(await evaluate(client, "document.querySelector('#search')?.value"), "불안");
+  assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.classList.contains('active')"), true);
+  const deepLinkId = await evaluate(client, "document.querySelector('[data-intelligence-id]')?.dataset.intelligenceId");
+  await evaluate(client, "history.pushState({}, '', '/?record=' + encodeURIComponent(" + JSON.stringify(deepLinkId) + ")); window.dispatchEvent(new PopStateEvent('popstate'))");
+  assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), true);
+  await evaluate(client, "history.pushState({}, '', '/'); window.dispatchEvent(new PopStateEvent('popstate'))");
+  assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), false);
   await evaluate(client, "document.querySelector('[data-review-status]').click()");
   assert.match(String(await evaluate(client, "localStorage.getItem('gaba-review-decisions')")), /status/);
   await screenshot("cdp-desktop-top.png");

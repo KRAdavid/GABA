@@ -2002,11 +2002,22 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function loadUrlState() {
         var params = new URLSearchParams(location.search);
+        state = {
+          q: "", kind: "", category: "", effectCategory: "", status: "", sci: "", species: "", topic: "",
+          grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
+          to: DB.meta.maxYear, sort: "latest", page: 1
+        };
+        pageSize = 20;
         ["q", "kind", "category", "effectCategory", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
           if (params.has(key)) state[key] = params.get(key) || "";
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
         if (params.has("to")) state.to = Math.min(DB.meta.maxYear, Number(params.get("to")) || DB.meta.maxYear);
+        if (state.from > state.to) {
+          var boundedFrom = state.from;
+          state.from = state.to;
+          state.to = boundedFrom;
+        }
         if (["20", "50", "100"].includes(params.get("pageSize"))) pageSize = Number(params.get("pageSize"));
         urlRecordId = params.get("record") || "";
       }
@@ -2824,6 +2835,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       syncControls();
       render();
       if (urlRecordId) openIntelligenceDetail(urlRecordId);
+
+      window.addEventListener("popstate", function () {
+        var detailWasOpen = el("intelligence-detail").open;
+        loadUrlState();
+        syncControls();
+        render();
+        if (urlRecordId) openIntelligenceDetail(urlRecordId);
+        else if (detailWasOpen) closeIntelligenceDetail();
+      });
 
       var searchTimer;
       controls.q.addEventListener("input", function () {
