@@ -104,6 +104,7 @@ const required = [
   ,["Filtered result JSON renderer", "function exportFilteredJson"]
   ,["Filtered result RIS export", 'id="result-ris"']
   ,["Filtered result RIS renderer", "function exportFilteredRis"]
+  ,["Publication follow-up signal", "function publicationFollowupLabel"]
   ,["CSV evidence boundaries", "SCI/SCIE"]
   ,["CSV extraction and review date", "추출 상태"]
   ,["CSV snapshot provenance", "검증 스냅샷"]

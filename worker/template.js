@@ -1234,6 +1234,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .badge.intervention-filter-badge:hover, .badge.intervention-filter-badge:focus-visible { background: #cfece6; outline: 2px solid rgba(15,118,110,.24); outline-offset: 1px; }
     .badge.marketing-filter-badge { border: 0; cursor: pointer; font: inherit; }
     .badge.marketing-filter-badge:hover, .badge.marketing-filter-badge:focus-visible { filter: brightness(.96); outline: 2px solid rgba(15,118,110,.24); outline-offset: 1px; }
+    .badge.followup-badge { background: var(--amber-soft); color: #8a5a00; }
     .paper-title {
       margin: 0;
       color: var(--ink);
@@ -3139,6 +3140,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           toast("링크를 선택했습니다 · Ctrl+C로 복사하세요");
         }
       }
+      function publicationFollowupLabel(record) {
+        var status = [record.status, record.direction, record.pubmedStatus, record.sciStatus].filter(Boolean).join(" ");
+        if (/철회됨|철회 공지|retracted publication|retraction notice|correction|정정 연결|우려표명|expression of concern/i.test(status)) {
+          return "출판 후속조치 확인";
+        }
+        return "";
+      }
       async function copyRecordLink(recordId) {
         var record = records.find(function (item) { return String(item.id) === String(recordId); });
         if (!record) return;
@@ -3766,6 +3774,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
+            (publicationFollowupLabel(record) ? '<span class="badge followup-badge" title="철회·정정·우려표명 등 출판 후속조치 신호입니다. 원문 공지를 확인하세요.">' + esc(publicationFollowupLabel(record)) + '</span>' : '') +
             marketingFilterBadge(record) +
             '<button class="badge intervention intervention-filter-badge" type="button" data-intervention="' + esc(interventionClass(record)) + '" aria-label="' + esc(interventionClass(record) + ' 자료로 필터') + '">개입 · ' + esc(interventionShortLabel(record)) + '</button>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
@@ -3793,6 +3802,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               detail("개입 구분", interventionClass(record)) +
               detail("투여경로", record.route) +
               detail("대조군", record.comparator) +
+              detail("출판 후속조치", publicationFollowupLabel(record) || "확인 신호 없음 · 원문 공지 별도 확인") +
               detail("결과영역", record.domain) +
               detail("주요평가변수", record.outcome) +
               detail("안전성/이상반응", record.safety || "상세 미보고") +

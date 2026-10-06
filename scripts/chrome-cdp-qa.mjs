@@ -199,6 +199,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('검토 상태')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('미검토')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-title-korean')?.textContent.includes('·')"), true);
+  await evaluate(client, "document.querySelector('#search').value = ''; document.querySelector('#search').dispatchEvent(new Event('input', { bubbles: true }))");
+  await sleep(100);
+  assert.ok(await evaluate(client, "document.querySelector('.followup-badge')?.textContent.includes('출판 후속조치')"));
   await evaluate(client, "document.querySelector('[data-preset=human-direct]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('status')"), "포함");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "순수 GABA 섭취");
