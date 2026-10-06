@@ -810,6 +810,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       background: var(--teal-soft);
       color: var(--teal-dark);
     }
+    .quick-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      margin-left: 4px;
+      padding: 1px 5px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, .1);
+      color: var(--teal-dark);
+      font-size: 10px;
+      font-weight: 900;
+    }
     .quick-spacer { flex: 1; }
     .quick-more {
       position: relative;
@@ -1752,11 +1765,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <details class="quick-more">
             <summary>개입 구분</summary>
             <div class="quick-more-menu" aria-label="GABA 개입 구분 필터">
-              <button class="quick-button" type="button" data-intervention="순수 GABA 섭취">순수 GABA</button>
-              <button class="quick-button" type="button" data-intervention="복합제·복합개입">복합제·복합개입</button>
-              <button class="quick-button" type="button" data-intervention="GABA 생성 발효·프로바이오틱">발효·프로바이오틱</button>
-              <button class="quick-button" type="button" data-intervention="수용체 약물·작용제">수용체 약물</button>
-              <button class="quick-button" type="button" data-intervention="규제·안전성 자료">규제자료</button>
+              <button class="quick-button" type="button" data-intervention="순수 GABA 섭취">순수 GABA <span class="quick-count" data-intervention-count="순수 GABA 섭취">0</span></button>
+              <button class="quick-button" type="button" data-intervention="복합제·복합개입">복합제·복합개입 <span class="quick-count" data-intervention-count="복합제·복합개입">0</span></button>
+              <button class="quick-button" type="button" data-intervention="GABA 생성 발효·프로바이오틱">발효·프로바이오틱 <span class="quick-count" data-intervention-count="GABA 생성 발효·프로바이오틱">0</span></button>
+              <button class="quick-button" type="button" data-intervention="수용체 약물·작용제">수용체 약물 <span class="quick-count" data-intervention-count="수용체 약물·작용제">0</span></button>
+              <button class="quick-button" type="button" data-intervention="규제·안전성 자료">규제자료 <span class="quick-count" data-intervention-count="규제·안전성 자료">0</span></button>
             </div>
           </details>
           <span class="quick-spacer"></span>
@@ -2379,6 +2392,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (/수용체|작용제|길항제|약물|muscimol|baclofen|receptor|agonist|antagonist|drug/i.test(text)) return "수용체 약물·작용제";
         if (/복합|혼합|추출물|with|plus|GABA.{0,100}\b(?:and|with|plus)\b/i.test(text)) return "복합제·복합개입";
         return "순수 GABA 섭취";
+      }
+      function renderInterventionCounts() {
+        var counts = {};
+        records.forEach(function (record) {
+          var label = interventionClass(record);
+          counts[label] = (counts[label] || 0) + 1;
+        });
+        document.querySelectorAll("[data-intervention-count]").forEach(function (node) {
+          node.textContent = (counts[node.dataset.interventionCount] || 0).toLocaleString("ko-KR");
+          node.setAttribute("aria-label", "전체 인덱스 기준 " + node.textContent + "건");
+        });
       }
       function marketingLabel(record) {
         if (record.kind === "규제") return "규제 참고";
@@ -3234,6 +3258,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       loadUrlState();
       initMeta();
+      renderInterventionCounts();
       renderDistribution("species-distribution", DB.facets.species, "species");
       renderDistribution("direction-distribution", DB.facets.direction, "direction");
       syncControls();
