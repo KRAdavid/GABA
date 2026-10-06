@@ -1136,6 +1136,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .badge.scie { background: #e7eefc; color: #244da8; }
     .badge.partial { background: #f3efe2; color: #725a0b; }
     .badge.intervention { background: #e7f5f2; color: var(--teal-dark); }
+    .badge.intervention-filter-badge { border: 0; cursor: pointer; font: inherit; }
+    .badge.intervention-filter-badge:hover, .badge.intervention-filter-badge:focus-visible { background: #cfece6; outline: 2px solid rgba(15,118,110,.24); outline-offset: 1px; }
     .paper-title {
       margin: 0;
       color: var(--ink);
@@ -3297,7 +3299,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
             '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
-            '<span class="badge intervention">개입 · ' + esc(interventionShortLabel(record)) + '</span>' +
+            '<button class="badge intervention intervention-filter-badge" type="button" data-intervention="' + esc(interventionClass(record)) + '" aria-label="' + esc(interventionClass(record) + ' 자료로 필터') + '">개입 · ' + esc(interventionShortLabel(record)) + '</button>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
             '<span class="badge ' + badgeClass("extraction", record.extraction) + '">추출 ' + esc(record.extraction) + '</span>' +
             '<span class="badge">' + esc(identifierLabel) + '</span>' +
@@ -3657,6 +3659,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        var interventionBadge = event.target.closest(".intervention-filter-badge");
+        if (interventionBadge) {
+          changeState("intervention", interventionBadge.dataset.intervention || "");
+          scrollToResults();
+          return;
+        }
         var readingToggle = event.target.closest("[data-reading-toggle]");
         if (readingToggle) {
           toggleReadingList(readingToggle.dataset.readingToggle);
