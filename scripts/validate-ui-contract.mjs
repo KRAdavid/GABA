@@ -63,6 +63,8 @@ const required = [
   ,["Shareable reading state", 'params.set("read"']
   ,["Filtered result export", 'id="result-export"']
   ,["Filtered result CSV renderer", "function exportFilteredResults"]
+  ,["Marketing utilization filter", "data-marketing"]
+  ,["Marketing utilization URL state", "state.marketing"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));
