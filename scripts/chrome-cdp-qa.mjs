@@ -216,7 +216,7 @@ try {
   await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
   await evaluate(client, "document.querySelector('#candidate-preview-export').click()");
   await sleep(80);
-  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('후보 미리보기 CSV')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('후보 큐 CSV')"), true);
   await evaluate(client, "document.querySelector('[data-candidate-filter=all]').click()");
   await navigate(`http://127.0.0.1:${httpPort}/?candidate=priority`);
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=priority]')?.getAttribute('aria-pressed')"), "true");

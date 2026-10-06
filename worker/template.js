@@ -2462,7 +2462,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         anchor.click();
         anchor.remove();
         URL.revokeObjectURL(url);
-        toast(candidates.length.toLocaleString("ko-KR") + "건의 후보 미리보기 CSV를 내보냈습니다");
+        toast(candidates.length.toLocaleString("ko-KR") + "건의 후보 큐 CSV를 내보냈습니다");
       }
 
       function initMeta() {
