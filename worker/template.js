@@ -863,6 +863,36 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       background: #fff;
       color: var(--ink);
     }
+    .advanced-filters {
+      margin: 6px 0 12px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .advanced-filters summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 42px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    .advanced-filters summary::-webkit-details-marker { display: none; }
+    .advanced-filters summary::after { content: "＋"; color: var(--muted); font-size: 15px; }
+    .advanced-filters[open] summary::after { content: "－"; }
+    .advanced-filter-count {
+      margin-left: auto;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--surface-3);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .advanced-filter-count.has-filters { background: var(--teal-soft); color: var(--teal-dark); }
     .year-pair {
       display: grid;
       grid-template-columns: 1fr 18px 1fr;
@@ -1622,55 +1652,58 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <label for="status">관리 상태</label>
             <select id="status"><option value="">전체</option></select>
           </div>
-          <div class="filter-group">
-            <label for="grade">규제 근거등급</label>
-            <select id="grade"><option value="">전체</option></select>
-          </div>
-          <div class="filter-group">
-            <label for="agency">규제기관</label>
-            <select id="agency"><option value="">전체</option></select>
-          </div>
-          <div class="filter-group">
-            <label for="safety-area">안전성 영역</label>
-            <select id="safety-area"><option value="">전체</option></select>
-          </div>
-          <div class="filter-group">
-            <label for="sci">SCI/SCIE 상태</label>
-            <select id="sci"><option value="">전체</option></select>
-          </div>
-          <div class="filter-group">
-            <label for="species">대상 종 그룹</label>
-            <select id="species"><option value="">전체</option></select>
-          </div>
-          <div class="filter-group">
-            <label for="topic">연구 주제</label>
-            <select id="topic"><option value="">전체</option></select>
-          </div>
-          <div class="filter-group">
-            <label for="extraction">추출 완성도</label>
-            <select id="extraction"><option value="">전체</option></select>
-          </div>
-          <div class="filter-group">
-            <label for="direction">결과 방향</label>
-            <select id="direction"><option value="">전체</option></select>
-          </div>
-          <div class="filter-group">
-            <label for="source">원문 연결</label>
-            <select id="source">
-              <option value="">전체</option>
-              <option value="drive">Drive 원문 있음</option>
-              <option value="link">외부 원문·DOI 링크 있음</option>
-              <option value="none">원문 링크 없음</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label>출판 연도</label>
-            <div class="year-pair">
-              <input id="year-from" type="number" inputmode="numeric" aria-label="시작 연도">
-              <span>–</span>
-              <input id="year-to" type="number" inputmode="numeric" aria-label="종료 연도">
+          <details class="advanced-filters" id="advanced-filters">
+            <summary><span>추가 조건</span><span class="advanced-filter-count" id="advanced-filter-count">선택 없음</span></summary>
+            <div class="filter-group">
+              <label for="grade">규제 근거등급</label>
+              <select id="grade"><option value="">전체</option></select>
             </div>
-          </div>
+            <div class="filter-group">
+              <label for="agency">규제기관</label>
+              <select id="agency"><option value="">전체</option></select>
+            </div>
+            <div class="filter-group">
+              <label for="safety-area">안전성 영역</label>
+              <select id="safety-area"><option value="">전체</option></select>
+            </div>
+            <div class="filter-group">
+              <label for="sci">SCI/SCIE 상태</label>
+              <select id="sci"><option value="">전체</option></select>
+            </div>
+            <div class="filter-group">
+              <label for="species">대상 종 그룹</label>
+              <select id="species"><option value="">전체</option></select>
+            </div>
+            <div class="filter-group">
+              <label for="topic">연구 주제</label>
+              <select id="topic"><option value="">전체</option></select>
+            </div>
+            <div class="filter-group">
+              <label for="extraction">추출 완성도</label>
+              <select id="extraction"><option value="">전체</option></select>
+            </div>
+            <div class="filter-group">
+              <label for="direction">결과 방향</label>
+              <select id="direction"><option value="">전체</option></select>
+            </div>
+            <div class="filter-group">
+              <label for="source">원문 연결</label>
+              <select id="source">
+                <option value="">전체</option>
+                <option value="drive">Drive 원문 있음</option>
+                <option value="link">외부 원문·DOI 링크 있음</option>
+                <option value="none">원문 링크 없음</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label>출판 연도</label>
+              <div class="year-pair">
+                <input id="year-from" type="number" inputmode="numeric" aria-label="시작 연도">
+                <span>–</span>
+                <input id="year-to" type="number" inputmode="numeric" aria-label="종료 연도">
+              </div>
+            </div>
+          </details>
           <button class="reset-button" id="reset" type="button">필터 전체 초기화</button>
         </aside>
 
@@ -2547,6 +2580,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("active-filters").innerHTML = chips.join("");
       }
 
+      function syncAdvancedFilterDisclosure() {
+        var advancedKeys = ["grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"];
+        var count = advancedKeys.filter(function (key) { return Boolean(state[key]); }).length;
+        if (state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear) count += 1;
+        var badge = el("advanced-filter-count");
+        var details = el("advanced-filters");
+        if (!badge || !details) return;
+        badge.textContent = count ? count + "개 선택" : "선택 없음";
+        badge.classList.toggle("has-filters", count > 0);
+        if (count) details.open = true;
+      }
+
       function render() {
         var renderStarted = performance.now();
         var list = filteredRecords();
@@ -2564,6 +2609,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("next").disabled = state.page >= totalPages;
         el("pagination").hidden = list.length <= pageSize;
         renderActiveFilters();
+        syncAdvancedFilterDisclosure();
         syncControls();
         persistUrl();
       }
