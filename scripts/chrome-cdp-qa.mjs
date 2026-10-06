@@ -309,10 +309,14 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('링크')"), true);
   await evaluate(client, "document.querySelector('#review-share-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#review-share-dialog')?.open"), false);
+  await evaluate(client, "document.querySelector('[data-review-filter=candidate]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=candidate]')?.classList.contains('active')"), true);
   const reviewShareId = await evaluate(client, "document.querySelector('[data-review-status][data-review-id]')?.getAttribute('data-review-id')");
   assert.ok(reviewShareId, "Expected at least one review queue record for deep-link QA");
-  await navigate(`http://127.0.0.1:${httpPort}/?review=${encodeURIComponent(reviewShareId)}`);
+  await navigate(`http://127.0.0.1:${httpPort}/?review=${encodeURIComponent(reviewShareId)}&reviewFilter=candidate`);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('review')"), reviewShareId);
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('reviewFilter')"), "candidate");
+  assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=candidate]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-count')?.textContent.includes('공유 큐')"), true);
   assert.equal(await evaluate(client, "document.activeElement?.id"), "review-queue-title");
   assert.equal(await evaluate(client, "window.scrollY > 0"), true);
@@ -320,6 +324,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelectorAll('#review-queue-list [data-review-status]').length > 0"), true);
   await evaluate(client, "document.querySelector('#review-queue-shared-clear').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('review')"), false);
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('reviewFilter')"), false);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-shared-note')?.hidden"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?review=QA-MISSING-RECORD`);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-shared-note')?.hidden"), false);

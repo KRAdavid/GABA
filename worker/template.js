@@ -2181,6 +2181,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var intelligenceReview = "";
       var activeLane = null;
       var reviewQueueFilter = "all";
+      var reviewQueueFilterLabels = { all: "전체", candidate: "후보", partial: "부분추출", missing: "핵심 누락" };
       var reviewQueueHideDone = false;
       var sharedReviewIds = [];
       var sharedReviewMissingCount = 0;
@@ -2614,6 +2615,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           urlReadingIds = [];
         }
         if (params.has("review")) {
+          reviewQueueFilter = reviewQueueFilterLabels[params.get("reviewFilter")] ? params.get("reviewFilter") : "all";
           var requestedReviewIds = String(params.get("review") || "").split(",").map(function (id) { return id.trim(); }).filter(Boolean).slice(0, 50);
           sharedReviewIds = requestedReviewIds.filter(function (id) {
             return records.some(function (record) { return String(record.id) === id; });
@@ -2621,6 +2623,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           sharedReviewMissingCount = requestedReviewIds.length - sharedReviewIds.length;
           sharedReviewNeedsFocus = sharedReviewIds.length > 0;
         } else {
+          reviewQueueFilter = "all";
           sharedReviewIds = [];
           sharedReviewMissingCount = 0;
           sharedReviewNeedsFocus = false;
@@ -2714,6 +2717,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (compareIds.length) params.set("compare", compareIds.join(","));
         if (urlReadingIds.length) params.set("read", urlReadingIds.join(","));
         if (sharedReviewIds.length) params.set("review", sharedReviewIds.join(","));
+        if (sharedReviewIds.length && reviewQueueFilter !== "all") params.set("reviewFilter", reviewQueueFilter);
         if (candidatePreviewFilter !== "all") params.set("candidate", candidatePreviewFilter);
         if (urlRecordId) params.set("record", urlRecordId);
         if (urlCandidateId) params.set("candidateId", urlCandidateId);
@@ -3223,7 +3227,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           sharedNote.hidden = !(sharedReviewIds.length || sharedReviewMissingCount);
           if (sharedReviewMissingCount && sharedReviewIds.length) sharedCopy.textContent = "공유된 검토 대상 " + queue.length.toLocaleString("ko-KR") + "건을 표시 중이며, " + sharedReviewMissingCount.toLocaleString("ko-KR") + "건은 현재 스냅샷에서 찾지 못했습니다.";
           else if (sharedReviewMissingCount) sharedCopy.textContent = "이 공유 링크의 " + sharedReviewMissingCount.toLocaleString("ko-KR") + "건은 현재 스냅샷에 없습니다. 최신 검토 큐를 확인하세요.";
-          else if (sharedReviewIds.length) sharedCopy.textContent = "공유된 검토 대상 " + queue.length.toLocaleString("ko-KR") + "건만 표시 중입니다. 이 브라우저의 로컬 검토 기록은 공유되지 않습니다.";
+          else if (sharedReviewIds.length) sharedCopy.textContent = "공유된 검토 대상 " + queue.length.toLocaleString("ko-KR") + "건만 표시 중입니다 · 필터: " + reviewQueueFilterLabels[reviewQueueFilter] + ". 이 브라우저의 로컬 검토 기록은 공유되지 않습니다.";
         }
         if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
         document.querySelectorAll("[data-review-filter]").forEach(function (button) {
@@ -3366,12 +3370,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var ids = queue.slice(0, 50).map(function (item) { return String(item.record.id); });
         var url = new URL(location.href);
         url.searchParams.set("review", ids.join(","));
+        if (reviewQueueFilter !== "all") url.searchParams.set("reviewFilter", reviewQueueFilter);
         openReviewShareDialog(url.href, ids.length);
       }
       function clearSharedReviewQueue() {
         if (!sharedReviewIds.length && !sharedReviewMissingCount) return;
         sharedReviewIds = [];
         sharedReviewMissingCount = 0;
+        reviewQueueFilter = "all";
         persistUrl("replace");
         renderReviewQueue();
         toast("공유 큐를 해제하고 전체 검토 큐를 표시합니다");
@@ -4260,6 +4266,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       document.querySelectorAll("[data-review-filter]").forEach(function (button) {
         button.addEventListener("click", function () {
           reviewQueueFilter = button.dataset.reviewFilter || "all";
+          if (sharedReviewIds.length) persistUrl("replace");
           renderReviewQueue();
         });
       });

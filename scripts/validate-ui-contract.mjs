@@ -137,6 +137,8 @@ const required = [
   ,["Human-source sort explanation sync", "function syncSortHelp"]
   ,["Review queue share link", "review-queue-share"]
   ,["Review queue URL state", "sharedReviewIds"]
+  ,["Review queue filter share state", "reviewFilter"]
+  ,["Review queue filter labels", "reviewQueueFilterLabels"]
   ,["Review share dialog", "review-share-dialog"]
   ,["Review share copy action", "copyReviewShareUrl"]
   ,["Shared queue exit", "clearSharedReviewQueue"]
