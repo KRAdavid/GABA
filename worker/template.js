@@ -608,6 +608,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       gap: 7px;
       margin-top: 10px;
     }
+    .release-provenance-note {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.55;
+    }
     .data-boundary {
       display: flex;
       flex-wrap: wrap;
@@ -1894,6 +1900,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <h2 id="discovery-title" tabindex="-1">검증 인덱스와 자동 탐색 후보를 분리해 관리합니다</h2>
         <p id="discovery-copy">대량 탐색 현황을 불러오는 중입니다.</p>
         <div class="discovery-stats" id="discovery-stats" aria-label="대량 탐색 통계"></div>
+        <p class="release-provenance-note" id="release-provenance-note" role="note">운영 코드 버전과 완전 검증 데이터 스냅샷 버전은 추적 목적이 달라 다를 수 있습니다. 버전 차이는 근거의 질·효능·규제 적합성을 의미하지 않습니다.</p>
         <div class="link-audit-note-wrap" id="link-audit-note-wrap" hidden>
           <p class="link-audit-note" id="link-audit-note" role="note"></p>
           <button class="link-audit-methodology" id="link-audit-methodology" type="button">감사 기준 보기</button>

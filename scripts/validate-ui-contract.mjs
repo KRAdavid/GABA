@@ -183,6 +183,7 @@ const required = [
   ,["Snapshot provenance", "release.snapshotVersion"]
   ,["Release traceability", "release.siteVersion"]
   ,["Current code deployment provenance", "release.currentCodeDeployment"]
+  ,["Release provenance distinction note", 'id="release-provenance-note"']
   ,["Methodology dialog", "id=\"methodology-dialog\""]
   ,["Methodology rules", "출판 후속조치를 확인합니다"]
   ,["Empty result recovery", "data-empty-reset"]

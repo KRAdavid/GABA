@@ -305,6 +305,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v485 · GitHub e60d363')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원천 오류')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원문 감사')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#release-provenance-note')?.textContent.includes('버전 차이는 근거의 질')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#link-audit-note')?.textContent.includes('근거 약함')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#link-audit-methodology')?.textContent.includes('감사 기준 보기')"), true);
   await evaluate(client, "document.querySelector('#link-audit-methodology').click()");
