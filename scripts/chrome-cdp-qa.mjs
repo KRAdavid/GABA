@@ -206,6 +206,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#papers .paper-card') !== null"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?kind=${encodeURIComponent('규제')}&source=available`);
   assert.equal(await evaluate(client, "document.querySelector('#papers .regulatory-card') !== null"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/?audit=unavailable`);
+  assert.equal(await waitForExpression(client, "Boolean(document.querySelector('#audit'))"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#audit')?.value"), "unavailable");
+  assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('접근 제한·일시 응답')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('캐나다 모노그래프')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('인지기능 제품 모노그래프')"), true);
