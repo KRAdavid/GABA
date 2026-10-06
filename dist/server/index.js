@@ -271,6 +271,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .reading-list-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
     .reading-list-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
     .reading-list-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .reading-list-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .reading-list-actions button { min-height: 32px; padding: 5px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .reading-list-actions button.secondary { border-color: var(--line); background: #fff; color: var(--muted); }
     .reading-list-items { display: grid; gap: 9px; margin-top: 16px; }
     .reading-list-item { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 13px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-2); }
     .reading-list-item h3 { margin: 0; font-size: 13px; line-height: 1.4; }
@@ -1668,6 +1671,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <div><h2 id="reading-list-title">내 읽기 목록</h2><p>현재 브라우저에만 저장됩니다. 원본 인덱스·Sheets·공개 데이터는 변경하지 않습니다.</p></div>
           <button class="reading-list-close" id="reading-list-close" type="button" aria-label="읽기 목록 닫기">×</button>
         </div>
+        <div class="reading-list-actions"><button id="reading-list-copy" type="button">전체 근거 브리프 복사</button><button class="secondary" id="reading-list-clear" type="button">전체 비우기</button></div>
         <div class="reading-list-items" id="reading-list-items"></div>
       </div>
     </dialog>
@@ -2796,6 +2800,30 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         }).join("") : '<p class="reading-list-empty">아직 저장한 자료가 없습니다. 검색 결과에서 <strong>읽기 목록에 저장</strong>을 누르면 나중에 한 번에 다시 확인할 수 있습니다.</p>';
         renderReadingListButtonState();
       }
+      function readingListBriefText() {
+        var selected = readingListRecords();
+        return selected.length
+          ? selected.map(function (record, index) { return "[" + (index + 1) + "]\n" + evidenceBriefText(record); }).join("\n\n--------------------\n\n")
+          : "저장한 자료가 없습니다.";
+      }
+      async function copyReadingList() {
+        var text = readingListBriefText();
+        if (!readingListRecords().length) { toast("복사할 읽기 목록이 없습니다"); return; }
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("읽기 목록 브리프를 복사했습니다");
+        } catch (_) {
+          window.prompt("아래 근거 브리프를 복사하세요", text);
+        }
+      }
+      function clearReadingList() {
+        if (!readingIds.length) { toast("읽기 목록이 이미 비어 있습니다"); return; }
+        if (!window.confirm("저장한 자료를 모두 읽기 목록에서 제거할까요?")) return;
+        readingIds = [];
+        saveReadingIds();
+        renderReadingList();
+        toast("읽기 목록을 비웠습니다");
+      }
       function toggleReadingList(recordId) {
         var id = String(recordId || "");
         var index = readingIds.indexOf(id);
@@ -3270,6 +3298,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       el("reading-list-open").addEventListener("click", openReadingList);
       el("result-reading-list").addEventListener("click", openReadingList);
+      el("reading-list-copy").addEventListener("click", copyReadingList);
+      el("reading-list-clear").addEventListener("click", clearReadingList);
       el("reading-list-close").addEventListener("click", closeReadingList);
       el("reading-list-dialog").addEventListener("click", function (event) {
         if (event.target === el("reading-list-dialog")) closeReadingList();
