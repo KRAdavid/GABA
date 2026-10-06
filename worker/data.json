@@ -35,6 +35,8 @@
       "identifierExtraction": "PubMed primary ArticleIdList only",
       "pubmedUnique": 3257,
       "openAlexRetrieved": 1400,
+      "crossrefRetrieved": 900,
+      "sourceErrors": [],
       "mergedUnique": 5139,
       "stagedCandidates": 1000,
       "priority": 5,
