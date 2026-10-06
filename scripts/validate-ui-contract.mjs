@@ -57,6 +57,8 @@ const required = [
   ["Candidate detail URL state", "urlCandidateId"],
   ["Candidate detail share parameter", 'params.set("candidateId"'],
   ["Candidate detail deep-link restore", "openCandidateDetail(urlCandidateId"],
+  ["Candidate link copy", "data-copy-candidate-link"],
+  ["Candidate link copy fallback", "copyCandidateLink"],
   ["Candidate deep-link focus", "candidatePreviewNeedsFocus"],
   ["Candidate filter counts", "candidateFilterLabels"],
   ["Immunity search suggestions", "면역 타액 IgA"],

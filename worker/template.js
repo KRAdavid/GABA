@@ -680,7 +680,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-detail-checklist li span { color: var(--muted); text-align: right; }
     .candidate-detail-abstract { margin-top: 16px; padding: 15px; border-radius: 11px; background: var(--surface-2); color: var(--ink-2); font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
     .candidate-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-    .candidate-detail-actions a { display: inline-flex; min-height: 34px; align-items: center; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 900; text-decoration: none; }
+    .candidate-detail-actions a, .candidate-detail-actions button { display: inline-flex; min-height: 34px; align-items: center; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font: inherit; font-size: 11px; font-weight: 900; text-decoration: none; cursor: pointer; }
     @media (max-width: 640px) { .candidate-detail-inner { padding: 16px; } .candidate-detail-head h2 { font-size: 19px; } }
     @media (max-width: 980px) { .candidate-preview-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 640px) { .candidate-preview-head { align-items: start; flex-direction: column; gap: 5px; } .candidate-preview-list { grid-template-columns: 1fr; } }
@@ -2408,7 +2408,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         ];
         el("candidate-detail-checklist").innerHTML = '<h3>공개 근거 승격 전 확인 순서</h3><ul>' + checklist.map(function (item) { return '<li><strong>' + esc(item[0]) + '</strong><span>' + esc(item[1]) + '</span></li>'; }).join("") + '</ul>';
         el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
-        el("candidate-detail-actions").innerHTML = sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">PubMed·DOI 원문 확인 ↗</a>' : "";
+        el("candidate-detail-actions").innerHTML = (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">PubMed·DOI 원문 확인 ↗</a>' : "") + '<button type="button" data-copy-candidate-link="' + esc(candidate.candidateId || "") + '">후보 검토 링크 복사</button>';
         if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", "");
         el("candidate-detail-close").focus();
       }
@@ -3268,6 +3268,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           toast("자료 링크를 복사했습니다");
         } catch (_) {
           openCopyDialog("자료 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", link, "자료 링크를 복사했습니다");
+        }
+      }
+      async function copyCandidateLink(candidateId) {
+        var candidate = (DB.meta.discovery?.candidatePreview || []).find(function (item) { return String(item.candidateId) === String(candidateId); });
+        if (!candidate) return;
+        var url = new URL(location.href);
+        url.searchParams.set("candidateId", String(candidate.candidateId));
+        var link = url.href;
+        try {
+          await navigator.clipboard.writeText(link);
+          toast("후보 검토 링크를 복사했습니다");
+        } catch (_) {
+          openCopyDialog("후보 검토 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", link, "후보 검토 링크를 복사했습니다");
         }
       }
       function openCopyDialog(title, description, value, successMessage) {
@@ -4360,6 +4373,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else reviewDecisions[reviewId] = { completedAt: new Date().toISOString() };
           try { localStorage.setItem("gaba-review-decisions", JSON.stringify(reviewDecisions)); } catch (_) {}
           renderReviewQueue();
+          return;
+        }
+        var candidateLinkButton = event.target.closest("[data-copy-candidate-link]");
+        if (candidateLinkButton) {
+          await copyCandidateLink(candidateLinkButton.dataset.copyCandidateLink);
           return;
         }
         var recordLinkButton = event.target.closest("[data-copy-record-link]");
