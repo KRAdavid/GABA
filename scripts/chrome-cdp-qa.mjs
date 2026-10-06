@@ -311,6 +311,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-list')?.textContent.includes('원문 접근 감사')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-summary')?.textContent.includes('원문 접근 제한')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=audit]')?.textContent.includes('20')"), true);
+  await evaluate(client, "document.querySelector('[data-review-filter=freshness]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=freshness]')?.classList.contains('active')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=freshness]')?.textContent.includes('재확인 필요')"), true);
   await evaluate(client, "document.querySelector('[data-review-filter=all]').click()");
   assert.equal(await evaluate(client, "Boolean(document.querySelector('.review-priority-reason'))"), true);
   assert.equal(await evaluate(client, "document.querySelector('.review-priority-reason')?.textContent.includes('우선순위 근거')"), true);

@@ -2025,6 +2025,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <button class="review-queue-filter" type="button" data-review-filter="partial">부분추출</button>
         <button class="review-queue-filter" type="button" data-review-filter="missing">핵심 누락</button>
         <button class="review-queue-filter" type="button" data-review-filter="audit">원문 접근 제한</button>
+        <button class="review-queue-filter" type="button" data-review-filter="freshness">재확인 필요</button>
         <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 내보내기</button>
         <button class="review-queue-share" id="review-queue-share" type="button">검토 큐 링크 복사</button>
         <button class="review-queue-import" id="review-queue-import" type="button">검토 기록 가져오기</button>
@@ -2453,7 +2454,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var intelligenceReview = "";
       var activeLane = null;
       var reviewQueueFilter = "all";
-      var reviewQueueFilterLabels = { all: "전체", candidate: "후보", partial: "부분추출", missing: "핵심 누락", audit: "원문 접근 제한" };
+      var reviewQueueFilterLabels = { all: "전체", candidate: "후보", partial: "부분추출", missing: "핵심 누락", audit: "원문 접근 제한", freshness: "재확인 필요" };
       var reviewQueueHideDone = false;
       var reviewQueueShowAll = false;
       var sharedReviewIds = [];
@@ -3537,6 +3538,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (record.kind === "임상") { score += 3; reasons.push("인체 자료"); }
         if (record.kind === "규제") { score += 2; reasons.push("규제·안전성 자료"); }
         if (sourceAuditRecord(record)?.status === "unavailable") { score += 2; reasons.push("원문 접근 제한"); }
+        if (freshnessBucket(record) !== "recent") { score += 2; reasons.push("재확인 권고"); }
         if (item.missing.length >= 4) { score += 3; reasons.push("핵심 기록 다수 누락"); }
         else if (item.missing.length >= 3) { score += 2; reasons.push("핵심 기록 누락"); }
         if (item.missing.indexOf("식별자") >= 0) { score += 2; reasons.push("식별자 확인 필요"); }
@@ -3582,11 +3584,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return records.map(function (record) {
           var missing = reviewChecklist(record).filter(function (item) { return !item[1]; }).map(function (item) { return item[0]; });
           if (sourceAuditRecord(record)?.status === "unavailable" && missing.indexOf("원문 접근 감사") < 0) missing.push("원문 접근 감사");
+          if (freshnessBucket(record) !== "recent" && missing.indexOf("최신 원문·후속 공지") < 0) missing.push("최신 원문·후속 공지");
           var item = { record: record, missing: missing };
           item.priority = reviewPriority(item);
           return item;
         }).filter(function (item) {
-          return item.record.status === "후보" || item.record.extraction === "부분" || item.missing.length >= 3 || sourceAuditRecord(item.record)?.status === "unavailable";
+          return item.record.status === "후보" || item.record.extraction === "부분" || item.missing.length >= 3 || sourceAuditRecord(item.record)?.status === "unavailable" || freshnessBucket(item.record) !== "recent";
         }).sort(function (a, b) {
           var priorityRank = { high: 3, medium: 2, normal: 1 };
           return priorityRank[b.priority.key] - priorityRank[a.priority.key] || b.missing.length - a.missing.length || String(b.record.checked || "").localeCompare(String(a.record.checked || "")) || Number(b.record.year || 0) - Number(a.record.year || 0);
@@ -3603,6 +3606,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (reviewQueueFilter === "partial") return item.record.extraction === "부분";
           if (reviewQueueFilter === "missing") return item.missing.length >= 3;
           if (reviewQueueFilter === "audit") return sourceAuditRecord(item.record)?.status === "unavailable";
+          if (reviewQueueFilter === "freshness") return freshnessBucket(item.record) !== "recent";
           return true;
         });
       }
@@ -3621,10 +3625,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
         var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
         var auditGapCount = baseQueue.filter(function (item) { return sourceAuditRecord(item.record)?.status === "unavailable"; }).length;
+        var freshnessGapCount = baseQueue.filter(function (item) { return freshnessBucket(item.record) !== "recent"; }).length;
         var auditFilterButton = document.querySelector('[data-review-filter="audit"]');
         if (auditFilterButton) {
           auditFilterButton.textContent = "원문 접근 제한 " + auditGapCount.toLocaleString("ko-KR");
           auditFilterButton.setAttribute("aria-label", "원문 접근 제한 " + auditGapCount.toLocaleString("ko-KR") + "건");
+        }
+        var freshnessFilterButton = document.querySelector('[data-review-filter="freshness"]');
+        if (freshnessFilterButton) {
+          freshnessFilterButton.textContent = "재확인 필요 " + freshnessGapCount.toLocaleString("ko-KR");
+          freshnessFilterButton.setAttribute("aria-label", "재확인 필요 " + freshnessGapCount.toLocaleString("ko-KR") + "건");
         }
         var queue = reviewQueueForDisplay(baseQueue);
         if (moreTarget) {
@@ -3641,7 +3651,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else if (sharedReviewMissingCount) sharedCopy.textContent = "이 공유 링크의 " + sharedReviewMissingCount.toLocaleString("ko-KR") + "건은 현재 스냅샷에 없습니다. 최신 검토 큐를 확인하세요.";
           else if (sharedReviewIds.length) sharedCopy.textContent = "공유된 검토 대상 " + queue.length.toLocaleString("ko-KR") + "건만 표시 중입니다 · 필터: " + reviewQueueFilterLabels[reviewQueueFilter] + ". 이 브라우저의 로컬 검토 기록은 공유되지 않습니다.";
         }
-        if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + completionRate + '%</strong> 전체 큐 완료율</span><span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + auditGapCount.toLocaleString("ko-KR") + '건</strong> 원문 접근 제한</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
+        if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + completionRate + '%</strong> 전체 큐 완료율</span><span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + auditGapCount.toLocaleString("ko-KR") + '건</strong> 원문 접근 제한</span><span><strong>' + freshnessGapCount.toLocaleString("ko-KR") + '건</strong> 최신성 재확인</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
         document.querySelectorAll("[data-review-filter]").forEach(function (button) {
           setActiveToggle(button, button.dataset.reviewFilter === reviewQueueFilter);
         });
