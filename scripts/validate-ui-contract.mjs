@@ -34,6 +34,7 @@ const required = [
   ["Review queue export", 'id="review-queue-export"'],
   ["Review queue export renderer", "function exportReviewQueue"],
   ["Freshness indicator", 'id="freshness-label"'],
+  ["Discovery freshness distinction", "자동 탐색"],
   ["Result evidence composition", 'id="result-interpretation"'],
   ["Shareable record deep link", "urlRecordId"],
   ["Citation copy action", "data-copy-citation"],

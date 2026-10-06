@@ -1874,10 +1874,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var parts = String(value || "").split("-");
         return parts.length === 3 ? Number(parts[0]) + "년 " + Number(parts[1]) + "월 " + Number(parts[2]) + "일" : value;
       }
-      function updateFreshnessLabel(snapshotDate) {
+      function updateFreshnessLabel(snapshotDate, discoveryDate) {
         var target = el("freshness-label");
         if (!target) return;
         var parsed = new Date(String(snapshotDate || "") + "T00:00:00");
+        var discoveryParsed = new Date(String(discoveryDate || "") + "T00:00:00");
         if (Number.isNaN(parsed.getTime())) {
           target.textContent = "갱신일 확인 필요";
           target.classList.add("freshness-stale");
@@ -1886,16 +1887,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var today = new Date();
         today.setHours(0, 0, 0, 0);
         var age = Math.max(0, Math.floor((today.getTime() - parsed.getTime()) / 86400000));
+        var discoveryAge = Number.isNaN(discoveryParsed.getTime())
+          ? null
+          : Math.max(0, Math.floor((today.getTime() - discoveryParsed.getTime()) / 86400000));
+        var discoveryText = discoveryAge == null ? "탐색일 확인 필요" : "자동 탐색 " + discoveryAge + "일 전";
         if (age <= 7) {
-          target.textContent = "최근 스냅샷";
+          target.textContent = "검증 최신 · 탐색 " + (discoveryAge == null ? "확인 필요" : discoveryAge + "일 전");
           target.classList.add("freshness-recent");
-          target.title = "공개 데이터 스냅샷이 " + age + "일 전 갱신되었습니다.";
+          target.title = "검증 인덱스는 " + age + "일 전 갱신되었습니다. " + discoveryText + "입니다.";
         } else if (age <= 21) {
-          target.textContent = "갱신 예정 · " + age + "일 경과";
-          target.title = "공개 데이터 스냅샷이 " + age + "일 경과했습니다. 최신성 확인 후 활용하세요.";
+          target.textContent = "검증 갱신 예정 · 탐색 " + (discoveryAge == null ? "확인 필요" : discoveryAge + "일 전");
+          target.title = "검증 인덱스가 " + age + "일 경과했습니다. " + discoveryText + "이며, 후보는 검증 인덱스와 별도입니다.";
         } else {
-          target.textContent = "갱신 점검 · " + age + "일 경과";
-          target.title = "공개 데이터 스냅샷이 " + age + "일 경과했습니다. 최신 자료 여부를 확인한 뒤 활용하세요.";
+          target.textContent = "검증 점검 " + age + "일 · 탐색 " + (discoveryAge == null ? "확인 필요" : discoveryAge + "일 전");
+          target.title = "검증 인덱스가 " + age + "일 경과했습니다. " + discoveryText + "이지만 자동 탐색 후보는 검증 전 자료입니다.";
           target.classList.add("freshness-stale");
         }
       }
@@ -1922,7 +1927,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           sheetLink.hidden = false;
         }
         el("snapshot-label").textContent = "최종 갱신 " + koreanDate(DB.meta.snapshotDate);
-        updateFreshnessLabel(DB.meta.snapshotDate);
+        updateFreshnessLabel(DB.meta.snapshotDate, discovery.snapshotDate);
         el("coverage-label").textContent = DB.meta.minYear + "–" + DB.meta.maxYear + "년";
         el("metric-total").textContent = countText(DB.meta.literature || DB.meta.total);
         el("metric-clinical").textContent = countText(DB.meta.clinical);
