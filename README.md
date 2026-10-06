@@ -13,6 +13,7 @@ Google Sheet로 관리되는 GABA 섭취 임상·동물시험 문헌을 한국�
 - 운영 소스: `worker/template.js` 및 `worker/data.json`
 - 검토 큐: 브라우저 로컬 완료 표시와 JSON 내보내기 제공
 - 후보 큐: `?candidate=priority` 또는 `?candidate=followup` 링크로 같은 검토 범위를 공유
+- 후보 상세: `?candidateId=<Candidate_ID>` 링크로 특정 자동 탐색 후보의 원문 확인 체크리스트를 공유
 - 자료 상세 공유: `?record=<Record_ID>` 링크로 특정 논문·규제자료의 상세 화면을 공유
 - 비교 화면: 연구 유형·설계·개입 형태/경로·결과 영역·결과 방향을 나란히 표시하며, 혼합 근거의 직접 합산과 제품 효능 자동 판정을 금지하는 해석 안내를 함께 제공
 - 비교 결과는 클립보드 복사와 CSV 저장을 지원해 내부 검토·회의 자료로 재사용할 수 있습니다.

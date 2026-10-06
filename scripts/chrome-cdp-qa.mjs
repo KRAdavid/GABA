@@ -186,11 +186,18 @@ try {
   assert.equal(await evaluate(client, "document.querySelectorAll('#candidate-preview-list .candidate-preview-card').length > 0"), true);
   await evaluate(client, "document.querySelector('[data-candidate-detail]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), true);
+  const candidateId = await evaluate(client, "document.querySelector('[data-candidate-detail]')?.getAttribute('data-candidate-detail')");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidateId')"), candidateId);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-abstract')?.textContent.length > 0"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('검토 신호')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-checklist')?.textContent.includes('경구·섭취 여부')"), true);
   await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), false);
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('candidateId')"), false);
+  await navigate(`http://127.0.0.1:${httpPort}/?candidateId=${encodeURIComponent(candidateId)}`);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), true);
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidateId')"), candidateId);
+  await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
   await evaluate(client, "document.querySelector('#candidate-preview-export').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('후보 CSV')"), true);

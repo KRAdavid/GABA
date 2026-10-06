@@ -2181,6 +2181,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var sharedReviewNeedsFocus = false;
       var candidatePreviewFilter = "all";
       var candidatePreviewNeedsFocus = false;
+      var urlCandidateId = "";
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var compareIds = [];
@@ -2385,11 +2386,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         }
       }
 
-      function openCandidateDetail(candidateId) {
+      function openCandidateDetail(candidateId, historyMode) {
         var candidates = DB.meta.discovery?.candidatePreview || [];
         var candidate = candidates.find(function (item) { return String(item.candidateId) === String(candidateId); });
         if (!candidate) return;
         var dialog = el("candidate-detail-dialog");
+        urlCandidateId = String(candidate.candidateId || candidateId);
+        persistUrl(historyMode || "push");
         el("candidate-detail-title").textContent = candidate.title || "후보 상세";
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
         var screeningSignals = (candidate.exclusionSignals || []).concat(candidate.directTitleSignals || []).filter(Boolean);
@@ -2414,6 +2417,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var dialog = el("candidate-detail-dialog");
         if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
         else if (dialog) dialog.removeAttribute("open");
+        if (urlCandidateId) {
+          urlCandidateId = "";
+          persistUrl("replace");
+        }
       }
 
       function exportCandidatePreview() {
@@ -2595,6 +2602,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           sharedReviewNeedsFocus = false;
         }
         urlRecordId = params.get("record") || "";
+        urlCandidateId = params.get("candidateId") || "";
       }
 
       function syncControls() {
@@ -2684,6 +2692,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (sharedReviewIds.length) params.set("review", sharedReviewIds.join(","));
         if (candidatePreviewFilter !== "all") params.set("candidate", candidatePreviewFilter);
         if (urlRecordId) params.set("record", urlRecordId);
+        if (urlCandidateId) params.set("candidateId", urlCandidateId);
         var query = params.toString();
         var method = historyMode === "push" ? "pushState" : "replaceState";
         history[method](null, "", location.pathname + (query ? "?" + query : ""));
@@ -4072,6 +4081,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       syncControls();
       render();
       if (urlRecordId) openIntelligenceDetail(urlRecordId, "replace");
+      if (urlCandidateId) openCandidateDetail(urlCandidateId, "replace");
 
       window.addEventListener("popstate", function () {
         var detailWasOpen = el("intelligence-detail").open;
@@ -4079,7 +4089,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         syncControls();
         render();
         if (urlRecordId) openIntelligenceDetail(urlRecordId, "replace");
+        else if (urlCandidateId) openCandidateDetail(urlCandidateId, "replace");
         else if (detailWasOpen) closeIntelligenceDetail();
+        else if (el("candidate-detail-dialog")?.open) closeCandidateDetail();
       });
 
       var searchTimer;
