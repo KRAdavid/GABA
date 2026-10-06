@@ -1182,6 +1182,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .badge.intervention { background: #e7f5f2; color: var(--teal-dark); }
     .badge.intervention-filter-badge { border: 0; cursor: pointer; font: inherit; }
     .badge.intervention-filter-badge:hover, .badge.intervention-filter-badge:focus-visible { background: #cfece6; outline: 2px solid rgba(15,118,110,.24); outline-offset: 1px; }
+    .badge.marketing-filter-badge { border: 0; cursor: pointer; font: inherit; }
+    .badge.marketing-filter-badge:hover, .badge.marketing-filter-badge:focus-visible { filter: brightness(.96); outline: 2px solid rgba(15,118,110,.24); outline-offset: 1px; }
     .paper-title {
       margin: 0;
       color: var(--ink);
@@ -2700,6 +2702,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var label = marketingLabel(record);
         return label === "마케팅 사용 금지" ? "exclude" : label === "조건부 검토" ? "candidate" : label === "규제 참고" ? "regulatory" : "include";
       }
+      function marketingFilterBadge(record) {
+        var label = marketingLabel(record);
+        return '<button class="badge ' + marketingClass(record) + ' marketing-filter-badge" type="button" data-marketing="' + esc(label) + '" aria-label="' + esc(label + ' 자료로 필터') + '">' + esc(label) + '</button>';
+      }
 
       function detail(label, value) {
         if (!value) return "";
@@ -3452,7 +3458,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge regulatory">규제·안전성</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
-            '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
+            marketingFilterBadge(record) +
             '<span class="badge">' + esc(record.grade) + '</span>' +
             '<span class="badge">' + esc(record.agency) + '</span>' +
             '<span class="badge">품질 ' + esc(record.quality) + '</span>' +
@@ -3503,7 +3509,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
-            '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
+            marketingFilterBadge(record) +
             '<button class="badge intervention intervention-filter-badge" type="button" data-intervention="' + esc(interventionClass(record)) + '" aria-label="' + esc(interventionClass(record) + ' 자료로 필터') + '">개입 · ' + esc(interventionShortLabel(record)) + '</button>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
             '<span class="badge ' + badgeClass("extraction", record.extraction) + '">추출 ' + esc(record.extraction) + '</span>' +
@@ -3892,6 +3898,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var interventionBadge = event.target.closest(".intervention-filter-badge");
         if (interventionBadge) {
           changeState("intervention", interventionBadge.dataset.intervention || "");
+          scrollToResults();
+          return;
+        }
+        var marketingBadge = event.target.closest(".marketing-filter-badge");
+        if (marketingBadge) {
+          changeState("marketing", marketingBadge.dataset.marketing || "");
           scrollToResults();
           return;
         }

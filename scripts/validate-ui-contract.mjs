@@ -53,6 +53,7 @@ const required = [
   ["Candidate filter counts", "candidateFilterLabels"],
   ["Immunity search suggestions", "면역 타액 IgA"],
   ["Korean title provenance label", "koreanTitleLabel"],
+  ["Marketing badge filter", "marketing-filter-badge"],
   ["Accessible active toggles", "function setActiveToggle"],
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],

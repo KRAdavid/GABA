@@ -143,6 +143,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('.paper-card:not(.regulatory-card) .title-label')?.textContent.includes('한국어 분류 요약'))"), true);
+  await evaluate(client, "document.querySelector('.marketing-filter-badge')?.click()");
+  assert.equal(await evaluate(client, "Boolean(new URLSearchParams(location.search).get('marketing'))"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#freshness-label')?.textContent.trim())"), true);
   assert.notEqual(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.trim()"), "매주 업데이트");
   assert.equal(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.includes('탐색')"), true);
