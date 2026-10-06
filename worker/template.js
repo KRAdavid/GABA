@@ -2198,6 +2198,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var identifiers = [record.doi ? "DOI: " + record.doi : "", record.pmid ? "PMID: " + record.pmid : ""].filter(Boolean);
         return parts.join(". ") + (identifiers.length ? ". " + identifiers.join(" · ") : "") + ".";
       }
+      function evidenceBriefText(record) {
+        return [
+          "GABA 근거 브리프",
+          "자료: " + koreanTitle(record),
+          "연구 유형: " + (record.kind || "미분류"),
+          "핵심 결과: " + (record.finding || record.summaryKo || "주요 결과 미추출"),
+          "해석 경계: " + evidenceBoundary(record),
+          "연구의 의미: " + researchMeaning(record),
+          "마케팅 활용 방안: " + utilizationDirection(record),
+          citationText(record)
+        ].join("\n\n");
+      }
       function utilizationDirection(record) {
         if (record.kind === "규제") {
           return "원료 동일성·제조공정·사용조건·노출량을 국내 기준과 대조하는 규제 검토 자료로 활용합니다. 필요한 제출자료와 추가 확인 항목을 함께 정리합니다.";
@@ -2509,6 +2521,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI", false) : "") +
           (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "") +
           '<button type="button" data-copy-citation="' + esc(record.id) + '">인용 정보 복사</button>' +
+          '<button type="button" data-copy-brief="' + esc(record.id) + '">근거 브리프 복사</button>' +
           '<button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 근거 검색</button>';
         if (typeof dialog.showModal === "function") dialog.showModal();
         else dialog.setAttribute("open", "");
@@ -2896,6 +2909,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             toast("인용 정보를 복사했습니다");
           } catch (_) {
             window.prompt("아래 인용 정보를 복사하세요", citation);
+          }
+          return;
+        }
+        var briefButton = event.target.closest("[data-copy-brief]");
+        if (briefButton) {
+          var briefRecord = records.find(function (item) { return String(item.id) === String(briefButton.dataset.copyBrief); });
+          if (!briefRecord) return;
+          var brief = evidenceBriefText(briefRecord);
+          try {
+            await navigator.clipboard.writeText(brief);
+            toast("근거 브리프를 복사했습니다");
+          } catch (_) {
+            window.prompt("아래 근거 브리프를 복사하세요", brief);
           }
           return;
         }

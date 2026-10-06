@@ -142,6 +142,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), true);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('record')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-citation]'))"), true);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-brief]'))"), true);
   await evaluate(client, "document.querySelector('#intelligence-detail-close').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('record')"), false);
   await evaluate(client, "document.querySelector('[data-review-status]').click()");
