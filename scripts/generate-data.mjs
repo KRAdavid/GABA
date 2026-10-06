@@ -449,6 +449,7 @@ const database = {
     sourceFile: null,
     linkAudit: previousData?.meta?.linkAudit || null,
     publicRelease: true,
+    release: previousData?.meta?.release || null,
     notice: "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
   },
   facets: {
