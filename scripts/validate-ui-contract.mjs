@@ -52,6 +52,7 @@ const required = [
   ["Candidate deep-link focus", "candidatePreviewNeedsFocus"],
   ["Candidate filter counts", "candidateFilterLabels"],
   ["Immunity search suggestions", "면역 타액 IgA"],
+  ["Canada monograph search suggestion", "캐나다 모노그래프"],
   ["Korean title provenance label", "koreanTitleLabel"],
   ["Marketing badge filter", "marketing-filter-badge"],
   ["CSV title provenance", "한국어 제목/분류 요약"],

@@ -1850,6 +1850,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="suggestion-button" type="button" data-query="불안 스트레스">불안·스트레스</button>
           <button class="suggestion-button" type="button" data-query="면역 타액 IgA">면역·타액 IgA</button>
           <button class="suggestion-button" type="button" data-query="현수교 스트레스">현수교 스트레스</button>
+          <button class="suggestion-button" type="button" data-query="캐나다 모노그래프">캐나다·GABA 모노그래프</button>
           <button class="suggestion-button" type="button" data-query="안전성 독성">안전성·독성</button>
           <button class="suggestion-button" type="button" data-query="돼지 장건강">돼지·장건강</button>
           <button class="suggestion-button" type="button" data-query="수산 성장">수산·성장</button>

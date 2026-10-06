@@ -142,6 +142,10 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('현수교 스트레스')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"캐나다 모노그래프\"]'))"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('캐나다 모노그래프')}`);
+  assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('인지기능 제품 모노그래프')"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('.paper-card:not(.regulatory-card) .title-label')?.textContent.includes('한국어 분류 요약'))"), true);
   await evaluate(client, "document.querySelector('.marketing-filter-badge')?.click()");
   assert.equal(await evaluate(client, "Boolean(new URLSearchParams(location.search).get('marketing'))"), true);
