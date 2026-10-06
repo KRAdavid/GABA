@@ -34,8 +34,14 @@ assert.ok(Number(health.release?.snapshotVersion) > 0);
 assert.ok(Number(health.release?.siteVersion) > 0);
 assert.match(String(health.release?.siteSourceCommit || ""), /^[0-9a-f]{40}$/i);
 assert.match(String(health.release?.publicMirrorCommit || ""), /^[0-9a-f]{40}$/i);
+assert.ok(Number(health.release?.currentCodeDeployment?.siteVersion) > 0);
+assert.match(String(health.release?.currentCodeDeployment?.sourceCommit || ""), /^[0-9a-f]{40}$/i);
+assert.match(String(health.release?.currentCodeDeployment?.publicMirrorCommit || ""), /^[0-9a-f]{40}$/i);
 for (const key of ["snapshotVersion", "siteVersion", "siteSourceCommit", "publicMirrorCommit"]) {
   assert.equal(String(health.release?.[key] ?? ""), String(expectedRelease[key] ?? ""), `live release mismatch for ${key}`);
+}
+for (const key of ["siteVersion", "sourceCommit", "publicMirrorCommit"]) {
+  assert.equal(String(health.release?.currentCodeDeployment?.[key] ?? ""), String(expectedRelease.currentCodeDeployment?.[key] ?? ""), `live current code mismatch for ${key}`);
 }
 
 console.log(JSON.stringify({
@@ -50,6 +56,7 @@ console.log(JSON.stringify({
     snapshotVersion: health.release.snapshotVersion,
     siteVersion: health.release.siteVersion,
     siteSourceCommit: health.release.siteSourceCommit,
-    publicMirrorCommit: health.release.publicMirrorCommit
+    publicMirrorCommit: health.release.publicMirrorCommit,
+    currentCodeDeployment: health.release.currentCodeDeployment
   }
 }));

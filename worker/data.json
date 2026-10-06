@@ -36351,7 +36351,13 @@
       "siteSourceCommit": "bd958c5faec6c86dda8b99ea5dd09aecf777656a",
       "publicMirrorCommit": "e60d363a0133da4c59e65f1e1c44296650894d46",
       "publishedAt": "2026-10-06T17:34:22.042242Z",
-      "verification": "Sites v485 · UI·public-surface·health·parity·Chrome CDP QA·candidateExportCount 정합성 통과"
+      "verification": "Sites v485 · UI·public-surface·health·parity·Chrome CDP QA·candidateExportCount 정합성 통과",
+      "currentCodeDeployment": {
+        "siteVersion": 493,
+        "sourceCommit": "37167ecd0d0daedf2cb30b06452c3f2bb8dd6002",
+        "publicMirrorCommit": "1da5f81e317e14ac3d2c454d9d02325279fed8c2",
+        "publishedAt": "2026-10-06T17:58:17.981778Z"
+      }
     },
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
   },
