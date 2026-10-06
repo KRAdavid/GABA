@@ -2078,6 +2078,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <label for="source">원문 연결</label>
               <select id="source">
                 <option value="">전체</option>
+                <option value="available">원문·식별자 링크 있음</option>
                 <option value="drive">Drive 원문 있음</option>
                 <option value="link">외부 원문·DOI 링크 있음</option>
                 <option value="none">원문 링크 없음</option>
@@ -2642,7 +2643,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (common.some(function (key) { return state[key]; })) return "";
         if (state.kind === "임상" && !state.status && !state.source) return "clinical";
         if (state.kind === "규제" && !state.status && !state.source) return "regulatory";
-        if (state.source === "drive" && !state.kind && !state.status) return "source";
+        if (state.source === "available" && !state.kind && !state.status) return "source";
         if (state.status === "후보" && !state.kind && !state.source) return "review";
         return "";
       }
@@ -2662,7 +2663,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           state.intervention = "순수 GABA 섭취";
         }
         if (name === "regulatory") state.kind = "규제";
-        if (name === "source") state.source = "drive";
+        if (name === "source") state.source = "available";
         if (name === "review") state.status = "후보";
         state.page = 1;
         render("push");
@@ -2804,6 +2805,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (state.extraction && record.extraction !== state.extraction) return false;
           if (state.direction && record.direction !== state.direction) return false;
           if (record.year < state.from || record.year > state.to) return false;
+          if (state.source === "available" && !(record.hasDrivePdf || record.fulltextUrl || record.doiUrl || record.pubmedUrl)) return false;
           if (state.source === "drive" && !record.hasDrivePdf) return false;
           if (state.source === "link" && (record.hasDrivePdf || !(record.fulltextUrl || record.doiUrl || record.pubmedUrl))) return false;
           if (state.source === "none" && (record.fulltextUrl || record.doiUrl || record.pubmedUrl)) return false;
@@ -3921,7 +3923,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         topic: "주제", extraction: "추출", direction: "결과", source: "원문"
       };
       function sourceLabel(value) {
-        return { drive: "Drive 원문", link: "외부 링크", none: "링크 없음" }[value] || value;
+        return { available: "원문·식별자 링크 있음", drive: "Drive 원문", link: "외부 링크", none: "링크 없음" }[value] || value;
       }
       function renderActiveFilters() {
         var chips = [];

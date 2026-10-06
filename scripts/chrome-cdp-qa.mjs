@@ -155,6 +155,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"캐나다 모노그래프\"]'))"), true);
+  await evaluate(client, "document.querySelector('[data-preset=source]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('source')"), "available");
+  assert.equal(await evaluate(client, "document.querySelector('#papers .paper-card') !== null"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/`);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('캐나다 모노그래프')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('인지기능 제품 모노그래프')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
