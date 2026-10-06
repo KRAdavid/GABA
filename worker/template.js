@@ -1529,6 +1529,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <p id="intelligence-detail-finding"></p>
         </section>
         <section class="intelligence-detail-section">
+          <h3>해석 경계</h3>
+          <p id="intelligence-detail-boundary"></p>
+        </section>
+        <section class="intelligence-detail-section">
           <h3>검토 체크 <span style="color:var(--muted);font-size:10px;font-weight:600">기록 충실도 표시</span></h3>
           <div class="review-checklist" id="intelligence-detail-checklist"></div>
         </section>
@@ -2125,6 +2129,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var limitation = record.limitation ? " 한계는 " + record.limitation + "입니다." : " 다른 대상·제형·용량으로 자동 확대할 수 없습니다.";
         return "이 연구는 " + finding + " 따라서 " + focus + "에 대한 " + status + "이며, " + condition + " 조건에서 관찰된 결과로 해석해야 합니다." + limitation;
       }
+      function evidenceBoundary(record) {
+        var boundaries = [];
+        if (record.kind === "동물") boundaries.push("동물·전임상 자료이므로 사람의 효능으로 직접 외삽하지 않습니다.");
+        if (record.kind === "규제") boundaries.push("규제·안전성 자료는 기준과 검토 근거이며, 제품 효능이나 국내 허가를 자동으로 증명하지 않습니다.");
+        if (record.status === "후보" || record.status === "보류" || record.extraction === "부분") boundaries.push("현재 기록만으로는 마케팅 문구에 사용하지 않고 원문 확인 후 판정을 갱신합니다.");
+        if (record.status === "제외" || /철회|사용 금지/.test(record.direction || "")) boundaries.push("제외·철회 또는 사용 제한 신호가 있어 효능 근거로 재사용하지 않습니다.");
+        var formText = [record.form, record.ingredientKo, record.ingredientEn, record.notes].filter(Boolean).join(" ");
+        if (/복합|혼합|발효|프로바이오틱|약물|receptor|probiotic|ferment/i.test(formText)) boundaries.push("복합제·발효물·프로바이오틱·수용체 약물은 순수 GABA 섭취 근거와 분리해 해석합니다.");
+        return boundaries.length ? boundaries.join(" ") : "기록된 대상·개입·조건의 범위 안에서만 해석하며, 다른 용량·기간·제품으로 자동 확대하지 않습니다.";
+      }
       function utilizationDirection(record) {
         if (record.kind === "규제") {
           return "원료 동일성·제조공정·사용조건·노출량을 국내 기준과 대조하는 규제 검토 자료로 활용합니다. 필요한 제출자료와 추가 확인 항목을 함께 정리합니다.";
@@ -2406,6 +2420,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           fact("결과 방향", record.direction), fact("확인일", record.checked)
         ].join("");
         el("intelligence-detail-finding").textContent = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않은 자료입니다.";
+        el("intelligence-detail-boundary").textContent = evidenceBoundary(record);
         el("intelligence-detail-checklist").innerHTML = reviewChecklist(record).map(function (item) {
           var complete = Boolean(item[1]);
           return '<div class="review-check' + (complete ? "" : " missing") + '"><span class="review-check-mark">' + (complete ? "✓" : "–") + '</span><span>' + esc(item[0]) + (complete ? " 기록 있음" : " 추가 확인") + '</span></div>';
