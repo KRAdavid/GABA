@@ -70,6 +70,7 @@ const required = [
   ["Comparison CSV export", 'id="compare-export"'],
   ["Search result brief", 'id="result-brief"'],
   ["Candidate promotion checklist", 'id="candidate-detail-checklist"'],
+  ["Discovery health metrics", "discoveryMergedUnique"],
   ["Shareable compare state", 'params.set("compare"'],
   ["Comparison copy action", 'id="compare-copy"'],
   ["Comparison focus return", "compareReturnFocus"],
