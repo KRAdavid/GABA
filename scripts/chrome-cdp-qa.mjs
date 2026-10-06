@@ -424,6 +424,11 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-items')?.textContent.includes('상세 보기')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-items')?.textContent.includes('원문 확인')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-items')?.textContent.includes('비교에 추가')"), true);
+  await evaluate(client, "document.querySelector('#reading-list-items [data-compare-toggle]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-items [data-compare-toggle]')?.getAttribute('aria-pressed')"), "true");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-items [data-compare-toggle]')?.textContent"), "비교에서 제거");
+  await evaluate(client, "document.querySelector('#reading-list-items [data-compare-toggle]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-items [data-compare-toggle]')?.getAttribute('aria-pressed')"), "false");
   await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () {} } })");
   await evaluate(client, "document.querySelector('#reading-list-copy').click()");
   await sleep(80);

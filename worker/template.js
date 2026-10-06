@@ -3987,6 +3987,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return '<article class="reading-list-item"><div><h3>' + esc(koreanTitle(record)) + '</h3><p>' + esc(compareKind(record) + " · " + (record.year || "연도 미상") + " · " + (record.journal || "저널 미상")) + '</p></div><div class="reading-list-item-actions"><button type="button" data-intelligence-id="' + esc(record.id) + '">상세 보기</button>' + (source ? linkButton(source, "원문 확인", false) : '') + '<button type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button><button type="button" data-reading-remove="' + esc(record.id) + '">제거</button></div></article>';
         }).join("") : '<p class="reading-list-empty">아직 저장한 자료가 없습니다. 검색 결과에서 <strong>읽기 목록에 저장</strong>을 누르면 나중에 한 번에 다시 확인할 수 있습니다.</p>';
         renderReadingListButtonState();
+        renderCompareTray();
       }
       function readingListBriefText() {
         var selected = readingListRecords();
