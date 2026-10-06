@@ -136,6 +136,7 @@ const required = [
   ,["Link audit interpretation guard", 'id="link-audit-note"']
   ,["Link audit KST date", "function koreanDateTime"]
   ,["Snapshot provenance", "release.snapshotVersion"]
+  ,["Release traceability", "release.siteVersion"]
   ,["Empty result recovery", "data-empty-reset"]
 ];
 

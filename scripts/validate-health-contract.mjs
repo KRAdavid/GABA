@@ -15,7 +15,10 @@ for (const key of ["pubmedUnique", "openAlexRetrieved", "crossrefRetrieved", "me
 if (!Array.isArray(discovery?.sourceErrors)) invalid.push("sourceErrors[]");
 if (!discovery?.screeningCounts || !Number.isFinite(Number(discovery?.manualDecisionsPreserved))) invalid.push("screeningCounts/manualDecisionsPreserved");
 if (!Number.isInteger(Number(release?.snapshotVersion)) || Number(release.snapshotVersion) < 1) invalid.push("release.snapshotVersion");
+if (!Number.isInteger(Number(release?.siteVersion)) || Number(release.siteVersion) < 1) invalid.push("release.siteVersion");
 if (!/^[0-9a-f]{40}$/i.test(String(release?.sourceCommit || ""))) invalid.push("release.sourceCommit");
+if (!/^[0-9a-f]{40}$/i.test(String(release?.siteSourceCommit || ""))) invalid.push("release.siteSourceCommit");
+if (!/^[0-9a-f]{40}$/i.test(String(release?.publicMirrorCommit || ""))) invalid.push("release.publicMirrorCommit");
 if (!release?.publishedAt) invalid.push("release.publishedAt");
 if (missing.length || invalid.length) {
   throw new Error(JSON.stringify({ valid: false, missing, invalid }));
@@ -32,5 +35,5 @@ console.log(JSON.stringify({
   screeningCounts: discovery.screeningCounts,
   manualDecisionsPreserved: discovery.manualDecisionsPreserved,
   sourceErrors: discovery.sourceErrors.length,
-  release: { snapshotVersion: release.snapshotVersion, sourceCommit: release.sourceCommit }
+  release: { snapshotVersion: release.snapshotVersion, siteVersion: release.siteVersion, siteSourceCommit: release.siteSourceCommit, publicMirrorCommit: release.publicMirrorCommit }
 }));
