@@ -609,6 +609,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-preview-head h2 { margin: 0; font-size: 17px; letter-spacing: -.02em; }
     .candidate-preview-head p { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
     .candidate-preview-note { color: var(--amber); font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .candidate-preview-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+    .candidate-preview-filter { min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .candidate-preview-filter.active { border-color: var(--amber); background: var(--amber-soft); color: var(--amber); }
     .candidate-preview-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
     .candidate-preview-card { min-width: 0; padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 11px; background: var(--surface-2); }
     .candidate-preview-card h3 { margin: 7px 0 5px; font-size: 13px; line-height: 1.45; }
@@ -1599,6 +1602,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div><h2 id="candidate-preview-title">최근 자동 탐색 후보 미리보기</h2><p>아직 공개 근거로 승격되지 않은 후보입니다. 원문·섭취 경로·철회·정정 상태를 확인한 뒤 별도 판정합니다.</p></div>
         <span class="candidate-preview-note">확정 근거 아님</span>
       </div>
+      <div class="candidate-preview-filters" aria-label="후보 유형 필터">
+        <button class="candidate-preview-filter active" type="button" data-candidate-filter="all" aria-pressed="true">전체</button>
+        <button class="candidate-preview-filter" type="button" data-candidate-filter="priority" aria-pressed="false">우선검토</button>
+        <button class="candidate-preview-filter" type="button" data-candidate-filter="followup" aria-pressed="false">출판 후속조치</button>
+      </div>
       <div class="candidate-preview-list" id="candidate-preview-list"></div>
       <button class="candidate-preview-more" id="candidate-preview-more" type="button" hidden>후보 더 보기</button>
     </section>
@@ -2163,8 +2171,23 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return;
         }
         section.hidden = false;
+        var activeFilter = section.dataset.filter || "all";
+        var filtered = candidates.filter(function (candidate) {
+          if (activeFilter === "priority") return candidate.bucket === "우선검토";
+          if (activeFilter === "followup") return (candidate.exclusionSignals || []).length > 0 || /출판 후속조치|철회|정정|우려표명/.test(candidate.screeningRecommendation || "");
+          return true;
+        });
+        document.querySelectorAll("[data-candidate-filter]").forEach(function (button) {
+          button.onclick = function () {
+            section.dataset.filter = button.dataset.candidateFilter || "all";
+            section.dataset.expanded = "false";
+            renderCandidatePreview(candidates);
+          };
+          var active = button.dataset.candidateFilter === activeFilter;
+          setActiveToggle(button, active);
+        });
         var expanded = section.dataset.expanded === "true";
-        list.innerHTML = candidates.slice(0, expanded ? 24 : 6).map(function (candidate) {
+        list.innerHTML = filtered.slice(0, expanded ? 24 : 6).map(function (candidate) {
           var sourceUrl = candidateSourceUrl(candidate);
           var signals = (candidate.exclusionSignals || []).slice(0, 2).join(" · ")
             || (candidate.screeningRecommendation || "원문·식별자 확인 필요");
@@ -2180,8 +2203,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '</article>';
         }).join("");
         if (more) {
-          more.hidden = candidates.length <= 6;
-          more.textContent = expanded ? "후보 접기" : "후보 " + candidates.length.toLocaleString("ko-KR") + "건 더 보기";
+          more.hidden = filtered.length <= 6;
+          more.textContent = expanded ? "후보 접기" : "후보 " + filtered.length.toLocaleString("ko-KR") + "건 더 보기";
           more.onclick = function () {
             section.dataset.expanded = expanded ? "false" : "true";
             renderCandidatePreview(candidates);
