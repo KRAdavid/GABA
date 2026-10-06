@@ -2410,6 +2410,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function initMeta() {
         var discovery = DB.meta.discovery || {};
         var quality = DB.meta.dataQuality || {};
+        var release = DB.meta.release || {};
         var identified = records.filter(function (record) {
           return record.kind !== "규제" && (record.pmid || record.doi);
         }).length;
@@ -2449,6 +2450,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           || "자동 탐색 후보는 검증 자료와 분리하며, 최종 판정 후에만 공개 인덱스로 승격합니다.";
         el("discovery-stats").innerHTML = [
           ["탐색일", koreanDate(discovery.snapshotDate || DB.meta.snapshotDate)],
+          ["데이터 버전", release.snapshotVersion ? "v" + Number(release.snapshotVersion) + (release.sourceCommit ? " · " + String(release.sourceCommit).slice(0, 7) : "") : "확인 필요"],
           ["PubMed", Number(discovery.pubmedUnique || 0).toLocaleString("ko-KR") + "건"],
           ["OpenAlex", Number(discovery.openAlexRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["Crossref", Number(discovery.crossrefRetrieved || 0).toLocaleString("ko-KR") + "건"],
