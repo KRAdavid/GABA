@@ -2935,7 +2935,21 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!value) return "";
         return '<div class="detail-item"><dt>' + esc(label) + '</dt><dd>' + esc(value) + '</dd></div>';
       }
+      function labeledNote(record, label, nextLabel) {
+        var notes = String(record.notes || "");
+        var marker = label + ":";
+        var start = notes.indexOf(marker);
+        if (start < 0) return "";
+        var value = notes.slice(start + marker.length);
+        if (nextLabel) {
+          var next = value.indexOf(nextLabel + ":");
+          if (next >= 0) value = value.slice(0, next);
+        }
+        return value.trim();
+      }
       function researchMeaning(record) {
+        var curated = labeledNote(record, "연구의 의미", "마케팅 활용 방안");
+        if (curated) return curated;
         if (record.kind === "규제") {
           return "이 자료가 직접 보여주는 것은 " + (record.domain || "규제·안전성") + "에 관한 공식 기준 또는 선례입니다. 따라서 " + (record.useQuestion || "국내 적용 가능성을 검토할 때 참고할 기준") + "으로 해석할 수 있지만, 해외 자료가 국내 인정이나 안전성 판단을 자동으로 대신하지는 않습니다.";
         }
@@ -2974,6 +2988,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         ].join("\n\n");
       }
       function utilizationDirection(record) {
+        var curated = labeledNote(record, "마케팅 활용 방안");
+        if (curated) return curated;
         if (record.kind === "규제") {
           return "원료 동일성·제조공정·사용조건·노출량을 국내 기준과 대조하는 규제 검토 자료로 활용합니다. 필요한 제출자료와 추가 확인 항목을 함께 정리합니다.";
         }
