@@ -1846,6 +1846,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="suggestion-button" type="button" data-query="수면">수면</button>
           <button class="suggestion-button" type="button" data-query="혈압">혈압</button>
           <button class="suggestion-button" type="button" data-query="불안 스트레스">불안·스트레스</button>
+          <button class="suggestion-button" type="button" data-query="면역 타액 IgA">면역·타액 IgA</button>
+          <button class="suggestion-button" type="button" data-query="현수교 스트레스">현수교 스트레스</button>
           <button class="suggestion-button" type="button" data-query="안전성 독성">안전성·독성</button>
           <button class="suggestion-button" type="button" data-query="돼지 장건강">돼지·장건강</button>
           <button class="suggestion-button" type="button" data-query="수산 성장">수산·성장</button>

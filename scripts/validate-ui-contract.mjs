@@ -51,6 +51,7 @@ const required = [
   ["Candidate filter share parameter", 'params.set("candidate"'],
   ["Candidate deep-link focus", "candidatePreviewNeedsFocus"],
   ["Candidate filter counts", "candidateFilterLabels"],
+  ["Immunity search suggestions", "면역 타액 IgA"],
   ["Accessible active toggles", "function setActiveToggle"],
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
