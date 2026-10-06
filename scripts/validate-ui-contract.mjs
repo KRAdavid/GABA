@@ -30,6 +30,7 @@ const required = [
   ["Review queue renderer", "function renderReviewQueue"],
   ["Review queue filters", "data-review-filter"],
   ["Review queue summary", 'id="review-queue-summary"'],
+  ["Review queue completion rate", "전체 큐 완료율"],
   ["Review queue priority", "function reviewPriority"],
   ["Local review decision panel", 'id="review-decision-controls"'],
   ["Local review note", 'id="intelligence-detail-note"'],
