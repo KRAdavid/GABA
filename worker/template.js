@@ -786,6 +786,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       box-shadow: 0 6px 16px rgba(15, 118, 110, .12);
       transform: translateY(-1px);
     }
+    .distribution-item.active {
+      border-color: var(--teal);
+      background: var(--teal-soft);
+      box-shadow: 0 0 0 2px rgba(15, 118, 110, .12);
+    }
     .distribution-ring {
       position: relative;
       display: grid;
@@ -2777,6 +2782,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           (extra.length ? '<button class="distribution-more" type="button" data-distribution-more="' + esc(targetId) + '" aria-expanded="false">전체 분포 보기 (' + extra.length.toLocaleString("ko-KR") + '개)</button>' : '');
       }
 
+      function syncDistributionSelection() {
+        document.querySelectorAll("[data-distribution-field]").forEach(function (button) {
+          var active = state[button.dataset.distributionField] === button.dataset.distributionValue;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+      }
+
       function loadUrlState() {
         var params = new URLSearchParams(location.search);
         var requestedCandidateFilter = params.get("candidate") || "all";
@@ -4344,6 +4357,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         syncAdvancedFilterDisclosure();
         renderResultInterpretation(list);
         syncControls();
+        syncDistributionSelection();
         persistUrl(historyMode);
         if (sharedReviewNeedsFocus && sharedReviewIds.length) {
           sharedReviewNeedsFocus = false;

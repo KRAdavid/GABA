@@ -180,6 +180,8 @@ const required = [
   ,["Evidence distribution expansion", "function renderDistribution"]
   ,["Evidence distribution complete list", "var extra = items.slice(4)"]
   ,["Evidence distribution hidden state", ".distribution-item[hidden]"]
+  ,["Evidence distribution selected state", "function syncDistributionSelection"]
+  ,["Evidence distribution pressed state", "aria-pressed"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));

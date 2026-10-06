@@ -163,6 +163,11 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#species-distribution .distribution-more')?.textContent"), "상위 항목만 보기");
   await evaluate(client, "document.querySelector('#species-distribution .distribution-more').click()");
   assert.equal(await evaluate(client, "document.querySelectorAll('#species-distribution .distribution-item-extra[hidden]').length"), speciesDistributionHidden);
+  await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]')?.getAttribute('aria-pressed')"), "true");
+  assert.equal(await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]')?.classList.contains('active')"), true);
+  await evaluate(client, "document.querySelector('#result-reset').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]')?.getAttribute('aria-pressed')"), "false");
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"면역 타액 IgA\"]'))"), true);
   assert.equal(await evaluate(client, "document.querySelector('.search-suggestions-more')?.open"), false);
   assert.equal(await evaluate(client, "document.querySelector('.search-suggestions-more summary')?.textContent.includes('추천 검색어 더보기')"), true);
