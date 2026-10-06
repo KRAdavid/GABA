@@ -34,6 +34,7 @@ const required = [
   ["Review queue export", 'id="review-queue-export"'],
   ["Review queue export renderer", "function exportReviewQueue"],
   ["Freshness indicator", 'id="freshness-label"'],
+  ["Result evidence composition", 'id="result-interpretation"'],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
 ];

@@ -953,6 +953,27 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       cursor: pointer;
     }
     .result-reset:hover { border-color: var(--teal); color: var(--teal-dark); }
+    .result-interpretation {
+      display: grid;
+      grid-template-columns: minmax(150px, .8fr) minmax(0, 1.6fr);
+      gap: 10px 16px;
+      margin: 0 0 12px;
+      padding: 13px 15px;
+      border: 1px solid rgba(15, 118, 110, .18);
+      border-radius: 12px;
+      background: var(--surface-3);
+    }
+    .result-interpretation-head { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .result-interpretation-label { color: var(--muted); font-size: 10px; font-weight: 800; }
+    .result-interpretation-query { overflow: hidden; color: var(--ink); font-size: 14px; font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
+    .result-interpretation-stats { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .result-interpretation-stat { padding: 5px 8px; border-radius: 7px; background: #fff; color: var(--ink-2); font-size: 11px; font-weight: 800; }
+    .result-interpretation-stat strong { color: var(--teal-dark); }
+    .result-interpretation-note { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    @media (max-width: 640px) {
+      .result-interpretation { grid-template-columns: 1fr; gap: 8px; }
+      .result-interpretation-note { grid-column: auto; }
+    }
     .active-filters {
       display: flex;
       flex-wrap: wrap;
@@ -1719,6 +1740,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
           </div>
           <div class="active-filters" id="active-filters" aria-label="적용된 필터"></div>
+          <div class="result-interpretation" id="result-interpretation" aria-live="polite"></div>
           <div class="papers" id="papers"></div>
           <nav class="pagination" id="pagination" aria-label="검색 결과 페이지">
             <button class="page-button" id="prev" type="button" aria-label="이전 페이지">←</button>
@@ -2635,6 +2657,24 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (count) details.open = true;
       }
 
+      function renderResultInterpretation(list) {
+        var target = el("result-interpretation");
+        if (!target) return;
+        var clinical = list.filter(function (record) { return record.kind === "임상"; }).length;
+        var animal = list.filter(function (record) { return record.kind === "동물"; }).length;
+        var regulatory = list.filter(function (record) { return record.kind === "규제"; }).length;
+        var review = list.filter(function (record) { return record.status === "후보" || record.status === "보류" || record.extraction === "부분"; }).length;
+        var query = state.q ? state.q.trim() : "전체 근거";
+        target.innerHTML = '<div class="result-interpretation-head"><span class="result-interpretation-label">현재 탐색</span><strong class="result-interpretation-query" title="' + esc(query) + '">' + esc(query) + '</strong></div>' +
+          '<div class="result-interpretation-stats" aria-label="현재 결과의 근거 구성">' +
+            '<span class="result-interpretation-stat">인체 연구 <strong>' + clinical.toLocaleString("ko-KR") + '</strong></span>' +
+            '<span class="result-interpretation-stat">동물·전임상 <strong>' + animal.toLocaleString("ko-KR") + '</strong></span>' +
+            '<span class="result-interpretation-stat">규제·안전성 <strong>' + regulatory.toLocaleString("ko-KR") + '</strong></span>' +
+            '<span class="result-interpretation-stat">추가 확인 <strong>' + review.toLocaleString("ko-KR") + '</strong></span>' +
+          '</div>' +
+          '<p class="result-interpretation-note">인체·동물·규제 자료는 근거의 범위가 다릅니다. <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>을 확인할 때 인체 연구와 원문 상태를 먼저 비교하세요.</p>';
+      }
+
       function render() {
         var renderStarted = performance.now();
         var list = filteredRecords();
@@ -2653,6 +2693,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("pagination").hidden = list.length <= pageSize;
         renderActiveFilters();
         syncAdvancedFilterDisclosure();
+        renderResultInterpretation(list);
         syncControls();
         persistUrl();
       }
