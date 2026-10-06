@@ -8,7 +8,7 @@ Google Sheet로 관리되는 GABA 섭취 임상·동물시험 문헌을 한국�
 
 - 원본 관리: Google Sheet
 - 공개 탐색: Sites 웹 인덱스
-- 데이터 갱신: `npm run check`
+- 데이터 갱신·전체 점검: `pnpm check`
 - 배포물: `dist/server/index.js`
 - 운영 소스: `worker/template.js` 및 `worker/data.json`
 - 검토 큐: 브라우저 로컬 완료 표시와 JSON 내보내기 제공

@@ -19,6 +19,6 @@
     "qa:live": "node scripts/qa-live.mjs",
     "preflight": "node scripts/release-preflight.mjs --public",
     "release:package": "node scripts/package-public-release.mjs",
-    "check": "npm run data && npm run quality && npm run build && npm run validate"
+    "check": "pnpm data && pnpm quality && pnpm build && pnpm validate"
   }
 }
