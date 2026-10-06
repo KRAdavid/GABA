@@ -2038,6 +2038,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
               <button class="result-reset" id="result-export" type="button">검색 결과 CSV</button>
+              <button class="result-reset" id="result-json" type="button">검색 결과 JSON</button>
               <button class="result-reset" id="result-brief" type="button">검색 결과 브리프</button>
             </div>
           </div>
@@ -3236,6 +3237,33 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         URL.revokeObjectURL(url);
         toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 CSV를 내보냈습니다");
       }
+      function exportFilteredJson() {
+        var list = filteredRecords();
+        if (!list.length) { toast("내보낼 검색 결과가 없습니다"); return; }
+        var payload = {
+          schemaVersion: "gaba-evidence-export-0.1",
+          exportedAt: new Date().toISOString(),
+          snapshotDate: DB.meta.snapshotDate,
+          publicRelease: DB.meta.publicRelease === true,
+          sourceMode: "read-only public snapshot",
+          filters: Object.assign({}, state),
+          records: list.map(function (record) {
+            var copy = JSON.parse(JSON.stringify(record));
+            delete copy._search;
+            return copy;
+          })
+        };
+        var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-evidence-results-" + String(DB.meta.snapshotDate || "snapshot") + ".json";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 JSON을 내보냈습니다");
+      }
       async function copyFilteredBrief() {
         var list = filteredRecords();
         if (!list.length) { toast("브리프로 만들 검색 결과가 없습니다"); return; }
@@ -4214,6 +4242,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("reset").addEventListener("click", resetFilters);
       el("result-reset").addEventListener("click", resetFilters);
       el("result-export").addEventListener("click", exportFilteredResults);
+      el("result-json").addEventListener("click", exportFilteredJson);
       el("result-brief").addEventListener("click", copyFilteredBrief);
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });

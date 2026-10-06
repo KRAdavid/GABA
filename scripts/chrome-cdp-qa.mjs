@@ -214,6 +214,10 @@ try {
   await evaluate(client, "document.querySelector('#result-export').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('CSV')"), true);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('#result-json'))"), true);
+  await evaluate(client, "document.querySelector('#result-json').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('JSON')"), true);
   await evaluate(client, "document.querySelector('#result-brief').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('검색 결과 브리프') || document.querySelector('#copy-dialog')?.open"), true);

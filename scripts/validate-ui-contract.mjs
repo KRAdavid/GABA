@@ -100,6 +100,8 @@ const required = [
   ,["Shareable reading state", 'params.set("read"']
   ,["Filtered result export", 'id="result-export"']
   ,["Filtered result CSV renderer", "function exportFilteredResults"]
+  ,["Filtered result JSON export", 'id="result-json"']
+  ,["Filtered result JSON renderer", "function exportFilteredJson"]
   ,["CSV evidence boundaries", "SCI/SCIE"]
   ,["CSV extraction and review date", "추출 상태"]
   ,["CSV snapshot provenance", "검증 스냅샷"]
