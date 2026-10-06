@@ -1,4 +1,11 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
+const localData = JSON.parse(await readFile(resolve(root, "worker", "data.json"), "utf8"));
+const expectedRelease = localData.meta?.release || {};
 
 const urlArg = process.argv.find((value) => value.startsWith("--url="));
 const baseUrl = (urlArg ? urlArg.slice("--url=".length) : "https://gaba-evidence-index-kr.dubaissday.chatgpt.site").replace(/\/$/, "");
@@ -25,6 +32,9 @@ assert.ok(Number(health.release?.snapshotVersion) > 0);
 assert.ok(Number(health.release?.siteVersion) > 0);
 assert.match(String(health.release?.siteSourceCommit || ""), /^[0-9a-f]{40}$/i);
 assert.match(String(health.release?.publicMirrorCommit || ""), /^[0-9a-f]{40}$/i);
+for (const key of ["snapshotVersion", "siteVersion", "siteSourceCommit", "publicMirrorCommit"]) {
+  assert.equal(String(health.release?.[key] ?? ""), String(expectedRelease[key] ?? ""), `live release mismatch for ${key}`);
+}
 
 console.log(JSON.stringify({
   valid: true,
