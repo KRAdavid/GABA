@@ -3590,6 +3590,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
         var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
         var auditGapCount = baseQueue.filter(function (item) { return sourceAuditRecord(item.record)?.status === "unavailable"; }).length;
+        var auditFilterButton = document.querySelector('[data-review-filter="audit"]');
+        if (auditFilterButton) {
+          auditFilterButton.textContent = "원문 접근 제한 " + auditGapCount.toLocaleString("ko-KR");
+          auditFilterButton.setAttribute("aria-label", "원문 접근 제한 " + auditGapCount.toLocaleString("ko-KR") + "건");
+        }
         var queue = reviewQueueForDisplay(baseQueue);
         if (moreTarget) {
           moreTarget.hidden = queue.length <= 6;

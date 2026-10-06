@@ -36,6 +36,7 @@ const required = [
   ["Review queue filters", "data-review-filter"],
   ["Review queue audit filter", 'data-review-filter="audit"'],
   ["Review queue audit summary", "원문 접근 제한"],
+  ["Review queue audit count", "auditGapCount.toLocaleString"],
   ["Review queue summary", 'id="review-queue-summary"'],
   ["Review queue completion rate", "전체 큐 완료율"],
   ["Review queue expansion", "전체 큐 표시"],
