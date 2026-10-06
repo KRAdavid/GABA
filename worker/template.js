@@ -4471,6 +4471,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var regulatory = list.filter(function (record) { return record.kind === "규제"; }).length;
         var review = list.filter(function (record) { return record.status === "후보" || record.status === "보류" || record.extraction === "부분"; }).length;
         var query = state.q ? state.q.trim() : "전체 근거";
+        var guard = state.audit === "unavailable"
+          ? "접근 제한·일시 응답은 근거 약함이 아니라 원문 재확인·대체 경로 검토 대상입니다."
+          : "검색 결과 요약은 효능 등급·규제 승인·광고 허가를 뜻하지 않습니다. 원문에서 대상·용량·기간·대조군을 확인하세요.";
         target.innerHTML = '<div class="result-interpretation-head"><span class="result-interpretation-label">현재 탐색</span><strong class="result-interpretation-query" title="' + esc(query) + '">' + esc(query) + '</strong></div>' +
           '<div class="result-interpretation-stats" aria-label="현재 결과의 근거 구성">' +
             '<span class="result-interpretation-stat">인체 연구 <strong>' + clinical.toLocaleString("ko-KR") + '</strong></span>' +
@@ -4479,7 +4482,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="result-interpretation-stat">추가 확인 <strong>' + review.toLocaleString("ko-KR") + '</strong></span>' +
           '</div>' +
           '<p class="result-interpretation-note">인체·동물·규제 자료는 근거의 범위가 다릅니다. <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>을 확인할 때 인체 연구와 원문 상태를 먼저 비교하세요.</p>' +
-          '<p class="result-interpretation-guard"><strong>해석 경계</strong> 검색 결과 요약은 효능 등급·규제 승인·광고 허가를 뜻하지 않습니다. 원문에서 대상·용량·기간·대조군을 확인하세요.</p>' +
+          '<p class="result-interpretation-guard"><strong>해석 경계</strong> ' + esc(guard) + '</p>' +
           (review ? '<button class="result-interpretation-action" id="result-review-jump" type="button">추가 확인 큐 보기 · ' + review.toLocaleString("ko-KR") + '건</button>' : '');
       }
 
