@@ -7,6 +7,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b5f59">
   <meta name="description" content="GABA 섭취 임상·동물시험 문헌과 식약처·해외 규제 안전성 자료를 제목과 내용의 한국어 검색으로 탐색하는 근거 인덱스">
+  <meta name="gaba-release" content="2026-10-06-public-surface-guard">
   <meta property="og:type" content="website">
   <meta property="og:title" content="GABA 연구·규제 안전성 근거 인덱스">
   <meta property="og:description" content="GABA 섭취 연구와 규제·안전성 자료를 근거 수준과 원문 연결로 탐색하는 한국어 포털">
@@ -15,6 +16,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
   <meta name="twitter:title" content="GABA 연구·규제 안전성 근거 인덱스">
   <meta name="twitter:description" content="GABA 섭취 연구와 규제·안전성 자료를 근거 수준과 원문 연결로 탐색하는 한국어 포털">
   <link rel="canonical" href="https://gaba-evidence-index-kr.dubaissday.chatgpt.site/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"GABA 연구·규제 안전성 근거 인덱스","description":"GABA 섭취 연구와 규제·안전성 자료를 한국어로 탐색하는 공개 읽기 전용 포털","url":"https://gaba-evidence-index-kr.dubaissday.chatgpt.site/","inLanguage":"ko-KR","isAccessibleForFree":true,"potentialAction":{"@type":"SearchAction","target":"https://gaba-evidence-index-kr.dubaissday.chatgpt.site/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <title>GABA 연구·규제 안전성 근거 인덱스</title>
   <style>
     :root {
@@ -223,8 +225,37 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-filter.active { border-color: var(--amber); background: var(--amber-soft); color: var(--amber); }
     .review-queue-toggle { display: inline-flex; align-items: center; gap: 5px; margin-left: auto; color: var(--muted); font-size: 11px; }
     .review-queue-storage { width: 100%; color: var(--muted); font-size: 10px; }
+    .review-queue-shared-note { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 0 12px; padding: 9px 11px; border: 1px solid rgba(15,118,110,.24); border-radius: 9px; background: var(--teal-soft); color: var(--teal-dark); font-size: 11px; line-height: 1.45; }
+    .review-queue-shared-note[hidden] { display: none; }
+    .review-queue-shared-note button { flex: 0 0 auto; min-height: 29px; padding: 5px 9px; border: 1px solid rgba(15,118,110,.32); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 800; cursor: pointer; }
+    .review-queue-title:focus-visible { outline: 3px solid rgba(15,118,110,.28); outline-offset: 5px; border-radius: 4px; }
     .review-queue-export, .review-queue-import, .review-queue-share { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .review-queue-import { border-color: var(--line); background: #fff; color: var(--teal-dark); }
+    .review-share-dialog { width: min(640px, calc(100% - 28px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
+    .review-share-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
+    .review-share-inner { padding: 22px; }
+    .review-share-head { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .review-share-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
+    .review-share-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .review-share-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .review-share-label { display: block; margin-top: 16px; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .review-share-url { width: 100%; min-height: 42px; margin-top: 7px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); color: var(--ink); font: inherit; font-size: 11px; line-height: 1.4; }
+    .review-share-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .review-share-actions button { min-height: 34px; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-share-actions button.secondary { border-color: var(--line); background: #fff; color: var(--muted); }
+    @media (max-width: 640px) { .review-share-inner { padding: 16px; } }
+    .copy-dialog { width: min(720px, calc(100% - 28px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
+    .copy-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
+    .copy-dialog-inner { padding: 22px; }
+    .copy-dialog-head { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .copy-dialog-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
+    .copy-dialog-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .copy-dialog-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .copy-dialog-value { width: 100%; min-height: 140px; margin-top: 16px; padding: 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); color: var(--ink); font: inherit; font-size: 11px; line-height: 1.5; resize: vertical; }
+    .copy-dialog-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .copy-dialog-actions button { min-height: 34px; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .copy-dialog-actions button.secondary { border-color: var(--line); background: #fff; color: var(--muted); }
+    @media (max-width: 640px) { .copy-dialog-inner { padding: 16px; } }
     .review-queue-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .review-queue-card { padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 10px; background: var(--surface-2); }
     .review-queue-card.priority-high { border-left-color: #d97706; }
@@ -1106,6 +1137,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .badge.exclude, .badge.harm { background: var(--red-soft); color: var(--red); }
     .badge.scie { background: #e7eefc; color: #244da8; }
     .badge.partial { background: #f3efe2; color: #725a0b; }
+    .badge.intervention { background: #e7f5f2; color: var(--teal-dark); }
+    .badge.intervention-filter-badge { border: 0; cursor: pointer; font: inherit; }
+    .badge.intervention-filter-badge:hover, .badge.intervention-filter-badge:focus-visible { background: #cfece6; outline: 2px solid rgba(15,118,110,.24); outline-offset: 1px; }
     .paper-title {
       margin: 0;
       color: var(--ink);
@@ -1597,9 +1631,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="portal-lane-overview-list" id="portal-lane-overview-list"></div>
       <div class="portal-lane-insight" id="portal-lane-insight"></div>
     </section>
-    <section class="review-queue" aria-labelledby="review-queue-title">
+    <section class="review-queue" id="review-queue" aria-labelledby="review-queue-title">
       <div class="review-queue-head">
-        <div><h2 id="review-queue-title">추가 검토 큐</h2><p>후보·부분추출·핵심 기록 누락 자료를 다음 확인 작업으로 연결합니다.</p></div>
+        <div><h2 id="review-queue-title" tabindex="-1">추가 검토 큐</h2><p>후보·부분추출·핵심 기록 누락 자료를 다음 확인 작업으로 연결합니다.</p></div>
         <span class="review-queue-count" id="review-queue-count">-</span>
       </div>
       <div class="review-queue-controls" aria-label="추가 검토 큐 필터">
@@ -1615,6 +1649,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <span class="review-queue-storage">검토 완료 표시는 현재 브라우저에만 저장되며 원본 인덱스·Sheets를 변경하지 않습니다.</span>
       </div>
       <div class="review-queue-summary" id="review-queue-summary" aria-label="검토 큐 요약"></div>
+      <div class="review-queue-shared-note" id="review-queue-shared-note" role="status" hidden><span id="review-queue-shared-copy"></span><button id="review-queue-shared-clear" type="button">공유 큐 해제</button></div>
       <div class="review-queue-list" id="review-queue-list"></div>
     </section>
 
@@ -1688,6 +1723,27 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         </div>
         <div class="reading-list-actions"><button id="reading-list-copy" type="button">전체 근거 브리프 복사</button><button id="reading-list-share" type="button">읽기 목록 링크 복사</button><button class="secondary" id="reading-list-clear" type="button">전체 비우기</button></div>
         <div class="reading-list-items" id="reading-list-items"></div>
+      </div>
+    </dialog>
+    <dialog class="review-share-dialog" id="review-share-dialog" aria-labelledby="review-share-title">
+      <div class="review-share-inner">
+        <div class="review-share-head">
+          <div><h2 id="review-share-title">검토 큐 공유</h2><p id="review-share-summary">검토 대상 ID만 링크에 포함됩니다. 개인 메모·완료 상태·Sheets 데이터는 공유되지 않습니다.</p></div>
+          <button class="review-share-close" id="review-share-close" type="button" aria-label="검토 큐 공유 닫기">×</button>
+        </div>
+        <label class="review-share-label" for="review-share-url">공유 링크</label>
+        <input class="review-share-url" id="review-share-url" type="url" readonly>
+        <div class="review-share-actions"><button id="review-share-copy" type="button">링크 복사</button><button class="secondary" id="review-share-close-secondary" type="button">닫기</button></div>
+      </div>
+    </dialog>
+    <dialog class="copy-dialog" id="copy-dialog" aria-labelledby="copy-dialog-title">
+      <div class="copy-dialog-inner">
+        <div class="copy-dialog-head">
+          <div><h2 id="copy-dialog-title">복사할 내용</h2><p id="copy-dialog-description">클립보드 권한이 없을 때 아래 내용을 선택해 직접 복사할 수 있습니다.</p></div>
+          <button class="copy-dialog-close" id="copy-dialog-close" type="button" aria-label="복사 패널 닫기">×</button>
+        </div>
+        <textarea class="copy-dialog-value" id="copy-dialog-value" readonly></textarea>
+        <div class="copy-dialog-actions"><button id="copy-dialog-copy" type="button">다시 복사</button><button class="secondary" id="copy-dialog-close-secondary" type="button">닫기</button></div>
       </div>
     </dialog>
 
@@ -1942,6 +1998,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var reviewQueueFilter = "all";
       var reviewQueueHideDone = false;
       var sharedReviewIds = [];
+      var sharedReviewMissingCount = 0;
+      var sharedReviewNeedsFocus = false;
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var compareIds = [];
@@ -1959,6 +2017,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var detailReturnFocus = null;
       var compareReturnFocus = null;
       var readingReturnFocus = null;
+      var reviewShareReturnFocus = null;
+      var copyDialogReturnFocus = null;
+      var copyDialogSuccessMessage = "내용을 복사했습니다";
       var urlReadingIds = [];
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
@@ -2178,11 +2239,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           urlReadingIds = [];
         }
         if (params.has("review")) {
-          sharedReviewIds = String(params.get("review") || "").split(",").map(function (id) { return id.trim(); }).filter(Boolean).filter(function (id, index) {
-            return index < 50 && records.some(function (record) { return String(record.id) === id; });
+          var requestedReviewIds = String(params.get("review") || "").split(",").map(function (id) { return id.trim(); }).filter(Boolean).slice(0, 50);
+          sharedReviewIds = requestedReviewIds.filter(function (id) {
+            return records.some(function (record) { return String(record.id) === id; });
           });
+          sharedReviewMissingCount = requestedReviewIds.length - sharedReviewIds.length;
+          sharedReviewNeedsFocus = sharedReviewIds.length > 0;
         } else {
           sharedReviewIds = [];
+          sharedReviewMissingCount = 0;
+          sharedReviewNeedsFocus = false;
         }
         urlRecordId = params.get("record") || "";
       }
@@ -2415,6 +2481,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (/수용체|작용제|길항제|약물|muscimol|baclofen|receptor|agonist|antagonist|drug/i.test(text)) return "수용체 약물·작용제";
         if (/복합|혼합|추출물|with|plus|GABA.{0,100}\b(?:and|with|plus)\b/i.test(text)) return "복합제·복합개입";
         return "순수 GABA 섭취";
+      }
+      function interventionShortLabel(record) {
+        return {
+          "순수 GABA 섭취": "순수 GABA",
+          "복합제·복합개입": "복합제·복합개입",
+          "GABA 생성 발효·프로바이오틱": "발효·프로바이오틱",
+          "수용체 약물·작용제": "수용체 약물",
+          "규제·안전성 자료": "규제·안전성"
+        }[interventionClass(record)] || interventionClass(record);
       }
       function renderInterventionCounts() {
         var counts = {};
@@ -2698,6 +2773,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var target = el("review-queue-list");
         var countTarget = el("review-queue-count");
         var summaryTarget = el("review-queue-summary");
+        var sharedNote = el("review-queue-shared-note");
+        var sharedCopy = el("review-queue-shared-copy");
         if (!target || !countTarget) return;
         var baseQueue = buildReviewQueue();
         var doneCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
@@ -2705,7 +2782,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
         var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
         var queue = reviewQueueForDisplay(baseQueue);
-        countTarget.textContent = (sharedReviewIds.length ? "공유 큐 · " : "") + queue.length.toLocaleString("ko-KR") + "건 대기 · " + doneCount.toLocaleString("ko-KR") + "건 완료 · " + holdCount.toLocaleString("ko-KR") + "건 자료 필요";
+        var visibleDoneCount = queue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
+        var visibleHoldCount = queue.filter(function (item) { return reviewDecisionState(item.record.id).status === "hold"; }).length;
+        countTarget.textContent = (sharedReviewIds.length ? "공유 큐 · " : "") + queue.length.toLocaleString("ko-KR") + "건 대기 · " + visibleDoneCount.toLocaleString("ko-KR") + "건 완료 · " + visibleHoldCount.toLocaleString("ko-KR") + "건 자료 필요";
+        if (sharedNote && sharedCopy) {
+          sharedNote.hidden = !(sharedReviewIds.length || sharedReviewMissingCount);
+          if (sharedReviewMissingCount && sharedReviewIds.length) sharedCopy.textContent = "공유된 검토 대상 " + queue.length.toLocaleString("ko-KR") + "건을 표시 중이며, " + sharedReviewMissingCount.toLocaleString("ko-KR") + "건은 현재 스냅샷에서 찾지 못했습니다.";
+          else if (sharedReviewMissingCount) sharedCopy.textContent = "이 공유 링크의 " + sharedReviewMissingCount.toLocaleString("ko-KR") + "건은 현재 스냅샷에 없습니다. 최신 검토 큐를 확인하세요.";
+          else if (sharedReviewIds.length) sharedCopy.textContent = "공유된 검토 대상 " + queue.length.toLocaleString("ko-KR") + "건만 표시 중입니다. 이 브라우저의 로컬 검토 기록은 공유되지 않습니다.";
+        }
         if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
         document.querySelectorAll("[data-review-filter]").forEach(function (button) {
           setActiveToggle(button, button.dataset.reviewFilter === reviewQueueFilter);
@@ -2719,18 +2804,78 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<button type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button><button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></article>';
           }).join("") : '<article class="review-queue-card"><h3>현재 대기 자료가 없습니다</h3><p>검토 큐가 비어 있습니다.</p></article>';
       }
-      async function shareReviewQueue() {
+      function openReviewShareDialog(url, count) {
+        var dialog = el("review-share-dialog");
+        el("review-share-url").value = url;
+        el("review-share-summary").textContent = count.toLocaleString("ko-KR") + "건의 검토 대상 ID만 링크에 포함됩니다. 개인 메모·완료 상태·Sheets 데이터는 공유되지 않습니다.";
+        reviewShareReturnFocus = document.activeElement;
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
+        el("review-share-copy").focus();
+      }
+      function closeReviewShareDialog() {
+        var dialog = el("review-share-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
+        if (reviewShareReturnFocus && typeof reviewShareReturnFocus.focus === "function") reviewShareReturnFocus.focus();
+        reviewShareReturnFocus = null;
+      }
+      async function copyReviewShareUrl() {
+        var input = el("review-share-url");
+        try {
+          await navigator.clipboard.writeText(input.value);
+          toast("검토 큐 링크를 복사했습니다");
+        } catch (_) {
+          input.focus();
+          input.select();
+          toast("링크를 선택했습니다 · Ctrl+C로 복사하세요");
+        }
+      }
+      function openCopyDialog(title, description, value, successMessage) {
+        var dialog = el("copy-dialog");
+        el("copy-dialog-title").textContent = title;
+        el("copy-dialog-description").textContent = description;
+        el("copy-dialog-value").value = value;
+        copyDialogSuccessMessage = successMessage || "내용을 복사했습니다";
+        copyDialogReturnFocus = document.activeElement;
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
+        el("copy-dialog-value").focus();
+        el("copy-dialog-value").select();
+      }
+      function closeCopyDialog() {
+        var dialog = el("copy-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
+        if (copyDialogReturnFocus && typeof copyDialogReturnFocus.focus === "function") copyDialogReturnFocus.focus();
+        copyDialogReturnFocus = null;
+      }
+      async function copyDialogValue() {
+        var input = el("copy-dialog-value");
+        try {
+          await navigator.clipboard.writeText(input.value);
+          toast(copyDialogSuccessMessage);
+        } catch (_) {
+          input.focus();
+          input.select();
+          toast("내용을 선택했습니다 · Ctrl+C로 복사하세요");
+        }
+      }
+      function shareReviewQueue() {
         var queue = reviewQueueForDisplay(buildReviewQueue());
         if (!queue.length) { toast("공유할 검토 자료가 없습니다"); return; }
         var ids = queue.slice(0, 50).map(function (item) { return String(item.record.id); });
         var url = new URL(location.href);
         url.searchParams.set("review", ids.join(","));
-        try {
-          await navigator.clipboard.writeText(url.href);
-          toast(ids.length.toLocaleString("ko-KR") + "건 검토 큐 링크를 복사했습니다");
-        } catch (_) {
-          window.prompt("아래 검토 큐 링크를 복사하세요", url.href);
-        }
+        openReviewShareDialog(url.href, ids.length);
+      }
+      function clearSharedReviewQueue() {
+        if (!sharedReviewIds.length && !sharedReviewMissingCount) return;
+        sharedReviewIds = [];
+        sharedReviewMissingCount = 0;
+        persistUrl("replace");
+        renderReviewQueue();
+        toast("공유 큐를 해제하고 전체 검토 큐를 표시합니다");
       }
       function exportReviewQueue() {
         var recordsPayload = records.map(function (record) {
@@ -2837,7 +2982,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("intelligence-detail-kicker").textContent = kind + " · " + (record.year || "연도 미상");
         el("intelligence-detail-title").textContent = koreanTitle(record);
         el("intelligence-detail-facts").innerHTML = [
-          fact("연구 유형", kind), fact("상태", record.status), fact("대상", record.population || record.species),
+          fact("연구 유형", kind), fact("개입 구분", interventionClass(record)), fact("상태", record.status), fact("대상", record.population || record.species),
           fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
           fact("결과 방향", record.direction), fact("확인일", record.checked)
         ].join("");
@@ -2898,10 +3043,22 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function koreanTitle(record) {
         var clean = function (value) { return String(value || "").trim().replace(/\s+/g, " ").replace(/연구 연구/g, "연구"); };
         if (record.titleKo) return clean(record.titleKo);
-        var kind = record.kind === "임상" ? "인체" : record.kind === "동물" ? "동물" : "자료";
-        var topic = clean(record.domain || record.topic || "주요 평가");
-        var matrix = record.form && /발효유|초콜릿|채소|클로렐라|음료|식품/i.test(record.form) ? " 식품 기반" : "";
-        return kind + matrix + " GABA 섭취의 " + topic + " 관련 연구";
+        var kind = record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물·전임상" : record.kind === "규제" ? "규제자료" : "근거 자료";
+        var interventionLabels = {
+          "순수 GABA 섭취": "GABA 섭취",
+          "복합제·복합개입": "복합 개입",
+          "GABA 생성 발효·프로바이오틱": "발효·프로바이오틱",
+          "수용체 약물·작용제": "수용체 약물",
+          "규제·안전성 자료": "규제·안전성"
+        };
+        var intervention = interventionLabels[interventionClass(record)] || "GABA 관련 자료";
+        var topic = clean(record.domain || record.topic || "주요 평가")
+          .replace(/^경구\s*GABA[·/\s-]*/i, "")
+          .replace(/^GABA[·/\s-]*/i, "")
+          .replace(/\s*\/\s*/g, "·")
+          .replace(/·{2,}/g, "·")
+          .replace(/^·|·$/g, "") || "주요 평가";
+        return [kind, intervention, topic].join(" · ");
       }
       function selectedCompareRecords() {
         return compareIds.map(function (id) {
@@ -2953,7 +3110,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           await navigator.clipboard.writeText(text);
           toast("읽기 목록 링크를 복사했습니다");
         } catch (_) {
-          window.prompt("아래 읽기 목록 링크를 복사하세요", text);
+          openCopyDialog("읽기 목록 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", text, "읽기 목록 링크를 복사했습니다");
         }
       }
       async function copyReadingList() {
@@ -2963,7 +3120,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           await navigator.clipboard.writeText(text);
           toast("읽기 목록 브리프를 복사했습니다");
         } catch (_) {
-          window.prompt("아래 근거 브리프를 복사하세요", text);
+          openCopyDialog("읽기 목록 브리프", "클립보드 권한이 없으면 아래 내용을 선택해 직접 복사하세요.", text, "읽기 목록 브리프를 복사했습니다");
         }
       }
       function clearReadingList() {
@@ -3072,7 +3229,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           await navigator.clipboard.writeText(text);
           toast("비교표를 복사했습니다");
         } catch (_) {
-          window.prompt("비교표를 복사하세요", text);
+          openCopyDialog("비교표", "클립보드 권한이 없으면 아래 표를 선택해 직접 복사하세요.", text, "비교표를 복사했습니다");
         }
       }
       function openCompareDialog() {
@@ -3156,6 +3313,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
             '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
+            '<button class="badge intervention intervention-filter-badge" type="button" data-intervention="' + esc(interventionClass(record)) + '" aria-label="' + esc(interventionClass(record) + ' 자료로 필터') + '">개입 · ' + esc(interventionShortLabel(record)) + '</button>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
             '<span class="badge ' + badgeClass("extraction", record.extraction) + '">추출 ' + esc(record.extraction) + '</span>' +
             '<span class="badge">' + esc(identifierLabel) + '</span>' +
@@ -3272,6 +3430,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         renderResultInterpretation(list);
         syncControls();
         persistUrl(historyMode);
+        if (sharedReviewNeedsFocus && sharedReviewIds.length) {
+          sharedReviewNeedsFocus = false;
+          window.setTimeout(function () {
+            var queueSection = el("review-queue");
+            var queueTitle = el("review-queue-title");
+            if (queueSection) queueSection.scrollIntoView({ block: "start" });
+            if (queueTitle && typeof queueTitle.focus === "function") queueTitle.focus({ preventScroll: true });
+          }, 0);
+        }
       }
 
       function changeState(key, value, historyMode) {
@@ -3421,6 +3588,27 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
       el("review-queue-share").addEventListener("click", shareReviewQueue);
+      el("review-queue-shared-clear").addEventListener("click", clearSharedReviewQueue);
+      el("review-share-copy").addEventListener("click", copyReviewShareUrl);
+      el("review-share-close").addEventListener("click", closeReviewShareDialog);
+      el("review-share-close-secondary").addEventListener("click", closeReviewShareDialog);
+      el("review-share-dialog").addEventListener("click", function (event) {
+        if (event.target === el("review-share-dialog")) closeReviewShareDialog();
+      });
+      el("review-share-dialog").addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeReviewShareDialog();
+      });
+      el("copy-dialog-copy").addEventListener("click", copyDialogValue);
+      el("copy-dialog-close").addEventListener("click", closeCopyDialog);
+      el("copy-dialog-close-secondary").addEventListener("click", closeCopyDialog);
+      el("copy-dialog").addEventListener("click", function (event) {
+        if (event.target === el("copy-dialog")) closeCopyDialog();
+      });
+      el("copy-dialog").addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeCopyDialog();
+      });
       el("review-queue-import").addEventListener("click", function () { el("review-queue-file").click(); });
       el("review-queue-file").addEventListener("change", async function () {
         var file = el("review-queue-file").files?.[0];
@@ -3485,6 +3673,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        var interventionBadge = event.target.closest(".intervention-filter-badge");
+        if (interventionBadge) {
+          changeState("intervention", interventionBadge.dataset.intervention || "");
+          scrollToResults();
+          return;
+        }
         var readingToggle = event.target.closest("[data-reading-toggle]");
         if (readingToggle) {
           toggleReadingList(readingToggle.dataset.readingToggle);
@@ -3527,7 +3721,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             await navigator.clipboard.writeText(citation);
             toast("인용 정보를 복사했습니다");
           } catch (_) {
-            window.prompt("아래 인용 정보를 복사하세요", citation);
+            openCopyDialog("인용 정보", "클립보드 권한이 없으면 아래 인용 정보를 선택해 직접 복사하세요.", citation, "인용 정보를 복사했습니다");
           }
           return;
         }
@@ -3540,7 +3734,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             await navigator.clipboard.writeText(brief);
             toast("근거 브리프를 복사했습니다");
           } catch (_) {
-            window.prompt("아래 근거 브리프를 복사하세요", brief);
+            openCopyDialog("근거 브리프", "클립보드 권한이 없으면 아래 브리프를 선택해 직접 복사하세요.", brief, "근거 브리프를 복사했습니다");
           }
           return;
         }
@@ -3604,7 +3798,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-          if (el("reading-list-dialog").open) closeReadingList();
+          if (el("copy-dialog").open) closeCopyDialog();
+          else if (el("review-share-dialog").open) closeReviewShareDialog();
+          else if (el("reading-list-dialog").open) closeReadingList();
           else if (el("compare-dialog").open) closeCompareDialog();
           else if (el("intelligence-detail").open) closeIntelligenceDetail();
           else openFilters(false);
@@ -3620,7 +3816,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           await navigator.clipboard.writeText(location.href);
           toast("현재 검색 조건 링크를 복사했습니다");
         } catch (_) {
-          window.prompt("아래 링크를 복사하세요", location.href);
+          openCopyDialog("현재 검색 조건 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", location.href, "현재 검색 조건 링크를 복사했습니다");
         }
       });
       function scrollToResults() {

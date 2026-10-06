@@ -7,7 +7,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b5f59">
   <meta name="description" content="GABA 섭취 임상·동물시험 문헌과 식약처·해외 규제 안전성 자료를 제목과 내용의 한국어 검색으로 탐색하는 근거 인덱스">
-  <meta name="gaba-release" content="2026-10-06-title-normalization">
+  <meta name="gaba-release" content="2026-10-06-public-surface-guard">
   <meta property="og:type" content="website">
   <meta property="og:title" content="GABA 연구·규제 안전성 근거 인덱스">
   <meta property="og:description" content="GABA 섭취 연구와 규제·안전성 자료를 근거 수준과 원문 연결로 탐색하는 한국어 포털">
