@@ -223,7 +223,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-filter.active { border-color: var(--amber); background: var(--amber-soft); color: var(--amber); }
     .review-queue-toggle { display: inline-flex; align-items: center; gap: 5px; margin-left: auto; color: var(--muted); font-size: 11px; }
     .review-queue-storage { width: 100%; color: var(--muted); font-size: 10px; }
-    .review-queue-export, .review-queue-import { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-queue-export, .review-queue-import, .review-queue-share { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .review-queue-import { border-color: var(--line); background: #fff; color: var(--teal-dark); }
     .review-queue-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .review-queue-card { padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 10px; background: var(--surface-2); }
@@ -1608,6 +1608,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <button class="review-queue-filter" type="button" data-review-filter="partial">부분추출</button>
         <button class="review-queue-filter" type="button" data-review-filter="missing">핵심 누락</button>
         <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 내보내기</button>
+        <button class="review-queue-share" id="review-queue-share" type="button">검토 큐 링크 복사</button>
         <button class="review-queue-import" id="review-queue-import" type="button">검토 기록 가져오기</button>
         <input id="review-queue-file" type="file" accept="application/json,.json" hidden>
         <label class="review-queue-toggle"><input id="review-hide-done" type="checkbox"> 완료 숨기기</label>
@@ -1940,6 +1941,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var activeLane = null;
       var reviewQueueFilter = "all";
       var reviewQueueHideDone = false;
+      var sharedReviewIds = [];
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var compareIds = [];
@@ -2175,6 +2177,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         } else {
           urlReadingIds = [];
         }
+        if (params.has("review")) {
+          sharedReviewIds = String(params.get("review") || "").split(",").map(function (id) { return id.trim(); }).filter(Boolean).filter(function (id, index) {
+            return index < 50 && records.some(function (record) { return String(record.id) === id; });
+          });
+        } else {
+          sharedReviewIds = [];
+        }
         urlRecordId = params.get("record") || "";
       }
 
@@ -2253,6 +2262,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (pageSize !== 20) params.set("pageSize", pageSize);
         if (compareIds.length) params.set("compare", compareIds.join(","));
         if (urlReadingIds.length) params.set("read", urlReadingIds.join(","));
+        if (sharedReviewIds.length) params.set("review", sharedReviewIds.join(","));
         if (urlRecordId) params.set("record", urlRecordId);
         var query = params.toString();
         var method = historyMode === "push" ? "pushState" : "replaceState";
@@ -2658,12 +2668,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var note = el("intelligence-detail-note");
         if (note) note.value = reviewDraftNote;
       }
-      function renderReviewQueue() {
-        var target = el("review-queue-list");
-        var countTarget = el("review-queue-count");
-        var summaryTarget = el("review-queue-summary");
-        if (!target || !countTarget) return;
-        var baseQueue = records.map(function (record) {
+      function buildReviewQueue() {
+        return records.map(function (record) {
           var missing = reviewChecklist(record).filter(function (item) { return !item[1]; }).map(function (item) { return item[0]; });
           var item = { record: record, missing: missing };
           item.priority = reviewPriority(item);
@@ -2674,18 +2680,32 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var priorityRank = { high: 3, medium: 2, normal: 1 };
           return priorityRank[b.priority.key] - priorityRank[a.priority.key] || b.missing.length - a.missing.length || String(b.record.checked || "").localeCompare(String(a.record.checked || "")) || Number(b.record.year || 0) - Number(a.record.year || 0);
         });
-        var doneCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
-        var holdCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "hold"; }).length;
-        var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
-        var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
-        var queue = baseQueue.filter(function (item) {
+      }
+      function reviewQueueForDisplay(baseQueue) {
+        var queue = baseQueue;
+        if (sharedReviewIds.length) {
+          queue = queue.filter(function (item) { return sharedReviewIds.indexOf(String(item.record.id)) >= 0; });
+        }
+        return queue.filter(function (item) {
           if (reviewQueueHideDone && reviewDecisionState(item.record.id).status === "done") return false;
           if (reviewQueueFilter === "candidate") return item.record.status === "후보";
           if (reviewQueueFilter === "partial") return item.record.extraction === "부분";
           if (reviewQueueFilter === "missing") return item.missing.length >= 3;
           return true;
         });
-        countTarget.textContent = queue.length.toLocaleString("ko-KR") + "건 대기 · " + doneCount.toLocaleString("ko-KR") + "건 완료 · " + holdCount.toLocaleString("ko-KR") + "건 자료 필요";
+      }
+      function renderReviewQueue() {
+        var target = el("review-queue-list");
+        var countTarget = el("review-queue-count");
+        var summaryTarget = el("review-queue-summary");
+        if (!target || !countTarget) return;
+        var baseQueue = buildReviewQueue();
+        var doneCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
+        var holdCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "hold"; }).length;
+        var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
+        var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
+        var queue = reviewQueueForDisplay(baseQueue);
+        countTarget.textContent = (sharedReviewIds.length ? "공유 큐 · " : "") + queue.length.toLocaleString("ko-KR") + "건 대기 · " + doneCount.toLocaleString("ko-KR") + "건 완료 · " + holdCount.toLocaleString("ko-KR") + "건 자료 필요";
         if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
         document.querySelectorAll("[data-review-filter]").forEach(function (button) {
           setActiveToggle(button, button.dataset.reviewFilter === reviewQueueFilter);
@@ -2697,7 +2717,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var hold = decision.status === "hold";
           var note = decision.note ? '<p><strong>로컬 메모</strong> · ' + esc(decision.note) + '</p>' : '';
           return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<button type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button><button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></article>';
-        }).join("") : '<article class="review-queue-card"><h3>현재 대기 자료가 없습니다</h3><p>검토 큐가 비어 있습니다.</p></article>';
+          }).join("") : '<article class="review-queue-card"><h3>현재 대기 자료가 없습니다</h3><p>검토 큐가 비어 있습니다.</p></article>';
+      }
+      async function shareReviewQueue() {
+        var queue = reviewQueueForDisplay(buildReviewQueue());
+        if (!queue.length) { toast("공유할 검토 자료가 없습니다"); return; }
+        var ids = queue.slice(0, 50).map(function (item) { return String(item.record.id); });
+        var url = new URL(location.href);
+        url.searchParams.set("review", ids.join(","));
+        try {
+          await navigator.clipboard.writeText(url.href);
+          toast(ids.length.toLocaleString("ko-KR") + "건 검토 큐 링크를 복사했습니다");
+        } catch (_) {
+          window.prompt("아래 검토 큐 링크를 복사하세요", url.href);
+        }
       }
       function exportReviewQueue() {
         var recordsPayload = records.map(function (record) {
@@ -3387,6 +3420,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         renderReviewQueue();
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
+      el("review-queue-share").addEventListener("click", shareReviewQueue);
       el("review-queue-import").addEventListener("click", function () { el("review-queue-file").click(); });
       el("review-queue-file").addEventListener("change", async function () {
         var file = el("review-queue-file").files?.[0];

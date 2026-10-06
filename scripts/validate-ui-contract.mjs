@@ -70,6 +70,8 @@ const required = [
   ,["Server-rendered intervention counts", "serverInterventionClass"]
   ,["Verified snapshot label", "검증 스냅샷"]
   ,["Collapsed filter state labels", "data-quick-summary"]
+  ,["Review queue share link", "review-queue-share"]
+  ,["Review queue URL state", "sharedReviewIds"]
   ,["Intervention classification", "function interventionClass"]
   ,["Intervention classification URL state", "state.intervention"]
 ];
