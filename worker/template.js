@@ -4784,7 +4784,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var distribution = event.target.closest("[data-distribution-field]");
         if (distribution) {
           var field = distribution.dataset.distributionField;
-          changeState(field, distribution.dataset.distributionValue);
+          var value = distribution.dataset.distributionValue;
+          changeState(field, state[field] === value ? "" : value);
           document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
         }
         var chip = event.target.closest("[data-remove]");

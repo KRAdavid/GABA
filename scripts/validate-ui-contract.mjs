@@ -182,6 +182,7 @@ const required = [
   ,["Evidence distribution hidden state", ".distribution-item[hidden]"]
   ,["Evidence distribution selected state", "function syncDistributionSelection"]
   ,["Evidence distribution pressed state", "aria-pressed"]
+  ,["Evidence distribution toggle", "state[field] === value ? \"\" : value"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));
