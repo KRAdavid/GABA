@@ -281,6 +281,8 @@ try {
   await evaluate(client, "document.querySelector('[data-intelligence-id]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), true);
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('개입 구분')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('연구 설계')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('대조군')"), true);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('record')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-citation]'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-brief]'))"), true);

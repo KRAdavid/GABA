@@ -3178,7 +3178,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("intelligence-detail-title").textContent = koreanTitle(record);
         el("intelligence-detail-facts").innerHTML = [
           fact("연구 유형", kind), fact("개입 구분", interventionClass(record)), fact("상태", record.status), fact("대상", record.population || record.species),
-          fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
+          fact("연구 설계", record.design), fact("개입 형태", record.form), fact("투여 경로", record.route), fact("대조군", record.comparator),
+          fact("결과 영역", record.outcome || record.domain), fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
           fact("결과 방향", record.direction), fact("확인일", record.checked)
         ].join("");
         el("intelligence-detail-finding").textContent = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않은 자료입니다.";
