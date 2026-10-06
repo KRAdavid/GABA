@@ -43,57 +43,210 @@
       "screeningCounts": null,
       "candidatePreview": [
         {
-          "candidateId": "C-20261006-0001",
+          "candidateId": "C-20261006-0051",
           "collectedDate": "2026-10-06",
-          "title": "Alleviation of glutamate mediated neuronal insult by piroxicam in rodent model of focal cerebral ischemia: a possible mechanism of GABA agonism.",
-          "author": "Bhattacharya P",
-          "journal": "Journal of physiology and biochemistry",
-          "year": 2014,
-          "pmid": "25292423",
-          "doi": "10.1007/s13105-014-0358-8",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/25292423/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 24,
+          "title": "Dietary Rumen-Protected Gamma-Aminobutyric Acid Supplementation to Alleviate Stress in Beef Cattle Caused by Long-Distance Transport by Improving Antioxidant Capacity, Immune Function, and Hormonal Balance: A Related Study.",
+          "author": "Chen T",
+          "journal": "Animals : an open access journal from MDPI",
+          "year": 2026,
+          "pmid": "42791696",
+          "doi": "10.3390/ani16182839",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42791696/",
+          "screeningRecommendation": "직접근거 우선검토",
+          "bucket": "우선검토",
+          "score": 100,
           "publicationTypes": [
             "Journal Article",
-            "Retracted Publication"
+            "journal-article"
           ],
           "queryLabels": [
-            "publication_followup"
+            "livestock_aquaculture",
+            "recent_2024_plus",
+            "crossref_01"
           ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\b(?:gaba|gamma[- ]aminobutyric acid)\\s+(?:supplementation|administration|treatment|intake|ingestion|consumption|feeding)\\b/i"
           ],
-          "directTitleSignals": [],
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0002",
+          "candidateId": "C-20261006-0053",
           "collectedDate": "2026-10-06",
-          "title": "Mechanisms underlying the renoprotective effect of GABA against ischemia/reperfusion-induced renal injury in rats.",
-          "author": "Kobuchi S",
-          "journal": "The Journal of pharmacology and experimental therapeutics",
-          "year": 2011,
-          "pmid": "21632868",
-          "doi": "10.1124/jpet.111.180174",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/21632868/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 20,
+          "title": "EFFECT OF DRINKING WATER SUPPLEMENTED WITH GAMMA-AMINOBUTYRIC ACID (GABA) ON LAYING PERFORMANCE AND EGG QUALITY PARAMETERS IN LAYING HENS",
+          "author": "Ashraf Elkomy",
+          "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+          "year": 2020,
+          "pmid": "",
+          "doi": "10.5281/zenodo.3694738",
+          "sourceUrl": "https://zenodo.org/record/3694738",
+          "screeningRecommendation": "직접근거 우선검토",
+          "bucket": "우선검토",
+          "score": 100,
           "publicationTypes": [
-            "Journal Article",
-            "Research Support, Non-U.S. Gov't",
-            "Retracted Publication"
+            "article"
           ],
           "queryLabels": [
-            "animal_direct",
-            "publication_followup"
+            "openalex_01",
+            "openalex_03"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\b(?:supplemented|treated|fed)\\s+with\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i",
+            "/\\bdrinking water supplemented with (?:gaba|gamma[- ]aminobutyric acid)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0055",
+          "collectedDate": "2026-10-06",
+          "title": "Versatile Effects of GABA Oolong Tea on Improvements in Diastolic Blood Pressure, Alpha Brain Waves, and Quality of Life",
+          "author": "Chih‐Cheng Lin",
+          "journal": "Foods",
+          "year": 2023,
+          "pmid": "38002159",
+          "doi": "10.3390/foods12224101",
+          "sourceUrl": "https://doi.org/10.3390/foods12224101",
+          "screeningRecommendation": "직접근거 우선검토",
+          "bucket": "우선검토",
+          "score": 88,
+          "publicationTypes": [
+            "article"
+          ],
+          "queryLabels": [
+            "openalex_09",
+            "openalex_12"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\beffects?\\s+of\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0056",
+          "collectedDate": "2026-10-06",
+          "title": "Versatile Effects of GABA Oolong Tea on the Improvement of Diastolic Blood Pressure, Alpha-Brain Wave and Quality of Life",
+          "author": "Chih‐Cheng Lin",
+          "journal": "Preprints.org",
+          "year": 2023,
+          "pmid": "",
+          "doi": "10.20944/preprints202309.0721.v1",
+          "sourceUrl": "https://doi.org/10.20944/preprints202309.0721.v1",
+          "screeningRecommendation": "직접근거 우선검토",
+          "bucket": "우선검토",
+          "score": 88,
+          "publicationTypes": [
+            "preprint"
+          ],
+          "queryLabels": [
+            "openalex_09",
+            "openalex_10"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\beffects?\\s+of\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0064",
+          "collectedDate": "2026-10-06",
+          "title": "GABA-enriched Fermented Laminaria japonica Protects against Alcoholic Hepatotoxicity in Sprague-Dawley Rats",
+          "author": "Jae-Young Cha",
+          "journal": "Fisheries and aquatic sciences",
+          "year": 2011,
+          "pmid": "",
+          "doi": "10.5657/fas.2011.0079",
+          "sourceUrl": "https://doi.org/10.5657/fas.2011.0079",
+          "screeningRecommendation": "직접근거 우선검토",
+          "bucket": "우선검토",
+          "score": 83,
+          "publicationTypes": [
+            "article"
+          ],
+          "queryLabels": [
+            "openalex_09"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\b(?:gaba|gamma[- ]aminobutyric acid)[- ](?:enriched|fortified)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0052",
+          "collectedDate": "2026-10-06",
+          "title": "The effects of gamma-aminobutyric acid (GABA) on working memory and attention: A randomised, double-blind, placebo-controlled, crossover trial",
+          "author": "Ahmet Altınok",
+          "journal": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "year": 2022,
+          "pmid": "",
+          "doi": "10.1101/2022.11.09.515792",
+          "sourceUrl": "https://doi.org/10.1101/2022.11.09.515792",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 100,
+          "publicationTypes": [
+            "preprint"
+          ],
+          "queryLabels": [
+            "openalex_01",
+            "openalex_11"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\beffects?\\s+of\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0054",
+          "collectedDate": "2026-10-06",
+          "title": "Dietary Gamma-Aminobutyric Acid (GABA) Health Benefits: A Mini-Review",
+          "author": "Brett J. West",
+          "journal": "",
+          "year": 2023,
+          "pmid": "",
+          "doi": "10.31219/osf.io/yqdfh",
+          "sourceUrl": "https://doi.org/10.31219/osf.io/yqdfh",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 95,
+          "publicationTypes": [
+            "preprint"
+          ],
+          "queryLabels": [
+            "openalex_01",
+            "openalex_05",
+            "openalex_09"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\b(?:dietary|oral|orally administered|supplemental)\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0057",
+          "collectedDate": "2026-10-06",
+          "title": "Effect of GABA B receptor antagonists (CGP 35348 and CGP 55845) on serum interleukin 6 and 18 concentrations in albino mice following neonatal hypoxia ischemia insult.",
+          "author": "Gillani Q",
+          "journal": "Pakistan journal of pharmaceutical sciences",
+          "year": 2016,
+          "pmid": "27731803",
+          "doi": "",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/27731803/",
+          "screeningRecommendation": "경계자료: GABA성 의약품·수용체 연구 또는 비경구/비보충제 가능성 확인",
+          "bucket": "일반검토",
+          "score": 87,
+          "publicationTypes": [
+            "Journal Article"
+          ],
+          "queryLabels": [
+            "animal_direct"
           ],
           "exclusionSignals": [
-            "/\\bintravenous\\b/i",
-            "/\\bbaclofen\\b/i",
-            "/\\breceptor agonist\\b/i",
             "/\\breceptor antagonist\\b/i"
           ],
           "directTitleSignals": [
@@ -102,583 +255,401 @@
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0003",
+          "candidateId": "C-20261006-0058",
           "collectedDate": "2026-10-06",
-          "title": "GABA induces the differentiation of small into large cholangiocytes by activation of Ca(2+) /CaMK I-dependent adenylyl cyclase 8.",
-          "author": "Mancinelli R",
-          "journal": "Hepatology (Baltimore, Md.)",
-          "year": 2013,
-          "pmid": "23389926",
-          "doi": "10.1002/hep.26308",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/23389926/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 18,
+          "title": "Calorie restriction potentiates the therapeutic potential of GABA in managing type 2 diabetes in a mouse model.",
+          "author": "Rathwa N",
+          "journal": "Life sciences",
+          "year": 2022,
+          "pmid": "35143826",
+          "doi": "10.1016/j.lfs.2022.120382",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35143826/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 85,
           "publicationTypes": [
-            "Journal Article",
-            "Retracted Publication"
+            "Journal Article"
           ],
           "queryLabels": [
-            "publication_followup"
+            "animal_direct"
           ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
+          "exclusionSignals": [],
           "directTitleSignals": [],
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0004",
+          "candidateId": "C-20261006-0059",
           "collectedDate": "2026-10-06",
-          "title": "Novel, small molecule induced GABA-hATSCs for targeting of neuropathic pain.",
-          "author": "Jee M",
-          "journal": "Human gene therapy",
-          "year": 2013,
-          "pmid": "23473301",
-          "doi": "10.1089/hum.2012.097",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/23473301/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 18,
-          "publicationTypes": [
-            "Journal Article",
-            "Retracted Publication"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0005",
-          "collectedDate": "2026-10-06",
-          "title": "Molecular Basis of GABA Hypofunction in Adolescent Schizophrenia-Like Animals.",
-          "author": "Wang X",
-          "journal": "Neural plasticity",
+          "title": "Calorie Restriction in combination with GABA: improved glycaemic control in type 2 diabetes mouse model",
+          "author": "NIRALI NANDUBHAI RATHWA",
+          "journal": "bioRxiv (Cold Spring Harbor Laboratory)",
           "year": 2021,
-          "pmid": "33936193",
-          "doi": "10.1155/2021/9983438",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33936193/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 10,
+          "pmid": "",
+          "doi": "10.1101/2021.05.12.443226",
+          "sourceUrl": "https://doi.org/10.1101/2021.05.12.443226",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 85,
           "publicationTypes": [
-            "Journal Article",
-            "Research Support, Non-U.S. Gov't",
-            "Retracted Publication"
+            "preprint"
           ],
           "queryLabels": [
-            "publication_followup"
+            "openalex_10"
           ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
+          "exclusionSignals": [],
           "directTitleSignals": [],
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0006",
+          "candidateId": "C-20261006-0060",
           "collectedDate": "2026-10-06",
-          "title": "Erratum to: \"Developmental regulation and lateralization of GABA receptors in the rat hippocampus\" [Int. J. Dev. Neurosci., 76C (2019) 86-95].",
-          "author": "Khoshdel-Sarkarizi H",
-          "journal": "International journal of developmental neuroscience : the official journal of the International Society for Developmental Neuroscience",
+          "title": "Dietary gamma-aminobutyric acid supplementation does not mitigate stress responses in weaner pigs given adrenocorticotropic hormone and experimentally infected with enterotoxigenic Escherichia coli",
+          "author": "Samantha O Sterndale",
+          "journal": "Livestock Science",
+          "year": 2021,
+          "pmid": "",
+          "doi": "10.1016/j.livsci.2021.104818",
+          "sourceUrl": "https://doi.org/10.1016/j.livsci.2021.104818",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 85,
+          "publicationTypes": [
+            "article"
+          ],
+          "queryLabels": [
+            "openalex_01"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\b(?:dietary|oral|orally administered|supplemental)\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i",
+            "/\\b(?:gaba|gamma[- ]aminobutyric acid)\\s+(?:supplementation|administration|treatment|intake|ingestion|consumption|feeding)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0061",
+          "collectedDate": "2026-10-06",
+          "title": "Effects of ascorbic acid treatment on developmental alterations in calcium-binding proteins and gamma-aminobutyric acid transporter 1 in the cerebellum of lead-exposed rats during pregnancy and lactation.",
+          "author": "Nam SM",
+          "journal": "The Journal of toxicological sciences",
           "year": 2019,
-          "pmid": "31420078",
-          "doi": "10.1016/j.ijdevneu.2019.07.008",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31420078/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 5,
-          "publicationTypes": [
-            "Published Erratum",
-            "Retracted Publication"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0007",
-          "collectedDate": "2026-10-06",
-          "title": "[Retracted: [THE CONTRIBUTION OF GABA-ERGIC INHIBITION TO THE VELOCITY TUNING OF THE SUPERIOR COLLICULUS NEURONS]].",
-          "author": "Khorevin VI",
-          "journal": "Fiziolohichnyi zhurnal (Kiev, Ukraine : 1994)",
-          "year": 2015,
-          "pmid": "26387157",
-          "doi": "10.15407/fz61.02.023",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/26387157/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 3,
-          "publicationTypes": [
-            "English Abstract",
-            "Journal Article",
-            "Retracted Publication"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0008",
-          "collectedDate": "2026-10-06",
-          "title": "RETRACTED: Effect of perioperative preemptive analgesia on hippocampal GABAA receptor α1/α5 balance in aged mild cognitive impairment rats.",
-          "author": "Ren H",
-          "journal": "Brain research bulletin",
-          "year": 2026,
-          "pmid": "41794269",
-          "doi": "10.1016/j.brainresbull.2026.111811",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41794269/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
+          "pmid": "31708536",
+          "doi": "10.2131/jts.44.799",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31708536/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 85,
           "publicationTypes": [
             "Journal Article",
-            "Retracted Publication"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bintravenous\\b/i",
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0009",
-          "collectedDate": "2026-10-06",
-          "title": "Retraction notice to \"Silicon augments salt tolerance through modulation of polyamine and GABA metabolism in two indica rice (Oryza sativa L.) cultivars\" [Plant Physiol. Biochem. 166, (2021), Pages 41-52].",
-          "author": "Das P",
-          "journal": "Plant physiology and biochemistry : PPB",
-          "year": 2026,
-          "pmid": "42215341",
-          "doi": "10.1016/j.plaphy.2026.111321",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42215341/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Journal Article",
-            "Retraction Notice"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0010",
-          "collectedDate": "2026-10-06",
-          "title": "Retraction: Quantitative GABA magnetic resonance spectroscopy as a measure of motor learning function in the motor cortex after subarachnoid hemorrhage.",
-          "author": "",
-          "journal": "Frontiers in neurology",
-          "year": 2026,
-          "pmid": "42699621",
-          "doi": "10.3389/fneur.2026.1971327",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42699621/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Journal Article",
-            "Retraction Notice"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bmagnetic resonance spectroscopy\\b/i",
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0011",
-          "collectedDate": "2026-10-06",
-          "title": "Involvement of GABA/BDZ receptors in the anticonvulsant effects of dihydrosanguinarine from Bocconia arborea S. Watson.",
-          "author": "González-Gómez JD",
-          "journal": "Heliyon",
-          "year": 2025,
-          "pmid": "40040966",
-          "doi": "10.1016/j.heliyon.2025.e42701",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40040966/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Journal Article",
-            "Retracted Publication"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bintraperitoneal\\b/i",
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0012",
-          "collectedDate": "2026-10-06",
-          "title": "RETRACTED: \"GABA A receptors expression pattern in rat brain following low pressure distension of the stomach\" [Neurosci. 152(2) (2008) 449-458].",
-          "author": "Sabbatini M",
-          "journal": "Neuroscience",
-          "year": 2025,
-          "pmid": "39074781",
-          "doi": "10.1016/j.neuroscience.2024.07.044",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39074781/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Journal Article",
-            "Retraction Notice"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0013",
-          "collectedDate": "2026-10-06",
-          "title": "RETRACTED: Fischer's ratio and DNA damage in hypoxemia-induced brain injury in rat model: prophylactic role of quercetin and mexamine supplementation.",
-          "author": "Kadry MO",
-          "journal": "PloS one",
-          "year": 2025,
-          "pmid": "40100888",
-          "doi": "10.1371/journal.pone.0319898",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40100888/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Journal Article",
-            "Retracted Publication"
+            "article"
           ],
           "queryLabels": [
             "animal_direct",
-            "publication_followup",
+            "openalex_01"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0062",
+          "collectedDate": "2026-10-06",
+          "title": "Evaluation of Gamma Amino Butyric Acid (GABA) and Glibenclamide Combination Therapy in Streptozotocin Induced Diabetes.",
+          "author": "Zhu Y",
+          "journal": "Endocrine, metabolic & immune disorders drug targets",
+          "year": 2021,
+          "pmid": "33292127",
+          "doi": "10.2174/1871530320666201208110945",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33292127/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 84,
+          "publicationTypes": [
+            "Journal Article"
+          ],
+          "queryLabels": [
+            "human_direct",
+            "animal_direct",
+            "safety_toxicology"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0063",
+          "collectedDate": "2026-10-06",
+          "title": "The Effect of Gamma Aminobutyric Acid and Ascorbic Acid on Bali Cattle Physiology During Transport",
+          "author": "Ghoffar Husnu",
+          "journal": "Pakistan Journal of Nutrition",
+          "year": 2019,
+          "pmid": "",
+          "doi": "10.3923/pjn.2019.1133.1138",
+          "sourceUrl": "https://doi.org/10.3923/pjn.2019.1133.1138",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 83,
+          "publicationTypes": [
+            "article"
+          ],
+          "queryLabels": [
+            "openalex_01"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\beffects?\\s+of\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0065",
+          "collectedDate": "2026-10-06",
+          "title": "Nipecotic Acid Ameliorates Letrozole Induced Poly Cystic Ovarian Syndrome in Female Virgin Wistar Rats by Modulating Hypothalamic-Pituitary-Gonadal (HPG) Axis Regulated by GABA.",
+          "author": "Fatima S",
+          "journal": "Reproductive sciences (Thousand Oaks, Calif.)",
+          "year": 2025,
+          "pmid": "39794617",
+          "doi": "10.1007/s43032-024-01771-w",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39794617/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 82,
+          "publicationTypes": [
+            "Journal Article"
+          ],
+          "queryLabels": [
+            "animal_direct",
             "recent_2024_plus"
           ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
+          "exclusionSignals": [],
           "directTitleSignals": [],
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0014",
+          "candidateId": "C-20261006-0066",
           "collectedDate": "2026-10-06",
-          "title": "Retraction notice to \"Involvement of GABA/BDZ receptors in the anticonvulsant effects of dihydrosanguinarine from Bocconia arborea S. Watson\" [Heliyon 11 (2025) e42701].",
-          "author": "González-Gómez JD",
-          "journal": "Heliyon",
+          "title": "Gamma-vinyl GABA treatment of Huntington's disease.",
+          "author": "Scigliano G",
+          "journal": "Neurology",
+          "year": 1984,
+          "pmid": "6228746",
+          "doi": "10.1212/wnl.34.1.94",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/6228746/",
+          "screeningRecommendation": "경계자료: GABA성 의약품·수용체 연구 또는 비경구/비보충제 가능성 확인",
+          "bucket": "일반검토",
+          "score": 80,
+          "publicationTypes": [
+            "Clinical Trial",
+            "Journal Article",
+            "Randomized Controlled Trial"
+          ],
+          "queryLabels": [
+            "human_direct",
+            "animal_direct"
+          ],
+          "exclusionSignals": [
+            "/\\bgamma[- ]vinyl gaba\\b/i"
+          ],
+          "directTitleSignals": [
+            "/\\b(?:gaba|gamma[- ]aminobutyric acid)\\s+(?:supplementation|administration|treatment|intake|ingestion|consumption|feeding)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0067",
+          "collectedDate": "2026-10-06",
+          "title": "Transcriptional profiling of the hippocampus and hypothalamus reveals a potential role of thyroid hormone in gamma-aminobutyric acid (GABA) synthesis in dairy cows fed a high-concentrate diet.",
+          "author": "Hou M",
+          "journal": "BMC veterinary research",
           "year": 2025,
-          "pmid": "41395040",
-          "doi": "10.1016/j.heliyon.2025.e44002",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41395040/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
+          "pmid": "41185009",
+          "doi": "10.1186/s12917-025-05078-z",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41185009/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 79,
           "publicationTypes": [
-            "Journal Article",
-            "Retraction Notice"
+            "Journal Article"
           ],
           "queryLabels": [
-            "publication_followup"
+            "animal_direct",
+            "recent_2024_plus"
           ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
+          "exclusionSignals": [],
           "directTitleSignals": [],
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0015",
+          "candidateId": "C-20261006-0068",
           "collectedDate": "2026-10-06",
-          "title": "Retraction: GABA induces the differentiation of small into large cholangiocytes by activation of Ca2+/CaMK I-dependent adenylyl cyclase 8.",
-          "author": "Mancinelli R",
-          "journal": "Hepatology (Baltimore, Md.)",
+          "title": "Effects of GABA/β-glucan supplements on melatonin and serotonin content extracted from natural resources",
+          "author": "Sayan Deb Dutta",
+          "journal": "PLoS ONE",
+          "year": 2021,
+          "pmid": "33667254",
+          "doi": "10.1371/journal.pone.0247890",
+          "sourceUrl": "https://doi.org/10.1371/journal.pone.0247890",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 78,
+          "publicationTypes": [
+            "article"
+          ],
+          "queryLabels": [
+            "openalex_02",
+            "openalex_05"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [
+            "/\\beffects?\\s+of\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0069",
+          "collectedDate": "2026-10-06",
+          "title": "Development and validation of a UPLC-MS/MS method for the simultaneous determination of gamma-aminobutyric acid and glutamic acid in human plasma.",
+          "author": "de Bie TH",
+          "journal": "Journal of chromatography. B, Analytical technologies in the biomedical and life sciences",
+          "year": 2021,
+          "pmid": "33454439",
+          "doi": "10.1016/j.jchromb.2020.122519",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33454439/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 76,
+          "publicationTypes": [
+            "Journal Article",
+            "article"
+          ],
+          "queryLabels": [
+            "human_direct",
+            "animal_direct",
+            "openalex_01"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0070",
+          "collectedDate": "2026-10-06",
+          "title": "In vivo, in silico effects of sakuranetin as a multi-target nutraceutical against PTZ-induced seizures via GABA restoration and BDNF/TrkB activation.",
+          "author": "Syed RU",
+          "journal": "Scientific reports",
           "year": 2025,
-          "pmid": "40536395",
-          "doi": "10.1097/hep.0000000000001383",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40536395/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
+          "pmid": "41462371",
+          "doi": "10.1038/s41598-025-26746-y",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41462371/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 75,
           "publicationTypes": [
             "Journal Article",
-            "Retraction Notice"
+            "Research Support, Non-U.S. Gov't"
           ],
           "queryLabels": [
-            "publication_followup"
+            "animal_direct",
+            "recent_2024_plus"
           ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
+          "exclusionSignals": [],
           "directTitleSignals": [],
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0016",
+          "candidateId": "C-20261006-0071",
           "collectedDate": "2026-10-06",
-          "title": "Ameliorative effects of vanillin against pentylenetetrazole-induced epilepsy and associated memory loss in mice: The role of Nrf2/HO-1/NQO1 and HMGB1/RAGE/TLR4/NFκB pathways.",
-          "author": "Almostafa MM",
-          "journal": "International immunopharmacology",
+          "title": "In a rodent model of autism, probiotics decrease gut leakiness in relation to gene expression of GABA receptors: Emphasize how crucial the gut-brain axis.",
+          "author": "Bin-Khattaf RM",
+          "journal": "Translational neuroscience",
           "year": 2024,
-          "pmid": "38335655",
-          "doi": "10.1016/j.intimp.2024.111657",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38335655/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
+          "pmid": "39380963",
+          "doi": "10.1515/tnsci-2022-0354",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39380963/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 75,
           "publicationTypes": [
-            "Journal Article",
-            "Retracted Publication"
+            "Journal Article"
           ],
           "queryLabels": [
-            "publication_followup"
+            "recent_2024_plus"
           ],
-          "exclusionSignals": [
-            "/\\bintraperitoneal\\b/i",
-            "/\\bvalpro(?:ic acid|ate)\\b/i",
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
+          "exclusionSignals": [],
           "directTitleSignals": [],
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0017",
+          "candidateId": "C-20261006-0072",
           "collectedDate": "2026-10-06",
-          "title": "Barley a nutritional powerhouse for gut health and chronic disease defense.",
-          "author": "Ali A",
-          "journal": "Heliyon",
-          "year": 2024,
-          "pmid": "39640645",
-          "doi": "10.1016/j.heliyon.2024.e38669",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39640645/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Journal Article",
-            "Review",
-            "Retracted Publication"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0018",
-          "collectedDate": "2026-10-06",
-          "title": "Retracted: Molecular Basis of GABA Hypofunction in Adolescent Schizophrenia-Like Animals.",
-          "author": "Plasticity N",
-          "journal": "Neural plasticity",
-          "year": 2024,
-          "pmid": "38304702",
-          "doi": "10.1155/2024/9780493",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38304702/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Retraction Notice"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0019",
-          "collectedDate": "2026-10-06",
-          "title": "The interaction between insulin resistance and Alzheimer's disease: a review article.",
-          "author": "Albar NY",
-          "journal": "Postgraduate medicine",
-          "year": 2024,
-          "pmid": "38804907",
-          "doi": "10.1080/00325481.2024.2360887",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38804907/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Journal Article",
-            "Review",
-            "Retracted Publication"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0020",
-          "collectedDate": "2026-10-06",
-          "title": "Quantitative GABA magnetic resonance spectroscopy as a measure of motor learning function in the motor cortex after subarachnoid hemorrhage.",
-          "author": "Sugita K",
-          "journal": "Frontiers in neurology",
+          "title": "Effect of a high-fat and high-calorie food on the pharmacokinetics of a novel, potent GABA analog HSK16149 in healthy subjects.",
+          "author": "Wu Q",
+          "journal": "Pharmacology research & perspectives",
           "year": 2023,
-          "pmid": "37900594",
-          "doi": "10.3389/fneur.2023.1173285",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37900594/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
+          "pmid": "37208866",
+          "doi": "10.1002/prp2.1102",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37208866/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 75,
+          "publicationTypes": [
+            "Randomized Controlled Trial",
+            "Journal Article",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "queryLabels": [
+            "human_direct",
+            "animal_direct",
+            "safety_toxicology"
+          ],
+          "exclusionSignals": [],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0073",
+          "collectedDate": "2026-10-06",
+          "title": "Valeriana officinalis Root Extract Modulates Cortical Excitatory Circuits in Humans.",
+          "author": "Mineo L",
+          "journal": "Neuropsychobiology",
+          "year": 2017,
+          "pmid": "29035887",
+          "doi": "10.1159/000480053",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/29035887/",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 75,
           "publicationTypes": [
             "Journal Article",
-            "Retracted Publication"
+            "Randomized Controlled Trial"
           ],
           "queryLabels": [
-            "publication_followup"
+            "human_cognitive_sleep_stress_outcomes"
           ],
-          "exclusionSignals": [
-            "/\\bmagnetic resonance spectroscopy\\b/i",
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
+          "exclusionSignals": [],
           "directTitleSignals": [],
           "existingRecordId": ""
         },
         {
-          "candidateId": "C-20261006-0021",
+          "candidateId": "C-20261006-0074",
           "collectedDate": "2026-10-06",
-          "title": "Clinical Data and Biocalculation Methods of GABRD Determine the Clinical Characteristics and Immune Relevance of Colorectal Cancer.",
-          "author": "Bi Y",
-          "journal": "Evidence-based complementary and alternative medicine : eCAM",
-          "year": 2022,
-          "pmid": "35774742",
-          "doi": "10.1155/2022/6198448",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35774742/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
+          "title": "Effects of Dietary Berberis Extract and Gamma Aminobutyric Acid on Growth Performance and Immune Function of Broilers",
+          "author": "Chen Peng-ju",
+          "journal": "",
+          "year": 2011,
+          "pmid": "",
+          "doi": "",
+          "sourceUrl": "https://en.cnki.com.cn/Article_en/CJFDTOTAL-DWYX201111019.htm",
+          "screeningRecommendation": "일반 원문검토",
+          "bucket": "일반검토",
+          "score": 75,
           "publicationTypes": [
-            "Journal Article",
-            "Retracted Publication"
+            "article"
           ],
           "queryLabels": [
-            "publication_followup"
+            "openalex_03"
           ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0022",
-          "collectedDate": "2026-10-06",
-          "title": "Liraglutide Is Protective against Brain Injury in Mice with Febrile Seizures by Inhibiting Inflammatory Factors.",
-          "author": "Wang X",
-          "journal": "Computational and mathematical methods in medicine",
-          "year": 2022,
-          "pmid": "35529274",
-          "doi": "10.1155/2022/7563281",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35529274/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Journal Article",
-            "Retracted Publication"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0023",
-          "collectedDate": "2026-10-06",
-          "title": "Retracted: Propofol Causes Consciousness Loss by Affecting GABA-A Receptor in the Nucleus Basalis of Rats.",
-          "author": "Neurology B",
-          "journal": "Behavioural neurology",
-          "year": 2022,
-          "pmid": "35237358",
-          "doi": "10.1155/2022/9840256",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35237358/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Retraction Notice"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
-          "directTitleSignals": [],
-          "existingRecordId": ""
-        },
-        {
-          "candidateId": "C-20261006-0024",
-          "collectedDate": "2026-10-06",
-          "title": "Retraction Note to: Alleviation of glutamate-mediated neuronal insult by piroxicam in rodent model of focal cerebral ischemia: a possible mechanism of GABA agonism.",
-          "author": "Bhattacharya P",
-          "journal": "Journal of physiology and biochemistry",
-          "year": 2022,
-          "pmid": "35380372",
-          "doi": "10.1007/s13105-022-00889-2",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35380372/",
-          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
-          "bucket": "낮은우선순위",
-          "score": 0,
-          "publicationTypes": [
-            "Retraction Notice"
-          ],
-          "queryLabels": [
-            "publication_followup"
-          ],
-          "exclusionSignals": [
-            "/\\bretract(?:ed|ion)\\b/i"
-          ],
+          "exclusionSignals": [],
           "directTitleSignals": [],
           "existingRecordId": ""
         }
