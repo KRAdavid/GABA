@@ -1883,9 +1883,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <details class="quick-more">
             <summary data-quick-summary="marketing">활용 판단</summary>
             <div class="quick-more-menu" aria-label="마케팅 활용 판단 필터">
-              <button class="quick-button" type="button" data-marketing="직접 근거 검토">직접 근거</button>
-              <button class="quick-button" type="button" data-marketing="조건부 검토">조건부 검토</button>
-              <button class="quick-button" type="button" data-marketing="마케팅 사용 금지">사용 금지</button>
+              <button class="quick-button" type="button" data-marketing="직접 근거 검토">직접 근거 <span class="quick-count" data-marketing-count="직접 근거 검토">__COUNT_MARKETING_DIRECT__</span></button>
+              <button class="quick-button" type="button" data-marketing="조건부 검토">조건부 검토 <span class="quick-count" data-marketing-count="조건부 검토">__COUNT_MARKETING_CONDITIONAL__</span></button>
+              <button class="quick-button" type="button" data-marketing="마케팅 사용 금지">사용 금지 <span class="quick-count" data-marketing-count="마케팅 사용 금지">__COUNT_MARKETING_EXCLUDE__</span></button>
             </div>
           </details>
           <details class="quick-more">
@@ -4072,13 +4072,27 @@ const INTERVENTION_COUNTS = DATABASE.records.reduce((counts, record) => {
   counts[label] = (counts[label] || 0) + 1;
   return counts;
 }, {});
+function serverMarketingLabel(record) {
+  if (record.kind === "규제") return "규제 참고";
+  if (record.status === "제외" || /철회|사용 금지/.test(record.direction || "")) return "마케팅 사용 금지";
+  if (record.status === "후보" || record.extraction === "부분" || record.kind === "동물") return "조건부 검토";
+  return "직접 근거 검토";
+}
+const MARKETING_COUNTS = DATABASE.records.reduce((counts, record) => {
+  const label = serverMarketingLabel(record);
+  counts[label] = (counts[label] || 0) + 1;
+  return counts;
+}, {});
 const PAGE = PAGE_TEMPLATE
   .replace("__EMBEDDED_DATA__", JSON.stringify(DATABASE).replaceAll("<", "\\u003c"))
   .replaceAll("__COUNT_PURE__", String(INTERVENTION_COUNTS["순수 GABA 섭취"] || 0))
   .replaceAll("__COUNT_COMBINATION__", String(INTERVENTION_COUNTS["복합제·복합개입"] || 0))
   .replaceAll("__COUNT_FERMENTED__", String(INTERVENTION_COUNTS["GABA 생성 발효·프로바이오틱"] || 0))
   .replaceAll("__COUNT_RECEPTOR__", String(INTERVENTION_COUNTS["수용체 약물·작용제"] || 0))
-  .replaceAll("__COUNT_REGULATORY__", String(INTERVENTION_COUNTS["규제·안전성 자료"] || 0));
+  .replaceAll("__COUNT_REGULATORY__", String(INTERVENTION_COUNTS["규제·안전성 자료"] || 0))
+  .replaceAll("__COUNT_MARKETING_DIRECT__", String(MARKETING_COUNTS["직접 근거 검토"] || 0))
+  .replaceAll("__COUNT_MARKETING_CONDITIONAL__", String(MARKETING_COUNTS["조건부 검토"] || 0))
+  .replaceAll("__COUNT_MARKETING_EXCLUDE__", String(MARKETING_COUNTS["마케팅 사용 금지"] || 0));
 
 function response(body, status, contentType, cacheControl) {
   return new Response(body, {

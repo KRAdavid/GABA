@@ -57,6 +57,8 @@ const required = [
   ["Korean title provenance label", "koreanTitleLabel"],
   ["Marketing badge filter", "marketing-filter-badge"],
   ["CSV title provenance", "한국어 제목/분류 요약"],
+  ["Marketing filter counts", "data-marketing-count"],
+  ["Server marketing counts", "serverMarketingLabel"],
   ["Accessible active toggles", "function setActiveToggle"],
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
