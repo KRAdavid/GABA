@@ -140,6 +140,14 @@ try {
   await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.getAttribute('aria-pressed')"), "true");
+  assert.equal(await evaluate(client, "document.querySelectorAll('[data-compare-toggle]').length >= 2"), true);
+  await evaluate(client, "document.querySelectorAll('[data-compare-toggle]')[0].click(); document.querySelectorAll('[data-compare-toggle]')[1].click()");
+  assert.equal(await evaluate(client, "document.querySelector('#compare-open')?.disabled"), false);
+  await evaluate(client, "document.querySelector('#compare-open').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#compare-dialog')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('연구 유형')"), true);
+  await evaluate(client, "document.querySelector('#compare-dialog-close').click(); document.querySelector('#compare-clear').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#compare-tray')?.hidden"), true);
   assert.equal(await evaluate(client, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true);
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-intelligence-id]').length > 0"), true);
   await evaluate(client, "document.querySelector('[data-intelligence-id]').click()");
