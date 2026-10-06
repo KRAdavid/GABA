@@ -498,6 +498,8 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#filter-panel .filter-guidance')?.textContent"), "자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.");
   await evaluate(client, "document.querySelector('#mobile-filter').click()");
   assert.equal(await evaluate(client, "document.activeElement?.id"), "filter-close");
+  assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('#filter-mobile-apply')).display"), "none");
+  assert.match(String(await evaluate(client, "document.querySelector('#filter-mobile-apply')?.textContent")), /현재 결과 보기/);
   await sleep(320);
   const mobilePanelRect = await evaluate(client, "(function () { var r = document.querySelector('#filter-panel').getBoundingClientRect(); return { left: r.left, right: r.right, width: r.width, viewport: window.innerWidth }; })()");
   assert.equal(mobilePanelRect.left >= 0 && mobilePanelRect.right <= mobilePanelRect.viewport, true, JSON.stringify(mobilePanelRect));
@@ -509,8 +511,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-reset')?.hidden"), false);
   assert.match(String(await evaluate(client, "document.querySelector('#mobile-filter')?.getAttribute('aria-label')")), /1개 조건 적용/);
   await screenshot("cdp-mobile-top.png");
-  await evaluate(client, "document.querySelector('#filter-close').click()");
-  assert.equal(await evaluate(client, "document.activeElement?.id"), "mobile-filter");
+  await evaluate(client, "document.querySelector('#filter-mobile-apply').click()");
+  assert.equal(await evaluate(client, "document.body.classList.contains('filter-open')"), false);
+  assert.equal(await evaluate(client, "document.activeElement?.id"), "result-count");
   console.log(JSON.stringify({ browserQa: true, browser: version.Browser, target: qaOrigin, desktop: true, mobile: true, horizontalOverflow: false, screenshots: ["qa/cdp-desktop-top.png", "qa/cdp-mobile-top.png"] }));
 } finally {
   client?.close();

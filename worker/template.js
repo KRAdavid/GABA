@@ -1194,6 +1194,22 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       background: #fff;
       cursor: pointer;
     }
+    .filter-mobile-apply {
+      display: none;
+      width: 100%;
+      min-height: 44px;
+      margin-top: 12px;
+      padding: 9px 12px;
+      border: 1px solid var(--teal);
+      border-radius: 10px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .filter-mobile-apply:hover,
+    .filter-mobile-apply:focus-visible { background: var(--teal-dark); }
     .filter-group {
       display: grid;
       gap: 7px;
@@ -1718,6 +1734,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
       .filter-panel.open { transform: translateX(0); }
       .filter-close { display: inline-grid; place-items: center; }
+      .filter-mobile-apply { display: block; position: sticky; bottom: 0; z-index: 1; box-shadow: 0 -8px 14px rgba(255,255,255,.92); }
       body.filter-open::before {
         content: "";
         position: fixed;
@@ -2302,6 +2319,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             </div>
           </details>
           <button class="reset-button" id="reset" type="button">필터 전체 초기화</button>
+          <button class="filter-mobile-apply" id="filter-mobile-apply" type="button">현재 결과 보기</button>
         </aside>
 
         <section class="results-panel" id="results" aria-labelledby="explorer-title">
@@ -4346,6 +4364,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var list = filteredRecords();
         var filterResultCount = el("filter-result-count");
         if (filterResultCount) filterResultCount.textContent = "현재 " + list.length.toLocaleString("ko-KR") + "건";
+        var mobileApply = el("filter-mobile-apply");
+        if (mobileApply) mobileApply.textContent = "현재 결과 보기 · " + list.length.toLocaleString("ko-KR") + "건";
         var totalPages = Math.max(1, Math.ceil(list.length / pageSize));
         if (state.page > totalPages) state.page = totalPages;
         var start = (state.page - 1) * pageSize;
@@ -4826,6 +4846,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
+      el("filter-mobile-apply").addEventListener("click", function () {
+        openFilters(false);
+        var resultCount = el("result-count");
+        if (resultCount && typeof resultCount.focus === "function") resultCount.focus({ preventScroll: true });
+        el("results").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
           if (el("copy-dialog").open) closeCopyDialog();
