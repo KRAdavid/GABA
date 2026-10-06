@@ -154,6 +154,13 @@ try {
   assert.ok(health.candidateExportCount >= health.stagedCandidates);
   assert.ok(health.candidatePreviewCount > 0);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"면역 타액 IgA\"]'))"), true);
+  assert.equal(await evaluate(client, "document.querySelector('.search-suggestions-more')?.open"), false);
+  assert.equal(await evaluate(client, "document.querySelector('.search-suggestions-more summary')?.textContent.includes('추천 검색어 더보기')"), true);
+  await evaluate(client, "document.querySelector('.search-suggestions-more summary').click()");
+  assert.equal(await evaluate(client, "document.querySelector('.search-suggestions-more')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelectorAll('.search-suggestions-more-list .suggestion-button').length"), 5);
+  await evaluate(client, "document.querySelector('.search-suggestions-more summary').click()");
+  assert.equal(await evaluate(client, "document.querySelector('.search-suggestions-more')?.open"), false);
   await navigate(`http://127.0.0.1:${httpPort}/?intervention=${encodeURIComponent('수용체 약물·작용제')}`);
   assert.equal(await evaluate(client, "document.querySelector('[data-intervention=\"수용체 약물·작용제\"]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "수용체 약물·작용제");

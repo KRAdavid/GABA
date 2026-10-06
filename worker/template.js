@@ -883,6 +883,47 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       gap: 7px;
       margin-top: 9px;
     }
+    .search-suggestions-more {
+      align-self: center;
+    }
+    .search-suggestions-more summary {
+      min-height: 31px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      border: 1px dashed #b8cbc7;
+      border-radius: 999px;
+      background: #f8fbfa;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    .search-suggestions-more summary::-webkit-details-marker { display: none; }
+    .search-suggestions-more summary::after { content: "＋"; font-size: 15px; line-height: 1; }
+    .search-suggestions-more[open] summary::after { content: "−"; }
+    .search-suggestions-more summary:hover,
+    .search-suggestions-more summary:focus-visible { border-color: var(--teal); background: var(--teal-soft); }
+    .search-suggestions-more-count {
+      display: inline-grid;
+      min-width: 17px;
+      min-height: 17px;
+      place-items: center;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, .1);
+      color: var(--teal-dark);
+      font-size: 10px;
+      line-height: 1;
+    }
+    .search-suggestions-more-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 7px;
+    }
     .suggestion-button {
       min-height: 31px;
       padding: 5px 10px;
@@ -2005,11 +2046,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="suggestion-button" type="button" data-query="불안 스트레스">불안·스트레스</button>
           <button class="suggestion-button" type="button" data-query="면역 타액 IgA">면역·타액 IgA</button>
           <button class="suggestion-button" type="button" data-query="현수교 스트레스">현수교 스트레스</button>
-          <button class="suggestion-button" type="button" data-query="캐나다 모노그래프">캐나다·GABA 모노그래프</button>
-          <button class="suggestion-button" type="button" data-query="안전성 독성">안전성·독성</button>
-          <button class="suggestion-button" type="button" data-query="돼지 장건강">돼지·장건강</button>
-          <button class="suggestion-button" type="button" data-query="수산 성장">수산·성장</button>
-          <button class="suggestion-button" type="button" data-query="한시적 인정">한시적 인정</button>
+          <details class="search-suggestions-more">
+            <summary aria-label="추가 추천 검색어 열기">추천 검색어 더보기 <span class="search-suggestions-more-count">5</span></summary>
+            <div class="search-suggestions-more-list">
+              <button class="suggestion-button" type="button" data-query="캐나다 모노그래프">캐나다·GABA 모노그래프</button>
+              <button class="suggestion-button" type="button" data-query="안전성 독성">안전성·독성</button>
+              <button class="suggestion-button" type="button" data-query="돼지 장건강">돼지·장건강</button>
+              <button class="suggestion-button" type="button" data-query="수산 성장">수산·성장</button>
+              <button class="suggestion-button" type="button" data-query="한시적 인정">한시적 인정</button>
+            </div>
+          </details>
         </div>
         <div class="explorer-intents" aria-label="탐색 목적 빠른 선택">
           <span class="explorer-intents-label">탐색 목적</span>
