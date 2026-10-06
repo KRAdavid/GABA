@@ -239,6 +239,29 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-card.review-done { opacity: .66; border-left-color: var(--green); }
     .review-queue-card.review-hold { border-left-color: #7c3aed; }
     @media (max-width: 640px) { .review-queue-list { grid-template-columns: 1fr; } }
+    .compare-tray { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 12px; padding: 10px 12px; border: 1px solid rgba(15,118,110,.24); border-radius: 10px; background: var(--teal-soft); color: var(--teal-dark); font-size: 11px; font-weight: 800; }
+    .compare-tray[hidden] { display: none; }
+    .compare-tray button { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .compare-tray button.secondary { border-color: rgba(15,118,110,.28); background: #fff; color: var(--teal-dark); }
+    .compare-tray button:disabled { opacity: .48; cursor: not-allowed; }
+    .paper-compare { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .paper-compare[aria-pressed="true"] { border-color: var(--teal); background: var(--teal-soft); }
+    .compare-dialog { width: min(1120px, calc(100% - 28px)); max-height: min(820px, calc(100vh - 36px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
+    .compare-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
+    .compare-dialog-inner { padding: 22px; overflow: auto; max-height: min(820px, calc(100vh - 36px)); }
+    .compare-dialog-head { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .compare-dialog-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
+    .compare-dialog-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
+    .compare-dialog-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .compare-table-wrap { overflow-x: auto; margin-top: 16px; }
+    .compare-table { min-width: 760px; width: 100%; border-collapse: collapse; font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; line-height: 1.5; }
+    .compare-table th:first-child, .compare-table td:first-child { width: 130px; background: var(--surface-2); color: var(--muted); font-weight: 800; }
+    .compare-table th { color: var(--ink); font-size: 13px; }
+    .compare-table td { color: var(--ink-2); }
+    .compare-table .compare-title { color: var(--ink); font-weight: 900; }
+    .compare-table .paper-link { display: inline-flex; margin-top: 6px; color: var(--teal-dark); font-size: 11px; font-weight: 800; text-decoration: none; }
+    @media (max-width: 640px) { .compare-dialog-inner { padding: 16px; } }
     .intelligence-related-list { display: grid; gap: 8px; }
     .intelligence-related-list button { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); text-align: left; font-size: 12px; font-weight: 700; line-height: 1.45; cursor: pointer; }
     .intelligence-related-list button:hover { border-color: var(--teal); background: var(--teal-soft); }
@@ -1602,6 +1625,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       </div>
     </dialog>
 
+    <dialog class="compare-dialog" id="compare-dialog" aria-labelledby="compare-dialog-title">
+      <div class="compare-dialog-inner">
+        <div class="compare-dialog-head">
+          <div>
+            <h2 id="compare-dialog-title">선택 자료 비교</h2>
+            <p>인체·동물·규제 자료의 범위와 한계를 같은 표에서 비교합니다.</p>
+          </div>
+          <button class="compare-dialog-close" id="compare-dialog-close" type="button" aria-label="비교 닫기">×</button>
+        </div>
+        <div id="compare-table" class="compare-table-wrap"></div>
+      </div>
+    </dialog>
+
     <section class="section" aria-labelledby="distribution-title">
       <div class="section-head">
         <div>
@@ -1762,6 +1798,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <p class="result-count" id="result-count" aria-live="polite"></p>
             <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
           </div>
+          <div class="compare-tray" id="compare-tray" hidden aria-live="polite">
+            <span id="compare-summary">비교 자료를 선택하세요.</span>
+            <button id="compare-open" type="button" disabled>선택 자료 비교</button>
+            <button class="secondary" id="compare-clear" type="button">선택 해제</button>
+          </div>
           <div class="active-filters" id="active-filters" aria-label="적용된 필터"></div>
           <div class="result-interpretation" id="result-interpretation" aria-live="polite"></div>
           <div class="papers" id="papers"></div>
@@ -1827,6 +1868,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var reviewQueueHideDone = false;
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
+      var compareIds = [];
+      try {
+        compareIds = JSON.parse(localStorage.getItem("gaba-compare-ids") || "[]")
+          .map(String).filter(function (id) { return records.some(function (record) { return String(record.id) === id; }); }).slice(0, 4);
+      } catch (_) { compareIds = []; }
       var currentDetailRecordId = null;
       var urlRecordId = "";
       var detailReturnFocus = null;
@@ -2626,6 +2672,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "") +
           '<button type="button" data-copy-citation="' + esc(record.id) + '">인용 정보 복사</button>' +
           '<button type="button" data-copy-brief="' + esc(record.id) + '">근거 브리프 복사</button>' +
+          '<button type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
           '<button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 근거 검색</button>';
         if (typeof dialog.showModal === "function") dialog.showModal();
         else dialog.setAttribute("open", "");
@@ -2661,6 +2708,71 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var topic = clean(record.domain || record.topic || "주요 평가");
         var matrix = record.form && /발효유|초콜릿|채소|클로렐라|음료|식품/i.test(record.form) ? " 식품 기반" : "";
         return kind + matrix + " GABA 섭취의 " + topic + " 관련 연구";
+      }
+      function selectedCompareRecords() {
+        return compareIds.map(function (id) {
+          return records.find(function (record) { return String(record.id) === String(id); });
+        }).filter(Boolean);
+      }
+      function saveCompareIds() {
+        try { localStorage.setItem("gaba-compare-ids", JSON.stringify(compareIds)); } catch (_) {}
+      }
+      function compareKind(record) {
+        return record.kind === "규제" ? "규제·안전성" : record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물·전임상" : "근거 자료";
+      }
+      function compareValue(record, key) {
+        var values = {
+          kind: compareKind(record), status: record.status, population: record.population || record.species || record.subject,
+          dose: record.dose || record.exposure, duration: record.duration, comparator: record.comparator || record.useMatch,
+          finding: record.finding || record.summaryKo || record.safetyFinding, boundary: evidenceBoundary(record),
+          meaning: researchMeaning(record), marketing: utilizationDirection(record)
+        };
+        return values[key] || "미보고";
+      }
+      function renderCompareTray() {
+        var tray = el("compare-tray");
+        if (!tray) return;
+        var selected = selectedCompareRecords();
+        compareIds = selected.map(function (record) { return String(record.id); });
+        tray.hidden = selected.length === 0;
+        el("compare-summary").textContent = selected.length + "개 선택 · 최대 4개까지 비교할 수 있습니다.";
+        el("compare-open").disabled = selected.length < 2;
+        document.querySelectorAll("[data-compare-toggle]").forEach(function (button) {
+          var active = compareIds.indexOf(String(button.dataset.compareToggle)) >= 0;
+          button.setAttribute("aria-pressed", String(active));
+          button.textContent = active ? "비교에서 제거" : "비교에 추가";
+        });
+      }
+      function toggleCompare(recordId) {
+        var id = String(recordId || "");
+        var index = compareIds.indexOf(id);
+        if (index >= 0) compareIds.splice(index, 1);
+        else if (selectedCompareRecords().length >= 4) { toast("비교 자료는 최대 4개까지 선택할 수 있습니다"); return; }
+        else if (records.some(function (record) { return String(record.id) === id; })) compareIds.push(id);
+        saveCompareIds();
+        renderCompareTray();
+      }
+      function renderCompareTable() {
+        var selected = selectedCompareRecords();
+        var target = el("compare-table");
+        if (!target) return;
+        var rows = [
+          ["연구 유형", "kind"], ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
+          ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
+          ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
+        ];
+        target.innerHTML = '<table class="compare-table"><thead><tr><th scope="col">비교 항목</th>' + selected.map(function (record) {
+          return '<th scope="col"><span class="compare-title">' + esc(koreanTitle(record)) + '</span><br><span style="color:var(--muted);font-size:11px">' + esc(compareKind(record)) + " · " + esc(record.year || "연도 미상") + '</span>' + linkButton(record.fulltextUrl || record.sourceUrl || record.doiUrl || record.pubmedUrl, "원문 확인", false) + '</th>';
+        }).join("") + '</tr></thead><tbody>' + rows.map(function (row) {
+          return '<tr><th scope="row">' + esc(row[0]) + '</th>' + selected.map(function (record) { return '<td>' + esc(compareValue(record, row[1])) + '</td>'; }).join("") + '</tr>';
+        }).join("") + '</tbody></table>';
+      }
+      function openCompareDialog() {
+        if (selectedCompareRecords().length < 2) { toast("비교할 자료를 2개 이상 선택하세요"); return; }
+        renderCompareTable();
+        var dialog = el("compare-dialog");
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
       }
 
       function regulatoryCard(record) {
@@ -2709,7 +2821,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '</dl>' +
           '</details>' +
           '<div class="paper-footer">' +
-            linkButton(sourcePrimary, "공식 원문", true) + decisionExtra +
+            linkButton(sourcePrimary, "공식 원문", true) + decisionExtra + '<button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
             '<span class="record-id">' + esc(record.id) + '</span>' +
           '</div>' +
         '</article>';
@@ -2762,7 +2874,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '</dl>' +
           '</details>' +
           '<div class="paper-footer">' +
-            linkButton(sourcePrimary, sourceLabel, true) + pubmedExtra + doiExtra +
+            linkButton(sourcePrimary, sourceLabel, true) + pubmedExtra + doiExtra + '<button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
             '<span class="record-id">' + esc(record.id) + '</span>' +
           '</div>' +
         '</article>';
@@ -2836,6 +2948,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("next").disabled = state.page >= totalPages;
         el("pagination").hidden = list.length <= pageSize;
         renderActiveFilters();
+        renderCompareTray();
         syncAdvancedFilterDisclosure();
         renderResultInterpretation(list);
         syncControls();
@@ -2998,11 +3111,35 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         event.preventDefault();
         closeIntelligenceDetail();
       });
+      el("compare-open").addEventListener("click", openCompareDialog);
+      el("compare-clear").addEventListener("click", function () {
+        compareIds = [];
+        saveCompareIds();
+        renderCompareTray();
+        toast("비교 선택을 해제했습니다");
+      });
+      el("compare-dialog-close").addEventListener("click", function () {
+        var dialog = el("compare-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
+      });
+      el("compare-dialog").addEventListener("click", function (event) {
+        if (event.target === el("compare-dialog")) el("compare-dialog-close").click();
+      });
+      el("compare-dialog").addEventListener("cancel", function (event) {
+        event.preventDefault();
+        el("compare-dialog-close").click();
+      });
       el("portal-lane-overview-close").addEventListener("click", function () {
         activeLane = null;
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        var compareButton = event.target.closest("[data-compare-toggle]");
+        if (compareButton) {
+          toggleCompare(compareButton.dataset.compareToggle);
+          return;
+        }
         var reviewStatusButton = event.target.closest("[data-review-status]");
         if (reviewStatusButton) {
           var statusId = reviewStatusButton.dataset.reviewId;
@@ -3105,7 +3242,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-          if (el("intelligence-detail").open) closeIntelligenceDetail();
+          if (el("compare-dialog").open) el("compare-dialog-close").click();
+          else if (el("intelligence-detail").open) closeIntelligenceDetail();
           else openFilters(false);
         }
         if (event.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || "")) {
