@@ -90,6 +90,7 @@ const required = [
   ["Discovery health metrics", "discoveryMergedUnique"],
   ["Discovery source transparency", '["Crossref", Number(discovery.crossrefRetrieved'],
   ["Discovery screening status", "discovery.screeningCounts"],
+  ["Discovery matched manual decisions", "manualDecisionsMatched"],
   ["Freshness explanation action", 'id="freshness-label" type="button"'],
   ["Shareable compare state", 'params.set("compare"'],
   ["Comparison copy action", 'id="compare-copy"'],

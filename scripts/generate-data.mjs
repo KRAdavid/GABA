@@ -196,6 +196,7 @@ const candidateExport = Array.isArray(candidateArtifact?.candidates)
       };
     })
   : [];
+const manualDecisionsMatched = candidateExport.filter((record) => record.screeningStatus && record.screeningStatus !== "미검토").length;
 
 function enrichLiteratureNote(record) {
   if (record.kind === "규제") return record.notes;
@@ -501,6 +502,7 @@ const database = {
       low: discovery.stagedLow ?? discovery.low ?? 0,
       screeningCounts: discovery.screeningCounts || candidateSheetPayload?.summary?.screeningCounts || null,
       manualDecisionsPreserved: discovery.manualDecisionsPreserved ?? candidateSheetPayload?.summary?.manualDecisionsPreserved ?? 0,
+      manualDecisionsMatched,
       candidatePreview,
       candidateExport,
       candidateSheet: null,

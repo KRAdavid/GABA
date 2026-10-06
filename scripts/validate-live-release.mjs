@@ -26,6 +26,7 @@ assert.equal(health.candidatePromotion, "manual-review-required");
 assert.ok(Number(health.records) > 0);
 assert.ok(Number(health.stagedCandidates) > 0);
 assert.ok(Number(health.candidateExportCount) >= Number(health.stagedCandidates));
+assert.ok(Number(health.discoveryManualDecisionsMatched) <= Number(health.discoveryManualDecisionsPreserved));
 assert.ok(Number(health.discoveryMergedUnique) >= Number(health.stagedCandidates));
 assert.equal(Number(health.discoverySourceErrors), 0);
 assert.ok(health.linkAudit && Number(health.linkAudit.failed) === 0);

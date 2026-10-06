@@ -234,6 +234,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#link-audit-note')?.textContent.includes('근거 약함')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('검토 상태')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('미검토')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('수동 판정 연결 / 보존')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-title-korean')?.textContent.includes('·')"), true);
   assert.equal(await evaluate(client, "!document.querySelector('.paper-title-korean')?.textContent.includes('GABA 관련 자료')"), true);
   await evaluate(client, "document.querySelector('#search').value = ''; document.querySelector('#search').dispatchEvent(new Event('input', { bubbles: true }))");
