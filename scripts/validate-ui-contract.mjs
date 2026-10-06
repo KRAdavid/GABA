@@ -27,6 +27,7 @@ const required = [
   ["Review-state filters", "data-intelligence-review"],
   ["Review checklist", 'id="intelligence-detail-checklist"'],
   ["Review queue", 'id="review-queue-list"'],
+  ["Review queue local-only scope", 'id="review-queue-scope"'],
   ["Review queue renderer", "function renderReviewQueue"],
   ["Review queue filters", "data-review-filter"],
   ["Review queue summary", 'id="review-queue-summary"'],

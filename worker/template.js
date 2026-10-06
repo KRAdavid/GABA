@@ -222,6 +222,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-head h2 { margin: 0; font-size: 20px; letter-spacing: -.04em; }
     .review-queue-head p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
     .review-queue-count { color: var(--amber); font-size: 12px; font-weight: 800; white-space: nowrap; }
+    .review-queue-scope { display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; padding: 5px 8px; border: 1px solid rgba(15,118,110,.24); border-radius: 999px; background: var(--teal-soft); color: var(--teal-dark); font-size: 10px; font-weight: 800; }
     .review-queue-summary { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
     .review-queue-summary span { padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); color: var(--muted); font-size: 10px; font-weight: 800; }
     .review-queue-summary span strong { color: var(--ink); }
@@ -1973,7 +1974,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     </section>
     <section class="review-queue" id="review-queue" aria-labelledby="review-queue-title">
       <div class="review-queue-head">
-        <div><h2 id="review-queue-title" tabindex="-1">추가 검토 큐</h2><p>후보·부분추출·핵심 기록 누락 자료를 다음 확인 작업으로 연결합니다.</p></div>
+        <div><h2 id="review-queue-title" tabindex="-1">추가 검토 큐</h2><p>후보·부분추출·핵심 기록 누락 자료를 다음 확인 작업으로 연결합니다.</p><span class="review-queue-scope" id="review-queue-scope">개인 브라우저 작업 · 원본·Sheets 미변경</span></div>
         <span class="review-queue-count" id="review-queue-count">-</span>
       </div>
       <div class="review-queue-controls" aria-label="추가 검토 큐 필터">

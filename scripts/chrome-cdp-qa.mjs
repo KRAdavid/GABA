@@ -362,6 +362,8 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('reviewFilter')"), "candidate");
   assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=candidate]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-count')?.textContent.includes('공유 큐')"), true);
+    assert.equal(await evaluate(client, "document.querySelector('#review-queue-scope')?.textContent.includes('개인 브라우저 작업')"), true);
+    assert.equal(await evaluate(client, "document.querySelector('#review-queue-scope')?.textContent.includes('원본·Sheets 미변경')"), true);
     assert.equal(await evaluate(client, "document.querySelector('#review-queue-summary')?.textContent.includes('전체 큐 완료율')"), true);
     assert.equal(await evaluate(client, "document.querySelector('#review-queue-more')?.textContent.includes('전체 큐 표시')"), true);
   assert.equal(await evaluate(client, "document.activeElement?.id"), "review-queue-title");
