@@ -30,23 +30,17 @@
     },
     "discovery": {
       "snapshotDate": "2026-10-06",
-      "generatedAt": "2026-10-06T08:34:55.246Z",
+      "generatedAt": "2026-10-06T11:03:07.458Z",
       "triageVersion": "2026-09-09.1",
       "identifierExtraction": "PubMed primary ArticleIdList only",
       "pubmedUnique": 3257,
       "openAlexRetrieved": 1400,
       "mergedUnique": 5137,
       "stagedCandidates": 1000,
-      "priority": 16,
-      "general": 953,
-      "low": 31,
-      "screeningCounts": {
-        "포함후보": 11,
-        "보류": 2,
-        "제외": 8,
-        "우선검토": 0,
-        "미검토": 977
-      },
+      "priority": 5,
+      "general": 945,
+      "low": 50,
+      "screeningCounts": null,
       "candidateSheet": null,
       "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다.",
       "candidateFile": null
