@@ -137,9 +137,9 @@ try {
   assert.equal(health.ok, true);
   assert.equal(health.records, 392);
   assert.equal(health.release?.snapshotVersion, 457);
-  assert.equal(health.release?.siteVersion, 472);
-  assert.equal(health.release?.sourceCommit, "14763c3c6bba3e7c6a0414484c8eaa0179901554");
-  assert.equal(health.release?.publicMirrorCommit, "90a48803e05c082a135a57f0b21c61287a729a42");
+  assert.equal(health.release?.siteVersion, 477);
+  assert.equal(health.release?.sourceCommit, "d9c707daeed89e380864fb01594c84109bf69a9d");
+  assert.equal(health.release?.publicMirrorCommit, "e826245fe8e29ff638a38a1a5d41b0c83ab544c5");
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
   assert.ok(health.candidatePreviewCount > 0);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"면역 타액 IgA\"]'))"), true);
@@ -213,7 +213,7 @@ try {
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
-  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v472 · GitHub 90a4880')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v477 · GitHub e826245')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원천 오류')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원문 감사')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#link-audit-note')?.textContent.includes('근거 약함')"), true);
