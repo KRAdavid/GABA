@@ -74,6 +74,7 @@ const required = [
   ,["Review queue URL state", "sharedReviewIds"]
   ,["Review share dialog", "review-share-dialog"]
   ,["Review share copy action", "copyReviewShareUrl"]
+  ,["Shared queue exit", "clearSharedReviewQueue"]
   ,["Intervention classification", "function interventionClass"]
   ,["Intervention classification URL state", "state.intervention"]
 ];

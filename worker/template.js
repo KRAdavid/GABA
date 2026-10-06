@@ -223,6 +223,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-filter.active { border-color: var(--amber); background: var(--amber-soft); color: var(--amber); }
     .review-queue-toggle { display: inline-flex; align-items: center; gap: 5px; margin-left: auto; color: var(--muted); font-size: 11px; }
     .review-queue-storage { width: 100%; color: var(--muted); font-size: 10px; }
+    .review-queue-shared-note { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 0 12px; padding: 9px 11px; border: 1px solid rgba(15,118,110,.24); border-radius: 9px; background: var(--teal-soft); color: var(--teal-dark); font-size: 11px; line-height: 1.45; }
+    .review-queue-shared-note[hidden] { display: none; }
+    .review-queue-shared-note button { flex: 0 0 auto; min-height: 29px; padding: 5px 9px; border: 1px solid rgba(15,118,110,.32); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 800; cursor: pointer; }
     .review-queue-export, .review-queue-import, .review-queue-share { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .review-queue-import { border-color: var(--line); background: #fff; color: var(--teal-dark); }
     .review-share-dialog { width: min(640px, calc(100% - 28px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
@@ -1628,6 +1631,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <span class="review-queue-storage">검토 완료 표시는 현재 브라우저에만 저장되며 원본 인덱스·Sheets를 변경하지 않습니다.</span>
       </div>
       <div class="review-queue-summary" id="review-queue-summary" aria-label="검토 큐 요약"></div>
+      <div class="review-queue-shared-note" id="review-queue-shared-note" role="status" hidden><span id="review-queue-shared-copy"></span><button id="review-queue-shared-clear" type="button">공유 큐 해제</button></div>
       <div class="review-queue-list" id="review-queue-list"></div>
     </section>
 
@@ -2723,6 +2727,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var target = el("review-queue-list");
         var countTarget = el("review-queue-count");
         var summaryTarget = el("review-queue-summary");
+        var sharedNote = el("review-queue-shared-note");
+        var sharedCopy = el("review-queue-shared-copy");
         if (!target || !countTarget) return;
         var baseQueue = buildReviewQueue();
         var doneCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
@@ -2730,7 +2736,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
         var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
         var queue = reviewQueueForDisplay(baseQueue);
-        countTarget.textContent = (sharedReviewIds.length ? "공유 큐 · " : "") + queue.length.toLocaleString("ko-KR") + "건 대기 · " + doneCount.toLocaleString("ko-KR") + "건 완료 · " + holdCount.toLocaleString("ko-KR") + "건 자료 필요";
+        var visibleDoneCount = queue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
+        var visibleHoldCount = queue.filter(function (item) { return reviewDecisionState(item.record.id).status === "hold"; }).length;
+        countTarget.textContent = (sharedReviewIds.length ? "공유 큐 · " : "") + queue.length.toLocaleString("ko-KR") + "건 대기 · " + visibleDoneCount.toLocaleString("ko-KR") + "건 완료 · " + visibleHoldCount.toLocaleString("ko-KR") + "건 자료 필요";
+        if (sharedNote && sharedCopy) {
+          sharedNote.hidden = !sharedReviewIds.length;
+          if (sharedReviewIds.length) sharedCopy.textContent = "공유된 검토 대상 " + queue.length.toLocaleString("ko-KR") + "건만 표시 중입니다. 이 브라우저의 로컬 검토 기록은 공유되지 않습니다.";
+        }
         if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
         document.querySelectorAll("[data-review-filter]").forEach(function (button) {
           setActiveToggle(button, button.dataset.reviewFilter === reviewQueueFilter);
@@ -2778,6 +2790,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var url = new URL(location.href);
         url.searchParams.set("review", ids.join(","));
         openReviewShareDialog(url.href, ids.length);
+      }
+      function clearSharedReviewQueue() {
+        if (!sharedReviewIds.length) return;
+        sharedReviewIds = [];
+        persistUrl("replace");
+        renderReviewQueue();
+        toast("공유 큐를 해제하고 전체 검토 큐를 표시합니다");
       }
       function exportReviewQueue() {
         var recordsPayload = records.map(function (record) {
@@ -3468,6 +3487,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
       el("review-queue-share").addEventListener("click", shareReviewQueue);
+      el("review-queue-shared-clear").addEventListener("click", clearSharedReviewQueue);
       el("review-share-copy").addEventListener("click", copyReviewShareUrl);
       el("review-share-close").addEventListener("click", closeReviewShareDialog);
       el("review-share-close-secondary").addEventListener("click", closeReviewShareDialog);
