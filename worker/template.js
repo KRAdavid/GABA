@@ -2182,6 +2182,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return "";
       }
 
+      function filterCandidatePreviewRecords(candidates, activeFilter) {
+        return (Array.isArray(candidates) ? candidates : []).filter(function (candidate) {
+          if (activeFilter === "priority") return candidate.bucket === "우선검토";
+          if (activeFilter === "followup") return (candidate.exclusionSignals || []).length > 0 || /출판 후속조치|철회|정정|우려표명/.test(candidate.screeningRecommendation || "");
+          return true;
+        });
+      }
+
       function renderCandidatePreview(candidates) {
         var section = el("candidate-preview");
         var list = el("candidate-preview-list");
@@ -2195,11 +2203,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         }
         section.hidden = false;
         var activeFilter = section.dataset.filter || "all";
-        var filtered = candidates.filter(function (candidate) {
-          if (activeFilter === "priority") return candidate.bucket === "우선검토";
-          if (activeFilter === "followup") return (candidate.exclusionSignals || []).length > 0 || /출판 후속조치|철회|정정|우려표명/.test(candidate.screeningRecommendation || "");
-          return true;
-        });
+        var filtered = filterCandidatePreviewRecords(candidates, activeFilter);
         document.querySelectorAll("[data-candidate-filter]").forEach(function (button) {
           button.onclick = function () {
             section.dataset.filter = button.dataset.candidateFilter || "all";
@@ -2258,6 +2262,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function exportCandidatePreview() {
         var candidates = DB.meta.discovery?.candidatePreview || [];
+        var activeFilter = el("candidate-preview")?.dataset.filter || "all";
+        candidates = filterCandidatePreviewRecords(candidates, activeFilter);
         if (!candidates.length) { toast("내보낼 후보가 없습니다"); return; }
         var headers = ["후보 ID", "우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "후속조치 신호", "원문 링크", "초록"];
         var rows = candidates.map(function (candidate) {

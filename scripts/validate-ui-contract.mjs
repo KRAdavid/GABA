@@ -46,6 +46,7 @@ const required = [
   ["Candidate detail renderer", "function openCandidateDetail"],
   ["Candidate detail close", "function closeCandidateDetail"],
   ["Candidate preview export", 'id="candidate-preview-export"'],
+  ["Candidate export filter parity", "function filterCandidatePreviewRecords"],
   ["Accessible active toggles", "function setActiveToggle"],
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
