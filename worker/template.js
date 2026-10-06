@@ -2569,6 +2569,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (candidate.doi) return "https://doi.org/" + encodeURIComponent(candidate.doi);
         return "";
       }
+      function candidateSourceLabel(candidate) {
+        if (candidate.pmid) return "PubMed 원문";
+        if (candidate.doi) return "DOI 원문";
+        return "원문 식별자";
+      }
 
       function filterCandidatePreviewRecords(candidates, activeFilter) {
         return (Array.isArray(candidates) ? candidates : []).filter(function (candidate) {
@@ -2645,7 +2650,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<p class="candidate-preview-signal"><strong>검토 권고</strong> · ' + esc(recommendation) + '</p>' +
             '<p class="candidate-preview-signal"><strong>자동 신호</strong> · ' + esc(signals + score) + ' <span>(확정 판정 아님)</span></p>' +
             '<button class="candidate-preview-detail" type="button" data-candidate-detail="' + esc(candidate.candidateId || "") + '">후보 상세 보기</button>' +
-            (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">원문 식별자 확인 ↗</a>' : '') +
+            (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(candidateSourceLabel(candidate)) + ' 확인 ↗</a>' : '') +
             '</article>';
         }).join("");
         if (more) {
@@ -2679,7 +2684,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         ];
         el("candidate-detail-checklist").innerHTML = '<h3>공개 근거 승격 전 확인 순서</h3><ul>' + checklist.map(function (item) { return '<li><strong>' + esc(item[0]) + '</strong><span>' + esc(item[1]) + '</span></li>'; }).join("") + '</ul>';
         el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
-        el("candidate-detail-actions").innerHTML = (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">PubMed·DOI 원문 확인 ↗</a>' : "") + '<button type="button" data-copy-candidate-link="' + esc(candidate.candidateId || "") + '">후보 검토 링크 복사</button>';
+        el("candidate-detail-actions").innerHTML = (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(candidateSourceLabel(candidate)) + ' 확인 ↗</a>' : "") + '<button type="button" data-copy-candidate-link="' + esc(candidate.candidateId || "") + '">후보 검토 링크 복사</button>';
         if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", "");
         el("candidate-detail-close").focus();
       }

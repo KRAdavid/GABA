@@ -225,6 +225,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('검토 권고')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=reviewed]')?.textContent.includes('수동 검토됨')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('수동 검토 상태')"), true);
+  assert.equal(await evaluate(client, "/PubMed 원문|DOI 원문/.test(document.querySelector('#candidate-preview-list a')?.textContent || '')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('경로·섭취 표현')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-export')?.textContent.includes('전체 후보 CSV')"), true);
   await evaluate(client, "document.querySelector('[data-candidate-detail]').click()");

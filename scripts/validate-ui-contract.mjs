@@ -53,6 +53,7 @@ const required = [
   ["Candidate preview scope", "전체 후보"],
   ["Candidate recommendation summary", "검토 권고"],
   ["Candidate source link guard", "function candidateSourceUrl"],
+  ["Candidate source label", "function candidateSourceLabel"],
   ["Candidate preview expansion", 'id="candidate-preview-more"'],
   ["Candidate preview filters", "data-candidate-filter"],
   ["Candidate review-status filters", 'data-candidate-filter="reviewed"'],
