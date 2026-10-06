@@ -3589,6 +3589,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var completionRate = baseQueue.length ? Math.round(doneCount / baseQueue.length * 100) : 0;
         var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
         var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
+        var auditGapCount = baseQueue.filter(function (item) { return sourceAuditRecord(item.record)?.status === "unavailable"; }).length;
         var queue = reviewQueueForDisplay(baseQueue);
         if (moreTarget) {
           moreTarget.hidden = queue.length <= 6;
@@ -3604,7 +3605,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else if (sharedReviewMissingCount) sharedCopy.textContent = "이 공유 링크의 " + sharedReviewMissingCount.toLocaleString("ko-KR") + "건은 현재 스냅샷에 없습니다. 최신 검토 큐를 확인하세요.";
           else if (sharedReviewIds.length) sharedCopy.textContent = "공유된 검토 대상 " + queue.length.toLocaleString("ko-KR") + "건만 표시 중입니다 · 필터: " + reviewQueueFilterLabels[reviewQueueFilter] + ". 이 브라우저의 로컬 검토 기록은 공유되지 않습니다.";
         }
-        if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + completionRate + '%</strong> 전체 큐 완료율</span><span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
+        if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + completionRate + '%</strong> 전체 큐 완료율</span><span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + auditGapCount.toLocaleString("ko-KR") + '건</strong> 원문 접근 제한</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
         document.querySelectorAll("[data-review-filter]").forEach(function (button) {
           setActiveToggle(button, button.dataset.reviewFilter === reviewQueueFilter);
         });
