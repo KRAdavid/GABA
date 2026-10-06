@@ -1917,6 +1917,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           select.appendChild(option);
         });
       }
+      function setActiveToggle(button, active) {
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      }
 
       function initMeta() {
         var discovery = DB.meta.discovery || {};
@@ -2035,16 +2039,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (controls[key]) controls[key].value = key === "pageSize" ? String(pageSize) : state[key];
         });
         document.querySelectorAll("[data-kind]").forEach(function (button) {
-          button.classList.toggle("active", button.dataset.kind === state.kind);
+          setActiveToggle(button, button.dataset.kind === state.kind);
         });
         document.querySelectorAll("[data-category]").forEach(function (button) {
-          button.classList.toggle("active", button.dataset.category === state.category);
+          setActiveToggle(button, button.dataset.category === state.category);
         });
         document.querySelectorAll("[data-effect-category]").forEach(function (button) {
-          button.classList.toggle("active", button.dataset.effectCategory === state.effectCategory);
+          setActiveToggle(button, button.dataset.effectCategory === state.effectCategory);
         });
         document.querySelectorAll("[data-preset]").forEach(function (button) {
-          button.classList.toggle("active", button.dataset.preset === activePreset());
+          setActiveToggle(button, button.dataset.preset === activePreset());
         });
       }
 
@@ -2323,10 +2327,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '</article>';
         }).join("");
         document.querySelectorAll("[data-intelligence-kind]").forEach(function (button) {
-          button.classList.toggle("active", button.dataset.intelligenceKind === intelligenceKind);
+          setActiveToggle(button, button.dataset.intelligenceKind === intelligenceKind);
         });
         document.querySelectorAll("[data-intelligence-review]").forEach(function (button) {
-          button.classList.toggle("active", button.dataset.intelligenceReview === intelligenceReview);
+          setActiveToggle(button, button.dataset.intelligenceReview === intelligenceReview);
         });
       }
       var PORTAL_LANES = [
@@ -2464,7 +2468,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         reviewDraftStatus = decision.status;
         reviewDraftNote = decision.note;
         document.querySelectorAll("[data-detail-review-status]").forEach(function (button) {
-          button.classList.toggle("active", button.dataset.detailReviewStatus === reviewDraftStatus);
+          setActiveToggle(button, button.dataset.detailReviewStatus === reviewDraftStatus);
         });
         var note = el("intelligence-detail-note");
         if (note) note.value = reviewDraftNote;
@@ -2499,7 +2503,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         countTarget.textContent = queue.length.toLocaleString("ko-KR") + "건 대기 · " + doneCount.toLocaleString("ko-KR") + "건 완료 · " + holdCount.toLocaleString("ko-KR") + "건 자료 필요";
         if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
         document.querySelectorAll("[data-review-filter]").forEach(function (button) {
-          button.classList.toggle("active", button.dataset.reviewFilter === reviewQueueFilter);
+          setActiveToggle(button, button.dataset.reviewFilter === reviewQueueFilter);
         });
         target.innerHTML = queue.length ? queue.slice(0, 6).map(function (item) {
           var record = item.record;
