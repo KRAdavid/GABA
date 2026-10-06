@@ -211,6 +211,13 @@ try {
   assert.equal(await evaluate(client, "document.activeElement?.id"), "reading-list-open");
   await evaluate(client, "document.querySelector('[data-reading-toggle]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-count')?.textContent"), "0");
+  await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () { throw new Error('qa clipboard denied'); } } })");
+  await evaluate(client, "document.querySelector('#share-button').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#copy-dialog')?.open"), true);
+  assert.equal(await evaluate(client, "new URL(document.querySelector('#copy-dialog-value')?.value || location.href).searchParams.get('kind')"), "임상");
+  await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#copy-dialog')?.open"), false);
   assert.equal(await evaluate(client, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true);
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-intelligence-id]').length > 0"), true);
   await evaluate(client, "document.querySelector('[data-intelligence-id]').click()");

@@ -76,6 +76,8 @@ const required = [
   ,["Review share copy action", "copyReviewShareUrl"]
   ,["Shared queue exit", "clearSharedReviewQueue"]
   ,["Shared queue focus", "sharedReviewNeedsFocus"]
+  ,["Unified copy dialog", "copy-dialog"]
+  ,["Unified copy fallback", "openCopyDialog"]
   ,["Intervention classification", "function interventionClass"]
   ,["Intervention classification URL state", "state.intervention"]
 ];

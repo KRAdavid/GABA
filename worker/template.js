@@ -242,6 +242,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-share-actions button { min-height: 34px; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .review-share-actions button.secondary { border-color: var(--line); background: #fff; color: var(--muted); }
     @media (max-width: 640px) { .review-share-inner { padding: 16px; } }
+    .copy-dialog { width: min(720px, calc(100% - 28px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
+    .copy-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
+    .copy-dialog-inner { padding: 22px; }
+    .copy-dialog-head { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .copy-dialog-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
+    .copy-dialog-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .copy-dialog-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .copy-dialog-value { width: 100%; min-height: 140px; margin-top: 16px; padding: 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); color: var(--ink); font: inherit; font-size: 11px; line-height: 1.5; resize: vertical; }
+    .copy-dialog-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .copy-dialog-actions button { min-height: 34px; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .copy-dialog-actions button.secondary { border-color: var(--line); background: #fff; color: var(--muted); }
+    @media (max-width: 640px) { .copy-dialog-inner { padding: 16px; } }
     .review-queue-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .review-queue-card { padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 10px; background: var(--surface-2); }
     .review-queue-card.priority-high { border-left-color: #d97706; }
@@ -1719,6 +1731,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="review-share-actions"><button id="review-share-copy" type="button">링크 복사</button><button class="secondary" id="review-share-close-secondary" type="button">닫기</button></div>
       </div>
     </dialog>
+    <dialog class="copy-dialog" id="copy-dialog" aria-labelledby="copy-dialog-title">
+      <div class="copy-dialog-inner">
+        <div class="copy-dialog-head">
+          <div><h2 id="copy-dialog-title">복사할 내용</h2><p id="copy-dialog-description">클립보드 권한이 없을 때 아래 내용을 선택해 직접 복사할 수 있습니다.</p></div>
+          <button class="copy-dialog-close" id="copy-dialog-close" type="button" aria-label="복사 패널 닫기">×</button>
+        </div>
+        <textarea class="copy-dialog-value" id="copy-dialog-value" readonly></textarea>
+        <div class="copy-dialog-actions"><button id="copy-dialog-copy" type="button">다시 복사</button><button class="secondary" id="copy-dialog-close-secondary" type="button">닫기</button></div>
+      </div>
+    </dialog>
 
     <section class="section" aria-labelledby="distribution-title">
       <div class="section-head">
@@ -1990,6 +2012,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var compareReturnFocus = null;
       var readingReturnFocus = null;
       var reviewShareReturnFocus = null;
+      var copyDialogReturnFocus = null;
+      var copyDialogSuccessMessage = "내용을 복사했습니다";
       var urlReadingIds = [];
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
@@ -2787,6 +2811,36 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           toast("링크를 선택했습니다 · Ctrl+C로 복사하세요");
         }
       }
+      function openCopyDialog(title, description, value, successMessage) {
+        var dialog = el("copy-dialog");
+        el("copy-dialog-title").textContent = title;
+        el("copy-dialog-description").textContent = description;
+        el("copy-dialog-value").value = value;
+        copyDialogSuccessMessage = successMessage || "내용을 복사했습니다";
+        copyDialogReturnFocus = document.activeElement;
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
+        el("copy-dialog-value").focus();
+        el("copy-dialog-value").select();
+      }
+      function closeCopyDialog() {
+        var dialog = el("copy-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
+        if (copyDialogReturnFocus && typeof copyDialogReturnFocus.focus === "function") copyDialogReturnFocus.focus();
+        copyDialogReturnFocus = null;
+      }
+      async function copyDialogValue() {
+        var input = el("copy-dialog-value");
+        try {
+          await navigator.clipboard.writeText(input.value);
+          toast(copyDialogSuccessMessage);
+        } catch (_) {
+          input.focus();
+          input.select();
+          toast("내용을 선택했습니다 · Ctrl+C로 복사하세요");
+        }
+      }
       function shareReviewQueue() {
         var queue = reviewQueueForDisplay(buildReviewQueue());
         if (!queue.length) { toast("공유할 검토 자료가 없습니다"); return; }
@@ -3023,7 +3077,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           await navigator.clipboard.writeText(text);
           toast("읽기 목록 링크를 복사했습니다");
         } catch (_) {
-          window.prompt("아래 읽기 목록 링크를 복사하세요", text);
+          openCopyDialog("읽기 목록 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", text, "읽기 목록 링크를 복사했습니다");
         }
       }
       async function copyReadingList() {
@@ -3033,7 +3087,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           await navigator.clipboard.writeText(text);
           toast("읽기 목록 브리프를 복사했습니다");
         } catch (_) {
-          window.prompt("아래 근거 브리프를 복사하세요", text);
+          openCopyDialog("읽기 목록 브리프", "클립보드 권한이 없으면 아래 내용을 선택해 직접 복사하세요.", text, "읽기 목록 브리프를 복사했습니다");
         }
       }
       function clearReadingList() {
@@ -3142,7 +3196,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           await navigator.clipboard.writeText(text);
           toast("비교표를 복사했습니다");
         } catch (_) {
-          window.prompt("비교표를 복사하세요", text);
+          openCopyDialog("비교표", "클립보드 권한이 없으면 아래 표를 선택해 직접 복사하세요.", text, "비교표를 복사했습니다");
         }
       }
       function openCompareDialog() {
@@ -3511,6 +3565,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         event.preventDefault();
         closeReviewShareDialog();
       });
+      el("copy-dialog-copy").addEventListener("click", copyDialogValue);
+      el("copy-dialog-close").addEventListener("click", closeCopyDialog);
+      el("copy-dialog-close-secondary").addEventListener("click", closeCopyDialog);
+      el("copy-dialog").addEventListener("click", function (event) {
+        if (event.target === el("copy-dialog")) closeCopyDialog();
+      });
+      el("copy-dialog").addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeCopyDialog();
+      });
       el("review-queue-import").addEventListener("click", function () { el("review-queue-file").click(); });
       el("review-queue-file").addEventListener("change", async function () {
         var file = el("review-queue-file").files?.[0];
@@ -3617,7 +3681,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             await navigator.clipboard.writeText(citation);
             toast("인용 정보를 복사했습니다");
           } catch (_) {
-            window.prompt("아래 인용 정보를 복사하세요", citation);
+            openCopyDialog("인용 정보", "클립보드 권한이 없으면 아래 인용 정보를 선택해 직접 복사하세요.", citation, "인용 정보를 복사했습니다");
           }
           return;
         }
@@ -3630,7 +3694,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             await navigator.clipboard.writeText(brief);
             toast("근거 브리프를 복사했습니다");
           } catch (_) {
-            window.prompt("아래 근거 브리프를 복사하세요", brief);
+            openCopyDialog("근거 브리프", "클립보드 권한이 없으면 아래 브리프를 선택해 직접 복사하세요.", brief, "근거 브리프를 복사했습니다");
           }
           return;
         }
@@ -3694,7 +3758,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-          if (el("review-share-dialog").open) closeReviewShareDialog();
+          if (el("copy-dialog").open) closeCopyDialog();
+          else if (el("review-share-dialog").open) closeReviewShareDialog();
           else if (el("reading-list-dialog").open) closeReadingList();
           else if (el("compare-dialog").open) closeCompareDialog();
           else if (el("intelligence-detail").open) closeIntelligenceDetail();
@@ -3711,7 +3776,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           await navigator.clipboard.writeText(location.href);
           toast("현재 검색 조건 링크를 복사했습니다");
         } catch (_) {
-          window.prompt("아래 링크를 복사하세요", location.href);
+          openCopyDialog("현재 검색 조건 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", location.href, "현재 검색 조건 링크를 복사했습니다");
         }
       });
       function scrollToResults() {
