@@ -99,6 +99,7 @@ const required = [
   ["Comparison copy action", 'id="compare-copy"'],
   ["Comparison focus return", "compareReturnFocus"],
   ["Result evidence composition", 'id="result-interpretation"'],
+  ["Result next review action", 'id="result-review-jump"'],
   ["Shareable record deep link", "urlRecordId"],
   ["Citation copy action", "data-copy-citation"],
   ["Record link copy action", "data-copy-record-link"],

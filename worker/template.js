@@ -1311,6 +1311,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .result-interpretation-stat { padding: 5px 8px; border-radius: 7px; background: #fff; color: var(--ink-2); font-size: 11px; font-weight: 800; }
     .result-interpretation-stat strong { color: var(--teal-dark); }
     .result-interpretation-note { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .result-interpretation-action { justify-self: start; min-height: 30px; padding: 5px 9px; border: 1px solid rgba(15,118,110,.3); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 900; cursor: pointer; }
+    .result-interpretation-action:hover, .result-interpretation-action:focus-visible { border-color: var(--teal); background: var(--teal-soft); }
     @media (max-width: 640px) {
       .result-interpretation { grid-template-columns: 1fr; gap: 8px; }
       .result-interpretation-note { grid-column: auto; }
@@ -4237,7 +4239,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="result-interpretation-stat">규제·안전성 <strong>' + regulatory.toLocaleString("ko-KR") + '</strong></span>' +
             '<span class="result-interpretation-stat">추가 확인 <strong>' + review.toLocaleString("ko-KR") + '</strong></span>' +
           '</div>' +
-          '<p class="result-interpretation-note">인체·동물·규제 자료는 근거의 범위가 다릅니다. <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>을 확인할 때 인체 연구와 원문 상태를 먼저 비교하세요.</p>';
+          '<p class="result-interpretation-note">인체·동물·규제 자료는 근거의 범위가 다릅니다. <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>을 확인할 때 인체 연구와 원문 상태를 먼저 비교하세요.</p>' +
+          (review ? '<button class="result-interpretation-action" id="result-review-jump" type="button">추가 확인 큐 보기 · ' + review.toLocaleString("ko-KR") + '건</button>' : '');
       }
 
       function render(historyMode) {
@@ -4547,6 +4550,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        var reviewJump = event.target.closest("#result-review-jump");
+        if (reviewJump) {
+          var reviewTitle = el("review-queue-title");
+          reviewTitle.scrollIntoView({ behavior: "smooth", block: "start" });
+          setTimeout(function () { reviewTitle.focus(); }, 120);
+          return;
+        }
         var emptyReset = event.target.closest("[data-empty-reset]");
         if (emptyReset) {
           resetFilters();

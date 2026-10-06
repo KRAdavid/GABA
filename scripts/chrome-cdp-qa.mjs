@@ -251,6 +251,10 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#result-review-jump')?.textContent.includes('추가 확인 큐 보기')"), true);
+  await evaluate(client, "document.querySelector('#result-review-jump').click()");
+  await sleep(120);
+  assert.equal(await evaluate(client, "document.activeElement?.id"), "review-queue-title");
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('현재 운영 코드 기준 Sites v516 · GitHub b291482')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v485 · GitHub e60d363')"), true);
