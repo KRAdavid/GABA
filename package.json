@@ -7,6 +7,7 @@
     "data": "node scripts/generate-data.mjs",
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
+    "validate:curated-notes": "node scripts/validate-curated-notes.mjs",
     "quality": "node scripts/data-quality.mjs",
     "quality:remote": "node scripts/data-quality.mjs --remote",
     "validate:health": "node scripts/validate-health-contract.mjs",
