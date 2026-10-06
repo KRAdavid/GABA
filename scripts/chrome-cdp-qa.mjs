@@ -133,6 +133,11 @@ try {
 
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.querySelector('#metric-total')?.textContent.trim()"), "384편");
+  const health = await evaluate(client, "fetch('/api/health').then(function (response) { return response.json(); })");
+  assert.equal(health.ok, true);
+  assert.equal(health.records, 392);
+  assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
+  assert.ok(health.candidatePreviewCount > 0);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#freshness-label')?.textContent.trim())"), true);
   assert.notEqual(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.trim()"), "매주 업데이트");
   assert.equal(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.includes('탐색')"), true);
