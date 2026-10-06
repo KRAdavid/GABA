@@ -136,6 +136,8 @@ try {
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#freshness-label')?.textContent.trim())"), true);
   assert.notEqual(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.trim()"), "매주 업데이트");
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
+  await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true);
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-intelligence-id]').length > 0"), true);
   await evaluate(client, "document.querySelector('[data-intelligence-id]').click()");

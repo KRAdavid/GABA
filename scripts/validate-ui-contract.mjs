@@ -39,6 +39,7 @@ const required = [
   ["Citation copy action", "data-copy-citation"],
   ["Evidence brief copy action", "data-copy-brief"],
   ["Hero search entry", "hero-primary"],
+  ["Exploration presets", "data-preset"],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
 ];

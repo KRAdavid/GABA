@@ -711,6 +711,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       border-color: var(--teal);
       color: var(--teal-dark);
     }
+    .explorer-intents { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 14px; }
+    .explorer-intents-label { margin-right: 3px; color: var(--muted); font-size: 11px; font-weight: 900; }
+    .intent-button { min-height: 32px; padding: 5px 10px; border: 1px solid #c9d4d1; border-radius: 999px; background: #fff; color: var(--ink-2); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .intent-button:hover, .intent-button:focus-visible, .intent-button.active { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
     .search-clear {
       position: absolute;
       right: 8px;
@@ -1636,6 +1640,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="suggestion-button" type="button" data-query="수산 성장">수산·성장</button>
           <button class="suggestion-button" type="button" data-query="한시적 인정">한시적 인정</button>
         </div>
+        <div class="explorer-intents" aria-label="탐색 목적 빠른 선택">
+          <span class="explorer-intents-label">탐색 목적</span>
+          <button class="intent-button" type="button" data-preset="clinical">인체 직접근거</button>
+          <button class="intent-button" type="button" data-preset="regulatory">안전·규제</button>
+          <button class="intent-button" type="button" data-preset="source">원문 확인 우선</button>
+          <button class="intent-button" type="button" data-preset="review">추가 검토</button>
+        </div>
         <div class="quick-row" aria-label="연구구분 빠른 필터">
           <button class="quick-button active" type="button" data-kind="">전체</button>
           <button class="quick-button" type="button" data-kind="임상">인체 임상</button>
@@ -2013,6 +2024,37 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         document.querySelectorAll("[data-effect-category]").forEach(function (button) {
           button.classList.toggle("active", button.dataset.effectCategory === state.effectCategory);
         });
+        document.querySelectorAll("[data-preset]").forEach(function (button) {
+          button.classList.toggle("active", button.dataset.preset === activePreset());
+        });
+      }
+
+      function activePreset() {
+        if (state.q || state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear || state.sort !== "latest") return "";
+        var common = ["category", "effectCategory", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
+        if (common.some(function (key) { return state[key]; })) return "";
+        if (state.kind === "임상" && !state.status && !state.source) return "clinical";
+        if (state.kind === "규제" && !state.status && !state.source) return "regulatory";
+        if (state.source === "drive" && !state.kind && !state.status) return "source";
+        if (state.status === "후보" && !state.kind && !state.source) return "review";
+        return "";
+      }
+
+      function applyPreset(name) {
+        var keys = ["q", "kind", "category", "effectCategory", "status", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "from", "to", "sort"];
+        keys.forEach(function (key) {
+          if (key === "from") state[key] = DB.meta.minYear;
+          else if (key === "to") state[key] = DB.meta.maxYear;
+          else if (key === "sort") state[key] = "latest";
+          else state[key] = "";
+        });
+        if (name === "clinical") state.kind = "임상";
+        if (name === "regulatory") state.kind = "규제";
+        if (name === "source") state.source = "drive";
+        if (name === "review") state.status = "후보";
+        state.page = 1;
+        render();
+        scrollToResults();
       }
 
       function persistUrl() {
@@ -2832,6 +2874,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           state.page = 1;
           render();
         });
+      });
+      document.querySelectorAll("[data-preset]").forEach(function (button) {
+        button.addEventListener("click", function () { applyPreset(button.dataset.preset || ""); });
       });
       document.querySelectorAll("[data-query]").forEach(function (button) {
         if (button.closest(".intelligence-feed, .portal-lane, .review-queue")) return;
