@@ -91,6 +91,14 @@ async function evaluate(client, expression) {
   if (result.exceptionDetails) throw new Error(result.exceptionDetails.text || "Runtime evaluation failed");
   return result.result?.value;
 }
+async function waitForExpression(client, expression, timeoutMs = 2500) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    if (await evaluate(client, expression)) return true;
+    await sleep(50);
+  }
+  return false;
+}
 
 const httpPort = await freePort();
 const debugPort = await freePort();
@@ -284,8 +292,7 @@ try {
   await evaluate(client, "document.querySelector('#intelligence-detail-close').click()");
   await sleep(100);
   await evaluate(client, "document.querySelector('#result-review-jump').click()");
-  await sleep(120);
-  assert.equal(await evaluate(client, "document.activeElement?.id"), "review-queue-title");
+  assert.equal(await waitForExpression(client, "document.activeElement?.id === 'review-queue-title'"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
   const currentDeploymentLabel = "현재 운영 코드 기준(런타임) Sites v" + health.release.currentCodeDeployment.siteVersion + " · GitHub " + health.release.currentCodeDeployment.publicMirrorCommit.slice(0, 7);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes(" + JSON.stringify(currentDeploymentLabel) + ")"), true);
