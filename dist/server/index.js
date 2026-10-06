@@ -253,6 +253,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .compare-dialog-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
     .compare-dialog-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
     .compare-dialog-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .compare-dialog-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .compare-dialog-actions button { min-height: 34px; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .compare-table-wrap { overflow-x: auto; margin-top: 16px; }
     .compare-table { min-width: 760px; width: 100%; border-collapse: collapse; font-size: 12px; }
     .compare-table th, .compare-table td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; line-height: 1.5; }
@@ -1635,6 +1637,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="compare-dialog-close" id="compare-dialog-close" type="button" aria-label="비교 닫기">×</button>
         </div>
         <div id="compare-table" class="compare-table-wrap"></div>
+        <div class="compare-dialog-actions"><button id="compare-copy" type="button">비교표 복사</button></div>
       </div>
     </dialog>
 
@@ -2077,6 +2080,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           state.to = boundedFrom;
         }
         if (["20", "50", "100"].includes(params.get("pageSize"))) pageSize = Number(params.get("pageSize"));
+        if (params.has("compare")) {
+          var requestedCompareIds = String(params.get("compare") || "").split(",").map(function (id) { return id.trim(); }).filter(Boolean);
+          compareIds = requestedCompareIds.filter(function (id, index) {
+            return index < 4 && records.some(function (record) { return String(record.id) === id; });
+          });
+          saveCompareIds();
+        }
         urlRecordId = params.get("record") || "";
       }
 
@@ -2135,6 +2145,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (state.to !== DB.meta.maxYear) params.set("to", state.to);
         if (state.sort !== "latest") params.set("sort", state.sort);
         if (pageSize !== 20) params.set("pageSize", pageSize);
+        if (compareIds.length) params.set("compare", compareIds.join(","));
         if (urlRecordId) params.set("record", urlRecordId);
         var query = params.toString();
         var method = historyMode === "push" ? "pushState" : "replaceState";
@@ -2750,6 +2761,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         else if (selectedCompareRecords().length >= 4) { toast("비교 자료는 최대 4개까지 선택할 수 있습니다"); return; }
         else if (records.some(function (record) { return String(record.id) === id; })) compareIds.push(id);
         saveCompareIds();
+        persistUrl("replace");
         renderCompareTray();
       }
       function renderCompareTable() {
@@ -2766,6 +2778,26 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         }).join("") + '</tr></thead><tbody>' + rows.map(function (row) {
           return '<tr><th scope="row">' + esc(row[0]) + '</th>' + selected.map(function (record) { return '<td>' + esc(compareValue(record, row[1])) + '</td>'; }).join("") + '</tr>';
         }).join("") + '</tbody></table>';
+      }
+      function compareText() {
+        var selected = selectedCompareRecords();
+        var rows = [
+          ["연구 유형", "kind"], ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
+          ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
+          ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
+        ];
+        return [["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
+          .concat(rows.map(function (row) { return [row[0]].concat(selected.map(function (record) { return compareValue(record, row[1]); })); }))
+          .map(function (row) { return row.join("\t"); }).join("\n");
+      }
+      async function copyCompareSelection() {
+        var text = compareText();
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("비교표를 복사했습니다");
+        } catch (_) {
+          window.prompt("비교표를 복사하세요", text);
+        }
       }
       function openCompareDialog() {
         if (selectedCompareRecords().length < 2) { toast("비교할 자료를 2개 이상 선택하세요"); return; }
@@ -3112,9 +3144,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         closeIntelligenceDetail();
       });
       el("compare-open").addEventListener("click", openCompareDialog);
+      el("compare-copy").addEventListener("click", copyCompareSelection);
       el("compare-clear").addEventListener("click", function () {
         compareIds = [];
         saveCompareIds();
+        persistUrl("replace");
         renderCompareTray();
         toast("비교 선택을 해제했습니다");
       });
