@@ -14,6 +14,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="GABA 연구·규제 안전성 근거 인덱스">
   <meta name="twitter:description" content="GABA 섭취 연구와 규제·안전성 자료를 근거 수준과 원문 연결로 탐색하는 한국어 포털">
+  <link rel="canonical" href="https://gaba-evidence-index-kr.dubaissday.chatgpt.site/">
   <title>GABA 연구·규제 안전성 근거 인덱스</title>
   <style>
     :root {
@@ -2824,6 +2825,10 @@ function response(body, status, contentType, cacheControl) {
   });
 }
 
+const PUBLIC_ORIGIN = "https://gaba-evidence-index-kr.dubaissday.chatgpt.site";
+const ROBOTS = `User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${PUBLIC_ORIGIN}/sitemap.xml\n`;
+const SITEMAP = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${PUBLIC_ORIGIN}/</loc></url></urlset>`;
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -2839,6 +2844,12 @@ export default {
     }
     if (url.pathname === "/api/records") {
       return response(JSON.stringify(DATABASE), 200, "application/json; charset=utf-8", "public, max-age=300");
+    }
+    if (url.pathname === "/robots.txt") {
+      return response(ROBOTS, 200, "text/plain; charset=utf-8", "public, max-age=3600");
+    }
+    if (url.pathname === "/sitemap.xml") {
+      return response(SITEMAP, 200, "application/xml; charset=utf-8", "public, max-age=3600");
     }
     return response(request.method === "HEAD" ? null : PAGE, 200, "text/html; charset=utf-8", "public, max-age=120");
   }
