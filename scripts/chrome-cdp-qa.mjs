@@ -148,8 +148,8 @@ try {
   assert.equal(health.release?.siteVersion, 485);
   assert.equal(health.release?.sourceCommit, "bd958c5faec6c86dda8b99ea5dd09aecf777656a");
   assert.equal(health.release?.publicMirrorCommit, "e60d363a0133da4c59e65f1e1c44296650894d46");
-  assert.equal(health.release?.currentCodeDeployment?.siteVersion, 514);
-  assert.equal(health.release?.currentCodeDeployment?.sourceCommit, "69a5286e713ff8e70259a7e1e8d2d3124fd729c3");
+  assert.equal(health.release?.currentCodeDeployment?.siteVersion, 516);
+  assert.equal(health.release?.currentCodeDeployment?.sourceCommit, "d124f8549c7968d88fc64afc7b956d31489e0bc5");
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
   assert.ok(health.candidateExportCount >= health.stagedCandidates);
   assert.ok(health.candidatePreviewCount > 0);
@@ -252,7 +252,7 @@ try {
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
-  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('현재 운영 코드 기준 Sites v514 · GitHub e9c1d9c')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('현재 운영 코드 기준 Sites v516 · GitHub b291482')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v485 · GitHub e60d363')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원천 오류')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원문 감사')"), true);
