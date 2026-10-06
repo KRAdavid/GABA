@@ -39,6 +39,7 @@ data-quality → build → validate → build-pending-sheet-sync → UI contract
 - `node scripts/chrome-cdp-qa.mjs`: Playwright 없이 설치된 Chrome으로 desktop/mobile 핵심 흐름과 overflow 확인
 - `/api/health`: 검증 스냅샷·자동 탐색 후보·후보 미리보기 상태를 읽기 전용으로 확인
 - `node scripts/validate-public-surface.mjs`: 공개 HTML/API에 내부 관리 Sheet URL이 노출되지 않는지 확인
+- `node scripts/validate-live-release.mjs`: 실제 공개 URL의 Health·릴리스 provenance·원문 감사·공개면 위생을 최종 확인
 - `node scripts/sync-public-release.mjs`: 지정된 공개 릴리스 디렉터리에 운영 template/data/build/validate/hosting과 UI/Chrome QA 검증기를 동기화하고 관리 Sheet URL을 제거
 - `node scripts/package-public-release.mjs`: 최신 커밋 기준 Sites용 tar 경로를 출력하고 필수 파일·내부 Sheet URL 비노출을 재검증
 
