@@ -139,6 +139,14 @@ try {
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
   assert.ok(health.candidatePreviewCount > 0);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"면역 타액 IgA\"]'))"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/?intervention=${encodeURIComponent('수용체 약물·작용제')}`);
+  assert.equal(await evaluate(client, "document.querySelector('[data-intervention=\"수용체 약물·작용제\"]')?.classList.contains('active')"), true);
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "수용체 약물·작용제");
+  await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('존재하지 않는 GABA 자료 검색어')}`);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-empty-reset]'))"), true);
+  await evaluate(client, "document.querySelector('[data-empty-clear-query]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('q')"), false);
+  assert.equal(await evaluate(client, "document.querySelectorAll('.paper-card').length > 0"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('현수교 스트레스')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);

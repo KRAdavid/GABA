@@ -120,6 +120,8 @@ const required = [
   ,["Unified copy fallback", "openCopyDialog"]
   ,["Intervention classification", "function interventionClass"]
   ,["Intervention classification URL state", "state.intervention"]
+  ,["Intervention classification URL restoration", '\"intervention\", \"grade\"']
+  ,["Empty result recovery", "data-empty-reset"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));

@@ -1385,6 +1385,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     }
     .empty-state h3 { margin: 0; font-size: 20px; }
     .empty-state p { color: var(--muted); }
+    .empty-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+    .empty-action { min-height: 36px; padding: 7px 11px; border: 1px solid var(--teal); border-radius: 9px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .empty-action.secondary { border-color: var(--line); background: #fff; color: var(--teal-dark); }
     .pagination {
       display: flex;
       align-items: center;
@@ -2463,7 +2466,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
         pageSize = 20;
-        ["q", "kind", "category", "effectCategory", "status", "marketing", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
           if (params.has(key)) state[key] = params.get(key) || "";
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
@@ -3772,7 +3775,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("result-count").innerHTML = '검증 레코드 ' + DB.meta.total.toLocaleString("ko-KR") + '건 중 <strong>' + list.length.toLocaleString("ko-KR") + '건</strong> · ' + elapsed.toFixed(elapsed < 10 ? 1 : 0) + 'ms<small>문헌 ' + Number(DB.meta.literature || 0).toLocaleString("ko-KR") + '편 + 규제·안전성 자료 ' + Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + '건 · 자동 탐색 후보는 별도 큐</small>';
         el("papers").innerHTML = pageRecords.length
           ? pageRecords.map(paperCard).join("")
-          : '<div class="empty-state"><h3>조건에 맞는 자료가 없습니다</h3><p>검색어를 줄이거나 상세 필터를 초기화해 보세요.</p></div>';
+          : '<div class="empty-state"><h3>조건에 맞는 자료가 없습니다</h3><p>현재 조건을 완화하면 다시 탐색할 수 있습니다.</p><div class="empty-actions">' +
+            (state.q ? '<button class="empty-action secondary" type="button" data-empty-clear-query>검색어 지우기</button>' : '') +
+            '<button class="empty-action" type="button" data-empty-reset>모든 조건 초기화</button></div></div>';
         el("page-status").textContent = state.page + " / " + totalPages;
         el("prev").disabled = state.page <= 1;
         el("next").disabled = state.page >= totalPages;
@@ -4048,6 +4053,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        var emptyReset = event.target.closest("[data-empty-reset]");
+        if (emptyReset) {
+          resetFilters();
+          scrollToResults();
+          return;
+        }
+        var emptyClearQuery = event.target.closest("[data-empty-clear-query]");
+        if (emptyClearQuery) {
+          changeState("q", "");
+          controls.q.focus();
+          return;
+        }
         var candidateDetailButton = event.target.closest("[data-candidate-detail]");
         if (candidateDetailButton) {
           openCandidateDetail(candidateDetailButton.dataset.candidateDetail || "");
