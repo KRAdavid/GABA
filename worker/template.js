@@ -1861,7 +1861,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         </div>
         <div class="explorer-intents" aria-label="탐색 목적 빠른 선택">
           <span class="explorer-intents-label">탐색 목적</span>
-          <button class="intent-button" type="button" data-preset="clinical">인체 직접근거</button>
+          <button class="intent-button" type="button" data-preset="human-direct">인체 직접근거</button>
           <button class="intent-button" type="button" data-preset="regulatory">안전·규제</button>
           <button class="intent-button" type="button" data-preset="source">원문 확인 우선</button>
           <button class="intent-button" type="button" data-preset="review">추가 검토</button>
@@ -2487,6 +2487,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function activePreset() {
         if (state.q || state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear || state.sort !== "latest") return "";
         var common = ["category", "effectCategory", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
+        if (state.kind === "임상" && state.status === "포함" && state.intervention === "순수 GABA 섭취" && !state.source) return "human-direct";
         if (common.some(function (key) { return state[key]; })) return "";
         if (state.kind === "임상" && !state.status && !state.source) return "clinical";
         if (state.kind === "규제" && !state.status && !state.source) return "regulatory";
@@ -2504,6 +2505,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else state[key] = "";
         });
         if (name === "clinical") state.kind = "임상";
+        if (name === "human-direct") {
+          state.kind = "임상";
+          state.status = "포함";
+          state.intervention = "순수 GABA 섭취";
+        }
         if (name === "regulatory") state.kind = "규제";
         if (name === "source") state.source = "drive";
         if (name === "review") state.status = "후보";

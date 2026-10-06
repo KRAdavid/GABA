@@ -186,7 +186,11 @@ try {
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-title-korean')?.textContent.includes('·')"), true);
-  await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
+  await evaluate(client, "document.querySelector('[data-preset=human-direct]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('status')"), "포함");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "순수 GABA 섭취");
+  await navigate(`http://127.0.0.1:${httpPort}/`);
+  await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]').click()");
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "document.querySelector('#snapshot-label')?.textContent.startsWith('검증 스냅샷')"), true);
@@ -228,7 +232,7 @@ try {
   await evaluate(client, "document.querySelector('#review-queue-shared-clear').click()");
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-shared-note')?.hidden"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
-  await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
+  await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]').click()");
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-compare-toggle]').length >= 2"), true);
   await evaluate(client, "document.querySelectorAll('[data-compare-toggle]')[0].click(); document.querySelectorAll('[data-compare-toggle]')[1].click()");
   assert.equal(await evaluate(client, "document.querySelector('#compare-open')?.disabled"), false);
@@ -279,7 +283,7 @@ try {
   assert.ok(cardIntervention, "Expected an intervention filter badge on a result card");
   await evaluate(client, "document.querySelector('.paper-card .intervention-filter-badge').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), cardIntervention);
-  await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
+  await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]').click()");
   await evaluate(client, "document.querySelector('[data-intelligence-id]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), true);
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('개입 구분')"), true);
