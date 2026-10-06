@@ -382,6 +382,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 13px;
       font-weight: 700;
     }
+    .hero-pill.freshness-stale { border-color: rgba(255, 216, 154, .72); background: rgba(255, 216, 154, .18); color: #ffe4b5; }
+    .hero-pill.freshness-recent { border-color: rgba(183, 243, 231, .5); color: #d6fff7; }
     .pulse {
       width: 8px;
       height: 8px;
@@ -1368,7 +1370,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="hero-meta">
           <span class="hero-pill"><span class="pulse" aria-hidden="true"></span><span id="snapshot-label"></span></span>
           <span class="hero-pill" id="coverage-label"></span>
-          <span class="hero-pill">매주 업데이트</span>
+          <span class="hero-pill" id="freshness-label" title="공개 데이터 스냅샷의 최신성">스냅샷 최신성 확인 중</span>
         </div>
       </div>
       <div class="hero-proof" aria-label="인덱스의 핵심 원칙">
@@ -1828,6 +1830,31 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var parts = String(value || "").split("-");
         return parts.length === 3 ? Number(parts[0]) + "년 " + Number(parts[1]) + "월 " + Number(parts[2]) + "일" : value;
       }
+      function updateFreshnessLabel(snapshotDate) {
+        var target = el("freshness-label");
+        if (!target) return;
+        var parsed = new Date(String(snapshotDate || "") + "T00:00:00");
+        if (Number.isNaN(parsed.getTime())) {
+          target.textContent = "갱신일 확인 필요";
+          target.classList.add("freshness-stale");
+          return;
+        }
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        var age = Math.max(0, Math.floor((today.getTime() - parsed.getTime()) / 86400000));
+        if (age <= 7) {
+          target.textContent = "최근 스냅샷";
+          target.classList.add("freshness-recent");
+          target.title = "공개 데이터 스냅샷이 " + age + "일 전 갱신되었습니다.";
+        } else if (age <= 21) {
+          target.textContent = "갱신 예정 · " + age + "일 경과";
+          target.title = "공개 데이터 스냅샷이 " + age + "일 경과했습니다. 최신성 확인 후 활용하세요.";
+        } else {
+          target.textContent = "갱신 점검 · " + age + "일 경과";
+          target.title = "공개 데이터 스냅샷이 " + age + "일 경과했습니다. 최신 자료 여부를 확인한 뒤 활용하세요.";
+          target.classList.add("freshness-stale");
+        }
+      }
       function countText(value) { return Number(value || 0).toLocaleString("ko-KR") + "편"; }
       function optionLabel(item) { return item.label + " (" + item.value.toLocaleString("ko-KR") + ")"; }
       function addOptions(select, items) {
@@ -1851,6 +1878,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           sheetLink.hidden = false;
         }
         el("snapshot-label").textContent = "최종 갱신 " + koreanDate(DB.meta.snapshotDate);
+        updateFreshnessLabel(DB.meta.snapshotDate);
         el("coverage-label").textContent = DB.meta.minYear + "–" + DB.meta.maxYear + "년";
         el("metric-total").textContent = countText(DB.meta.literature || DB.meta.total);
         el("metric-clinical").textContent = countText(DB.meta.clinical);

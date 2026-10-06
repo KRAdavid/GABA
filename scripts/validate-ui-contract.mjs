@@ -33,6 +33,7 @@ const required = [
   ["Local review completion", "data-review-done"],
   ["Review queue export", 'id="review-queue-export"'],
   ["Review queue export renderer", "function exportReviewQueue"],
+  ["Freshness indicator", 'id="freshness-label"'],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
 ];
