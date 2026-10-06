@@ -2069,11 +2069,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (name === "source") state.source = "drive";
         if (name === "review") state.status = "후보";
         state.page = 1;
-        render();
+        render("push");
         scrollToResults();
       }
 
-      function persistUrl() {
+      function persistUrl(historyMode) {
         var params = new URLSearchParams();
         ["q", "kind", "category", "effectCategory", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
           if (state[key]) params.set(key, state[key]);
@@ -2084,7 +2084,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (pageSize !== 20) params.set("pageSize", pageSize);
         if (urlRecordId) params.set("record", urlRecordId);
         var query = params.toString();
-        history.replaceState(null, "", location.pathname + (query ? "?" + query : ""));
+        var method = historyMode === "push" ? "pushState" : "replaceState";
+        history[method](null, "", location.pathname + (query ? "?" + query : ""));
       }
 
       function recordSearchText(record) {
@@ -2544,18 +2545,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         URL.revokeObjectURL(url);
         toast(recordsPayload.length.toLocaleString("ko-KR") + "건의 검토 큐를 내보냈습니다");
       }
-      function openIntelligenceDetail(recordId) {
+      function openIntelligenceDetail(recordId, historyMode) {
         var record = records.find(function (item) { return String(item.id) === String(recordId); });
         var dialog = el("intelligence-detail");
         if (!record || !dialog) {
           urlRecordId = "";
-          persistUrl();
+          persistUrl("replace");
           return;
         }
         detailReturnFocus = document.activeElement;
         currentDetailRecordId = record.id;
         urlRecordId = String(record.id);
-        persistUrl();
+        persistUrl(historyMode || "push");
         var kind = record.kind === "규제" ? "규제·안전성" : record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물·전임상" : "근거 자료";
         el("intelligence-detail-kicker").textContent = kind + " · " + (record.year || "연도 미상");
         el("intelligence-detail-title").textContent = koreanTitle(record);
@@ -2782,7 +2783,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<p class="result-interpretation-note">인체·동물·규제 자료는 근거의 범위가 다릅니다. <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>을 확인할 때 인체 연구와 원문 상태를 먼저 비교하세요.</p>';
       }
 
-      function render() {
+      function render(historyMode) {
         var renderStarted = performance.now();
         var list = filteredRecords();
         var totalPages = Math.max(1, Math.ceil(list.length / pageSize));
@@ -2802,13 +2803,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         syncAdvancedFilterDisclosure();
         renderResultInterpretation(list);
         syncControls();
-        persistUrl();
+        persistUrl(historyMode);
       }
 
-      function changeState(key, value) {
+      function changeState(key, value, historyMode) {
         state[key] = value;
         state.page = 1;
-        render();
+        render(historyMode || "push");
       }
       function resetFilters() {
         pageSize = 20;
@@ -2817,7 +2818,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
-        render();
+        render("push");
       }
       function openFilters(open) {
         el("filter-panel").classList.toggle("open", open);
@@ -2839,21 +2840,21 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       renderDistribution("direction-distribution", DB.facets.direction, "direction");
       syncControls();
       render();
-      if (urlRecordId) openIntelligenceDetail(urlRecordId);
+      if (urlRecordId) openIntelligenceDetail(urlRecordId, "replace");
 
       window.addEventListener("popstate", function () {
         var detailWasOpen = el("intelligence-detail").open;
         loadUrlState();
         syncControls();
         render();
-        if (urlRecordId) openIntelligenceDetail(urlRecordId);
+        if (urlRecordId) openIntelligenceDetail(urlRecordId, "replace");
         else if (detailWasOpen) closeIntelligenceDetail();
       });
 
       var searchTimer;
       controls.q.addEventListener("input", function () {
         clearTimeout(searchTimer);
-        searchTimer = setTimeout(function () { changeState("q", controls.q.value); }, 120);
+        searchTimer = setTimeout(function () { changeState("q", controls.q.value, "replace"); }, 120);
       });
       ["category", "effectCategory", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
         controls[key].addEventListener("change", function () { changeState(key, controls[key].value); });
@@ -2861,15 +2862,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       controls.pageSize.addEventListener("change", function () {
         pageSize = Number(controls.pageSize.value) || 20;
         state.page = 1;
-        render();
+        render("push");
       });
       controls.from.addEventListener("change", function () {
         state.from = Math.min(Number(controls.to.value), Math.max(DB.meta.minYear, Number(controls.from.value) || DB.meta.minYear));
-        state.page = 1; render();
+        state.page = 1; render("push");
       });
       controls.to.addEventListener("change", function () {
         state.to = Math.max(Number(controls.from.value), Math.min(DB.meta.maxYear, Number(controls.to.value) || DB.meta.maxYear));
-        state.page = 1; render();
+        state.page = 1; render("push");
       });
       document.querySelectorAll("[data-kind]").forEach(function (button) {
         button.addEventListener("click", function () {
@@ -2881,7 +2882,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             state.grade = ""; state.agency = ""; state.safetyArea = "";
           }
           state.page = 1;
-          render();
+          render("push");
         });
       });
       document.querySelectorAll("[data-category]").forEach(function (button) {
@@ -2889,7 +2890,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var category = button.dataset.category || "";
           state.category = state.category === category ? "" : category;
           state.page = 1;
-          render();
+          render("push");
         });
       });
       document.querySelectorAll("[data-effect-category]").forEach(function (button) {
@@ -3047,7 +3048,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var key = chip.dataset.remove;
           if (key === "year") { state.from = DB.meta.minYear; state.to = DB.meta.maxYear; }
           else state[key] = "";
-          state.page = 1; render();
+          state.page = 1; render("push");
         }
         if (document.body.classList.contains("filter-open") && !event.target.closest("#filter-panel") && !event.target.closest("#mobile-filter")) {
           openFilters(false);
@@ -3056,8 +3057,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("search-clear").addEventListener("click", function () { changeState("q", ""); controls.q.focus(); });
       el("reset").addEventListener("click", resetFilters);
       el("result-reset").addEventListener("click", resetFilters);
-      el("prev").addEventListener("click", function () { state.page -= 1; render(); scrollToResults(); });
-      el("next").addEventListener("click", function () { state.page += 1; render(); scrollToResults(); });
+      el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
+      el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
       document.addEventListener("keydown", function (event) {
