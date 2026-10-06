@@ -137,6 +137,8 @@ const required = [
   ,["Link audit KST date", "function koreanDateTime"]
   ,["Snapshot provenance", "release.snapshotVersion"]
   ,["Release traceability", "release.siteVersion"]
+  ,["Methodology dialog", "id=\"methodology-dialog\""]
+  ,["Methodology rules", "출판 후속조치를 확인합니다"]
   ,["Empty result recovery", "data-empty-reset"]
 ];
 

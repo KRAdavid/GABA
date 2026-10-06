@@ -261,6 +261,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .copy-dialog-actions button { min-height: 34px; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .copy-dialog-actions button.secondary { border-color: var(--line); background: #fff; color: var(--muted); }
     @media (max-width: 640px) { .copy-dialog-inner { padding: 16px; } }
+    .methodology-dialog { width: min(760px, calc(100% - 28px)); max-height: min(780px, calc(100vh - 36px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
+    .methodology-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
+    .methodology-dialog-inner { padding: 22px; overflow: auto; max-height: min(780px, calc(100vh - 36px)); }
+    .methodology-dialog-head { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .methodology-dialog-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
+    .methodology-dialog-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .methodology-dialog-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .methodology-dialog-body { display: grid; gap: 14px; margin-top: 16px; }
+    .methodology-dialog-section { padding: 13px 14px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-2); }
+    .methodology-dialog-section h3 { margin: 0 0 6px; font-size: 13px; }
+    .methodology-dialog-section p, .methodology-dialog-section li { color: var(--muted); font-size: 11px; line-height: 1.65; }
+    .methodology-dialog-section p { margin: 0; }
+    .methodology-dialog-section ul { margin: 0; padding-left: 18px; }
+    @media (max-width: 640px) { .methodology-dialog-inner { padding: 16px; } }
     .review-queue-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .review-queue-card { padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 10px; background: var(--surface-2); }
     .review-queue-card.priority-high { border-left-color: #d97706; }
@@ -1588,6 +1602,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       </nav>
       <div class="top-actions">
         <a class="top-link" id="sheet-link" hidden target="_blank" rel="noopener noreferrer">관리 원본 Sheet</a>
+        <button class="top-link" id="methodology-open" type="button" aria-haspopup="dialog">방법론</button>
         <button class="reading-list-button" id="reading-list-open" type="button" aria-haspopup="dialog">읽기 목록 <span class="reading-list-count" id="reading-list-count">0</span></button>
         <button class="share-button" id="share-button" type="button" aria-label="현재 검색 조건 링크 복사">링크 복사</button>
       </div>
@@ -1701,6 +1716,21 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="candidate-detail-checklist" id="candidate-detail-checklist"></div>
         <div class="candidate-detail-abstract" id="candidate-detail-abstract"></div>
         <div class="candidate-detail-actions" id="candidate-detail-actions"></div>
+      </div>
+    </dialog>
+    <dialog class="methodology-dialog" id="methodology-dialog" aria-labelledby="methodology-title">
+      <div class="methodology-dialog-inner">
+        <div class="methodology-dialog-head">
+          <div><h2 id="methodology-title">이 포털의 근거 검토 방법</h2><p>검색 결과를 효능·규제 승인으로 과잉 해석하지 않도록 같은 순서로 확인합니다.</p></div>
+          <button class="methodology-dialog-close" id="methodology-close" type="button" aria-label="방법론 닫기">×</button>
+        </div>
+        <div class="methodology-dialog-body">
+          <section class="methodology-dialog-section"><h3>1. 확정 인덱스와 후보를 분리합니다</h3><p>공개 인덱스는 원문·식별자·개입·대상·결과·한계를 확인한 검증 스냅샷입니다. 자동 탐색 후보는 검색 신호일 뿐이며 원문 확인 전에는 근거로 승격하지 않습니다.</p></section>
+          <section class="methodology-dialog-section"><h3>2. 연구 유형과 개입을 섞지 않습니다</h3><ul><li>인체 섭취, 동물시험, 규제·안전성 자료를 별도 레인으로 표시합니다.</li><li>순수 GABA, 복합제·식품 매트릭스, GABA 생성 프로바이오틱, 수용체 약물을 구분합니다.</li><li>투여경로·용량·기간·대조군·평가변수와 안전성 정보를 원문 기준으로 확인합니다.</li></ul></section>
+          <section class="methodology-dialog-section"><h3>3. 출판 후속조치를 확인합니다</h3><p>철회·정정·Expression of Concern과 출판사 후속 공지를 원 논문과 연결합니다. 후속조치 자료는 효능 근거로 재사용하지 않습니다.</p></section>
+          <section class="methodology-dialog-section"><h3>4. 연구 의미와 마케팅 활용을 분리합니다</h3><p>연구의 의미는 해당 연구가 제공하는 과학적 정보로, 마케팅 활용 방안은 조건부 활용 방향으로만 작성합니다. 이는 제품 효능 입증, 허가, 표시 적합성을 대신하지 않습니다.</p></section>
+          <section class="methodology-dialog-section"><h3>5. 공개·갱신 원칙</h3><p>PubMed·OpenAlex·Crossref 등 자동 탐색과 원문 링크 감사를 반복하고, 중복·품질·빌드·브라우저 QA 후 공개합니다. 공개면은 읽기 전용이며 관리용 Sheets URL과 자격증명을 노출하지 않습니다.</p></section>
+        </div>
       </div>
     </dialog>
 
@@ -3179,6 +3209,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           toast("링크를 선택했습니다 · Ctrl+C로 복사하세요");
         }
       }
+
+      function openMethodology() {
+        var dialog = el("methodology-dialog");
+        if (!dialog) return;
+        if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", "");
+        el("methodology-close").focus();
+      }
+
+      function closeMethodology() {
+        var dialog = el("methodology-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
+        setTimeout(function () { el("methodology-open")?.focus(); }, 120);
+      }
       function renderFollowupCounts() {
         var count = records.filter(function (record) { return Boolean(publicationFollowupLabel(record)); }).length;
         document.querySelectorAll("[data-followup-count]").forEach(function (node) {
@@ -4130,6 +4174,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         renderReviewQueue();
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
+      el("methodology-open").addEventListener("click", openMethodology);
+      el("methodology-close").addEventListener("click", closeMethodology);
       el("review-queue-share").addEventListener("click", shareReviewQueue);
       el("review-queue-shared-clear").addEventListener("click", clearSharedReviewQueue);
       el("review-share-copy").addEventListener("click", copyReviewShareUrl);
