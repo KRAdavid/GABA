@@ -2218,6 +2218,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var parts = String(value || "").split("-");
         return parts.length === 3 ? Number(parts[0]) + "년 " + Number(parts[1]) + "월 " + Number(parts[2]) + "일" : value;
       }
+      function koreanDateTime(value) {
+        var parsed = new Date(String(value || ""));
+        if (Number.isNaN(parsed.getTime())) return "확인 필요";
+        var formatted = new Intl.DateTimeFormat("ko-KR", {
+          timeZone: "Asia/Seoul",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).formatToParts(parsed);
+        var values = {};
+        formatted.forEach(function(part) { values[part.type] = part.value; });
+        return values.year + "년 " + Number(values.month) + "월 " + Number(values.day) + "일";
+      }
       function updateFreshnessLabel(snapshotDate, discoveryDate) {
         var target = el("freshness-label");
         if (!target) return;
@@ -2446,7 +2459,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["원천 오류", Number((discovery.sourceErrors || []).length).toLocaleString("ko-KR") + "건"],
           ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"],
           ["원문 감사", DB.meta.linkAudit ? "해소 " + Number(DB.meta.linkAudit.resolved || 0).toLocaleString("ko-KR") + "건 · 제한 " + Number(DB.meta.linkAudit.blockedCount || 0).toLocaleString("ko-KR") + "건 · 실패 " + Number(DB.meta.linkAudit.failed || 0).toLocaleString("ko-KR") + "건" : "실행 기록 없음"],
-          ["감사 시점", DB.meta.linkAudit ? koreanDate(String(DB.meta.linkAudit.checkedAt || "").slice(0, 10)) : "확인 필요"]
+          ["감사 시점", DB.meta.linkAudit ? koreanDateTime(DB.meta.linkAudit.checkedAt) : "확인 필요"]
         ].map(function (item) {
           return '<span class="discovery-stat">' + esc(item[0]) + " " + esc(item[1]) + '</span>';
         }).join("");

@@ -134,6 +134,7 @@ const required = [
   ,["Publication follow-up URL state", "state.followup"]
   ,["Link audit transparency", "DB.meta.linkAudit"]
   ,["Link audit interpretation guard", 'id="link-audit-note"']
+  ,["Link audit KST date", "function koreanDateTime"]
   ,["Empty result recovery", "data-empty-reset"]
 ];
 
