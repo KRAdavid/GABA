@@ -42,7 +42,14 @@
       "priority": 5,
       "general": 945,
       "low": 50,
-      "screeningCounts": null,
+      "screeningCounts": {
+        "포함후보": 11,
+        "보류": 2,
+        "제외": 8,
+        "우선검토": 0,
+        "미검토": 977
+      },
+      "manualDecisionsPreserved": 23,
       "candidatePreview": [
         {
           "candidateId": "C-20261006-0051",

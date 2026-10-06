@@ -2382,6 +2382,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["Crossref", Number(discovery.crossrefRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["통합 고유", Number(discovery.mergedUnique || 0).toLocaleString("ko-KR") + "건"],
           ["우선검토", Number(discovery.priority || 0).toLocaleString("ko-KR") + "건"],
+          ["검토 상태", discovery.screeningCounts ? "미검토 " + Number(discovery.screeningCounts["미검토"] || 0).toLocaleString("ko-KR") + "건" : "확인 필요"],
+          ["수동 결정 보존", Number(discovery.manualDecisionsPreserved || 0).toLocaleString("ko-KR") + "건"],
           ["원천 오류", Number((discovery.sourceErrors || []).length).toLocaleString("ko-KR") + "건"],
           ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"]
         ].map(function (item) {
@@ -4260,6 +4262,8 @@ export default {
         discoveryOpenAlexRetrieved: Number(discovery.openAlexRetrieved || 0),
         discoveryCrossrefRetrieved: Number(discovery.crossrefRetrieved || 0),
         discoverySourceErrors: Array.isArray(discovery.sourceErrors) ? discovery.sourceErrors.length : 0,
+        discoveryScreeningCounts: discovery.screeningCounts || null,
+        discoveryManualDecisionsPreserved: Number(discovery.manualDecisionsPreserved || 0),
         stagedCandidates: Number(discovery.stagedCandidates || 0),
         candidatePreviewCount: Array.isArray(discovery.candidatePreview) ? discovery.candidatePreview.length : 0,
         candidatePreviewSnapshotDate: discovery.snapshotDate || null,

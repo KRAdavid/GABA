@@ -12,6 +12,7 @@ for (const key of ["pubmedUnique", "openAlexRetrieved", "crossrefRetrieved", "me
   if (!Number.isFinite(Number(discovery?.[key])) || Number(discovery[key]) < 0) invalid.push(key);
 }
 if (!Array.isArray(discovery?.sourceErrors)) invalid.push("sourceErrors[]");
+if (!discovery?.screeningCounts || !Number.isFinite(Number(discovery?.manualDecisionsPreserved))) invalid.push("screeningCounts/manualDecisionsPreserved");
 if (missing.length || invalid.length) {
   throw new Error(JSON.stringify({ valid: false, missing, invalid }));
 }
@@ -24,5 +25,7 @@ console.log(JSON.stringify({
   crossrefRetrieved: discovery.crossrefRetrieved,
   mergedUnique: discovery.mergedUnique,
   stagedCandidates: discovery.stagedCandidates,
+  screeningCounts: discovery.screeningCounts,
+  manualDecisionsPreserved: discovery.manualDecisionsPreserved,
   sourceErrors: discovery.sourceErrors.length
 }));
