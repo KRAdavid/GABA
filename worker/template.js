@@ -286,6 +286,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-priority.high { background: #fff0d8; color: #a65300; }
     .review-priority.medium { background: var(--teal-soft); color: var(--teal-dark); }
     .review-priority-reason { margin: 5px 0 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .source-audit-badge { border-color: #e8c2a7; background: #fff8f1; color: #9a4d17; }
     .review-queue-card h3 { margin: 7px 0 5px; font-size: 13px; line-height: 1.4; }
     .review-queue-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
     .review-card-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
@@ -3102,6 +3103,22 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (record.decisionUrl) return "결정문";
         return "원문 확인";
       }
+      function sourceAuditRecord(record) {
+        var statuses = DB.meta && DB.meta.linkAudit && Array.isArray(DB.meta.linkAudit.recordStatuses) ? DB.meta.linkAudit.recordStatuses : [];
+        return statuses.find(function (item) { return String(item.id) === String(record.id); }) || null;
+      }
+      function sourceAuditDescription(record) {
+        var audit = sourceAuditRecord(record);
+        if (!audit) return "개별 감사 기록 없음 · 링크와 원문을 직접 확인하세요.";
+        if (audit.status === "ok") return "감사 시점 기준 접근 응답 확인 · " + audit.attempts + "개 경로 확인";
+        if (audit.status === "unavailable") return "접근 제한·일시 응답 포함 · 대체 경로와 원문을 직접 확인하세요. 이는 근거 약함을 뜻하지 않습니다.";
+        return "원문 링크 재확인 필요 · 링크 오류가 근거의 질을 뜻하지 않습니다.";
+      }
+      function sourceAuditBadge(record) {
+        var audit = sourceAuditRecord(record);
+        if (!audit || audit.status === "ok") return "";
+        return '<span class="badge source-audit-badge" title="접근 제한·일시 응답은 근거 약함을 뜻하지 않습니다.">원문 접근 제한</span>';
+      }
 
       function recordDoseValues(record) {
         return [record.dose, record.exposure].join(" ")
@@ -3892,7 +3909,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           fact("연구 유형", kind), fact("개입 구분", interventionClass(record)), fact("상태", record.status), fact("대상", record.population || record.species),
           fact("연구 설계", record.design), fact("개입 형태", record.form), fact("투여 경로", record.route), fact("대조군", record.comparator),
           fact("결과 영역", record.outcome || record.domain), fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
-          fact("결과 방향", record.direction), fact("확인일", record.checked), fact("자료 최신성", recordFreshness(record))
+          fact("결과 방향", record.direction), fact("확인일", record.checked), fact("자료 최신성", recordFreshness(record)), fact("원문 접근 감사", sourceAuditDescription(record))
         ].join("");
         el("intelligence-detail-finding").textContent = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않은 자료입니다.";
         el("intelligence-detail-boundary").textContent = evidenceBoundary(record);
@@ -4220,6 +4237,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge regulatory">규제·안전성</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
+            sourceAuditBadge(record) +
             marketingFilterBadge(record) +
             '<span class="badge">' + esc(record.grade) + '</span>' +
             '<span class="badge">' + esc(record.agency) + '</span>' +
@@ -4270,6 +4288,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
+            sourceAuditBadge(record) +
             (publicationFollowupLabel(record) ? '<span class="badge followup-badge" title="철회·정정·우려표명 등 출판 후속조치 신호입니다. 원문 공지를 확인하세요.">' + esc(publicationFollowupLabel(record)) + '</span>' : '') +
             marketingFilterBadge(record) +
             '<button class="badge intervention intervention-filter-badge" type="button" data-intervention="' + esc(interventionClass(record)) + '" aria-label="' + esc(interventionClass(record) + ' 자료로 필터') + '">개입 · ' + esc(interventionShortLabel(record)) + '</button>' +

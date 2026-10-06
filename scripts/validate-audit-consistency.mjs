@@ -11,6 +11,10 @@ const publicMode = process.argv.includes("--public");
 const resolved = Number(linkAudit.resolved || 0);
 const blocked = Number(linkAudit.blockedCount || 0);
 const failed = Number(linkAudit.failed || 0);
+if (linkAudit.recordStatuses != null) {
+  assert.equal(Array.isArray(linkAudit.recordStatuses), true, "record-level link audit statuses must be an array");
+  assert.equal(linkAudit.recordStatuses.length, Number(linkAudit.records || 0), "record-level link audit statuses must cover every record");
+}
 assert.equal(failed, 0, `worker/data.json reports ${failed} failed link-audit checks`);
 
 if (publicMode) {

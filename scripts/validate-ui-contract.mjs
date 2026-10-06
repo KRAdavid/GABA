@@ -177,6 +177,8 @@ const required = [
   ,["Link audit transparency", "DB.meta.linkAudit"]
   ,["Link audit interpretation guard", 'id="link-audit-note"']
   ,["Link audit methodology action", 'id="link-audit-methodology"']
+  ,["Per-record link audit status", "function sourceAuditRecord"]
+  ,["Per-record link audit guard", "sourceAuditDescription"]
   ,["Link audit KST date", "function koreanDateTime"]
   ,["Snapshot provenance", "release.snapshotVersion"]
   ,["Release traceability", "release.siteVersion"]

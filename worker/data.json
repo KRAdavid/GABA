@@ -36322,25 +36322,3393 @@
     "sourceSheet": null,
     "sourceFile": null,
     "linkAudit": {
-      "checkedAt": "2026-10-06T20:46:48.279Z",
+      "checkedAt": "2026-10-06T22:29:43.022Z",
       "records": 392,
       "recordsWithLinks": 392,
-      "resolved": 384,
-      "blockedCount": 8,
+      "resolved": 372,
+      "blockedCount": 20,
       "failed": 0,
-      "redirects": 266,
-      "attempts": 501,
+      "redirects": 264,
+      "attempts": 500,
       "statusCounts": {
         "200": 309,
-        "203": 74,
+        "203": 62,
         "204": 1,
-        "400": 10,
+        "400": 12,
         "401": 1,
-        "403": 101,
-        "500": 0,
+        "403": 98,
+        "429": 12,
         "503": 4,
         "fetch_failed": 1
       },
+      "recordStatuses": [
+        {
+          "id": "A-1961-030",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/139-_ETYODRgqEDZgUMK8kxKMShRp69AB/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/139-_ETYODRgqEDZgUMK8kxKMShRp69AB/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325743632901",
+          "failures": []
+        },
+        {
+          "id": "A-1971-044",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/0006899371901417",
+          "failures": []
+        },
+        {
+          "id": "A-1980-031",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/0361923080900416",
+          "failures": []
+        },
+        {
+          "id": "A-1981-045",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/0024320581907098",
+          "failures": []
+        },
+        {
+          "id": "A-1984-032",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/0031938484900131",
+          "failures": []
+        },
+        {
+          "id": "A-1984-046",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/0031938484901458",
+          "failures": []
+        },
+        {
+          "id": "A-1985-107",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/2867197/",
+          "failures": []
+        },
+        {
+          "id": "A-1986-033",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.ebm-journal.org/journals/experimental-biology-and-medicine/articles/10.3181/00379727-181-42229/pdf",
+          "failures": []
+        },
+        {
+          "id": "A-1987-257",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/002432058790734X",
+          "failures": []
+        },
+        {
+          "id": "A-1995-034",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/7734101/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-1996-057",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/influence-of-ammonia-biogenic-amines-and-aminobutyric-acid-on-grass-silage-intake-in-sheep/B2297A1A5A198EE523D7AB51AE1DFD0A",
+          "failures": []
+        },
+        {
+          "id": "A-1998-258",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 1,
+          "resolvedUrl": "",
+          "failures": [
+            429
+          ]
+        },
+        {
+          "id": "A-1999-035",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/10545413/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2002-001",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0021519819300873",
+          "failures": []
+        },
+        {
+          "id": "A-2002-036",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0014299902012943",
+          "failures": []
+        },
+        {
+          "id": "A-2003-002",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bFyPxVIynaiN-T9jzH78KI_wX4MV9A2z/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bFyPxVIynaiN-T9jzH78KI_wX4MV9A2z/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325745277351",
+          "failures": []
+        },
+        {
+          "id": "A-2003-037",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/12822928/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2003-247",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE00637191",
+          "failures": []
+        },
+        {
+          "id": "A-2004-011",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1By74-U1d99P5hhx02AqQ524XIV9bKsXD/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1By74-U1d99P5hhx02AqQ524XIV9bKsXD/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325745334926",
+          "failures": []
+        },
+        {
+          "id": "A-2004-012",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0278691504002261",
+          "failures": []
+        },
+        {
+          "id": "A-2004-038",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/15630275/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2005-039",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0014299905009519",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2005-254",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jstage.jst.go.jp/article/jnsv1973/51/4/51_4_278/_pdf",
+          "failures": []
+        },
+        {
+          "id": "A-2007-040",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1FrYsri0KSXmo7RP3vQTq8Cp6ggw0IjXE/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1FrYsri0KSXmo7RP3vQTq8Cp6ggw0IjXE/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325746064220",
+          "failures": []
+        },
+        {
+          "id": "A-2007-099",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s00726-006-0358-2?error=cookies_not_supported&code=1afbf9ad-f5b2-46d3-9ea6-d283702644fd",
+          "failures": []
+        },
+        {
+          "id": "A-2007-154",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/18156782/",
+          "failures": []
+        },
+        {
+          "id": "A-2009-041",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1_mGzZwT0lis3KgpCfY5vhmHn0MVGDIuJ/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1_mGzZwT0lis3KgpCfY5vhmHn0MVGDIuJ/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1710199421:1791325746324496",
+          "failures": []
+        },
+        {
+          "id": "A-2009-058",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1tBjG6Q26gHs3vypM3c5KnaO1-hrwZc5S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1tBjG6Q26gHs3vypM3c5KnaO1-hrwZc5S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325746354041",
+          "failures": []
+        },
+        {
+          "id": "A-2009-100",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1OYaKsgfVuYqDT9OC8gOpYCXTVFjoPWNA/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1OYaKsgfVuYqDT9OC8gOpYCXTVFjoPWNA/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S808546069:1791325746333202",
+          "failures": []
+        },
+        {
+          "id": "A-2010-042",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/20050705/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2011-003",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0025338",
+          "failures": []
+        },
+        {
+          "id": "A-2011-013",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5787624/",
+          "failures": []
+        },
+        {
+          "id": "A-2011-043",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0944711311000043",
+          "failures": []
+        },
+        {
+          "id": "A-2011-101",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/21375324/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2011-102",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1a1iH5Uppz43pNAb0-iTh4nJf_dYGCKr2/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1a1iH5Uppz43pNAb0-iTh4nJf_dYGCKr2/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1710199421:1791325747282757",
+          "failures": []
+        },
+        {
+          "id": "A-2012-059",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/23130582/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2012-274",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/22339695/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2013-004",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/23995958/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2013-060",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0022030213002038",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2013-277",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2014-005",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 3,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/25008178/",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "A-2014-061",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0022030214004809",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2014-062",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1eWRcKyLbdof8dJAI-O9O8fJzhtNl_9FI/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1eWRcKyLbdof8dJAI-O9O8fJzhtNl_9FI/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1154169890:1791325748025420",
+          "failures": []
+        },
+        {
+          "id": "A-2014-111",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0278691514000854",
+          "failures": []
+        },
+        {
+          "id": "A-2014-126",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9354997/",
+          "failures": []
+        },
+        {
+          "id": "A-2015-047",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/25131315/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2015-063",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1txxurQRM_wRmdZVg5ORNT08sPiUKaPJ6/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1txxurQRM_wRmdZVg5ORNT08sPiUKaPJ6/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791325748229090",
+          "failures": []
+        },
+        {
+          "id": "A-2015-103",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/25266692/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2015-104",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs11248-014-9859-z&code=d55026b9-6bfa-4627-bc4e-76bdcd3e35d3",
+          "failures": []
+        },
+        {
+          "id": "A-2015-245",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s12017-014-8337-3",
+          "failures": []
+        },
+        {
+          "id": "A-2015-265",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1751731114002651",
+          "failures": []
+        },
+        {
+          "id": "A-2016-048",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Vj4fmDqWHfSZzcSdo5kqXEHau1fux_v0/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Vj4fmDqWHfSZzcSdo5kqXEHau1fux_v0/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791325748660861",
+          "failures": []
+        },
+        {
+          "id": "A-2016-049",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1HmxE9mBzqtyXshPIt1Nnl5ckDz1G7B77/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1HmxE9mBzqtyXshPIt1Nnl5ckDz1G7B77/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791325748801740",
+          "failures": []
+        },
+        {
+          "id": "A-2016-064",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/26334199/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2016-065",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0306456515302163",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2016-248",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00484-015-1084-9&code=f5b75b6d-63ab-46b4-a0bf-d8e1986faade",
+          "failures": []
+        },
+        {
+          "id": "A-2016-250",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2016-252",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs11356-016-7604-2&code=45c52a64-768c-4036-9b31-48d2e10700b9",
+          "failures": []
+        },
+        {
+          "id": "A-2017-006",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1TbFtUOQ-5mlycTw5KckL7NmC3yLuI34y/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1TbFtUOQ-5mlycTw5KckL7NmC3yLuI34y/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S506961778:1791325749255945",
+          "failures": []
+        },
+        {
+          "id": "A-2017-007",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0092867416315239",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2017-014",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1zH-X9c6ykrFrafvFfs0zMaU8NfYm_sMU/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1zH-X9c6ykrFrafvFfs0zMaU8NfYm_sMU/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325749480447",
+          "failures": []
+        },
+        {
+          "id": "A-2017-067",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0306456517301237",
+          "failures": []
+        },
+        {
+          "id": "A-2017-100",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/28456544/",
+          "failures": []
+        },
+        {
+          "id": "A-2017-105",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1swgKWv4DcqpZe_ULQ9vnQUidoYmf1yRs/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1swgKWv4DcqpZe_ULQ9vnQUidoYmf1yRs/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1356807398:1791325749702127",
+          "failures": []
+        },
+        {
+          "id": "A-2017-106",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/28704125/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2017-107",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1UpRlM00QcUWVTEVtRVfuIypTlywgbFTr/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1UpRlM00QcUWVTEVtRVfuIypTlywgbFTr/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325750007536",
+          "failures": []
+        },
+        {
+          "id": "A-2017-127",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 3,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/28911262/",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "A-2017-253",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6154700/",
+          "failures": []
+        },
+        {
+          "id": "A-2018-068",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/29923358/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2018-108",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/29327584/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2018-109",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/29693103/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2018-110",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1kcVi8k-HiNG8lLrAZQQ8sM-rpRyustz9/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1kcVi8k-HiNG8lLrAZQQ8sM-rpRyustz9/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325750459190",
+          "failures": []
+        },
+        {
+          "id": "A-2018-262",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2019-015",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aXpCtkyqnUMPqFIjz1uO2fvY95WpMSrq/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aXpCtkyqnUMPqFIjz1uO2fvY95WpMSrq/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791325750625202",
+          "failures": []
+        },
+        {
+          "id": "A-2019-016",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0165178118307972",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2019-050",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Cbmq-2aj13H6qGuWBmJXVySitSMdgAxZ/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Cbmq-2aj13H6qGuWBmJXVySitSMdgAxZ/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S808546069:1791325751004855",
+          "failures": []
+        },
+        {
+          "id": "A-2019-103",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/30601517/",
+          "failures": []
+        },
+        {
+          "id": "A-2019-176",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://medwinpublishers.com/article/APCT/10.23880/apct-16000170/full",
+          "failures": []
+        },
+        {
+          "id": "A-2019-249",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S030645651830528X",
+          "failures": []
+        },
+        {
+          "id": "A-2019-256",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6346718/",
+          "failures": []
+        },
+        {
+          "id": "A-2020-051",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/17WaP34O0GDkGAF4r-ot3RmKO7UDOcWIp/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/17WaP34O0GDkGAF4r-ot3RmKO7UDOcWIp/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791325751090569",
+          "failures": []
+        },
+        {
+          "id": "A-2020-069",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs10695-019-00708-4&code=78bee385-ee0e-43e3-97c7-b73e80428c53",
+          "failures": []
+        },
+        {
+          "id": "A-2020-070",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1LkwZGIioKO7AgWo0Iph5NGWe-QCdKhYp/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1LkwZGIioKO7AgWo0Iph5NGWe-QCdKhYp/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791325751451837",
+          "failures": []
+        },
+        {
+          "id": "A-2020-071",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/31867827/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2020-102",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/33025994/",
+          "failures": []
+        },
+        {
+          "id": "A-2020-106",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7271228/",
+          "failures": []
+        },
+        {
+          "id": "A-2020-111",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bJSiwSfNHkv0SA0gizWN49oDnhAUHPEC/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bJSiwSfNHkv0SA0gizWN49oDnhAUHPEC/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325752049887",
+          "failures": []
+        },
+        {
+          "id": "A-2020-112",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/32048404/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2020-113",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wUeY6QqHPupEZXo9eW9g5jtRHSKJ6xEN/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wUeY6QqHPupEZXo9eW9g5jtRHSKJ6xEN/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1439504673:1791325752302108",
+          "failures": []
+        },
+        {
+          "id": "A-2020-114",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1pAa5wsKbcjzj6DNP_KrVv2XcfskZM6mf/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1pAa5wsKbcjzj6DNP_KrVv2XcfskZM6mf/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325752307671",
+          "failures": []
+        },
+        {
+          "id": "A-2020-251",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12011-020-02027-9&code=9947c102-6b54-49fc-af1b-d3e897ee1088",
+          "failures": []
+        },
+        {
+          "id": "A-2020-255",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/32544878/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2020-263",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 3,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/32363356/",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "A-2020-273",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S002203022030521X",
+          "failures": []
+        },
+        {
+          "id": "A-2020-275",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2021-017",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aqeYmMMvbHOqVsdNakldsJoJCTl06-Gt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aqeYmMMvbHOqVsdNakldsJoJCTl06-Gt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791325752401401",
+          "failures": []
+        },
+        {
+          "id": "A-2021-018",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1CGVm61yUfHxkxzakOe66jRnKmXkZWZlu/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1CGVm61yUfHxkxzakOe66jRnKmXkZWZlu/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325752752838",
+          "failures": []
+        },
+        {
+          "id": "A-2021-072",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/33641203/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2021-108",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0044848621009959",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2021-115",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1NemJsqIQe3-8qi9_YUj-sx1GqxNiAykF/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1NemJsqIQe3-8qi9_YUj-sx1GqxNiAykF/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325753040894",
+          "failures": []
+        },
+        {
+          "id": "A-2021-116",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1x0lA_IEYe5R7ngfhlkol0RPnaNil8kmK/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1x0lA_IEYe5R7ngfhlkol0RPnaNil8kmK/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1983110570:1791325753216960",
+          "failures": []
+        },
+        {
+          "id": "A-2021-177",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://apm.amegroups.org/article/view/81797/html",
+          "failures": []
+        },
+        {
+          "id": "A-2022-019",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1HXxGYbQgfCmGMcAUqbEH8sUrx1OjRgs6/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1HXxGYbQgfCmGMcAUqbEH8sUrx1OjRgs6/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325753279905",
+          "failures": []
+        },
+        {
+          "id": "A-2022-020",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s00210-022-02211-9",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2022-021",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1ByDVeisNIF-FibAyEbUjw77VgOSH_4iL/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1ByDVeisNIF-FibAyEbUjw77VgOSH_4iL/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325753264814",
+          "failures": []
+        },
+        {
+          "id": "A-2022-022",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1c6RH4bFkrRVZBE0QkXfmRTcSOPy8ye3N/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1c6RH4bFkrRVZBE0QkXfmRTcSOPy8ye3N/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791325753504584",
+          "failures": []
+        },
+        {
+          "id": "A-2022-073",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1A5D4OeZlrh6jVZkQHZHMcXGRgarapB3R/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1A5D4OeZlrh6jVZkQHZHMcXGRgarapB3R/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791325753698961",
+          "failures": []
+        },
+        {
+          "id": "A-2022-074",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/34889908/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2022-075",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1532045622001442",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2022-076",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1odyULU-12dv6Q7nFaLiC5OLzPJ1xl9kn/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1odyULU-12dv6Q7nFaLiC5OLzPJ1xl9kn/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791325754214638",
+          "failures": []
+        },
+        {
+          "id": "A-2022-101",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/35489590/",
+          "failures": []
+        },
+        {
+          "id": "A-2022-102",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "A-2022-117",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/109QlJu7ezfzKP0DczJV6a3Cntyoyh8Pw/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/109QlJu7ezfzKP0DczJV6a3Cntyoyh8Pw/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1356807398:1791325754224634",
+          "failures": []
+        },
+        {
+          "id": "A-2022-118",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1axVceqvlTxNqLdj_-t0RXgcALTJDUQUb/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1axVceqvlTxNqLdj_-t0RXgcALTJDUQUb/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325754175823",
+          "failures": []
+        },
+        {
+          "id": "A-2022-119",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/10SKnpBxT8mH5Oooq-oD5toNHO8dDE69K/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/10SKnpBxT8mH5Oooq-oD5toNHO8dDE69K/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1154169890:1791325754502220",
+          "failures": []
+        },
+        {
+          "id": "A-2023-008",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/37258189/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2023-052",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bm72w0WQ88pVpxQxTLUIzaKgWz3N2gXI/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bm72w0WQ88pVpxQxTLUIzaKgWz3N2gXI/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325754733134",
+          "failures": []
+        },
+        {
+          "id": "A-2023-077",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1vagkpLCiAu7yUtG9uMtQt-aB0_vBy5MR/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1vagkpLCiAu7yUtG9uMtQt-aB0_vBy5MR/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325755015199",
+          "failures": []
+        },
+        {
+          "id": "A-2023-078",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1050464823005429",
+          "failures": []
+        },
+        {
+          "id": "A-2023-079",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1lUiLiriXvum3CGhmts4HSwbp40u1KCpC/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1lUiLiriXvum3CGhmts4HSwbp40u1KCpC/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1910155354:1791325755220892",
+          "failures": []
+        },
+        {
+          "id": "A-2023-080",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/19BGUu_CDeO4-jNiXBSBOug7KLGYwFk0B/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/19BGUu_CDeO4-jNiXBSBOug7KLGYwFk0B/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325755181931",
+          "failures": []
+        },
+        {
+          "id": "A-2023-081",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1qwfOdwQImtJoOftD2S7lj-PIF2RfgP2e/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1qwfOdwQImtJoOftD2S7lj-PIF2RfgP2e/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791325755335663",
+          "failures": []
+        },
+        {
+          "id": "A-2023-105",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/36898515/",
+          "failures": []
+        },
+        {
+          "id": "A-2023-120",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0303720722002039",
+          "failures": []
+        },
+        {
+          "id": "A-2023-121",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/37466048/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2023-153",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10616514/",
+          "failures": []
+        },
+        {
+          "id": "A-2023-264",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 3,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2024-023",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1uXSPlKNNFRpXkLOxP5WqBJZUiaeCf1Yb/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1uXSPlKNNFRpXkLOxP5WqBJZUiaeCf1Yb/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S808546069:1791325756720481",
+          "failures": []
+        },
+        {
+          "id": "A-2024-024",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10996873/",
+          "failures": []
+        },
+        {
+          "id": "A-2024-053",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0944501323002495",
+          "failures": []
+        },
+        {
+          "id": "A-2024-054",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1FwtWyqBGtP5IPTJFJirVdchndIT-UewG/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1FwtWyqBGtP5IPTJFJirVdchndIT-UewG/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325756243924",
+          "failures": []
+        },
+        {
+          "id": "A-2024-082",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1VMuC_NtrLzNDHCl5StRc42Xm89w3Kh13/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1VMuC_NtrLzNDHCl5StRc42Xm89w3Kh13/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325756224800",
+          "failures": []
+        },
+        {
+          "id": "A-2024-083",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1OJ-0R2aRn0N6MWnsZAHHQKv3_oZWF8hD/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1OJ-0R2aRn0N6MWnsZAHHQKv3_oZWF8hD/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325756245905",
+          "failures": []
+        },
+        {
+          "id": "A-2024-084",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1CHrR6Tbnbk81HtQwOoL4ePBcd-U37QWl/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1CHrR6Tbnbk81HtQwOoL4ePBcd-U37QWl/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325756383939",
+          "failures": []
+        },
+        {
+          "id": "A-2024-098",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11672954/",
+          "failures": []
+        },
+        {
+          "id": "A-2024-104",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11591204/",
+          "failures": []
+        },
+        {
+          "id": "A-2024-116",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1134/S1607672924600386",
+          "failures": []
+        },
+        {
+          "id": "A-2024-118",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11095141/",
+          "failures": []
+        },
+        {
+          "id": "A-2024-120",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11449869/",
+          "failures": []
+        },
+        {
+          "id": "A-2024-121",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/38660748/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2024-122",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1rVYYx53ixHQU9Xx5Jd66mhuwDxPBOl1n/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1rVYYx53ixHQU9Xx5Jd66mhuwDxPBOl1n/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325757490958",
+          "failures": []
+        },
+        {
+          "id": "A-2024-124",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/19pykLIF2SA97fRXnXja952O16gCrv0YW/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/19pykLIF2SA97fRXnXja952O16gCrv0YW/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791325757177124",
+          "failures": []
+        },
+        {
+          "id": "A-2024-125",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1q7U0pu6sspTF2KpYfh7Xr8R63C6pcSIt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1q7U0pu6sspTF2KpYfh7Xr8R63C6pcSIt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S506961778:1791325757121954",
+          "failures": []
+        },
+        {
+          "id": "A-2024-126",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11495008/",
+          "failures": []
+        },
+        {
+          "id": "A-2024-127",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/38960388/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2024-164",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2024-269",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11211035/",
+          "failures": []
+        },
+        {
+          "id": "A-2024-276",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.mdpi.com/2306-7381/11/9/398",
+          "failures": []
+        },
+        {
+          "id": "A-2024-278",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11547846/",
+          "failures": []
+        },
+        {
+          "id": "A-2024-279",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S2352513424003478",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2025-010",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 3,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/40271906/",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "A-2025-025",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1eXa4c5ccx_czuT1IYvRHNX1x0p2STUOi/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1eXa4c5ccx_czuT1IYvRHNX1x0p2STUOi/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791325757293170",
+          "failures": []
+        },
+        {
+          "id": "A-2025-027",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pdfs.semanticscholar.org/46f4/20eec0eae79e9313680c5280c334ae348c40.pdf",
+          "failures": []
+        },
+        {
+          "id": "A-2025-055",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1vTrkRhhjB-A5XsLjA5FKaxNrx6Yyuh4l/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1vTrkRhhjB-A5XsLjA5FKaxNrx6Yyuh4l/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325757765684",
+          "failures": []
+        },
+        {
+          "id": "A-2025-085",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1jVA8qCiY0pGX8djXnhkfk-7PZNB3JqvV/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1jVA8qCiY0pGX8djXnhkfk-7PZNB3JqvV/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325757799026",
+          "failures": []
+        },
+        {
+          "id": "A-2025-086",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1ucS1yzl2QYnsHzEl9NVbUZnxJCcEqW1I/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1ucS1yzl2QYnsHzEl9NVbUZnxJCcEqW1I/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791325758196612",
+          "failures": []
+        },
+        {
+          "id": "A-2025-087",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1b6iZJZnR0MjXSJlT03dT1b2-glInvE8d/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1b6iZJZnR0MjXSJlT03dT1b2-glInvE8d/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791325758018496",
+          "failures": []
+        },
+        {
+          "id": "A-2025-088",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S175173112500076X",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2025-089",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0378432025002659",
+          "failures": []
+        },
+        {
+          "id": "A-2025-093",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Cy0YFT-qdcLf4OD0nNk7mAbzzxnZKm-S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Cy0YFT-qdcLf4OD0nNk7mAbzzxnZKm-S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325758310145",
+          "failures": []
+        },
+        {
+          "id": "A-2025-094",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1e25Ms_iQSBQhFv4UwIc1g-3s-p4cTIwt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1e25Ms_iQSBQhFv4UwIc1g-3s-p4cTIwt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791325758459337",
+          "failures": []
+        },
+        {
+          "id": "A-2025-095",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1744117X25001923",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2025-096",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12342256/",
+          "failures": []
+        },
+        {
+          "id": "A-2025-097",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2025-109",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0006291X25009234",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2025-119",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11846017/",
+          "failures": []
+        },
+        {
+          "id": "A-2025-128",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/40542614/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2025-170",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12540053/",
+          "failures": []
+        },
+        {
+          "id": "A-2025-268",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 3,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/40613220/",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "A-2025-271",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12022253/",
+          "failures": []
+        },
+        {
+          "id": "A-2025-272",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12123735/",
+          "failures": []
+        },
+        {
+          "id": "A-2025-280",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0022098125000516",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2025-281",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s12602-025-10626-y",
+          "failures": []
+        },
+        {
+          "id": "A-2026-028",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1BihqsopwmC5nrLO6ci2Z17flbRbZ-kE1/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1BihqsopwmC5nrLO6ci2Z17flbRbZ-kE1/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791325758821388",
+          "failures": []
+        },
+        {
+          "id": "A-2026-029",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13091835/",
+          "failures": []
+        },
+        {
+          "id": "A-2026-056",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aduDODPZewpPwq0A7M4QAnNjGSCaWU5F/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aduDODPZewpPwq0A7M4QAnNjGSCaWU5F/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1983110570:1791325758932643",
+          "failures": []
+        },
+        {
+          "id": "A-2026-090",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1zqT2larHyOoELCsxjMA0WgqncTWPFFXm/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1zqT2larHyOoELCsxjMA0WgqncTWPFFXm/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791325759156554",
+          "failures": []
+        },
+        {
+          "id": "A-2026-091",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12837375/",
+          "failures": []
+        },
+        {
+          "id": "A-2026-092",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0306456526000719",
+          "failures": []
+        },
+        {
+          "id": "A-2026-096",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13088062/",
+          "failures": []
+        },
+        {
+          "id": "A-2026-097",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12602-025-10869-9&code=f3297492-4530-430d-abd5-e5bf1e661c04",
+          "failures": []
+        },
+        {
+          "id": "A-2026-098",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s12602-025-10759-0",
+          "failures": []
+        },
+        {
+          "id": "A-2026-110",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12987205/",
+          "failures": []
+        },
+        {
+          "id": "A-2026-117",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0753332226001253",
+          "failures": []
+        },
+        {
+          "id": "A-2026-120",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://juniperpublishers.com/jpcr/JPCR.MS.ID.555815.php",
+          "failures": []
+        },
+        {
+          "id": "A-2026-122",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2026-123",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S2095311926003308",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "A-2026-124",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1770540/full",
+          "failures": []
+        },
+        {
+          "id": "A-2026-125",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13341674/",
+          "failures": []
+        },
+        {
+          "id": "A-2026-171",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12602-026-10939-6&code=aa470104-1c68-4d32-b0df-1a1117c63a0f",
+          "failures": []
+        },
+        {
+          "id": "A-2026-177",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs40168-026-02469-8&code=fd453251-b5e4-46e8-b7bf-9048dbd5757c",
+          "failures": []
+        },
+        {
+          "id": "A-2026-182",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13402817/",
+          "failures": []
+        },
+        {
+          "id": "A-2026-183",
+          "kind": "동물",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "A-2026-185",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/42669868/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2026-186",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/42663508/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "A-2026-187",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s10499-026-02648-2",
+          "failures": []
+        },
+        {
+          "id": "A-2026-246",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/10.1007/s12017-026-08946-5",
+          "failures": []
+        },
+        {
+          "id": "A-2026-284",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jafs.com.pl/pdf-211798-137832?filename=Effects-of-gamma-aminobut.pdf",
+          "failures": []
+        },
+        {
+          "id": "H-1976-026",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/128707/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-1980-001",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/7376786/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-1980-181",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/7419665/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-1982-041",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/0026049582900294",
+          "failures": []
+        },
+        {
+          "id": "H-1994-042",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/0920121194900795",
+          "failures": []
+        },
+        {
+          "id": "H-2000-145",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jstage.jst.go.jp/article/nskkk1995/47/8/47_8_596/_pdf/-char/en",
+          "failures": []
+        },
+        {
+          "id": "H-2003-201",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2F1601555&code=9cf19289-72b2-4b3c-a804-71b699b49b1c",
+          "failures": []
+        },
+        {
+          "id": "H-2004-155",
+          "kind": "임상",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            503
+          ]
+        },
+        {
+          "id": "H-2006-002",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/16971751/",
+          "failures": []
+        },
+        {
+          "id": "H-2008-003",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.ovid.com/jnls/acsm-msse/abstract/10.1249/mss.0b013e318158b518~growth-hormone-isoform-responses-to-gaba-ingestion-at-rest?redirectionsource=fulltextview",
+          "failures": []
+        },
+        {
+          "id": "H-2008-144",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jstage.jst.go.jp/article/jsnfs/61/3/61_3_129/_article",
+          "failures": []
+        },
+        {
+          "id": "H-2009-027",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1MpIo2hNIdKIG7URor0zvgtRwTf3UN7dg/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1MpIo2hNIdKIG7URor0zvgtRwTf3UN7dg/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325739617140",
+          "failures": []
+        },
+        {
+          "id": "H-2009-043",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://ocu-omu.repo.nii.ac.jp/record/2020224/files/00306096-55-2-99.pdf",
+          "failures": []
+        },
+        {
+          "id": "H-2009-202",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/19811362/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2009-203",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/19462324/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2009-206",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jstage.jst.go.jp/article/jpa2/28/3/28_3_101/_article",
+          "failures": []
+        },
+        {
+          "id": "H-2010-139",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://static1.squarespace.com/static/60511e8cbebfc64c882faea5/t/64dbfae594df5135a56c4d0f/1692138213994/GABAdone%2BClinical%2BTrial.pdf",
+          "failures": []
+        },
+        {
+          "id": "H-2011-204",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jstage.jst.go.jp/article/jnsv/57/1/57_1_9/_article",
+          "failures": []
+        },
+        {
+          "id": "H-2012-030",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wdfjEWxW3bqDwDihZLMgvz1xJCyPBb3t/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wdfjEWxW3bqDwDihZLMgvz1xJCyPBb3t/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325740053086",
+          "failures": []
+        },
+        {
+          "id": "H-2012-158",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00726-011-1206-6&code=32644ed3-7e0a-47c8-83a2-7b7c3095ad40",
+          "failures": []
+        },
+        {
+          "id": "H-2013-027",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.doi.org/",
+          "failures": []
+        },
+        {
+          "id": "H-2013-146",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://www.lifescience.co.jp/yk/yk13/oct/ab5.html",
+          "failures": [
+            503
+          ]
+        },
+        {
+          "id": "H-2014-008",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://html.rhhz.net/YXXB/html/20141118.htm",
+          "failures": []
+        },
+        {
+          "id": "H-2015-009",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2015.00260/full",
+          "failures": []
+        },
+        {
+          "id": "H-2015-010",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jstage.jst.go.jp/article/jnsv/61/2/61_182/_article/-char/en",
+          "failures": []
+        },
+        {
+          "id": "H-2015-031",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 3,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/26010143/",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "H-2015-136",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4652806/",
+          "failures": []
+        },
+        {
+          "id": "H-2015-147",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jstage.jst.go.jp/article/nskkk/62/2/62_95/_pdf/-char/en",
+          "failures": []
+        },
+        {
+          "id": "H-2015-149",
+          "kind": "임상",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            503
+          ]
+        },
+        {
+          "id": "H-2015-158",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00394-015-0858-5&code=6d917737-b7b3-4cde-ac14-d4df87a8002f",
+          "failures": [
+            "AbortError"
+          ]
+        },
+        {
+          "id": "H-2015-219",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4521208/",
+          "failures": []
+        },
+        {
+          "id": "H-2016-011",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6049207/",
+          "failures": []
+        },
+        {
+          "id": "H-2016-032",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1A19oZlh5n9m3Ruifnge54v_3KPLSYuyV/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1A19oZlh5n9m3Ruifnge54v_3KPLSYuyV/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791325740955076",
+          "failures": []
+        },
+        {
+          "id": "H-2017-011",
+          "kind": "임상",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            429
+          ]
+        },
+        {
+          "id": "H-2018-033",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1kPKoKUVUVkrFaRcPrb6OBzYBxWwJP5js/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1kPKoKUVUVkrFaRcPrb6OBzYBxWwJP5js/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791325741017210",
+          "failures": []
+        },
+        {
+          "id": "H-2018-159",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6031986/",
+          "failures": []
+        },
+        {
+          "id": "H-2018-160",
+          "kind": "임상",
+          "status": "unavailable",
+          "attempts": 1,
+          "resolvedUrl": "",
+          "failures": [
+            503
+          ]
+        },
+        {
+          "id": "H-2018-161",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00394-017-1600-2&code=eaedd534-fc62-4c0e-937c-b02e0caf3d24",
+          "failures": []
+        },
+        {
+          "id": "H-2019-014",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6522239/",
+          "failures": []
+        },
+        {
+          "id": "H-2019-045",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1551714419300102",
+          "failures": []
+        },
+        {
+          "id": "H-2019-148",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/31060476/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2019-162",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0002916522009716",
+          "failures": []
+        },
+        {
+          "id": "H-2019-205",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2019.00027/full",
+          "failures": []
+        },
+        {
+          "id": "H-2020-140",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://rctportal.mhlw.go.jp/detail/um?trial_id=UMIN000036725",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2020-141",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://rctportal.mhlw.go.jp/detail/um?trial_id=UMIN000036726",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2021-034",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1d206tsn3OvUVJd2p-AYS59_T24tBnThc/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1d206tsn3OvUVJd2p-AYS59_T24tBnThc/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1876773986:1791325741255292",
+          "failures": []
+        },
+        {
+          "id": "H-2021-112",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8122390/",
+          "failures": []
+        },
+        {
+          "id": "H-2022-015",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2022.883571/full",
+          "failures": []
+        },
+        {
+          "id": "H-2022-016",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9790014/",
+          "failures": []
+        },
+        {
+          "id": "H-2022-020",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9262463/",
+          "failures": []
+        },
+        {
+          "id": "H-2022-035",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 3,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/35852458/",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "H-2022-113",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9358242/",
+          "failures": []
+        },
+        {
+          "id": "H-2022-130",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT05368909",
+          "failures": []
+        },
+        {
+          "id": "H-2022-184",
+          "kind": "임상",
+          "status": "unavailable",
+          "attempts": 3,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            403,
+            429
+          ]
+        },
+        {
+          "id": "H-2023-017",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://edepot.wur.nl/637486",
+          "failures": []
+        },
+        {
+          "id": "H-2023-022",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9876833/",
+          "failures": []
+        },
+        {
+          "id": "H-2023-036",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10291391/",
+          "failures": []
+        },
+        {
+          "id": "H-2023-037",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1n6R-ZYA7vnKAQ_q9K0h7dbxQCKIVS_rc/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1n6R-ZYA7vnKAQ_q9K0h7dbxQCKIVS_rc/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325742200063",
+          "failures": []
+        },
+        {
+          "id": "H-2024-018",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://ensaiosclinicos.gov.br/rg/RBR-8t7h259",
+          "failures": []
+        },
+        {
+          "id": "H-2024-039",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wSUn9jQfnh7R-ZzkitmNRBORUYAC5g1S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wSUn9jQfnh7R-ZzkitmNRBORUYAC5g1S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S506961778:1791325742295012",
+          "failures": []
+        },
+        {
+          "id": "H-2024-040",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11167191/",
+          "failures": []
+        },
+        {
+          "id": "H-2024-114",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://edepot.wur.nl/672751",
+          "failures": []
+        },
+        {
+          "id": "H-2024-161",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s00394-024-03447-2",
+          "failures": []
+        },
+        {
+          "id": "H-2024-166",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://eprints.lib.hokudai.ac.jp/repo/huscap/all/95583/1_Manuscript_Text_v13_Main.pdf",
+          "failures": []
+        },
+        {
+          "id": "H-2024-167",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/38213037/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2024-172",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/39385735/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2024-180",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.ffhdj.com/index.php/ffhd/article/download/1334/3862/9629",
+          "failures": []
+        },
+        {
+          "id": "H-2024-181",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://drpress.org/ojs/index.php/ijbls/article/download/24050/23822",
+          "failures": []
+        },
+        {
+          "id": "H-2024-182",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.scientiaricerca.com/srnuft/pdf/SRNUFT-05-0106.pdf",
+          "failures": []
+        },
+        {
+          "id": "H-2024-183",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.scientiaricerca.com/srnuft/pdf/SRNUFT-05-0107.pdf",
+          "failures": []
+        },
+        {
+          "id": "H-2025-024",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S2405457725003018",
+          "failures": []
+        },
+        {
+          "id": "H-2025-052",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://rctportal.mhlw.go.jp/s/detail/um?trial_id=UMIN000051927",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2025-054",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11939556/",
+          "failures": []
+        },
+        {
+          "id": "H-2025-055",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jstage.jst.go.jp/article/ieejeiss/145/10/145_878/_article/-char/ja/",
+          "failures": []
+        },
+        {
+          "id": "H-2025-056",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.lifescience.co.jp/yk/yk25/yke2510.html",
+          "failures": []
+        },
+        {
+          "id": "H-2025-057",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41598-025-95208-2&code=798d0d5e-3327-4937-b38c-560509571416",
+          "failures": []
+        },
+        {
+          "id": "H-2025-115",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/40663563/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2025-132",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12157149/",
+          "failures": []
+        },
+        {
+          "id": "H-2025-142",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT06464172",
+          "failures": []
+        },
+        {
+          "id": "H-2025-151",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT06864520",
+          "failures": []
+        },
+        {
+          "id": "H-2025-156",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 3,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/40312029/",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "H-2025-157",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11901992/",
+          "failures": []
+        },
+        {
+          "id": "H-2025-167",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0889159125002375",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2025-177",
+          "kind": "임상",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "H-2025-178",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0899900725002096",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2025-179",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs41606-024-00122-7&code=d57cb60d-6067-4aa2-923b-b4c2c34bd7e3",
+          "failures": []
+        },
+        {
+          "id": "H-2025-180",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11971400/",
+          "failures": []
+        },
+        {
+          "id": "H-2025-221",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12787598/",
+          "failures": []
+        },
+        {
+          "id": "H-2025-222",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12525987/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-021",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13209747/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-022",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.europeanreview.org/wp/wp-content/uploads/37-45-1.pdf",
+          "failures": []
+        },
+        {
+          "id": "H-2026-023",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S3050624726000094",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2026-025",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://tp.amegroups.org/article/view/154052/html",
+          "failures": []
+        },
+        {
+          "id": "H-2026-053",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1756464626000332",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "H-2026-054",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12816741/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-055",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://center6.umin.ac.jp/cgi-open-bin/icdr_e/ctr_view.cgi?recptno=R000068507",
+          "failures": []
+        },
+        {
+          "id": "H-2026-056",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT06226259",
+          "failures": []
+        },
+        {
+          "id": "H-2026-163",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41380-026-03813-y&code=5a77a511-79e6-410f-bbe1-ff56ba7a6b0b",
+          "failures": []
+        },
+        {
+          "id": "H-2026-164",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.biorxiv.org/node/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-165",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.sciopen.com/article/10.26599/JFB.2026.95033439?issn=2637-8752",
+          "failures": []
+        },
+        {
+          "id": "H-2026-166",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13210199/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-167",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12894539/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-168",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10780920/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-169",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9332698/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-170",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12799387/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-171",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11867345/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-173",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.mdpi.com/2072-6643/18/17/2876",
+          "failures": []
+        },
+        {
+          "id": "H-2026-174",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13374185/",
+          "failures": []
+        },
+        {
+          "id": "H-2026-175",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.e-nrp.org/DOIx.php?id=10.4162/nrp.2026.20.3.461",
+          "failures": []
+        },
+        {
+          "id": "H-2026-196",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1440244026002884",
+          "failures": []
+        },
+        {
+          "id": "H-REG-2013-003",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT01917760",
+          "failures": []
+        },
+        {
+          "id": "H-REG-2019-002",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT04086108",
+          "failures": []
+        },
+        {
+          "id": "H-REG-2021-001",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT04857021",
+          "failures": []
+        },
+        {
+          "id": "H-REG-2024-002",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT06464172",
+          "failures": []
+        },
+        {
+          "id": "H-REG-2025-007",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://center6.umin.ac.jp/cgi-open-bin/ctr_e/ctr_view.cgi?recptno=R000067466",
+          "failures": []
+        },
+        {
+          "id": "H-REG-2026-003",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT07517757",
+          "failures": []
+        },
+        {
+          "id": "H-REG-2026-004",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://clinicaltrials.gov/study/NCT06997406",
+          "failures": []
+        },
+        {
+          "id": "R-2015-158",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2015.01520/full",
+          "failures": []
+        },
+        {
+          "id": "R-2016-285",
+          "kind": "임상",
+          "status": "unavailable",
+          "attempts": 1,
+          "resolvedUrl": "",
+          "failures": [
+            401
+          ]
+        },
+        {
+          "id": "R-2020-137",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7527439/",
+          "failures": []
+        },
+        {
+          "id": "R-2021-175",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8399837/",
+          "failures": []
+        },
+        {
+          "id": "R-2022-209",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0022030222007159",
+          "failures": []
+        },
+        {
+          "id": "R-2022-220",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9132973/",
+          "failures": []
+        },
+        {
+          "id": "R-2023-160",
+          "kind": "전임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10717626/",
+          "failures": []
+        },
+        {
+          "id": "R-2023-182",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/36668678/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2023-235",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs40035-023-00391-9&code=a1316f10-85a1-438c-9a54-17a904f09f32",
+          "failures": []
+        },
+        {
+          "id": "R-2024-019",
+          "kind": "고찰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.mdpi.com/1661-3821/4/2/15",
+          "failures": []
+        },
+        {
+          "id": "R-2024-208",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2024.1404743/full",
+          "failures": []
+        },
+        {
+          "id": "R-2024-217",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/38350463/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2024-228",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.voprosy-pitaniya.ru/ru/journal_articles/1106.html?SSr=120134d7c015ffffffff27c__07e803140f0c36-5424",
+          "failures": []
+        },
+        {
+          "id": "R-2024-229",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10732416/",
+          "failures": []
+        },
+        {
+          "id": "R-2024-230",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/37694843/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2024-234",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2024.1421791/full",
+          "failures": []
+        },
+        {
+          "id": "R-2024-282",
+          "kind": "리뷰",
+          "status": "unavailable",
+          "attempts": 1,
+          "resolvedUrl": "",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2025-138",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12651798/",
+          "failures": []
+        },
+        {
+          "id": "R-2025-159",
+          "kind": "전임상",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S2212429225004808",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2025-213",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12121261/",
+          "failures": []
+        },
+        {
+          "id": "R-2025-214",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S2665927125002072",
+          "failures": []
+        },
+        {
+          "id": "R-2025-224",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12731854/",
+          "failures": []
+        },
+        {
+          "id": "R-2025-231",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.mdpi.com/2218-273X/15/7/979",
+          "failures": []
+        },
+        {
+          "id": "R-2025-283",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://center6.umin.ac.jp/cgi-open-bin/ctr/ctr_view.cgi?recptno=R000067510",
+          "failures": []
+        },
+        {
+          "id": "R-2026-002",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.mdpi.com/2674-1334/5/3/47",
+          "failures": []
+        },
+        {
+          "id": "R-2026-134",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13414921/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-135",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/42409541/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-166",
+          "kind": "고찰",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0022030226029668",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2026-174",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13256521/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-177",
+          "kind": "고찰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/10.1007/s12602-026-11150-3",
+          "failures": []
+        },
+        {
+          "id": "R-2026-178",
+          "kind": "고찰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.imrpress.com/journal/FBE/18/2/10.31083/FBE44158",
+          "failures": []
+        },
+        {
+          "id": "R-2026-179",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0924224426003547",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "R-2026-180",
+          "kind": "전임상",
+          "status": "unavailable",
+          "attempts": 2,
+          "resolvedUrl": "",
+          "failures": [
+            403,
+            403
+          ]
+        },
+        {
+          "id": "R-2026-181",
+          "kind": "고찰",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0924224426004991",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "R-2026-183",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0168160526002242",
+          "failures": [
+            400
+          ]
+        },
+        {
+          "id": "R-2026-184",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0963996926015929",
+          "failures": []
+        },
+        {
+          "id": "R-2026-185",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0308814626022557",
+          "failures": []
+        },
+        {
+          "id": "R-2026-186",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12988186/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-187",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13448485/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-190",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13259763/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-191",
+          "kind": "임상",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12930009/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-192",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13275093/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-193",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s00203-026-05111-1",
+          "failures": []
+        },
+        {
+          "id": "R-2026-194",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.mdpi.com/2304-8158/15/15/2642",
+          "failures": []
+        },
+        {
+          "id": "R-2026-195",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.jmb.or.kr/journal/view.html?doi=10.4014/jmb.2512.12040",
+          "failures": []
+        },
+        {
+          "id": "R-2026-196",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S266615432600582X",
+          "failures": []
+        },
+        {
+          "id": "R-2026-197",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.ffhdj.com/index.php/FunctionalFoodScience/article/view/2100",
+          "failures": []
+        },
+        {
+          "id": "R-2026-198",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S2212429226014677",
+          "failures": []
+        },
+        {
+          "id": "R-2026-199",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S221242922600893X",
+          "failures": []
+        },
+        {
+          "id": "R-2026-200",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0168160526002011",
+          "failures": []
+        },
+        {
+          "id": "R-2026-210",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/42494182/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2026-211",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/42012997/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2026-212",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1715064/full",
+          "failures": []
+        },
+        {
+          "id": "R-2026-215",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s10123-026-00839-8",
+          "failures": []
+        },
+        {
+          "id": "R-2026-216",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0308814626004905",
+          "failures": []
+        },
+        {
+          "id": "R-2026-218",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13073049/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-223",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13416752/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-225",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s12602-026-10965-4",
+          "failures": []
+        },
+        {
+          "id": "R-2026-226",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13028806/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-227",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12785718/",
+          "failures": []
+        },
+        {
+          "id": "R-2026-232",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s12602-025-10628-w",
+          "failures": []
+        },
+        {
+          "id": "R-2026-233",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s12602-026-10941-y",
+          "failures": []
+        },
+        {
+          "id": "R-2026-236",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/41392764/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2026-237",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0963996926011993",
+          "failures": []
+        },
+        {
+          "id": "R-2026-238",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0963996926008914",
+          "failures": []
+        },
+        {
+          "id": "R-2026-239",
+          "kind": "동물",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0963996926017382",
+          "failures": []
+        },
+        {
+          "id": "R-2026-243",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/42015746/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2026-244",
+          "kind": "문헌",
+          "status": "ok",
+          "attempts": 2,
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/42551011/",
+          "failures": [
+            403
+          ]
+        },
+        {
+          "id": "R-2026-286",
+          "kind": "리뷰",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://center6.umin.ac.jp/cgi-open-bin/ctr_e/ctr_view.cgi?recptno=R000066812",
+          "failures": []
+        },
+        {
+          "id": "REG-CA-HC-2022-001",
+          "kind": "규제",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.canada.ca/en/health-canada/services/food-nutrition/legislation-guidelines/guidance-documents/guidelines-safety-assessment-novel-foods-2006.html",
+          "failures": []
+        },
+        {
+          "id": "REG-CA-HC-2026-002",
+          "kind": "규제",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.canada.ca/en/health-canada/services/food-nutrition/genetically-modified-foods-other-novel-foods/approved-products.html",
+          "failures": []
+        },
+        {
+          "id": "REG-CA-HC-2026-003",
+          "kind": "규제",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.canada.ca/errors/404.html",
+          "failures": []
+        },
+        {
+          "id": "REG-CA-HC-NHPID-2026-001",
+          "kind": "규제",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://webprod.hc-sc.gc.ca/nhpid-bdipsn/atReq?atid=fonc.cognitive.func&lang=eng",
+          "failures": []
+        },
+        {
+          "id": "REG-KR-MFDS-2025-001",
+          "kind": "규제",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.mfds.go.kr/law/board/boardDetail.do?brdId=data0011&menuKey=29&seq=15697",
+          "failures": []
+        },
+        {
+          "id": "REG-KR-MFDS-2025-002",
+          "kind": "규제",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000268780&chrClsCd=010201",
+          "failures": []
+        },
+        {
+          "id": "REG-KR-MFDS-2025-004",
+          "kind": "규제",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.mfds.go.kr/law/board/boardDetail.do?brdId=data0011&menuKey=29&seq=15695",
+          "failures": []
+        },
+        {
+          "id": "REG-KR-MFDS-2026-003",
+          "kind": "규제",
+          "status": "ok",
+          "attempts": 1,
+          "resolvedUrl": "https://www.foodsafetykorea.go.kr/portal/board/boardDetail.do?bbs_no=bbs018&menu_grp=MENU_NEW04&menu_no=2966&ntctxt_no=21226",
+          "failures": []
+        }
+      ],
       "note": "접근 제한·일시 응답은 원문 내용의 부재나 근거 약함을 뜻하지 않음"
     },
     "publicRelease": true,

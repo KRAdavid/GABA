@@ -49,16 +49,18 @@ async function worker() {
     const success = attempts.find((item) => item.ok);
     const hasBlocked = attempts.some((item) => blockedStatuses.has(item.status));
     const hasTransient = attempts.some((item) => transientStatus(item.status));
-    recordResults.push({ id: record.id, kind: record.kind, status: success ? "ok" : hasBlocked || hasTransient ? "unavailable" : "failed", attempts: attempts.length, resolvedUrl: success?.finalUrl || "", failures: attempts.filter((item) => !item.ok).map((item) => item.status || item.error) });
+    const hasFetchFailure = attempts.some((item) => item.status === 0 || item.error);
+    recordResults.push({ id: record.id, kind: record.kind, status: success ? "ok" : hasBlocked || hasTransient || hasFetchFailure ? "unavailable" : "failed", attempts: attempts.length, resolvedUrl: success?.finalUrl || "", failures: attempts.filter((item) => !item.ok).map((item) => item.status || item.error) });
   }
 }
 await Promise.all(Array.from({ length: Math.min(8, records.length) }, worker));
 
 const failed = recordResults.filter((item) => item.status === "failed");
 const blocked = recordResults.filter((item) => item.status === "unavailable");
+recordResults.sort((a, b) => String(a.id).localeCompare(String(b.id)));
 const redirects = linkResults.filter((item) => item.finalUrl && item.finalUrl !== item.url);
 const statusCounts = linkResults.reduce((counts, item) => { const key = String(item.status || "fetch_failed"); counts[key] = (counts[key] || 0) + 1; return counts; }, {});
-const summary = { valid: failed.length === 0, checkedAt: new Date().toISOString(), records: records.length, recordsWithLinks: recordResults.filter((item) => item.attempts > 0).length, resolved: recordResults.filter((item) => item.status === "ok").length, blockedCount: blocked.length, failed: failed.length, redirects: redirects.length, attempts: linkResults.length, statusCounts, failures: failed.slice(0, 25) };
+const summary = { valid: failed.length === 0, checkedAt: new Date().toISOString(), records: records.length, recordsWithLinks: recordResults.filter((item) => item.attempts > 0).length, resolved: recordResults.filter((item) => item.status === "ok").length, blockedCount: blocked.length, failed: failed.length, redirects: redirects.length, attempts: linkResults.length, statusCounts, failures: failed.slice(0, 25), recordStatuses: recordResults };
 if (writeMeta) {
   const dataPath = resolve(publicRoot, "worker", "data.json");
   const database = JSON.parse(await readFile(dataPath, "utf8"));
@@ -73,6 +75,7 @@ if (writeMeta) {
     redirects: summary.redirects,
     attempts: summary.attempts,
     statusCounts: summary.statusCounts,
+    recordStatuses: summary.recordStatuses,
     note: "접근 제한·일시 응답은 원문 내용의 부재나 근거 약함을 뜻하지 않음"
   };
   await writeFile(dataPath, JSON.stringify(database, null, 2) + "\n", "utf8");
