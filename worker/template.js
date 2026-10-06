@@ -2342,7 +2342,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <select id="audit">
                 <option value="">전체</option>
                 <option value="ok">감사 시점 접근 확인</option>
-                <option value="unavailable">접근 제한·일시 응답</option>
+                <option value="unavailable">접근 제한·일시 응답·페이지 오류</option>
                 <option value="missing">개별 감사 기록 없음</option>
               </select>
             </div>
@@ -2822,7 +2822,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var auditNote = el("link-audit-note");
         var auditNoteWrap = el("link-audit-note-wrap");
         if (auditNote && auditNoteWrap && DB.meta.linkAudit) {
-          auditNote.textContent = DB.meta.linkAudit.note || "원문 감사는 링크 접근성만 점검하며, 접근 제한·일시 응답은 근거 약함을 뜻하지 않습니다.";
+          auditNote.textContent = DB.meta.linkAudit.note || "원문 감사는 링크 접근성만 점검하며, 접근 제한·일시 응답·페이지 오류는 근거 약함을 뜻하지 않습니다.";
           auditNoteWrap.hidden = false;
         }
         syncAuditFilterOptions();
@@ -3154,7 +3154,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         });
         var labels = {
           ok: "감사 시점 접근 확인",
-          unavailable: "접근 제한·일시 응답",
+          unavailable: "접근 제한·일시 응답·페이지 오류",
           missing: "개별 감사 기록 없음"
         };
         Object.keys(labels).forEach(function (value) {
@@ -3184,13 +3184,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var audit = sourceAuditRecord(record);
         if (!audit) return "개별 감사 기록 없음 · 링크와 원문을 직접 확인하세요.";
         if (audit.status === "ok") return "감사 시점 기준 접근 응답 확인 · " + audit.attempts + "개 경로 확인";
-        if (audit.status === "unavailable") return "접근 제한·일시 응답 포함 · 대체 경로와 원문을 직접 확인하세요. 이는 근거 약함을 뜻하지 않습니다.";
+        if (audit.status === "unavailable") return "접근 제한·일시 응답·페이지 오류 포함 · 대체 경로와 원문을 직접 확인하세요. 이는 근거 약함을 뜻하지 않습니다.";
         return "원문 링크 재확인 필요 · 링크 오류가 근거의 질을 뜻하지 않습니다.";
       }
       function sourceAuditBadge(record) {
         var audit = sourceAuditRecord(record);
         if (!audit || audit.status === "ok") return "";
-        return '<span class="badge source-audit-badge" title="접근 제한·일시 응답은 근거 약함을 뜻하지 않습니다.">원문 접근 제한</span>';
+        return '<span class="badge source-audit-badge" title="접근 제한·일시 응답·페이지 오류는 근거 약함을 뜻하지 않습니다.">원문 접근 제한</span>';
       }
 
       function recordDoseValues(record) {
@@ -4441,7 +4441,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return { available: "원문·식별자 링크 있음", drive: "Drive 원문", link: "외부 링크", none: "링크 없음" }[value] || value;
       }
       function auditLabel(value) {
-        return { ok: "감사 시점 접근 확인", unavailable: "접근 제한·일시 응답", missing: "개별 감사 기록 없음" }[value] || value;
+        return { ok: "감사 시점 접근 확인", unavailable: "접근 제한·일시 응답·페이지 오류", missing: "개별 감사 기록 없음" }[value] || value;
       }
       function freshnessLabel(value) {
         return { recent: "최근 확인 (90일 이내)", stale: "재확인 권고 (90일 초과)", unknown: "확인일 미상" }[value] || value;

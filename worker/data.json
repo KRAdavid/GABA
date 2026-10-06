@@ -36322,22 +36322,22 @@
     "sourceSheet": null,
     "sourceFile": null,
     "linkAudit": {
-      "checkedAt": "2026-10-06T22:29:43.022Z",
+      "checkedAt": "2026-10-06T23:52:20.060Z",
       "records": 392,
       "recordsWithLinks": 392,
-      "resolved": 372,
-      "blockedCount": 20,
+      "resolved": 383,
+      "blockedCount": 9,
       "failed": 0,
-      "redirects": 264,
-      "attempts": 500,
+      "redirects": 266,
+      "attempts": 501,
       "statusCounts": {
-        "200": 309,
-        "203": 62,
+        "200": 308,
+        "203": 74,
         "204": 1,
-        "400": 12,
+        "400": 15,
         "401": 1,
-        "403": 98,
-        "429": 12,
+        "403": 96,
+        "404": 1,
         "503": 4,
         "fetch_failed": 1
       },
@@ -36347,7 +36347,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/139-_ETYODRgqEDZgUMK8kxKMShRp69AB/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/139-_ETYODRgqEDZgUMK8kxKMShRp69AB/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325743632901",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/139-_ETYODRgqEDZgUMK8kxKMShRp69AB/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/139-_ETYODRgqEDZgUMK8kxKMShRp69AB/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791330698608903",
           "failures": []
         },
         {
@@ -36435,12 +36435,10 @@
         {
           "id": "A-1998-258",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "",
-          "failures": [
-            429
-          ]
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/9754049/",
+          "failures": []
         },
         {
           "id": "A-1999-035",
@@ -36473,7 +36471,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bFyPxVIynaiN-T9jzH78KI_wX4MV9A2z/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bFyPxVIynaiN-T9jzH78KI_wX4MV9A2z/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325745277351",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bFyPxVIynaiN-T9jzH78KI_wX4MV9A2z/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bFyPxVIynaiN-T9jzH78KI_wX4MV9A2z/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791330700385981",
           "failures": []
         },
         {
@@ -36499,7 +36497,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1By74-U1d99P5hhx02AqQ524XIV9bKsXD/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1By74-U1d99P5hhx02AqQ524XIV9bKsXD/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325745334926",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1By74-U1d99P5hhx02AqQ524XIV9bKsXD/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1By74-U1d99P5hhx02AqQ524XIV9bKsXD/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791330700591143",
           "failures": []
         },
         {
@@ -36543,7 +36541,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1FrYsri0KSXmo7RP3vQTq8Cp6ggw0IjXE/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1FrYsri0KSXmo7RP3vQTq8Cp6ggw0IjXE/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325746064220",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1FrYsri0KSXmo7RP3vQTq8Cp6ggw0IjXE/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1FrYsri0KSXmo7RP3vQTq8Cp6ggw0IjXE/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791330701121927",
           "failures": []
         },
         {
@@ -36551,7 +36549,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://link.springer.com/article/10.1007/s00726-006-0358-2?error=cookies_not_supported&code=1afbf9ad-f5b2-46d3-9ea6-d283702644fd",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00726-006-0358-2&code=c4ad3a36-d4df-48ea-86c7-a390f298c4c3",
           "failures": []
         },
         {
@@ -36567,7 +36565,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1_mGzZwT0lis3KgpCfY5vhmHn0MVGDIuJ/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1_mGzZwT0lis3KgpCfY5vhmHn0MVGDIuJ/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1710199421:1791325746324496",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1_mGzZwT0lis3KgpCfY5vhmHn0MVGDIuJ/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1_mGzZwT0lis3KgpCfY5vhmHn0MVGDIuJ/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791330701338554",
           "failures": []
         },
         {
@@ -36575,7 +36573,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1tBjG6Q26gHs3vypM3c5KnaO1-hrwZc5S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1tBjG6Q26gHs3vypM3c5KnaO1-hrwZc5S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325746354041",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1tBjG6Q26gHs3vypM3c5KnaO1-hrwZc5S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1tBjG6Q26gHs3vypM3c5KnaO1-hrwZc5S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1356807398:1791330701535426",
           "failures": []
         },
         {
@@ -36583,7 +36581,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1OYaKsgfVuYqDT9OC8gOpYCXTVFjoPWNA/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1OYaKsgfVuYqDT9OC8gOpYCXTVFjoPWNA/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S808546069:1791325746333202",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1OYaKsgfVuYqDT9OC8gOpYCXTVFjoPWNA/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1OYaKsgfVuYqDT9OC8gOpYCXTVFjoPWNA/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791330701584222",
           "failures": []
         },
         {
@@ -36635,7 +36633,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1a1iH5Uppz43pNAb0-iTh4nJf_dYGCKr2/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1a1iH5Uppz43pNAb0-iTh4nJf_dYGCKr2/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1710199421:1791325747282757",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1a1iH5Uppz43pNAb0-iTh4nJf_dYGCKr2/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1a1iH5Uppz43pNAb0-iTh4nJf_dYGCKr2/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S506961778:1791330702283671",
           "failures": []
         },
         {
@@ -36681,12 +36679,11 @@
         {
           "id": "A-2013-277",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/23384353/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -36715,7 +36712,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1eWRcKyLbdof8dJAI-O9O8fJzhtNl_9FI/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1eWRcKyLbdof8dJAI-O9O8fJzhtNl_9FI/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1154169890:1791325748025420",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1eWRcKyLbdof8dJAI-O9O8fJzhtNl_9FI/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1eWRcKyLbdof8dJAI-O9O8fJzhtNl_9FI/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791330703251450",
           "failures": []
         },
         {
@@ -36749,7 +36746,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1txxurQRM_wRmdZVg5ORNT08sPiUKaPJ6/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1txxurQRM_wRmdZVg5ORNT08sPiUKaPJ6/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791325748229090",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1txxurQRM_wRmdZVg5ORNT08sPiUKaPJ6/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1txxurQRM_wRmdZVg5ORNT08sPiUKaPJ6/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791330703272345",
           "failures": []
         },
         {
@@ -36767,7 +36764,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs11248-014-9859-z&code=d55026b9-6bfa-4627-bc4e-76bdcd3e35d3",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs11248-014-9859-z&code=f5a36635-aaa5-43be-a8a6-248e5deadcef",
           "failures": []
         },
         {
@@ -36775,7 +36772,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://link.springer.com/article/10.1007/s12017-014-8337-3",
+          "resolvedUrl": "https://link.springer.com/10.1007/s12017-014-8337-3",
           "failures": []
         },
         {
@@ -36791,7 +36788,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Vj4fmDqWHfSZzcSdo5kqXEHau1fux_v0/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Vj4fmDqWHfSZzcSdo5kqXEHau1fux_v0/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791325748660861",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Vj4fmDqWHfSZzcSdo5kqXEHau1fux_v0/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Vj4fmDqWHfSZzcSdo5kqXEHau1fux_v0/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791330703646331",
           "failures": []
         },
         {
@@ -36799,7 +36796,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1HmxE9mBzqtyXshPIt1Nnl5ckDz1G7B77/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1HmxE9mBzqtyXshPIt1Nnl5ckDz1G7B77/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791325748801740",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1HmxE9mBzqtyXshPIt1Nnl5ckDz1G7B77/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1HmxE9mBzqtyXshPIt1Nnl5ckDz1G7B77/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1983110570:1791330704134050",
           "failures": []
         },
         {
@@ -36819,7 +36816,7 @@
           "attempts": 2,
           "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0306456515302163",
           "failures": [
-            403
+            400
           ]
         },
         {
@@ -36827,18 +36824,17 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00484-015-1084-9&code=f5b75b6d-63ab-46b4-a0bf-d8e1986faade",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00484-015-1084-9&code=b290eac4-9af6-4778-88b9-1b0908e16707",
           "failures": []
         },
         {
           "id": "A-2016-250",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/25980810/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -36846,7 +36842,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs11356-016-7604-2&code=45c52a64-768c-4036-9b31-48d2e10700b9",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs11356-016-7604-2&code=fd05c2c1-dd6a-4830-a07f-48cd316a406a",
           "failures": []
         },
         {
@@ -36854,7 +36850,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1TbFtUOQ-5mlycTw5KckL7NmC3yLuI34y/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1TbFtUOQ-5mlycTw5KckL7NmC3yLuI34y/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S506961778:1791325749255945",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1TbFtUOQ-5mlycTw5KckL7NmC3yLuI34y/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1TbFtUOQ-5mlycTw5KckL7NmC3yLuI34y/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S808546069:1791330704279988",
           "failures": []
         },
         {
@@ -36872,7 +36868,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1zH-X9c6ykrFrafvFfs0zMaU8NfYm_sMU/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1zH-X9c6ykrFrafvFfs0zMaU8NfYm_sMU/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325749480447",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1zH-X9c6ykrFrafvFfs0zMaU8NfYm_sMU/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1zH-X9c6ykrFrafvFfs0zMaU8NfYm_sMU/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791330704671734",
           "failures": []
         },
         {
@@ -36896,7 +36892,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1swgKWv4DcqpZe_ULQ9vnQUidoYmf1yRs/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1swgKWv4DcqpZe_ULQ9vnQUidoYmf1yRs/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1356807398:1791325749702127",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1swgKWv4DcqpZe_ULQ9vnQUidoYmf1yRs/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1swgKWv4DcqpZe_ULQ9vnQUidoYmf1yRs/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1171501034:1791330704654193",
           "failures": []
         },
         {
@@ -36914,7 +36910,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1UpRlM00QcUWVTEVtRVfuIypTlywgbFTr/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1UpRlM00QcUWVTEVtRVfuIypTlywgbFTr/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325750007536",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1UpRlM00QcUWVTEVtRVfuIypTlywgbFTr/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1UpRlM00QcUWVTEVtRVfuIypTlywgbFTr/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791330705282280",
           "failures": []
         },
         {
@@ -36971,18 +36967,17 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1kcVi8k-HiNG8lLrAZQQ8sM-rpRyustz9/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1kcVi8k-HiNG8lLrAZQQ8sM-rpRyustz9/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325750459190",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1kcVi8k-HiNG8lLrAZQQ8sM-rpRyustz9/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1kcVi8k-HiNG8lLrAZQQ8sM-rpRyustz9/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1910155354:1791330705588109",
           "failures": []
         },
         {
           "id": "A-2018-262",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/29708300/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -36990,7 +36985,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aXpCtkyqnUMPqFIjz1uO2fvY95WpMSrq/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aXpCtkyqnUMPqFIjz1uO2fvY95WpMSrq/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791325750625202",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aXpCtkyqnUMPqFIjz1uO2fvY95WpMSrq/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aXpCtkyqnUMPqFIjz1uO2fvY95WpMSrq/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791330705906002",
           "failures": []
         },
         {
@@ -37008,7 +37003,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Cbmq-2aj13H6qGuWBmJXVySitSMdgAxZ/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Cbmq-2aj13H6qGuWBmJXVySitSMdgAxZ/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S808546069:1791325751004855",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Cbmq-2aj13H6qGuWBmJXVySitSMdgAxZ/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Cbmq-2aj13H6qGuWBmJXVySitSMdgAxZ/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791330706210144",
           "failures": []
         },
         {
@@ -37048,7 +37043,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/17WaP34O0GDkGAF4r-ot3RmKO7UDOcWIp/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/17WaP34O0GDkGAF4r-ot3RmKO7UDOcWIp/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791325751090569",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/17WaP34O0GDkGAF4r-ot3RmKO7UDOcWIp/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/17WaP34O0GDkGAF4r-ot3RmKO7UDOcWIp/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1910155354:1791330706293664",
           "failures": []
         },
         {
@@ -37056,7 +37051,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs10695-019-00708-4&code=78bee385-ee0e-43e3-97c7-b73e80428c53",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs10695-019-00708-4&code=0852e907-9f34-46d9-b029-d0a89cc515ad",
           "failures": []
         },
         {
@@ -37064,7 +37059,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1LkwZGIioKO7AgWo0Iph5NGWe-QCdKhYp/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1LkwZGIioKO7AgWo0Iph5NGWe-QCdKhYp/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791325751451837",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1LkwZGIioKO7AgWo0Iph5NGWe-QCdKhYp/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1LkwZGIioKO7AgWo0Iph5NGWe-QCdKhYp/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791330706629132",
           "failures": []
         },
         {
@@ -37098,7 +37093,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bJSiwSfNHkv0SA0gizWN49oDnhAUHPEC/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bJSiwSfNHkv0SA0gizWN49oDnhAUHPEC/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325752049887",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bJSiwSfNHkv0SA0gizWN49oDnhAUHPEC/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bJSiwSfNHkv0SA0gizWN49oDnhAUHPEC/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791330707278547",
           "failures": []
         },
         {
@@ -37116,7 +37111,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wUeY6QqHPupEZXo9eW9g5jtRHSKJ6xEN/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wUeY6QqHPupEZXo9eW9g5jtRHSKJ6xEN/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1439504673:1791325752302108",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wUeY6QqHPupEZXo9eW9g5jtRHSKJ6xEN/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wUeY6QqHPupEZXo9eW9g5jtRHSKJ6xEN/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S808546069:1791330707502892",
           "failures": []
         },
         {
@@ -37124,7 +37119,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1pAa5wsKbcjzj6DNP_KrVv2XcfskZM6mf/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1pAa5wsKbcjzj6DNP_KrVv2XcfskZM6mf/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325752307671",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1pAa5wsKbcjzj6DNP_KrVv2XcfskZM6mf/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1pAa5wsKbcjzj6DNP_KrVv2XcfskZM6mf/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791330707544244",
           "failures": []
         },
         {
@@ -37132,7 +37127,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12011-020-02027-9&code=9947c102-6b54-49fc-af1b-d3e897ee1088",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12011-020-02027-9&code=37121d18-4267-46e7-a0a1-e1d605d156c5",
           "failures": []
         },
         {
@@ -37167,12 +37162,11 @@
         {
           "id": "A-2020-275",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/32219958/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -37180,7 +37174,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aqeYmMMvbHOqVsdNakldsJoJCTl06-Gt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aqeYmMMvbHOqVsdNakldsJoJCTl06-Gt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791325752401401",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aqeYmMMvbHOqVsdNakldsJoJCTl06-Gt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aqeYmMMvbHOqVsdNakldsJoJCTl06-Gt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1710199421:1791330708125370",
           "failures": []
         },
         {
@@ -37188,7 +37182,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1CGVm61yUfHxkxzakOe66jRnKmXkZWZlu/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1CGVm61yUfHxkxzakOe66jRnKmXkZWZlu/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325752752838",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1CGVm61yUfHxkxzakOe66jRnKmXkZWZlu/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1CGVm61yUfHxkxzakOe66jRnKmXkZWZlu/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791330707904301",
           "failures": []
         },
         {
@@ -37216,7 +37210,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1NemJsqIQe3-8qi9_YUj-sx1GqxNiAykF/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1NemJsqIQe3-8qi9_YUj-sx1GqxNiAykF/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325753040894",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1NemJsqIQe3-8qi9_YUj-sx1GqxNiAykF/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1NemJsqIQe3-8qi9_YUj-sx1GqxNiAykF/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791330708313107",
           "failures": []
         },
         {
@@ -37224,7 +37218,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1x0lA_IEYe5R7ngfhlkol0RPnaNil8kmK/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1x0lA_IEYe5R7ngfhlkol0RPnaNil8kmK/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1983110570:1791325753216960",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1x0lA_IEYe5R7ngfhlkol0RPnaNil8kmK/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1x0lA_IEYe5R7ngfhlkol0RPnaNil8kmK/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791330708459620",
           "failures": []
         },
         {
@@ -37240,7 +37234,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1HXxGYbQgfCmGMcAUqbEH8sUrx1OjRgs6/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1HXxGYbQgfCmGMcAUqbEH8sUrx1OjRgs6/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325753279905",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1HXxGYbQgfCmGMcAUqbEH8sUrx1OjRgs6/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1HXxGYbQgfCmGMcAUqbEH8sUrx1OjRgs6/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791330708476512",
           "failures": []
         },
         {
@@ -37258,7 +37252,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1ByDVeisNIF-FibAyEbUjw77VgOSH_4iL/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1ByDVeisNIF-FibAyEbUjw77VgOSH_4iL/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325753264814",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1ByDVeisNIF-FibAyEbUjw77VgOSH_4iL/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1ByDVeisNIF-FibAyEbUjw77VgOSH_4iL/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791330708468213",
           "failures": []
         },
         {
@@ -37266,7 +37260,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1c6RH4bFkrRVZBE0QkXfmRTcSOPy8ye3N/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1c6RH4bFkrRVZBE0QkXfmRTcSOPy8ye3N/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791325753504584",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1c6RH4bFkrRVZBE0QkXfmRTcSOPy8ye3N/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1c6RH4bFkrRVZBE0QkXfmRTcSOPy8ye3N/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1910155354:1791330708950454",
           "failures": []
         },
         {
@@ -37274,7 +37268,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1A5D4OeZlrh6jVZkQHZHMcXGRgarapB3R/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1A5D4OeZlrh6jVZkQHZHMcXGRgarapB3R/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791325753698961",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1A5D4OeZlrh6jVZkQHZHMcXGRgarapB3R/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1A5D4OeZlrh6jVZkQHZHMcXGRgarapB3R/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-180527280:1791330709217495",
           "failures": []
         },
         {
@@ -37302,7 +37296,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1odyULU-12dv6Q7nFaLiC5OLzPJ1xl9kn/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1odyULU-12dv6Q7nFaLiC5OLzPJ1xl9kn/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791325754214638",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1odyULU-12dv6Q7nFaLiC5OLzPJ1xl9kn/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1odyULU-12dv6Q7nFaLiC5OLzPJ1xl9kn/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791330709469696",
           "failures": []
         },
         {
@@ -37329,7 +37323,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/109QlJu7ezfzKP0DczJV6a3Cntyoyh8Pw/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/109QlJu7ezfzKP0DczJV6a3Cntyoyh8Pw/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1356807398:1791325754224634",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/109QlJu7ezfzKP0DczJV6a3Cntyoyh8Pw/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/109QlJu7ezfzKP0DczJV6a3Cntyoyh8Pw/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1356807398:1791330709380893",
           "failures": []
         },
         {
@@ -37337,7 +37331,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1axVceqvlTxNqLdj_-t0RXgcALTJDUQUb/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1axVceqvlTxNqLdj_-t0RXgcALTJDUQUb/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325754175823",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1axVceqvlTxNqLdj_-t0RXgcALTJDUQUb/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1axVceqvlTxNqLdj_-t0RXgcALTJDUQUb/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791330709391323",
           "failures": []
         },
         {
@@ -37345,7 +37339,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/10SKnpBxT8mH5Oooq-oD5toNHO8dDE69K/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/10SKnpBxT8mH5Oooq-oD5toNHO8dDE69K/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1154169890:1791325754502220",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/10SKnpBxT8mH5Oooq-oD5toNHO8dDE69K/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/10SKnpBxT8mH5Oooq-oD5toNHO8dDE69K/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791330709723240",
           "failures": []
         },
         {
@@ -37363,7 +37357,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bm72w0WQ88pVpxQxTLUIzaKgWz3N2gXI/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bm72w0WQ88pVpxQxTLUIzaKgWz3N2gXI/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-400837310:1791325754733134",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1bm72w0WQ88pVpxQxTLUIzaKgWz3N2gXI/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1bm72w0WQ88pVpxQxTLUIzaKgWz3N2gXI/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S421724395:1791330709919417",
           "failures": []
         },
         {
@@ -37371,7 +37365,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1vagkpLCiAu7yUtG9uMtQt-aB0_vBy5MR/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1vagkpLCiAu7yUtG9uMtQt-aB0_vBy5MR/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325755015199",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1vagkpLCiAu7yUtG9uMtQt-aB0_vBy5MR/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1vagkpLCiAu7yUtG9uMtQt-aB0_vBy5MR/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791330710153873",
           "failures": []
         },
         {
@@ -37387,7 +37381,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1lUiLiriXvum3CGhmts4HSwbp40u1KCpC/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1lUiLiriXvum3CGhmts4HSwbp40u1KCpC/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1910155354:1791325755220892",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1lUiLiriXvum3CGhmts4HSwbp40u1KCpC/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1lUiLiriXvum3CGhmts4HSwbp40u1KCpC/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791330710395285",
           "failures": []
         },
         {
@@ -37395,7 +37389,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/19BGUu_CDeO4-jNiXBSBOug7KLGYwFk0B/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/19BGUu_CDeO4-jNiXBSBOug7KLGYwFk0B/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325755181931",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/19BGUu_CDeO4-jNiXBSBOug7KLGYwFk0B/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/19BGUu_CDeO4-jNiXBSBOug7KLGYwFk0B/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S421724395:1791330710539244",
           "failures": []
         },
         {
@@ -37403,7 +37397,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1qwfOdwQImtJoOftD2S7lj-PIF2RfgP2e/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1qwfOdwQImtJoOftD2S7lj-PIF2RfgP2e/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791325755335663",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1qwfOdwQImtJoOftD2S7lj-PIF2RfgP2e/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1qwfOdwQImtJoOftD2S7lj-PIF2RfgP2e/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791330710929724",
           "failures": []
         },
         {
@@ -37443,13 +37437,12 @@
         {
           "id": "A-2023-264",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 3,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/36722409/",
           "failures": [
             403,
-            403,
-            429
+            403
           ]
         },
         {
@@ -37457,7 +37450,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1uXSPlKNNFRpXkLOxP5WqBJZUiaeCf1Yb/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1uXSPlKNNFRpXkLOxP5WqBJZUiaeCf1Yb/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S808546069:1791325756720481",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1uXSPlKNNFRpXkLOxP5WqBJZUiaeCf1Yb/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1uXSPlKNNFRpXkLOxP5WqBJZUiaeCf1Yb/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791330711174190",
           "failures": []
         },
         {
@@ -37481,7 +37474,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1FwtWyqBGtP5IPTJFJirVdchndIT-UewG/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1FwtWyqBGtP5IPTJFJirVdchndIT-UewG/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325756243924",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1FwtWyqBGtP5IPTJFJirVdchndIT-UewG/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1FwtWyqBGtP5IPTJFJirVdchndIT-UewG/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791330711399853",
           "failures": []
         },
         {
@@ -37489,7 +37482,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1VMuC_NtrLzNDHCl5StRc42Xm89w3Kh13/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1VMuC_NtrLzNDHCl5StRc42Xm89w3Kh13/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S237565346:1791325756224800",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1VMuC_NtrLzNDHCl5StRc42Xm89w3Kh13/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1VMuC_NtrLzNDHCl5StRc42Xm89w3Kh13/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1171501034:1791330711472330",
           "failures": []
         },
         {
@@ -37497,7 +37490,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1OJ-0R2aRn0N6MWnsZAHHQKv3_oZWF8hD/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1OJ-0R2aRn0N6MWnsZAHHQKv3_oZWF8hD/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325756245905",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1OJ-0R2aRn0N6MWnsZAHHQKv3_oZWF8hD/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1OJ-0R2aRn0N6MWnsZAHHQKv3_oZWF8hD/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1983110570:1791330711759683",
           "failures": []
         },
         {
@@ -37505,7 +37498,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1CHrR6Tbnbk81HtQwOoL4ePBcd-U37QWl/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1CHrR6Tbnbk81HtQwOoL4ePBcd-U37QWl/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325756383939",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1CHrR6Tbnbk81HtQwOoL4ePBcd-U37QWl/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1CHrR6Tbnbk81HtQwOoL4ePBcd-U37QWl/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1356807398:1791330711910707",
           "failures": []
         },
         {
@@ -37563,7 +37556,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1rVYYx53ixHQU9Xx5Jd66mhuwDxPBOl1n/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1rVYYx53ixHQU9Xx5Jd66mhuwDxPBOl1n/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325757490958",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1rVYYx53ixHQU9Xx5Jd66mhuwDxPBOl1n/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1rVYYx53ixHQU9Xx5Jd66mhuwDxPBOl1n/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791330711837133",
           "failures": []
         },
         {
@@ -37571,7 +37564,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/19pykLIF2SA97fRXnXja952O16gCrv0YW/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/19pykLIF2SA97fRXnXja952O16gCrv0YW/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791325757177124",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/19pykLIF2SA97fRXnXja952O16gCrv0YW/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/19pykLIF2SA97fRXnXja952O16gCrv0YW/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1356807398:1791330712206747",
           "failures": []
         },
         {
@@ -37579,7 +37572,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1q7U0pu6sspTF2KpYfh7Xr8R63C6pcSIt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1q7U0pu6sspTF2KpYfh7Xr8R63C6pcSIt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S506961778:1791325757121954",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1q7U0pu6sspTF2KpYfh7Xr8R63C6pcSIt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1q7U0pu6sspTF2KpYfh7Xr8R63C6pcSIt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1710199421:1791330716464419",
           "failures": []
         },
         {
@@ -37603,12 +37596,11 @@
         {
           "id": "A-2024-164",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/38828862/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -37661,7 +37653,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1eXa4c5ccx_czuT1IYvRHNX1x0p2STUOi/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1eXa4c5ccx_czuT1IYvRHNX1x0p2STUOi/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791325757293170",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1eXa4c5ccx_czuT1IYvRHNX1x0p2STUOi/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1eXa4c5ccx_czuT1IYvRHNX1x0p2STUOi/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S421724395:1791330712646079",
           "failures": []
         },
         {
@@ -37677,7 +37669,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1vTrkRhhjB-A5XsLjA5FKaxNrx6Yyuh4l/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1vTrkRhhjB-A5XsLjA5FKaxNrx6Yyuh4l/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325757765684",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1vTrkRhhjB-A5XsLjA5FKaxNrx6Yyuh4l/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1vTrkRhhjB-A5XsLjA5FKaxNrx6Yyuh4l/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1910155354:1791330712988519",
           "failures": []
         },
         {
@@ -37685,7 +37677,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1jVA8qCiY0pGX8djXnhkfk-7PZNB3JqvV/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1jVA8qCiY0pGX8djXnhkfk-7PZNB3JqvV/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325757799026",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1jVA8qCiY0pGX8djXnhkfk-7PZNB3JqvV/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1jVA8qCiY0pGX8djXnhkfk-7PZNB3JqvV/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1910155354:1791330712860923",
           "failures": []
         },
         {
@@ -37693,7 +37685,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1ucS1yzl2QYnsHzEl9NVbUZnxJCcEqW1I/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1ucS1yzl2QYnsHzEl9NVbUZnxJCcEqW1I/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791325758196612",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1ucS1yzl2QYnsHzEl9NVbUZnxJCcEqW1I/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1ucS1yzl2QYnsHzEl9NVbUZnxJCcEqW1I/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1625360897:1791330713034395",
           "failures": []
         },
         {
@@ -37701,7 +37693,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1b6iZJZnR0MjXSJlT03dT1b2-glInvE8d/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1b6iZJZnR0MjXSJlT03dT1b2-glInvE8d/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791325758018496",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1b6iZJZnR0MjXSJlT03dT1b2-glInvE8d/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1b6iZJZnR0MjXSJlT03dT1b2-glInvE8d/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1983110570:1791330713113297",
           "failures": []
         },
         {
@@ -37711,7 +37703,7 @@
           "attempts": 2,
           "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S175173112500076X",
           "failures": [
-            403
+            400
           ]
         },
         {
@@ -37727,7 +37719,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Cy0YFT-qdcLf4OD0nNk7mAbzzxnZKm-S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Cy0YFT-qdcLf4OD0nNk7mAbzzxnZKm-S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325758310145",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1Cy0YFT-qdcLf4OD0nNk7mAbzzxnZKm-S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1Cy0YFT-qdcLf4OD0nNk7mAbzzxnZKm-S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1154169890:1791330713661868",
           "failures": []
         },
         {
@@ -37735,7 +37727,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1e25Ms_iQSBQhFv4UwIc1g-3s-p4cTIwt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1e25Ms_iQSBQhFv4UwIc1g-3s-p4cTIwt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-704442862:1791325758459337",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1e25Ms_iQSBQhFv4UwIc1g-3s-p4cTIwt/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1e25Ms_iQSBQhFv4UwIc1g-3s-p4cTIwt/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1171501034:1791330713806454",
           "failures": []
         },
         {
@@ -37745,7 +37737,7 @@
           "attempts": 2,
           "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1744117X25001923",
           "failures": [
-            400
+            403
           ]
         },
         {
@@ -37759,12 +37751,11 @@
         {
           "id": "A-2025-097",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/39912453/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -37774,7 +37765,7 @@
           "attempts": 2,
           "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0006291X25009234",
           "failures": [
-            400
+            403
           ]
         },
         {
@@ -37853,7 +37844,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1BihqsopwmC5nrLO6ci2Z17flbRbZ-kE1/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1BihqsopwmC5nrLO6ci2Z17flbRbZ-kE1/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791325758821388",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1BihqsopwmC5nrLO6ci2Z17flbRbZ-kE1/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1BihqsopwmC5nrLO6ci2Z17flbRbZ-kE1/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791330714005634",
           "failures": []
         },
         {
@@ -37869,7 +37860,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aduDODPZewpPwq0A7M4QAnNjGSCaWU5F/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aduDODPZewpPwq0A7M4QAnNjGSCaWU5F/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1983110570:1791325758932643",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1aduDODPZewpPwq0A7M4QAnNjGSCaWU5F/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1aduDODPZewpPwq0A7M4QAnNjGSCaWU5F/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1942381187:1791330714030382",
           "failures": []
         },
         {
@@ -37877,7 +37868,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1zqT2larHyOoELCsxjMA0WgqncTWPFFXm/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1zqT2larHyOoELCsxjMA0WgqncTWPFFXm/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791325759156554",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1zqT2larHyOoELCsxjMA0WgqncTWPFFXm/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1zqT2larHyOoELCsxjMA0WgqncTWPFFXm/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1710199421:1791330717453973",
           "failures": []
         },
         {
@@ -37909,7 +37900,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12602-025-10869-9&code=f3297492-4530-430d-abd5-e5bf1e661c04",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12602-025-10869-9&code=81fa77f9-ecbe-4bd2-bb6e-4552eb705f1d",
           "failures": []
         },
         {
@@ -37947,12 +37938,11 @@
         {
           "id": "A-2026-122",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/42669294/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -37986,7 +37976,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12602-026-10939-6&code=aa470104-1c68-4d32-b0df-1a1117c63a0f",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs12602-026-10939-6&code=247c5806-f360-4b1e-be7c-6ffffadfc777",
           "failures": []
         },
         {
@@ -37994,7 +37984,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs40168-026-02469-8&code=fd453251-b5e4-46e8-b7bf-9048dbd5757c",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs40168-026-02469-8&code=61d1b62f-25e3-451f-a425-e0a9bfcce276",
           "failures": []
         },
         {
@@ -38008,12 +37998,11 @@
         {
           "id": "A-2026-183",
           "kind": "동물",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/41509630/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -38119,7 +38108,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2F1601555&code=9cf19289-72b2-4b3c-a804-71b699b49b1c",
+          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2F1601555&code=eed7b2e5-0a82-4803-ba62-8b15456f40aa",
           "failures": []
         },
         {
@@ -38162,7 +38151,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1MpIo2hNIdKIG7URor0zvgtRwTf3UN7dg/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1MpIo2hNIdKIG7URor0zvgtRwTf3UN7dg/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-284336233:1791325739617140",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1MpIo2hNIdKIG7URor0zvgtRwTf3UN7dg/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1MpIo2hNIdKIG7URor0zvgtRwTf3UN7dg/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1439504673:1791330694656820",
           "failures": []
         },
         {
@@ -38222,7 +38211,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wdfjEWxW3bqDwDihZLMgvz1xJCyPBb3t/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wdfjEWxW3bqDwDihZLMgvz1xJCyPBb3t/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1540996304:1791325740053086",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wdfjEWxW3bqDwDihZLMgvz1xJCyPBb3t/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wdfjEWxW3bqDwDihZLMgvz1xJCyPBb3t/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1024328615:1791330695091424",
           "failures": []
         },
         {
@@ -38230,7 +38219,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00726-011-1206-6&code=32644ed3-7e0a-47c8-83a2-7b7c3095ad40",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00726-011-1206-6&code=4bd52698-0ef8-4739-8945-048ed93d71a9",
           "failures": []
         },
         {
@@ -38318,7 +38307,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00394-015-0858-5&code=6d917737-b7b3-4cde-ac14-d4df87a8002f",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00394-015-0858-5&code=19229182-e041-4cc9-ad02-27d9ee62ff03",
           "failures": [
             "AbortError"
           ]
@@ -38344,18 +38333,17 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1A19oZlh5n9m3Ruifnge54v_3KPLSYuyV/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1A19oZlh5n9m3Ruifnge54v_3KPLSYuyV/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-2063158236:1791325740955076",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1A19oZlh5n9m3Ruifnge54v_3KPLSYuyV/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1A19oZlh5n9m3Ruifnge54v_3KPLSYuyV/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791330695863623",
           "failures": []
         },
         {
           "id": "H-2017-011",
           "kind": "임상",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 2,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/29024230/",
           "failures": [
-            403,
-            429
+            403
           ]
         },
         {
@@ -38363,7 +38351,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1kPKoKUVUVkrFaRcPrb6OBzYBxWwJP5js/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1kPKoKUVUVkrFaRcPrb6OBzYBxWwJP5js/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1159509090:1791325741017210",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1kPKoKUVUVkrFaRcPrb6OBzYBxWwJP5js/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1kPKoKUVUVkrFaRcPrb6OBzYBxWwJP5js/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S506961778:1791330695995359",
           "failures": []
         },
         {
@@ -38389,7 +38377,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00394-017-1600-2&code=eaedd534-fc62-4c0e-937c-b02e0caf3d24",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs00394-017-1600-2&code=1dabcac1-35ef-4bc5-9ddb-539c915fe8f3",
           "failures": []
         },
         {
@@ -38459,7 +38447,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1d206tsn3OvUVJd2p-AYS59_T24tBnThc/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1d206tsn3OvUVJd2p-AYS59_T24tBnThc/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1876773986:1791325741255292",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1d206tsn3OvUVJd2p-AYS59_T24tBnThc/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1d206tsn3OvUVJd2p-AYS59_T24tBnThc/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-180527280:1791330696362530",
           "failures": []
         },
         {
@@ -38524,13 +38512,12 @@
         {
           "id": "H-2022-184",
           "kind": "임상",
-          "status": "unavailable",
+          "status": "ok",
           "attempts": 3,
-          "resolvedUrl": "",
+          "resolvedUrl": "https://pubmed.ncbi.nlm.nih.gov/35834633/",
           "failures": [
             403,
-            403,
-            429
+            403
           ]
         },
         {
@@ -38562,7 +38549,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1n6R-ZYA7vnKAQ_q9K0h7dbxQCKIVS_rc/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1n6R-ZYA7vnKAQ_q9K0h7dbxQCKIVS_rc/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1245106592:1791325742200063",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1n6R-ZYA7vnKAQ_q9K0h7dbxQCKIVS_rc/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1n6R-ZYA7vnKAQ_q9K0h7dbxQCKIVS_rc/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1983110570:1791330697296537",
           "failures": []
         },
         {
@@ -38578,7 +38565,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wSUn9jQfnh7R-ZzkitmNRBORUYAC5g1S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wSUn9jQfnh7R-ZzkitmNRBORUYAC5g1S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S506961778:1791325742295012",
+          "resolvedUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/file/d/1wSUn9jQfnh7R-ZzkitmNRBORUYAC5g1S/view?usp%3Ddrivesdk&followup=https://drive.google.com/file/d/1wSUn9jQfnh7R-ZzkitmNRBORUYAC5g1S/view?usp%3Ddrivesdk&osid=1&passive=1209600&service=wise&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S639035109:1791330697636951",
           "failures": []
         },
         {
@@ -38712,7 +38699,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41598-025-95208-2&code=798d0d5e-3327-4937-b38c-560509571416",
+          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41598-025-95208-2&code=2dfc96b0-8a1c-47b9-ad0b-1f5323ef6086",
           "failures": []
         },
         {
@@ -38775,7 +38762,7 @@
           "attempts": 2,
           "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0889159125002375",
           "failures": [
-            403
+            400
           ]
         },
         {
@@ -38796,7 +38783,7 @@
           "attempts": 2,
           "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S0899900725002096",
           "failures": [
-            403
+            400
           ]
         },
         {
@@ -38804,7 +38791,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs41606-024-00122-7&code=d57cb60d-6067-4aa2-923b-b4c2c34bd7e3",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs41606-024-00122-7&code=339b4ce3-bfc2-4981-86a5-e72a5f030429",
           "failures": []
         },
         {
@@ -38872,7 +38859,7 @@
           "attempts": 2,
           "resolvedUrl": "https://linkinghub.elsevier.com/retrieve/pii/S1756464626000332",
           "failures": [
-            403
+            400
           ]
         },
         {
@@ -38904,7 +38891,7 @@
           "kind": "임상",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41380-026-03813-y&code=5a77a511-79e6-410f-bbe1-ff56ba7a6b0b",
+          "resolvedUrl": "https://idp.nature.com/transit?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41380-026-03813-y&code=ea9a7d96-8eec-44c5-b925-164439de6f59",
           "failures": []
         },
         {
@@ -38935,9 +38922,11 @@
           "id": "H-2026-167",
           "kind": "임상",
           "status": "ok",
-          "attempts": 1,
-          "resolvedUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12894539/",
-          "failures": []
+          "attempts": 2,
+          "resolvedUrl": "https://link.springer.com/article/10.1007/s10068-025-02075-8",
+          "failures": [
+            403
+          ]
         },
         {
           "id": "H-2026-168",
@@ -39132,7 +39121,7 @@
           "kind": "동물",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs40035-023-00391-9&code=a1316f10-85a1-438c-9a54-17a904f09f32",
+          "resolvedUrl": "https://idp.springer.com/transit?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1186%2Fs40035-023-00391-9&code=d669a7cc-a8c9-4a20-bc44-f75b81429a22",
           "failures": []
         },
         {
@@ -39571,7 +39560,7 @@
           "kind": "문헌",
           "status": "ok",
           "attempts": 1,
-          "resolvedUrl": "https://link.springer.com/article/10.1007/s12602-025-10628-w",
+          "resolvedUrl": "https://link.springer.com/10.1007/s12602-025-10628-w",
           "failures": []
         },
         {
@@ -39663,10 +39652,12 @@
         {
           "id": "REG-CA-HC-2026-003",
           "kind": "규제",
-          "status": "ok",
+          "status": "unavailable",
           "attempts": 1,
-          "resolvedUrl": "https://www.canada.ca/errors/404.html",
-          "failures": []
+          "resolvedUrl": "",
+          "failures": [
+            404
+          ]
         },
         {
           "id": "REG-CA-HC-NHPID-2026-001",
@@ -39709,7 +39700,7 @@
           "failures": []
         }
       ],
-      "note": "접근 제한·일시 응답은 원문 내용의 부재나 근거 약함을 뜻하지 않음"
+      "note": "접근 제한·일시 응답·페이지 오류는 원문 내용의 부재나 근거 약함을 뜻하지 않음"
     },
     "publicRelease": true,
     "release": {

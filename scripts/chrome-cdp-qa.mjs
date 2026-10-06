@@ -209,8 +209,8 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/?audit=unavailable`);
   assert.equal(await waitForExpression(client, "Boolean(document.querySelector('#audit'))"), true);
   assert.equal(await evaluate(client, "document.querySelector('#audit')?.value"), "unavailable");
-  assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('접근 제한·일시 응답')"), true);
-  assert.equal(await evaluate(client, "document.querySelector('#audit option[value=unavailable]')?.textContent.includes('20건')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('접근 제한·일시 응답·페이지 오류')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#audit option[value=unavailable]')?.textContent.includes('건')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   await evaluate(client, "document.querySelector('[data-preset=audit-unavailable]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('audit')"), "unavailable");

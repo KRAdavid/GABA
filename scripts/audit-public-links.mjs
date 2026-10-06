@@ -7,8 +7,9 @@ const publicRoot = resolve(process.argv[2] || "C:/Users/computer/Documents/GABA/
 const writeMeta = process.argv.includes("--write-meta");
 const data = JSON.parse(await readFile(resolve(publicRoot, "worker", "data.json"), "utf8"));
 const records = Array.isArray(data.records) ? data.records : [];
-const blockedStatuses = new Set([401, 403, 405, 408, 429, 451]);
+const blockedStatuses = new Set([401, 403, 405, 408, 429, 451, 404, 410]);
 const transientStatus = (status) => Number(status) >= 500 && Number(status) < 600;
+const softNotFound = (url) => /\/errors\/404(?:\.html)?(?:$|[?#])|\/404(?:\.html)?(?:$|[?#])/i.test(String(url || ""));
 const timeoutMs = 12000;
 const candidatesFor = (record) => {
   const urls = record.kind === "규제"
@@ -25,7 +26,9 @@ async function probe(url) {
     if (!response.ok) {
       response = await fetch(url, { method: "GET", redirect: "follow", signal: controller.signal, headers: { "Range": "bytes=0-1023", "User-Agent": "GABA-evidence-index/2.0 public-link-audit" } });
     }
-    return { url, status: response.status, ok: response.ok, finalUrl: response.url || url };
+    const finalUrl = response.url || url;
+    const soft404 = response.ok && softNotFound(finalUrl);
+    return { url, status: soft404 ? 404 : response.status, ok: response.ok && !soft404, finalUrl, error: soft404 ? "soft_404" : undefined };
   } catch (error) {
     return { url, status: 0, ok: false, error: error?.name || "fetch_failed" };
   } finally {
@@ -76,7 +79,7 @@ if (writeMeta) {
     attempts: summary.attempts,
     statusCounts: summary.statusCounts,
     recordStatuses: summary.recordStatuses,
-    note: "접근 제한·일시 응답은 원문 내용의 부재나 근거 약함을 뜻하지 않음"
+    note: "접근 제한·일시 응답·페이지 오류는 원문 내용의 부재나 근거 약함을 뜻하지 않음"
   };
   await writeFile(dataPath, JSON.stringify(database, null, 2) + "\n", "utf8");
 }
