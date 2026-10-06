@@ -154,6 +154,15 @@ try {
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
   assert.ok(health.candidateExportCount >= health.stagedCandidates);
   assert.ok(health.candidatePreviewCount > 0);
+  const speciesDistributionTotal = await evaluate(client, "document.querySelectorAll('#species-distribution [data-distribution-field=species]').length");
+  const speciesDistributionHidden = await evaluate(client, "document.querySelectorAll('#species-distribution .distribution-item-extra[hidden]').length");
+  assert.ok(speciesDistributionTotal > 8, `Expected all species distribution items, got ${speciesDistributionTotal}`);
+  assert.ok(speciesDistributionHidden > 0, "Expected lower-ranked distribution items to start collapsed");
+  await evaluate(client, "document.querySelector('#species-distribution .distribution-more').click()");
+  assert.equal(await evaluate(client, "document.querySelectorAll('#species-distribution .distribution-item-extra[hidden]').length"), 0);
+  assert.equal(await evaluate(client, "document.querySelector('#species-distribution .distribution-more')?.textContent"), "상위 항목만 보기");
+  await evaluate(client, "document.querySelector('#species-distribution .distribution-more').click()");
+  assert.equal(await evaluate(client, "document.querySelectorAll('#species-distribution .distribution-item-extra[hidden]').length"), speciesDistributionHidden);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"면역 타액 IgA\"]'))"), true);
   assert.equal(await evaluate(client, "document.querySelector('.search-suggestions-more')?.open"), false);
   assert.equal(await evaluate(client, "document.querySelector('.search-suggestions-more summary')?.textContent.includes('추천 검색어 더보기')"), true);

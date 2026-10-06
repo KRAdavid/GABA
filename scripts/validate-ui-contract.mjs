@@ -177,6 +177,9 @@ const required = [
   ,["Visible filter status", 'id="filter-status-strip"']
   ,["Filter status summary", 'id="filter-status-text"']
   ,["Filter status reset", 'id="filter-status-reset"']
+  ,["Evidence distribution expansion", "function renderDistribution"]
+  ,["Evidence distribution complete list", "var extra = items.slice(4)"]
+  ,["Evidence distribution hidden state", ".distribution-item[hidden]"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));

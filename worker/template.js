@@ -779,6 +779,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       cursor: pointer;
       transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
     }
+    .distribution-item[hidden] { display: none; }
     .distribution-item:hover,
     .distribution-item:focus-visible {
       border-color: var(--teal);
@@ -2762,7 +2763,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function renderDistribution(targetId, items, field) {
         var target = el(targetId);
         var visible = items.slice(0, 4);
-        var extra = items.slice(4, field === "species" ? 8 : 6);
+        var extra = items.slice(4);
         var total = items.reduce(function (sum, item) { return sum + item.value; }, 0);
         var colors = ["#0f766e", "#2563eb", "#b7791f", "#b42318", "#7c3aed", "#0f766e", "#2563eb", "#b7791f"];
         var renderItem = function (item, index, hidden) {
@@ -2773,7 +2774,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         };
         target.innerHTML = visible.map(function (item, index) { return renderItem(item, index, false); }).join("") +
           extra.map(function (item, index) { return renderItem(item, index + visible.length, true); }).join("") +
-          (extra.length ? '<button class="distribution-more" type="button" data-distribution-more="' + esc(targetId) + '" aria-expanded="false">전체 분포 보기</button>' : '');
+          (extra.length ? '<button class="distribution-more" type="button" data-distribution-more="' + esc(targetId) + '" aria-expanded="false">전체 분포 보기 (' + extra.length.toLocaleString("ko-KR") + '개)</button>' : '');
       }
 
       function loadUrlState() {
@@ -4763,7 +4764,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var isOpen = distributionMore.getAttribute("aria-expanded") === "true";
           distributionTarget.querySelectorAll(".distribution-item-extra").forEach(function (item) { item.hidden = isOpen; });
           distributionMore.setAttribute("aria-expanded", String(!isOpen));
-          distributionMore.textContent = isOpen ? "전체 분포 보기" : "상위 항목만 보기";
+          distributionMore.textContent = isOpen ? "전체 분포 보기 (" + distributionTarget.querySelectorAll(".distribution-item-extra").length.toLocaleString("ko-KR") + "개)" : "상위 항목만 보기";
           return;
         }
         var distribution = event.target.closest("[data-distribution-field]");
