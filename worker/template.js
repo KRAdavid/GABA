@@ -468,6 +468,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 13px;
       font-weight: 700;
     }
+    .freshness-action { cursor: pointer; font: inherit; }
+    .freshness-action:hover, .freshness-action:focus-visible { background: rgba(255, 255, 255, .18); color: #fff; outline: 2px solid rgba(255, 255, 255, .78); outline-offset: 2px; }
     .hero-pill.freshness-stale { border-color: rgba(255, 216, 154, .72); background: rgba(255, 216, 154, .18); color: #ffe4b5; }
     .hero-pill.freshness-recent { border-color: rgba(183, 243, 231, .5); color: #d6fff7; }
     .pulse {
@@ -1556,7 +1558,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="hero-meta">
           <span class="hero-pill"><span class="pulse" aria-hidden="true"></span><span id="snapshot-label"></span></span>
           <span class="hero-pill" id="coverage-label"></span>
-          <span class="hero-pill" id="freshness-label" title="공개 데이터 스냅샷의 최신성">스냅샷 최신성 확인 중</span>
+          <button class="hero-pill freshness-action" id="freshness-label" type="button" title="검증 스냅샷과 자동 탐색 기준일 설명 보기" aria-controls="discovery-banner">스냅샷 최신성 확인 중</button>
         </div>
       </div>
       <div class="hero-proof" aria-label="인덱스의 핵심 원칙">
@@ -1617,7 +1619,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
     <section class="discovery-banner" id="discovery-banner" aria-labelledby="discovery-title">
       <div>
-        <h2 id="discovery-title">검증 인덱스와 자동 탐색 후보를 분리해 관리합니다</h2>
+        <h2 id="discovery-title" tabindex="-1">검증 인덱스와 자동 탐색 후보를 분리해 관리합니다</h2>
         <p id="discovery-copy">대량 탐색 현황을 불러오는 중입니다.</p>
         <div class="discovery-stats" id="discovery-stats" aria-label="대량 탐색 통계"></div>
       </div>
@@ -2180,6 +2182,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           target.title = "검증 인덱스가 " + age + "일 경과했습니다. " + discoveryText + "이지만 자동 탐색 후보는 검증 전 자료입니다.";
           target.classList.add("freshness-stale");
         }
+      }
+      function focusDiscoveryStatus() {
+        var target = el("discovery-banner");
+        var heading = el("discovery-title");
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (heading) window.setTimeout(function () { heading.focus(); }, 120);
       }
       function countText(value) { return Number(value || 0).toLocaleString("ko-KR") + "편"; }
       function optionLabel(item) { return item.label + " (" + item.value.toLocaleString("ko-KR") + ")"; }
@@ -4150,6 +4158,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           openCopyDialog("현재 검색 조건 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", location.href, "현재 검색 조건 링크를 복사했습니다");
         }
       });
+      el("freshness-label").addEventListener("click", focusDiscoveryStatus);
       function scrollToResults() {
         var top = el("results").getBoundingClientRect().top + window.scrollY - 150;
         window.scrollTo({ top: top, behavior: "smooth" });

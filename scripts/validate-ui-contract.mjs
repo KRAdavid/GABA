@@ -72,6 +72,7 @@ const required = [
   ["Candidate promotion checklist", 'id="candidate-detail-checklist"'],
   ["Discovery health metrics", "discoveryMergedUnique"],
   ["Discovery source transparency", '["Crossref", Number(discovery.crossrefRetrieved'],
+  ["Freshness explanation action", 'id="freshness-label" type="button"'],
   ["Shareable compare state", 'params.set("compare"'],
   ["Comparison copy action", 'id="compare-copy"'],
   ["Comparison focus return", "compareReturnFocus"],

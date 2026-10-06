@@ -197,6 +197,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "document.querySelector('#snapshot-label')?.textContent.startsWith('검증 스냅샷')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#freshness-label')?.tagName"), "BUTTON");
+  await evaluate(client, "document.querySelector('#freshness-label').click()");
+  await sleep(160);
+  assert.equal(await evaluate(client, "document.activeElement?.id"), "discovery-title");
   await evaluate(client, "document.querySelector('#result-export').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('CSV')"), true);
