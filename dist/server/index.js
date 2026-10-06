@@ -608,7 +608,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-preview-head { display: flex; align-items: end; justify-content: space-between; gap: 14px; }
     .candidate-preview-head h2 { margin: 0; font-size: 17px; letter-spacing: -.02em; }
     .candidate-preview-head p { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .candidate-preview-head-actions { display: flex; align-items: center; gap: 8px; }
     .candidate-preview-note { color: var(--amber); font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .candidate-preview-export { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 900; cursor: pointer; }
     .candidate-preview-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
     .candidate-preview-filter { min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 11px; font-weight: 800; cursor: pointer; }
     .candidate-preview-filter.active { border-color: var(--amber); background: var(--amber-soft); color: var(--amber); }
@@ -1613,7 +1615,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     <section class="candidate-preview" id="candidate-preview" aria-labelledby="candidate-preview-title" hidden>
       <div class="candidate-preview-head">
         <div><h2 id="candidate-preview-title">최근 자동 탐색 후보 미리보기</h2><p>아직 공개 근거로 승격되지 않은 후보입니다. 원문·섭취 경로·철회·정정 상태를 확인한 뒤 별도 판정합니다.</p></div>
-        <span class="candidate-preview-note">확정 근거 아님</span>
+        <div class="candidate-preview-head-actions"><span class="candidate-preview-note">확정 근거 아님</span><button class="candidate-preview-export" id="candidate-preview-export" type="button">후보 CSV</button></div>
       </div>
       <div class="candidate-preview-filters" aria-label="후보 유형 필터">
         <button class="candidate-preview-filter active" type="button" data-candidate-filter="all" aria-pressed="true">전체</button>
@@ -2252,6 +2254,26 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var dialog = el("candidate-detail-dialog");
         if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
         else if (dialog) dialog.removeAttribute("open");
+      }
+
+      function exportCandidatePreview() {
+        var candidates = DB.meta.discovery?.candidatePreview || [];
+        if (!candidates.length) { toast("내보낼 후보가 없습니다"); return; }
+        var headers = ["후보 ID", "우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "후속조치 신호", "원문 링크", "초록"];
+        var rows = candidates.map(function (candidate) {
+          return [candidate.candidateId, candidate.bucket, candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.exclusionSignals || []).join(" · "), candidateSourceUrl(candidate), candidate.abstract].map(csvCell);
+        });
+        var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
+        var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-candidate-preview-" + String(DB.meta.discovery?.snapshotDate || DB.meta.snapshotDate || "snapshot") + ".csv";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast(candidates.length.toLocaleString("ko-KR") + "건의 후보 CSV를 내보냈습니다");
       }
 
       function initMeta() {
@@ -3786,6 +3808,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         event.preventDefault();
         closeCandidateDetail();
       });
+      el("candidate-preview-export").addEventListener("click", exportCandidatePreview);
       el("compare-open").addEventListener("click", openCompareDialog);
       el("compare-copy").addEventListener("click", copyCompareSelection);
       el("compare-clear").addEventListener("click", function () {

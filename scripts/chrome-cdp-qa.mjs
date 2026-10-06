@@ -150,6 +150,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-abstract')?.textContent.length > 0"), true);
   await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), false);
+  await evaluate(client, "document.querySelector('#candidate-preview-export').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('후보 CSV')"), true);
   await evaluate(client, "document.querySelector('[data-candidate-filter=all]').click()");
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
