@@ -189,6 +189,12 @@ try {
   const candidateId = await evaluate(client, "document.querySelector('[data-candidate-detail]')?.getAttribute('data-candidate-detail')");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidateId')"), candidateId);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-candidate-link]'))"), true);
+  await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () { throw new Error('candidate clipboard denied'); } } })");
+  await evaluate(client, "document.querySelector('[data-copy-candidate-link]').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#copy-dialog')?.open"), true);
+  assert.equal(await evaluate(client, "new URL(document.querySelector('#copy-dialog-value')?.value || location.href).searchParams.get('candidateId')"), candidateId);
+  await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-abstract')?.textContent.length > 0"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('검토 신호')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-checklist')?.textContent.includes('경구·섭취 여부')"), true);
