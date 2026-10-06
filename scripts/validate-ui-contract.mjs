@@ -35,6 +35,7 @@ const required = [
   ["Review queue export renderer", "function exportReviewQueue"],
   ["Freshness indicator", 'id="freshness-label"'],
   ["Result evidence composition", 'id="result-interpretation"'],
+  ["Shareable record deep link", "urlRecordId"],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
 ];

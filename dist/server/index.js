@@ -1805,6 +1805,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var currentDetailRecordId = null;
+      var urlRecordId = "";
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
       var state = {
@@ -1986,6 +1987,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
         if (params.has("to")) state.to = Math.min(DB.meta.maxYear, Number(params.get("to")) || DB.meta.maxYear);
         if (["20", "50", "100"].includes(params.get("pageSize"))) pageSize = Number(params.get("pageSize"));
+        urlRecordId = params.get("record") || "";
       }
 
       function syncControls() {
@@ -2012,6 +2014,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (state.to !== DB.meta.maxYear) params.set("to", state.to);
         if (state.sort !== "latest") params.set("sort", state.sort);
         if (pageSize !== 20) params.set("pageSize", pageSize);
+        if (urlRecordId) params.set("record", urlRecordId);
         var query = params.toString();
         history.replaceState(null, "", location.pathname + (query ? "?" + query : ""));
       }
@@ -2459,8 +2462,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function openIntelligenceDetail(recordId) {
         var record = records.find(function (item) { return String(item.id) === String(recordId); });
         var dialog = el("intelligence-detail");
-        if (!record || !dialog) return;
+        if (!record || !dialog) {
+          urlRecordId = "";
+          persistUrl();
+          return;
+        }
         currentDetailRecordId = record.id;
+        urlRecordId = String(record.id);
+        persistUrl();
         var kind = record.kind === "규제" ? "규제·안전성" : record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물·전임상" : "근거 자료";
         el("intelligence-detail-kicker").textContent = kind + " · " + (record.year || "연도 미상");
         el("intelligence-detail-title").textContent = koreanTitle(record);
@@ -2495,6 +2504,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 근거 검색</button>';
         if (typeof dialog.showModal === "function") dialog.showModal();
         else dialog.setAttribute("open", "");
+      }
+      function closeIntelligenceDetail() {
+        var dialog = el("intelligence-detail");
+        urlRecordId = "";
+        currentDetailRecordId = null;
+        persistUrl();
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
       }
       function interpretationBlock(record) {
         return '<div class="interpretation-grid">' +
@@ -2732,6 +2749,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       renderDistribution("direction-distribution", DB.facets.direction, "direction");
       syncControls();
       render();
+      if (urlRecordId) openIntelligenceDetail(urlRecordId);
 
       var searchTimer;
       controls.q.addEventListener("input", function () {
@@ -2827,9 +2845,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         renderReviewQueue();
         toast("로컬 검토 기록을 저장했습니다");
       });
-      el("intelligence-detail-close").addEventListener("click", function () { el("intelligence-detail").close(); });
+      el("intelligence-detail-close").addEventListener("click", closeIntelligenceDetail);
       el("intelligence-detail").addEventListener("click", function (event) {
-        if (event.target === el("intelligence-detail")) el("intelligence-detail").close();
+        if (event.target === el("intelligence-detail")) closeIntelligenceDetail();
       });
       el("portal-lane-overview-close").addEventListener("click", function () {
         activeLane = null;
@@ -2874,7 +2892,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           controls.q.value = intelligenceQuery.dataset.query || "";
           changeState("q", controls.q.value);
           controls.q.focus();
-          if (el("intelligence-detail").open) el("intelligence-detail").close();
+          if (el("intelligence-detail").open) closeIntelligenceDetail();
           return;
         }
         var distributionMore = event.target.closest("[data-distribution-more]");
@@ -2911,7 +2929,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
       document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") openFilters(false);
+        if (event.key === "Escape") {
+          if (el("intelligence-detail").open) closeIntelligenceDetail();
+          else openFilters(false);
+        }
         if (event.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || "")) {
           event.preventDefault();
           controls.q.focus();
