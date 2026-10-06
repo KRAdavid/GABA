@@ -117,6 +117,8 @@ const required = [
   ,["Reading list share", 'id="reading-list-share"']
   ,["Shareable reading state", 'params.set("read"']
   ,["Filtered result export", 'id="result-export"']
+  ,["Filtered result export menu", 'id="result-export-menu"']
+  ,["Filtered result export options", "result-export-options"]
   ,["Filtered result CSV renderer", "function exportFilteredResults"]
   ,["Filtered result JSON export", 'id="result-json"']
   ,["Filtered result JSON renderer", "function exportFilteredJson"]

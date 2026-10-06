@@ -285,6 +285,11 @@ try {
   await evaluate(client, "document.querySelector('#freshness-label').click()");
   await sleep(160);
   assert.equal(await evaluate(client, "document.activeElement?.id"), "discovery-title");
+  assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#result-export-menu summary')?.textContent.includes('내보내기')"), true);
+  await evaluate(client, "document.querySelector('#result-export-menu summary').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelectorAll('#result-export-menu .result-reset').length"), 4);
   await evaluate(client, "document.querySelector('#result-export').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('CSV')"), true);

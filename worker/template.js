@@ -1232,6 +1232,41 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       margin: 0 2px 12px;
     }
     .result-top-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 6px; }
+    .result-export-menu { position: relative; }
+    .result-export-menu summary {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    .result-export-menu summary::-webkit-details-marker { display: none; }
+    .result-export-menu summary::after { content: "＋"; margin-left: 5px; color: var(--teal-dark); font-size: 14px; }
+    .result-export-menu[open] summary::after { content: "−"; }
+    .result-export-menu summary:hover,
+    .result-export-menu summary:focus-visible { border-color: var(--teal); color: var(--teal-dark); }
+    .result-export-options {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      z-index: 20;
+      display: grid;
+      min-width: 178px;
+      gap: 4px;
+      padding: 6px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(18, 43, 55, .14);
+    }
+    .result-export-options .result-reset { width: 100%; text-align: left; }
     .result-count {
       margin: 0;
       color: var(--ink-2);
@@ -2209,10 +2244,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <div class="result-top-actions">
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
-              <button class="result-reset" id="result-export" type="button">검색 결과 CSV</button>
-              <button class="result-reset" id="result-json" type="button">검색 결과 JSON</button>
-              <button class="result-reset" id="result-ris" type="button">검색 결과 RIS</button>
-              <button class="result-reset" id="result-brief" type="button">검색 결과 브리프</button>
+              <details class="result-export-menu" id="result-export-menu">
+                <summary>내보내기</summary>
+                <div class="result-export-options" aria-label="검색 결과 내보내기 형식">
+                  <button class="result-reset" id="result-export" type="button">검색 결과 CSV</button>
+                  <button class="result-reset" id="result-json" type="button">검색 결과 JSON</button>
+                  <button class="result-reset" id="result-ris" type="button">검색 결과 RIS</button>
+                  <button class="result-reset" id="result-brief" type="button">검색 결과 브리프</button>
+                </div>
+              </details>
             </div>
           </div>
           <div class="compare-tray" id="compare-tray" hidden aria-live="polite">
