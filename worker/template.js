@@ -287,8 +287,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-priority.medium { background: var(--teal-soft); color: var(--teal-dark); }
     .review-queue-card h3 { margin: 7px 0 5px; font-size: 13px; line-height: 1.4; }
     .review-queue-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
-    .review-queue-card button { margin-top: 10px; margin-right: 10px; padding: 0; border: 0; background: transparent; color: var(--teal-dark); font-size: 11px; font-weight: 800; cursor: pointer; }
-    .review-queue-card button[data-review-done] { color: var(--amber); }
+    .review-card-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+    .review-card-actions button { min-height: 29px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--muted); font-size: 10px; font-weight: 800; cursor: pointer; }
+    .review-card-actions .review-card-primary { border-color: var(--teal); background: var(--teal); color: #fff; }
+    .review-card-actions .review-card-secondary { color: var(--teal-dark); }
+    .review-card-actions .review-card-state[data-review-status="done"] { color: var(--amber); }
+    .review-card-actions .review-card-state[data-review-status="hold"] { color: #7c3aed; }
     .review-queue-card.review-done { opacity: .66; border-left-color: var(--green); }
     .review-queue-card.review-hold { border-left-color: #7c3aed; }
     @media (max-width: 640px) { .review-queue-list { grid-template-columns: 1fr; } }
@@ -3523,7 +3527,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var done = decision.status === "done";
           var hold = decision.status === "hold";
           var note = decision.note ? '<p><strong>로컬 메모</strong> · ' + esc(decision.note) + '</p>' : '';
-          return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<button type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button><button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></article>';
+          return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<div class="review-card-actions"><button class="review-card-primary" type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button><button class="review-card-secondary" type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button class="review-card-state" type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button class="review-card-state" type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></div></article>';
           }).join("") : '<article class="review-queue-card"><h3>현재 대기 자료가 없습니다</h3><p>검토 큐가 비어 있습니다.</p></article>';
       }
       function openReviewShareDialog(url, count) {
