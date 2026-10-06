@@ -633,6 +633,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-detail-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
     .candidate-detail-meta { margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.6; }
     .candidate-detail-warning { margin-top: 14px; padding: 11px 12px; border-radius: 10px; background: var(--amber-soft); color: var(--amber); font-size: 12px; font-weight: 800; line-height: 1.5; }
+    .candidate-detail-screening { margin-top: 12px; padding: 12px 14px; border: 1px solid rgba(183,121,31,.22); border-radius: 10px; background: #fffaf0; color: var(--ink-2); font-size: 12px; line-height: 1.65; }
+    .candidate-detail-screening strong { color: var(--amber); }
     .candidate-detail-abstract { margin-top: 16px; padding: 15px; border-radius: 11px; background: var(--surface-2); color: var(--ink-2); font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
     .candidate-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .candidate-detail-actions a { display: inline-flex; min-height: 34px; align-items: center; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 900; text-decoration: none; }
@@ -1182,6 +1184,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .badge.intervention { background: #e7f5f2; color: var(--teal-dark); }
     .badge.intervention-filter-badge { border: 0; cursor: pointer; font: inherit; }
     .badge.intervention-filter-badge:hover, .badge.intervention-filter-badge:focus-visible { background: #cfece6; outline: 2px solid rgba(15,118,110,.24); outline-offset: 1px; }
+    .badge.marketing-filter-badge { border: 0; cursor: pointer; font: inherit; }
+    .badge.marketing-filter-badge:hover, .badge.marketing-filter-badge:focus-visible { filter: brightness(.96); outline: 2px solid rgba(15,118,110,.24); outline-offset: 1px; }
     .paper-title {
       margin: 0;
       color: var(--ink);
@@ -1629,6 +1633,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="candidate-detail-inner">
         <div class="candidate-detail-head"><div><h2 id="candidate-detail-title">후보 상세</h2><p class="candidate-detail-meta" id="candidate-detail-meta"></p></div><button class="candidate-detail-close" id="candidate-detail-close" type="button" aria-label="후보 상세 닫기">×</button></div>
         <div class="candidate-detail-warning">자동 탐색 후보입니다. 원문·투여경로·연구설계·출판 후속조치를 확인하기 전에는 공개 근거 또는 마케팅 근거로 사용하지 않습니다.</div>
+        <div class="candidate-detail-screening" id="candidate-detail-screening"></div>
         <div class="candidate-detail-abstract" id="candidate-detail-abstract"></div>
         <div class="candidate-detail-actions" id="candidate-detail-actions"></div>
       </div>
@@ -1846,6 +1851,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="suggestion-button" type="button" data-query="수면">수면</button>
           <button class="suggestion-button" type="button" data-query="혈압">혈압</button>
           <button class="suggestion-button" type="button" data-query="불안 스트레스">불안·스트레스</button>
+          <button class="suggestion-button" type="button" data-query="면역 타액 IgA">면역·타액 IgA</button>
+          <button class="suggestion-button" type="button" data-query="현수교 스트레스">현수교 스트레스</button>
+          <button class="suggestion-button" type="button" data-query="캐나다 모노그래프">캐나다·GABA 모노그래프</button>
           <button class="suggestion-button" type="button" data-query="안전성 독성">안전성·독성</button>
           <button class="suggestion-button" type="button" data-query="돼지 장건강">돼지·장건강</button>
           <button class="suggestion-button" type="button" data-query="수산 성장">수산·성장</button>
@@ -1853,7 +1861,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         </div>
         <div class="explorer-intents" aria-label="탐색 목적 빠른 선택">
           <span class="explorer-intents-label">탐색 목적</span>
-          <button class="intent-button" type="button" data-preset="clinical">인체 직접근거</button>
+          <button class="intent-button" type="button" data-preset="human-direct">인체 직접근거</button>
           <button class="intent-button" type="button" data-preset="regulatory">안전·규제</button>
           <button class="intent-button" type="button" data-preset="source">원문 확인 우선</button>
           <button class="intent-button" type="button" data-preset="review">추가 검토</button>
@@ -1878,9 +1886,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <details class="quick-more">
             <summary data-quick-summary="marketing">활용 판단</summary>
             <div class="quick-more-menu" aria-label="마케팅 활용 판단 필터">
-              <button class="quick-button" type="button" data-marketing="직접 근거 검토">직접 근거</button>
-              <button class="quick-button" type="button" data-marketing="조건부 검토">조건부 검토</button>
-              <button class="quick-button" type="button" data-marketing="마케팅 사용 금지">사용 금지</button>
+              <button class="quick-button" type="button" data-marketing="직접 근거 검토">직접 근거 <span class="quick-count" data-marketing-count="직접 근거 검토">__COUNT_MARKETING_DIRECT__</span></button>
+              <button class="quick-button" type="button" data-marketing="조건부 검토">조건부 검토 <span class="quick-count" data-marketing-count="조건부 검토">__COUNT_MARKETING_CONDITIONAL__</span></button>
+              <button class="quick-button" type="button" data-marketing="마케팅 사용 금지">사용 금지 <span class="quick-count" data-marketing-count="마케팅 사용 금지">__COUNT_MARKETING_EXCLUDE__</span></button>
             </div>
           </details>
           <details class="quick-more">
@@ -2064,6 +2072,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var sharedReviewMissingCount = 0;
       var sharedReviewNeedsFocus = false;
       var candidatePreviewFilter = "all";
+      var candidatePreviewNeedsFocus = false;
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var compareIds = [];
@@ -2206,9 +2215,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var activeFilter = candidatePreviewFilter;
         section.dataset.filter = activeFilter;
         var filtered = filterCandidatePreviewRecords(candidates, activeFilter);
+        var candidateFilterLabels = { all: "전체", priority: "우선검토", followup: "출판 후속조치" };
         document.querySelectorAll("[data-candidate-filter]").forEach(function (button) {
+          var filterKey = button.dataset.candidateFilter || "all";
+          var filterCount = filterCandidatePreviewRecords(candidates, filterKey).length;
+          button.textContent = (candidateFilterLabels[filterKey] || "후보") + " " + filterCount.toLocaleString("ko-KR");
+          button.setAttribute("aria-label", (candidateFilterLabels[filterKey] || "후보") + " " + filterCount.toLocaleString("ko-KR") + "건");
           button.onclick = function () {
-            candidatePreviewFilter = button.dataset.candidateFilter || "all";
+            candidatePreviewFilter = filterKey;
             section.dataset.filter = candidatePreviewFilter;
             section.dataset.expanded = "false";
             persistUrl("push");
@@ -2251,6 +2265,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var dialog = el("candidate-detail-dialog");
         el("candidate-detail-title").textContent = candidate.title || "후보 상세";
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
+        var screeningSignals = (candidate.exclusionSignals || []).concat(candidate.directTitleSignals || []).filter(Boolean);
+        el("candidate-detail-screening").innerHTML = '<strong>검토 신호</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>우선순위</strong> · ' + esc(candidate.bucket || "미분류") + (candidate.score != null ? " · 점수 " + esc(candidate.score) : "") + '<br><strong>후속조치 신호</strong> · ' + esc(screeningSignals.join(" · ") || "없음") + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
         el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
         var sourceUrl = candidateSourceUrl(candidate);
         el("candidate-detail-actions").innerHTML = sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">PubMed·DOI 원문 확인 ↗</a>' : "";
@@ -2383,6 +2399,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         candidatePreviewFilter = ["all", "priority", "followup"].includes(requestedCandidateFilter)
           ? requestedCandidateFilter
           : "all";
+        candidatePreviewNeedsFocus = candidatePreviewFilter !== "all";
         state = {
           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
@@ -2470,6 +2487,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function activePreset() {
         if (state.q || state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear || state.sort !== "latest") return "";
         var common = ["category", "effectCategory", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
+        if (state.kind === "임상" && state.status === "포함" && state.intervention === "순수 GABA 섭취" && !state.source) return "human-direct";
         if (common.some(function (key) { return state[key]; })) return "";
         if (state.kind === "임상" && !state.status && !state.source) return "clinical";
         if (state.kind === "규제" && !state.status && !state.source) return "regulatory";
@@ -2487,6 +2505,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else state[key] = "";
         });
         if (name === "clinical") state.kind = "임상";
+        if (name === "human-direct") {
+          state.kind = "임상";
+          state.status = "포함";
+          state.intervention = "순수 GABA 섭취";
+        }
         if (name === "regulatory") state.kind = "규제";
         if (name === "source") state.source = "drive";
         if (name === "review") state.status = "후보";
@@ -2690,6 +2713,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function marketingClass(record) {
         var label = marketingLabel(record);
         return label === "마케팅 사용 금지" ? "exclude" : label === "조건부 검토" ? "candidate" : label === "규제 참고" ? "regulatory" : "include";
+      }
+      function marketingFilterBadge(record) {
+        var label = marketingLabel(record);
+        return '<button class="badge ' + marketingClass(record) + ' marketing-filter-badge" type="button" data-marketing="' + esc(label) + '" aria-label="' + esc(label + ' 자료로 필터') + '">' + esc(label) + '</button>';
       }
 
       function detail(label, value) {
@@ -3100,7 +3127,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function exportFilteredResults() {
         var list = filteredRecords();
         if (!list.length) { toast("내보낼 검색 결과가 없습니다"); return; }
-        var headers = ["ID", "한국어 제목", "영문 원제", "연구 유형", "상태", "연도", "저자", "저널", "대상·시험계", "GABA 용량·노출", "기간", "대조군", "핵심 결과", "연구의 의미", "마케팅 활용 방안", "DOI", "PMID", "원문 링크"];
+        var headers = ["ID", "한국어 제목/분류 요약", "영문 원제", "연구 유형", "상태", "연도", "저자", "저널", "대상·시험계", "GABA 용량·노출", "기간", "대조군", "핵심 결과", "연구의 의미", "마케팅 활용 방안", "DOI", "PMID", "원문 링크"];
         var rows = list.map(function (record) {
           return [record.id, koreanTitle(record), record.title, record.kind, record.status, record.year, record.author, record.journal, record.population || record.species, record.dose || record.exposure, record.duration, record.comparator, record.finding || record.summaryKo, researchMeaning(record), utilizationDirection(record), record.doi, record.pmid, record.fulltextUrl || record.doiUrl || record.pubmedUrl].map(csvCell);
         });
@@ -3162,7 +3189,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("intelligence-detail-title").textContent = koreanTitle(record);
         el("intelligence-detail-facts").innerHTML = [
           fact("연구 유형", kind), fact("개입 구분", interventionClass(record)), fact("상태", record.status), fact("대상", record.population || record.species),
-          fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
+          fact("연구 설계", record.design), fact("개입 형태", record.form), fact("투여 경로", record.route), fact("대조군", record.comparator),
+          fact("결과 영역", record.outcome || record.domain), fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
           fact("결과 방향", record.direction), fact("확인일", record.checked)
         ].join("");
         el("intelligence-detail-finding").textContent = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않은 자료입니다.";
@@ -3238,6 +3266,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           .replace(/·{2,}/g, "·")
           .replace(/^·|·$/g, "") || "주요 평가";
         return [kind, intervention, topic].join(" · ");
+      }
+      function koreanTitleLabel(record) {
+        return record.titleKo ? "한국어 제목" : "한국어 분류 요약";
       }
       function selectedCompareRecords() {
         return compareIds.map(function (id) {
@@ -3346,6 +3377,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function compareValue(record, key) {
         var values = {
           kind: compareKind(record), status: record.status, population: record.population || record.species || record.subject,
+          design: record.design, intervention: [record.form, record.route].filter(Boolean).join(" · "),
+          outcome: record.outcome || record.domain, direction: record.direction,
           dose: record.dose || record.exposure, duration: record.duration, comparator: record.comparator || record.useMatch,
           finding: record.finding || record.summaryKo || record.safetyFinding, boundary: evidenceBoundary(record),
           meaning: researchMeaning(record), marketing: utilizationDirection(record)
@@ -3381,7 +3414,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var target = el("compare-table");
         if (!target) return;
         var rows = [
-          ["연구 유형", "kind"], ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
+          ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
+          ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
           ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
@@ -3394,7 +3428,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function compareText() {
         var selected = selectedCompareRecords();
         var rows = [
-          ["연구 유형", "kind"], ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
+          ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
+          ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
           ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
@@ -3440,7 +3475,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge regulatory">규제·안전성</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
-            '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
+            marketingFilterBadge(record) +
             '<span class="badge">' + esc(record.grade) + '</span>' +
             '<span class="badge">' + esc(record.agency) + '</span>' +
             '<span class="badge">품질 ' + esc(record.quality) + '</span>' +
@@ -3491,14 +3526,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '<div class="paper-badges">' +
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
-            '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
+            marketingFilterBadge(record) +
             '<button class="badge intervention intervention-filter-badge" type="button" data-intervention="' + esc(interventionClass(record)) + '" aria-label="' + esc(interventionClass(record) + ' 자료로 필터') + '">개입 · ' + esc(interventionShortLabel(record)) + '</button>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
             '<span class="badge ' + badgeClass("extraction", record.extraction) + '">추출 ' + esc(record.extraction) + '</span>' +
             '<span class="badge">' + esc(identifierLabel) + '</span>' +
             (record.direction ? '<span class="badge ' + badgeClass("direction", record.direction) + '">' + esc(record.direction) + '</span>' : "") +
           '</div>' +
-          '<h3 class="paper-title"><span class="title-label">한국어 제목 요약</span><span class="paper-title-korean">' + esc(koreanTitle(record)) + '</span></h3>' +
+          '<h3 class="paper-title"><span class="title-label">' + esc(koreanTitleLabel(record)) + '</span><span class="paper-title-korean">' + esc(koreanTitle(record)) + '</span></h3>' +
           '<p class="original-title" lang="en"><span class="title-label">영문 원제</span>' + esc(record.title) + '</p>' +
           '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.author || "저자 미상") + ' · ' + esc(record.journal || "저널 미상") + '</p>' +
           (record.finding ? '<p class="finding"><strong>핵심결과</strong> · ' + esc(record.finding) + '</p>' : "") +
@@ -3616,6 +3651,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             var queueTitle = el("review-queue-title");
             if (queueSection) queueSection.scrollIntoView({ block: "start" });
             if (queueTitle && typeof queueTitle.focus === "function") queueTitle.focus({ preventScroll: true });
+          }, 0);
+        } else if (candidatePreviewNeedsFocus && candidatePreviewFilter !== "all") {
+          candidatePreviewNeedsFocus = false;
+          window.setTimeout(function () {
+            var candidateSection = el("candidate-preview");
+            var candidateTitle = el("candidate-preview-title");
+            if (candidateSection) candidateSection.scrollIntoView({ block: "start" });
+            if (candidateTitle && typeof candidateTitle.focus === "function") {
+              candidateTitle.setAttribute("tabindex", "-1");
+              candidateTitle.focus({ preventScroll: true });
+            }
           }, 0);
         }
       }
@@ -3872,6 +3918,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           scrollToResults();
           return;
         }
+        var marketingBadge = event.target.closest(".marketing-filter-badge");
+        if (marketingBadge) {
+          changeState("marketing", marketingBadge.dataset.marketing || "");
+          scrollToResults();
+          return;
+        }
         var readingToggle = event.target.closest("[data-reading-toggle]");
         if (readingToggle) {
           toggleReadingList(readingToggle.dataset.readingToggle);
@@ -4035,13 +4087,27 @@ const INTERVENTION_COUNTS = DATABASE.records.reduce((counts, record) => {
   counts[label] = (counts[label] || 0) + 1;
   return counts;
 }, {});
+function serverMarketingLabel(record) {
+  if (record.kind === "규제") return "규제 참고";
+  if (record.status === "제외" || /철회|사용 금지/.test(record.direction || "")) return "마케팅 사용 금지";
+  if (record.status === "후보" || record.extraction === "부분" || record.kind === "동물") return "조건부 검토";
+  return "직접 근거 검토";
+}
+const MARKETING_COUNTS = DATABASE.records.reduce((counts, record) => {
+  const label = serverMarketingLabel(record);
+  counts[label] = (counts[label] || 0) + 1;
+  return counts;
+}, {});
 const PAGE = PAGE_TEMPLATE
   .replace("__EMBEDDED_DATA__", JSON.stringify(DATABASE).replaceAll("<", "\\u003c"))
   .replaceAll("__COUNT_PURE__", String(INTERVENTION_COUNTS["순수 GABA 섭취"] || 0))
   .replaceAll("__COUNT_COMBINATION__", String(INTERVENTION_COUNTS["복합제·복합개입"] || 0))
   .replaceAll("__COUNT_FERMENTED__", String(INTERVENTION_COUNTS["GABA 생성 발효·프로바이오틱"] || 0))
   .replaceAll("__COUNT_RECEPTOR__", String(INTERVENTION_COUNTS["수용체 약물·작용제"] || 0))
-  .replaceAll("__COUNT_REGULATORY__", String(INTERVENTION_COUNTS["규제·안전성 자료"] || 0));
+  .replaceAll("__COUNT_REGULATORY__", String(INTERVENTION_COUNTS["규제·안전성 자료"] || 0))
+  .replaceAll("__COUNT_MARKETING_DIRECT__", String(MARKETING_COUNTS["직접 근거 검토"] || 0))
+  .replaceAll("__COUNT_MARKETING_CONDITIONAL__", String(MARKETING_COUNTS["조건부 검토"] || 0))
+  .replaceAll("__COUNT_MARKETING_EXCLUDE__", String(MARKETING_COUNTS["마케팅 사용 금지"] || 0));
 
 function response(body, status, contentType, cacheControl) {
   return new Response(body, {
@@ -4077,6 +4143,8 @@ export default {
         discoverySnapshotDate: discovery.snapshotDate || null,
         discoveryGeneratedAt: discovery.generatedAt || null,
         stagedCandidates: Number(discovery.stagedCandidates || 0),
+        candidatePreviewCount: Array.isArray(discovery.candidatePreview) ? discovery.candidatePreview.length : 0,
+        candidatePreviewSnapshotDate: discovery.snapshotDate || null,
         publicRelease: DATABASE.meta.publicRelease === true,
         sourceMode: "read-only public snapshot"
       }), 200, "application/json; charset=utf-8", "public, max-age=60");

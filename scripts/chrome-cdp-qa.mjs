@@ -241,6 +241,8 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#compare-dialog')?.open"), true);
   assert.equal(await evaluate(client, "document.activeElement?.id"), "compare-dialog-close");
   assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('연구 유형')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('연구 설계')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('결과 방향')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-copy'))"), true);
   await evaluate(client, "document.querySelector('#compare-dialog-close').click()");
   assert.equal(await evaluate(client, "document.activeElement?.id"), "compare-open");

@@ -3377,6 +3377,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function compareValue(record, key) {
         var values = {
           kind: compareKind(record), status: record.status, population: record.population || record.species || record.subject,
+          design: record.design, intervention: [record.form, record.route].filter(Boolean).join(" · "),
+          outcome: record.outcome || record.domain, direction: record.direction,
           dose: record.dose || record.exposure, duration: record.duration, comparator: record.comparator || record.useMatch,
           finding: record.finding || record.summaryKo || record.safetyFinding, boundary: evidenceBoundary(record),
           meaning: researchMeaning(record), marketing: utilizationDirection(record)
@@ -3412,7 +3414,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var target = el("compare-table");
         if (!target) return;
         var rows = [
-          ["연구 유형", "kind"], ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
+          ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
+          ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
           ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
@@ -3425,7 +3428,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function compareText() {
         var selected = selectedCompareRecords();
         var rows = [
-          ["연구 유형", "kind"], ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
+          ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
+          ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
           ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];

@@ -64,6 +64,8 @@ const required = [
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
   ["Evidence compare renderer", "function renderCompareTable"],
+  ["Comparison study design", '["연구 설계", "design"]'],
+  ["Comparison result direction", '["결과 방향", "direction"]'],
   ["Shareable compare state", 'params.set("compare"'],
   ["Comparison copy action", 'id="compare-copy"'],
   ["Comparison focus return", "compareReturnFocus"],
