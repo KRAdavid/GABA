@@ -9,6 +9,7 @@
     "validate": "node scripts/validate.mjs",
     "quality": "node scripts/data-quality.mjs",
     "quality:remote": "node scripts/data-quality.mjs --remote",
+    "release:package": "node scripts/package-public-release.mjs",
     "check": "npm run data && npm run quality && npm run build && npm run validate"
   }
 }
