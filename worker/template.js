@@ -1055,6 +1055,46 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       box-shadow: 0 10px 24px rgba(25, 54, 64, .12);
     }
     .quick-more-menu .quick-button { width: 100%; border-radius: 8px; text-align: left; }
+    .filter-status-strip {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px 10px;
+      min-height: 34px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+    .filter-status-label {
+      color: var(--ink-2);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .filter-status-text {
+      min-width: 0;
+      color: var(--ink-2);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+    .filter-status-reset {
+      min-height: 26px;
+      margin-left: auto;
+      padding: 3px 8px;
+      border: 1px solid #c9d4d1;
+      border-radius: 7px;
+      background: #fff;
+      color: var(--teal-dark);
+      font-size: 10px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .filter-status-reset:hover,
+    .filter-status-reset:focus-visible { border-color: var(--teal); background: var(--teal-soft); }
     .sort-select {
       min-height: 38px;
       padding: 7px 32px 7px 12px;
@@ -2161,6 +2201,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <option value="50">50개씩</option>
             <option value="100">100개씩</option>
           </select>
+        </div>
+        <div class="filter-status-strip" id="filter-status-strip" role="status" aria-live="polite">
+          <span class="filter-status-label">현재 조건</span>
+          <span class="filter-status-text" id="filter-status-text">전체 검증 근거</span>
+          <button class="filter-status-reset" id="filter-status-reset" type="button" hidden>조건 초기화</button>
         </div>
       </div>
 
@@ -4191,15 +4236,28 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
       function renderActiveFilters() {
         var chips = [];
+        var summary = [];
         Object.keys(filterNames).forEach(function (key) {
           if (!state[key]) return;
            var value = key === "source" ? sourceLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
           chips.push('<button class="filter-chip" type="button" data-remove="' + esc(key) + '">' + esc(filterNames[key] + ": " + value) + ' ×</button>');
+          summary.push(filterNames[key] + ": " + value);
         });
         if (state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear) {
           chips.push('<button class="filter-chip" type="button" data-remove="year">연도: ' + state.from + "–" + state.to + ' ×</button>');
+          summary.push("연도: " + state.from + "–" + state.to);
         }
         el("active-filters").innerHTML = chips.join("");
+        var statusText = el("filter-status-text");
+        var statusReset = el("filter-status-reset");
+        var resultCount = el("filter-result-count");
+        if (statusText) {
+          var resultLabel = resultCount ? resultCount.textContent : "현재 결과";
+          var shown = summary.slice(0, 3);
+          if (summary.length > shown.length) shown.push("외 " + (summary.length - shown.length) + "개");
+          statusText.textContent = (summary.length ? shown.join(" · ") : "전체 검증 근거") + " · " + resultLabel;
+        }
+        if (statusReset) statusReset.hidden = summary.length === 0;
       }
       function syncSortHelp() {
         var note = el("sort-help");
@@ -4729,6 +4787,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("reset").addEventListener("click", resetFilters);
       el("result-reset").addEventListener("click", resetFilters);
       el("filter-reset-quick").addEventListener("click", resetFilters);
+      el("filter-status-reset").addEventListener("click", resetFilters);
       el("result-export").addEventListener("click", function () { exportFilteredResults(); closeResultExportMenu(); });
       el("result-json").addEventListener("click", function () { exportFilteredJson(); closeResultExportMenu(); });
       el("result-ris").addEventListener("click", function () { exportFilteredRis(); closeResultExportMenu(); });

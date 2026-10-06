@@ -174,6 +174,9 @@ const required = [
   ,["Methodology dialog", "id=\"methodology-dialog\""]
   ,["Methodology rules", "출판 후속조치를 확인합니다"]
   ,["Empty result recovery", "data-empty-reset"]
+  ,["Visible filter status", 'id="filter-status-strip"']
+  ,["Filter status summary", 'id="filter-status-text"']
+  ,["Filter status reset", 'id="filter-status-reset"']
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));
