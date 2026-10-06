@@ -2511,6 +2511,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var discovery = DB.meta.discovery || {};
         var quality = DB.meta.dataQuality || {};
         var release = DB.meta.release || {};
+        var screeningCounts = discovery.screeningCounts || {};
+        var screeningSummary = ["미검토", "포함후보", "보류", "제외"].map(function (label) {
+          return label + " " + Number(screeningCounts[label] || 0).toLocaleString("ko-KR");
+        }).join(" · ");
         var identified = records.filter(function (record) {
           return record.kind !== "규제" && (record.pmid || record.doi);
         }).length;
@@ -2559,7 +2563,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["Crossref", Number(discovery.crossrefRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["통합 고유", Number(discovery.mergedUnique || 0).toLocaleString("ko-KR") + "건"],
           ["자동 우선검토", Number(discovery.priority || 0).toLocaleString("ko-KR") + "건"],
-          ["검토 상태", discovery.screeningCounts ? "미검토 " + Number(discovery.screeningCounts["미검토"] || 0).toLocaleString("ko-KR") + "건" : "확인 필요"],
+          ["수동 검토 상태", discovery.screeningCounts ? screeningSummary : "확인 필요"],
           ["수동 판정 연결 / 보존", Number(discovery.manualDecisionsMatched || 0).toLocaleString("ko-KR") + " / " + Number(discovery.manualDecisionsPreserved || 0).toLocaleString("ko-KR") + "건"],
           ["원천 오류", Number((discovery.sourceErrors || []).length).toLocaleString("ko-KR") + "건"],
           ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"],
