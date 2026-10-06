@@ -44,6 +44,7 @@ const required = [
   ["Candidate preview expansion", 'id="candidate-preview-more"'],
   ["Candidate preview filters", "data-candidate-filter"],
   ["Candidate detail dialog", 'id="candidate-detail-dialog"'],
+  ["Candidate screening signals", 'id="candidate-detail-screening"'],
   ["Candidate detail renderer", "function openCandidateDetail"],
   ["Candidate detail close", "function closeCandidateDetail"],
   ["Candidate preview export", 'id="candidate-preview-export"'],

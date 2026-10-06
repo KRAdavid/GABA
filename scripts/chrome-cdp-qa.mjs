@@ -169,6 +169,7 @@ try {
   await evaluate(client, "document.querySelector('[data-candidate-detail]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-abstract')?.textContent.length > 0"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('검토 신호')"), true);
   await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), false);
   await evaluate(client, "document.querySelector('#candidate-preview-export').click()");

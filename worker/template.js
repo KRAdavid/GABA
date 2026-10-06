@@ -633,6 +633,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-detail-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
     .candidate-detail-meta { margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.6; }
     .candidate-detail-warning { margin-top: 14px; padding: 11px 12px; border-radius: 10px; background: var(--amber-soft); color: var(--amber); font-size: 12px; font-weight: 800; line-height: 1.5; }
+    .candidate-detail-screening { margin-top: 12px; padding: 12px 14px; border: 1px solid rgba(183,121,31,.22); border-radius: 10px; background: #fffaf0; color: var(--ink-2); font-size: 12px; line-height: 1.65; }
+    .candidate-detail-screening strong { color: var(--amber); }
     .candidate-detail-abstract { margin-top: 16px; padding: 15px; border-radius: 11px; background: var(--surface-2); color: var(--ink-2); font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
     .candidate-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .candidate-detail-actions a { display: inline-flex; min-height: 34px; align-items: center; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 900; text-decoration: none; }
@@ -1631,6 +1633,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="candidate-detail-inner">
         <div class="candidate-detail-head"><div><h2 id="candidate-detail-title">후보 상세</h2><p class="candidate-detail-meta" id="candidate-detail-meta"></p></div><button class="candidate-detail-close" id="candidate-detail-close" type="button" aria-label="후보 상세 닫기">×</button></div>
         <div class="candidate-detail-warning">자동 탐색 후보입니다. 원문·투여경로·연구설계·출판 후속조치를 확인하기 전에는 공개 근거 또는 마케팅 근거로 사용하지 않습니다.</div>
+        <div class="candidate-detail-screening" id="candidate-detail-screening"></div>
         <div class="candidate-detail-abstract" id="candidate-detail-abstract"></div>
         <div class="candidate-detail-actions" id="candidate-detail-actions"></div>
       </div>
@@ -2262,6 +2265,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var dialog = el("candidate-detail-dialog");
         el("candidate-detail-title").textContent = candidate.title || "후보 상세";
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
+        var screeningSignals = (candidate.exclusionSignals || []).concat(candidate.directTitleSignals || []).filter(Boolean);
+        el("candidate-detail-screening").innerHTML = '<strong>검토 신호</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>우선순위</strong> · ' + esc(candidate.bucket || "미분류") + (candidate.score != null ? " · 점수 " + esc(candidate.score) : "") + '<br><strong>후속조치 신호</strong> · ' + esc(screeningSignals.join(" · ") || "없음") + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
         el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
         var sourceUrl = candidateSourceUrl(candidate);
         el("candidate-detail-actions").innerHTML = sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">PubMed·DOI 원문 확인 ↗</a>' : "";
