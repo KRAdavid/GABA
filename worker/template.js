@@ -2024,6 +2024,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <button class="review-queue-filter" type="button" data-review-filter="candidate">후보</button>
         <button class="review-queue-filter" type="button" data-review-filter="partial">부분추출</button>
         <button class="review-queue-filter" type="button" data-review-filter="missing">핵심 누락</button>
+        <button class="review-queue-filter" type="button" data-review-filter="audit">원문 접근 제한</button>
         <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 내보내기</button>
         <button class="review-queue-share" id="review-queue-share" type="button">검토 큐 링크 복사</button>
         <button class="review-queue-import" id="review-queue-import" type="button">검토 기록 가져오기</button>
@@ -2442,7 +2443,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var intelligenceReview = "";
       var activeLane = null;
       var reviewQueueFilter = "all";
-      var reviewQueueFilterLabels = { all: "전체", candidate: "후보", partial: "부분추출", missing: "핵심 누락" };
+      var reviewQueueFilterLabels = { all: "전체", candidate: "후보", partial: "부분추출", missing: "핵심 누락", audit: "원문 접근 제한" };
       var reviewQueueHideDone = false;
       var reviewQueueShowAll = false;
       var sharedReviewIds = [];
@@ -3504,6 +3505,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (record.extraction === "부분") { score += 3; reasons.push("추출 부분"); }
         if (record.kind === "임상") { score += 3; reasons.push("인체 자료"); }
         if (record.kind === "규제") { score += 2; reasons.push("규제·안전성 자료"); }
+        if (sourceAuditRecord(record)?.status === "unavailable") { score += 2; reasons.push("원문 접근 제한"); }
         if (item.missing.length >= 4) { score += 3; reasons.push("핵심 기록 다수 누락"); }
         else if (item.missing.length >= 3) { score += 2; reasons.push("핵심 기록 누락"); }
         if (item.missing.indexOf("식별자") >= 0) { score += 2; reasons.push("식별자 확인 필요"); }
@@ -3548,11 +3550,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function buildReviewQueue() {
         return records.map(function (record) {
           var missing = reviewChecklist(record).filter(function (item) { return !item[1]; }).map(function (item) { return item[0]; });
+          if (sourceAuditRecord(record)?.status === "unavailable" && missing.indexOf("원문 접근 감사") < 0) missing.push("원문 접근 감사");
           var item = { record: record, missing: missing };
           item.priority = reviewPriority(item);
           return item;
         }).filter(function (item) {
-          return item.record.status === "후보" || item.record.extraction === "부분" || item.missing.length >= 3;
+          return item.record.status === "후보" || item.record.extraction === "부분" || item.missing.length >= 3 || sourceAuditRecord(item.record)?.status === "unavailable";
         }).sort(function (a, b) {
           var priorityRank = { high: 3, medium: 2, normal: 1 };
           return priorityRank[b.priority.key] - priorityRank[a.priority.key] || b.missing.length - a.missing.length || String(b.record.checked || "").localeCompare(String(a.record.checked || "")) || Number(b.record.year || 0) - Number(a.record.year || 0);
@@ -3568,6 +3571,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (reviewQueueFilter === "candidate") return item.record.status === "후보";
           if (reviewQueueFilter === "partial") return item.record.extraction === "부분";
           if (reviewQueueFilter === "missing") return item.missing.length >= 3;
+          if (reviewQueueFilter === "audit") return sourceAuditRecord(item.record)?.status === "unavailable";
           return true;
         });
       }
