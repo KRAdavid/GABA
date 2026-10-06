@@ -1,4 +1,5 @@
 dist/
 gaba-evidence-site.tar.gz
+gaba-site-*.tar
 node_modules/
 qa/
