@@ -186,6 +186,7 @@ const required = [
   ,["Release provenance distinction note", 'id="release-provenance-note"']
   ,["Per-record audit filter", 'id="audit"']
   ,["Audit filter counts", "function syncAuditFilterOptions"]
+  ,["Audit follow-up preset", 'data-preset="audit-unavailable"']
   ,["Methodology dialog", "id=\"methodology-dialog\""]
   ,["Methodology rules", "출판 후속조치를 확인합니다"]
   ,["Empty result recovery", "data-empty-reset"]

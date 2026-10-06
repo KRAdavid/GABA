@@ -212,6 +212,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('접근 제한·일시 응답')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#audit option[value=unavailable]')?.textContent.includes('20건')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  await evaluate(client, "document.querySelector('[data-preset=audit-unavailable]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('audit')"), "unavailable");
+  assert.equal(await evaluate(client, "document.querySelector('[data-preset=audit-unavailable]')?.classList.contains('active')"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/`);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('캐나다 모노그래프')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('인지기능 제품 모노그래프')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);

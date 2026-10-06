@@ -2191,6 +2191,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="intent-button" type="button" data-preset="human-direct">인체 직접근거</button>
           <button class="intent-button" type="button" data-preset="regulatory">안전·규제</button>
           <button class="intent-button" type="button" data-preset="source">원문 확인 우선</button>
+          <button class="intent-button" type="button" data-preset="audit-unavailable">접근 제한 후속검토</button>
           <button class="intent-button" type="button" data-preset="review">추가 검토</button>
         </div>
         <div class="quick-row" aria-label="연구구분 빠른 필터">
@@ -2969,6 +2970,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (state.kind === "임상" && !state.status && !state.source) return "clinical";
         if (state.kind === "규제" && !state.status && !state.source) return "regulatory";
         if (state.source === "available" && !state.kind && !state.status) return "source";
+        if (state.audit === "unavailable" && !state.kind && !state.status) return "audit-unavailable";
         if (state.status === "후보" && !state.kind && !state.source) return "review";
         return "";
       }
@@ -2989,6 +2991,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         }
         if (name === "regulatory") state.kind = "규제";
         if (name === "source") state.source = "available";
+        if (name === "audit-unavailable") state.audit = "unavailable";
         if (name === "review") state.status = "후보";
         state.page = 1;
         render("push");
