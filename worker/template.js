@@ -3381,12 +3381,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function verificationSummary(record) {
         var checklist = reviewChecklist(record);
         var complete = checklist.filter(function (item) { return Boolean(item[1]); }).length;
+        var missing = checklist.filter(function (item) { return !item[1]; }).map(function (item) { return item[0]; });
         var total = checklist.length;
         var score = total ? Math.round((complete / total) * 100) : 0;
         var label = score >= 80 ? "핵심 기록이 비교적 갖춰짐" : score >= 50 ? "일부 핵심 기록 추가 확인" : "원문 확인 우선";
-        var action = score >= 80
-          ? "원문과 연구대상·용량·기간의 일치를 최종 확인하세요."
-          : "누락된 항목을 원문에서 확인한 뒤 활용 범위를 판단하세요.";
+        var action = missing.length
+          ? "먼저 " + missing.join("·") + "을(를) 원문에서 확인한 뒤 활용 범위를 판단하세요."
+          : "원문과 연구대상·용량·기간의 일치를 최종 확인하세요.";
         return '<div class="verification-score" aria-label="검증 기록 충실도 ' + score + '퍼센트">' + score + '%</div>' +
           '<div><h3>검증 기록 충실도 · ' + esc(label) + '</h3><p>' + esc(action) + ' <strong>' + complete + '/' + total + '개 핵심 항목 기록</strong></p><small>이 수치는 기록의 완성도만 보여주며, 연구의 질·효능·규제 적합성 순위를 의미하지 않습니다.</small></div>';
       }

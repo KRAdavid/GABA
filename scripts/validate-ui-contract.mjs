@@ -183,6 +183,7 @@ const required = [
   ,["Mobile filter result action", 'id="filter-mobile-apply"']
   ,["Result interpretation guard", "해석 경계"]
   ,["Review checklist action summary", 'id="review-check-summary"']
+  ,["Verification next action wording", "원문에서 확인한 뒤 활용 범위를 판단"]
   ,["Evidence distribution expansion", "function renderDistribution"]
   ,["Evidence distribution complete list", "var extra = items.slice(4)"]
   ,["Evidence distribution hidden state", ".distribution-item[hidden]"]
