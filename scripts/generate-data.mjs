@@ -101,6 +101,42 @@ function httpUrl(value) {
   return /^https?:\/\//i.test(text) ? text : "";
 }
 
+const candidateArtifacts = await findNamedFiles(outputsRoot, "candidates.json");
+const candidateArtifactDated = await Promise.all(candidateArtifacts.map(async (path) => ({ path, mtime: (await stat(path)).mtimeMs })));
+candidateArtifactDated.sort((a, b) => b.mtime - a.mtime);
+const candidateArtifact = candidateArtifactDated.length
+  ? JSON.parse(await readFile(candidateArtifactDated[0].path, "utf8"))
+  : null;
+const candidateBucketRank = { "우선검토": 0, "일반검토": 1, "낮은우선순위": 2 };
+const candidatePreview = Array.isArray(candidateArtifact?.candidates)
+  ? candidateArtifact.candidates
+    .slice()
+    .sort((left, right) => (candidateBucketRank[left.bucket] ?? 9) - (candidateBucketRank[right.bucket] ?? 9)
+      || Number(right.score || 0) - Number(left.score || 0)
+      || String(left.candidateId || "").localeCompare(String(right.candidateId || "")))
+    .slice(0, 24)
+    .map((record) => ({
+      candidateId: clean(record.candidateId),
+      collectedDate: clean(record.collectedDate),
+      title: clean(record.title),
+      abstract: clean(record.abstract).slice(0, 2400),
+      author: clean(record.author || record.authors?.[0]),
+      journal: clean(record.journal),
+      year: Number(record.year) || null,
+      pmid: clean(record.pmid),
+      doi: clean(record.doi),
+      sourceUrl: httpUrl(record.sourceUrl),
+      screeningRecommendation: clean(record.screeningRecommendation),
+      bucket: clean(record.bucket),
+      score: Number(record.score) || 0,
+      publicationTypes: Array.isArray(record.publicationTypes) ? record.publicationTypes.slice(0, 4).map(clean) : [],
+      queryLabels: Array.isArray(record.queryLabels) ? record.queryLabels.slice(0, 3).map(clean) : [],
+      exclusionSignals: Array.isArray(record.exclusionSignals) ? record.exclusionSignals.slice(0, 4).map(clean) : [],
+      directTitleSignals: Array.isArray(record.directTitleSignals) ? record.directTitleSignals.slice(0, 4).map(clean) : [],
+      existingRecordId: clean(record.existingRecordId)
+    }))
+  : [];
+
 function enrichLiteratureNote(record) {
   if (record.kind === "규제") return record.notes;
   if (record.notes.includes("연구의 의미:") && record.notes.includes("마케팅 활용 방안:")) return record.notes;
@@ -396,17 +432,23 @@ const database = {
       identifierExtraction: discovery.identifierExtraction,
       pubmedUnique: discovery.pubmed?.uniqueRetrieved || 0,
       openAlexRetrieved: discovery.openAlex?.retrieved || 0,
+      crossrefRetrieved: discovery.crossref?.retrieved || 0,
+      sourceErrors: Array.isArray(discovery.sourceErrors) ? discovery.sourceErrors : [],
       mergedUnique: discovery.mergedUnique || 0,
       stagedCandidates: discovery.newCandidates ?? candidateSheetPayload?.rows ?? 0,
       priority: discovery.stagedPriority ?? discovery.priority ?? 0,
       general: discovery.stagedGeneral ?? discovery.general ?? 0,
       low: discovery.stagedLow ?? discovery.low ?? 0,
-      screeningCounts: discovery.screeningCounts || null,
-      candidateSheet: "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit#gid=573213442",
+      screeningCounts: discovery.screeningCounts || candidateSheetPayload?.summary?.screeningCounts || null,
+      manualDecisionsPreserved: discovery.manualDecisionsPreserved ?? candidateSheetPayload?.summary?.manualDecisionsPreserved ?? 0,
+      candidatePreview,
+      candidateSheet: null,
       disclaimer: "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
     } : null,
-    sourceSheet: "https://docs.google.com/spreadsheets/d/1BRtPXEruHYLJ62vCVvDvb6-JkCvKdFi-bBUa7Md7vAQ/edit",
-    sourceFile: basename(payloadPath),
+    sourceSheet: null,
+    sourceFile: null,
+    linkAudit: previousData?.meta?.linkAudit || null,
+    publicRelease: true,
     notice: "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
   },
   facets: {

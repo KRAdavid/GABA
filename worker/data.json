@@ -694,7 +694,6 @@
     },
     "sourceSheet": null,
     "sourceFile": null,
-    "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다.",
     "linkAudit": {
       "checkedAt": "2026-10-06T15:19:24.547Z",
       "records": 392,
@@ -717,7 +716,8 @@
       },
       "note": "접근 제한·일시 응답은 원문 내용의 부재나 근거 약함을 뜻하지 않음"
     },
-    "publicRelease": true
+    "publicRelease": true,
+    "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
   },
   "facets": {
     "species": [
