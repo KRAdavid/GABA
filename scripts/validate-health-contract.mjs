@@ -6,13 +6,14 @@ const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const data = JSON.parse(await readFile(resolve(root, "worker", "data.json"), "utf8"));
 const discovery = data.meta?.discovery;
 const release = data.meta?.release;
-const required = ["snapshotDate", "generatedAt", "pubmedUnique", "openAlexRetrieved", "crossrefRetrieved", "mergedUnique", "stagedCandidates"];
+const required = ["snapshotDate", "generatedAt", "pubmedUnique", "openAlexRetrieved", "crossrefRetrieved", "mergedUnique", "stagedCandidates", "candidateExport"];
 const missing = required.filter((key) => discovery?.[key] === undefined || discovery?.[key] === null);
 const invalid = [];
 for (const key of ["pubmedUnique", "openAlexRetrieved", "crossrefRetrieved", "mergedUnique", "stagedCandidates"]) {
   if (!Number.isFinite(Number(discovery?.[key])) || Number(discovery[key]) < 0) invalid.push(key);
 }
 if (!Array.isArray(discovery?.sourceErrors)) invalid.push("sourceErrors[]");
+if (!Array.isArray(discovery?.candidateExport) || discovery.candidateExport.length < Number(discovery?.stagedCandidates || 0)) invalid.push("candidateExport");
 if (!discovery?.screeningCounts || !Number.isFinite(Number(discovery?.manualDecisionsPreserved))) invalid.push("screeningCounts/manualDecisionsPreserved");
 if (!Number.isInteger(Number(release?.snapshotVersion)) || Number(release.snapshotVersion) < 1) invalid.push("release.snapshotVersion");
 if (!Number.isInteger(Number(release?.siteVersion)) || Number(release.siteVersion) < 1) invalid.push("release.siteVersion");
@@ -32,6 +33,7 @@ console.log(JSON.stringify({
   crossrefRetrieved: discovery.crossrefRetrieved,
   mergedUnique: discovery.mergedUnique,
   stagedCandidates: discovery.stagedCandidates,
+  candidateExport: discovery.candidateExport.length,
   screeningCounts: discovery.screeningCounts,
   manualDecisionsPreserved: discovery.manualDecisionsPreserved,
   sourceErrors: discovery.sourceErrors.length,

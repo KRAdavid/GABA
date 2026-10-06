@@ -4605,6 +4605,7 @@ export default {
          discoveryManualDecisionsPreserved: Number(discovery.manualDecisionsPreserved || 0),
          stagedCandidates: Number(discovery.stagedCandidates || 0),
          candidatePreviewCount: Array.isArray(discovery.candidatePreview) ? discovery.candidatePreview.length : 0,
+         candidateExportCount: Array.isArray(discovery.candidateExport) ? discovery.candidateExport.length : 0,
          candidatePreviewSnapshotDate: discovery.snapshotDate || null,
          linkAudit: DATABASE.meta.linkAudit || null,
          publicRelease: DATABASE.meta.publicRelease === true,

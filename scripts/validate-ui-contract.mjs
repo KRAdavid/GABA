@@ -52,6 +52,7 @@ const required = [
   ["Candidate review status", "screeningStatus"],
   ["Candidate queue scope", "전체 큐:"],
   ["Candidate full export", "candidateExport"],
+  ["Candidate export health", "candidateExportCount"],
   ["Candidate detail dialog", 'id="candidate-detail-dialog"'],
   ["Candidate screening signals", 'id="candidate-detail-screening"'],
   ["Candidate detail renderer", "function openCandidateDetail"],

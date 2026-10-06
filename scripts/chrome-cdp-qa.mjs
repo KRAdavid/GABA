@@ -141,6 +141,7 @@ try {
   assert.equal(health.release?.sourceCommit, "d9c707daeed89e380864fb01594c84109bf69a9d");
   assert.equal(health.release?.publicMirrorCommit, "e826245fe8e29ff638a38a1a5d41b0c83ab544c5");
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
+  assert.ok(health.candidateExportCount >= health.stagedCandidates);
   assert.ok(health.candidatePreviewCount > 0);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"면역 타액 IgA\"]'))"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?intervention=${encodeURIComponent('수용체 약물·작용제')}`);

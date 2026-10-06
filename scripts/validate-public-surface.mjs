@@ -31,5 +31,6 @@ assert.equal(healthData.publicRelease, true);
 assert.equal(healthData.sourceMode, "read-only public snapshot");
 assert.equal(healthData.syncPolicy, "management-sheet-write-gated");
 assert.equal(healthData.candidatePromotion, "manual-review-required");
+assert.ok(Number(healthData.candidateExportCount) >= Number(healthData.stagedCandidates));
 assert.ok(healthData.discoverySnapshotDate);
 console.log(JSON.stringify({ valid: true, publicRelease: true, records: database.records.length, managementSheetsExposed: false }));
