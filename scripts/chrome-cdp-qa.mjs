@@ -163,6 +163,17 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), false);
   await evaluate(client, "document.querySelector('[data-review-status]').click()");
   assert.match(String(await evaluate(client, "localStorage.getItem('gaba-review-decisions')")), /status/);
+  const importPath = resolve(profile, "review-import.json");
+  await writeFile(importPath, JSON.stringify({
+    schemaVersion: "gaba-review-queue-0.1",
+    records: [{ recordId: deepLinkId, reviewStatus: "추가 자료 필요", reviewNote: "QA 가져오기" }]
+  }), "utf8");
+  await client.call("DOM.enable");
+  const documentNode = await client.call("DOM.getDocument");
+  const fileNode = await client.call("DOM.querySelector", { nodeId: documentNode.root.nodeId, selector: "#review-queue-file" });
+  await client.call("DOM.setFileInputFiles", { nodeId: fileNode.nodeId, files: [importPath] });
+  await sleep(180);
+  assert.match(String(await evaluate(client, "localStorage.getItem('gaba-review-decisions')")), /QA 가져오기/);
   await screenshot("cdp-desktop-top.png");
 
   await client.call("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });

@@ -223,7 +223,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-filter.active { border-color: var(--amber); background: var(--amber-soft); color: var(--amber); }
     .review-queue-toggle { display: inline-flex; align-items: center; gap: 5px; margin-left: auto; color: var(--muted); font-size: 11px; }
     .review-queue-storage { width: 100%; color: var(--muted); font-size: 10px; }
-    .review-queue-export { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-queue-export, .review-queue-import { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-queue-import { border-color: var(--line); background: #fff; color: var(--teal-dark); }
     .review-queue-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .review-queue-card { padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 10px; background: var(--surface-2); }
     .review-queue-card.priority-high { border-left-color: #d97706; }
@@ -1543,6 +1544,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <button class="review-queue-filter" type="button" data-review-filter="partial">부분추출</button>
         <button class="review-queue-filter" type="button" data-review-filter="missing">핵심 누락</button>
         <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 내보내기</button>
+        <button class="review-queue-import" id="review-queue-import" type="button">검토 기록 가져오기</button>
+        <input id="review-queue-file" type="file" accept="application/json,.json" hidden>
         <label class="review-queue-toggle"><input id="review-hide-done" type="checkbox"> 완료 숨기기</label>
         <span class="review-queue-storage">검토 완료 표시는 현재 브라우저에만 저장되며 원본 인덱스·Sheets를 변경하지 않습니다.</span>
       </div>
@@ -2545,6 +2548,35 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         URL.revokeObjectURL(url);
         toast(recordsPayload.length.toLocaleString("ko-KR") + "건의 검토 큐를 내보냈습니다");
       }
+      async function importReviewQueue(file) {
+        if (!file) return;
+        try {
+          var payload = JSON.parse(await file.text());
+          if (payload?.schemaVersion !== "gaba-review-queue-0.1" || !Array.isArray(payload.records)) throw new Error("schema");
+          var knownIds = new Set(records.map(function (record) { return String(record.id); }));
+          var statusMap = { "완료": "done", "추가 자료 필요": "hold", "대기": "pending" };
+          var imported = 0;
+          payload.records.forEach(function (item) {
+            var recordId = String(item.recordId || "");
+            var status = statusMap[item.reviewStatus] || item.reviewStatus;
+            if (!knownIds.has(recordId) || !["done", "hold", "pending"].includes(status)) return;
+            var note = String(item.reviewNote || "").trim().slice(0, 2000);
+            if (status === "pending" && !note) delete reviewDecisions[recordId];
+            else reviewDecisions[recordId] = {
+              status: status,
+              note: note,
+              updatedAt: new Date().toISOString(),
+              completedAt: status === "done" ? (item.completedAt || new Date().toISOString()) : null
+            };
+            imported += 1;
+          });
+          localStorage.setItem("gaba-review-decisions", JSON.stringify(reviewDecisions));
+          renderReviewQueue();
+          toast(imported.toLocaleString("ko-KR") + "건의 로컬 검토 기록을 가져왔습니다");
+        } catch (_) {
+          toast("검토 기록 JSON 형식을 확인하세요");
+        }
+      }
       function openIntelligenceDetail(recordId, historyMode) {
         var record = records.find(function (item) { return String(item.id) === String(recordId); });
         var dialog = el("intelligence-detail");
@@ -2935,6 +2967,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         renderReviewQueue();
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
+      el("review-queue-import").addEventListener("click", function () { el("review-queue-file").click(); });
+      el("review-queue-file").addEventListener("change", async function () {
+        var file = el("review-queue-file").files?.[0];
+        await importReviewQueue(file);
+        el("review-queue-file").value = "";
+      });
       document.querySelectorAll("[data-detail-review-status]").forEach(function (button) {
         button.addEventListener("click", function () {
           reviewDraftStatus = button.dataset.detailReviewStatus || "pending";

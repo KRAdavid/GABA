@@ -33,6 +33,8 @@ const required = [
   ["Local review completion", "data-review-done"],
   ["Review queue export", 'id="review-queue-export"'],
   ["Review queue export renderer", "function exportReviewQueue"],
+  ["Review queue import", 'id="review-queue-import"'],
+  ["Review queue import renderer", "function importReviewQueue"],
   ["Freshness indicator", 'id="freshness-label"'],
   ["Discovery freshness distinction", "자동 탐색"],
   ["Result evidence composition", 'id="result-interpretation"'],
