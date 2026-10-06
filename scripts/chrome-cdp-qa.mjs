@@ -159,6 +159,8 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=priority]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidate')"), "priority");
   assert.equal(await evaluate(client, "document.querySelectorAll('#candidate-preview-list .candidate-preview-card').length > 0"), true);
+  assert.equal(await evaluate(client, "document.activeElement?.id"), "candidate-preview-title");
+  assert.equal(await evaluate(client, "window.scrollY > 0"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);

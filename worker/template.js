@@ -2064,6 +2064,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var sharedReviewMissingCount = 0;
       var sharedReviewNeedsFocus = false;
       var candidatePreviewFilter = "all";
+      var candidatePreviewNeedsFocus = false;
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var compareIds = [];
@@ -2383,6 +2384,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         candidatePreviewFilter = ["all", "priority", "followup"].includes(requestedCandidateFilter)
           ? requestedCandidateFilter
           : "all";
+        candidatePreviewNeedsFocus = candidatePreviewFilter !== "all";
         state = {
           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
@@ -3617,6 +3619,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             if (queueSection) queueSection.scrollIntoView({ block: "start" });
             if (queueTitle && typeof queueTitle.focus === "function") queueTitle.focus({ preventScroll: true });
           }, 0);
+        } else if (candidatePreviewNeedsFocus && candidatePreviewFilter !== "all") {
+          candidatePreviewNeedsFocus = false;
+          window.setTimeout(function () {
+            var candidateSection = el("candidate-preview");
+            var candidateTitle = el("candidate-preview-title");
+            if (candidateSection) candidateSection.scrollIntoView({ block: "start" });
+            if (candidateTitle && typeof candidateTitle.focus === "function") {
+              candidateTitle.setAttribute("tabindex", "-1");
+              candidateTitle.focus({ preventScroll: true });
+            }
+          }, 0);
         }
       }
 
@@ -4077,6 +4090,8 @@ export default {
         discoverySnapshotDate: discovery.snapshotDate || null,
         discoveryGeneratedAt: discovery.generatedAt || null,
         stagedCandidates: Number(discovery.stagedCandidates || 0),
+        candidatePreviewCount: Array.isArray(discovery.candidatePreview) ? discovery.candidatePreview.length : 0,
+        candidatePreviewSnapshotDate: discovery.snapshotDate || null,
         publicRelease: DATABASE.meta.publicRelease === true,
         sourceMode: "read-only public snapshot"
       }), 200, "application/json; charset=utf-8", "public, max-age=60");

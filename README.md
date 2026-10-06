@@ -12,6 +12,7 @@ Google Sheet로 관리되는 GABA 섭취 임상·동물시험 문헌을 한국�
 - 배포물: `dist/server/index.js`
 - 운영 소스: `worker/template.js` 및 `worker/data.json`
 - 검토 큐: 브라우저 로컬 완료 표시와 JSON 내보내기 제공
+- 후보 큐: `?candidate=priority` 또는 `?candidate=followup` 링크로 같은 검토 범위를 공유
 
 웹 인덱스는 원본 시트를 직접 수정하지 않으며, 배포 시점의 검증된 스냅샷을
 사용합니다. 검토 큐의 완료 표시도 현재 브라우저에만 저장됩니다.
@@ -28,6 +29,7 @@ data-quality → build → validate → build-pending-sheet-sync → UI contract
 - `node scripts/build-pending-sheet-sync.mjs`: Sheets 403 등으로 대기 중인 레코드의 36열 payload 재생성
 - `node scripts/validate-ui-contract.mjs`: 포털·Intelligence·검토 큐 UI 계약 확인
 - `node scripts/chrome-cdp-qa.mjs`: Playwright 없이 설치된 Chrome으로 desktop/mobile 핵심 흐름과 overflow 확인
+- `/api/health`: 검증 스냅샷·자동 탐색 후보·후보 미리보기 상태를 읽기 전용으로 확인
 - `node scripts/validate-public-surface.mjs`: 공개 HTML/API에 내부 관리 Sheet URL이 노출되지 않는지 확인
 - `node scripts/sync-public-release.mjs`: 지정된 공개 릴리스 디렉터리에 운영 template/data/build/validate/hosting과 UI/Chrome QA 검증기를 동기화하고 관리 Sheet URL을 제거
 - 공개 릴리스 디렉터리에서 `npm run release:package <tar 경로>`: 최신 커밋 기준으로 Sites용 tar를 만들고 필수 파일·제목 정규화·내부 Sheet URL 비노출을 패키지 내부에서 재검증
