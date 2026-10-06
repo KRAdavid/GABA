@@ -2063,6 +2063,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var sharedReviewIds = [];
       var sharedReviewMissingCount = 0;
       var sharedReviewNeedsFocus = false;
+      var candidatePreviewFilter = "all";
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var compareIds = [];
@@ -2202,12 +2203,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return;
         }
         section.hidden = false;
-        var activeFilter = section.dataset.filter || "all";
+        var activeFilter = candidatePreviewFilter;
+        section.dataset.filter = activeFilter;
         var filtered = filterCandidatePreviewRecords(candidates, activeFilter);
         document.querySelectorAll("[data-candidate-filter]").forEach(function (button) {
           button.onclick = function () {
-            section.dataset.filter = button.dataset.candidateFilter || "all";
+            candidatePreviewFilter = button.dataset.candidateFilter || "all";
+            section.dataset.filter = candidatePreviewFilter;
             section.dataset.expanded = "false";
+            persistUrl("push");
             renderCandidatePreview(candidates);
           };
           var active = button.dataset.candidateFilter === activeFilter;
@@ -2375,6 +2379,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function loadUrlState() {
         var params = new URLSearchParams(location.search);
+        var requestedCandidateFilter = params.get("candidate") || "all";
+        candidatePreviewFilter = ["all", "priority", "followup"].includes(requestedCandidateFilter)
+          ? requestedCandidateFilter
+          : "all";
         state = {
           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
@@ -2499,6 +2507,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (compareIds.length) params.set("compare", compareIds.join(","));
         if (urlReadingIds.length) params.set("read", urlReadingIds.join(","));
         if (sharedReviewIds.length) params.set("review", sharedReviewIds.join(","));
+        if (candidatePreviewFilter !== "all") params.set("candidate", candidatePreviewFilter);
         if (urlRecordId) params.set("record", urlRecordId);
         var query = params.toString();
         var method = historyMode === "push" ? "pushState" : "replaceState";

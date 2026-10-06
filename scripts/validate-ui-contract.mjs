@@ -47,6 +47,8 @@ const required = [
   ["Candidate detail close", "function closeCandidateDetail"],
   ["Candidate preview export", 'id="candidate-preview-export"'],
   ["Candidate export filter parity", "function filterCandidatePreviewRecords"],
+  ["Candidate filter URL state", "candidatePreviewFilter"],
+  ["Candidate filter share parameter", 'params.set("candidate"'],
   ["Accessible active toggles", "function setActiveToggle"],
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
