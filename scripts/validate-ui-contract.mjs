@@ -72,6 +72,8 @@ const required = [
   ,["Collapsed filter state labels", "data-quick-summary"]
   ,["Review queue share link", "review-queue-share"]
   ,["Review queue URL state", "sharedReviewIds"]
+  ,["Review share dialog", "review-share-dialog"]
+  ,["Review share copy action", "copyReviewShareUrl"]
   ,["Intervention classification", "function interventionClass"]
   ,["Intervention classification URL state", "state.intervention"]
 ];

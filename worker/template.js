@@ -225,6 +225,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-storage { width: 100%; color: var(--muted); font-size: 10px; }
     .review-queue-export, .review-queue-import, .review-queue-share { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .review-queue-import { border-color: var(--line); background: #fff; color: var(--teal-dark); }
+    .review-share-dialog { width: min(640px, calc(100% - 28px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
+    .review-share-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
+    .review-share-inner { padding: 22px; }
+    .review-share-head { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .review-share-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
+    .review-share-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .review-share-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .review-share-label { display: block; margin-top: 16px; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .review-share-url { width: 100%; min-height: 42px; margin-top: 7px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); color: var(--ink); font: inherit; font-size: 11px; line-height: 1.4; }
+    .review-share-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .review-share-actions button { min-height: 34px; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-share-actions button.secondary { border-color: var(--line); background: #fff; color: var(--muted); }
+    @media (max-width: 640px) { .review-share-inner { padding: 16px; } }
     .review-queue-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .review-queue-card { padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 10px; background: var(--surface-2); }
     .review-queue-card.priority-high { border-left-color: #d97706; }
@@ -1690,6 +1703,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="reading-list-items" id="reading-list-items"></div>
       </div>
     </dialog>
+    <dialog class="review-share-dialog" id="review-share-dialog" aria-labelledby="review-share-title">
+      <div class="review-share-inner">
+        <div class="review-share-head">
+          <div><h2 id="review-share-title">검토 큐 공유</h2><p id="review-share-summary">검토 대상 ID만 링크에 포함됩니다. 개인 메모·완료 상태·Sheets 데이터는 공유되지 않습니다.</p></div>
+          <button class="review-share-close" id="review-share-close" type="button" aria-label="검토 큐 공유 닫기">×</button>
+        </div>
+        <label class="review-share-label" for="review-share-url">공유 링크</label>
+        <input class="review-share-url" id="review-share-url" type="url" readonly>
+        <div class="review-share-actions"><button id="review-share-copy" type="button">링크 복사</button><button class="secondary" id="review-share-close-secondary" type="button">닫기</button></div>
+      </div>
+    </dialog>
 
     <section class="section" aria-labelledby="distribution-title">
       <div class="section-head">
@@ -1959,6 +1983,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var detailReturnFocus = null;
       var compareReturnFocus = null;
       var readingReturnFocus = null;
+      var reviewShareReturnFocus = null;
       var urlReadingIds = [];
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
@@ -2719,18 +2744,40 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<button type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button><button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></article>';
           }).join("") : '<article class="review-queue-card"><h3>현재 대기 자료가 없습니다</h3><p>검토 큐가 비어 있습니다.</p></article>';
       }
-      async function shareReviewQueue() {
+      function openReviewShareDialog(url, count) {
+        var dialog = el("review-share-dialog");
+        el("review-share-url").value = url;
+        el("review-share-summary").textContent = count.toLocaleString("ko-KR") + "건의 검토 대상 ID만 링크에 포함됩니다. 개인 메모·완료 상태·Sheets 데이터는 공유되지 않습니다.";
+        reviewShareReturnFocus = document.activeElement;
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
+        el("review-share-copy").focus();
+      }
+      function closeReviewShareDialog() {
+        var dialog = el("review-share-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
+        if (reviewShareReturnFocus && typeof reviewShareReturnFocus.focus === "function") reviewShareReturnFocus.focus();
+        reviewShareReturnFocus = null;
+      }
+      async function copyReviewShareUrl() {
+        var input = el("review-share-url");
+        try {
+          await navigator.clipboard.writeText(input.value);
+          toast("검토 큐 링크를 복사했습니다");
+        } catch (_) {
+          input.focus();
+          input.select();
+          toast("링크를 선택했습니다 · Ctrl+C로 복사하세요");
+        }
+      }
+      function shareReviewQueue() {
         var queue = reviewQueueForDisplay(buildReviewQueue());
         if (!queue.length) { toast("공유할 검토 자료가 없습니다"); return; }
         var ids = queue.slice(0, 50).map(function (item) { return String(item.record.id); });
         var url = new URL(location.href);
         url.searchParams.set("review", ids.join(","));
-        try {
-          await navigator.clipboard.writeText(url.href);
-          toast(ids.length.toLocaleString("ko-KR") + "건 검토 큐 링크를 복사했습니다");
-        } catch (_) {
-          window.prompt("아래 검토 큐 링크를 복사하세요", url.href);
-        }
+        openReviewShareDialog(url.href, ids.length);
       }
       function exportReviewQueue() {
         var recordsPayload = records.map(function (record) {
@@ -3421,6 +3468,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
       el("review-queue-share").addEventListener("click", shareReviewQueue);
+      el("review-share-copy").addEventListener("click", copyReviewShareUrl);
+      el("review-share-close").addEventListener("click", closeReviewShareDialog);
+      el("review-share-close-secondary").addEventListener("click", closeReviewShareDialog);
+      el("review-share-dialog").addEventListener("click", function (event) {
+        if (event.target === el("review-share-dialog")) closeReviewShareDialog();
+      });
+      el("review-share-dialog").addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeReviewShareDialog();
+      });
       el("review-queue-import").addEventListener("click", function () { el("review-queue-file").click(); });
       el("review-queue-file").addEventListener("change", async function () {
         var file = el("review-queue-file").files?.[0];
@@ -3604,7 +3661,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-          if (el("reading-list-dialog").open) closeReadingList();
+          if (el("review-share-dialog").open) closeReviewShareDialog();
+          else if (el("reading-list-dialog").open) closeReadingList();
           else if (el("compare-dialog").open) closeCompareDialog();
           else if (el("intelligence-detail").open) closeIntelligenceDetail();
           else openFilters(false);
