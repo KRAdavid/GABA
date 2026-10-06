@@ -1698,7 +1698,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     <section class="candidate-preview" id="candidate-preview" aria-labelledby="candidate-preview-title" hidden>
       <div class="candidate-preview-head">
         <div><h2 id="candidate-preview-title">최근 자동 탐색 후보 미리보기</h2><p>아직 공개 근거로 승격되지 않은 후보입니다. 원문·섭취 경로·철회·정정 상태를 확인한 뒤 별도 판정합니다.</p></div>
-        <div class="candidate-preview-head-actions"><span class="candidate-preview-note">확정 근거 아님</span><button class="candidate-preview-export" id="candidate-preview-export" type="button">후보 CSV</button></div>
+        <div class="candidate-preview-head-actions"><span class="candidate-preview-note">확정 근거 아님</span><button class="candidate-preview-export" id="candidate-preview-export" type="button">미리보기 CSV</button></div>
       </div>
       <div class="candidate-preview-filters" aria-label="후보 유형 필터">
         <button class="candidate-preview-filter active" type="button" data-candidate-filter="all" aria-pressed="true">전체</button>
@@ -2333,6 +2333,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var list = el("candidate-preview-list");
         var more = el("candidate-preview-more");
         if (!section || !list) return;
+        var totalCandidates = Number(DB.meta.discovery?.stagedCandidates || candidates.length);
+        var scopeNote = el("candidate-preview")?.querySelector(".candidate-preview-note");
+        if (scopeNote) scopeNote.textContent = "확정 근거 아님 · 미리보기 " + candidates.length.toLocaleString("ko-KR") + "건 / 전체 후보 " + totalCandidates.toLocaleString("ko-KR") + "건";
         if (!Array.isArray(candidates) || !candidates.length) {
           section.hidden = true;
           list.innerHTML = "";
@@ -2442,7 +2445,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         anchor.click();
         anchor.remove();
         URL.revokeObjectURL(url);
-        toast(candidates.length.toLocaleString("ko-KR") + "건의 후보 CSV를 내보냈습니다");
+        toast(candidates.length.toLocaleString("ko-KR") + "건의 후보 미리보기 CSV를 내보냈습니다");
       }
 
       function initMeta() {

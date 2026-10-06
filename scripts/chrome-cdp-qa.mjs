@@ -184,6 +184,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=followup]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidate')"), "followup");
   assert.equal(await evaluate(client, "document.querySelectorAll('#candidate-preview-list .candidate-preview-card').length > 0"), true);
+  assert.equal(await evaluate(client, "document.querySelector('.candidate-preview-note')?.textContent.includes('전체 후보 1,000건')"), true);
   await evaluate(client, "document.querySelector('[data-candidate-detail]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), true);
   const candidateId = await evaluate(client, "document.querySelector('[data-candidate-detail]')?.getAttribute('data-candidate-detail')");
@@ -207,7 +208,7 @@ try {
   await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
   await evaluate(client, "document.querySelector('#candidate-preview-export').click()");
   await sleep(80);
-  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('후보 CSV')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('후보 미리보기 CSV')"), true);
   await evaluate(client, "document.querySelector('[data-candidate-filter=all]').click()");
   await navigate(`http://127.0.0.1:${httpPort}/?candidate=priority`);
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=priority]')?.getAttribute('aria-pressed')"), "true");

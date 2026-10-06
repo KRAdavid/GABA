@@ -43,6 +43,7 @@ const required = [
   ["Discovery freshness distinction", "자동 탐색"],
   ["Candidate preview", 'id="candidate-preview"'],
   ["Candidate preview renderer", "function renderCandidatePreview"],
+  ["Candidate preview scope", "전체 후보"],
   ["Candidate source link guard", "function candidateSourceUrl"],
   ["Candidate preview expansion", 'id="candidate-preview-more"'],
   ["Candidate preview filters", "data-candidate-filter"],
