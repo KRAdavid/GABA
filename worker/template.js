@@ -3220,9 +3220,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function exportFilteredResults() {
         var list = filteredRecords();
         if (!list.length) { toast("내보낼 검색 결과가 없습니다"); return; }
-        var headers = ["ID", "한국어 제목/분류 요약", "영문 원제", "연구 유형", "상태", "연도", "저자", "저널", "대상·시험계", "GABA 용량·노출", "기간", "대조군", "핵심 결과", "연구의 의미", "마케팅 활용 방안", "DOI", "PMID", "원문 링크"];
+        var headers = ["ID", "한국어 제목/분류 요약", "영문 원제", "연구 유형", "개입 구분", "상태", "연도", "저자", "저널", "대상·시험계", "GABA 용량·노출", "기간", "대조군", "핵심 결과", "연구의 의미", "마케팅 활용 방안", "한계", "SCI/SCIE", "추출 상태", "확인일", "DOI", "PMID", "원문 링크"];
         var rows = list.map(function (record) {
-          return [record.id, koreanTitle(record), record.title, record.kind, record.status, record.year, record.author, record.journal, record.population || record.species, record.dose || record.exposure, record.duration, record.comparator, record.finding || record.summaryKo, researchMeaning(record), utilizationDirection(record), record.doi, record.pmid, record.fulltextUrl || record.doiUrl || record.pubmedUrl].map(csvCell);
+          return [record.id, koreanTitle(record), record.title, record.kind, interventionClass(record), record.status, record.year, record.author, record.journal, record.population || record.species, record.dose || record.exposure, record.duration, record.comparator, record.finding || record.summaryKo, researchMeaning(record), utilizationDirection(record), record.limitation, record.sciGroup, record.extraction, record.checked, record.doi, record.pmid, record.fulltextUrl || record.doiUrl || record.pubmedUrl].map(csvCell);
         });
         var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
         var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
