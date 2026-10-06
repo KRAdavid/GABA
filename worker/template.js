@@ -1059,8 +1059,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       margin-bottom: 14px;
     }
     .filter-head h2 { margin: 0; font-size: 17px; }
-    .filter-result-count {
+    .filter-head-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       margin-left: auto;
+    }
+    .filter-result-count {
       padding: 4px 8px;
       border-radius: 999px;
       background: var(--surface-3);
@@ -1069,6 +1074,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-weight: 900;
       white-space: nowrap;
     }
+    .filter-quick-reset {
+      min-height: 30px;
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--teal-dark);
+      font-size: 10px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .filter-quick-reset:hover,
+    .filter-quick-reset:focus-visible { border-color: var(--teal); background: var(--teal-soft); }
     .filter-guidance {
       margin: -2px 0 14px;
       color: var(--muted);
@@ -2064,7 +2082,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <aside class="filter-panel" id="filter-panel" aria-label="상세 필터">
           <div class="filter-head">
             <h2>상세 필터</h2>
-            <span class="filter-result-count" id="filter-result-count" aria-live="polite">전체 결과 확인 중</span>
+            <div class="filter-head-actions">
+              <span class="filter-result-count" id="filter-result-count" aria-live="polite">전체 결과 확인 중</span>
+              <button class="filter-quick-reset" id="filter-reset-quick" type="button" hidden>초기화</button>
+            </div>
             <button class="filter-close" id="filter-close" type="button" aria-label="필터 닫기">×</button>
           </div>
           <p class="filter-guidance">자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.</p>
@@ -4108,6 +4129,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         }
         var mobileButton = el("mobile-filter");
         if (mobileButton) mobileButton.setAttribute("aria-label", total ? "필터, " + total + "개 조건 적용" : "필터 열기");
+        var quickReset = el("filter-reset-quick");
+        if (quickReset) {
+          quickReset.hidden = total === 0;
+          quickReset.setAttribute("aria-label", total ? total + "개 조건 초기화" : "필터 조건 없음");
+        }
       }
 
       function renderResultInterpretation(list) {
@@ -4586,6 +4612,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("search-clear").addEventListener("click", function () { changeState("q", ""); controls.q.focus(); });
       el("reset").addEventListener("click", resetFilters);
       el("result-reset").addEventListener("click", resetFilters);
+      el("filter-reset-quick").addEventListener("click", resetFilters);
       el("result-export").addEventListener("click", exportFilteredResults);
       el("result-json").addEventListener("click", exportFilteredJson);
       el("result-ris").addEventListener("click", exportFilteredRis);
