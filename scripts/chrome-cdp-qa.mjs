@@ -148,8 +148,8 @@ try {
   assert.equal(health.release?.siteVersion, 485);
   assert.equal(health.release?.sourceCommit, "bd958c5faec6c86dda8b99ea5dd09aecf777656a");
   assert.equal(health.release?.publicMirrorCommit, "e60d363a0133da4c59e65f1e1c44296650894d46");
-  assert.equal(health.release?.currentCodeDeployment?.siteVersion, 518);
-  assert.equal(health.release?.currentCodeDeployment?.sourceCommit, "d8bd4fde1d1c5afe00a13319fcd9087a483fbc79");
+  assert.equal(health.release?.currentCodeDeployment?.siteVersion, 520);
+  assert.equal(health.release?.currentCodeDeployment?.sourceCommit, "0f1601d608db664ff1aabf409fc7702e2e4bdabc");
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
   assert.ok(health.candidateExportCount >= health.stagedCandidates);
   assert.ok(health.candidatePreviewCount > 0);
@@ -256,7 +256,7 @@ try {
   await sleep(120);
   assert.equal(await evaluate(client, "document.activeElement?.id"), "review-queue-title");
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
-  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('현재 운영 코드 기준 Sites v518 · GitHub 2c950dd')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('현재 운영 코드 기준 Sites v520 · GitHub 3b1b671')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v485 · GitHub e60d363')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원천 오류')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원문 감사')"), true);
