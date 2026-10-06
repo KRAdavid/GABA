@@ -636,6 +636,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-detail-warning { margin-top: 14px; padding: 11px 12px; border-radius: 10px; background: var(--amber-soft); color: var(--amber); font-size: 12px; font-weight: 800; line-height: 1.5; }
     .candidate-detail-screening { margin-top: 12px; padding: 12px 14px; border: 1px solid rgba(183,121,31,.22); border-radius: 10px; background: #fffaf0; color: var(--ink-2); font-size: 12px; line-height: 1.65; }
     .candidate-detail-screening strong { color: var(--amber); }
+    .candidate-detail-checklist { margin-top: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); }
+    .candidate-detail-checklist h3 { margin: 0 0 8px; color: var(--ink); font-size: 12px; }
+    .candidate-detail-checklist ul { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .candidate-detail-checklist li { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; color: var(--ink-2); font-size: 11px; line-height: 1.45; }
+    .candidate-detail-checklist li strong { color: var(--ink); }
+    .candidate-detail-checklist li span { color: var(--muted); text-align: right; }
     .candidate-detail-abstract { margin-top: 16px; padding: 15px; border-radius: 11px; background: var(--surface-2); color: var(--ink-2); font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
     .candidate-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .candidate-detail-actions a { display: inline-flex; min-height: 34px; align-items: center; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 900; text-decoration: none; }
@@ -1635,6 +1641,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="candidate-detail-head"><div><h2 id="candidate-detail-title">후보 상세</h2><p class="candidate-detail-meta" id="candidate-detail-meta"></p></div><button class="candidate-detail-close" id="candidate-detail-close" type="button" aria-label="후보 상세 닫기">×</button></div>
         <div class="candidate-detail-warning">자동 탐색 후보입니다. 원문·투여경로·연구설계·출판 후속조치를 확인하기 전에는 공개 근거 또는 마케팅 근거로 사용하지 않습니다.</div>
         <div class="candidate-detail-screening" id="candidate-detail-screening"></div>
+        <div class="candidate-detail-checklist" id="candidate-detail-checklist"></div>
         <div class="candidate-detail-abstract" id="candidate-detail-abstract"></div>
         <div class="candidate-detail-actions" id="candidate-detail-actions"></div>
       </div>
@@ -2270,8 +2277,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
         var screeningSignals = (candidate.exclusionSignals || []).concat(candidate.directTitleSignals || []).filter(Boolean);
         el("candidate-detail-screening").innerHTML = '<strong>검토 신호</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>우선순위</strong> · ' + esc(candidate.bucket || "미분류") + (candidate.score != null ? " · 점수 " + esc(candidate.score) : "") + '<br><strong>후속조치 신호</strong> · ' + esc(screeningSignals.join(" · ") || "없음") + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
-        el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
+        var followup = (candidate.queryLabels || []).includes("publication_followup") || (candidate.publicationTypes || []).some(function (type) { return /retract|correct/i.test(type); });
         var sourceUrl = candidateSourceUrl(candidate);
+        var checklist = [
+          ["경구·섭취 여부", (candidate.routeSignals || []).length ? "탐색 신호 있음 · 원문 확인" : "신호 없음 · 원문 확인"],
+          ["개입 구분", (candidate.interventionSignals || []).length ? "탐색 신호 있음 · 순수 GABA 여부 확인" : "신호 없음 · 원문 확인"],
+          ["연구 설계·대상", (candidate.studySignals || []).concat(candidate.subjectSignals || []).length ? "탐색 신호 있음 · 방법 확인" : "신호 없음 · 원문 확인"],
+          ["철회·정정·우려표명", followup ? "후속조치 신호 있음 · 원 논문과 연결" : "신호 없음 · 출판사 공지 확인"],
+          ["식별자·원문", sourceUrl ? "링크 있음 · 전문 확인" : "링크 없음 · 식별자부터 확인"]
+        ];
+        el("candidate-detail-checklist").innerHTML = '<h3>공개 근거 승격 전 확인 순서</h3><ul>' + checklist.map(function (item) { return '<li><strong>' + esc(item[0]) + '</strong><span>' + esc(item[1]) + '</span></li>'; }).join("") + '</ul>';
+        el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
         el("candidate-detail-actions").innerHTML = sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">PubMed·DOI 원문 확인 ↗</a>' : "";
         if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", "");
         el("candidate-detail-close").focus();
