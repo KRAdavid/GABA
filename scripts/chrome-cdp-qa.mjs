@@ -200,6 +200,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('용량 범위 50–3,000 mg/day')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"캐나다 모노그래프\"]'))"), true);
+  assert.equal(await evaluate(client, "/공식 규제 원문|Drive 원문|출판사 원문|DOI 원문|PubMed 원문/.test(document.querySelector('.paper-card .paper-link.primary')?.textContent || '')"), true);
   await evaluate(client, "document.querySelector('[data-preset=source]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('source')"), "available");
   assert.equal(await evaluate(client, "document.querySelector('#papers .paper-card') !== null"), true);

@@ -4254,7 +4254,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '</dl>' +
           '</details>' +
           '<div class="paper-footer">' +
-            linkButton(sourcePrimary, "공식 원문", true) + decisionExtra + '<button class="paper-review" type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토</button><button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
+            linkButton(sourcePrimary, primarySourceLabel(record), true) + decisionExtra + '<button class="paper-review" type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토</button><button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
             '<span class="record-id">' + esc(record.id) + '</span>' +
           '</div>' +
         '</article>';
@@ -4262,10 +4262,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function paperCard(record) {
         if (record.kind === "규제") return regulatoryCard(record);
-        var sourcePrimary = record.fulltextUrl || record.doiUrl || record.pubmedUrl;
-        var sourceLabel = record.hasDrivePdf ? "Drive 원문" : record.fulltextUrl ? "원문·DOI" : record.doiUrl ? "DOI" : "PubMed";
-        var pubmedExtra = record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "";
-        var doiExtra = record.doiUrl && record.doiUrl !== sourcePrimary && record.doiUrl !== record.pubmedUrl ? linkButton(record.doiUrl, "DOI", false) : "";
+        var sourcePrimary = primarySourceUrl(record);
+        var pubmedExtra = record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed 원문", false) : "";
+        var doiExtra = record.doiUrl && record.doiUrl !== sourcePrimary && record.doiUrl !== record.pubmedUrl ? linkButton(record.doiUrl, "DOI 원문", false) : "";
         var identifierLabel = record.pmid && record.doi ? "PMID·DOI" : record.pmid ? "PMID" : record.doi ? "DOI" : "식별자 미완";
         return '<article class="paper-card">' +
           '<div class="paper-badges">' +
