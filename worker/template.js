@@ -621,7 +621,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-preview-meta span { padding: 3px 6px; border-radius: 6px; background: #fff; color: var(--muted); font-size: 10px; font-weight: 800; }
     .candidate-preview-signal { margin-top: 9px !important; color: var(--ink-2) !important; }
     .candidate-preview-card a { display: inline-flex; margin-top: 10px; color: var(--teal-dark); font-size: 11px; font-weight: 900; text-decoration: none; }
+    .candidate-preview-detail { display: inline-flex; margin-top: 10px; margin-right: 8px; min-height: 29px; padding: 5px 8px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 10px; font-weight: 900; cursor: pointer; }
     .candidate-preview-more { display: inline-flex; margin-top: 14px; min-height: 34px; padding: 7px 11px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 900; cursor: pointer; }
+    .candidate-detail-dialog { width: min(760px, calc(100% - 28px)); max-height: min(780px, calc(100vh - 36px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
+    .candidate-detail-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
+    .candidate-detail-inner { padding: 22px; overflow: auto; max-height: min(780px, calc(100vh - 36px)); }
+    .candidate-detail-head { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .candidate-detail-head h2 { margin: 0; font-size: 21px; line-height: 1.35; letter-spacing: -.04em; }
+    .candidate-detail-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .candidate-detail-meta { margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .candidate-detail-warning { margin-top: 14px; padding: 11px 12px; border-radius: 10px; background: var(--amber-soft); color: var(--amber); font-size: 12px; font-weight: 800; line-height: 1.5; }
+    .candidate-detail-abstract { margin-top: 16px; padding: 15px; border-radius: 11px; background: var(--surface-2); color: var(--ink-2); font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
+    .candidate-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .candidate-detail-actions a { display: inline-flex; min-height: 34px; align-items: center; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 900; text-decoration: none; }
+    @media (max-width: 640px) { .candidate-detail-inner { padding: 16px; } .candidate-detail-head h2 { font-size: 19px; } }
     @media (max-width: 980px) { .candidate-preview-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 640px) { .candidate-preview-head { align-items: start; flex-direction: column; gap: 5px; } .candidate-preview-list { grid-template-columns: 1fr; } }
 
@@ -1610,6 +1623,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="candidate-preview-list" id="candidate-preview-list"></div>
       <button class="candidate-preview-more" id="candidate-preview-more" type="button" hidden>후보 더 보기</button>
     </section>
+    <dialog class="candidate-detail-dialog" id="candidate-detail-dialog" aria-labelledby="candidate-detail-title">
+      <div class="candidate-detail-inner">
+        <div class="candidate-detail-head"><div><h2 id="candidate-detail-title">후보 상세</h2><p class="candidate-detail-meta" id="candidate-detail-meta"></p></div><button class="candidate-detail-close" id="candidate-detail-close" type="button" aria-label="후보 상세 닫기">×</button></div>
+        <div class="candidate-detail-warning">자동 탐색 후보입니다. 원문·투여경로·연구설계·출판 후속조치를 확인하기 전에는 공개 근거 또는 마케팅 근거로 사용하지 않습니다.</div>
+        <div class="candidate-detail-abstract" id="candidate-detail-abstract"></div>
+        <div class="candidate-detail-actions" id="candidate-detail-actions"></div>
+      </div>
+    </dialog>
 
     <section class="intelligence-strip" id="intelligence" aria-labelledby="intelligence-title">
       <div class="intelligence-intro">
@@ -2199,6 +2220,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<p>' + esc([candidate.author, candidate.journal, candidate.year].filter(Boolean).join(" · ") || "서지정보 확인 필요") + '</p>' +
             '<div class="candidate-preview-meta">' + identifiers.concat(types).map(function (item) { return '<span>' + esc(item) + '</span>'; }).join("") + '</div>' +
             '<p class="candidate-preview-signal"><strong>우선 확인</strong> · ' + esc(signals) + '</p>' +
+            '<button class="candidate-preview-detail" type="button" data-candidate-detail="' + esc(candidate.candidateId || "") + '">후보 상세 보기</button>' +
             (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">원문 식별자 확인 ↗</a>' : '') +
             '</article>';
         }).join("");
@@ -2210,6 +2232,26 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             renderCandidatePreview(candidates);
           };
         }
+      }
+
+      function openCandidateDetail(candidateId) {
+        var candidates = DB.meta.discovery?.candidatePreview || [];
+        var candidate = candidates.find(function (item) { return String(item.candidateId) === String(candidateId); });
+        if (!candidate) return;
+        var dialog = el("candidate-detail-dialog");
+        el("candidate-detail-title").textContent = candidate.title || "후보 상세";
+        el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
+        el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
+        var sourceUrl = candidateSourceUrl(candidate);
+        el("candidate-detail-actions").innerHTML = sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">PubMed·DOI 원문 확인 ↗</a>' : "";
+        if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", "");
+        el("candidate-detail-close").focus();
+      }
+
+      function closeCandidateDetail() {
+        var dialog = el("candidate-detail-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
       }
 
       function initMeta() {
@@ -3736,6 +3778,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         event.preventDefault();
         closeIntelligenceDetail();
       });
+      el("candidate-detail-close").addEventListener("click", closeCandidateDetail);
+      el("candidate-detail-dialog").addEventListener("click", function (event) {
+        if (event.target === el("candidate-detail-dialog")) closeCandidateDetail();
+      });
+      el("candidate-detail-dialog").addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeCandidateDetail();
+      });
       el("compare-open").addEventListener("click", openCompareDialog);
       el("compare-copy").addEventListener("click", copyCompareSelection);
       el("compare-clear").addEventListener("click", function () {
@@ -3773,6 +3823,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        var candidateDetailButton = event.target.closest("[data-candidate-detail]");
+        if (candidateDetailButton) {
+          openCandidateDetail(candidateDetailButton.dataset.candidateDetail || "");
+          return;
+        }
         var interventionBadge = event.target.closest(".intervention-filter-badge");
         if (interventionBadge) {
           changeState("intervention", interventionBadge.dataset.intervention || "");
@@ -3899,6 +3954,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
           if (el("copy-dialog").open) closeCopyDialog();
+          else if (el("candidate-detail-dialog").open) closeCandidateDetail();
           else if (el("review-share-dialog").open) closeReviewShareDialog();
           else if (el("reading-list-dialog").open) closeReadingList();
           else if (el("compare-dialog").open) closeCompareDialog();
