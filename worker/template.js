@@ -2811,6 +2811,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           auditNote.textContent = DB.meta.linkAudit.note || "원문 감사는 링크 접근성만 점검하며, 접근 제한·일시 응답은 근거 약함을 뜻하지 않습니다.";
           auditNoteWrap.hidden = false;
         }
+        syncAuditFilterOptions();
         renderCandidatePreview(discovery.candidatePreview || []);
         renderIntelligenceFeed();
         renderPortalLanes();
@@ -3123,6 +3124,26 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function sourceAuditRecord(record) {
         var statuses = DB.meta && DB.meta.linkAudit && Array.isArray(DB.meta.linkAudit.recordStatuses) ? DB.meta.linkAudit.recordStatuses : [];
         return statuses.find(function (item) { return String(item.id) === String(record.id); }) || null;
+      }
+      function syncAuditFilterOptions() {
+        var select = el("audit");
+        if (!select) return;
+        var counts = { ok: 0, unavailable: 0, missing: 0 };
+        records.forEach(function (record) {
+          var audit = sourceAuditRecord(record);
+          if (!audit) counts.missing += 1;
+          else if (audit.status === "ok") counts.ok += 1;
+          else counts.unavailable += 1;
+        });
+        var labels = {
+          ok: "감사 시점 접근 확인",
+          unavailable: "접근 제한·일시 응답",
+          missing: "개별 감사 기록 없음"
+        };
+        Object.keys(labels).forEach(function (value) {
+          var option = select.querySelector('option[value="' + value + '"]');
+          if (option) option.textContent = labels[value] + " (" + counts[value].toLocaleString("ko-KR") + "건)";
+        });
       }
       function sourceAuditDescription(record) {
         var audit = sourceAuditRecord(record);
