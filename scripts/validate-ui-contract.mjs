@@ -133,6 +133,7 @@ const required = [
   ,["Publication follow-up filter", 'data-followup="signal"']
   ,["Publication follow-up URL state", "state.followup"]
   ,["Link audit transparency", "DB.meta.linkAudit"]
+  ,["Link audit interpretation guard", 'id="link-audit-note"']
   ,["Empty result recovery", "data-empty-reset"]
 ];
 

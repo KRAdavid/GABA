@@ -1096,6 +1096,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       align-items: center;
       gap: 6px;
     }
+    .link-audit-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
     .year-pair span {
       color: var(--muted);
       text-align: center;
@@ -1665,6 +1671,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <h2 id="discovery-title" tabindex="-1">검증 인덱스와 자동 탐색 후보를 분리해 관리합니다</h2>
         <p id="discovery-copy">대량 탐색 현황을 불러오는 중입니다.</p>
         <div class="discovery-stats" id="discovery-stats" aria-label="대량 탐색 통계"></div>
+        <p class="link-audit-note" id="link-audit-note" role="note" hidden></p>
         <div class="data-boundary" aria-label="데이터 운영 경계">
           <span>공개면: 읽기 전용 검증 스냅샷</span>
           <span>후보: 자동 승격하지 않음</span>
@@ -2438,11 +2445,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["수동 결정 보존", Number(discovery.manualDecisionsPreserved || 0).toLocaleString("ko-KR") + "건"],
           ["원천 오류", Number((discovery.sourceErrors || []).length).toLocaleString("ko-KR") + "건"],
           ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"],
-          ["원문 감사", DB.meta.linkAudit ? "해소 " + Number(DB.meta.linkAudit.resolved || 0).toLocaleString("ko-KR") + "건 · 제한 " + Number(DB.meta.linkAudit.blockedCount || 0).toLocaleString("ko-KR") + "건" : "실행 기록 없음"],
+          ["원문 감사", DB.meta.linkAudit ? "해소 " + Number(DB.meta.linkAudit.resolved || 0).toLocaleString("ko-KR") + "건 · 제한 " + Number(DB.meta.linkAudit.blockedCount || 0).toLocaleString("ko-KR") + "건 · 실패 " + Number(DB.meta.linkAudit.failed || 0).toLocaleString("ko-KR") + "건" : "실행 기록 없음"],
           ["감사 시점", DB.meta.linkAudit ? koreanDate(String(DB.meta.linkAudit.checkedAt || "").slice(0, 10)) : "확인 필요"]
         ].map(function (item) {
           return '<span class="discovery-stat">' + esc(item[0]) + " " + esc(item[1]) + '</span>';
         }).join("");
+        var auditNote = el("link-audit-note");
+        if (auditNote && DB.meta.linkAudit) {
+          auditNote.textContent = DB.meta.linkAudit.note || "원문 감사는 링크 접근성만 점검하며, 접근 제한·일시 응답은 근거 약함을 뜻하지 않습니다.";
+          auditNote.hidden = false;
+        }
         renderCandidatePreview(discovery.candidatePreview || []);
         renderIntelligenceFeed();
         renderPortalLanes();
