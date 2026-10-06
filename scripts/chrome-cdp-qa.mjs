@@ -101,6 +101,8 @@ const server = createServer(async (request, response) => {
   response.end(Buffer.from(await upstream.arrayBuffer()));
 });
 await new Promise((resolveListen) => server.listen(httpPort, "127.0.0.1", resolveListen));
+const localQaOrigin = `http://127.0.0.1:${httpPort}`;
+const qaOrigin = (process.env.GABA_QA_URL || localQaOrigin).replace(/\/+$/, "");
 
 const profile = await mkdtemp(join(tmpdir(), "gaba-chrome-qa-"));
 const chrome = spawn(chromePath, [
@@ -120,7 +122,8 @@ try {
 
   async function navigate(url) {
     const loaded = client.once("Page.loadEventFired");
-    await client.call("Page.navigate", { url });
+    const targetUrl = url.startsWith(localQaOrigin) ? qaOrigin + url.slice(localQaOrigin.length) : url;
+    await client.call("Page.navigate", { url: targetUrl });
     await loaded;
     await sleep(150);
   }
@@ -448,7 +451,7 @@ try {
   await screenshot("cdp-mobile-top.png");
   await evaluate(client, "document.querySelector('#filter-close').click()");
   assert.equal(await evaluate(client, "document.activeElement?.id"), "mobile-filter");
-  console.log(JSON.stringify({ browserQa: true, browser: version.Browser, desktop: true, mobile: true, horizontalOverflow: false, screenshots: ["qa/cdp-desktop-top.png", "qa/cdp-mobile-top.png"] }));
+  console.log(JSON.stringify({ browserQa: true, browser: version.Browser, target: qaOrigin, desktop: true, mobile: true, horizontalOverflow: false, screenshots: ["qa/cdp-desktop-top.png", "qa/cdp-mobile-top.png"] }));
 } finally {
   client?.close();
   server.close();
