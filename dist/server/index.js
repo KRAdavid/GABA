@@ -333,6 +333,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       color: rgba(255, 255, 255, .86);
     }
     .hero-copy { position: relative; z-index: 1; min-width: 0; max-width: 100%; }
+    .hero-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .hero-actions a { display: inline-flex; align-items: center; min-height: 40px; padding: 8px 13px; border-radius: 10px; font-size: 12px; font-weight: 900; text-decoration: none; }
+    .hero-actions .hero-primary { background: #fff; color: var(--teal-dark); }
+    .hero-actions .hero-secondary { border: 1px solid rgba(255,255,255,.32); background: rgba(255,255,255,.09); color: #fff; }
+    .hero-actions a:hover, .hero-actions a:focus-visible { transform: translateY(-1px); }
     .hero-proof {
       position: relative;
       z-index: 1;
@@ -1388,6 +1393,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <p class="eyebrow">EVIDENCE EXPLORER · 읽기 전용 공개 스냅샷</p>
         <h1 id="page-title">검증된 GABA 근거를<br>가장 빠르게 찾는 방법</h1>
         <p>인체 임상·동물시험·규제자료를 분리해 검색하고, 연구의 의미와 마케팅 활용 방안까지 한 화면에서 비교할 수 있습니다.</p>
+        <div class="hero-actions" aria-label="빠른 시작">
+          <a class="hero-primary" href="#explorer-title">근거 검색 시작 →</a>
+          <a class="hero-secondary" href="#intelligence">오늘의 검토 신호 보기</a>
+        </div>
         <div class="hero-meta">
           <span class="hero-pill"><span class="pulse" aria-hidden="true"></span><span id="snapshot-label"></span></span>
           <span class="hero-pill" id="coverage-label"></span>

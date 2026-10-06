@@ -38,6 +38,7 @@ const required = [
   ["Shareable record deep link", "urlRecordId"],
   ["Citation copy action", "data-copy-citation"],
   ["Evidence brief copy action", "data-copy-brief"],
+  ["Hero search entry", "hero-primary"],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
 ];
