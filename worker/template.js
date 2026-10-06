@@ -4517,6 +4517,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var query = state.q ? state.q.trim() : "전체 근거";
         var guard = state.audit === "unavailable"
           ? "접근 제한·일시 응답은 근거 약함이 아니라 원문 재확인·대체 경로 검토 대상입니다."
+          : state.freshness === "stale" || state.freshness === "unknown"
+            ? "확인일 경과·미상은 근거 약함을 뜻하지 않습니다. 최신 원문과 출판 후속 공지를 다시 확인하세요."
           : "검색 결과 요약은 효능 등급·규제 승인·광고 허가를 뜻하지 않습니다. 원문에서 대상·용량·기간·대조군을 확인하세요.";
         target.innerHTML = '<div class="result-interpretation-head"><span class="result-interpretation-label">현재 탐색</span><strong class="result-interpretation-query" title="' + esc(query) + '">' + esc(query) + '</strong></div>' +
           '<div class="result-interpretation-stats" aria-label="현재 결과의 근거 구성">' +
