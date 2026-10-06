@@ -3955,7 +3955,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function koreanTitle(record) {
         var clean = function (value) { return String(value || "").trim().replace(/\s+/g, " ").replace(/연구 연구/g, "연구"); };
         if (record.titleKo) return clean(record.titleKo);
-        var kind = record.kind === "임상" ? "인체" : record.kind === "동물" ? "동물" : record.kind === "규제" ? "규제·안전성" : "GABA 관련";
+        var kind = record.kind === "임상" ? "인체" : record.kind === "동물" ? "동물" : record.kind === "규제" ? "규제·안전성" : record.kind === "리뷰" || record.kind === "고찰" ? "문헌 고찰" : record.kind === "전임상" ? "전임상" : record.kind === "문헌" ? "문헌" : "GABA 관련";
         var interventionLabels = {
           "순수 GABA 섭취": "GABA 섭취",
           "복합제·복합개입": "복합 개입",

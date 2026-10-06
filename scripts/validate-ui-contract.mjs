@@ -85,6 +85,7 @@ const required = [
   ["Progressive search suggestions", "search-suggestions-more"],
   ["Search suggestion expansion label", "추천 검색어 더보기"],
   ["Korean title provenance label", "koreanTitleLabel"],
+  ["Korean type-aware title fallback", "문헌 고찰"],
   ["Marketing badge filter", "marketing-filter-badge"],
   ["CSV title provenance", "한국어 제목/분류 요약"],
   ["Marketing filter counts", "data-marketing-count"],

@@ -211,6 +211,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('인지기능 제품 모노그래프')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('.paper-card:not(.regulatory-card) .title-label')?.textContent.includes('한국어 분류 요약'))"), true);
+  assert.equal(await evaluate(client, "!document.querySelector('.paper-card:not(.regulatory-card) .paper-title-korean')?.textContent.includes('GABA 관련 GABA 관련 연구')"), true);
   await evaluate(client, "document.querySelector('.marketing-filter-badge')?.click()");
   assert.equal(await evaluate(client, "Boolean(new URLSearchParams(location.search).get('marketing'))"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
