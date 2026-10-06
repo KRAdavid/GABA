@@ -1741,6 +1741,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="quick-button" type="button" data-effect-category="당뇨">당뇨</button>
             </div>
           </details>
+          <details class="quick-more">
+            <summary>활용 판단</summary>
+            <div class="quick-more-menu" aria-label="마케팅 활용 판단 필터">
+              <button class="quick-button" type="button" data-marketing="직접 근거 검토">직접 근거</button>
+              <button class="quick-button" type="button" data-marketing="조건부 검토">조건부 검토</button>
+              <button class="quick-button" type="button" data-marketing="마케팅 사용 금지">사용 금지</button>
+            </div>
+          </details>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
           <select class="sort-select" id="sort">
@@ -2111,12 +2119,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function loadUrlState() {
         var params = new URLSearchParams(location.search);
         state = {
-          q: "", kind: "", category: "", effectCategory: "", status: "", sci: "", species: "", topic: "",
+          q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
         pageSize = 20;
-        ["q", "kind", "category", "effectCategory", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
           if (params.has(key)) state[key] = params.get(key) || "";
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
@@ -2159,6 +2167,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         document.querySelectorAll("[data-effect-category]").forEach(function (button) {
           setActiveToggle(button, button.dataset.effectCategory === state.effectCategory);
         });
+        document.querySelectorAll("[data-marketing]").forEach(function (button) {
+          setActiveToggle(button, button.dataset.marketing === state.marketing);
+        });
         document.querySelectorAll("[data-preset]").forEach(function (button) {
           setActiveToggle(button, button.dataset.preset === activePreset());
         });
@@ -2166,7 +2177,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function activePreset() {
         if (state.q || state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear || state.sort !== "latest") return "";
-        var common = ["category", "effectCategory", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
+        var common = ["category", "effectCategory", "marketing", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
         if (common.some(function (key) { return state[key]; })) return "";
         if (state.kind === "임상" && !state.status && !state.source) return "clinical";
         if (state.kind === "규제" && !state.status && !state.source) return "regulatory";
@@ -2176,7 +2187,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       function applyPreset(name) {
-        var keys = ["q", "kind", "category", "effectCategory", "status", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "from", "to", "sort"];
+        var keys = ["q", "kind", "category", "effectCategory", "status", "marketing", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "from", "to", "sort"];
         keys.forEach(function (key) {
           if (key === "from") state[key] = DB.meta.minYear;
           else if (key === "to") state[key] = DB.meta.maxYear;
@@ -2194,7 +2205,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function persistUrl(historyMode) {
         var params = new URLSearchParams();
-        ["q", "kind", "category", "effectCategory", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
           if (state[key]) params.set(key, state[key]);
         });
         if (state.from !== DB.meta.minYear) params.set("from", state.from);
@@ -2313,6 +2324,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (state.category && record.category !== state.category) return false;
           if (state.effectCategory && record.effectCategory !== state.effectCategory) return false;
           if (state.status && record.status !== state.status) return false;
+          if (state.marketing && marketingLabel(record) !== state.marketing) return false;
           if (state.grade && record.grade !== state.grade) return false;
           if (state.agency && record.agency !== state.agency) return false;
           if (state.safetyArea && record.safetyArea !== state.safetyArea) return false;
@@ -3094,7 +3106,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       var filterNames = {
-        q: "검색", kind: "구분", category: "자료 카테고리", effectCategory: "효과·적용 분야", status: "상태", grade: "규제등급", agency: "규제기관",
+        q: "검색", kind: "구분", category: "자료 카테고리", effectCategory: "효과·적용 분야", status: "상태", marketing: "마케팅 활용", grade: "규제등급", agency: "규제기관",
         safetyArea: "안전성영역", sci: "SCI", species: "종",
         topic: "주제", extraction: "추출", direction: "결과", source: "원문"
       };
@@ -3177,7 +3189,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function resetFilters() {
         pageSize = 20;
         state = {
-          q: "", kind: "", category: "", effectCategory: "", status: "", sci: "", species: "", topic: "",
+          q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
@@ -3262,6 +3274,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           state.effectCategory = state.effectCategory === effectCategory ? "" : effectCategory;
           state.page = 1;
           render();
+        });
+      });
+      document.querySelectorAll("[data-marketing]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var marketing = button.dataset.marketing || "";
+          state.marketing = state.marketing === marketing ? "" : marketing;
+          state.page = 1;
+          render("push");
         });
       });
       document.querySelectorAll("[data-preset]").forEach(function (button) {
