@@ -8,6 +8,8 @@
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
     "validate:curated-notes": "node scripts/validate-curated-notes.mjs",
+    "validate:ui": "node scripts/validate-ui-contract.mjs",
+    "validate:surface": "node scripts/validate-public-surface.mjs",
     "quality": "node scripts/data-quality.mjs",
     "quality:remote": "node scripts/data-quality.mjs --remote",
     "validate:health": "node scripts/validate-health-contract.mjs",
@@ -16,9 +18,11 @@
     "validate:pending": "node scripts/validate-pending-sheet-sync.mjs",
     "validate:audit": "node scripts/validate-audit-consistency.mjs --public",
     "validate:live": "node scripts/validate-live-release.mjs",
+    "qa:chrome": "node scripts/chrome-cdp-qa.mjs",
     "qa:live": "node scripts/qa-live.mjs",
     "preflight": "node scripts/release-preflight.mjs --public",
     "release:package": "node scripts/package-public-release.mjs",
+    "sync:public": "node scripts/sync-public-release.mjs",
     "check": "pnpm data && pnpm quality && pnpm build && pnpm validate"
   }
 }

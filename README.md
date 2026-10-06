@@ -53,10 +53,10 @@ data-quality → build → validate → build-pending-sheet-sync → UI contract
 - `node scripts/release-preflight.mjs [공개 미러 경로]`: 배포 전 대기 payload·데이터·문구·UI·Health·감사·공개면·parity 검사를 한 번에 실행
 - `node scripts/validate-audit-consistency.mjs`: 공개 데이터의 원문 감사 수치와 NAVI 감사 보고서의 정합성 검증
 - `node scripts/validate-health-contract.mjs`: 탐색일·PubMed·OpenAlex·Crossref·병합·후보·원천 오류 Health 지표의 데이터 계약 검증
-- `node scripts/validate-ui-contract.mjs`: 포털·Intelligence·검토 큐 UI 계약 확인
+- `pnpm validate:ui`: 포털·Intelligence·검토 큐 UI 계약 확인
 - `node scripts/audit-public-links.mjs`: 원문·DOI·PubMed 대체 링크 체인을 검사하고 서버 접근 제한과 실제 실패를 구분
 - 비교 기능 QA: 최소 2건 선택 → 비교 대화상자 → 연구 설계·결과 방향·해석 주의문 표시를 확인
-- `node scripts/chrome-cdp-qa.mjs`: Playwright 없이 설치된 Chrome으로 desktop/mobile 핵심 흐름과 overflow 확인
+- `pnpm qa:chrome`: Playwright 없이 설치된 Chrome으로 desktop/mobile 핵심 흐름과 overflow 확인
 - `GABA_QA_URL=https://gaba-evidence-index-kr.dubaissday.chatgpt.site node scripts/chrome-cdp-qa.mjs`: 같은 Chrome QA를 실제 공개 운영 URL에서 실행해 라이브 UI·Health·모바일 overflow를 확인
 - `node scripts/qa-live.mjs`: 공개 운영 URL을 기본 대상으로 위 라이브 Chrome QA를 한 명령으로 실행합니다. 다른 대상은 `GABA_QA_URL`로 지정할 수 있습니다.
 - 모바일 필터 QA는 전환 완료 후 패널이 뷰포트 안에 배치되는지와 닫기 뒤 필터 버튼으로 포커스가 복귀하는지도 확인합니다.
@@ -64,8 +64,8 @@ data-quality → build → validate → build-pending-sheet-sync → UI contract
 - 탐색 현황의 `현재 운영 코드 기준`과 `마지막 완전 검증 릴리스`는 서로 다른 추적 기준입니다. 전자는 현재 공개 코드 배포를, 후자는 전체 검증을 통과한 데이터·배포 조합을 뜻합니다.
 - `node scripts/validate-public-surface.mjs`: 공개 HTML/API에 내부 관리 Sheet URL이 노출되지 않는지 확인
 - `node scripts/validate-live-release.mjs`: 실제 공개 URL의 Health·릴리스 provenance·원문 감사·공개면 위생을 최종 확인하고 로컬 공개 데이터의 기대 provenance와 일치하는지 검증
-- `node scripts/sync-public-release.mjs`: 지정된 공개 릴리스 디렉터리에 운영 template/data/build/validate/hosting과 UI/Chrome QA 검증기를 동기화하고 관리 Sheet URL을 제거
-- `node scripts/package-public-release.mjs`: 최신 커밋 기준 Sites용 tar 경로를 출력하고 필수 파일·내부 Sheet URL 비노출을 재검증
+- `pnpm sync:public`: 지정된 공개 릴리스 디렉터리에 운영 template/data/build/validate/hosting과 UI/Chrome QA 검증기를 동기화하고 관리 Sheet URL을 제거
+- `pnpm release:package`: 최신 커밋 기준 Sites용 tar 경로를 출력하고 필수 파일·내부 Sheet URL 비노출을 재검증
 
 Sheets 쓰기 권한이 없을 때는 재시도 루프를 만들지 않고 대기 payload만 갱신합니다.
 외부 게시, 규제·안전성·법률·특허·금융 판단은 별도 검증과 승인이 필요합니다.
