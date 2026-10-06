@@ -3089,8 +3089,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (record.kind === "규제" && record.sourceUrl) return "공식 규제 원문";
         if (record.hasDrivePdf) return "Drive 원문";
         if (record.fulltextUrl) return "출판사 원문";
-        if (record.doiUrl) return "DOI";
-        if (record.pubmedUrl) return "PubMed";
+        if (record.doiUrl) return "DOI 원문";
+        if (record.pubmedUrl) return "PubMed 원문";
         if (record.sourceUrl) return "원문 링크";
         if (record.decisionUrl) return "결정문";
         return "원문 확인";
@@ -4002,7 +4002,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var selected = readingListRecords();
         target.innerHTML = selected.length ? selected.map(function (record) {
           var source = primarySourceUrl(record);
-          return '<article class="reading-list-item"><div><h3>' + esc(koreanTitle(record)) + '</h3><p>' + esc(compareKind(record) + " · " + (record.year || "연도 미상") + " · " + (record.journal || "저널 미상")) + '</p></div><div class="reading-list-item-actions"><button type="button" data-intelligence-id="' + esc(record.id) + '">상세 보기</button>' + (source ? linkButton(source, "원문 확인", false) : '') + '<button type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button><button type="button" data-reading-remove="' + esc(record.id) + '">제거</button></div></article>';
+          return '<article class="reading-list-item"><div><h3>' + esc(koreanTitle(record)) + '</h3><p>' + esc(compareKind(record) + " · " + (record.year || "연도 미상") + " · " + (record.journal || "저널 미상")) + '</p></div><div class="reading-list-item-actions"><button type="button" data-intelligence-id="' + esc(record.id) + '">상세 보기</button>' + (source ? linkButton(source, "원문 확인 · " + primarySourceLabel(record), false) : '') + '<button type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button><button type="button" data-reading-remove="' + esc(record.id) + '">제거</button></div></article>';
         }).join("") : '<p class="reading-list-empty">아직 저장한 자료가 없습니다. 검색 결과에서 <strong>읽기 목록에 저장</strong>을 누르면 나중에 한 번에 다시 확인할 수 있습니다.</p>';
         renderReadingListButtonState();
         renderCompareTray();
@@ -4133,7 +4133,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
         target.innerHTML = '<table class="compare-table"><thead><tr><th scope="col">비교 항목</th>' + selected.map(function (record) {
-          return '<th scope="col"><span class="compare-title">' + esc(koreanTitle(record)) + '</span><br><span style="color:var(--muted);font-size:11px">' + esc(compareKind(record)) + " · " + esc(record.year || "연도 미상") + '</span>' + linkButton(primarySourceUrl(record), "원문 확인", false) + '</th>';
+          return '<th scope="col"><span class="compare-title">' + esc(koreanTitle(record)) + '</span><br><span style="color:var(--muted);font-size:11px">' + esc(compareKind(record)) + " · " + esc(record.year || "연도 미상") + '</span>' + linkButton(primarySourceUrl(record), "원문 확인 · " + primarySourceLabel(record), false) + '</th>';
         }).join("") + '</tr></thead><tbody>' + rows.map(function (row) {
           return '<tr><th scope="row">' + esc(row[0]) + '</th>' + selected.map(function (record) { return '<td>' + esc(compareValue(record, row[1])) + '</td>'; }).join("") + '</tr>';
         }).join("") + '</tbody></table>';
