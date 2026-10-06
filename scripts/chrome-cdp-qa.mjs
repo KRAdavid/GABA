@@ -153,6 +153,13 @@ try {
   assert.equal(await evaluate(client, "Number(document.querySelector('[data-intervention-count=\"규제·안전성 자료\"]')?.textContent || 0) > 0"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-quick-summary=\"intervention\"]')?.textContent.includes('선택')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#review-queue-share'))"), true);
+  const reviewShareId = await evaluate(client, "document.querySelector('[data-review-status][data-review-id]')?.getAttribute('data-review-id')");
+  assert.ok(reviewShareId, "Expected at least one review queue record for deep-link QA");
+  await navigate(`http://127.0.0.1:${httpPort}/?review=${encodeURIComponent(reviewShareId)}`);
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('review')"), reviewShareId);
+  assert.equal(await evaluate(client, "document.querySelector('#review-queue-count')?.textContent.includes('공유 큐')"), true);
+  assert.equal(await evaluate(client, "document.querySelectorAll('#review-queue-list [data-review-status]').length > 0"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/`);
   await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-compare-toggle]').length >= 2"), true);
   await evaluate(client, "document.querySelectorAll('[data-compare-toggle]')[0].click(); document.querySelectorAll('[data-compare-toggle]')[1].click()");
@@ -174,7 +181,7 @@ try {
   await evaluate(client, "document.querySelector('#reading-list-open').focus(); document.querySelector('#reading-list-open').click()");
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-dialog')?.open"), true);
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-items')?.textContent.includes('상세 보기')"), true);
-  await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function (value) { window.__qaCopied = value; } } })");
+  await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () {} } })");
   await evaluate(client, "document.querySelector('#reading-list-copy').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('브리프')"), true);
