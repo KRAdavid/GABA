@@ -178,5 +178,11 @@ try {
       resolveExit();
     });
   });
-  await rm(profile, { recursive: true, force: true });
+  try {
+    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 250 });
+  } catch (error) {
+    // Windows Chrome may keep a short-lived Crashpad lock after the browser exits.
+    // The browser assertions already passed; do not turn cleanup-only EBUSY into a QA failure.
+    if (error?.code !== "EBUSY") throw error;
+  }
 }
