@@ -36,6 +36,7 @@ const required = [
   ["Freshness indicator", 'id="freshness-label"'],
   ["Result evidence composition", 'id="result-interpretation"'],
   ["Shareable record deep link", "urlRecordId"],
+  ["Citation copy action", "data-copy-citation"],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
 ];

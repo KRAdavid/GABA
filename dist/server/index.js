@@ -1806,6 +1806,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var currentDetailRecordId = null;
       var urlRecordId = "";
+      var detailReturnFocus = null;
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
       var state = {
@@ -2192,6 +2193,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (/복합|혼합|발효|프로바이오틱|약물|receptor|probiotic|ferment/i.test(formText)) boundaries.push("복합제·발효물·프로바이오틱·수용체 약물은 순수 GABA 섭취 근거와 분리해 해석합니다.");
         return boundaries.length ? boundaries.join(" ") : "기록된 대상·개입·조건의 범위 안에서만 해석하며, 다른 용량·기간·제품으로 자동 확대하지 않습니다.";
       }
+      function citationText(record) {
+        var parts = [record.author, record.title || koreanTitle(record), record.journal, record.year].filter(Boolean);
+        var identifiers = [record.doi ? "DOI: " + record.doi : "", record.pmid ? "PMID: " + record.pmid : ""].filter(Boolean);
+        return parts.join(". ") + (identifiers.length ? ". " + identifiers.join(" · ") : "") + ".";
+      }
       function utilizationDirection(record) {
         if (record.kind === "규제") {
           return "원료 동일성·제조공정·사용조건·노출량을 국내 기준과 대조하는 규제 검토 자료로 활용합니다. 필요한 제출자료와 추가 확인 항목을 함께 정리합니다.";
@@ -2467,6 +2473,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           persistUrl();
           return;
         }
+        detailReturnFocus = document.activeElement;
         currentDetailRecordId = record.id;
         urlRecordId = String(record.id);
         persistUrl();
@@ -2501,6 +2508,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           linkButton(sourcePrimary, "원문 확인", true) +
           (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI", false) : "") +
           (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "") +
+          '<button type="button" data-copy-citation="' + esc(record.id) + '">인용 정보 복사</button>' +
           '<button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 근거 검색</button>';
         if (typeof dialog.showModal === "function") dialog.showModal();
         else dialog.setAttribute("open", "");
@@ -2512,6 +2520,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         persistUrl();
         if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
         else if (dialog) dialog.removeAttribute("open");
+        if (detailReturnFocus && typeof detailReturnFocus.focus === "function") detailReturnFocus.focus();
+        detailReturnFocus = null;
       }
       function interpretationBlock(record) {
         return '<div class="interpretation-grid">' +
@@ -2849,11 +2859,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("intelligence-detail").addEventListener("click", function (event) {
         if (event.target === el("intelligence-detail")) closeIntelligenceDetail();
       });
+      el("intelligence-detail").addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeIntelligenceDetail();
+      });
       el("portal-lane-overview-close").addEventListener("click", function () {
         activeLane = null;
         el("portal-lane-overview").hidden = true;
       });
-      document.addEventListener("click", function (event) {
+      document.addEventListener("click", async function (event) {
         var reviewStatusButton = event.target.closest("[data-review-status]");
         if (reviewStatusButton) {
           var statusId = reviewStatusButton.dataset.reviewId;
@@ -2870,6 +2884,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else reviewDecisions[reviewId] = { completedAt: new Date().toISOString() };
           try { localStorage.setItem("gaba-review-decisions", JSON.stringify(reviewDecisions)); } catch (_) {}
           renderReviewQueue();
+          return;
+        }
+        var citationButton = event.target.closest("[data-copy-citation]");
+        if (citationButton) {
+          var citationRecord = records.find(function (item) { return String(item.id) === String(citationButton.dataset.copyCitation); });
+          if (!citationRecord) return;
+          var citation = citationText(citationRecord);
+          try {
+            await navigator.clipboard.writeText(citation);
+            toast("인용 정보를 복사했습니다");
+          } catch (_) {
+            window.prompt("아래 인용 정보를 복사하세요", citation);
+          }
           return;
         }
         var laneButton = event.target.closest(".portal-lane");
