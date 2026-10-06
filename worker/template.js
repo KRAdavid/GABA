@@ -1065,6 +1065,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 12px;
       font-weight: 800;
     }
+    .sort-help { max-width: 260px; color: var(--muted); font-size: 10px; line-height: 1.35; }
     .filter-group select,
     .filter-group input {
       width: 100%;
@@ -2016,6 +2017,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <option value="updated">최근 확인순</option>
             <option value="human-source">인체·원문 우선</option>
           </select>
+          <span class="sort-help" id="sort-help" hidden>검토 시작점을 돕는 정렬이며 근거의 우열·효능 순위가 아닙니다.</span>
           <label class="sr-only" for="page-size">페이지당 결과 수</label>
           <select class="page-size-select" id="page-size">
             <option value="20">20개씩</option>
@@ -4013,6 +4015,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         }
         el("active-filters").innerHTML = chips.join("");
       }
+      function syncSortHelp() {
+        var note = el("sort-help");
+        if (!note) return;
+        note.hidden = state.sort !== "human-source";
+      }
 
       function syncAdvancedFilterDisclosure() {
         var advancedKeys = ["grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"];
@@ -4074,6 +4081,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("next").disabled = state.page >= totalPages;
         el("pagination").hidden = list.length <= pageSize;
         renderActiveFilters();
+        syncSortHelp();
         renderCompareTray();
         renderReadingListButtonState();
         syncAdvancedFilterDisclosure();

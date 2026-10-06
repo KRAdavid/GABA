@@ -133,6 +133,8 @@ const required = [
   ,["Collapsed filter state labels", "data-quick-summary"]
   ,["Human-source review sort", 'value="human-source"']
   ,["Human-source review sort logic", "function humanSourcePriority"]
+  ,["Human-source sort explanation", 'id="sort-help"']
+  ,["Human-source sort explanation sync", "function syncSortHelp"]
   ,["Review queue share link", "review-queue-share"]
   ,["Review queue URL state", "sharedReviewIds"]
   ,["Review share dialog", "review-share-dialog"]
