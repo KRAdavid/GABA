@@ -41,6 +41,648 @@
       "general": 945,
       "low": 50,
       "screeningCounts": null,
+      "candidatePreview": [
+        {
+          "candidateId": "C-20261006-0001",
+          "collectedDate": "2026-10-06",
+          "title": "Alleviation of glutamate mediated neuronal insult by piroxicam in rodent model of focal cerebral ischemia: a possible mechanism of GABA agonism.",
+          "author": "Bhattacharya P",
+          "journal": "Journal of physiology and biochemistry",
+          "year": 2014,
+          "pmid": "25292423",
+          "doi": "10.1007/s13105-014-0358-8",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/25292423/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 24,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0002",
+          "collectedDate": "2026-10-06",
+          "title": "Mechanisms underlying the renoprotective effect of GABA against ischemia/reperfusion-induced renal injury in rats.",
+          "author": "Kobuchi S",
+          "journal": "The Journal of pharmacology and experimental therapeutics",
+          "year": 2011,
+          "pmid": "21632868",
+          "doi": "10.1124/jpet.111.180174",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/21632868/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 20,
+          "publicationTypes": [
+            "Journal Article",
+            "Research Support, Non-U.S. Gov't",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "animal_direct",
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bintravenous\\b/i",
+            "/\\bbaclofen\\b/i",
+            "/\\breceptor agonist\\b/i",
+            "/\\breceptor antagonist\\b/i"
+          ],
+          "directTitleSignals": [
+            "/\\beffects?\\s+of\\s+(?:gaba|gamma[- ]aminobutyric acid)\\b/i"
+          ],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0003",
+          "collectedDate": "2026-10-06",
+          "title": "GABA induces the differentiation of small into large cholangiocytes by activation of Ca(2+) /CaMK I-dependent adenylyl cyclase 8.",
+          "author": "Mancinelli R",
+          "journal": "Hepatology (Baltimore, Md.)",
+          "year": 2013,
+          "pmid": "23389926",
+          "doi": "10.1002/hep.26308",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/23389926/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 18,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0004",
+          "collectedDate": "2026-10-06",
+          "title": "Novel, small molecule induced GABA-hATSCs for targeting of neuropathic pain.",
+          "author": "Jee M",
+          "journal": "Human gene therapy",
+          "year": 2013,
+          "pmid": "23473301",
+          "doi": "10.1089/hum.2012.097",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/23473301/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 18,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0005",
+          "collectedDate": "2026-10-06",
+          "title": "Molecular Basis of GABA Hypofunction in Adolescent Schizophrenia-Like Animals.",
+          "author": "Wang X",
+          "journal": "Neural plasticity",
+          "year": 2021,
+          "pmid": "33936193",
+          "doi": "10.1155/2021/9983438",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33936193/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 10,
+          "publicationTypes": [
+            "Journal Article",
+            "Research Support, Non-U.S. Gov't",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0006",
+          "collectedDate": "2026-10-06",
+          "title": "Erratum to: \"Developmental regulation and lateralization of GABA receptors in the rat hippocampus\" [Int. J. Dev. Neurosci., 76C (2019) 86-95].",
+          "author": "Khoshdel-Sarkarizi H",
+          "journal": "International journal of developmental neuroscience : the official journal of the International Society for Developmental Neuroscience",
+          "year": 2019,
+          "pmid": "31420078",
+          "doi": "10.1016/j.ijdevneu.2019.07.008",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31420078/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 5,
+          "publicationTypes": [
+            "Published Erratum",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0007",
+          "collectedDate": "2026-10-06",
+          "title": "[Retracted: [THE CONTRIBUTION OF GABA-ERGIC INHIBITION TO THE VELOCITY TUNING OF THE SUPERIOR COLLICULUS NEURONS]].",
+          "author": "Khorevin VI",
+          "journal": "Fiziolohichnyi zhurnal (Kiev, Ukraine : 1994)",
+          "year": 2015,
+          "pmid": "26387157",
+          "doi": "10.15407/fz61.02.023",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/26387157/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 3,
+          "publicationTypes": [
+            "English Abstract",
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0008",
+          "collectedDate": "2026-10-06",
+          "title": "RETRACTED: Effect of perioperative preemptive analgesia on hippocampal GABAA receptor α1/α5 balance in aged mild cognitive impairment rats.",
+          "author": "Ren H",
+          "journal": "Brain research bulletin",
+          "year": 2026,
+          "pmid": "41794269",
+          "doi": "10.1016/j.brainresbull.2026.111811",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41794269/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bintravenous\\b/i",
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0009",
+          "collectedDate": "2026-10-06",
+          "title": "Retraction notice to \"Silicon augments salt tolerance through modulation of polyamine and GABA metabolism in two indica rice (Oryza sativa L.) cultivars\" [Plant Physiol. Biochem. 166, (2021), Pages 41-52].",
+          "author": "Das P",
+          "journal": "Plant physiology and biochemistry : PPB",
+          "year": 2026,
+          "pmid": "42215341",
+          "doi": "10.1016/j.plaphy.2026.111321",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42215341/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retraction Notice"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0010",
+          "collectedDate": "2026-10-06",
+          "title": "Retraction: Quantitative GABA magnetic resonance spectroscopy as a measure of motor learning function in the motor cortex after subarachnoid hemorrhage.",
+          "author": "",
+          "journal": "Frontiers in neurology",
+          "year": 2026,
+          "pmid": "42699621",
+          "doi": "10.3389/fneur.2026.1971327",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42699621/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retraction Notice"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bmagnetic resonance spectroscopy\\b/i",
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0011",
+          "collectedDate": "2026-10-06",
+          "title": "Involvement of GABA/BDZ receptors in the anticonvulsant effects of dihydrosanguinarine from Bocconia arborea S. Watson.",
+          "author": "González-Gómez JD",
+          "journal": "Heliyon",
+          "year": 2025,
+          "pmid": "40040966",
+          "doi": "10.1016/j.heliyon.2025.e42701",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40040966/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bintraperitoneal\\b/i",
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0012",
+          "collectedDate": "2026-10-06",
+          "title": "RETRACTED: \"GABA A receptors expression pattern in rat brain following low pressure distension of the stomach\" [Neurosci. 152(2) (2008) 449-458].",
+          "author": "Sabbatini M",
+          "journal": "Neuroscience",
+          "year": 2025,
+          "pmid": "39074781",
+          "doi": "10.1016/j.neuroscience.2024.07.044",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39074781/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retraction Notice"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0013",
+          "collectedDate": "2026-10-06",
+          "title": "RETRACTED: Fischer's ratio and DNA damage in hypoxemia-induced brain injury in rat model: prophylactic role of quercetin and mexamine supplementation.",
+          "author": "Kadry MO",
+          "journal": "PloS one",
+          "year": 2025,
+          "pmid": "40100888",
+          "doi": "10.1371/journal.pone.0319898",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40100888/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "animal_direct",
+            "publication_followup",
+            "recent_2024_plus"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0014",
+          "collectedDate": "2026-10-06",
+          "title": "Retraction notice to \"Involvement of GABA/BDZ receptors in the anticonvulsant effects of dihydrosanguinarine from Bocconia arborea S. Watson\" [Heliyon 11 (2025) e42701].",
+          "author": "González-Gómez JD",
+          "journal": "Heliyon",
+          "year": 2025,
+          "pmid": "41395040",
+          "doi": "10.1016/j.heliyon.2025.e44002",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41395040/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retraction Notice"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0015",
+          "collectedDate": "2026-10-06",
+          "title": "Retraction: GABA induces the differentiation of small into large cholangiocytes by activation of Ca2+/CaMK I-dependent adenylyl cyclase 8.",
+          "author": "Mancinelli R",
+          "journal": "Hepatology (Baltimore, Md.)",
+          "year": 2025,
+          "pmid": "40536395",
+          "doi": "10.1097/hep.0000000000001383",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40536395/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retraction Notice"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0016",
+          "collectedDate": "2026-10-06",
+          "title": "Ameliorative effects of vanillin against pentylenetetrazole-induced epilepsy and associated memory loss in mice: The role of Nrf2/HO-1/NQO1 and HMGB1/RAGE/TLR4/NFκB pathways.",
+          "author": "Almostafa MM",
+          "journal": "International immunopharmacology",
+          "year": 2024,
+          "pmid": "38335655",
+          "doi": "10.1016/j.intimp.2024.111657",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38335655/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bintraperitoneal\\b/i",
+            "/\\bvalpro(?:ic acid|ate)\\b/i",
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0017",
+          "collectedDate": "2026-10-06",
+          "title": "Barley a nutritional powerhouse for gut health and chronic disease defense.",
+          "author": "Ali A",
+          "journal": "Heliyon",
+          "year": 2024,
+          "pmid": "39640645",
+          "doi": "10.1016/j.heliyon.2024.e38669",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39640645/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Review",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0018",
+          "collectedDate": "2026-10-06",
+          "title": "Retracted: Molecular Basis of GABA Hypofunction in Adolescent Schizophrenia-Like Animals.",
+          "author": "Plasticity N",
+          "journal": "Neural plasticity",
+          "year": 2024,
+          "pmid": "38304702",
+          "doi": "10.1155/2024/9780493",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38304702/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Retraction Notice"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0019",
+          "collectedDate": "2026-10-06",
+          "title": "The interaction between insulin resistance and Alzheimer's disease: a review article.",
+          "author": "Albar NY",
+          "journal": "Postgraduate medicine",
+          "year": 2024,
+          "pmid": "38804907",
+          "doi": "10.1080/00325481.2024.2360887",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38804907/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Review",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0020",
+          "collectedDate": "2026-10-06",
+          "title": "Quantitative GABA magnetic resonance spectroscopy as a measure of motor learning function in the motor cortex after subarachnoid hemorrhage.",
+          "author": "Sugita K",
+          "journal": "Frontiers in neurology",
+          "year": 2023,
+          "pmid": "37900594",
+          "doi": "10.3389/fneur.2023.1173285",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37900594/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bmagnetic resonance spectroscopy\\b/i",
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0021",
+          "collectedDate": "2026-10-06",
+          "title": "Clinical Data and Biocalculation Methods of GABRD Determine the Clinical Characteristics and Immune Relevance of Colorectal Cancer.",
+          "author": "Bi Y",
+          "journal": "Evidence-based complementary and alternative medicine : eCAM",
+          "year": 2022,
+          "pmid": "35774742",
+          "doi": "10.1155/2022/6198448",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35774742/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0022",
+          "collectedDate": "2026-10-06",
+          "title": "Liraglutide Is Protective against Brain Injury in Mice with Febrile Seizures by Inhibiting Inflammatory Factors.",
+          "author": "Wang X",
+          "journal": "Computational and mathematical methods in medicine",
+          "year": 2022,
+          "pmid": "35529274",
+          "doi": "10.1155/2022/7563281",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35529274/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Journal Article",
+            "Retracted Publication"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0023",
+          "collectedDate": "2026-10-06",
+          "title": "Retracted: Propofol Causes Consciousness Loss by Affecting GABA-A Receptor in the Nucleus Basalis of Rats.",
+          "author": "Neurology B",
+          "journal": "Behavioural neurology",
+          "year": 2022,
+          "pmid": "35237358",
+          "doi": "10.1155/2022/9840256",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35237358/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Retraction Notice"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        },
+        {
+          "candidateId": "C-20261006-0024",
+          "collectedDate": "2026-10-06",
+          "title": "Retraction Note to: Alleviation of glutamate-mediated neuronal insult by piroxicam in rodent model of focal cerebral ischemia: a possible mechanism of GABA agonism.",
+          "author": "Bhattacharya P",
+          "journal": "Journal of physiology and biochemistry",
+          "year": 2022,
+          "pmid": "35380372",
+          "doi": "10.1007/s13105-022-00889-2",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35380372/",
+          "screeningRecommendation": "출판 후속조치 우선확인: 철회·정정·우려표명 원문과 원 논문 연결 확인",
+          "bucket": "낮은우선순위",
+          "score": 0,
+          "publicationTypes": [
+            "Retraction Notice"
+          ],
+          "queryLabels": [
+            "publication_followup"
+          ],
+          "exclusionSignals": [
+            "/\\bretract(?:ed|ion)\\b/i"
+          ],
+          "directTitleSignals": [],
+          "existingRecordId": ""
+        }
+      ],
       "candidateSheet": null,
       "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다.",
       "candidateFile": null
