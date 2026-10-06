@@ -61,6 +61,8 @@ const required = [
   ,["Reading list brief renderer", "function readingListBriefText"]
   ,["Reading list share", 'id="reading-list-share"']
   ,["Shareable reading state", 'params.set("read"']
+  ,["Filtered result export", 'id="result-export"']
+  ,["Filtered result CSV renderer", "function exportFilteredResults"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));

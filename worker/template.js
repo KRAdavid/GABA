@@ -1837,6 +1837,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <div class="result-top-actions">
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
+              <button class="result-reset" id="result-export" type="button">검색 결과 CSV</button>
             </div>
           </div>
           <div class="compare-tray" id="compare-tray" hidden aria-live="polite">
@@ -2665,6 +2666,28 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         URL.revokeObjectURL(url);
         toast(recordsPayload.length.toLocaleString("ko-KR") + "건의 검토 큐를 내보냈습니다");
       }
+      function csvCell(value) {
+        return '"' + String(value == null ? "" : value).replace(/"/g, '""').replace(/\r?\n/g, " ") + '"';
+      }
+      function exportFilteredResults() {
+        var list = filteredRecords();
+        if (!list.length) { toast("내보낼 검색 결과가 없습니다"); return; }
+        var headers = ["ID", "한국어 제목", "영문 원제", "연구 유형", "상태", "연도", "저자", "저널", "대상·시험계", "GABA 용량·노출", "기간", "대조군", "핵심 결과", "연구의 의미", "마케팅 활용 방안", "DOI", "PMID", "원문 링크"];
+        var rows = list.map(function (record) {
+          return [record.id, koreanTitle(record), record.title, record.kind, record.status, record.year, record.author, record.journal, record.population || record.species, record.dose || record.exposure, record.duration, record.comparator, record.finding || record.summaryKo, researchMeaning(record), utilizationDirection(record), record.doi, record.pmid, record.fulltextUrl || record.doiUrl || record.pubmedUrl].map(csvCell);
+        });
+        var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
+        var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-evidence-results-" + String(DB.meta.snapshotDate || "snapshot") + ".csv";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 CSV를 내보냈습니다");
+      }
       async function importReviewQueue(file) {
         if (!file) return;
         try {
@@ -3451,6 +3474,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("search-clear").addEventListener("click", function () { changeState("q", ""); controls.q.focus(); });
       el("reset").addEventListener("click", resetFilters);
       el("result-reset").addEventListener("click", resetFilters);
+      el("result-export").addEventListener("click", exportFilteredResults);
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });
