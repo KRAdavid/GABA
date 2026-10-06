@@ -3645,10 +3645,16 @@ export default {
       return response("Method Not Allowed", 405, "text/plain; charset=utf-8", "no-store");
     }
     if (url.pathname === "/api/health") {
+      const discovery = DATABASE.meta.discovery || {};
       return response(JSON.stringify({
         ok: true,
         records: DATABASE.meta.total,
-        snapshotDate: DATABASE.meta.snapshotDate
+        snapshotDate: DATABASE.meta.snapshotDate,
+        discoverySnapshotDate: discovery.snapshotDate || null,
+        discoveryGeneratedAt: discovery.generatedAt || null,
+        stagedCandidates: Number(discovery.stagedCandidates || 0),
+        publicRelease: DATABASE.meta.publicRelease === true,
+        sourceMode: "read-only public snapshot"
       }), 200, "application/json; charset=utf-8", "public, max-age=60");
     }
     if (url.pathname === "/api/records") {
