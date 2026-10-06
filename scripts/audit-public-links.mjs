@@ -1,9 +1,10 @@
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const publicRoot = resolve(process.argv[2] || "C:/Users/computer/Documents/GABA/cellpinda-gaba-lab-public");
+const writeMeta = process.argv.includes("--write-meta");
 const data = JSON.parse(await readFile(resolve(publicRoot, "worker", "data.json"), "utf8"));
 const records = Array.isArray(data.records) ? data.records : [];
 const blockedStatuses = new Set([401, 403, 405, 408, 429, 451]);
@@ -57,5 +58,24 @@ const failed = recordResults.filter((item) => item.status === "failed");
 const blocked = recordResults.filter((item) => item.status === "unavailable");
 const redirects = linkResults.filter((item) => item.finalUrl && item.finalUrl !== item.url);
 const statusCounts = linkResults.reduce((counts, item) => { const key = String(item.status || "fetch_failed"); counts[key] = (counts[key] || 0) + 1; return counts; }, {});
-console.log(JSON.stringify({ valid: failed.length === 0, records: records.length, recordsWithLinks: recordResults.filter((item) => item.attempts > 0).length, resolved: recordResults.filter((item) => item.status === "ok").length, blockedCount: blocked.length, failed: failed.length, redirects: redirects.length, attempts: linkResults.length, statusCounts, failures: failed.slice(0, 25) }));
+const summary = { valid: failed.length === 0, checkedAt: new Date().toISOString(), records: records.length, recordsWithLinks: recordResults.filter((item) => item.attempts > 0).length, resolved: recordResults.filter((item) => item.status === "ok").length, blockedCount: blocked.length, failed: failed.length, redirects: redirects.length, attempts: linkResults.length, statusCounts, failures: failed.slice(0, 25) };
+if (writeMeta) {
+  const dataPath = resolve(publicRoot, "worker", "data.json");
+  const database = JSON.parse(await readFile(dataPath, "utf8"));
+  database.meta = database.meta || {};
+  database.meta.linkAudit = {
+    checkedAt: summary.checkedAt,
+    records: summary.records,
+    recordsWithLinks: summary.recordsWithLinks,
+    resolved: summary.resolved,
+    blockedCount: summary.blockedCount,
+    failed: summary.failed,
+    redirects: summary.redirects,
+    attempts: summary.attempts,
+    statusCounts: summary.statusCounts,
+    note: "접근 제한·일시 응답은 원문 내용의 부재나 근거 약함을 뜻하지 않음"
+  };
+  await writeFile(dataPath, JSON.stringify(database, null, 2) + "\n", "utf8");
+}
+console.log(JSON.stringify(summary));
 if (failed.length) process.exitCode = 2;

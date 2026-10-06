@@ -2437,7 +2437,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["검토 상태", discovery.screeningCounts ? "미검토 " + Number(discovery.screeningCounts["미검토"] || 0).toLocaleString("ko-KR") + "건" : "확인 필요"],
           ["수동 결정 보존", Number(discovery.manualDecisionsPreserved || 0).toLocaleString("ko-KR") + "건"],
           ["원천 오류", Number((discovery.sourceErrors || []).length).toLocaleString("ko-KR") + "건"],
-          ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"]
+          ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"],
+          ["원문 감사", DB.meta.linkAudit ? "해소 " + Number(DB.meta.linkAudit.resolved || 0).toLocaleString("ko-KR") + "건 · 제한 " + Number(DB.meta.linkAudit.blockedCount || 0).toLocaleString("ko-KR") + "건" : "실행 기록 없음"],
+          ["감사 시점", DB.meta.linkAudit ? koreanDate(String(DB.meta.linkAudit.checkedAt || "").slice(0, 10)) : "확인 필요"]
         ].map(function (item) {
           return '<span class="discovery-stat">' + esc(item[0]) + " " + esc(item[1]) + '</span>';
         }).join("");
@@ -4459,11 +4461,12 @@ export default {
         discoveryCrossrefRetrieved: Number(discovery.crossrefRetrieved || 0),
         discoverySourceErrors: Array.isArray(discovery.sourceErrors) ? discovery.sourceErrors.length : 0,
         discoveryScreeningCounts: discovery.screeningCounts || null,
-        discoveryManualDecisionsPreserved: Number(discovery.manualDecisionsPreserved || 0),
-        stagedCandidates: Number(discovery.stagedCandidates || 0),
-        candidatePreviewCount: Array.isArray(discovery.candidatePreview) ? discovery.candidatePreview.length : 0,
-        candidatePreviewSnapshotDate: discovery.snapshotDate || null,
-        publicRelease: DATABASE.meta.publicRelease === true,
+         discoveryManualDecisionsPreserved: Number(discovery.manualDecisionsPreserved || 0),
+         stagedCandidates: Number(discovery.stagedCandidates || 0),
+         candidatePreviewCount: Array.isArray(discovery.candidatePreview) ? discovery.candidatePreview.length : 0,
+         candidatePreviewSnapshotDate: discovery.snapshotDate || null,
+         linkAudit: DATABASE.meta.linkAudit || null,
+         publicRelease: DATABASE.meta.publicRelease === true,
         sourceMode: "read-only public snapshot",
         syncPolicy: "management-sheet-write-gated",
         candidatePromotion: "manual-review-required"

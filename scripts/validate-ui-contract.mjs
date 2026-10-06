@@ -132,6 +132,7 @@ const required = [
   ,["Intervention classification URL restoration", '\"intervention\", \"followup\", \"grade\"']
   ,["Publication follow-up filter", 'data-followup="signal"']
   ,["Publication follow-up URL state", "state.followup"]
+  ,["Link audit transparency", "DB.meta.linkAudit"]
   ,["Empty result recovery", "data-empty-reset"]
 ];
 
