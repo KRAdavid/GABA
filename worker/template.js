@@ -1059,6 +1059,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       margin-bottom: 14px;
     }
     .filter-head h2 { margin: 0; font-size: 17px; }
+    .filter-result-count {
+      margin-left: auto;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--surface-3);
+      color: var(--teal-dark);
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
     .filter-guidance {
       margin: -2px 0 14px;
       color: var(--muted);
@@ -2054,6 +2064,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <aside class="filter-panel" id="filter-panel" aria-label="상세 필터">
           <div class="filter-head">
             <h2>상세 필터</h2>
+            <span class="filter-result-count" id="filter-result-count" aria-live="polite">전체 결과 확인 중</span>
             <button class="filter-close" id="filter-close" type="button" aria-label="필터 닫기">×</button>
           </div>
           <p class="filter-guidance">자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.</p>
@@ -4112,6 +4123,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function render(historyMode) {
         var renderStarted = performance.now();
         var list = filteredRecords();
+        var filterResultCount = el("filter-result-count");
+        if (filterResultCount) filterResultCount.textContent = "현재 " + list.length.toLocaleString("ko-KR") + "건";
         var totalPages = Math.max(1, Math.ceil(list.length / pageSize));
         if (state.page > totalPages) state.page = totalPages;
         var start = (state.page - 1) * pageSize;
