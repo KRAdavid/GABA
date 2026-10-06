@@ -168,6 +168,7 @@ const required = [
   ,["Publication follow-up URL state", "state.followup"]
   ,["Link audit transparency", "DB.meta.linkAudit"]
   ,["Link audit interpretation guard", 'id="link-audit-note"']
+  ,["Link audit methodology action", 'id="link-audit-methodology"']
   ,["Link audit KST date", "function koreanDateTime"]
   ,["Snapshot provenance", "release.snapshotVersion"]
   ,["Release traceability", "release.siteVersion"]

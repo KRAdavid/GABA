@@ -1255,6 +1255,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 11px;
       line-height: 1.5;
     }
+    .link-audit-note-wrap { display: flex; align-items: start; flex-wrap: wrap; gap: 8px 12px; margin-top: 10px; }
+    .link-audit-note-wrap .link-audit-note { flex: 1 1 560px; margin: 0; }
+    .link-audit-methodology { flex: 0 0 auto; min-height: 27px; padding: 4px 8px; border: 1px solid #c9d4d1; border-radius: 7px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 900; cursor: pointer; }
+    .link-audit-methodology:hover, .link-audit-methodology:focus-visible { border-color: var(--teal); background: var(--teal-soft); }
     .year-pair span {
       color: var(--muted);
       text-align: center;
@@ -1862,7 +1866,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <h2 id="discovery-title" tabindex="-1">검증 인덱스와 자동 탐색 후보를 분리해 관리합니다</h2>
         <p id="discovery-copy">대량 탐색 현황을 불러오는 중입니다.</p>
         <div class="discovery-stats" id="discovery-stats" aria-label="대량 탐색 통계"></div>
-        <p class="link-audit-note" id="link-audit-note" role="note" hidden></p>
+        <div class="link-audit-note-wrap" id="link-audit-note-wrap" hidden>
+          <p class="link-audit-note" id="link-audit-note" role="note"></p>
+          <button class="link-audit-methodology" id="link-audit-methodology" type="button">감사 기준 보기</button>
+        </div>
         <div class="data-boundary" aria-label="데이터 운영 경계">
           <span>공개면: 읽기 전용 검증 스냅샷</span>
           <span>후보: 자동 승격하지 않음</span>
@@ -2738,9 +2745,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return '<span class="discovery-stat">' + esc(item[0]) + " " + esc(item[1]) + '</span>';
         }).join("");
         var auditNote = el("link-audit-note");
-        if (auditNote && DB.meta.linkAudit) {
+        var auditNoteWrap = el("link-audit-note-wrap");
+        if (auditNote && auditNoteWrap && DB.meta.linkAudit) {
           auditNote.textContent = DB.meta.linkAudit.note || "원문 감사는 링크 접근성만 점검하며, 접근 제한·일시 응답은 근거 약함을 뜻하지 않습니다.";
-          auditNote.hidden = false;
+          auditNoteWrap.hidden = false;
         }
         renderCandidatePreview(discovery.candidatePreview || []);
         renderIntelligenceFeed();
@@ -4546,6 +4554,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
       el("methodology-open").addEventListener("click", openMethodology);
+      el("link-audit-methodology").addEventListener("click", openMethodology);
       el("methodology-close").addEventListener("click", closeMethodology);
       el("review-queue-share").addEventListener("click", shareReviewQueue);
       el("review-queue-shared-clear").addEventListener("click", clearSharedReviewQueue);
