@@ -2764,6 +2764,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return { positive: positive, negative: negative, doseRanges: doseRanges };
       }
 
+      function hasSourceLink(record) {
+        return Boolean(record.hasDrivePdf || record.fulltextUrl || record.sourceUrl || record.decisionUrl || record.doiUrl || record.pubmedUrl);
+      }
+
       function recordDoseValues(record) {
         return [record.dose, record.exposure].join(" ")
           .match(/\d+(?:\.\d+)?\s*mg(?:\s*\/\s*(?:day|d))?/gi);
@@ -2805,10 +2809,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (state.extraction && record.extraction !== state.extraction) return false;
           if (state.direction && record.direction !== state.direction) return false;
           if (record.year < state.from || record.year > state.to) return false;
-          if (state.source === "available" && !(record.hasDrivePdf || record.fulltextUrl || record.doiUrl || record.pubmedUrl)) return false;
+          if (state.source === "available" && !hasSourceLink(record)) return false;
           if (state.source === "drive" && !record.hasDrivePdf) return false;
-          if (state.source === "link" && (record.hasDrivePdf || !(record.fulltextUrl || record.doiUrl || record.pubmedUrl))) return false;
-          if (state.source === "none" && (record.fulltextUrl || record.doiUrl || record.pubmedUrl)) return false;
+          if (state.source === "link" && (record.hasDrivePdf || !hasSourceLink(record))) return false;
+          if (state.source === "none" && hasSourceLink(record)) return false;
           return true;
         });
         list.sort(function (a, b) {
