@@ -422,6 +422,8 @@ try {
   await evaluate(client, "document.querySelector('#reading-list-open').focus(); document.querySelector('#reading-list-open').click()");
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-dialog')?.open"), true);
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-items')?.textContent.includes('상세 보기')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-items')?.textContent.includes('원문 확인')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-items')?.textContent.includes('비교에 추가')"), true);
   await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () {} } })");
   await evaluate(client, "document.querySelector('#reading-list-copy').click()");
   await sleep(80);

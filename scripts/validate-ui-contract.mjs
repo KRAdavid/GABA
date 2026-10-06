@@ -186,6 +186,8 @@ const required = [
   ,["Verification next action wording", "원문에서 확인한 뒤 활용 범위를 판단"]
   ,["Balanced direction quick filter", 'data-direction="무효"']
   ,["Balanced direction disclosure", 'data-quick-summary="direction"']
+  ,["Reading list source action", "원문 확인"]
+  ,["Reading list compare action", 'data-compare-toggle=']
   ,["Evidence distribution expansion", "function renderDistribution"]
   ,["Evidence distribution complete list", "var extra = items.slice(4)"]
   ,["Evidence distribution hidden state", ".distribution-item[hidden]"]
