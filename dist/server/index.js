@@ -1749,6 +1749,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="quick-button" type="button" data-marketing="마케팅 사용 금지">사용 금지</button>
             </div>
           </details>
+          <details class="quick-more">
+            <summary>개입 구분</summary>
+            <div class="quick-more-menu" aria-label="GABA 개입 구분 필터">
+              <button class="quick-button" type="button" data-intervention="순수 GABA 섭취">순수 GABA</button>
+              <button class="quick-button" type="button" data-intervention="복합제·복합개입">복합제·복합개입</button>
+              <button class="quick-button" type="button" data-intervention="GABA 생성 발효·프로바이오틱">발효·프로바이오틱</button>
+              <button class="quick-button" type="button" data-intervention="수용체 약물·작용제">수용체 약물</button>
+              <button class="quick-button" type="button" data-intervention="규제·안전성 자료">규제자료</button>
+            </div>
+          </details>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
           <select class="sort-select" id="sort">
@@ -2119,7 +2129,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function loadUrlState() {
         var params = new URLSearchParams(location.search);
         state = {
-          q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", sci: "", species: "", topic: "",
+          q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
@@ -2170,6 +2180,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         document.querySelectorAll("[data-marketing]").forEach(function (button) {
           setActiveToggle(button, button.dataset.marketing === state.marketing);
         });
+        document.querySelectorAll("[data-intervention]").forEach(function (button) {
+          setActiveToggle(button, button.dataset.intervention === state.intervention);
+        });
         document.querySelectorAll("[data-preset]").forEach(function (button) {
           setActiveToggle(button, button.dataset.preset === activePreset());
         });
@@ -2177,7 +2190,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function activePreset() {
         if (state.q || state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear || state.sort !== "latest") return "";
-        var common = ["category", "effectCategory", "marketing", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
+        var common = ["category", "effectCategory", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
         if (common.some(function (key) { return state[key]; })) return "";
         if (state.kind === "임상" && !state.status && !state.source) return "clinical";
         if (state.kind === "규제" && !state.status && !state.source) return "regulatory";
@@ -2187,7 +2200,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       function applyPreset(name) {
-        var keys = ["q", "kind", "category", "effectCategory", "status", "marketing", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "from", "to", "sort"];
+        var keys = ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "from", "to", "sort"];
         keys.forEach(function (key) {
           if (key === "from") state[key] = DB.meta.minYear;
           else if (key === "to") state[key] = DB.meta.maxYear;
@@ -2205,7 +2218,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function persistUrl(historyMode) {
         var params = new URLSearchParams();
-        ["q", "kind", "category", "effectCategory", "status", "marketing", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
           if (state[key]) params.set(key, state[key]);
         });
         if (state.from !== DB.meta.minYear) params.set("from", state.from);
@@ -2325,6 +2338,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (state.effectCategory && record.effectCategory !== state.effectCategory) return false;
           if (state.status && record.status !== state.status) return false;
           if (state.marketing && marketingLabel(record) !== state.marketing) return false;
+          if (state.intervention && interventionClass(record) !== state.intervention) return false;
           if (state.grade && record.grade !== state.grade) return false;
           if (state.agency && record.agency !== state.agency) return false;
           if (state.safetyArea && record.safetyArea !== state.safetyArea) return false;
@@ -2357,6 +2371,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (type === "extraction") return value === "부분" ? "partial" : "include";
         if (type === "direction") return value === "유익" ? "benefit" : value === "혼재" ? "mixed" : value === "유해" ? "harm" : "";
         return "";
+      }
+      function interventionClass(record) {
+        if (record.kind === "규제") return "규제·안전성 자료";
+        var text = [record.title, record.form, record.ingredientKo, record.ingredientEn, record.notes, record.domain].filter(Boolean).join(" ");
+        if (/프로바이오틱|유산균|발효|ferment|probiotic|GABA 생성/i.test(text)) return "GABA 생성 발효·프로바이오틱";
+        if (/수용체|작용제|길항제|약물|muscimol|baclofen|receptor|agonist|antagonist|drug/i.test(text)) return "수용체 약물·작용제";
+        if (/복합|혼합|추출물|with|plus|GABA.{0,100}\b(?:and|with|plus)\b/i.test(text)) return "복합제·복합개입";
+        return "순수 GABA 섭취";
       }
       function marketingLabel(record) {
         if (record.kind === "규제") return "규제 참고";
@@ -3086,6 +3108,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               detail("연구설계", record.design) +
               detail("건강상태/모델", record.model) +
               detail("개입형태", record.form) +
+              detail("개입 구분", interventionClass(record)) +
               detail("투여경로", record.route) +
               detail("대조군", record.comparator) +
               detail("결과영역", record.domain) +
@@ -3106,7 +3129,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       var filterNames = {
-        q: "검색", kind: "구분", category: "자료 카테고리", effectCategory: "효과·적용 분야", status: "상태", marketing: "마케팅 활용", grade: "규제등급", agency: "규제기관",
+        q: "검색", kind: "구분", category: "자료 카테고리", effectCategory: "효과·적용 분야", status: "상태", marketing: "마케팅 활용", intervention: "개입 구분", grade: "규제등급", agency: "규제기관",
         safetyArea: "안전성영역", sci: "SCI", species: "종",
         topic: "주제", extraction: "추출", direction: "결과", source: "원문"
       };
@@ -3189,7 +3212,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function resetFilters() {
         pageSize = 20;
         state = {
-          q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", sci: "", species: "", topic: "",
+          q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
@@ -3280,6 +3303,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         button.addEventListener("click", function () {
           var marketing = button.dataset.marketing || "";
           state.marketing = state.marketing === marketing ? "" : marketing;
+          state.page = 1;
+          render("push");
+        });
+      });
+      document.querySelectorAll("[data-intervention]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var intervention = button.dataset.intervention || "";
+          state.intervention = state.intervention === intervention ? "" : intervention;
           state.page = 1;
           render("push");
         });

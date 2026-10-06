@@ -65,6 +65,9 @@ const required = [
   ,["Filtered result CSV renderer", "function exportFilteredResults"]
   ,["Marketing utilization filter", "data-marketing"]
   ,["Marketing utilization URL state", "state.marketing"]
+  ,["Intervention classification filter", "data-intervention"]
+  ,["Intervention classification", "function interventionClass"]
+  ,["Intervention classification URL state", "state.intervention"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));
