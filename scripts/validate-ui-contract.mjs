@@ -83,6 +83,7 @@ const required = [
   ["Result evidence composition", 'id="result-interpretation"'],
   ["Shareable record deep link", "urlRecordId"],
   ["Citation copy action", "data-copy-citation"],
+  ["Record link copy action", "data-copy-record-link"],
   ["Evidence brief copy action", "data-copy-brief"],
   ["Hero search entry", "hero-primary"],
   ["Exploration presets", "data-preset"],

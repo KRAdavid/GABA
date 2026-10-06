@@ -3117,6 +3117,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           toast("링크를 선택했습니다 · Ctrl+C로 복사하세요");
         }
       }
+      async function copyRecordLink(recordId) {
+        var record = records.find(function (item) { return String(item.id) === String(recordId); });
+        if (!record) return;
+        var params = new URLSearchParams(location.search);
+        params.set("record", String(record.id));
+        var link = location.origin + location.pathname + "?" + params.toString();
+        try {
+          await navigator.clipboard.writeText(link);
+          toast("자료 링크를 복사했습니다");
+        } catch (_) {
+          openCopyDialog("자료 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", link, "자료 링크를 복사했습니다");
+        }
+      }
       function openCopyDialog(title, description, value, successMessage) {
         var dialog = el("copy-dialog");
         el("copy-dialog-title").textContent = title;
@@ -3326,6 +3339,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           linkButton(sourcePrimary, "원문 확인", true) +
           (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI", false) : "") +
           (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "") +
+          '<button type="button" data-copy-record-link="' + esc(record.id) + '">자료 링크 복사</button>' +
           '<button type="button" data-copy-citation="' + esc(record.id) + '">인용 정보 복사</button>' +
           '<button type="button" data-copy-brief="' + esc(record.id) + '">근거 브리프 복사</button>' +
           '<button type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
@@ -4113,6 +4127,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else reviewDecisions[reviewId] = { completedAt: new Date().toISOString() };
           try { localStorage.setItem("gaba-review-decisions", JSON.stringify(reviewDecisions)); } catch (_) {}
           renderReviewQueue();
+          return;
+        }
+        var recordLinkButton = event.target.closest("[data-copy-record-link]");
+        if (recordLinkButton) {
+          await copyRecordLink(recordLinkButton.dataset.copyRecordLink);
           return;
         }
         var citationButton = event.target.closest("[data-copy-citation]");
