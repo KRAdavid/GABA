@@ -3555,7 +3555,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function koreanTitle(record) {
         var clean = function (value) { return String(value || "").trim().replace(/\s+/g, " ").replace(/연구 연구/g, "연구"); };
         if (record.titleKo) return clean(record.titleKo);
-        var kind = record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물·전임상" : record.kind === "규제" ? "규제자료" : "근거 자료";
+        var kind = record.kind === "임상" ? "인체" : record.kind === "동물" ? "동물" : record.kind === "규제" ? "규제·안전성" : "GABA 관련";
         var interventionLabels = {
           "순수 GABA 섭취": "GABA 섭취",
           "복합제·복합개입": "복합 개입",
@@ -3563,14 +3563,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           "수용체 약물·작용제": "수용체 약물",
           "규제·안전성 자료": "규제·안전성"
         };
-        var intervention = interventionLabels[interventionClass(record)] || "GABA 관련 자료";
+        var interventionClassName = interventionClass(record);
+        var intervention = interventionLabels[interventionClassName] || "GABA 관련";
         var topic = clean(record.domain || record.topic || "주요 평가")
           .replace(/^경구\s*GABA[·/\s-]*/i, "")
           .replace(/^GABA[·/\s-]*/i, "")
           .replace(/\s*\/\s*/g, "·")
           .replace(/·{2,}/g, "·")
           .replace(/^·|·$/g, "") || "주요 평가";
-        return [kind, intervention, topic].join(" · ");
+        var headline = kind === "인체" && interventionClassName === "순수 GABA 섭취" ? "인체 GABA 섭취 연구"
+          : kind === "동물" && interventionClassName === "순수 GABA 섭취" ? "동물 GABA 섭취 연구"
+          : kind === "규제·안전성" ? "규제·안전성 자료"
+          : [kind, intervention, "연구"].join(" ");
+        return [headline, topic].join(" · ");
       }
       function koreanTitleLabel(record) {
         return record.titleKo ? "한국어 제목" : "한국어 분류 요약";
