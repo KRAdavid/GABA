@@ -32,6 +32,7 @@ const required = [
   ["Review queue renderer", "function renderReviewQueue"],
   ["Review queue action hierarchy", "review-card-primary"],
   ["Review queue source action", "review-card-source"],
+  ["Primary source label", "function primarySourceLabel"],
   ["Review queue filters", "data-review-filter"],
   ["Review queue summary", 'id="review-queue-summary"'],
   ["Review queue completion rate", "전체 큐 완료율"],

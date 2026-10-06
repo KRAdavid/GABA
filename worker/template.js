@@ -3085,6 +3085,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ? (record.sourceUrl || record.decisionUrl || record.fulltextUrl || record.doiUrl || record.pubmedUrl)
           : (record.fulltextUrl || record.doiUrl || record.pubmedUrl || record.sourceUrl || record.decisionUrl);
       }
+      function primarySourceLabel(record) {
+        if (record.kind === "규제" && record.sourceUrl) return "공식 규제 원문";
+        if (record.hasDrivePdf) return "Drive 원문";
+        if (record.fulltextUrl) return "출판사 원문";
+        if (record.doiUrl) return "DOI";
+        if (record.pubmedUrl) return "PubMed";
+        if (record.sourceUrl) return "원문 링크";
+        if (record.decisionUrl) return "결정문";
+        return "원문 확인";
+      }
 
       function recordDoseValues(record) {
         return [record.dose, record.exposure].join(" ")
@@ -3529,7 +3539,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var hold = decision.status === "hold";
           var note = decision.note ? '<p><strong>로컬 메모</strong> · ' + esc(decision.note) + '</p>' : '';
           var source = safeUrl(primarySourceUrl(record));
-          var sourceAction = source ? '<a class="review-card-source" href="' + esc(source) + '" target="_blank" rel="noopener noreferrer">원문 확인 ↗</a>' : '';
+          var sourceAction = source ? '<a class="review-card-source" href="' + esc(source) + '" target="_blank" rel="noopener noreferrer">' + esc(primarySourceLabel(record)) + ' ↗</a>' : '';
           return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<div class="review-card-actions"><button class="review-card-primary" type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button>' + sourceAction + '<button class="review-card-secondary" type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button class="review-card-state" type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button class="review-card-state" type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></div></article>';
           }).join("") : '<article class="review-queue-card"><h3>현재 대기 자료가 없습니다</h3><p>검토 큐가 비어 있습니다.</p></article>';
       }
