@@ -3912,7 +3912,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           : '<p>동일 주제의 연결 근거가 아직 충분히 분류되지 않았습니다.</p>';
         var sourcePrimary = primarySourceUrl(record);
         el("intelligence-detail-actions").innerHTML =
-          linkButton(sourcePrimary, "원문 확인", true) +
+            linkButton(sourcePrimary, primarySourceLabel(record), true) +
           (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI", false) : "") +
           (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "") +
           '<button type="button" data-copy-record-link="' + esc(record.id) + '">자료 링크 복사</button>' +
