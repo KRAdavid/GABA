@@ -54,6 +54,7 @@ const required = [
   ["Candidate full export", "candidateExport"],
   ["Candidate export health", "candidateExportCount"],
   ["Candidate screening signals", "routeSignals"],
+  ["Candidate human signal labels", "candidateHumanSignals"],
   ["Candidate detail dialog", 'id="candidate-detail-dialog"'],
   ["Candidate screening signals", 'id="candidate-detail-screening"'],
   ["Candidate detail renderer", "function openCandidateDetail"],

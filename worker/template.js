@@ -2378,8 +2378,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var expanded = section.dataset.expanded === "true";
         list.innerHTML = filtered.slice(0, expanded ? 24 : 6).map(function (candidate) {
           var sourceUrl = candidateSourceUrl(candidate);
-          var signals = (candidate.exclusionSignals || []).slice(0, 2).join(" · ")
-            || (candidate.screeningRecommendation || "원문·식별자 확인 필요");
+          var signals = candidateHumanSignals(candidate);
           var recommendation = candidate.screeningRecommendation || "원문·식별자 확인 필요";
           var reviewStatus = candidate.screeningStatus || "미검토";
           var reviewMeta = reviewStatus !== "미검토" ? " · " + (candidate.screeningPriority || "수동 판정") : "";
@@ -2417,8 +2416,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         persistUrl(historyMode || "push");
         el("candidate-detail-title").textContent = candidate.title || "후보 상세";
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
-        var screeningSignals = (candidate.exclusionSignals || []).concat(candidate.directTitleSignals || []).filter(Boolean);
-        el("candidate-detail-screening").innerHTML = '<strong>검토 신호</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>수동 검토 상태</strong> · ' + esc(candidate.screeningStatus || "미검토") + (candidate.screeningPriority ? " · " + esc(candidate.screeningPriority) : "") + '<br><strong>우선순위</strong> · ' + esc(candidate.bucket || "미분류") + (candidate.score != null ? " · 점수 " + esc(candidate.score) : "") + '<br><strong>후속조치 신호</strong> · ' + esc(screeningSignals.join(" · ") || "없음") + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
+        el("candidate-detail-screening").innerHTML = '<strong>검토 권고</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>수동 검토 상태</strong> · ' + esc(candidate.screeningStatus || "미검토") + (candidate.screeningPriority ? " · " + esc(candidate.screeningPriority) : "") + '<br><strong>우선순위</strong> · ' + esc(candidate.bucket || "미분류") + (candidate.score != null ? " · 점수 " + esc(candidate.score) : "") + '<br><strong>자동 신호 요약</strong> · ' + esc(candidateHumanSignals(candidate)) + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
         var followup = (candidate.queryLabels || []).includes("publication_followup") || (candidate.publicationTypes || []).some(function (type) { return /retract|correct/i.test(type); });
         var sourceUrl = candidateSourceUrl(candidate);
         var checklist = [
@@ -3271,6 +3269,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           node.textContent = count.toLocaleString("ko-KR");
           node.setAttribute("aria-label", "전체 인덱스 기준 " + count.toLocaleString("ko-KR") + "건");
         });
+      }
+
+      function candidateHumanSignals(candidate) {
+        var labels = [];
+        if ((candidate.routeSignals || []).length) labels.push("경로·섭취 표현");
+        if ((candidate.interventionSignals || []).length) labels.push("GABA 개입 표현");
+        if ((candidate.subjectSignals || []).length) labels.push("대상 표현");
+        if ((candidate.studySignals || []).length) labels.push("연구설계·용량 표현");
+        if ((candidate.exclusionSignals || []).length) labels.push("주의·제외 신호");
+        if ((candidate.queryLabels || []).includes("publication_followup")) labels.push("출판 후속조치");
+        return labels.join(" · ") || "신호 없음 · 원문 확인";
       }
       function publicationFollowupLabel(record) {
         var status = [record.status, record.direction, record.pubmedStatus, record.sciStatus].filter(Boolean).join(" ");

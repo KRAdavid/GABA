@@ -190,6 +190,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('검토 권고')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=reviewed]')?.textContent.includes('수동 검토됨')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('수동 검토 상태')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('경로·섭취 표현')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-export')?.textContent.includes('전체 후보 CSV')"), true);
   await evaluate(client, "document.querySelector('[data-candidate-detail]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), true);
@@ -204,7 +205,7 @@ try {
   assert.equal(await evaluate(client, "new URL(document.querySelector('#copy-dialog-value')?.value || location.href).searchParams.get('candidateId')"), candidateId);
   await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-abstract')?.textContent.length > 0"), true);
-  assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('검토 신호')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('검토 권고')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-checklist')?.textContent.includes('경구·섭취 여부')"), true);
   await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), false);
