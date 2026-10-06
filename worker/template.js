@@ -582,6 +582,21 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       gap: 7px;
       margin-top: 10px;
     }
+    .data-boundary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 11px;
+    }
+    .data-boundary span {
+      padding: 5px 8px;
+      border: 1px solid #d7e8e4;
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      color: #41615d;
+      font-size: 11px;
+      font-weight: 700;
+    }
     .discovery-stat {
       padding: 5px 9px;
       border-radius: 999px;
@@ -1627,6 +1642,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <h2 id="discovery-title" tabindex="-1">검증 인덱스와 자동 탐색 후보를 분리해 관리합니다</h2>
         <p id="discovery-copy">대량 탐색 현황을 불러오는 중입니다.</p>
         <div class="discovery-stats" id="discovery-stats" aria-label="대량 탐색 통계"></div>
+        <div class="data-boundary" aria-label="데이터 운영 경계">
+          <span>공개면: 읽기 전용 검증 스냅샷</span>
+          <span>후보: 자동 승격하지 않음</span>
+          <span>운영 원본·Sheets: 별도 관리</span>
+        </div>
       </div>
       <a class="discovery-link" id="candidate-link" hidden target="_blank" rel="noopener noreferrer">후보 큐 열기 ↗</a>
     </section>
@@ -4276,7 +4296,9 @@ export default {
         candidatePreviewCount: Array.isArray(discovery.candidatePreview) ? discovery.candidatePreview.length : 0,
         candidatePreviewSnapshotDate: discovery.snapshotDate || null,
         publicRelease: DATABASE.meta.publicRelease === true,
-        sourceMode: "read-only public snapshot"
+        sourceMode: "read-only public snapshot",
+        syncPolicy: "management-sheet-write-gated",
+        candidatePromotion: "manual-review-required"
       }), 200, "application/json; charset=utf-8", "public, max-age=60");
     }
     if (url.pathname === "/api/records") {
