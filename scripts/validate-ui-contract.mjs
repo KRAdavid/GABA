@@ -38,6 +38,7 @@ const required = [
   ["Review queue completion rate", "전체 큐 완료율"],
   ["Review queue expansion", "전체 큐 표시"],
   ["Review queue priority", "function reviewPriority"],
+  ["Review priority rationale", "review-priority-reason"],
   ["Local review decision panel", 'id="review-decision-controls"'],
   ["Local review note", 'id="intelligence-detail-note"'],
   ["Local review save", 'id="intelligence-detail-save"'],

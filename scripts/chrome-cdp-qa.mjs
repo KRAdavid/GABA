@@ -284,6 +284,8 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#result-review-jump')?.textContent.includes('추가 확인 큐 보기')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('.review-card-primary'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('.review-card-source'))"), true);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('.review-priority-reason'))"), true);
+  assert.equal(await evaluate(client, "document.querySelector('.review-priority-reason')?.textContent.includes('우선순위 근거')"), true);
   assert.equal(await evaluate(client, "/원문|PubMed|DOI|Drive/.test(document.querySelector('.review-card-source')?.textContent || '')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-review')?.textContent.includes('상세 검토')"), true);
   await evaluate(client, "document.querySelector('.paper-review').click()");

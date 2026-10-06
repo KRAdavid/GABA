@@ -285,6 +285,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-priority { display: inline-flex; margin-top: 7px; padding: 3px 6px; border-radius: 6px; background: var(--amber-soft); color: var(--amber); font-size: 10px; font-weight: 800; }
     .review-priority.high { background: #fff0d8; color: #a65300; }
     .review-priority.medium { background: var(--teal-soft); color: var(--teal-dark); }
+    .review-priority-reason { margin: 5px 0 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
     .review-queue-card h3 { margin: 7px 0 5px; font-size: 13px; line-height: 1.4; }
     .review-queue-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
     .review-card-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
@@ -3435,14 +3436,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function reviewPriority(item) {
         var record = item.record;
         var score = 0;
-        if (record.status === "후보") score += 5;
-        if (record.extraction === "부분") score += 3;
-        if (record.kind === "임상") score += 3;
-        if (record.kind === "규제") score += 2;
-        if (item.missing.length >= 4) score += 3;
-        else if (item.missing.length >= 3) score += 2;
-        if (item.missing.indexOf("식별자") >= 0) score += 2;
-        return score >= 7 ? { key: "high", label: "우선 검토" } : score >= 4 ? { key: "medium", label: "다음 검토" } : { key: "normal", label: "기본 검토" };
+        var reasons = [];
+        if (record.status === "후보") { score += 5; reasons.push("후보 상태"); }
+        if (record.extraction === "부분") { score += 3; reasons.push("추출 부분"); }
+        if (record.kind === "임상") { score += 3; reasons.push("인체 자료"); }
+        if (record.kind === "규제") { score += 2; reasons.push("규제·안전성 자료"); }
+        if (item.missing.length >= 4) { score += 3; reasons.push("핵심 기록 다수 누락"); }
+        else if (item.missing.length >= 3) { score += 2; reasons.push("핵심 기록 누락"); }
+        if (item.missing.indexOf("식별자") >= 0) { score += 2; reasons.push("식별자 확인 필요"); }
+        var result = score >= 7 ? { key: "high", label: "우선 검토" } : score >= 4 ? { key: "medium", label: "다음 검토" } : { key: "normal", label: "기본 검토" };
+        result.reason = reasons.length ? reasons.join(" · ") : "기본 검토 순서";
+        return result;
       }
       function reviewDecisionState(recordId) {
         var saved = reviewDecisions[recordId];
@@ -3545,7 +3549,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var note = decision.note ? '<p><strong>로컬 메모</strong> · ' + esc(decision.note) + '</p>' : '';
           var source = safeUrl(primarySourceUrl(record));
           var sourceAction = source ? '<a class="review-card-source" href="' + esc(source) + '" target="_blank" rel="noopener noreferrer">' + esc(primarySourceLabel(record)) + ' ↗</a>' : '';
-          return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<div class="review-card-actions"><button class="review-card-primary" type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button>' + sourceAction + '<button class="review-card-secondary" type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button class="review-card-state" type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button class="review-card-state" type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></div></article>';
+          return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><p class="review-priority-reason"><strong>우선순위 근거</strong> · ' + esc(item.priority.reason) + '</p><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<div class="review-card-actions"><button class="review-card-primary" type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button>' + sourceAction + '<button class="review-card-secondary" type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button class="review-card-state" type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button class="review-card-state" type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></div></article>';
           }).join("") : '<article class="review-queue-card"><h3>현재 대기 자료가 없습니다</h3><p>검토 큐가 비어 있습니다.</p></article>';
       }
       function openReviewShareDialog(url, count) {
