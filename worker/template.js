@@ -2767,6 +2767,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function hasSourceLink(record) {
         return Boolean(record.hasDrivePdf || record.fulltextUrl || record.sourceUrl || record.decisionUrl || record.doiUrl || record.pubmedUrl);
       }
+      function primarySourceUrl(record) {
+        return record.kind === "규제"
+          ? (record.sourceUrl || record.decisionUrl || record.fulltextUrl || record.doiUrl || record.pubmedUrl)
+          : (record.fulltextUrl || record.doiUrl || record.pubmedUrl || record.sourceUrl || record.decisionUrl);
+      }
 
       function recordDoseValues(record) {
         return [record.dose, record.exposure].join(" ")
@@ -3319,7 +3324,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             reviewNote: reviewDecisionState(record.id).note || "",
             completedAt: reviewDecisionState(record.id).completedAt || null,
             checkedAt: record.checked || null,
-            sourceUrls: [record.fulltextUrl, record.doiUrl, record.pubmedUrl, record.sourceUrl].filter(Boolean)
+            sourceUrls: [primarySourceUrl(record), record.fulltextUrl, record.doiUrl, record.pubmedUrl, record.sourceUrl, record.decisionUrl].filter(Boolean).filter(function (url, index, urls) { return urls.indexOf(url) === index; })
           };
         }).filter(Boolean);
         var payload = {
@@ -3348,7 +3353,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!list.length) { toast("내보낼 검색 결과가 없습니다"); return; }
         var headers = ["ID", "검증 스냅샷", "한국어 제목/분류 요약", "영문 원제", "연구 유형", "개입 구분", "상태", "연도", "저자", "저널", "대상·시험계", "GABA 용량·노출", "기간", "대조군", "핵심 결과", "연구의 의미", "마케팅 활용 방안", "한계", "SCI/SCIE", "추출 상태", "확인일", "DOI", "PMID", "원문 링크"];
         var rows = list.map(function (record) {
-          return [record.id, DB.meta.snapshotDate, koreanTitle(record), record.title, record.kind, interventionClass(record), record.status, record.year, record.author, record.journal, record.population || record.species, record.dose || record.exposure, record.duration, record.comparator, record.finding || record.summaryKo, researchMeaning(record), utilizationDirection(record), record.limitation, record.sciGroup, record.extraction, record.checked, record.doi, record.pmid, record.fulltextUrl || record.doiUrl || record.pubmedUrl].map(csvCell);
+          return [record.id, DB.meta.snapshotDate, koreanTitle(record), record.title, record.kind, interventionClass(record), record.status, record.year, record.author, record.journal, record.population || record.species, record.dose || record.exposure, record.duration, record.comparator, record.finding || record.summaryKo, researchMeaning(record), utilizationDirection(record), record.limitation, record.sciGroup, record.extraction, record.checked, record.doi, record.pmid, primarySourceUrl(record)].map(csvCell);
         });
         var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
         var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
@@ -3521,7 +3526,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("intelligence-detail-related").innerHTML = related.length
           ? related.map(function (item) { return '<button type="button" data-intelligence-id="' + esc(item.id) + '">' + esc(koreanTitle(item)) + '<br><span style="color:var(--muted);font-weight:600">' + esc(item.kind || "자료") + ' · ' + esc(item.year || "연도 미상") + '</span></button>'; }).join("")
           : '<p>동일 주제의 연결 근거가 아직 충분히 분류되지 않았습니다.</p>';
-        var sourcePrimary = record.kind === "규제" ? (record.sourceUrl || record.decisionUrl || record.fulltextUrl) : (record.fulltextUrl || record.doiUrl || record.pubmedUrl);
+        var sourcePrimary = primarySourceUrl(record);
         el("intelligence-detail-actions").innerHTML =
           linkButton(sourcePrimary, "원문 확인", true) +
           (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI", false) : "") +
@@ -3747,7 +3752,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
         target.innerHTML = '<table class="compare-table"><thead><tr><th scope="col">비교 항목</th>' + selected.map(function (record) {
-          return '<th scope="col"><span class="compare-title">' + esc(koreanTitle(record)) + '</span><br><span style="color:var(--muted);font-size:11px">' + esc(compareKind(record)) + " · " + esc(record.year || "연도 미상") + '</span>' + linkButton(record.fulltextUrl || record.sourceUrl || record.decisionUrl || record.doiUrl || record.pubmedUrl, "원문 확인", false) + '</th>';
+          return '<th scope="col"><span class="compare-title">' + esc(koreanTitle(record)) + '</span><br><span style="color:var(--muted);font-size:11px">' + esc(compareKind(record)) + " · " + esc(record.year || "연도 미상") + '</span>' + linkButton(primarySourceUrl(record), "원문 확인", false) + '</th>';
         }).join("") + '</tr></thead><tbody>' + rows.map(function (row) {
           return '<tr><th scope="row">' + esc(row[0]) + '</th>' + selected.map(function (record) { return '<td>' + esc(compareValue(record, row[1])) + '</td>'; }).join("") + '</tr>';
         }).join("") + '</tbody></table>';
