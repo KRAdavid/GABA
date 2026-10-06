@@ -216,6 +216,13 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('audit')"), "unavailable");
   assert.equal(await evaluate(client, "document.querySelector('[data-preset=audit-unavailable]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('원문 재확인·대체 경로 검토 대상')"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/?freshness=stale`);
+  assert.equal(await waitForExpression(client, "Boolean(document.querySelector('#freshness'))"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#freshness')?.value"), "stale");
+  assert.equal(await evaluate(client, "document.querySelector('#freshness option[value=stale]')?.textContent.includes('90일 초과')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('재확인 권고')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('[data-remove=freshness]')?.textContent.includes('재확인 상태')"), true);
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('freshness')"), "stale");
   await navigate(`http://127.0.0.1:${httpPort}/`);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('캐나다 모노그래프')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('인지기능 제품 모노그래프')"), true);
