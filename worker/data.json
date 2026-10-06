@@ -21416,12 +21416,12 @@
     "publicRelease": true,
     "release": {
       "snapshotVersion": 457,
-      "siteVersion": 477,
-      "sourceCommit": "d9c707daeed89e380864fb01594c84109bf69a9d",
-      "siteSourceCommit": "d9c707daeed89e380864fb01594c84109bf69a9d",
-      "publicMirrorCommit": "e826245fe8e29ff638a38a1a5d41b0c83ab544c5",
-      "publishedAt": "2026-10-06T17:01:00.501671Z",
-      "verification": "Sites v477 · UI·public-surface·health·parity·Chrome CDP QA 통과"
+      "siteVersion": 485,
+      "sourceCommit": "bd958c5faec6c86dda8b99ea5dd09aecf777656a",
+      "siteSourceCommit": "bd958c5faec6c86dda8b99ea5dd09aecf777656a",
+      "publicMirrorCommit": "e60d363a0133da4c59e65f1e1c44296650894d46",
+      "publishedAt": "2026-10-06T17:34:22.042242Z",
+      "verification": "Sites v485 · UI·public-surface·health·parity·Chrome CDP QA·candidateExportCount 정합성 통과"
     },
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
   },
