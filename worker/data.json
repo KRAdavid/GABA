@@ -36353,10 +36353,10 @@
       "publishedAt": "2026-10-06T17:34:22.042242Z",
       "verification": "Sites v485 · UI·public-surface·health·parity·Chrome CDP QA·candidateExportCount 정합성 통과",
       "currentCodeDeployment": {
-        "siteVersion": 526,
-        "sourceCommit": "e923cec86d72fdce0920a4a7a4986c256f3f8ddd",
-        "publicMirrorCommit": "20dd589829abb75f00c0a44abfaf55ee40b834a7",
-        "publishedAt": "2026-10-06T19:37:21.438435+00:00"
+        "siteVersion": 536,
+        "sourceCommit": "7c6ac36f995e8d7af42a717710559ec93df83209",
+        "publicMirrorCommit": "6a218288570bad1bfa6f87f26baf8d7d323e223b",
+        "publishedAt": "2026-10-06T20:17:46.038345+00:00"
       }
     },
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
