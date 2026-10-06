@@ -59,6 +59,8 @@ const required = [
   ,["Reading list brief copy", 'id="reading-list-copy"']
   ,["Reading list clear", 'id="reading-list-clear"']
   ,["Reading list brief renderer", "function readingListBriefText"]
+  ,["Reading list share", 'id="reading-list-share"']
+  ,["Shareable reading state", 'params.set("read"']
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));

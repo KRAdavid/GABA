@@ -164,6 +164,14 @@ try {
   await evaluate(client, "document.querySelector('#reading-list-copy').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('브리프')"), true);
+  await evaluate(client, "document.querySelector('#reading-list-share').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('read')"), true);
+  const sharedReadingUrl = await evaluate(client, "location.href");
+  await navigate(sharedReadingUrl);
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-count')?.textContent"), "1");
+  await evaluate(client, "document.querySelector('#reading-list-open').focus(); document.querySelector('#reading-list-open').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-dialog')?.open"), true);
   await evaluate(client, "document.querySelector('#reading-list-close').click()");
   assert.equal(await evaluate(client, "document.activeElement?.id"), "reading-list-open");
   await evaluate(client, "document.querySelector('[data-reading-toggle]').click()");
