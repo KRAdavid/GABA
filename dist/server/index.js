@@ -618,6 +618,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-preview-meta span { padding: 3px 6px; border-radius: 6px; background: #fff; color: var(--muted); font-size: 10px; font-weight: 800; }
     .candidate-preview-signal { margin-top: 9px !important; color: var(--ink-2) !important; }
     .candidate-preview-card a { display: inline-flex; margin-top: 10px; color: var(--teal-dark); font-size: 11px; font-weight: 900; text-decoration: none; }
+    .candidate-preview-more { display: inline-flex; margin-top: 14px; min-height: 34px; padding: 7px 11px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 900; cursor: pointer; }
     @media (max-width: 980px) { .candidate-preview-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 640px) { .candidate-preview-head { align-items: start; flex-direction: column; gap: 5px; } .candidate-preview-list { grid-template-columns: 1fr; } }
 
@@ -1599,6 +1600,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <span class="candidate-preview-note">확정 근거 아님</span>
       </div>
       <div class="candidate-preview-list" id="candidate-preview-list"></div>
+      <button class="candidate-preview-more" id="candidate-preview-more" type="button" hidden>후보 더 보기</button>
     </section>
 
     <section class="intelligence-strip" id="intelligence" aria-labelledby="intelligence-title">
@@ -2152,14 +2154,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function renderCandidatePreview(candidates) {
         var section = el("candidate-preview");
         var list = el("candidate-preview-list");
+        var more = el("candidate-preview-more");
         if (!section || !list) return;
         if (!Array.isArray(candidates) || !candidates.length) {
           section.hidden = true;
           list.innerHTML = "";
+          if (more) more.hidden = true;
           return;
         }
         section.hidden = false;
-        list.innerHTML = candidates.slice(0, 6).map(function (candidate) {
+        var expanded = section.dataset.expanded === "true";
+        list.innerHTML = candidates.slice(0, expanded ? 24 : 6).map(function (candidate) {
           var sourceUrl = candidateSourceUrl(candidate);
           var signals = (candidate.exclusionSignals || []).slice(0, 2).join(" · ")
             || (candidate.screeningRecommendation || "원문·식별자 확인 필요");
@@ -2174,6 +2179,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">원문 식별자 확인 ↗</a>' : '') +
             '</article>';
         }).join("");
+        if (more) {
+          more.hidden = candidates.length <= 6;
+          more.textContent = expanded ? "후보 접기" : "후보 " + candidates.length.toLocaleString("ko-KR") + "건 더 보기";
+          more.onclick = function () {
+            section.dataset.expanded = expanded ? "false" : "true";
+            renderCandidatePreview(candidates);
+          };
+        }
       }
 
       function initMeta() {

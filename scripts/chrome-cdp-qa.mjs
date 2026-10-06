@@ -136,6 +136,12 @@ try {
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#freshness-label')?.textContent.trim())"), true);
   assert.notEqual(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.trim()"), "매주 업데이트");
   assert.equal(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.includes('탐색')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-preview')?.hidden"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-more')?.hidden"), false);
+  await evaluate(client, "document.querySelector('#candidate-preview-more').click()");
+  assert.equal(await evaluate(client, "document.querySelectorAll('#candidate-preview-list .candidate-preview-card').length > 6"), true);
+  await evaluate(client, "document.querySelector('#candidate-preview-more').click()");
+  assert.equal(await evaluate(client, "document.querySelectorAll('#candidate-preview-list .candidate-preview-card').length"), 6);
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-title-korean')?.textContent.includes('·')"), true);

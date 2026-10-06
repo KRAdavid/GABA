@@ -40,6 +40,7 @@ const required = [
   ["Candidate preview", 'id="candidate-preview"'],
   ["Candidate preview renderer", "function renderCandidatePreview"],
   ["Candidate source link guard", "function candidateSourceUrl"],
+  ["Candidate preview expansion", 'id="candidate-preview-more"'],
   ["Accessible active toggles", "function setActiveToggle"],
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
