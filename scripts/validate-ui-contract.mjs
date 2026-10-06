@@ -129,7 +129,9 @@ const required = [
   ,["Unified copy fallback", "openCopyDialog"]
   ,["Intervention classification", "function interventionClass"]
   ,["Intervention classification URL state", "state.intervention"]
-  ,["Intervention classification URL restoration", '\"intervention\", \"grade\"']
+  ,["Intervention classification URL restoration", '\"intervention\", \"followup\", \"grade\"']
+  ,["Publication follow-up filter", 'data-followup="signal"']
+  ,["Publication follow-up URL state", "state.followup"]
   ,["Empty result recovery", "data-empty-reset"]
 ];
 

@@ -1961,6 +1961,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="quick-button" type="button" data-intervention="규제·안전성 자료">규제자료 <span class="quick-count" data-intervention-count="규제·안전성 자료">__COUNT_REGULATORY__</span></button>
             </div>
           </details>
+          <details class="quick-more">
+            <summary data-quick-summary="followup">출판 후속조치</summary>
+            <div class="quick-more-menu" aria-label="출판 후속조치 필터">
+              <button class="quick-button" type="button" data-followup="signal">철회·정정·우려표명 신호 <span class="quick-count" data-followup-count="signal">__COUNT_FOLLOWUP__</span></button>
+            </div>
+          </details>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
           <select class="sort-select" id="sort">
@@ -2161,7 +2167,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
       var state = {
-        q: "", kind: "", category: "", effectCategory: "", status: "", sci: "", species: "", topic: "",
+         q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", followup: "", sci: "", species: "", topic: "",
         grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
         to: DB.meta.maxYear, sort: "latest", page: 1
       };
@@ -2484,12 +2490,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           : "all";
         candidatePreviewNeedsFocus = candidatePreviewFilter !== "all";
         state = {
-          q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", sci: "", species: "", topic: "",
+           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", followup: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
         pageSize = 20;
-        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "followup", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
           if (params.has(key)) state[key] = params.get(key) || "";
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
@@ -2550,6 +2556,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         document.querySelectorAll("[data-intervention]").forEach(function (button) {
           setActiveToggle(button, button.dataset.intervention === state.intervention);
         });
+        document.querySelectorAll("[data-followup]").forEach(function (button) {
+          setActiveToggle(button, button.dataset.followup === state.followup);
+        });
         document.querySelectorAll("[data-preset]").forEach(function (button) {
           setActiveToggle(button, button.dataset.preset === activePreset());
         });
@@ -2559,7 +2568,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function syncQuickDisclosure() {
         document.querySelectorAll("[data-quick-summary]").forEach(function (summary) {
           var key = summary.dataset.quickSummary;
-          var base = { effectCategory: "분야 더보기", marketing: "활용 판단", intervention: "개입 구분" }[key] || "추가 필터";
+          var base = { effectCategory: "분야 더보기", marketing: "활용 판단", intervention: "개입 구분", followup: "출판 후속조치" }[key] || "추가 필터";
           var active = Boolean(state[key]);
           summary.textContent = active ? base + " · 선택" : base;
           summary.classList.toggle("has-filter", active);
@@ -2569,7 +2578,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function activePreset() {
         if (state.q || state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear || state.sort !== "latest") return "";
-        var common = ["category", "effectCategory", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
+        var common = ["category", "effectCategory", "marketing", "intervention", "followup", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction"];
         if (state.kind === "임상" && state.status === "포함" && state.intervention === "순수 GABA 섭취" && !state.source) return "human-direct";
         if (common.some(function (key) { return state[key]; })) return "";
         if (state.kind === "임상" && !state.status && !state.source) return "clinical";
@@ -2580,7 +2589,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       function applyPreset(name) {
-        var keys = ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "from", "to", "sort"];
+        var keys = ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "followup", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "from", "to", "sort"];
         keys.forEach(function (key) {
           if (key === "from") state[key] = DB.meta.minYear;
           else if (key === "to") state[key] = DB.meta.maxYear;
@@ -2603,7 +2612,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function persistUrl(historyMode) {
         var params = new URLSearchParams();
-        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "followup", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"].forEach(function (key) {
           if (state[key]) params.set(key, state[key]);
         });
         if (state.from !== DB.meta.minYear) params.set("from", state.from);
@@ -2726,6 +2735,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (state.status && record.status !== state.status) return false;
           if (state.marketing && marketingLabel(record) !== state.marketing) return false;
           if (state.intervention && interventionClass(record) !== state.intervention) return false;
+          if (state.followup === "signal" && !publicationFollowupLabel(record)) return false;
           if (state.grade && record.grade !== state.grade) return false;
           if (state.agency && record.agency !== state.agency) return false;
           if (state.safetyArea && record.safetyArea !== state.safetyArea) return false;
@@ -3139,6 +3149,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           input.select();
           toast("링크를 선택했습니다 · Ctrl+C로 복사하세요");
         }
+      }
+      function renderFollowupCounts() {
+        var count = records.filter(function (record) { return Boolean(publicationFollowupLabel(record)); }).length;
+        document.querySelectorAll("[data-followup-count]").forEach(function (node) {
+          node.textContent = count.toLocaleString("ko-KR");
+          node.setAttribute("aria-label", "전체 인덱스 기준 " + count.toLocaleString("ko-KR") + "건");
+        });
       }
       function publicationFollowupLabel(record) {
         var status = [record.status, record.direction, record.pubmedStatus, record.sciStatus].filter(Boolean).join(" ");
@@ -3821,7 +3838,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       var filterNames = {
-        q: "검색", kind: "구분", category: "자료 카테고리", effectCategory: "효과·적용 분야", status: "상태", marketing: "마케팅 활용", intervention: "개입 구분", grade: "규제등급", agency: "규제기관",
+         q: "검색", kind: "구분", category: "자료 카테고리", effectCategory: "효과·적용 분야", status: "상태", marketing: "마케팅 활용", intervention: "개입 구분", followup: "출판 후속조치", grade: "규제등급", agency: "규제기관",
         safetyArea: "안전성영역", sci: "SCI", species: "종",
         topic: "주제", extraction: "추출", direction: "결과", source: "원문"
       };
@@ -3832,7 +3849,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var chips = [];
         Object.keys(filterNames).forEach(function (key) {
           if (!state[key]) return;
-          var value = key === "source" ? sourceLabel(state[key]) : state[key];
+           var value = key === "source" ? sourceLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
           chips.push('<button class="filter-chip" type="button" data-remove="' + esc(key) + '">' + esc(filterNames[key] + ": " + value) + ' ×</button>');
         });
         if (state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear) {
@@ -3852,7 +3869,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         badge.classList.toggle("has-filters", count > 0);
         if (count) details.open = true;
 
-        var topLevelKeys = ["kind", "category", "effectCategory", "status", "marketing", "intervention"];
+        var topLevelKeys = ["kind", "category", "effectCategory", "status", "marketing", "intervention", "followup"];
         var total = count + topLevelKeys.filter(function (key) { return Boolean(state[key]); }).length + (state.q ? 1 : 0);
         var mobileCount = el("mobile-filter-count");
         if (mobileCount) {
@@ -3937,7 +3954,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function resetFilters() {
         pageSize = 20;
         state = {
-          q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", sci: "", species: "", topic: "",
+           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", followup: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
@@ -3959,7 +3976,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       loadUrlState();
       initMeta();
-      renderInterventionCounts();
+       renderInterventionCounts();
+       renderFollowupCounts();
       renderDistribution("species-distribution", DB.facets.species, "species");
       renderDistribution("direction-distribution", DB.facets.direction, "direction");
       syncControls();
@@ -4037,6 +4055,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         button.addEventListener("click", function () {
           var intervention = button.dataset.intervention || "";
           state.intervention = state.intervention === intervention ? "" : intervention;
+          state.page = 1;
+          render("push");
+        });
+      });
+      document.querySelectorAll("[data-followup]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var followup = button.dataset.followup || "";
+          state.followup = state.followup === followup ? "" : followup;
           state.page = 1;
           render("push");
         });

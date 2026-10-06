@@ -236,6 +236,10 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "수용체 약물·작용제");
   assert.equal(await evaluate(client, "Number(document.querySelector('[data-intervention-count=\"규제·안전성 자료\"]')?.textContent || 0) > 0"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-quick-summary=\"intervention\"]')?.textContent.includes('선택')"), true);
+  await evaluate(client, "document.querySelector('[data-followup=\"signal\"]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('followup')"), "signal");
+  assert.ok(await evaluate(client, "Array.from(document.querySelectorAll('.paper-card')).every(function (card) { return card.querySelector('.followup-badge'); })"));
+  await evaluate(client, "document.querySelector('[data-followup=\"signal\"]').click()");
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#review-queue-share'))"), true);
   await evaluate(client, "document.querySelector('#review-queue-share').click()");
   assert.equal(await evaluate(client, "document.querySelector('#review-share-dialog')?.open"), true);
