@@ -2450,9 +2450,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var activeFilter = el("candidate-preview")?.dataset.filter || "all";
         candidates = filterCandidatePreviewRecords(candidates, activeFilter);
         if (!candidates.length) { toast("내보낼 후보가 없습니다"); return; }
-        var headers = ["후보 ID", "수집일", "우선순위", "수동 검토 상태", "수동 우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "자동 제외 신호", "탐색 쿼리", "원문 링크"];
+        var headers = ["후보 ID", "수집일", "우선순위", "수동 검토 상태", "수동 우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "경로 신호", "개입 신호", "대상 신호", "설계 신호", "자동 제외 신호", "탐색 쿼리", "원문 링크"];
         var rows = candidates.map(function (candidate) {
-          return [candidate.candidateId, candidate.collectedDate, candidate.bucket, candidate.screeningStatus || "미검토", candidate.screeningPriority || "", candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.exclusionSignals || []).join(" · "), (candidate.queryLabels || []).join(" · "), candidateSourceUrl(candidate)].map(csvCell);
+          return [candidate.candidateId, candidate.collectedDate, candidate.bucket, candidate.screeningStatus || "미검토", candidate.screeningPriority || "", candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.routeSignals || []).join(" · "), (candidate.interventionSignals || []).join(" · "), (candidate.subjectSignals || []).join(" · "), (candidate.studySignals || []).join(" · "), (candidate.exclusionSignals || []).join(" · "), (candidate.queryLabels || []).join(" · "), candidateSourceUrl(candidate)].map(csvCell);
         });
         var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
         var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });

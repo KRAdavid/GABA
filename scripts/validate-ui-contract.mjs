@@ -53,6 +53,7 @@ const required = [
   ["Candidate queue scope", "전체 큐:"],
   ["Candidate full export", "candidateExport"],
   ["Candidate export health", "candidateExportCount"],
+  ["Candidate screening signals", "routeSignals"],
   ["Candidate detail dialog", 'id="candidate-detail-dialog"'],
   ["Candidate screening signals", 'id="candidate-detail-screening"'],
   ["Candidate detail renderer", "function openCandidateDetail"],

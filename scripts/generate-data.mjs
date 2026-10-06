@@ -155,6 +155,10 @@ const candidatePreview = Array.isArray(candidateArtifact?.candidates)
       publicationTypes: Array.isArray(record.publicationTypes) ? record.publicationTypes.slice(0, 4).map(clean) : [],
       queryLabels: Array.isArray(record.queryLabels) ? record.queryLabels.slice(0, 3).map(clean) : [],
       exclusionSignals: Array.isArray(record.exclusionSignals) ? record.exclusionSignals.slice(0, 4).map(clean) : [],
+      routeSignals: Array.isArray(record.routeSignals) ? record.routeSignals.slice(0, 4).map(clean) : [],
+      interventionSignals: Array.isArray(record.interventionSignals) ? record.interventionSignals.slice(0, 4).map(clean) : [],
+      subjectSignals: Array.isArray(record.subjectSignals) ? record.subjectSignals.slice(0, 4).map(clean) : [],
+      studySignals: Array.isArray(record.studySignals) ? record.studySignals.slice(0, 4).map(clean) : [],
       directTitleSignals: Array.isArray(record.directTitleSignals) ? record.directTitleSignals.slice(0, 4).map(clean) : [],
       existingRecordId: clean(record.existingRecordId)
       };
@@ -184,7 +188,11 @@ const candidateExport = Array.isArray(candidateArtifact?.candidates)
         bucket: clean(record.bucket),
         score: Number(record.score) || 0,
         queryLabels: Array.isArray(record.queryLabels) ? record.queryLabels.slice(0, 5).map(clean) : [],
-        exclusionSignals: Array.isArray(record.exclusionSignals) ? record.exclusionSignals.slice(0, 6).map(clean) : []
+        exclusionSignals: Array.isArray(record.exclusionSignals) ? record.exclusionSignals.slice(0, 6).map(clean) : [],
+        routeSignals: Array.isArray(record.routeSignals) ? record.routeSignals.slice(0, 6).map(clean) : [],
+        interventionSignals: Array.isArray(record.interventionSignals) ? record.interventionSignals.slice(0, 6).map(clean) : [],
+        subjectSignals: Array.isArray(record.subjectSignals) ? record.subjectSignals.slice(0, 6).map(clean) : [],
+        studySignals: Array.isArray(record.studySignals) ? record.studySignals.slice(0, 6).map(clean) : []
       };
     })
   : [];

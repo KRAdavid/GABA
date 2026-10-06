@@ -193,6 +193,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-export')?.textContent.includes('전체 후보 CSV')"), true);
   await evaluate(client, "document.querySelector('[data-candidate-detail]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-checklist')?.textContent.includes('경구·섭취 여부')"), true);
   const candidateId = await evaluate(client, "document.querySelector('[data-candidate-detail]')?.getAttribute('data-candidate-detail')");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidateId')"), candidateId);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-candidate-link]'))"), true);
