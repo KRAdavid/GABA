@@ -132,6 +132,10 @@ try {
   }
 
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  await evaluate(client, "document.querySelector('#sort').value = 'human-source'; document.querySelector('#sort').dispatchEvent(new Event('change', { bubbles: true }))");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('sort')"), "human-source");
+  assert.equal(await evaluate(client, "document.querySelector('#sort').value"), "human-source");
+  await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.querySelector('#metric-total')?.textContent.trim()"), "384편");
   const health = await evaluate(client, "fetch('/api/health').then(function (response) { return response.json(); })");
   assert.equal(health.ok, true);

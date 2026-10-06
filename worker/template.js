@@ -2014,6 +2014,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <option value="oldest">과거 연도순</option>
             <option value="title">제목 가나다순</option>
             <option value="updated">최근 확인순</option>
+            <option value="human-source">인체·원문 우선</option>
           </select>
           <label class="sr-only" for="page-size">페이지당 결과 수</label>
           <select class="page-size-select" id="page-size">
@@ -2730,6 +2731,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           record.noael, record.adverse, record.quality, record.guidelines, record.recognition
         ].join(" "));
       }
+      function humanSourcePriority(record) {
+        var score = 0;
+        if (record.kind === "임상") score += 4;
+        if (record.status === "포함") score += 2;
+        if (record.hasDrivePdf) score += 2;
+        else if (hasSourceLink(record)) score += 1;
+        if (record.extraction === "완료") score += 1;
+        if (interventionClass(record) === "순수 GABA 섭취") score += 1;
+        if (publicationFollowupLabel(record)) score -= 2;
+        return score;
+      }
       records.forEach(function (record) { record._search = recordSearchText(record); });
 
       var KOREAN_SEARCH_TERMS = {
@@ -2855,6 +2867,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (state.sort === "oldest") return a.year - b.year || aTitle.localeCompare(bTitle, "ko");
           if (state.sort === "title") return aTitle.localeCompare(bTitle, "ko") || b.year - a.year;
           if (state.sort === "updated") return String(b.checked).localeCompare(String(a.checked)) || b.year - a.year;
+          if (state.sort === "human-source") return humanSourcePriority(b) - humanSourcePriority(a) || b.year - a.year || aTitle.localeCompare(bTitle, "ko");
           return b.year - a.year || aTitle.localeCompare(bTitle, "ko");
         });
         return list;

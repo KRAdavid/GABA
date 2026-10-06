@@ -131,6 +131,8 @@ const required = [
   ,["Server-rendered intervention counts", "serverInterventionClass"]
   ,["Verified snapshot label", "검증 스냅샷"]
   ,["Collapsed filter state labels", "data-quick-summary"]
+  ,["Human-source review sort", 'value="human-source"']
+  ,["Human-source review sort logic", "function humanSourcePriority"]
   ,["Review queue share link", "review-queue-share"]
   ,["Review queue URL state", "sharedReviewIds"]
   ,["Review share dialog", "review-share-dialog"]

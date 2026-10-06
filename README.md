@@ -13,13 +13,14 @@ Google Sheet로 관리되는 GABA 섭취 임상·동물시험 문헌을 한국�
 - 운영 소스: `worker/template.js` 및 `worker/data.json`
 - 검토 큐: 브라우저 로컬 완료 표시와 JSON 내보내기 제공
 - 후보 큐: `?candidate=priority`, `?candidate=followup`, `?candidate=reviewed`, `?candidate=unreviewed` 링크로 같은 검토 범위를 공유
-- 네 후보 URL은 브라우저 QA에서 필터 상태·주소·포커스 복원을 함께 확인합니다.
+- 후보 URL은 브라우저 QA에서 필터 상태·주소·포커스 복원을 함께 확인합니다.
 - 후보 상세: `?candidateId=<Candidate_ID>` 링크로 특정 자동 탐색 후보의 원문 확인 체크리스트를 공유
 - 후보 상세의 `후보 검토 링크 복사`는 클립보드가 제한돼도 수동 복사 패널로 전환됩니다.
 - 후보 영역은 전체 자동 탐색 후보 수와 공개 미리보기·CSV 범위를 분리 표시합니다. 미리보기는 전체 후보의 확정 승격 목록이 아닙니다.
 - 후보 카드의 검토 권고·자동 신호·점수는 원문 확인을 위한 탐색 신호이며 확정 판정이 아닙니다.
 - 후보 카드는 수동 검토 상태(미검토·포함후보·보류·제외)를 자동 신호와 분리해 표시하며, 상태별 필터와 CSV 내보내기를 제공합니다. 수동 상태도 공개 근거 승인을 뜻하지 않습니다.
 - 후보 영역은 미리보기 필터 수와 전체 큐 상태 집계를 함께 표시해 24건 미리보기와 1,000건 전체 후보를 구분합니다.
+- 결과 정렬의 `인체·원문 우선`은 인체 연구·검증 상태·원문 연결·추출 완성도를 조합한 탐색용 휴리스틱입니다. 근거의 우월성이나 효능을 자동 판정하는 순위가 아닙니다.
 - `전체 후보 CSV`는 확정 인덱스와 분리된 1,000건 후보 큐의 식별자·자동 신호·수동 검토 상태를 내려받는 검토용 산출물입니다. 후보 초록이나 자동 점수만으로 확정 근거 판단을 하지 않습니다.
 - `/api/health`의 `candidateExportCount`로 전체 후보 큐와 CSV export 데이터의 수량 정합성을 확인할 수 있습니다.
 - 후보 상세와 전체 후보 CSV에는 자동 경로·개입·대상·연구설계 신호를 별도 필드로 보존해 원문 검토 순서를 돕습니다. 신호가 있다고 해서 해당 조건이 원문에서 확정된 것은 아닙니다.
@@ -44,6 +45,7 @@ data-quality → build → validate → build-pending-sheet-sync → UI contract
 - `node scripts/validate.mjs`: 레코드 유형·수량·프로젝트 연결 검증
 - `node scripts/build-pending-sheet-sync.mjs`: Sheets 403 등으로 대기 중인 레코드의 36열 payload 재생성
 - `node scripts/validate-pending-sheet-sync.mjs`: 대기 payload의 36열·Record_ID·중복 상태 검증
+- `node scripts/validate-audit-consistency.mjs`: 공개 데이터의 원문 감사 수치와 NAVI 감사 보고서의 정합성 검증
 - `node scripts/validate-health-contract.mjs`: 탐색일·PubMed·OpenAlex·Crossref·병합·후보·원천 오류 Health 지표의 데이터 계약 검증
 - `node scripts/validate-ui-contract.mjs`: 포털·Intelligence·검토 큐 UI 계약 확인
 - `node scripts/audit-public-links.mjs`: 원문·DOI·PubMed 대체 링크 체인을 검사하고 서버 접근 제한과 실제 실패를 구분
