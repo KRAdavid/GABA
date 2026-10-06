@@ -225,8 +225,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#copy-dialog')?.open"), false);
   assert.equal(await evaluate(client, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true);
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-intelligence-id]').length > 0"), true);
+  assert.equal(await evaluate(client, "document.querySelectorAll('.paper-card .badge.intervention').length > 0"), true);
   await evaluate(client, "document.querySelector('[data-intelligence-id]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('개입 구분')"), true);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('record')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-citation]'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-brief]'))"), true);

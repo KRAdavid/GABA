@@ -1135,6 +1135,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .badge.exclude, .badge.harm { background: var(--red-soft); color: var(--red); }
     .badge.scie { background: #e7eefc; color: #244da8; }
     .badge.partial { background: #f3efe2; color: #725a0b; }
+    .badge.intervention { background: #e7f5f2; color: var(--teal-dark); }
     .paper-title {
       margin: 0;
       color: var(--ink);
@@ -2477,6 +2478,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (/복합|혼합|추출물|with|plus|GABA.{0,100}\b(?:and|with|plus)\b/i.test(text)) return "복합제·복합개입";
         return "순수 GABA 섭취";
       }
+      function interventionShortLabel(record) {
+        return {
+          "순수 GABA 섭취": "순수 GABA",
+          "복합제·복합개입": "복합제·복합개입",
+          "GABA 생성 발효·프로바이오틱": "발효·프로바이오틱",
+          "수용체 약물·작용제": "수용체 약물",
+          "규제·안전성 자료": "규제·안전성"
+        }[interventionClass(record)] || interventionClass(record);
+      }
       function renderInterventionCounts() {
         var counts = {};
         records.forEach(function (record) {
@@ -2968,7 +2978,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("intelligence-detail-kicker").textContent = kind + " · " + (record.year || "연도 미상");
         el("intelligence-detail-title").textContent = koreanTitle(record);
         el("intelligence-detail-facts").innerHTML = [
-          fact("연구 유형", kind), fact("상태", record.status), fact("대상", record.population || record.species),
+          fact("연구 유형", kind), fact("개입 구분", interventionClass(record)), fact("상태", record.status), fact("대상", record.population || record.species),
           fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
           fact("결과 방향", record.direction), fact("확인일", record.checked)
         ].join("");
@@ -3287,6 +3297,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="badge ' + badgeClass("kind", record.kind) + '">' + esc(record.kind === "임상" ? "인체 임상" : record.kind === "동물" ? "동물시험" : record.kind) + '</span>' +
             '<span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status) + '</span>' +
             '<span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span>' +
+            '<span class="badge intervention">개입 · ' + esc(interventionShortLabel(record)) + '</span>' +
             '<span class="badge ' + badgeClass("sci", record.sciGroup) + '">' + esc(record.sciGroup) + '</span>' +
             '<span class="badge ' + badgeClass("extraction", record.extraction) + '">추출 ' + esc(record.extraction) + '</span>' +
             '<span class="badge">' + esc(identifierLabel) + '</span>' +
