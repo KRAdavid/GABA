@@ -1,28 +1,35 @@
-# Cellpinda GABA LAB
+# GABA 연구·규제·안전성 근거 포털
 
-GABA 섭취 관련 임상시험·동물시험·종설·규제 및 안전성 자료를 연결해
-검토하는 한국어 근거 인덱스입니다.
+Google Sheet로 관리되는 GABA 섭취 임상·동물시험 문헌을 한국어로 검색하고
+필터링하는 읽기 전용 웹 스냅샷입니다. 연구·규제·발효·특허·제품 활용 레인을
+분리해 사실, 연구의 의미, 마케팅 활용 방안을 구분해서 검토합니다.
 
-## 공개 운영 사이트
+## 운영 구조
 
-현재 검증된 공개 사이트는 다음에서 확인할 수 있습니다.
+- 원본 관리: Google Sheet
+- 공개 탐색: Sites 웹 인덱스
+- 데이터 갱신: `npm run check`
+- 배포물: `dist/server/index.js`
+- 운영 소스: `worker/template.js` 및 `worker/data.json`
+- 검토 큐: 브라우저 로컬 완료 표시와 JSON 내보내기 제공
 
-https://gaba-evidence-index-kr.dubaissday.chatgpt.site/
+웹 인덱스는 원본 시트를 직접 수정하지 않으며, 배포 시점의 검증된 스냅샷을
+사용합니다. 검토 큐의 완료 표시도 현재 브라우저에만 저장됩니다.
 
-## 이 저장소의 범위
+## 검증 순서
 
-- 순수 GABA, 복합제, GABA 생성 프로바이오틱, GABA 수용체 약물 분리
-- 연구 결과뿐 아니라 연구의 의미·기대 행동·한계 기록
-- 인체·동물·기전·규제 자료와 철회·정정 자료의 구분
-- 공개 검토용 검증 데이터 스냅샷과 검색 템플릿
-- 운영 배포물은 공개 사이트에서 제공하며, 내부 원본 관리 연결정보는 저장하지 않음
+```text
+data-quality → build → validate → build-pending-sheet-sync → UI contract
+```
 
-이 저장소는 개인정보·접근 토큰·내부 연결정보를 포함하지 않는 공개 릴리스입니다.
-데이터는 마지막 검증 시점의 스냅샷이며, 의학적 진단이나 규제 자문을 대체하지
-않습니다.
+- `node scripts/data-quality.mjs`: 원본·후보·식별자·중복 상태 확인
+- `node scripts/build.mjs`: 검증된 스냅샷을 `dist/server/index.js`에 임베드
+- `node scripts/validate.mjs`: 레코드 유형·수량·프로젝트 연결 검증
+- `node scripts/build-pending-sheet-sync.mjs`: Sheets 403 등으로 대기 중인 레코드의 36열 payload 재생성
+- `node scripts/validate-ui-contract.mjs`: 포털·Intelligence·검토 큐 UI 계약 확인
+- `node scripts/chrome-cdp-qa.mjs`: Playwright 없이 설치된 Chrome으로 desktop/mobile 핵심 흐름과 overflow 확인
+- `node scripts/validate-public-surface.mjs`: 공개 HTML/API에 내부 관리 Sheet URL이 노출되지 않는지 확인
+- `node scripts/sync-public-release.mjs`: 지정된 공개 릴리스 디렉터리에 운영 template/data/build/validate/hosting과 UI/Chrome QA 검증기를 동기화하고 관리 Sheet URL을 제거
 
-## 공개 릴리스 기준
-
-배포 전 중복 ID·DOI·PMID, 필수 필드, 연구 분류, 철회·정정 상태와 문구 안전성을
-검증합니다. 마케팅 표현은 각 연구의 대상·용량·기간·제형·한계를 함께 검토해야
-합니다.
+Sheets 쓰기 권한이 없을 때는 재시도 루프를 만들지 않고 대기 payload만 갱신합니다.
+외부 게시, 규제·안전성·법률·특허·금융 판단은 별도 검증과 승인이 필요합니다.

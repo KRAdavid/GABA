@@ -123,6 +123,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .brand-copy strong { font-size: 15px; }
     .brand-copy span { color: var(--muted); font-size: 12px; }
     .top-actions { display: flex; align-items: center; gap: 8px; }
+    .portal-nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+    .portal-nav a {
+      display: inline-flex; align-items: center; min-height: 38px; padding: 7px 10px;
+      border-radius: 9px; color: var(--muted); text-decoration: none; font-size: 12px; font-weight: 700;
+    }
+    .portal-nav a:hover, .portal-nav a:focus-visible { color: var(--ink); background: var(--surface-2); }
     .top-link, .share-button {
       min-height: 42px;
       display: inline-flex;
@@ -150,9 +156,136 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       margin: 0 auto;
       padding: 34px 0 60px;
     }
+    .intelligence-strip {
+      display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr));
+      gap: 12px; margin: 24px 0 30px; align-items: stretch;
+    }
+    .intelligence-intro, .intelligence-card {
+      border: 1px solid var(--line); border-radius: var(--radius-md); background: #fff; padding: 18px;
+    }
+    .intelligence-intro { background: var(--ink); color: #fff; }
+    .intelligence-intro h2, .intelligence-card h3 { margin: 0; letter-spacing: -.03em; }
+    .intelligence-intro h2 { font-size: 19px; }
+    .intelligence-intro p { margin: 8px 0 0; color: rgba(255,255,255,.72); font-size: 12px; line-height: 1.55; }
+    .intelligence-card { display: grid; align-content: space-between; gap: 16px; min-height: 138px; }
+    .intelligence-card h3 { font-size: 14px; }
+    .intelligence-card p { margin: 6px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .intelligence-value { display: block; color: var(--teal-dark); font-size: 24px; letter-spacing: -.05em; }
+    .intelligence-link { color: var(--teal-dark); font-size: 12px; font-weight: 800; text-decoration: none; }
+    .intelligence-feed { margin: 0 0 30px; }
+    .intelligence-feed-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+    .intelligence-feed-head h2 { margin: 0; font-size: 22px; letter-spacing: -.04em; }
+    .intelligence-feed-head p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .intelligence-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .intelligence-filter { min-height: 32px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .intelligence-filter.active { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
+    .intelligence-filter-label { display: block; margin-top: 10px; color: var(--muted); font-size: 10px; font-weight: 800; }
+    .intelligence-feed-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .intelligence-feed-card { min-width: 0; border-top: 3px solid var(--teal); border-radius: var(--radius-md); background: #fff; padding: 18px; box-shadow: var(--shadow); }
+    .intelligence-feed-card .feed-kicker { color: var(--teal-dark); font-size: 11px; font-weight: 800; }
+    .intelligence-feed-card h3 { margin: 8px 0 6px; font-size: 16px; line-height: 1.35; letter-spacing: -.03em; }
+    .intelligence-feed-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .intelligence-feed-card .feed-action { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--ink); font-size: 12px; line-height: 1.5; }
+    .intelligence-feed-card button { margin-top: 12px; margin-right: 12px; padding: 0; border: 0; background: transparent; color: var(--teal-dark); font-size: 12px; font-weight: 800; cursor: pointer; }
+    .intelligence-detail { width: min(760px, calc(100% - 28px)); max-height: min(760px, calc(100vh - 36px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19, 43, 58, .24); }
+    .intelligence-detail::backdrop { background: rgba(19, 43, 58, .46); backdrop-filter: blur(3px); }
+    .intelligence-detail-inner { padding: 24px; overflow: auto; max-height: min(760px, calc(100vh - 36px)); }
+    .intelligence-detail-head { display: flex; justify-content: space-between; align-items: start; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .intelligence-detail-kicker { color: var(--teal-dark); font-size: 11px; font-weight: 800; }
+    .intelligence-detail h2 { margin: 6px 0 0; font-size: 24px; line-height: 1.3; letter-spacing: -.04em; }
+    .intelligence-detail-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .intelligence-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 18px 0; }
+    .intelligence-detail-section { margin-top: 18px; padding: 16px; border-radius: 12px; background: var(--surface-2); }
+    .intelligence-detail-section h3 { margin: 0 0 7px; font-size: 13px; }
+    .intelligence-detail-section p { margin: 0; color: var(--ink-2); font-size: 13px; line-height: 1.65; }
+    .review-checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+    .review-check { display: flex; align-items: center; gap: 7px; padding: 8px 10px; border-radius: 8px; background: #fff; color: var(--muted); font-size: 11px; }
+    .review-check-mark { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; background: var(--surface-3); color: var(--teal-dark); font-weight: 900; }
+    .review-check.missing .review-check-mark { background: var(--amber-soft); color: var(--amber); }
+    .review-queue { margin: 0 0 30px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius-md); background: #fff; }
+    .review-queue-head { display: flex; align-items: end; justify-content: space-between; gap: 14px; margin-bottom: 12px; }
+    .review-queue-head h2 { margin: 0; font-size: 20px; letter-spacing: -.04em; }
+    .review-queue-head p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .review-queue-count { color: var(--amber); font-size: 12px; font-weight: 800; white-space: nowrap; }
+    .review-queue-summary { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+    .review-queue-summary span { padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); color: var(--muted); font-size: 10px; font-weight: 800; }
+    .review-queue-summary span strong { color: var(--ink); }
+    .review-queue-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 12px; }
+    .review-queue-filter { min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-queue-filter.active { border-color: var(--amber); background: var(--amber-soft); color: var(--amber); }
+    .review-queue-toggle { display: inline-flex; align-items: center; gap: 5px; margin-left: auto; color: var(--muted); font-size: 11px; }
+    .review-queue-storage { width: 100%; color: var(--muted); font-size: 10px; }
+    .review-queue-export { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-queue-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .review-queue-card { padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 10px; background: var(--surface-2); }
+    .review-queue-card.priority-high { border-left-color: #d97706; }
+    .review-queue-card.priority-medium { border-left-color: var(--teal); }
+    .review-priority { display: inline-flex; margin-top: 7px; padding: 3px 6px; border-radius: 6px; background: var(--amber-soft); color: var(--amber); font-size: 10px; font-weight: 800; }
+    .review-priority.high { background: #fff0d8; color: #a65300; }
+    .review-priority.medium { background: var(--teal-soft); color: var(--teal-dark); }
+    .review-queue-card h3 { margin: 7px 0 5px; font-size: 13px; line-height: 1.4; }
+    .review-queue-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .review-queue-card button { margin-top: 10px; margin-right: 10px; padding: 0; border: 0; background: transparent; color: var(--teal-dark); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-queue-card button[data-review-done] { color: var(--amber); }
+    .review-queue-card.review-done { opacity: .66; border-left-color: var(--green); }
+    .review-queue-card.review-hold { border-left-color: #7c3aed; }
+    @media (max-width: 640px) { .review-queue-list { grid-template-columns: 1fr; } }
+    .intelligence-related-list { display: grid; gap: 8px; }
+    .intelligence-related-list button { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); text-align: left; font-size: 12px; font-weight: 700; line-height: 1.45; cursor: pointer; }
+    .intelligence-related-list button:hover { border-color: var(--teal); background: var(--teal-soft); }
+    .review-decision-copy { margin: 0 0 10px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .review-decision-controls { display: flex; flex-wrap: wrap; gap: 6px; }
+    .review-decision-controls button { min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--muted); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-decision-controls button.active { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
+    .review-decision-note { width: 100%; min-height: 72px; margin-top: 10px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font: inherit; font-size: 12px; line-height: 1.5; resize: vertical; }
+    .review-decision-save { margin-top: 8px; min-height: 32px; padding: 5px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .intelligence-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .intelligence-detail-actions a, .intelligence-detail-actions button { display: inline-flex; align-items: center; min-height: 38px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 12px; font-weight: 800; text-decoration: none; cursor: pointer; }
+    .intelligence-detail-actions a.primary { border-color: var(--teal); background: var(--teal); color: #fff; }
+    @media (max-width: 640px) { .intelligence-detail-grid { grid-template-columns: 1fr; } .review-checklist { grid-template-columns: 1fr; } .intelligence-detail-inner { padding: 18px; } .intelligence-detail h2 { font-size: 20px; } }
+    .portal-lanes { margin: 0 0 30px; }
+    .portal-lanes-head { margin-bottom: 12px; }
+    .portal-lanes-head h2 { margin: 0; font-size: 22px; letter-spacing: -.04em; }
+    .portal-lanes-head p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .portal-lanes-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .portal-lane { min-height: 142px; display: flex; flex-direction: column; justify-content: space-between; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius-md); background: #fff; text-align: left; cursor: pointer; }
+    .portal-lane:hover, .portal-lane:focus-visible { border-color: var(--teal); box-shadow: var(--shadow); }
+    .portal-lane strong { font-size: 14px; letter-spacing: -.02em; }
+    .portal-lane p { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .portal-lane-meta { display: flex; align-items: end; justify-content: space-between; gap: 8px; margin-top: 16px; }
+    .portal-lane-count { color: var(--teal-dark); font-size: 18px; font-weight: 800; letter-spacing: -.04em; }
+    .portal-lane-action { color: var(--teal-dark); font-size: 11px; font-weight: 800; }
+    .portal-lane-overview { margin: -14px 0 30px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface-3); }
+    .portal-lane-overview[hidden] { display: none; }
+    .portal-lane-overview-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .portal-lane-overview-head h3 { margin: 0; font-size: 16px; letter-spacing: -.03em; }
+    .portal-lane-overview-head p { margin: 3px 0 0; color: var(--muted); font-size: 11px; }
+    .portal-lane-overview-close { border: 0; background: transparent; color: var(--muted); font-size: 12px; font-weight: 800; cursor: pointer; }
+    .portal-lane-overview-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .portal-lane-overview-card { padding: 14px; border: 1px solid rgba(15,118,110,.18); border-radius: 11px; background: #fff; }
+    .portal-lane-overview-card h4 { margin: 0 0 6px; font-size: 13px; line-height: 1.4; }
+    .portal-lane-overview-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .portal-lane-overview-card button { margin-top: 10px; padding: 0; border: 0; background: transparent; color: var(--teal-dark); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .portal-lane-insight { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(15,118,110,.18); }
+    .portal-lane-insight h4 { margin: 0 0 8px; font-size: 12px; }
+    .portal-lane-insight p { margin: 0 0 8px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .regulatory-matrix { width: 100%; border-collapse: collapse; background: #fff; font-size: 11px; }
+    .regulatory-matrix th, .regulatory-matrix td { padding: 8px 9px; border-bottom: 1px solid var(--line); text-align: left; }
+    .regulatory-matrix th { color: var(--muted); font-size: 10px; font-weight: 800; }
+    .regulatory-matrix td:last-child, .regulatory-matrix th:last-child { text-align: right; }
+    .product-matrix-wrap { overflow-x: auto; }
+    .product-matrix { min-width: 680px; }
+    .technology-matrix { min-width: 760px; }
+    @media (max-width: 980px) { .portal-lanes-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .portal-lanes-list { grid-template-columns: 1fr 1fr; } .portal-lane-overview-list { grid-template-columns: 1fr; } }
+    @media (max-width: 430px) { .portal-lanes-list { grid-template-columns: 1fr; } }
     .hero {
       position: relative;
       overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+      align-items: end;
+      gap: 42px;
       padding: clamp(28px, 5vw, 58px);
       border-radius: 28px;
       color: #fff;
@@ -191,6 +324,35 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: clamp(15px, 2vw, 19px);
       color: rgba(255, 255, 255, .86);
     }
+    .hero-copy { position: relative; z-index: 1; min-width: 0; max-width: 100%; }
+    .hero-proof {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+      display: grid;
+      gap: 13px;
+      padding-left: 24px;
+      border-left: 1px solid rgba(255, 255, 255, .25);
+    }
+    .hero-proof-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+    .hero-proof-mark {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, .12);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .hero-proof strong { display: block; font-size: 14px; }
+    .hero-proof span { display: block; margin-top: 2px; color: rgba(255, 255, 255, .72); font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
     .hero-meta {
       position: relative;
       z-index: 1;
@@ -254,6 +416,41 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       color: var(--ink-2);
       font-size: 12px;
     }
+    .orientation-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--line);
+    }
+    .orientation-step {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: center;
+      min-height: 72px;
+      padding: 13px 16px;
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .orientation-step:hover { background: var(--surface-3); color: var(--ink); }
+    .orientation-step-number {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .orientation-step strong { display: block; font-size: 13px; }
+    .orientation-step span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
     .discovery-banner {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -341,14 +538,85 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       color: var(--ink-2);
       font-size: 14px;
     }
-    .distribution-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-    .distribution-item { width: 100%; display: grid; grid-template-columns: 54px 1fr; align-items: center; gap: 11px; padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: #fff; color: var(--ink); text-align: left; cursor: pointer; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-    .distribution-item:hover, .distribution-item:focus-visible { border-color: var(--teal); box-shadow: 0 6px 16px rgba(15, 118, 110, .12); transform: translateY(-1px); }
-    .distribution-ring { position: relative; display: grid; width: 54px; height: 54px; place-items: center; border-radius: 50%; background: conic-gradient(var(--distribution-color) calc(var(--distribution-percent) * 1%), #e8efed 0); }
-    .distribution-ring::after { position: absolute; width: 38px; height: 38px; border-radius: 50%; background: #fff; content: ""; }
-    .distribution-percent { position: relative; z-index: 1; color: var(--ink-2); font-size: 11px; font-weight: 800; }
-    .distribution-label { overflow: hidden; font-size: 13px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
-    .distribution-value { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
+    .distribution-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .distribution-more {
+      min-height: 34px;
+      margin-top: 9px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-2);
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .distribution-more:hover,
+    .distribution-more:focus-visible {
+      border-color: var(--teal);
+      background: var(--teal-soft);
+    }
+    .distribution-item {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      align-items: center;
+      gap: 11px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .distribution-item:hover,
+    .distribution-item:focus-visible {
+      border-color: var(--teal);
+      box-shadow: 0 6px 16px rgba(15, 118, 110, .12);
+      transform: translateY(-1px);
+    }
+    .distribution-ring {
+      position: relative;
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border-radius: 50%;
+      background: conic-gradient(var(--distribution-color) calc(var(--distribution-percent) * 1%), #e8efed 0);
+    }
+    .distribution-ring::after {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      content: "";
+    }
+    .distribution-percent {
+      position: relative;
+      z-index: 1;
+      color: var(--ink-2);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .distribution-label {
+      overflow: hidden;
+      font-size: 13px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .distribution-value {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
 
     .explorer {
       margin-top: 22px;
@@ -363,6 +631,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       background: rgba(255, 255, 255, .96);
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
+    }
+    .explorer-toolbar::before {
+      display: block;
+      margin: 0 0 10px 2px;
+      color: var(--teal-dark);
+      content: "검증된 근거 찾기";
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: -.02em;
     }
     .search-row {
       display: grid;
@@ -466,6 +743,42 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       color: var(--teal-dark);
     }
     .quick-spacer { flex: 1; }
+    .quick-more {
+      position: relative;
+    }
+    .quick-more summary {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--ink-2);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    .quick-more summary::-webkit-details-marker { display: none; }
+    .quick-more summary::after { content: "＋"; margin-left: 6px; color: var(--muted); }
+    .quick-more[open] summary { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
+    .quick-more[open] summary::after { content: "－"; }
+    .quick-more-menu {
+      position: absolute;
+      z-index: 2;
+      top: calc(100% + 7px);
+      left: 0;
+      display: grid;
+      min-width: 150px;
+      gap: 4px;
+      padding: 7px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(25, 54, 64, .12);
+    }
+    .quick-more-menu .quick-button { width: 100%; border-radius: 8px; text-align: left; }
     .sort-select {
       min-height: 38px;
       padding: 7px 32px 7px 12px;
@@ -913,7 +1226,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       .topbar-inner { min-height: 62px; }
       .brand-copy span, .top-link { display: none; }
       .page { padding-top: 20px; }
-      .hero { padding: 28px 22px; border-radius: 22px; }
+      .hero { grid-template-columns: 1fr; gap: 24px; padding: 28px 22px; border-radius: 22px; }
+      .portal-nav { display: none; }
+      .intelligence-strip { grid-template-columns: 1fr 1fr; }
+      .hero-proof { padding: 18px 0 0; border-top: 1px solid rgba(255, 255, 255, .25); border-left: 0; grid-template-columns: repeat(3, 1fr); }
       .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .discovery-banner { grid-template-columns: 1fr; }
       .discovery-link { justify-self: start; }
@@ -950,6 +1266,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       .share-button { padding-inline: 11px; }
       .page { width: calc(100% - 20px); }
       .hero h1 { font-size: 34px; }
+      .hero, .hero-copy, .hero p, .hero-proof { min-width: 0; max-width: 100%; }
+      .hero h1, .hero p { overflow-wrap: anywhere; word-break: break-word; }
+      .hero-proof { grid-template-columns: 1fr; }
+      .intelligence-strip { grid-template-columns: 1fr; }
+      .intelligence-feed-list { grid-template-columns: 1fr; }
       .metric { min-height: 105px; padding: 14px; }
       .metric-value { font-size: 27px; }
       .section-head { padding: 20px 18px 0; }
@@ -959,6 +1280,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       .sort-select { width: 100%; order: 2; }
       .page-size-select { flex: 1; order: 2; }
       .paper-card { padding: 17px 15px; }
+      .orientation-strip { grid-template-columns: 1fr; }
       .detail-grid { grid-template-columns: 1fr; }
       .record-id { width: 100%; margin-left: 0; }
     }
@@ -978,7 +1300,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 <body>
   <a class="skip-link" href="#results">검색 결과로 건너뛰기</a>
   <header class="topbar">
-    <div class="topbar-inner">
+      <div class="topbar-inner">
       <a class="brand" href="#" aria-label="GABA 섭취 근거 인덱스 홈">
         <span class="brand-mark">GABA</span>
         <span class="brand-copy">
@@ -986,8 +1308,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <span>임상·동물·규제자료 통합 탐색</span>
         </span>
       </a>
+      <nav class="portal-nav" aria-label="포털 영역">
+        <a href="#results">근거 인덱스</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#distribution-title">규제·안전</a>
+        <a href="#results">시장·활용</a>
+      </nav>
       <div class="top-actions">
-        <a class="top-link" id="sheet-link" target="_blank" rel="noopener noreferrer">관리 원본 Sheet</a>
+        <a class="top-link" id="sheet-link" hidden target="_blank" rel="noopener noreferrer">관리 원본 Sheet</a>
         <button class="share-button" id="share-button" type="button" aria-label="현재 검색 조건 링크 복사">링크 복사</button>
       </div>
     </div>
@@ -995,15 +1323,28 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
   <main class="page">
     <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow">EVIDENCE EXPLORER · 읽기 전용 공개 스냅샷</p>
-      <h1 id="page-title">GABA 연구와 규제 안전성 자료를<br>한국어로 빠르게 탐색하세요</h1>
-      <p>인체 임상시험·동물시험과 식약처·해외 규제자료를 분리하고, 연구조건·핵심결과·안전성·심사 활용도를 한 화면에서 비교할 수 있습니다.</p>
-      <div class="hero-meta">
-        <span class="hero-pill"><span class="pulse" aria-hidden="true"></span><span id="snapshot-label"></span></span>
-        <span class="hero-pill" id="coverage-label"></span>
-        <span class="hero-pill">매주 업데이트</span>
+      <div class="hero-copy">
+        <p class="eyebrow">EVIDENCE EXPLORER · 읽기 전용 공개 스냅샷</p>
+        <h1 id="page-title">검증된 GABA 근거를<br>가장 빠르게 찾는 방법</h1>
+        <p>인체 임상·동물시험·규제자료를 분리해 검색하고, 연구의 의미와 마케팅 활용 방안까지 한 화면에서 비교할 수 있습니다.</p>
+        <div class="hero-meta">
+          <span class="hero-pill"><span class="pulse" aria-hidden="true"></span><span id="snapshot-label"></span></span>
+          <span class="hero-pill" id="coverage-label"></span>
+          <span class="hero-pill">매주 업데이트</span>
+        </div>
+      </div>
+      <div class="hero-proof" aria-label="인덱스의 핵심 원칙">
+        <div class="hero-proof-item"><span class="hero-proof-mark" aria-hidden="true">⌕</span><div><strong>신뢰할 수 있는 선별</strong><span>검증 상태와 출처를 함께 표시</span></div></div>
+        <div class="hero-proof-item"><span class="hero-proof-mark" aria-hidden="true">▤</span><div><strong>핵심만 빠르게</strong><span>연구의 의미·활용 방향을 카드에서 확인</span></div></div>
+        <div class="hero-proof-item"><span class="hero-proof-mark" aria-hidden="true">↗</span><div><strong>원문으로 연결</strong><span>PMID·DOI·Drive 원문을 한 번에 확인</span></div></div>
       </div>
     </section>
+
+    <nav class="orientation-strip" aria-label="근거 탐색 순서">
+      <a class="orientation-step" href="#explorer-title"><span class="orientation-step-number">1</span><span><strong>질문을 입력하세요</strong><span>수면·혈압·안전성 등 한국어 검색</span></span></a>
+      <a class="orientation-step" href="#filter-panel"><span class="orientation-step-number">2</span><span><strong>조건을 좁히세요</strong><span>대상·연구유형·규제상태로 필터</span></span></a>
+      <a class="orientation-step" href="#results"><span class="orientation-step-number">3</span><span><strong>근거를 확인하세요</strong><span>결과·의미·마케팅 활용 방향 비교</span></span></a>
+    </nav>
 
     <section class="metric-grid" aria-label="데이터 요약">
       <article class="metric">
@@ -1054,14 +1395,137 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <p id="discovery-copy">대량 탐색 현황을 불러오는 중입니다.</p>
         <div class="discovery-stats" id="discovery-stats" aria-label="대량 탐색 통계"></div>
       </div>
-      <a class="discovery-link" id="candidate-link" target="_blank" rel="noopener noreferrer">후보 큐 열기 ↗</a>
+        <a class="discovery-link" id="candidate-link" hidden target="_blank" rel="noopener noreferrer">후보 큐 열기 ↗</a>
     </section>
+
+    <section class="intelligence-strip" id="intelligence" aria-labelledby="intelligence-title">
+      <div class="intelligence-intro">
+        <h2 id="intelligence-title">오늘의 검토 신호</h2>
+        <p>인덱스에 확인된 자료를 연구·규제·활용 관점으로 나누어 보여줍니다. 해석은 원문 확인과 승인 후에만 사업 자료로 사용합니다.</p>
+        <a class="intelligence-link" href="#results" style="color:#b7f3e7">근거부터 확인하기 →</a>
+      </div>
+      <article class="intelligence-card">
+        <div><h3>인체 근거</h3><p id="intelligence-clinical-copy">확인된 인체 연구</p></div>
+        <strong class="intelligence-value" id="intelligence-clinical">-</strong>
+      </article>
+      <article class="intelligence-card">
+        <div><h3>규제·안전성</h3><p id="intelligence-regulatory-copy">공식 자료와 안전성 기록</p></div>
+        <strong class="intelligence-value" id="intelligence-regulatory">-</strong>
+      </article>
+      <article class="intelligence-card">
+        <div><h3>원문 추적</h3><p id="intelligence-source-copy">식별자와 원문 링크가 있는 문헌</p></div>
+        <strong class="intelligence-value" id="intelligence-source">-</strong>
+      </article>
+    </section>
+
+    <section class="intelligence-feed" aria-labelledby="intelligence-feed-title">
+      <div class="intelligence-feed-head">
+        <div>
+          <h2 id="intelligence-feed-title">최신 인덱스에서 읽는 검토 포인트</h2>
+          <p>최신 스냅샷의 자료를 기준으로 정리한 탐색용 요약입니다. 확정적 사업 판단은 원문과 전체 근거를 함께 검토하세요.</p>
+          <div class="intelligence-filters" aria-label="Intelligence 자료 유형 필터">
+            <button class="intelligence-filter active" type="button" data-intelligence-kind="">전체</button>
+            <button class="intelligence-filter" type="button" data-intelligence-kind="임상">인체</button>
+            <button class="intelligence-filter" type="button" data-intelligence-kind="규제">규제·안전</button>
+            <button class="intelligence-filter" type="button" data-intelligence-kind="동물">동물·전임상</button>
+          </div>
+          <span class="intelligence-filter-label">검토 상태</span>
+          <div class="intelligence-filters" aria-label="Intelligence 검토 상태 필터">
+            <button class="intelligence-filter active" type="button" data-intelligence-review="">전체</button>
+            <button class="intelligence-filter" type="button" data-intelligence-review="direct">포함된 직접 근거</button>
+            <button class="intelligence-filter" type="button" data-intelligence-review="candidate">후보·추가 검토</button>
+            <button class="intelligence-filter" type="button" data-intelligence-review="regulatory">규제 참고</button>
+            <button class="intelligence-filter" type="button" data-intelligence-review="partial">추출 부분</button>
+          </div>
+        </div>
+        <a class="intelligence-link" href="#results">전체 근거 보기 →</a>
+      </div>
+      <div class="intelligence-feed-list" id="intelligence-feed-list"></div>
+    </section>
+
+    <section class="portal-lanes" aria-labelledby="portal-lanes-title">
+      <div class="portal-lanes-head">
+        <h2 id="portal-lanes-title">전문 조사 레인</h2>
+        <p>관심 영역을 선택하면 현재 인덱스의 관련 자료로 바로 이동합니다. 자료가 부족한 레인은 추가 조사 대상으로 표시됩니다.</p>
+      </div>
+      <div class="portal-lanes-list" id="portal-lanes-list"></div>
+    </section>
+    <section class="portal-lane-overview" id="portal-lane-overview" aria-live="polite" hidden>
+      <div class="portal-lane-overview-head">
+        <div><h3 id="portal-lane-overview-title">조사 레인을 선택하세요</h3><p id="portal-lane-overview-copy"></p></div>
+        <button class="portal-lane-overview-close" id="portal-lane-overview-close" type="button">닫기</button>
+      </div>
+      <div class="portal-lane-overview-list" id="portal-lane-overview-list"></div>
+      <div class="portal-lane-insight" id="portal-lane-insight"></div>
+    </section>
+    <section class="review-queue" aria-labelledby="review-queue-title">
+      <div class="review-queue-head">
+        <div><h2 id="review-queue-title">추가 검토 큐</h2><p>후보·부분추출·핵심 기록 누락 자료를 다음 확인 작업으로 연결합니다.</p></div>
+        <span class="review-queue-count" id="review-queue-count">-</span>
+      </div>
+      <div class="review-queue-controls" aria-label="추가 검토 큐 필터">
+        <button class="review-queue-filter active" type="button" data-review-filter="all">전체</button>
+        <button class="review-queue-filter" type="button" data-review-filter="candidate">후보</button>
+        <button class="review-queue-filter" type="button" data-review-filter="partial">부분추출</button>
+        <button class="review-queue-filter" type="button" data-review-filter="missing">핵심 누락</button>
+        <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 내보내기</button>
+        <label class="review-queue-toggle"><input id="review-hide-done" type="checkbox"> 완료 숨기기</label>
+        <span class="review-queue-storage">검토 완료 표시는 현재 브라우저에만 저장되며 원본 인덱스·Sheets를 변경하지 않습니다.</span>
+      </div>
+      <div class="review-queue-summary" id="review-queue-summary" aria-label="검토 큐 요약"></div>
+      <div class="review-queue-list" id="review-queue-list"></div>
+    </section>
+
+    <dialog class="intelligence-detail" id="intelligence-detail" aria-labelledby="intelligence-detail-title">
+      <div class="intelligence-detail-inner">
+        <div class="intelligence-detail-head">
+          <div>
+            <span class="intelligence-detail-kicker" id="intelligence-detail-kicker">근거 상세</span>
+            <h2 id="intelligence-detail-title">자료를 선택하세요</h2>
+          </div>
+          <button class="intelligence-detail-close" id="intelligence-detail-close" type="button" aria-label="상세 닫기">×</button>
+        </div>
+        <div class="intelligence-detail-grid" id="intelligence-detail-facts"></div>
+        <section class="intelligence-detail-section">
+          <h3>핵심 결과</h3>
+          <p id="intelligence-detail-finding"></p>
+        </section>
+        <section class="intelligence-detail-section">
+          <h3>검토 체크 <span style="color:var(--muted);font-size:10px;font-weight:600">기록 충실도 표시</span></h3>
+          <div class="review-checklist" id="intelligence-detail-checklist"></div>
+        </section>
+        <section class="intelligence-detail-section">
+          <h3>로컬 검토 기록</h3>
+          <p class="review-decision-copy">현재 브라우저에만 저장되는 검토 상태와 메모입니다. 원본 인덱스·Sheets·공개 데이터는 변경하지 않습니다.</p>
+          <div class="review-decision-controls" id="review-decision-controls" aria-label="검토 상태 선택">
+            <button type="button" data-detail-review-status="pending">대기</button>
+            <button type="button" data-detail-review-status="hold">추가 자료 필요</button>
+            <button type="button" data-detail-review-status="done">검토 완료</button>
+          </div>
+          <textarea class="review-decision-note" id="intelligence-detail-note" placeholder="검토 메모를 남겨두세요. 예: 원문에서 용량·대조군 확인 필요"></textarea>
+          <button class="review-decision-save" id="intelligence-detail-save" type="button">검토 기록 저장</button>
+        </section>
+        <section class="intelligence-detail-section">
+          <h3>연구의 의미</h3>
+          <p id="intelligence-detail-meaning"></p>
+        </section>
+        <section class="intelligence-detail-section">
+          <h3>마케팅 활용 방안</h3>
+          <p id="intelligence-detail-marketing"></p>
+        </section>
+        <section class="intelligence-detail-section">
+          <h3>같은 주제의 연결 근거</h3>
+          <div class="intelligence-related-list" id="intelligence-detail-related"></div>
+        </section>
+        <div class="intelligence-detail-actions" id="intelligence-detail-actions"></div>
+      </div>
+    </dialog>
 
     <section class="section" aria-labelledby="distribution-title">
       <div class="section-head">
         <div>
           <h2 id="distribution-title">근거 분포</h2>
-          <p>막대를 선택하면 해당 조건으로 바로 필터링됩니다.</p>
+          <p>상위 항목을 선택해 결과를 좁힐 수 있습니다. 나머지 항목은 전체 분포에서 확인합니다.</p>
         </div>
       </div>
       <div class="distribution-grid">
@@ -1105,11 +1569,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="quick-button" type="button" data-kind="규제">규제·안전성</button>
           <button class="quick-button" type="button" data-category="안전성">안전성 자료</button>
           <button class="quick-button" type="button" data-effect-category="수면">수면</button>
-          <button class="quick-button" type="button" data-effect-category="성장호르몬">성장호르몬</button>
-          <button class="quick-button" type="button" data-effect-category="근육발달">근육발달</button>
-          <button class="quick-button" type="button" data-effect-category="다이어트">다이어트</button>
-          <button class="quick-button" type="button" data-effect-category="고혈압">고혈압</button>
-          <button class="quick-button" type="button" data-effect-category="당뇨">당뇨</button>
+          <details class="quick-more">
+            <summary>분야 더보기</summary>
+            <div class="quick-more-menu" aria-label="추가 분야 빠른 필터">
+              <button class="quick-button" type="button" data-effect-category="성장호르몬">성장호르몬</button>
+              <button class="quick-button" type="button" data-effect-category="근육발달">근육발달</button>
+              <button class="quick-button" type="button" data-effect-category="다이어트">다이어트</button>
+              <button class="quick-button" type="button" data-effect-category="고혈압">고혈압</button>
+              <button class="quick-button" type="button" data-effect-category="당뇨">당뇨</button>
+            </div>
+          </details>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
           <select class="sort-select" id="sort">
@@ -1259,6 +1728,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var DB = JSON.parse(document.getElementById("database").textContent);
       var records = DB.records;
       var pageSize = 20;
+      var intelligenceKind = "";
+      var intelligenceReview = "";
+      var activeLane = null;
+      var reviewQueueFilter = "all";
+      var reviewQueueHideDone = false;
+      var reviewDecisions = {};
+      try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
+      var currentDetailRecordId = null;
+      var reviewDraftStatus = "pending";
+      var reviewDraftNote = "";
       var state = {
         q: "", kind: "", category: "", effectCategory: "", status: "", sci: "", species: "", topic: "",
         grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", from: DB.meta.minYear,
@@ -1321,7 +1800,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var identified = records.filter(function (record) {
           return record.kind !== "규제" && (record.pmid || record.doi);
         }).length;
-        el("sheet-link").href = DB.meta.sourceSheet;
+        var sheetLink = el("sheet-link");
+        if (DB.meta.sourceSheet) {
+          sheetLink.href = DB.meta.sourceSheet;
+          sheetLink.hidden = false;
+        }
         el("snapshot-label").textContent = "최종 갱신 " + koreanDate(DB.meta.snapshotDate);
         el("coverage-label").textContent = DB.meta.minYear + "–" + DB.meta.maxYear + "년";
         el("metric-total").textContent = countText(DB.meta.literature || DB.meta.total);
@@ -1334,7 +1817,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("metric-identifiers").textContent = DB.meta.literature
           ? Math.round(identified / DB.meta.literature * 100).toLocaleString("ko-KR") + "%"
           : "-";
-        el("candidate-link").href = discovery.candidateSheet || DB.meta.sourceSheet;
+        el("intelligence-clinical").textContent = countText(DB.meta.clinical);
+        el("intelligence-regulatory").textContent = Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + "건";
+        el("intelligence-source").textContent = DB.meta.literature
+          ? Math.round(identified / DB.meta.literature * 100).toLocaleString("ko-KR") + "%"
+          : "-";
+        el("intelligence-clinical-copy").textContent = "사람을 대상으로 한 섭취 연구 · " + (DB.meta.clinical || 0).toLocaleString("ko-KR") + "편";
+        el("intelligence-regulatory-copy").textContent = "공식 규제·안전성 자료 · " + (DB.meta.regulatory || 0).toLocaleString("ko-KR") + "건";
+        el("intelligence-source-copy").textContent = "PMID 또는 DOI 확인 문헌 비율";
+        var candidateLink = el("candidate-link");
+        var candidateUrl = discovery.candidateSheet || DB.meta.sourceSheet;
+        if (candidateUrl) {
+          candidateLink.href = candidateUrl;
+          candidateLink.hidden = false;
+        }
         el("discovery-copy").textContent = discovery.disclaimer
           || "자동 탐색 후보는 검증 자료와 분리하며, 최종 판정 후에만 공개 인덱스로 승격합니다.";
         el("discovery-stats").innerHTML = [
@@ -1347,6 +1843,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         ].map(function (item) {
           return '<span class="discovery-stat">' + esc(item[0]) + " " + esc(item[1]) + '</span>';
         }).join("");
+        renderIntelligenceFeed();
+        renderPortalLanes();
+        renderReviewQueue();
         el("footer-snapshot").textContent = "게시 스냅샷: " + koreanDate(DB.meta.snapshotDate) + " · 문헌 " + countText(DB.meta.literature || DB.meta.total) + " · 규제자료 " + Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + "건";
         controls.from.min = DB.meta.minYear;
         controls.from.max = DB.meta.maxYear;
@@ -1369,15 +1868,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function renderDistribution(targetId, items, field) {
         var target = el(targetId);
-        var visible = items.slice(0, field === "species" ? 8 : 6);
+        var visible = items.slice(0, 4);
+        var extra = items.slice(4, field === "species" ? 8 : 6);
         var total = items.reduce(function (sum, item) { return sum + item.value; }, 0);
         var colors = ["#0f766e", "#2563eb", "#b7791f", "#b42318", "#7c3aed", "#0f766e", "#2563eb", "#b7791f"];
-        target.innerHTML = visible.map(function (item) {
+        var renderItem = function (item, index, hidden) {
           var percent = total ? (item.value / total * 100).toFixed(1) : "0.0";
-          return '<button class="distribution-item" type="button" data-distribution-field="' + esc(field) + '" data-distribution-value="' + esc(item.label) + '" style="--distribution-color:' + colors[visible.indexOf(item) % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
+          return '<button class="distribution-item' + (hidden ? ' distribution-item-extra' : '') + '" type="button"' + (hidden ? ' hidden' : '') + ' data-distribution-field="' + esc(field) + '" data-distribution-value="' + esc(item.label) + '" style="--distribution-color:' + colors[index % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
             '<span class="distribution-ring" aria-hidden="true"><span class="distribution-percent">' + percent + '%</span></span>' +
             '<span><span class="distribution-label">' + esc(item.label) + '</span><span class="distribution-value">' + item.value.toLocaleString("ko-KR") + '편</span></span></button>';
-        }).join("");
+        };
+        target.innerHTML = visible.map(function (item, index) { return renderItem(item, index, false); }).join("") +
+          extra.map(function (item, index) { return renderItem(item, index + visible.length, true); }).join("") +
+          (extra.length ? '<button class="distribution-more" type="button" data-distribution-more="' + esc(targetId) + '" aria-expanded="false">전체 분포 보기</button>' : '');
       }
 
       function loadUrlState() {
@@ -1595,6 +2098,297 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           return "인체 연구의 가설 설정, 제품·시험 설계, 용량·노출 비교를 위한 전임상 자료로 활용합니다. 동물 결과를 인체 효능 문구로 직접 전환하지 않습니다.";
         }
         return "제품·표시·추가 연구를 검토할 때 대상·용량·기간이 실제 사용조건과 맞는지 비교 자료로 활용합니다. 여러 인체 연구와 안전성 자료를 함께 검토한 뒤 표현 범위를 정합니다.";
+      }
+      function renderIntelligenceFeed() {
+        var target = el("intelligence-feed-list");
+        if (!target) return;
+        var source = records.filter(function (record) {
+          if (intelligenceKind && record.kind !== intelligenceKind) return false;
+          if (intelligenceReview === "direct" && record.status !== "포함") return false;
+          if (intelligenceReview === "candidate" && record.status !== "후보") return false;
+          if (intelligenceReview === "regulatory" && record.kind !== "규제") return false;
+          if (intelligenceReview === "partial" && record.extraction !== "부분") return false;
+          return true;
+        });
+        var latest = source.slice().sort(function (a, b) {
+          return String(b.checked || "").localeCompare(String(a.checked || "")) || Number(b.year || 0) - Number(a.year || 0);
+        }).slice(0, 3);
+        target.innerHTML = latest.map(function (record) {
+          var kind = record.kind === "규제" ? "규제·안전성" : record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물시험" : "근거 자료";
+          var summary = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않은 자료입니다.";
+          return '<article class="intelligence-feed-card">' +
+            '<span class="feed-kicker">' + esc(kind) + ' · ' + esc(record.year || "연도 미상") + '</span>' +
+            '<h3>' + esc(koreanTitle(record)) + '</h3>' +
+            '<p>' + esc(summary) + '</p>' +
+            '<p class="feed-action"><strong>검토 포인트</strong> · ' + esc(utilizationDirection(record)) + '</p>' +
+            '<button type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button>' +
+            '<button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 근거 검색 →</button>' +
+            '</article>';
+        }).join("");
+        document.querySelectorAll("[data-intelligence-kind]").forEach(function (button) {
+          button.classList.toggle("active", button.dataset.intelligenceKind === intelligenceKind);
+        });
+        document.querySelectorAll("[data-intelligence-review]").forEach(function (button) {
+          button.classList.toggle("active", button.dataset.intelligenceReview === intelligenceReview);
+        });
+      }
+      var PORTAL_LANES = [
+        { title: "연구·임상", query: "GABA", description: "인체·동물 연구와 연구조건 비교", match: function (record) { return record.kind === "임상" || record.kind === "동물"; } },
+        { title: "규제·안전", query: "안전성", description: "공식 규제자료와 안전성 검토", match: function (record) { return record.kind === "규제" || record.category === "안전성"; } },
+        { title: "발효·생산", query: "발효", description: "발효 GABA·생산·기능성 식품", match: function (record) { return /발효|ferment|생산|production/i.test(record._search || ""); } },
+        { title: "특허·기술", query: "특허", description: "특허·공정·기술 선행자료", match: function (record) { return /특허|patent|공정|strain|균주/i.test(record._search || ""); } },
+        { title: "제품·활용", query: "원료", description: "원료·제품·마케팅 활용 검토", match: function (record) { return /제품|원료|marketing|마케팅|기능성 식품/i.test(record._search || ""); } }
+      ];
+      function renderPortalLanes() {
+        var target = el("portal-lanes-list");
+        if (!target) return;
+        target.innerHTML = PORTAL_LANES.map(function (lane) {
+          var count = records.filter(lane.match).length;
+          var countLabel = count.toLocaleString("ko-KR") + "건";
+          var note = count ? "현재 연결 자료" : "추가 조사 필요";
+          return '<button class="portal-lane" type="button" data-query="' + esc(lane.query) + '">' +
+            '<span><strong>' + esc(lane.title) + '</strong><p>' + esc(lane.description) + '</p></span>' +
+            '<span class="portal-lane-meta"><span><span class="portal-lane-count">' + countLabel + '</span><br><span style="color:var(--muted);font-size:10px">' + note + '</span></span><span class="portal-lane-action">탐색 →</span></span>' +
+            '</button>';
+        }).join("");
+      }
+      function renderPortalLaneOverview(lane) {
+        var panel = el("portal-lane-overview");
+        if (!panel || !lane) return;
+        activeLane = lane;
+        var items = records.filter(lane.match).sort(function (a, b) {
+          return String(b.checked || "").localeCompare(String(a.checked || "")) || Number(b.year || 0) - Number(a.year || 0);
+        }).slice(0, 3);
+        el("portal-lane-overview-title").textContent = lane.title + " 레인 개요";
+        el("portal-lane-overview-copy").textContent = items.length
+          ? "현재 연결된 " + records.filter(lane.match).length.toLocaleString("ko-KR") + "건 중 대표 자료입니다."
+          : "현재 인덱스에 직접 연결된 자료가 부족해 추가 조사가 필요합니다.";
+        el("portal-lane-overview-list").innerHTML = items.length
+          ? items.map(function (record) {
+              return '<article class="portal-lane-overview-card"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><h4>' + esc(koreanTitle(record)) + '</h4><p>' + esc(record.finding || record.summaryKo || "주요 결과 미추출") + '</p><p><strong>근거 수준</strong> · ' + esc(record.grade || record.sciGroup || "미분류") + '</p><button type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button></article>';
+            }).join("")
+          : '<article class="portal-lane-overview-card"><h4>추가 자료를 확보해야 합니다</h4><p>현재 검색 인덱스에 충분한 직접 연결 자료가 없어 후보 큐와 원문 검색을 우선 확인하세요.</p></article>';
+        renderPortalLaneInsight(lane);
+        panel.hidden = false;
+        panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+      function renderPortalLaneInsight(lane) {
+        var target = el("portal-lane-insight");
+        if (!target) return;
+        var items = records.filter(lane.match);
+        if (lane.title === "발효·생산" || lane.title === "특허·기술") {
+          var technologyItems = items.slice().sort(function (a, b) {
+            return Number(b.year || 0) - Number(a.year || 0) || String(b.checked || "").localeCompare(String(a.checked || ""));
+          }).slice(0, 8);
+          target.innerHTML = '<h4>기술 검토 매트릭스</h4><p>연구·생산 선행자료를 기술 검토용으로 묶은 표입니다. 특허 침해, FTO, 권리 유효성 판단은 별도 특허 전문가 검토가 필요합니다.</p>' +
+            (technologyItems.length ? '<div class="product-matrix-wrap"><table class="regulatory-matrix technology-matrix"><thead><tr><th>자료</th><th>기술 초점</th><th>형태·원료</th><th>대상·모델</th><th>평가지표</th><th>제한·안전</th></tr></thead><tbody>' + technologyItems.map(function (record) {
+              return '<tr><td>' + esc(record.kind || "자료") + ' · ' + esc(record.year || "-") + '</td><td>' + esc(record.topic || record.domain || "미분류") + '</td><td>' + esc(record.form || record.ingredientKo || "미보고") + '</td><td>' + esc(record.model || record.population || record.species || "미보고") + '</td><td>' + esc(record.outcome || record.finding || "미보고") + '</td><td>' + esc(record.limitation || record.safety || "추가 확인 필요") + '</td></tr>';
+            }).join("") + '</tbody></table></div>' : '<p>기술 분류 가능한 자료가 아직 없습니다.</p>');
+          return;
+        }
+        if (lane.title === "제품·활용") {
+          var productItems = items.slice().sort(function (a, b) {
+            var aClinical = a.kind === "임상" ? 1 : 0;
+            var bClinical = b.kind === "임상" ? 1 : 0;
+            return bClinical - aClinical || Number(b.year || 0) - Number(a.year || 0);
+          }).slice(0, 8);
+          target.innerHTML = '<h4>제형·용량·결과 비교</h4><p>현재 인덱스에 기록된 자료만 비교합니다. 이 표는 제품 주장이나 허가를 승인하는 표가 아니며, 복합제·발효물은 GABA 단독 근거와 구분해야 합니다.</p>' +
+            (productItems.length ? '<div class="product-matrix-wrap"><table class="regulatory-matrix product-matrix"><thead><tr><th>자료</th><th>제형·개입</th><th>GABA 용량</th><th>결과영역</th><th>방향</th><th>활용 판정</th></tr></thead><tbody>' + productItems.map(function (record) {
+              return '<tr><td>' + esc(record.kind || "자료") + ' · ' + esc(record.year || "-") + '</td><td>' + esc(record.form || record.ingredientKo || "미보고") + '</td><td>' + esc(record.dose || record.exposure || "미보고") + '</td><td>' + esc(record.domain || record.effectCategory || "미분류") + '</td><td>' + esc(record.direction || "미분류") + '</td><td>' + esc(marketingLabel(record)) + '</td></tr>';
+            }).join("") + '</tbody></table></div>' : '<p>비교 가능한 제품·활용 자료가 없습니다.</p>');
+          return;
+        }
+        if (lane.title === "규제·안전") {
+          var groups = {};
+          items.forEach(function (record) {
+            var key = [record.country || "국가 미상", record.agency || "기관 미상"].join(" · ");
+            groups[key] = (groups[key] || 0) + 1;
+          });
+          var rows = Object.keys(groups).sort(function (a, b) { return groups[b] - groups[a] || a.localeCompare(b, "ko"); });
+          target.innerHTML = '<h4>국가·기관 비교</h4><p>현재 인덱스의 규제·안전성 자료를 출처 단위로 묶었습니다. 해외 참고자료는 국내 허가·표시 적합성이나 임상효능을 자동으로 보장하지 않습니다.</p>' +
+            (rows.length ? '<table class="regulatory-matrix"><thead><tr><th>국가 · 기관</th><th>자료 수</th></tr></thead><tbody>' + rows.map(function (key) { return '<tr><td>' + esc(key) + '</td><td>' + groups[key].toLocaleString("ko-KR") + '건</td></tr>'; }).join("") + '</tbody></table>' : '<p>현재 연결된 규제자료가 없습니다.</p>');
+          return;
+        }
+        var buckets = lane.title === "발효·생산" || lane.title === "특허·기술"
+          ? [{ label: "발효·생산", pattern: /발효|ferment|생산|production/i }, { label: "균주·미생물", pattern: /균주|strain|미생물|microb/i }, { label: "공정·최적화", pattern: /공정|최적화|process|optimization/i }, { label: "기능성 식품", pattern: /기능성 식품|functional food/i }]
+          : [{ label: "인체", pattern: /인체|human|사람/i }, { label: "동물·전임상", pattern: /동물|animal|mouse|rat|전임상/i }, { label: "안전성", pattern: /안전성|safety|독성/i }];
+        var counts = buckets.map(function (bucket) { return [bucket.label, items.filter(function (record) { return bucket.pattern.test(record._search || ""); }).length]; }).filter(function (entry) { return entry[1] > 0; });
+        target.innerHTML = '<h4>자료 구성</h4><p>현재 인덱스의 검색 가능한 텍스트에서 분류 키워드를 집계했습니다. 키워드 집계는 기술·법률 판단을 대신하지 않습니다.</p>' + (counts.length ? '<div class="discovery-stats">' + counts.map(function (entry) { return '<span class="discovery-stat">' + esc(entry[0]) + ' ' + entry[1].toLocaleString("ko-KR") + '건</span>'; }).join("") + '</div>' : '<p>분류 가능한 자료가 아직 없습니다.</p>');
+      }
+      function reviewChecklist(record) {
+        return [
+          ["개입·제형", record.form || record.exposure],
+          ["용량", record.dose || record.exposure],
+          ["기간", record.duration],
+          ["대조군", record.comparator],
+          ["안전성", record.safety || record.safetyFinding],
+          ["한계", record.limitation],
+          ["식별자", record.pmid || record.doi]
+        ];
+      }
+      function reviewPriority(item) {
+        var record = item.record;
+        var score = 0;
+        if (record.status === "후보") score += 5;
+        if (record.extraction === "부분") score += 3;
+        if (record.kind === "임상") score += 3;
+        if (record.kind === "규제") score += 2;
+        if (item.missing.length >= 4) score += 3;
+        else if (item.missing.length >= 3) score += 2;
+        if (item.missing.indexOf("식별자") >= 0) score += 2;
+        return score >= 7 ? { key: "high", label: "우선 검토" } : score >= 4 ? { key: "medium", label: "다음 검토" } : { key: "normal", label: "기본 검토" };
+      }
+      function reviewDecisionState(recordId) {
+        var saved = reviewDecisions[recordId];
+        if (!saved) return { status: "pending", note: "", updatedAt: null, completedAt: null };
+        if (typeof saved === "string") return { status: saved, note: "", updatedAt: null, completedAt: null };
+        return {
+          status: saved.status || (saved.completedAt ? "done" : "pending"),
+          note: saved.note || "",
+          updatedAt: saved.updatedAt || null,
+          completedAt: saved.completedAt || null
+        };
+      }
+      function persistReviewDecision(recordId, status, note) {
+        if (status === "pending" && !String(note || "").trim()) delete reviewDecisions[recordId];
+        else {
+          var previous = reviewDecisionState(recordId);
+          reviewDecisions[recordId] = {
+            status: status,
+            note: String(note || "").trim(),
+            updatedAt: new Date().toISOString(),
+            completedAt: status === "done" ? (previous.completedAt || new Date().toISOString()) : null
+          };
+        }
+        try { localStorage.setItem("gaba-review-decisions", JSON.stringify(reviewDecisions)); } catch (_) {}
+      }
+      function renderReviewDecisionPanel(recordId) {
+        var decision = reviewDecisionState(recordId);
+        reviewDraftStatus = decision.status;
+        reviewDraftNote = decision.note;
+        document.querySelectorAll("[data-detail-review-status]").forEach(function (button) {
+          button.classList.toggle("active", button.dataset.detailReviewStatus === reviewDraftStatus);
+        });
+        var note = el("intelligence-detail-note");
+        if (note) note.value = reviewDraftNote;
+      }
+      function renderReviewQueue() {
+        var target = el("review-queue-list");
+        var countTarget = el("review-queue-count");
+        var summaryTarget = el("review-queue-summary");
+        if (!target || !countTarget) return;
+        var baseQueue = records.map(function (record) {
+          var missing = reviewChecklist(record).filter(function (item) { return !item[1]; }).map(function (item) { return item[0]; });
+          var item = { record: record, missing: missing };
+          item.priority = reviewPriority(item);
+          return item;
+        }).filter(function (item) {
+          return item.record.status === "후보" || item.record.extraction === "부분" || item.missing.length >= 3;
+        }).sort(function (a, b) {
+          var priorityRank = { high: 3, medium: 2, normal: 1 };
+          return priorityRank[b.priority.key] - priorityRank[a.priority.key] || b.missing.length - a.missing.length || String(b.record.checked || "").localeCompare(String(a.record.checked || "")) || Number(b.record.year || 0) - Number(a.record.year || 0);
+        });
+        var doneCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
+        var holdCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "hold"; }).length;
+        var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
+        var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
+        var queue = baseQueue.filter(function (item) {
+          if (reviewQueueHideDone && reviewDecisionState(item.record.id).status === "done") return false;
+          if (reviewQueueFilter === "candidate") return item.record.status === "후보";
+          if (reviewQueueFilter === "partial") return item.record.extraction === "부분";
+          if (reviewQueueFilter === "missing") return item.missing.length >= 3;
+          return true;
+        });
+        countTarget.textContent = queue.length.toLocaleString("ko-KR") + "건 대기 · " + doneCount.toLocaleString("ko-KR") + "건 완료 · " + holdCount.toLocaleString("ko-KR") + "건 자료 필요";
+        if (summaryTarget) summaryTarget.innerHTML = '<span><strong>' + highCount.toLocaleString("ko-KR") + '건</strong> 우선 검토</span><span><strong>' + identifierGapCount.toLocaleString("ko-KR") + '건</strong> 식별자 확인 필요</span><span><strong>' + holdCount.toLocaleString("ko-KR") + '건</strong> 추가 자료 필요</span><span><strong>' + baseQueue.length.toLocaleString("ko-KR") + '건</strong> 전체 대기</span>';
+        document.querySelectorAll("[data-review-filter]").forEach(function (button) {
+          button.classList.toggle("active", button.dataset.reviewFilter === reviewQueueFilter);
+        });
+        target.innerHTML = queue.length ? queue.slice(0, 6).map(function (item) {
+          var record = item.record;
+          var decision = reviewDecisionState(record.id);
+          var done = decision.status === "done";
+          var hold = decision.status === "hold";
+          var note = decision.note ? '<p><strong>로컬 메모</strong> · ' + esc(decision.note) + '</p>' : '';
+          return '<article class="review-queue-card priority-' + esc(item.priority.key) + (done ? " review-done" : hold ? " review-hold" : "") + '"><div class="paper-badges"><span class="badge ' + badgeClass("status", record.status) + '">' + esc(record.status || "상태 미분류") + '</span><span class="badge ' + marketingClass(record) + '">' + esc(marketingLabel(record)) + '</span></div><span class="review-priority ' + esc(item.priority.key) + '">' + esc(item.priority.label) + '</span><h3>' + esc(koreanTitle(record)) + '</h3><p><strong>추가 확인</strong> · ' + esc(item.missing.join(" · ")) + '</p>' + note + '<button type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토 →</button><button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 검색</button><button type="button" data-review-status="' + (done ? "pending" : "done") + '" data-review-id="' + esc(record.id) + '">' + (done ? "완료 취소" : "검토 완료 표시") + '</button><button type="button" data-review-status="' + (hold ? "pending" : "hold") + '" data-review-id="' + esc(record.id) + '">' + (hold ? "자료 필요 해제" : "자료 필요 표시") + '</button></article>';
+        }).join("") : '<article class="review-queue-card"><h3>현재 대기 자료가 없습니다</h3><p>검토 큐가 비어 있습니다.</p></article>';
+      }
+      function exportReviewQueue() {
+        var recordsPayload = records.map(function (record) {
+          var missing = reviewChecklist(record).filter(function (item) { return !item[1]; }).map(function (item) { return item[0]; });
+          var queued = record.status === "후보" || record.extraction === "부분" || missing.length >= 3;
+          if (!queued) return null;
+          return {
+            recordId: record.id,
+            titleKo: koreanTitle(record),
+            kind: record.kind || "",
+            status: record.status || "",
+            extraction: record.extraction || "",
+            missingFields: missing,
+            reviewStatus: reviewDecisionState(record.id).status === "done" ? "완료" : reviewDecisionState(record.id).status === "hold" ? "추가 자료 필요" : "대기",
+            reviewPriority: reviewPriority({ record: record, missing: missing }).key,
+            reviewNote: reviewDecisionState(record.id).note || "",
+            completedAt: reviewDecisionState(record.id).completedAt || null,
+            checkedAt: record.checked || null,
+            sourceUrls: [record.fulltextUrl, record.doiUrl, record.pubmedUrl, record.sourceUrl].filter(Boolean)
+          };
+        }).filter(Boolean);
+        var payload = {
+          schemaVersion: "gaba-review-queue-0.1",
+          exportedAt: new Date().toISOString(),
+          snapshotDate: DB.meta.snapshotDate,
+          note: "로컬 검토 상태를 Sheets 동기화 또는 독립 검토 전에 확인하기 위한 대기 payload입니다. 원본 인덱스를 자동 변경하지 않습니다.",
+          records: recordsPayload
+        };
+        var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-review-queue-" + String(DB.meta.snapshotDate || "snapshot") + ".json";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast(recordsPayload.length.toLocaleString("ko-KR") + "건의 검토 큐를 내보냈습니다");
+      }
+      function openIntelligenceDetail(recordId) {
+        var record = records.find(function (item) { return String(item.id) === String(recordId); });
+        var dialog = el("intelligence-detail");
+        if (!record || !dialog) return;
+        currentDetailRecordId = record.id;
+        var kind = record.kind === "규제" ? "규제·안전성" : record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물·전임상" : "근거 자료";
+        el("intelligence-detail-kicker").textContent = kind + " · " + (record.year || "연도 미상");
+        el("intelligence-detail-title").textContent = koreanTitle(record);
+        el("intelligence-detail-facts").innerHTML = [
+          fact("연구 유형", kind), fact("상태", record.status), fact("대상", record.population || record.species),
+          fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
+          fact("결과 방향", record.direction), fact("확인일", record.checked)
+        ].join("");
+        el("intelligence-detail-finding").textContent = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않은 자료입니다.";
+        el("intelligence-detail-checklist").innerHTML = reviewChecklist(record).map(function (item) {
+          var complete = Boolean(item[1]);
+          return '<div class="review-check' + (complete ? "" : " missing") + '"><span class="review-check-mark">' + (complete ? "✓" : "–") + '</span><span>' + esc(item[0]) + (complete ? " 기록 있음" : " 추가 확인") + '</span></div>';
+        }).join("");
+        renderReviewDecisionPanel(record.id);
+        el("intelligence-detail-meaning").textContent = researchMeaning(record);
+        el("intelligence-detail-marketing").textContent = utilizationDirection(record);
+        var related = records.filter(function (item) {
+          if (String(item.id) === String(record.id)) return false;
+          return (record.domain && item.domain === record.domain) || (record.topic && item.topic === record.topic);
+        }).sort(function (a, b) {
+          return Number(b.year || 0) - Number(a.year || 0) || String(b.checked || "").localeCompare(String(a.checked || ""));
+        }).slice(0, 4);
+        el("intelligence-detail-related").innerHTML = related.length
+          ? related.map(function (item) { return '<button type="button" data-intelligence-id="' + esc(item.id) + '">' + esc(koreanTitle(item)) + '<br><span style="color:var(--muted);font-weight:600">' + esc(item.kind || "자료") + ' · ' + esc(item.year || "연도 미상") + '</span></button>'; }).join("")
+          : '<p>동일 주제의 연결 근거가 아직 충분히 분류되지 않았습니다.</p>';
+        var sourcePrimary = record.kind === "규제" ? (record.sourceUrl || record.fulltextUrl) : (record.fulltextUrl || record.doiUrl || record.pubmedUrl);
+        el("intelligence-detail-actions").innerHTML =
+          linkButton(sourcePrimary, "원문 확인", true) +
+          (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI", false) : "") +
+          (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "") +
+          '<button type="button" data-query="' + esc(record.domain || record.topic || "GABA") + '">관련 근거 검색</button>';
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
       }
       function interpretationBlock(record) {
         return '<div class="interpretation-grid">' +
@@ -1852,17 +2646,112 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         });
       });
       document.querySelectorAll("[data-query]").forEach(function (button) {
+        if (button.closest(".intelligence-feed, .portal-lane, .review-queue")) return;
         button.addEventListener("click", function () {
           controls.q.value = button.dataset.query || "";
           changeState("q", controls.q.value);
           controls.q.focus();
         });
       });
+      document.querySelectorAll("[data-intelligence-kind]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          intelligenceKind = button.dataset.intelligenceKind || "";
+          renderIntelligenceFeed();
+        });
+      });
+      document.querySelectorAll("[data-intelligence-review]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          intelligenceReview = button.dataset.intelligenceReview || "";
+          renderIntelligenceFeed();
+        });
+      });
+      document.querySelectorAll("[data-review-filter]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          reviewQueueFilter = button.dataset.reviewFilter || "all";
+          renderReviewQueue();
+        });
+      });
+      el("review-hide-done").addEventListener("change", function () {
+        reviewQueueHideDone = el("review-hide-done").checked;
+        renderReviewQueue();
+      });
+      el("review-queue-export").addEventListener("click", exportReviewQueue);
+      document.querySelectorAll("[data-detail-review-status]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          reviewDraftStatus = button.dataset.detailReviewStatus || "pending";
+          renderReviewDecisionPanel(currentDetailRecordId);
+        });
+      });
+      el("intelligence-detail-save").addEventListener("click", function () {
+        if (!currentDetailRecordId) return;
+        var note = el("intelligence-detail-note");
+        persistReviewDecision(currentDetailRecordId, reviewDraftStatus, note ? note.value : reviewDraftNote);
+        renderReviewQueue();
+        toast("로컬 검토 기록을 저장했습니다");
+      });
+      el("intelligence-detail-close").addEventListener("click", function () { el("intelligence-detail").close(); });
+      el("intelligence-detail").addEventListener("click", function (event) {
+        if (event.target === el("intelligence-detail")) el("intelligence-detail").close();
+      });
+      el("portal-lane-overview-close").addEventListener("click", function () {
+        activeLane = null;
+        el("portal-lane-overview").hidden = true;
+      });
       document.addEventListener("click", function (event) {
-        var bar = event.target.closest("[data-distribution-field]");
-        if (bar) {
-          var field = bar.dataset.distributionField;
-          changeState(field, bar.dataset.distributionValue);
+        var reviewStatusButton = event.target.closest("[data-review-status]");
+        if (reviewStatusButton) {
+          var statusId = reviewStatusButton.dataset.reviewId;
+          var nextStatus = reviewStatusButton.dataset.reviewStatus || "pending";
+          var currentDecision = reviewDecisionState(statusId);
+          persistReviewDecision(statusId, nextStatus, currentDecision.note);
+          renderReviewQueue();
+          return;
+        }
+        var reviewDoneButton = event.target.closest("[data-review-done]");
+        if (reviewDoneButton) {
+          var reviewId = reviewDoneButton.dataset.reviewDone;
+          if (reviewDecisions[reviewId]) delete reviewDecisions[reviewId];
+          else reviewDecisions[reviewId] = { completedAt: new Date().toISOString() };
+          try { localStorage.setItem("gaba-review-decisions", JSON.stringify(reviewDecisions)); } catch (_) {}
+          renderReviewQueue();
+          return;
+        }
+        var laneButton = event.target.closest(".portal-lane");
+        if (laneButton) {
+          var lane = PORTAL_LANES.find(function (item) { return item.title === laneButton.querySelector("strong")?.textContent; });
+          if (lane) {
+            renderPortalLaneOverview(lane);
+            controls.q.value = lane.query;
+            changeState("q", lane.query);
+          }
+          return;
+        }
+        var intelligenceButton = event.target.closest("[data-intelligence-id]");
+        if (intelligenceButton) {
+          openIntelligenceDetail(intelligenceButton.dataset.intelligenceId);
+          return;
+        }
+        var intelligenceQuery = event.target.closest(".intelligence-feed [data-query], .intelligence-detail [data-query], .review-queue [data-query]");
+        if (intelligenceQuery) {
+          controls.q.value = intelligenceQuery.dataset.query || "";
+          changeState("q", controls.q.value);
+          controls.q.focus();
+          if (el("intelligence-detail").open) el("intelligence-detail").close();
+          return;
+        }
+        var distributionMore = event.target.closest("[data-distribution-more]");
+        if (distributionMore) {
+          var distributionTarget = el(distributionMore.dataset.distributionMore);
+          var isOpen = distributionMore.getAttribute("aria-expanded") === "true";
+          distributionTarget.querySelectorAll(".distribution-item-extra").forEach(function (item) { item.hidden = isOpen; });
+          distributionMore.setAttribute("aria-expanded", String(!isOpen));
+          distributionMore.textContent = isOpen ? "전체 분포 보기" : "상위 항목만 보기";
+          return;
+        }
+        var distribution = event.target.closest("[data-distribution-field]");
+        if (distribution) {
+          var field = distribution.dataset.distributionField;
+          changeState(field, distribution.dataset.distributionValue);
           document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
         }
         var chip = event.target.closest("[data-remove]");

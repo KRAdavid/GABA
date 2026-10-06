@@ -1,0 +1,45 @@
+import { readFile } from "node:fs/promises";
+
+const sourcePath = new URL("../worker/template.js", import.meta.url);
+const source = await readFile(sourcePath, "utf8");
+
+const required = [
+  ["Intelligence section", 'id="intelligence"'],
+  ["Intelligence type filter", "data-intelligence-kind"],
+  ["Intelligence detail dialog", 'id="intelligence-detail"'],
+  ["Detail facts", 'id="intelligence-detail-facts"'],
+  ["Detail meaning", 'id="intelligence-detail-meaning"'],
+  ["Marketing utilization", 'id="intelligence-detail-marketing"'],
+  ["Related evidence", 'id="intelligence-detail-related"'],
+  ["Portal exploration lanes", 'id="portal-lanes-list"'],
+  ["Portal lane model", "var PORTAL_LANES"],
+  ["Portal lane overview", 'id="portal-lane-overview"'],
+  ["Portal lane overview renderer", "function renderPortalLaneOverview"],
+  ["Portal lane insight", 'id="portal-lane-insight"'],
+  ["Regulatory comparison renderer", "function renderPortalLaneInsight"],
+  ["Product comparison table", "product-matrix"],
+  ["Technology comparison table", "technology-matrix"],
+  ["Review-state filters", "data-intelligence-review"],
+  ["Review checklist", 'id="intelligence-detail-checklist"'],
+  ["Review queue", 'id="review-queue-list"'],
+  ["Review queue renderer", "function renderReviewQueue"],
+  ["Review queue filters", "data-review-filter"],
+  ["Review queue summary", 'id="review-queue-summary"'],
+  ["Review queue priority", "function reviewPriority"],
+  ["Local review decision panel", 'id="review-decision-controls"'],
+  ["Local review note", 'id="intelligence-detail-note"'],
+  ["Local review save", 'id="intelligence-detail-save"'],
+  ["Local review completion", "data-review-done"],
+  ["Review queue export", 'id="review-queue-export"'],
+  ["Review queue export renderer", "function exportReviewQueue"],
+  ["Detail opener", "function openIntelligenceDetail"],
+  ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
+];
+
+const missing = required.filter(([, marker]) => !source.includes(marker));
+if (missing.length) {
+  console.error(JSON.stringify({ valid: false, missing: missing.map(([name]) => name) }));
+  process.exit(1);
+}
+
+console.log(JSON.stringify({ valid: true, checked: required.length, source: "worker/template.js" }));

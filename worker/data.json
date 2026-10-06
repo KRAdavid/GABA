@@ -41,12 +41,14 @@
       "general": 680,
       "low": 320,
       "screeningCounts": null,
-      "candidateSheet": "",
-      "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
+      "candidateSheet": null,
+      "disclaimer": "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다.",
+      "candidateFile": null
     },
-    "sourceSheet": "",
-    "sourceFile": "google_sync_payload.json",
-    "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
+    "sourceSheet": null,
+    "sourceFile": null,
+    "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다.",
+    "publicRelease": true
   },
   "facets": {
     "species": [

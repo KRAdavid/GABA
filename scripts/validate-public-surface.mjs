@@ -1,0 +1,21 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+
+const root = resolve(new URL("..", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1"));
+const workerPath = resolve(root, "dist", "server", "index.js");
+const source = await readFile(workerPath, "utf8");
+const moduleUrl = `data:text/javascript;base64,${Buffer.from(source).toString("base64")}`;
+const worker = (await import(moduleUrl)).default;
+const home = await worker.fetch(new Request("https://public.example/"));
+assert.equal(home.status, 200);
+const html = await home.text();
+assert.equal(html.includes("docs.google.com/spreadsheets"), false, "public HTML must not expose management Sheet URLs");
+assert.equal(html.includes("관리 원본 Sheet"), true, "management link label may remain in the template but must stay hidden");
+const api = await worker.fetch(new Request("https://public.example/api/records"));
+const database = await api.json();
+assert.equal(database.meta.sourceSheet, null);
+assert.equal(database.meta.discovery.candidateSheet, null);
+assert.equal(database.meta.publicRelease, true);
+assert.equal(database.records.length, database.meta.total);
+console.log(JSON.stringify({ valid: true, publicRelease: true, records: database.records.length, managementSheetsExposed: false }));
