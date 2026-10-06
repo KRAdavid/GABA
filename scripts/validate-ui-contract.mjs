@@ -67,6 +67,7 @@ const required = [
   ,["Marketing utilization URL state", "state.marketing"]
   ,["Intervention classification filter", "data-intervention"]
   ,["Intervention classification counts", "data-intervention-count"]
+  ,["Server-rendered intervention counts", "serverInterventionClass"]
   ,["Intervention classification", "function interventionClass"]
   ,["Intervention classification URL state", "state.intervention"]
 ];

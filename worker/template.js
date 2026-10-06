@@ -1765,11 +1765,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <details class="quick-more">
             <summary>개입 구분</summary>
             <div class="quick-more-menu" aria-label="GABA 개입 구분 필터">
-              <button class="quick-button" type="button" data-intervention="순수 GABA 섭취">순수 GABA <span class="quick-count" data-intervention-count="순수 GABA 섭취">0</span></button>
-              <button class="quick-button" type="button" data-intervention="복합제·복합개입">복합제·복합개입 <span class="quick-count" data-intervention-count="복합제·복합개입">0</span></button>
-              <button class="quick-button" type="button" data-intervention="GABA 생성 발효·프로바이오틱">발효·프로바이오틱 <span class="quick-count" data-intervention-count="GABA 생성 발효·프로바이오틱">0</span></button>
-              <button class="quick-button" type="button" data-intervention="수용체 약물·작용제">수용체 약물 <span class="quick-count" data-intervention-count="수용체 약물·작용제">0</span></button>
-              <button class="quick-button" type="button" data-intervention="규제·안전성 자료">규제자료 <span class="quick-count" data-intervention-count="규제·안전성 자료">0</span></button>
+              <button class="quick-button" type="button" data-intervention="순수 GABA 섭취">순수 GABA <span class="quick-count" data-intervention-count="순수 GABA 섭취">__COUNT_PURE__</span></button>
+              <button class="quick-button" type="button" data-intervention="복합제·복합개입">복합제·복합개입 <span class="quick-count" data-intervention-count="복합제·복합개입">__COUNT_COMBINATION__</span></button>
+              <button class="quick-button" type="button" data-intervention="GABA 생성 발효·프로바이오틱">발효·프로바이오틱 <span class="quick-count" data-intervention-count="GABA 생성 발효·프로바이오틱">__COUNT_FERMENTED__</span></button>
+              <button class="quick-button" type="button" data-intervention="수용체 약물·작용제">수용체 약물 <span class="quick-count" data-intervention-count="수용체 약물·작용제">__COUNT_RECEPTOR__</span></button>
+              <button class="quick-button" type="button" data-intervention="규제·안전성 자료">규제자료 <span class="quick-count" data-intervention-count="규제·안전성 자료">__COUNT_REGULATORY__</span></button>
             </div>
           </details>
           <span class="quick-spacer"></span>
@@ -3585,10 +3585,26 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 </body>
 </html>`;
 
-const PAGE = PAGE_TEMPLATE.replace(
-  "__EMBEDDED_DATA__",
-  JSON.stringify(DATABASE).replaceAll("<", "\\u003c")
-);
+function serverInterventionClass(record) {
+  if (record.kind === "규제") return "규제·안전성 자료";
+  const text = [record.title, record.form, record.ingredientKo, record.ingredientEn, record.notes, record.domain].filter(Boolean).join(" ");
+  if (/프로바이오틱|유산균|발효|ferment|probiotic|GABA 생성/i.test(text)) return "GABA 생성 발효·프로바이오틱";
+  if (/수용체|작용제|길항제|약물|muscimol|baclofen|receptor|agonist|antagonist|drug/i.test(text)) return "수용체 약물·작용제";
+  if (/복합|혼합|추출물|with|plus|GABA.{0,100}\b(?:and|with|plus)\b/i.test(text)) return "복합제·복합개입";
+  return "순수 GABA 섭취";
+}
+const INTERVENTION_COUNTS = DATABASE.records.reduce((counts, record) => {
+  const label = serverInterventionClass(record);
+  counts[label] = (counts[label] || 0) + 1;
+  return counts;
+}, {});
+const PAGE = PAGE_TEMPLATE
+  .replace("__EMBEDDED_DATA__", JSON.stringify(DATABASE).replaceAll("<", "\\u003c"))
+  .replaceAll("__COUNT_PURE__", String(INTERVENTION_COUNTS["순수 GABA 섭취"] || 0))
+  .replaceAll("__COUNT_COMBINATION__", String(INTERVENTION_COUNTS["복합제·복합개입"] || 0))
+  .replaceAll("__COUNT_FERMENTED__", String(INTERVENTION_COUNTS["GABA 생성 발효·프로바이오틱"] || 0))
+  .replaceAll("__COUNT_RECEPTOR__", String(INTERVENTION_COUNTS["수용체 약물·작용제"] || 0))
+  .replaceAll("__COUNT_REGULATORY__", String(INTERVENTION_COUNTS["규제·안전성 자료"] || 0));
 
 function response(body, status, contentType, cacheControl) {
   return new Response(body, {
