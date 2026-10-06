@@ -891,6 +891,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-weight: 800;
       cursor: pointer;
     }
+    .mobile-filter-count {
+      display: inline-grid;
+      min-width: 19px;
+      min-height: 19px;
+      place-items: center;
+      margin-left: 4px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 10px;
+      line-height: 1;
+    }
     .quick-row {
       margin-top: 11px;
       display: flex;
@@ -1012,6 +1025,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       margin-bottom: 14px;
     }
     .filter-head h2 { margin: 0; font-size: 17px; }
+    .filter-guidance {
+      margin: -2px 0 14px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
     .filter-close {
       display: none;
       width: 40px;
@@ -1385,6 +1404,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     }
     .empty-state h3 { margin: 0; font-size: 20px; }
     .empty-state p { color: var(--muted); }
+    .empty-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+    .empty-action { min-height: 36px; padding: 7px 11px; border: 1px solid var(--teal); border-radius: 9px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .empty-action.secondary { border-color: var(--line); background: #fff; color: var(--teal-dark); }
     .pagination {
       display: flex;
       align-items: center;
@@ -1881,7 +1903,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               placeholder="한글로 제목·본문·안전성 내용 검색">
             <button class="search-clear" id="search-clear" type="button" aria-label="검색어 지우기">×</button>
           </div>
-          <button class="mobile-filter" id="mobile-filter" type="button" aria-controls="filter-panel" aria-expanded="false">필터</button>
+          <button class="mobile-filter" id="mobile-filter" type="button" aria-controls="filter-panel" aria-expanded="false">필터 <span class="mobile-filter-count" id="mobile-filter-count" hidden></span></button>
         </div>
         <p class="search-help">원문 제목은 그대로 보존하며 한국어 용어 확장을 제목·내용 전체에 적용합니다. 정확한 문구는 “따옴표”, 제외할 말은 -단어로 입력하세요. <kbd>/</kbd> 키로 바로 검색할 수 있습니다.</p>
         <div class="search-suggestions" aria-label="추천 한글 검색어">
@@ -1961,6 +1983,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <h2>상세 필터</h2>
             <button class="filter-close" id="filter-close" type="button" aria-label="필터 닫기">×</button>
           </div>
+          <p class="filter-guidance">자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.</p>
           <div class="filter-group">
             <label for="category">자료 카테고리</label>
             <select id="category"><option value="">전체</option></select>
@@ -2035,6 +2058,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
               <button class="result-reset" id="result-export" type="button">검색 결과 CSV</button>
+              <button class="result-reset" id="result-json" type="button">검색 결과 JSON</button>
               <button class="result-reset" id="result-brief" type="button">검색 결과 브리프</button>
             </div>
           </div>
@@ -2463,7 +2487,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
         pageSize = 20;
-        ["q", "kind", "category", "effectCategory", "status", "marketing", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "sort"].forEach(function (key) {
           if (params.has(key)) state[key] = params.get(key) || "";
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
@@ -3114,6 +3138,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           toast("링크를 선택했습니다 · Ctrl+C로 복사하세요");
         }
       }
+      async function copyRecordLink(recordId) {
+        var record = records.find(function (item) { return String(item.id) === String(recordId); });
+        if (!record) return;
+        var params = new URLSearchParams(location.search);
+        params.set("record", String(record.id));
+        var link = location.origin + location.pathname + "?" + params.toString();
+        try {
+          await navigator.clipboard.writeText(link);
+          toast("자료 링크를 복사했습니다");
+        } catch (_) {
+          openCopyDialog("자료 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", link, "자료 링크를 복사했습니다");
+        }
+      }
       function openCopyDialog(title, description, value, successMessage) {
         var dialog = el("copy-dialog");
         el("copy-dialog-title").textContent = title;
@@ -3204,9 +3241,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function exportFilteredResults() {
         var list = filteredRecords();
         if (!list.length) { toast("내보낼 검색 결과가 없습니다"); return; }
-        var headers = ["ID", "한국어 제목/분류 요약", "영문 원제", "연구 유형", "상태", "연도", "저자", "저널", "대상·시험계", "GABA 용량·노출", "기간", "대조군", "핵심 결과", "연구의 의미", "마케팅 활용 방안", "DOI", "PMID", "원문 링크"];
+        var headers = ["ID", "검증 스냅샷", "한국어 제목/분류 요약", "영문 원제", "연구 유형", "개입 구분", "상태", "연도", "저자", "저널", "대상·시험계", "GABA 용량·노출", "기간", "대조군", "핵심 결과", "연구의 의미", "마케팅 활용 방안", "한계", "SCI/SCIE", "추출 상태", "확인일", "DOI", "PMID", "원문 링크"];
         var rows = list.map(function (record) {
-          return [record.id, koreanTitle(record), record.title, record.kind, record.status, record.year, record.author, record.journal, record.population || record.species, record.dose || record.exposure, record.duration, record.comparator, record.finding || record.summaryKo, researchMeaning(record), utilizationDirection(record), record.doi, record.pmid, record.fulltextUrl || record.doiUrl || record.pubmedUrl].map(csvCell);
+          return [record.id, DB.meta.snapshotDate, koreanTitle(record), record.title, record.kind, interventionClass(record), record.status, record.year, record.author, record.journal, record.population || record.species, record.dose || record.exposure, record.duration, record.comparator, record.finding || record.summaryKo, researchMeaning(record), utilizationDirection(record), record.limitation, record.sciGroup, record.extraction, record.checked, record.doi, record.pmid, record.fulltextUrl || record.doiUrl || record.pubmedUrl].map(csvCell);
         });
         var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
         var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
@@ -3219,6 +3256,33 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         anchor.remove();
         URL.revokeObjectURL(url);
         toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 CSV를 내보냈습니다");
+      }
+      function exportFilteredJson() {
+        var list = filteredRecords();
+        if (!list.length) { toast("내보낼 검색 결과가 없습니다"); return; }
+        var payload = {
+          schemaVersion: "gaba-evidence-export-0.1",
+          exportedAt: new Date().toISOString(),
+          snapshotDate: DB.meta.snapshotDate,
+          publicRelease: DB.meta.publicRelease === true,
+          sourceMode: "read-only public snapshot",
+          filters: Object.assign({}, state),
+          records: list.map(function (record) {
+            var copy = JSON.parse(JSON.stringify(record));
+            delete copy._search;
+            return copy;
+          })
+        };
+        var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-evidence-results-" + String(DB.meta.snapshotDate || "snapshot") + ".json";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 JSON을 내보냈습니다");
       }
       async function copyFilteredBrief() {
         var list = filteredRecords();
@@ -3323,6 +3387,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           linkButton(sourcePrimary, "원문 확인", true) +
           (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI", false) : "") +
           (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "") +
+          '<button type="button" data-copy-record-link="' + esc(record.id) + '">자료 링크 복사</button>' +
           '<button type="button" data-copy-citation="' + esc(record.id) + '">인용 정보 복사</button>' +
           '<button type="button" data-copy-brief="' + esc(record.id) + '">근거 브리프 복사</button>' +
           '<button type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
@@ -3741,6 +3806,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         badge.textContent = count ? count + "개 선택" : "선택 없음";
         badge.classList.toggle("has-filters", count > 0);
         if (count) details.open = true;
+
+        var topLevelKeys = ["kind", "category", "effectCategory", "status", "marketing", "intervention"];
+        var total = count + topLevelKeys.filter(function (key) { return Boolean(state[key]); }).length + (state.q ? 1 : 0);
+        var mobileCount = el("mobile-filter-count");
+        if (mobileCount) {
+          mobileCount.textContent = total ? String(total) : "";
+          mobileCount.hidden = total === 0;
+          mobileCount.setAttribute("aria-label", total ? total + "개 조건 적용" : "조건 없음");
+        }
+        var mobileButton = el("mobile-filter");
+        if (mobileButton) mobileButton.setAttribute("aria-label", total ? "필터, " + total + "개 조건 적용" : "필터 열기");
       }
 
       function renderResultInterpretation(list) {
@@ -3772,7 +3848,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("result-count").innerHTML = '검증 레코드 ' + DB.meta.total.toLocaleString("ko-KR") + '건 중 <strong>' + list.length.toLocaleString("ko-KR") + '건</strong> · ' + elapsed.toFixed(elapsed < 10 ? 1 : 0) + 'ms<small>문헌 ' + Number(DB.meta.literature || 0).toLocaleString("ko-KR") + '편 + 규제·안전성 자료 ' + Number(DB.meta.regulatory || 0).toLocaleString("ko-KR") + '건 · 자동 탐색 후보는 별도 큐</small>';
         el("papers").innerHTML = pageRecords.length
           ? pageRecords.map(paperCard).join("")
-          : '<div class="empty-state"><h3>조건에 맞는 자료가 없습니다</h3><p>검색어를 줄이거나 상세 필터를 초기화해 보세요.</p></div>';
+          : '<div class="empty-state"><h3>조건에 맞는 자료가 없습니다</h3><p>현재 조건을 완화하면 다시 탐색할 수 있습니다.</p><div class="empty-actions">' +
+            (state.q ? '<button class="empty-action secondary" type="button" data-empty-clear-query>검색어 지우기</button>' : '') +
+            '<button class="empty-action" type="button" data-empty-reset>모든 조건 초기화</button></div></div>';
         el("page-status").textContent = state.page + " / " + totalPages;
         el("prev").disabled = state.page <= 1;
         el("next").disabled = state.page >= totalPages;
@@ -4048,6 +4126,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        var emptyReset = event.target.closest("[data-empty-reset]");
+        if (emptyReset) {
+          resetFilters();
+          scrollToResults();
+          return;
+        }
+        var emptyClearQuery = event.target.closest("[data-empty-clear-query]");
+        if (emptyClearQuery) {
+          changeState("q", "");
+          controls.q.focus();
+          return;
+        }
         var candidateDetailButton = event.target.closest("[data-candidate-detail]");
         if (candidateDetailButton) {
           openCandidateDetail(candidateDetailButton.dataset.candidateDetail || "");
@@ -4096,6 +4186,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else reviewDecisions[reviewId] = { completedAt: new Date().toISOString() };
           try { localStorage.setItem("gaba-review-decisions", JSON.stringify(reviewDecisions)); } catch (_) {}
           renderReviewQueue();
+          return;
+        }
+        var recordLinkButton = event.target.closest("[data-copy-record-link]");
+        if (recordLinkButton) {
+          await copyRecordLink(recordLinkButton.dataset.copyRecordLink);
           return;
         }
         var citationButton = event.target.closest("[data-copy-citation]");
@@ -4178,6 +4273,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("reset").addEventListener("click", resetFilters);
       el("result-reset").addEventListener("click", resetFilters);
       el("result-export").addEventListener("click", exportFilteredResults);
+      el("result-json").addEventListener("click", exportFilteredJson);
       el("result-brief").addEventListener("click", copyFilteredBrief);
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });

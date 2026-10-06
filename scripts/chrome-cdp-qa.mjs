@@ -360,6 +360,10 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true);
   assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('#mobile-filter')).display"), "none");
+  assert.equal(await evaluate(client, "document.querySelector('#filter-panel .filter-guidance')?.textContent"), "자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.");
+  await evaluate(client, "document.querySelector('#mobile-filter').click(); document.querySelector('#species').value = '설치류'; document.querySelector('#species').dispatchEvent(new Event('change', { bubbles: true }))");
+  assert.equal(await evaluate(client, "document.querySelector('#mobile-filter-count')?.textContent"), "1");
+  assert.match(String(await evaluate(client, "document.querySelector('#mobile-filter')?.getAttribute('aria-label')")), /1개 조건 적용/);
   await screenshot("cdp-mobile-top.png");
   console.log(JSON.stringify({ browserQa: true, browser: version.Browser, desktop: true, mobile: true, horizontalOverflow: false, screenshots: ["qa/cdp-desktop-top.png", "qa/cdp-mobile-top.png"] }));
 } finally {

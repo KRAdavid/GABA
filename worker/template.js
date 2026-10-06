@@ -891,6 +891,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-weight: 800;
       cursor: pointer;
     }
+    .mobile-filter-count {
+      display: inline-grid;
+      min-width: 19px;
+      min-height: 19px;
+      place-items: center;
+      margin-left: 4px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 10px;
+      line-height: 1;
+    }
     .quick-row {
       margin-top: 11px;
       display: flex;
@@ -1012,6 +1025,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       margin-bottom: 14px;
     }
     .filter-head h2 { margin: 0; font-size: 17px; }
+    .filter-guidance {
+      margin: -2px 0 14px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
     .filter-close {
       display: none;
       width: 40px;
@@ -1884,7 +1903,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               placeholder="한글로 제목·본문·안전성 내용 검색">
             <button class="search-clear" id="search-clear" type="button" aria-label="검색어 지우기">×</button>
           </div>
-          <button class="mobile-filter" id="mobile-filter" type="button" aria-controls="filter-panel" aria-expanded="false">필터</button>
+          <button class="mobile-filter" id="mobile-filter" type="button" aria-controls="filter-panel" aria-expanded="false">필터 <span class="mobile-filter-count" id="mobile-filter-count" hidden></span></button>
         </div>
         <p class="search-help">원문 제목은 그대로 보존하며 한국어 용어 확장을 제목·내용 전체에 적용합니다. 정확한 문구는 “따옴표”, 제외할 말은 -단어로 입력하세요. <kbd>/</kbd> 키로 바로 검색할 수 있습니다.</p>
         <div class="search-suggestions" aria-label="추천 한글 검색어">
@@ -1964,6 +1983,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <h2>상세 필터</h2>
             <button class="filter-close" id="filter-close" type="button" aria-label="필터 닫기">×</button>
           </div>
+          <p class="filter-guidance">자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.</p>
           <div class="filter-group">
             <label for="category">자료 카테고리</label>
             <select id="category"><option value="">전체</option></select>
@@ -3786,6 +3806,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         badge.textContent = count ? count + "개 선택" : "선택 없음";
         badge.classList.toggle("has-filters", count > 0);
         if (count) details.open = true;
+
+        var topLevelKeys = ["kind", "category", "effectCategory", "status", "marketing", "intervention"];
+        var total = count + topLevelKeys.filter(function (key) { return Boolean(state[key]); }).length + (state.q ? 1 : 0);
+        var mobileCount = el("mobile-filter-count");
+        if (mobileCount) {
+          mobileCount.textContent = total ? String(total) : "";
+          mobileCount.hidden = total === 0;
+          mobileCount.setAttribute("aria-label", total ? total + "개 조건 적용" : "조건 없음");
+        }
+        var mobileButton = el("mobile-filter");
+        if (mobileButton) mobileButton.setAttribute("aria-label", total ? "필터, " + total + "개 조건 적용" : "필터 열기");
       }
 
       function renderResultInterpretation(list) {
