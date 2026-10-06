@@ -186,6 +186,7 @@ const required = [
   ,["Visible filter status", 'id="filter-status-strip"']
   ,["Filter status summary", 'id="filter-status-text"']
   ,["Filter status reset", 'id="filter-status-reset"']
+  ,["Dose query interpretation", "function queryFilterLabel"]
   ,["Mobile filter result action", 'id="filter-mobile-apply"']
   ,["Result interpretation guard", "해석 경계"]
   ,["Review checklist action summary", 'id="review-check-summary"']

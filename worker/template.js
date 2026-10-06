@@ -3067,8 +3067,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var negative = [];
         var doseRanges = [];
         var expression = /(-?)"([^"]+)"|(-?)([^\s"]+)/g;
+        var normalizedValue = String(value || "").replace(/(\d+(?:\.\d+)?)\s*(?:~|–|-|to)\s*(\d+(?:\.\d+)?)\s+mg(?=\/day|\b)/gi, "$1~$2mg");
         var match;
-        while ((match = expression.exec(String(value || "")))) {
+        while ((match = expression.exec(normalizedValue))) {
           var isNegative = (match[1] || match[3]) === "-";
           var token = normalize(match[2] || match[4]);
           if (!token) continue;
@@ -4324,12 +4325,21 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function sourceLabel(value) {
         return { available: "원문·식별자 링크 있음", drive: "Drive 원문", link: "외부 링크", none: "링크 없음" }[value] || value;
       }
+      function doseRangeLabel(range) {
+        return Number(range.from).toLocaleString("ko-KR") + "–" + Number(range.to).toLocaleString("ko-KR") + " mg/day";
+      }
+      function queryFilterLabel(value) {
+        var text = String(value || "").trim();
+        var plan = queryPlan(text);
+        if (!plan.doseRanges.length) return text;
+        return text + " · 용량 범위 " + plan.doseRanges.map(doseRangeLabel).join(", ");
+      }
       function renderActiveFilters() {
         var chips = [];
         var summary = [];
         Object.keys(filterNames).forEach(function (key) {
           if (!state[key]) return;
-           var value = key === "source" ? sourceLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
+           var value = key === "q" ? queryFilterLabel(state[key]) : key === "source" ? sourceLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
           chips.push('<button class="filter-chip" type="button" data-remove="' + esc(key) + '">' + esc(filterNames[key] + ": " + value) + ' ×</button>');
           summary.push(filterNames[key] + ": " + value);
         });
