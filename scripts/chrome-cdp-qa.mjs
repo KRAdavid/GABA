@@ -143,6 +143,8 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.includes('탐색')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview')?.hidden"), false);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-more')?.hidden"), false);
+  assert.equal(await evaluate(client, "/^전체 \\d+$/.test(document.querySelector('[data-candidate-filter=all]')?.textContent.trim() || '')"), true);
+  assert.equal(await evaluate(client, "/^우선검토 \\d+$/.test(document.querySelector('[data-candidate-filter=priority]')?.textContent.trim() || '')"), true);
   await evaluate(client, "document.querySelector('#candidate-preview-more').click()");
   assert.equal(await evaluate(client, "document.querySelectorAll('#candidate-preview-list .candidate-preview-card').length > 6"), true);
   await evaluate(client, "document.querySelector('#candidate-preview-more').click()");

@@ -2207,9 +2207,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var activeFilter = candidatePreviewFilter;
         section.dataset.filter = activeFilter;
         var filtered = filterCandidatePreviewRecords(candidates, activeFilter);
+        var candidateFilterLabels = { all: "전체", priority: "우선검토", followup: "출판 후속조치" };
         document.querySelectorAll("[data-candidate-filter]").forEach(function (button) {
+          var filterKey = button.dataset.candidateFilter || "all";
+          var filterCount = filterCandidatePreviewRecords(candidates, filterKey).length;
+          button.textContent = (candidateFilterLabels[filterKey] || "후보") + " " + filterCount.toLocaleString("ko-KR");
+          button.setAttribute("aria-label", (candidateFilterLabels[filterKey] || "후보") + " " + filterCount.toLocaleString("ko-KR") + "건");
           button.onclick = function () {
-            candidatePreviewFilter = button.dataset.candidateFilter || "all";
+            candidatePreviewFilter = filterKey;
             section.dataset.filter = candidatePreviewFilter;
             section.dataset.expanded = "false";
             persistUrl("push");

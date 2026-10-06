@@ -50,6 +50,7 @@ const required = [
   ["Candidate filter URL state", "candidatePreviewFilter"],
   ["Candidate filter share parameter", 'params.set("candidate"'],
   ["Candidate deep-link focus", "candidatePreviewNeedsFocus"],
+  ["Candidate filter counts", "candidateFilterLabels"],
   ["Accessible active toggles", "function setActiveToggle"],
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
