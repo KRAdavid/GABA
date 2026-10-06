@@ -2059,6 +2059,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
               <button class="result-reset" id="result-export" type="button">검색 결과 CSV</button>
               <button class="result-reset" id="result-json" type="button">검색 결과 JSON</button>
+              <button class="result-reset" id="result-ris" type="button">검색 결과 RIS</button>
               <button class="result-reset" id="result-brief" type="button">검색 결과 브리프</button>
             </div>
           </div>
@@ -3284,6 +3285,40 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         URL.revokeObjectURL(url);
         toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 JSON을 내보냈습니다");
       }
+      function risValue(value) {
+        return String(value == null ? "" : value).replace(/\r?\n/g, " ").replace(/\s+/g, " ").trim();
+      }
+      function exportFilteredRis() {
+        var list = filteredRecords();
+        if (!list.length) { toast("내보낼 검색 결과가 없습니다"); return; }
+        var rows = [];
+        list.forEach(function (record) {
+          var sourceUrl = record.fulltextUrl || record.doiUrl || record.pubmedUrl;
+          rows.push("TY  - " + (record.kind === "규제" ? "RPRT" : "JOUR"));
+          if (record.title) rows.push("TI  - " + risValue(record.title));
+          if (record.author) rows.push("AU  - " + risValue(record.author));
+          if (record.journal) rows.push("JO  - " + risValue(record.journal));
+          if (record.year) rows.push("PY  - " + risValue(record.year));
+          if (record.doi) rows.push("DO  - " + risValue(record.doi));
+          if (record.pmid) rows.push("AN  - PMID:" + risValue(record.pmid));
+          if (sourceUrl) rows.push("UR  - " + risValue(sourceUrl));
+          rows.push("N1  - Record ID: " + risValue(record.id));
+          rows.push("N1  - Verification snapshot: " + risValue(DB.meta.snapshotDate));
+          rows.push("N1  - Intervention class: " + risValue(interventionClass(record)));
+          rows.push("ER  - ");
+          rows.push("");
+        });
+        var blob = new Blob([rows.join("\r\n")], { type: "application/x-research-info-systems;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-evidence-results-" + String(DB.meta.snapshotDate || "snapshot") + ".ris";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 RIS를 내보냈습니다");
+      }
       async function copyFilteredBrief() {
         var list = filteredRecords();
         if (!list.length) { toast("브리프로 만들 검색 결과가 없습니다"); return; }
@@ -4274,6 +4309,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("result-reset").addEventListener("click", resetFilters);
       el("result-export").addEventListener("click", exportFilteredResults);
       el("result-json").addEventListener("click", exportFilteredJson);
+      el("result-ris").addEventListener("click", exportFilteredRis);
       el("result-brief").addEventListener("click", copyFilteredBrief);
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });

@@ -218,6 +218,10 @@ try {
   await evaluate(client, "document.querySelector('#result-json').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('JSON')"), true);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('#result-ris'))"), true);
+  await evaluate(client, "document.querySelector('#result-ris').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('RIS')"), true);
   await evaluate(client, "document.querySelector('#result-brief').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('검색 결과 브리프') || document.querySelector('#copy-dialog')?.open"), true);

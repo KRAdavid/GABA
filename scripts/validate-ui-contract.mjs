@@ -102,6 +102,8 @@ const required = [
   ,["Filtered result CSV renderer", "function exportFilteredResults"]
   ,["Filtered result JSON export", 'id="result-json"']
   ,["Filtered result JSON renderer", "function exportFilteredJson"]
+  ,["Filtered result RIS export", 'id="result-ris"']
+  ,["Filtered result RIS renderer", "function exportFilteredRis"]
   ,["CSV evidence boundaries", "SCI/SCIE"]
   ,["CSV extraction and review date", "추출 상태"]
   ,["CSV snapshot provenance", "검증 스냅샷"]
