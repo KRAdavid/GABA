@@ -56,6 +56,9 @@ const required = [
   ,["Reading list state", "gaba-reading-ids"]
   ,["Reading list toggle", "data-reading-toggle"]
   ,["Reading list focus return", "readingReturnFocus"]
+  ,["Reading list brief copy", 'id="reading-list-copy"']
+  ,["Reading list clear", 'id="reading-list-clear"']
+  ,["Reading list brief renderer", "function readingListBriefText"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));
