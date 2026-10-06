@@ -38,6 +38,7 @@ data-quality → build → validate → build-pending-sheet-sync → UI contract
 - `node scripts/audit-public-links.mjs`: 원문·DOI·PubMed 대체 링크 체인을 검사하고 서버 접근 제한과 실제 실패를 구분
 - 비교 기능 QA: 최소 2건 선택 → 비교 대화상자 → 연구 설계·결과 방향·해석 주의문 표시를 확인
 - `node scripts/chrome-cdp-qa.mjs`: Playwright 없이 설치된 Chrome으로 desktop/mobile 핵심 흐름과 overflow 확인
+- 모바일 필터 QA는 전환 완료 후 패널이 뷰포트 안에 배치되는지와 닫기 뒤 필터 버튼으로 포커스가 복귀하는지도 확인합니다.
 - `/api/health`: 검증 스냅샷·자동 탐색 후보·후보 미리보기 상태를 읽기 전용으로 확인
 - `node scripts/validate-public-surface.mjs`: 공개 HTML/API에 내부 관리 Sheet URL이 노출되지 않는지 확인
 - `node scripts/validate-live-release.mjs`: 실제 공개 URL의 Health·릴리스 provenance·원문 감사·공개면 위생을 최종 확인하고 로컬 공개 데이터의 기대 provenance와 일치하는지 검증
