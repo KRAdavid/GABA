@@ -205,6 +205,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .intelligence-detail h2 { margin: 6px 0 0; font-size: 24px; line-height: 1.3; letter-spacing: -.04em; }
     .intelligence-detail-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
     .intelligence-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 18px 0; }
+    .verification-summary { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; margin: 18px 0; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(135deg, #f5fbfa, #fff); }
+    .verification-score { display: grid; place-items: center; width: 64px; height: 64px; border: 6px solid var(--teal-soft); border-top-color: var(--teal); border-radius: 50%; color: var(--teal-dark); font-size: 13px; font-weight: 900; }
+    .verification-summary h3 { margin: 0 0 4px; font-size: 13px; }
+    .verification-summary p { margin: 0; color: var(--ink-2); font-size: 12px; line-height: 1.55; }
+    .verification-summary small { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.45; }
     .intelligence-detail-section { margin-top: 18px; padding: 16px; border-radius: 12px; background: var(--surface-2); }
     .intelligence-detail-section h3 { margin: 0 0 7px; font-size: 13px; }
     .intelligence-detail-section p { margin: 0; color: var(--ink-2); font-size: 13px; line-height: 1.65; }
@@ -1740,6 +1745,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           </div>
           <button class="intelligence-detail-close" id="intelligence-detail-close" type="button" aria-label="상세 닫기">×</button>
         </div>
+        <section class="verification-summary" id="intelligence-detail-verification" aria-label="검증 충실도 요약"></section>
         <div class="intelligence-detail-grid" id="intelligence-detail-facts"></div>
         <section class="intelligence-detail-section">
           <h3>핵심 결과</h3>
@@ -2932,6 +2938,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["식별자", record.pmid || record.doi]
         ];
       }
+      function verificationSummary(record) {
+        var checklist = reviewChecklist(record);
+        var complete = checklist.filter(function (item) { return Boolean(item[1]); }).length;
+        var total = checklist.length;
+        var score = total ? Math.round((complete / total) * 100) : 0;
+        var label = score >= 80 ? "핵심 기록이 비교적 갖춰짐" : score >= 50 ? "일부 핵심 기록 추가 확인" : "원문 확인 우선";
+        var action = score >= 80
+          ? "원문과 연구대상·용량·기간의 일치를 최종 확인하세요."
+          : "누락된 항목을 원문에서 확인한 뒤 활용 범위를 판단하세요.";
+        return '<div class="verification-score" aria-label="검증 기록 충실도 ' + score + '퍼센트">' + score + '%</div>' +
+          '<div><h3>검증 기록 충실도 · ' + esc(label) + '</h3><p>' + esc(action) + ' <strong>' + complete + '/' + total + '개 핵심 항목 기록</strong></p><small>이 수치는 기록의 완성도만 보여주며, 연구의 질·효능·규제 적합성 순위를 의미하지 않습니다.</small></div>';
+      }
       function reviewPriority(item) {
         var record = item.record;
         var score = 0;
@@ -3245,6 +3263,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var kind = record.kind === "규제" ? "규제·안전성" : record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물·전임상" : "근거 자료";
         el("intelligence-detail-kicker").textContent = kind + " · " + (record.year || "연도 미상");
         el("intelligence-detail-title").textContent = koreanTitle(record);
+        el("intelligence-detail-verification").innerHTML = verificationSummary(record);
         el("intelligence-detail-facts").innerHTML = [
           fact("연구 유형", kind), fact("개입 구분", interventionClass(record)), fact("상태", record.status), fact("대상", record.population || record.species),
           fact("연구 설계", record.design), fact("개입 형태", record.form), fact("투여 경로", record.route), fact("대조군", record.comparator),

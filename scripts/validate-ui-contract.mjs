@@ -8,6 +8,8 @@ const required = [
   ["Intelligence type filter", "data-intelligence-kind"],
   ["Intelligence detail dialog", 'id="intelligence-detail"'],
   ["Detail facts", 'id="intelligence-detail-facts"'],
+  ["Verification summary", 'id="intelligence-detail-verification"'],
+  ["Verification summary renderer", "function verificationSummary"],
   ["Detail study design facts", "fact(\"연구 설계\", record.design)"],
   ["Detail meaning", 'id="intelligence-detail-meaning"'],
   ["Evidence boundary", 'id="intelligence-detail-boundary"'],
