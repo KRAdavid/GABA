@@ -2220,6 +2220,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="quick-button" type="button" data-followup="signal">철회·정정·우려표명 신호 <span class="quick-count" data-followup-count="signal">__COUNT_FOLLOWUP__</span></button>
             </div>
           </details>
+          <details class="quick-more">
+            <summary data-quick-summary="direction">결과 방향</summary>
+            <div class="quick-more-menu" aria-label="결과 방향 필터">
+              <button class="quick-button" type="button" data-direction="무효">무효 <span class="quick-count">__COUNT_DIRECTION_NULL__</span></button>
+              <button class="quick-button" type="button" data-direction="혼재">혼재 <span class="quick-count">__COUNT_DIRECTION_MIXED__</span></button>
+              <button class="quick-button" type="button" data-direction="유해">유해 <span class="quick-count">__COUNT_DIRECTION_HARM__</span></button>
+              <button class="quick-button" type="button" data-direction="중립">중립 <span class="quick-count">__COUNT_DIRECTION_NEUTRAL__</span></button>
+            </div>
+          </details>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
           <select class="sort-select" id="sort">
@@ -2901,6 +2910,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         document.querySelectorAll("[data-followup]").forEach(function (button) {
           setActiveToggle(button, button.dataset.followup === state.followup);
         });
+        document.querySelectorAll("[data-direction]").forEach(function (button) {
+          setActiveToggle(button, button.dataset.direction === state.direction);
+        });
         document.querySelectorAll("[data-preset]").forEach(function (button) {
           setActiveToggle(button, button.dataset.preset === activePreset());
         });
@@ -2910,7 +2922,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function syncQuickDisclosure() {
         document.querySelectorAll("[data-quick-summary]").forEach(function (summary) {
           var key = summary.dataset.quickSummary;
-          var base = { effectCategory: "분야 더보기", marketing: "활용 판단", intervention: "개입 구분", followup: "출판 후속조치" }[key] || "추가 필터";
+          var base = { effectCategory: "분야 더보기", marketing: "활용 판단", intervention: "개입 구분", followup: "출판 후속조치", direction: "결과 방향" }[key] || "추가 필터";
           var active = Boolean(state[key]);
           summary.textContent = active ? base + " · 선택" : base;
           summary.classList.toggle("has-filter", active);
@@ -4543,6 +4555,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           render("push");
         });
       });
+      document.querySelectorAll("[data-direction]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var direction = button.dataset.direction || "";
+          state.direction = state.direction === direction ? "" : direction;
+          state.page = 1;
+          render("push");
+        });
+      });
       document.querySelectorAll("[data-preset]").forEach(function (button) {
         button.addEventListener("click", function () { applyPreset(button.dataset.preset || ""); });
       });
@@ -4918,6 +4938,11 @@ const MARKETING_COUNTS = DATABASE.records.reduce((counts, record) => {
   counts[label] = (counts[label] || 0) + 1;
   return counts;
 }, {});
+const DIRECTION_COUNTS = DATABASE.records.reduce((counts, record) => {
+  const label = String(record.direction || "");
+  counts[label] = (counts[label] || 0) + 1;
+  return counts;
+}, {});
 const PAGE = PAGE_TEMPLATE
   .replace("__EMBEDDED_DATA__", JSON.stringify(DATABASE).replaceAll("<", "\\u003c"))
   .replaceAll("__COUNT_PURE__", String(INTERVENTION_COUNTS["순수 GABA 섭취"] || 0))
@@ -4927,7 +4952,11 @@ const PAGE = PAGE_TEMPLATE
   .replaceAll("__COUNT_REGULATORY__", String(INTERVENTION_COUNTS["규제·안전성 자료"] || 0))
   .replaceAll("__COUNT_MARKETING_DIRECT__", String(MARKETING_COUNTS["직접 근거 검토"] || 0))
   .replaceAll("__COUNT_MARKETING_CONDITIONAL__", String(MARKETING_COUNTS["조건부 검토"] || 0))
-  .replaceAll("__COUNT_MARKETING_EXCLUDE__", String(MARKETING_COUNTS["마케팅 사용 금지"] || 0));
+  .replaceAll("__COUNT_MARKETING_EXCLUDE__", String(MARKETING_COUNTS["마케팅 사용 금지"] || 0))
+  .replaceAll("__COUNT_DIRECTION_NULL__", String(DIRECTION_COUNTS["무효"] || 0))
+  .replaceAll("__COUNT_DIRECTION_MIXED__", String(DIRECTION_COUNTS["혼재"] || 0))
+  .replaceAll("__COUNT_DIRECTION_HARM__", String(DIRECTION_COUNTS["유해"] || 0))
+  .replaceAll("__COUNT_DIRECTION_NEUTRAL__", String(DIRECTION_COUNTS["중립"] || 0));
 
 function response(body, status, contentType, cacheControl) {
   return new Response(body, {

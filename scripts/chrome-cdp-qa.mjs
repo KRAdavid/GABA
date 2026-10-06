@@ -302,6 +302,10 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('status')"), "포함");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "순수 GABA 섭취");
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  await evaluate(client, "document.querySelector('[data-direction=무효]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('direction')"), "무효");
+  assert.equal(await evaluate(client, "document.querySelector('[data-direction=무효]')?.getAttribute('aria-pressed')"), "true");
+  await evaluate(client, "document.querySelector('[data-direction=무효]').click()");
   await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]').click()");
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.getAttribute('aria-pressed')"), "true");
