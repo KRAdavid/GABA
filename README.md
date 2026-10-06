@@ -27,6 +27,7 @@ data-quality → build → validate → build-pending-sheet-sync → UI contract
 - `node scripts/build.mjs`: 검증된 스냅샷을 `dist/server/index.js`에 임베드
 - `node scripts/validate.mjs`: 레코드 유형·수량·프로젝트 연결 검증
 - `node scripts/build-pending-sheet-sync.mjs`: Sheets 403 등으로 대기 중인 레코드의 36열 payload 재생성
+- `node scripts/validate-pending-sheet-sync.mjs`: 대기 payload의 36열·Record_ID·중복 상태 검증
 - `node scripts/validate-ui-contract.mjs`: 포털·Intelligence·검토 큐 UI 계약 확인
 - `node scripts/chrome-cdp-qa.mjs`: Playwright 없이 설치된 Chrome으로 desktop/mobile 핵심 흐름과 overflow 확인
 - `/api/health`: 검증 스냅샷·자동 탐색 후보·후보 미리보기 상태를 읽기 전용으로 확인
