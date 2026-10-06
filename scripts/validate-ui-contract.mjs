@@ -54,6 +54,7 @@ const required = [
   ["Immunity search suggestions", "면역 타액 IgA"],
   ["Korean title provenance label", "koreanTitleLabel"],
   ["Marketing badge filter", "marketing-filter-badge"],
+  ["CSV title provenance", "한국어 제목/분류 요약"],
   ["Accessible active toggles", "function setActiveToggle"],
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
