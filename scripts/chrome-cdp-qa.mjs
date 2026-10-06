@@ -140,6 +140,7 @@ try {
   await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]')?.getAttribute('aria-pressed')"), "true");
+  assert.equal(await evaluate(client, "document.querySelector('#snapshot-label')?.textContent.startsWith('검증 스냅샷')"), true);
   await evaluate(client, "document.querySelector('#result-export').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('CSV')"), true);

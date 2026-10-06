@@ -2060,7 +2060,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           sheetLink.href = DB.meta.sourceSheet;
           sheetLink.hidden = false;
         }
-        el("snapshot-label").textContent = "최종 갱신 " + koreanDate(DB.meta.snapshotDate);
+        el("snapshot-label").textContent = "검증 스냅샷 " + koreanDate(DB.meta.snapshotDate);
         updateFreshnessLabel(DB.meta.snapshotDate, discovery.snapshotDate);
         el("coverage-label").textContent = DB.meta.minYear + "–" + DB.meta.maxYear + "년";
         el("metric-total").textContent = countText(DB.meta.literature || DB.meta.total);
