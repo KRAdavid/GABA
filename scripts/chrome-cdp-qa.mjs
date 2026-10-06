@@ -185,6 +185,7 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidate')"), "followup");
   assert.equal(await evaluate(client, "document.querySelectorAll('#candidate-preview-list .candidate-preview-card').length > 0"), true);
   assert.equal(await evaluate(client, "document.querySelector('.candidate-preview-note')?.textContent.includes('전체 후보 1,000건')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('.candidate-preview-note')?.textContent.includes('전체 큐:')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('검토 권고')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=reviewed]')?.textContent.includes('수동 검토됨')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('수동 검토 상태')"), true);

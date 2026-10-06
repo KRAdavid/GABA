@@ -50,6 +50,7 @@ const required = [
   ["Candidate preview filters", "data-candidate-filter"],
   ["Candidate review-status filters", 'data-candidate-filter="reviewed"'],
   ["Candidate review status", "screeningStatus"],
+  ["Candidate queue scope", "전체 큐:"],
   ["Candidate detail dialog", 'id="candidate-detail-dialog"'],
   ["Candidate screening signals", 'id="candidate-detail-screening"'],
   ["Candidate detail renderer", "function openCandidateDetail"],

@@ -646,7 +646,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-preview-head h2 { margin: 0; font-size: 17px; letter-spacing: -.02em; }
     .candidate-preview-head p { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
     .candidate-preview-head-actions { display: flex; align-items: center; gap: 8px; }
-    .candidate-preview-note { color: var(--amber); font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .candidate-preview-note { max-width: 560px; color: var(--amber); font-size: 11px; font-weight: 800; line-height: 1.45; text-align: right; }
     .candidate-preview-export { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 900; cursor: pointer; }
     .candidate-preview-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
     .candidate-preview-filter { min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 11px; font-weight: 800; cursor: pointer; }
@@ -2340,7 +2340,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!section || !list) return;
         var totalCandidates = Number(DB.meta.discovery?.stagedCandidates || candidates.length);
         var scopeNote = el("candidate-preview")?.querySelector(".candidate-preview-note");
-        if (scopeNote) scopeNote.textContent = "확정 근거 아님 · 미리보기 " + candidates.length.toLocaleString("ko-KR") + "건 / 전체 후보 " + totalCandidates.toLocaleString("ko-KR") + "건";
+        if (scopeNote) {
+          var screeningCounts = DB.meta.discovery?.screeningCounts || {};
+          var queueLabels = ["포함후보", "보류", "제외", "미검토"];
+          var queueTotal = queueLabels.reduce(function (sum, label) { return sum + Number(screeningCounts[label] || 0); }, 0);
+          var queueOther = Math.max(0, totalCandidates - queueTotal);
+          var queueSummary = queueLabels.map(function (label) { return label + " " + Number(screeningCounts[label] || 0).toLocaleString("ko-KR"); });
+          if (queueOther) queueSummary.push("기타 " + queueOther.toLocaleString("ko-KR"));
+          scopeNote.textContent = "확정 근거 아님 · 미리보기 " + candidates.length.toLocaleString("ko-KR") + "건 / 전체 후보 " + totalCandidates.toLocaleString("ko-KR") + "건 · 전체 큐: " + queueSummary.join(" · ");
+        }
         if (!Array.isArray(candidates) || !candidates.length) {
           section.hidden = true;
           list.innerHTML = "";
