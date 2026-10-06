@@ -68,6 +68,7 @@ const required = [
   ["Comparison result direction", '["결과 방향", "direction"]'],
   ["Comparison interpretation note", 'id="compare-dialog-insight"'],
   ["Comparison CSV export", 'id="compare-export"'],
+  ["Search result brief", 'id="result-brief"'],
   ["Shareable compare state", 'params.set("compare"'],
   ["Comparison copy action", 'id="compare-copy"'],
   ["Comparison focus return", "compareReturnFocus"],

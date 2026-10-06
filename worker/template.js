@@ -2000,6 +2000,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
               <button class="result-reset" id="result-export" type="button">검색 결과 CSV</button>
+              <button class="result-reset" id="result-brief" type="button">검색 결과 브리프</button>
             </div>
           </div>
           <div class="compare-tray" id="compare-tray" hidden aria-live="polite">
@@ -3145,6 +3146,35 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         URL.revokeObjectURL(url);
         toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 CSV를 내보냈습니다");
       }
+      async function copyFilteredBrief() {
+        var list = filteredRecords();
+        if (!list.length) { toast("브리프로 만들 검색 결과가 없습니다"); return; }
+        var query = state.q ? state.q.trim() : "전체 근거";
+        var clinical = list.filter(function (record) { return record.kind === "임상"; }).length;
+        var animal = list.filter(function (record) { return record.kind === "동물"; }).length;
+        var regulatory = list.filter(function (record) { return record.kind === "규제"; }).length;
+        var review = list.filter(function (record) { return record.status === "후보" || record.status === "보류" || record.extraction === "부분"; }).length;
+        var lines = [
+          "GABA 검색 결과 브리프",
+          "검색·필터: " + query,
+          "검증 스냅샷: " + String(DB.meta.snapshotDate || "미상"),
+          "결과: " + list.length.toLocaleString("ko-KR") + "건 · 인체 " + clinical + "건 · 동물·전임상 " + animal + "건 · 규제·안전성 " + regulatory + "건 · 추가 확인 " + review + "건",
+          "해석 주의: 인체·동물·규제 자료는 범위가 다르므로 결과를 직접 합산하지 않습니다. 원문·대상·용량·기간·대조군을 먼저 확인하세요.",
+          "",
+          "주요 자료(최대 10건)"
+        ];
+        list.slice(0, 10).forEach(function (record, index) {
+          lines.push((index + 1) + ". " + evidenceBriefText(record));
+        });
+        if (list.length > 10) lines.push("", "※ 전체 " + list.length.toLocaleString("ko-KR") + "건 중 10건만 브리프에 포함했습니다. 전체 자료는 CSV로 저장하세요.");
+        var text = lines.join("\n\n");
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("검색 결과 브리프를 복사했습니다");
+        } catch (_) {
+          openCopyDialog("검색 결과 브리프", "클립보드 권한이 없으면 아래 내용을 선택해 직접 복사하세요.", text, "검색 결과 브리프를 복사했습니다");
+        }
+      }
       async function importReviewQueue(file) {
         if (!file) return;
         try {
@@ -4073,6 +4103,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("reset").addEventListener("click", resetFilters);
       el("result-reset").addEventListener("click", resetFilters);
       el("result-export").addEventListener("click", exportFilteredResults);
+      el("result-brief").addEventListener("click", copyFilteredBrief);
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });
