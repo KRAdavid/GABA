@@ -1733,7 +1733,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       </div>
       <div class="candidate-preview-filters" aria-label="후보 유형 필터">
         <button class="candidate-preview-filter active" type="button" data-candidate-filter="all" aria-pressed="true">전체</button>
-        <button class="candidate-preview-filter" type="button" data-candidate-filter="priority" aria-pressed="false">우선검토</button>
+        <button class="candidate-preview-filter" type="button" data-candidate-filter="priority" aria-pressed="false">자동 우선검토</button>
         <button class="candidate-preview-filter" type="button" data-candidate-filter="followup" aria-pressed="false">출판 후속조치</button>
         <button class="candidate-preview-filter review" type="button" data-candidate-filter="reviewed" aria-pressed="false">수동 검토됨</button>
         <button class="candidate-preview-filter review" type="button" data-candidate-filter="unreviewed" aria-pressed="false">미검토</button>
@@ -2371,6 +2371,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         });
       }
 
+      function candidateBucketLabel(value) {
+        return { "우선검토": "자동 우선검토", "일반검토": "자동 일반검토", "낮은우선순위": "자동 낮은 우선순위" }[value] || value || "검토 후보";
+      }
+
       function renderCandidatePreview(candidates) {
         var section = el("candidate-preview");
         var list = el("candidate-preview-list");
@@ -2397,7 +2401,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var activeFilter = candidatePreviewFilter;
         section.dataset.filter = activeFilter;
         var filtered = filterCandidatePreviewRecords(candidates, activeFilter);
-        var candidateFilterLabels = { all: "전체", priority: "우선검토", followup: "출판 후속조치", reviewed: "수동 검토됨", unreviewed: "미검토" };
+        var candidateFilterLabels = { all: "전체", priority: "자동 우선검토", followup: "출판 후속조치", reviewed: "수동 검토됨", unreviewed: "미검토" };
         document.querySelectorAll("[data-candidate-filter]").forEach(function (button) {
           var filterKey = button.dataset.candidateFilter || "all";
           var filterCount = filterCandidatePreviewRecords(candidates, filterKey).length;
@@ -2424,7 +2428,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var identifiers = [candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI" : ""].filter(Boolean);
           var types = (candidate.publicationTypes || []).slice(0, 2);
           return '<article class="candidate-preview-card">' +
-            '<div class="candidate-preview-kicker">' + esc(candidate.bucket || "검토 후보") + ' · ' + esc(candidate.candidateId || "후보") + '</div>' +
+            '<div class="candidate-preview-kicker">' + esc(candidateBucketLabel(candidate.bucket)) + ' · ' + esc(candidate.candidateId || "후보") + '</div>' +
             '<h3>' + esc(candidate.title || "제목 확인 필요") + '</h3>' +
             '<p>' + esc([candidate.author, candidate.journal, candidate.year].filter(Boolean).join(" · ") || "서지정보 확인 필요") + '</p>' +
             '<div class="candidate-preview-meta">' + identifiers.concat(types).map(function (item) { return '<span>' + esc(item) + '</span>'; }).join("") + '</div>' +
@@ -2454,7 +2458,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         persistUrl(historyMode || "push");
         el("candidate-detail-title").textContent = candidate.title || "후보 상세";
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
-        el("candidate-detail-screening").innerHTML = '<strong>검토 권고</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>수동 검토 상태</strong> · ' + esc(candidate.screeningStatus || "미검토") + (candidate.screeningPriority ? " · " + esc(candidate.screeningPriority) : "") + '<br><strong>우선순위</strong> · ' + esc(candidate.bucket || "미분류") + (candidate.score != null ? " · 점수 " + esc(candidate.score) : "") + '<br><strong>자동 신호 요약</strong> · ' + esc(candidateHumanSignals(candidate)) + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
+        el("candidate-detail-screening").innerHTML = '<strong>검토 권고</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>수동 검토 상태</strong> · ' + esc(candidate.screeningStatus || "미검토") + (candidate.screeningPriority ? " · 수동 우선순위 " + esc(candidate.screeningPriority) : "") + '<br><strong>자동 탐색 우선순위</strong> · ' + esc(candidateBucketLabel(candidate.bucket || "미분류")) + (candidate.score != null ? " · 자동 점수 " + esc(candidate.score) : "") + '<br><strong>자동 신호 요약</strong> · ' + esc(candidateHumanSignals(candidate)) + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
         var followup = (candidate.queryLabels || []).includes("publication_followup") || (candidate.publicationTypes || []).some(function (type) { return /retract|correct/i.test(type); });
         var sourceUrl = candidateSourceUrl(candidate);
         var checklist = [
@@ -2486,7 +2490,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var activeFilter = el("candidate-preview")?.dataset.filter || "all";
         candidates = filterCandidatePreviewRecords(candidates, activeFilter);
         if (!candidates.length) { toast("내보낼 후보가 없습니다"); return; }
-        var headers = ["후보 ID", "수집일", "우선순위", "수동 검토 상태", "수동 우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "경로 신호", "개입 신호", "대상 신호", "설계 신호", "자동 제외 신호", "탐색 쿼리", "원문 링크"];
+        var headers = ["후보 ID", "수집일", "자동 탐색 우선순위", "수동 검토 상태", "수동 우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "경로 신호", "개입 신호", "대상 신호", "설계 신호", "자동 제외 신호", "탐색 쿼리", "원문 링크"];
         var rows = candidates.map(function (candidate) {
           return [candidate.candidateId, candidate.collectedDate, candidate.bucket, candidate.screeningStatus || "미검토", candidate.screeningPriority || "", candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.routeSignals || []).join(" · "), (candidate.interventionSignals || []).join(" · "), (candidate.subjectSignals || []).join(" · "), (candidate.studySignals || []).join(" · "), (candidate.exclusionSignals || []).join(" · "), (candidate.queryLabels || []).join(" · "), candidateSourceUrl(candidate)].map(csvCell);
         });
@@ -2554,7 +2558,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["OpenAlex", Number(discovery.openAlexRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["Crossref", Number(discovery.crossrefRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["통합 고유", Number(discovery.mergedUnique || 0).toLocaleString("ko-KR") + "건"],
-          ["우선검토", Number(discovery.priority || 0).toLocaleString("ko-KR") + "건"],
+          ["자동 우선검토", Number(discovery.priority || 0).toLocaleString("ko-KR") + "건"],
           ["검토 상태", discovery.screeningCounts ? "미검토 " + Number(discovery.screeningCounts["미검토"] || 0).toLocaleString("ko-KR") + "건" : "확인 필요"],
           ["수동 판정 연결 / 보존", Number(discovery.manualDecisionsMatched || 0).toLocaleString("ko-KR") + " / " + Number(discovery.manualDecisionsPreserved || 0).toLocaleString("ko-KR") + "건"],
           ["원천 오류", Number((discovery.sourceErrors || []).length).toLocaleString("ko-KR") + "건"],
