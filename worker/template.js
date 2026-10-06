@@ -340,6 +340,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .reading-list-count { min-width: 18px; padding: 1px 5px; border-radius: 999px; background: var(--teal-soft); font-size: 10px; text-align: center; }
     .paper-read-later { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 800; cursor: pointer; }
     .paper-read-later[aria-pressed="true"] { border-color: var(--teal); background: var(--teal-soft); }
+    .paper-review { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .paper-review:hover, .paper-review:focus-visible { background: var(--teal-dark); }
     @media (max-width: 640px) { .reading-list-inner { padding: 16px; } .reading-list-item { grid-template-columns: 1fr; } .reading-list-item-actions { justify-content: start; } }
     .intelligence-related-list { display: grid; gap: 8px; }
     .intelligence-related-list button { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); text-align: left; font-size: 12px; font-weight: 700; line-height: 1.45; cursor: pointer; }
@@ -4186,7 +4188,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '</dl>' +
           '</details>' +
           '<div class="paper-footer">' +
-            linkButton(sourcePrimary, "공식 원문", true) + decisionExtra + '<button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
+            linkButton(sourcePrimary, "공식 원문", true) + decisionExtra + '<button class="paper-review" type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토</button><button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
             '<span class="record-id">' + esc(record.id) + '</span>' +
           '</div>' +
         '</article>';
@@ -4243,7 +4245,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '</dl>' +
           '</details>' +
           '<div class="paper-footer">' +
-            linkButton(sourcePrimary, sourceLabel, true) + pubmedExtra + doiExtra + '<button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button><button class="paper-read-later" type="button" data-reading-toggle="' + esc(record.id) + '" aria-pressed="false">읽기 목록에 저장</button>' +
+            linkButton(sourcePrimary, sourceLabel, true) + pubmedExtra + doiExtra + '<button class="paper-review" type="button" data-intelligence-id="' + esc(record.id) + '">상세 검토</button><button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button><button class="paper-read-later" type="button" data-reading-toggle="' + esc(record.id) + '" aria-pressed="false">읽기 목록에 저장</button>' +
             '<span class="record-id">' + esc(record.id) + '</span>' +
           '</div>' +
         '</article>';

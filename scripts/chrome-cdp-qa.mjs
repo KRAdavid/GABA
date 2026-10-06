@@ -269,6 +269,12 @@ try {
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-review-jump')?.textContent.includes('추가 확인 큐 보기')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('.paper-review')?.textContent.includes('상세 검토')"), true);
+  await evaluate(client, "document.querySelector('.paper-review').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-meaning')?.textContent.length > 0"), true);
+  await evaluate(client, "document.querySelector('#intelligence-detail-close').click()");
+  await sleep(100);
   await evaluate(client, "document.querySelector('#result-review-jump').click()");
   await sleep(120);
   assert.equal(await evaluate(client, "document.activeElement?.id"), "review-queue-title");
