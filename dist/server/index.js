@@ -1671,7 +1671,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <div><h2 id="reading-list-title">내 읽기 목록</h2><p>현재 브라우저에만 저장됩니다. 원본 인덱스·Sheets·공개 데이터는 변경하지 않습니다.</p></div>
           <button class="reading-list-close" id="reading-list-close" type="button" aria-label="읽기 목록 닫기">×</button>
         </div>
-        <div class="reading-list-actions"><button id="reading-list-copy" type="button">전체 근거 브리프 복사</button><button class="secondary" id="reading-list-clear" type="button">전체 비우기</button></div>
+        <div class="reading-list-actions"><button id="reading-list-copy" type="button">전체 근거 브리프 복사</button><button id="reading-list-share" type="button">읽기 목록 링크 복사</button><button class="secondary" id="reading-list-clear" type="button">전체 비우기</button></div>
         <div class="reading-list-items" id="reading-list-items"></div>
       </div>
     </dialog>
@@ -1924,6 +1924,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var detailReturnFocus = null;
       var compareReturnFocus = null;
       var readingReturnFocus = null;
+      var urlReadingIds = [];
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
       var state = {
@@ -2132,6 +2133,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           });
           saveCompareIds();
         }
+        if (params.has("read")) {
+          urlReadingIds = String(params.get("read") || "").split(",").map(function (id) { return id.trim(); }).filter(Boolean).filter(function (id, index) {
+            return index < 50 && records.some(function (record) { return String(record.id) === id; });
+          });
+          readingIds = urlReadingIds.slice();
+          saveReadingIds();
+        } else {
+          urlReadingIds = [];
+        }
         urlRecordId = params.get("record") || "";
       }
 
@@ -2191,6 +2201,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (state.sort !== "latest") params.set("sort", state.sort);
         if (pageSize !== 20) params.set("pageSize", pageSize);
         if (compareIds.length) params.set("compare", compareIds.join(","));
+        if (urlReadingIds.length) params.set("read", urlReadingIds.join(","));
         if (urlRecordId) params.set("record", urlRecordId);
         var query = params.toString();
         var method = historyMode === "push" ? "pushState" : "replaceState";
@@ -2806,6 +2817,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ? selected.map(function (record, index) { return "[" + (index + 1) + "]\n" + evidenceBriefText(record); }).join("\n\n--------------------\n\n")
           : "저장한 자료가 없습니다.";
       }
+      async function shareReadingList() {
+        if (!readingListRecords().length) { toast("공유할 읽기 목록이 없습니다"); return; }
+        urlReadingIds = readingIds.slice(0, 50);
+        persistUrl("replace");
+        var text = location.href;
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("읽기 목록 링크를 복사했습니다");
+        } catch (_) {
+          window.prompt("아래 읽기 목록 링크를 복사하세요", text);
+        }
+      }
       async function copyReadingList() {
         var text = readingListBriefText();
         if (!readingListRecords().length) { toast("복사할 읽기 목록이 없습니다"); return; }
@@ -2821,6 +2844,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!window.confirm("저장한 자료를 모두 읽기 목록에서 제거할까요?")) return;
         readingIds = [];
         saveReadingIds();
+        if (urlReadingIds.length) { urlReadingIds = readingIds.slice(0, 50); persistUrl("replace"); }
         renderReadingList();
         toast("읽기 목록을 비웠습니다");
       }
@@ -2835,6 +2859,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           toast("읽기 목록에 저장했습니다");
         }
         saveReadingIds();
+        if (urlReadingIds.length) { urlReadingIds = readingIds.slice(0, 50); persistUrl("replace"); }
         renderReadingList();
       }
       function openReadingList() {
@@ -3299,6 +3324,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("reading-list-open").addEventListener("click", openReadingList);
       el("result-reading-list").addEventListener("click", openReadingList);
       el("reading-list-copy").addEventListener("click", copyReadingList);
+      el("reading-list-share").addEventListener("click", shareReadingList);
       el("reading-list-clear").addEventListener("click", clearReadingList);
       el("reading-list-close").addEventListener("click", closeReadingList);
       el("reading-list-dialog").addEventListener("click", function (event) {
