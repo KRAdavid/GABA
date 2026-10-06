@@ -266,6 +266,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=unreviewed]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidate')"), "unreviewed");
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () {} } }); document.querySelector('#result-share').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('검색 조건 링크')"), true);
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-review-jump')?.textContent.includes('추가 확인 큐 보기')"), true);

@@ -122,6 +122,7 @@ const required = [
   ,["Reading list share", 'id="reading-list-share"']
   ,["Shareable reading state", 'params.set("read"']
   ,["Filtered result export", 'id="result-export"']
+  ,["Filtered result share", 'id="result-share"']
   ,["Filtered result export menu", 'id="result-export-menu"']
   ,["Filtered result export options", "result-export-options"]
   ,["Filtered result export close", "function closeResultExportMenu"]

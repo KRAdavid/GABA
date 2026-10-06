@@ -2338,6 +2338,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <p class="result-count" id="result-count" tabindex="-1" aria-live="polite"></p>
             <div class="result-top-actions">
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
+              <button class="result-reset" id="result-share" type="button">조건 링크 복사</button>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
               <details class="result-export-menu" id="result-export-menu">
                 <summary>내보내기</summary>
@@ -4898,14 +4899,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           controls.q.select();
         }
       });
-      el("share-button").addEventListener("click", async function () {
+      async function shareCurrentQuery() {
         try {
           await navigator.clipboard.writeText(location.href);
           toast("현재 검색 조건 링크를 복사했습니다");
         } catch (_) {
           openCopyDialog("현재 검색 조건 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", location.href, "현재 검색 조건 링크를 복사했습니다");
         }
-      });
+      }
+      el("share-button").addEventListener("click", shareCurrentQuery);
+      el("result-share").addEventListener("click", shareCurrentQuery);
       el("freshness-label").addEventListener("click", focusDiscoveryStatus);
       function scrollToResults() {
         var top = el("results").getBoundingClientRect().top + window.scrollY - 150;
