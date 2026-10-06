@@ -4195,6 +4195,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!note) return;
         note.hidden = state.sort !== "human-source";
       }
+      function closeResultExportMenu() {
+        var menu = el("result-export-menu");
+        if (menu) menu.open = false;
+      }
 
       function syncAdvancedFilterDisclosure() {
         var advancedKeys = ["grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source"];
@@ -4550,6 +4554,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        if (!event.target.closest("#result-export-menu")) closeResultExportMenu();
         var reviewJump = event.target.closest("#result-review-jump");
         if (reviewJump) {
           var reviewTitle = el("review-queue-title");
@@ -4709,10 +4714,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("reset").addEventListener("click", resetFilters);
       el("result-reset").addEventListener("click", resetFilters);
       el("filter-reset-quick").addEventListener("click", resetFilters);
-      el("result-export").addEventListener("click", exportFilteredResults);
-      el("result-json").addEventListener("click", exportFilteredJson);
-      el("result-ris").addEventListener("click", exportFilteredRis);
-      el("result-brief").addEventListener("click", copyFilteredBrief);
+      el("result-export").addEventListener("click", function () { exportFilteredResults(); closeResultExportMenu(); });
+      el("result-json").addEventListener("click", function () { exportFilteredJson(); closeResultExportMenu(); });
+      el("result-ris").addEventListener("click", function () { exportFilteredRis(); closeResultExportMenu(); });
+      el("result-brief").addEventListener("click", function () { copyFilteredBrief(); closeResultExportMenu(); });
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });
@@ -4720,6 +4725,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
           if (el("copy-dialog").open) closeCopyDialog();
+          else if (el("result-export-menu").open) closeResultExportMenu();
           else if (el("candidate-detail-dialog").open) closeCandidateDetail();
           else if (el("review-share-dialog").open) closeReviewShareDialog();
           else if (el("reading-list-dialog").open) closeReadingList();

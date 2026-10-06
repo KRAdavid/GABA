@@ -295,6 +295,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), true);
   assert.equal(await evaluate(client, "document.querySelectorAll('#result-export-menu .result-reset').length"), 4);
   await evaluate(client, "document.querySelector('#result-export').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), false);
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('CSV')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#result-json'))"), true);
@@ -308,6 +309,11 @@ try {
   await evaluate(client, "document.querySelector('#result-brief').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('검색 결과 브리프') || document.querySelector('#copy-dialog')?.open"), true);
+  if (await evaluate(client, "document.querySelector('#copy-dialog')?.open")) await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
+  await evaluate(client, "document.querySelector('#result-export-menu summary').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), true);
+  await evaluate(client, "document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))");
+  assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), false);
   await evaluate(client, "document.querySelector('[data-marketing=\"조건부 검토\"]').click()");
   assert.equal(await evaluate(client, "document.querySelector('[data-marketing=\"조건부 검토\"]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('marketing')"), "조건부 검토");
