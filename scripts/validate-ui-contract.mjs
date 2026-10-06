@@ -43,6 +43,7 @@ const required = [
   ["Evidence compare renderer", "function renderCompareTable"],
   ["Shareable compare state", 'params.set("compare"'],
   ["Comparison copy action", 'id="compare-copy"'],
+  ["Comparison focus return", "compareReturnFocus"],
   ["Result evidence composition", 'id="result-interpretation"'],
   ["Shareable record deep link", "urlRecordId"],
   ["Citation copy action", "data-copy-citation"],

@@ -1879,6 +1879,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var currentDetailRecordId = null;
       var urlRecordId = "";
       var detailReturnFocus = null;
+      var compareReturnFocus = null;
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
       var state = {
@@ -2803,8 +2804,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (selectedCompareRecords().length < 2) { toast("비교할 자료를 2개 이상 선택하세요"); return; }
         renderCompareTable();
         var dialog = el("compare-dialog");
+        compareReturnFocus = document.activeElement;
         if (typeof dialog.showModal === "function") dialog.showModal();
         else dialog.setAttribute("open", "");
+        el("compare-dialog-close").focus();
+      }
+      function closeCompareDialog() {
+        var dialog = el("compare-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
+        if (compareReturnFocus && typeof compareReturnFocus.focus === "function") compareReturnFocus.focus();
+        compareReturnFocus = null;
       }
 
       function regulatoryCard(record) {
@@ -3153,16 +3163,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         toast("비교 선택을 해제했습니다");
       });
       el("compare-dialog-close").addEventListener("click", function () {
-        var dialog = el("compare-dialog");
-        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
-        else if (dialog) dialog.removeAttribute("open");
+        closeCompareDialog();
       });
       el("compare-dialog").addEventListener("click", function (event) {
-        if (event.target === el("compare-dialog")) el("compare-dialog-close").click();
+        if (event.target === el("compare-dialog")) closeCompareDialog();
       });
       el("compare-dialog").addEventListener("cancel", function (event) {
         event.preventDefault();
-        el("compare-dialog-close").click();
+        closeCompareDialog();
       });
       el("portal-lane-overview-close").addEventListener("click", function () {
         activeLane = null;
@@ -3276,7 +3284,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-          if (el("compare-dialog").open) el("compare-dialog-close").click();
+          if (el("compare-dialog").open) closeCompareDialog();
           else if (el("intelligence-detail").open) closeIntelligenceDetail();
           else openFilters(false);
         }
