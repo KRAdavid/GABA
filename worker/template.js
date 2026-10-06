@@ -15,6 +15,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
   <meta name="twitter:title" content="GABA 연구·규제 안전성 근거 인덱스">
   <meta name="twitter:description" content="GABA 섭취 연구와 규제·안전성 자료를 근거 수준과 원문 연결로 탐색하는 한국어 포털">
   <link rel="canonical" href="https://gaba-evidence-index-kr.dubaissday.chatgpt.site/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"GABA 연구·규제 안전성 근거 인덱스","description":"GABA 섭취 연구와 규제·안전성 자료를 한국어로 탐색하는 공개 읽기 전용 포털","url":"https://gaba-evidence-index-kr.dubaissday.chatgpt.site/","inLanguage":"ko-KR","isAccessibleForFree":true,"potentialAction":{"@type":"SearchAction","target":"https://gaba-evidence-index-kr.dubaissday.chatgpt.site/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <title>GABA 연구·규제 안전성 근거 인덱스</title>
   <style>
     :root {

@@ -79,6 +79,7 @@ const required = [
   ,["Stale shared queue notice", "sharedReviewMissingCount"]
   ,["Intervention badge", "interventionShortLabel"]
   ,["Intervention badge filter", "intervention-filter-badge"]
+  ,["Structured search metadata", "application/ld+json"]
   ,["Unified copy dialog", "copy-dialog"]
   ,["Unified copy fallback", "openCopyDialog"]
   ,["Intervention classification", "function interventionClass"]
