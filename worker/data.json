@@ -719,10 +719,10 @@
     "publicRelease": true,
     "release": {
       "snapshotVersion": 457,
-      "siteVersion": 459,
+      "siteVersion": 460,
       "sourceCommit": "49bb502eb98e7ee6a03f57b055605a517889b6ac",
-      "siteSourceCommit": "2db0b8343443e70e652ef35a70961bce348a8c5c",
-      "publicMirrorCommit": "ce4bef75248b44970357cd0c79715cfd903e56c7",
+      "siteSourceCommit": "02bd97e59f1607d9b77284d6ee7cc0ea8de36253",
+      "publicMirrorCommit": "4264137058584d96301b4c644e23a08c25c96b16",
       "publishedAt": "2026-10-06T15:28:08.464540Z",
       "verification": "UI·public-surface·health·parity·Chrome CDP QA 통과"
     },
