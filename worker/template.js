@@ -2365,8 +2365,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["탐색일", koreanDate(discovery.snapshotDate || DB.meta.snapshotDate)],
           ["PubMed", Number(discovery.pubmedUnique || 0).toLocaleString("ko-KR") + "건"],
           ["OpenAlex", Number(discovery.openAlexRetrieved || 0).toLocaleString("ko-KR") + "건"],
+          ["Crossref", Number(discovery.crossrefRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["통합 고유", Number(discovery.mergedUnique || 0).toLocaleString("ko-KR") + "건"],
           ["우선검토", Number(discovery.priority || 0).toLocaleString("ko-KR") + "건"],
+          ["원천 오류", Number((discovery.sourceErrors || []).length).toLocaleString("ko-KR") + "건"],
           ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"]
         ].map(function (item) {
           return '<span class="discovery-stat">' + esc(item[0]) + " " + esc(item[1]) + '</span>';

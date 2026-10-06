@@ -186,6 +186,8 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원천 오류')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-title-korean')?.textContent.includes('·')"), true);
   await evaluate(client, "document.querySelector('[data-preset=human-direct]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('status')"), "포함");
