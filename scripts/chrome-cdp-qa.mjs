@@ -245,6 +245,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('결과 방향')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#compare-dialog-insight')?.textContent.includes('자동 판정하지 않습니다')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-copy'))"), true);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-export'))"), true);
+  await evaluate(client, "document.querySelector('#compare-export').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('비교표 CSV')"), true);
   await evaluate(client, "document.querySelector('#compare-dialog-close').click()");
   assert.equal(await evaluate(client, "document.activeElement?.id"), "compare-open");
   await evaluate(client, "document.querySelector('#compare-clear').click()");

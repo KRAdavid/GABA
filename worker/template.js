@@ -1782,7 +1782,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         </div>
         <div class="compare-dialog-insight" id="compare-dialog-insight" role="note" aria-live="polite"></div>
         <div id="compare-table" class="compare-table-wrap"></div>
-        <div class="compare-dialog-actions"><button id="compare-copy" type="button">비교표 복사</button></div>
+        <div class="compare-dialog-actions"><button id="compare-copy" type="button">비교표 복사</button><button id="compare-export" type="button">비교표 CSV 저장</button></div>
       </div>
     </dialog>
     <dialog class="reading-list-dialog" id="reading-list-dialog" aria-labelledby="reading-list-title">
@@ -3459,6 +3459,28 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           openCopyDialog("비교표", "클립보드 권한이 없으면 아래 표를 선택해 직접 복사하세요.", text, "비교표를 복사했습니다");
         }
       }
+      function exportCompareSelection() {
+        var selected = selectedCompareRecords();
+        if (selected.length < 2) { toast("비교할 자료를 2개 이상 선택하세요"); return; }
+        var rows = [
+          ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
+          ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"], ["기간", "duration"],
+          ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"], ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
+        ];
+        var csvRows = [["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
+          .concat(rows.map(function (row) { return [row[0]].concat(selected.map(function (record) { return compareValue(record, row[1]); })); }))
+          .map(function (row) { return row.map(csvCell).join(","); });
+        var blob = new Blob(["\uFEFF" + csvRows.join("\r\n")], { type: "text/csv;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-evidence-comparison-" + String(DB.meta.snapshotDate || "snapshot") + ".csv";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast("비교표 CSV를 저장했습니다");
+      }
       function openCompareDialog() {
         if (selectedCompareRecords().length < 2) { toast("비교할 자료를 2개 이상 선택하세요"); return; }
         renderCompareTable();
@@ -3885,6 +3907,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("candidate-preview-export").addEventListener("click", exportCandidatePreview);
       el("compare-open").addEventListener("click", openCompareDialog);
       el("compare-copy").addEventListener("click", copyCompareSelection);
+      el("compare-export").addEventListener("click", exportCompareSelection);
       el("compare-clear").addEventListener("click", function () {
         compareIds = [];
         saveCompareIds();
