@@ -3918,8 +3918,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var sourcePrimary = primarySourceUrl(record);
         el("intelligence-detail-actions").innerHTML =
             linkButton(sourcePrimary, primarySourceLabel(record), true) +
-          (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI", false) : "") +
-          (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed", false) : "") +
+          (record.doiUrl && record.doiUrl !== sourcePrimary ? linkButton(record.doiUrl, "DOI 원문", false) : "") +
+          (record.pubmedUrl && record.pubmedUrl !== sourcePrimary ? linkButton(record.pubmedUrl, "PubMed 원문", false) : "") +
           '<button type="button" data-copy-record-link="' + esc(record.id) + '">자료 링크 복사</button>' +
           '<button type="button" data-copy-citation="' + esc(record.id) + '">인용 정보 복사</button>' +
           '<button type="button" data-copy-brief="' + esc(record.id) + '">근거 브리프 복사</button>' +
@@ -4211,7 +4211,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function regulatoryCard(record) {
         var sourcePrimary = record.sourceUrl || record.fulltextUrl;
         var decisionExtra = record.decisionUrl && record.decisionUrl !== sourcePrimary
-          ? linkButton(record.decisionUrl, "규제결정", false)
+          ? linkButton(record.decisionUrl, "규제 결정문", false)
           : "";
         var originalTitle = record.title && record.title !== record.titleKo
           ? '<p class="original-title" lang="en">' + esc(record.title) + '</p>'
