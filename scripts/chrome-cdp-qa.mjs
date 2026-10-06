@@ -307,6 +307,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('개입 구분')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('연구 설계')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('대조군')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('자료 최신성')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-verification')?.textContent.includes('검증 기록 충실도')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-verification')?.textContent.includes('연구의 질·효능·규제 적합성 순위를 의미하지 않습니다')"), true);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('record')"), true);

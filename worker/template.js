@@ -2952,6 +2952,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return '<div class="verification-score" aria-label="검증 기록 충실도 ' + score + '퍼센트">' + score + '%</div>' +
           '<div><h3>검증 기록 충실도 · ' + esc(label) + '</h3><p>' + esc(action) + ' <strong>' + complete + '/' + total + '개 핵심 항목 기록</strong></p><small>이 수치는 기록의 완성도만 보여주며, 연구의 질·효능·규제 적합성 순위를 의미하지 않습니다.</small></div>';
       }
+      function recordFreshness(record) {
+        var checked = new Date(String(record.checked || "") + "T00:00:00");
+        if (Number.isNaN(checked.getTime())) return "확인일 미상 · 재확인 필요";
+        var today = new Date();
+        var days = Math.max(0, Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(checked.getFullYear(), checked.getMonth(), checked.getDate())) / 86400000));
+        var label = days > 180 ? "재확인 권고" : days > 90 ? "정기 재확인 권고" : "최근 확인";
+        return label + " · " + days.toLocaleString("ko-KR") + "일 전 (" + koreanDate(record.checked) + ")";
+      }
       function reviewPriority(item) {
         var record = item.record;
         var score = 0;
@@ -3270,7 +3278,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           fact("연구 유형", kind), fact("개입 구분", interventionClass(record)), fact("상태", record.status), fact("대상", record.population || record.species),
           fact("연구 설계", record.design), fact("개입 형태", record.form), fact("투여 경로", record.route), fact("대조군", record.comparator),
           fact("결과 영역", record.outcome || record.domain), fact("GABA 용량", record.dose || record.exposure), fact("기간", record.duration), fact("근거 수준", record.grade || record.sciGroup),
-          fact("결과 방향", record.direction), fact("확인일", record.checked)
+          fact("결과 방향", record.direction), fact("확인일", record.checked), fact("자료 최신성", recordFreshness(record))
         ].join("");
         el("intelligence-detail-finding").textContent = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않은 자료입니다.";
         el("intelligence-detail-boundary").textContent = evidenceBoundary(record);
