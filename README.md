@@ -13,6 +13,7 @@ Google Sheet로 관리되는 GABA 섭취 임상·동물시험 문헌을 한국�
 - 운영 소스: `worker/template.js` 및 `worker/data.json`
 - 검토 큐: 브라우저 로컬 완료 표시와 JSON 내보내기 제공
 - 후보 큐: `?candidate=priority`, `?candidate=followup`, `?candidate=reviewed`, `?candidate=unreviewed` 링크로 같은 검토 범위를 공유
+- 네 후보 URL은 브라우저 QA에서 필터 상태·주소·포커스 복원을 함께 확인합니다.
 - 후보 상세: `?candidateId=<Candidate_ID>` 링크로 특정 자동 탐색 후보의 원문 확인 체크리스트를 공유
 - 후보 상세의 `후보 검토 링크 복사`는 클립보드가 제한돼도 수동 복사 패널로 전환됩니다.
 - 후보 영역은 전체 자동 탐색 후보 수와 공개 미리보기·CSV 범위를 분리 표시합니다. 미리보기는 전체 후보의 확정 승격 목록이 아닙니다.
