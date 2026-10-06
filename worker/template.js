@@ -1699,7 +1699,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     <section class="candidate-preview" id="candidate-preview" aria-labelledby="candidate-preview-title" hidden>
       <div class="candidate-preview-head">
         <div><h2 id="candidate-preview-title">최근 자동 탐색 후보 미리보기</h2><p>아직 공개 근거로 승격되지 않은 후보입니다. 원문·섭취 경로·철회·정정 상태를 확인한 뒤 별도 판정합니다.</p></div>
-        <div class="candidate-preview-head-actions"><span class="candidate-preview-note">확정 근거 아님</span><button class="candidate-preview-export" id="candidate-preview-export" type="button">미리보기 CSV</button></div>
+        <div class="candidate-preview-head-actions"><span class="candidate-preview-note">확정 근거 아님</span><button class="candidate-preview-export" id="candidate-preview-export" type="button">전체 후보 CSV</button></div>
       </div>
       <div class="candidate-preview-filters" aria-label="후보 유형 필터">
         <button class="candidate-preview-filter active" type="button" data-candidate-filter="all" aria-pressed="true">전체</button>
@@ -2446,20 +2446,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       function exportCandidatePreview() {
-        var candidates = DB.meta.discovery?.candidatePreview || [];
+        var candidates = DB.meta.discovery?.candidateExport || DB.meta.discovery?.candidatePreview || [];
         var activeFilter = el("candidate-preview")?.dataset.filter || "all";
         candidates = filterCandidatePreviewRecords(candidates, activeFilter);
         if (!candidates.length) { toast("내보낼 후보가 없습니다"); return; }
-        var headers = ["후보 ID", "우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "후속조치 신호", "원문 링크", "초록"];
+        var headers = ["후보 ID", "수집일", "우선순위", "수동 검토 상태", "수동 우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "자동 제외 신호", "탐색 쿼리", "원문 링크"];
         var rows = candidates.map(function (candidate) {
-          return [candidate.candidateId, candidate.bucket, candidate.screeningStatus || "미검토", candidate.screeningPriority || "", candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.exclusionSignals || []).join(" · "), candidateSourceUrl(candidate), candidate.abstract].map(csvCell);
+          return [candidate.candidateId, candidate.collectedDate, candidate.bucket, candidate.screeningStatus || "미검토", candidate.screeningPriority || "", candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.exclusionSignals || []).join(" · "), (candidate.queryLabels || []).join(" · "), candidateSourceUrl(candidate)].map(csvCell);
         });
         var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
         var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
         var url = URL.createObjectURL(blob);
         var anchor = document.createElement("a");
         anchor.href = url;
-        anchor.download = "gaba-candidate-preview-" + String(DB.meta.discovery?.snapshotDate || DB.meta.snapshotDate || "snapshot") + ".csv";
+        anchor.download = "gaba-candidate-queue-" + String(DB.meta.discovery?.snapshotDate || DB.meta.snapshotDate || "snapshot") + ".csv";
         document.body.appendChild(anchor);
         anchor.click();
         anchor.remove();

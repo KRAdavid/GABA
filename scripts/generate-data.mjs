@@ -160,6 +160,34 @@ const candidatePreview = Array.isArray(candidateArtifact?.candidates)
       };
     })
   : [];
+const candidateExport = Array.isArray(candidateArtifact?.candidates)
+  ? candidateArtifact.candidates
+    .slice()
+    .sort((left, right) => (candidateBucketRank[left.bucket] ?? 9) - (candidateBucketRank[right.bucket] ?? 9)
+      || Number(right.score || 0) - Number(left.score || 0)
+      || String(left.candidateId || "").localeCompare(String(right.candidateId || "")))
+    .map((record) => {
+      const decision = candidateDecisionFor(record);
+      return {
+        candidateId: clean(record.candidateId),
+        collectedDate: clean(record.collectedDate),
+        title: clean(record.title),
+        author: clean(record.author || record.authors?.[0]),
+        journal: clean(record.journal),
+        year: Number(record.year) || null,
+        pmid: clean(record.pmid),
+        doi: clean(record.doi),
+        sourceUrl: httpUrl(record.sourceUrl),
+        screeningRecommendation: clean(record.screeningRecommendation),
+        screeningStatus: clean(decision?.status || "미검토"),
+        screeningPriority: clean(decision?.priority || ""),
+        bucket: clean(record.bucket),
+        score: Number(record.score) || 0,
+        queryLabels: Array.isArray(record.queryLabels) ? record.queryLabels.slice(0, 5).map(clean) : [],
+        exclusionSignals: Array.isArray(record.exclusionSignals) ? record.exclusionSignals.slice(0, 6).map(clean) : []
+      };
+    })
+  : [];
 
 function enrichLiteratureNote(record) {
   if (record.kind === "규제") return record.notes;
@@ -466,6 +494,7 @@ const database = {
       screeningCounts: discovery.screeningCounts || candidateSheetPayload?.summary?.screeningCounts || null,
       manualDecisionsPreserved: discovery.manualDecisionsPreserved ?? candidateSheetPayload?.summary?.manualDecisionsPreserved ?? 0,
       candidatePreview,
+      candidateExport,
       candidateSheet: null,
       disclaimer: "자동 탐색 후보는 확정 근거가 아니며 원문·투여경로·SCI/SCIE·중복 검증 후 문헌인덱스로 승격합니다."
     } : null,

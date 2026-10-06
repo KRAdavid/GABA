@@ -189,6 +189,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('검토 권고')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=reviewed]')?.textContent.includes('수동 검토됨')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('수동 검토 상태')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-export')?.textContent.includes('전체 후보 CSV')"), true);
   await evaluate(client, "document.querySelector('[data-candidate-detail]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), true);
   const candidateId = await evaluate(client, "document.querySelector('[data-candidate-detail]')?.getAttribute('data-candidate-detail')");
