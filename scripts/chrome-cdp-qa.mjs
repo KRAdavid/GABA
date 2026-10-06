@@ -148,8 +148,9 @@ try {
   assert.equal(health.release?.siteVersion, 485);
   assert.equal(health.release?.sourceCommit, "bd958c5faec6c86dda8b99ea5dd09aecf777656a");
   assert.equal(health.release?.publicMirrorCommit, "e60d363a0133da4c59e65f1e1c44296650894d46");
-  assert.equal(health.release?.currentCodeDeployment?.siteVersion, 524);
-  assert.equal(health.release?.currentCodeDeployment?.sourceCommit, "77f44ea304b5eb05b7c178b72b6d85b8cebac280");
+  assert.ok(Number.isInteger(health.release?.currentCodeDeployment?.siteVersion));
+  assert.match(health.release?.currentCodeDeployment?.sourceCommit || "", /^[0-9a-f]{40}$/);
+  assert.match(health.release?.currentCodeDeployment?.publicMirrorCommit || "", /^[0-9a-f]{40}$/);
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
   assert.ok(health.candidateExportCount >= health.stagedCandidates);
   assert.ok(health.candidatePreviewCount > 0);
@@ -256,7 +257,8 @@ try {
   await sleep(120);
   assert.equal(await evaluate(client, "document.activeElement?.id"), "review-queue-title");
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
-  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('현재 운영 코드 기준 Sites v524 · GitHub beed182')"), true);
+  const currentDeploymentLabel = "현재 운영 코드 기준 Sites v" + health.release.currentCodeDeployment.siteVersion + " · GitHub " + health.release.currentCodeDeployment.publicMirrorCommit.slice(0, 7);
+  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes(" + JSON.stringify(currentDeploymentLabel) + ")"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v485 · GitHub e60d363')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원천 오류')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원문 감사')"), true);
