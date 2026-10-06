@@ -173,6 +173,11 @@ try {
   await evaluate(client, "document.querySelector('#review-queue-shared-clear').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('review')"), false);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-shared-note')?.hidden"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/?review=QA-MISSING-RECORD`);
+  assert.equal(await evaluate(client, "document.querySelector('#review-queue-shared-note')?.hidden"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#review-queue-shared-copy')?.textContent.includes('현재 스냅샷')"), true);
+  await evaluate(client, "document.querySelector('#review-queue-shared-clear').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#review-queue-shared-note')?.hidden"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-compare-toggle]').length >= 2"), true);
