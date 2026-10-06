@@ -457,6 +457,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-facts')?.textContent.includes('자료 최신성')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-verification')?.textContent.includes('검증 기록 충실도')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail-verification')?.textContent.includes('연구의 질·효능·규제 적합성 순위를 의미하지 않습니다')"), true);
+  assert.match(String(await evaluate(client, "document.querySelector('#review-check-summary')?.textContent")), /추가 확인|핵심 항목 기록 완료/);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('record')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-record-link]'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-citation]'))"), true);

@@ -182,6 +182,7 @@ const required = [
   ,["Filter status reset", 'id="filter-status-reset"']
   ,["Mobile filter result action", 'id="filter-mobile-apply"']
   ,["Result interpretation guard", "해석 경계"]
+  ,["Review checklist action summary", 'id="review-check-summary"']
   ,["Evidence distribution expansion", "function renderDistribution"]
   ,["Evidence distribution complete list", "var extra = items.slice(4)"]
   ,["Evidence distribution hidden state", ".distribution-item[hidden]"]

@@ -2043,7 +2043,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <p id="intelligence-detail-boundary"></p>
         </section>
         <section class="intelligence-detail-section">
-          <h3>검토 체크 <span style="color:var(--muted);font-size:10px;font-weight:600">기록 충실도 표시</span></h3>
+          <h3>검토 체크 <span id="review-check-summary" style="color:var(--muted);font-size:10px;font-weight:600">기록 충실도 표시</span></h3>
           <div class="review-checklist" id="intelligence-detail-checklist"></div>
         </section>
         <section class="intelligence-detail-section">
@@ -3855,7 +3855,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         ].join("");
         el("intelligence-detail-finding").textContent = record.finding || record.summaryKo || "주요 결과가 충분히 추출되지 않은 자료입니다.";
         el("intelligence-detail-boundary").textContent = evidenceBoundary(record);
-        el("intelligence-detail-checklist").innerHTML = reviewChecklist(record).map(function (item) {
+        var checklist = reviewChecklist(record);
+        var missingChecklist = checklist.filter(function (item) { return !item[1]; });
+        el("review-check-summary").textContent = missingChecklist.length ? "추가 확인 " + missingChecklist.length + "개" : "핵심 항목 기록 완료";
+        el("intelligence-detail-checklist").innerHTML = checklist.map(function (item) {
           var complete = Boolean(item[1]);
           return '<div class="review-check' + (complete ? "" : " missing") + '"><span class="review-check-mark">' + (complete ? "✓" : "–") + '</span><span>' + esc(item[0]) + (complete ? " 기록 있음" : " 추가 확인") + '</span></div>';
         }).join("");
