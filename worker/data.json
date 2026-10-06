@@ -63,6 +63,9 @@
           "doi": "10.3390/ani16182839",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42791696/",
           "screeningRecommendation": "직접근거 우선검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "우선검토",
           "score": 100,
           "publicationTypes": [
@@ -92,6 +95,9 @@
           "doi": "10.5281/zenodo.3694738",
           "sourceUrl": "https://zenodo.org/record/3694738",
           "screeningRecommendation": "직접근거 우선검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "우선검토",
           "score": 100,
           "publicationTypes": [
@@ -121,6 +127,9 @@
           "doi": "10.3390/foods12224101",
           "sourceUrl": "https://doi.org/10.3390/foods12224101",
           "screeningRecommendation": "직접근거 우선검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "우선검토",
           "score": 88,
           "publicationTypes": [
@@ -148,6 +157,9 @@
           "doi": "10.20944/preprints202309.0721.v1",
           "sourceUrl": "https://doi.org/10.20944/preprints202309.0721.v1",
           "screeningRecommendation": "직접근거 우선검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "우선검토",
           "score": 88,
           "publicationTypes": [
@@ -175,6 +187,9 @@
           "doi": "10.5657/fas.2011.0079",
           "sourceUrl": "https://doi.org/10.5657/fas.2011.0079",
           "screeningRecommendation": "직접근거 우선검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "우선검토",
           "score": 83,
           "publicationTypes": [
@@ -201,6 +216,9 @@
           "doi": "10.1101/2022.11.09.515792",
           "sourceUrl": "https://doi.org/10.1101/2022.11.09.515792",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 100,
           "publicationTypes": [
@@ -228,6 +246,9 @@
           "doi": "10.31219/osf.io/yqdfh",
           "sourceUrl": "https://doi.org/10.31219/osf.io/yqdfh",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 95,
           "publicationTypes": [
@@ -256,6 +277,9 @@
           "doi": "",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/27731803/",
           "screeningRecommendation": "경계자료: GABA성 의약품·수용체 연구 또는 비경구/비보충제 가능성 확인",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 87,
           "publicationTypes": [
@@ -284,6 +308,9 @@
           "doi": "10.1016/j.lfs.2022.120382",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35143826/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 85,
           "publicationTypes": [
@@ -308,6 +335,9 @@
           "doi": "10.1101/2021.05.12.443226",
           "sourceUrl": "https://doi.org/10.1101/2021.05.12.443226",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 85,
           "publicationTypes": [
@@ -332,6 +362,9 @@
           "doi": "10.1016/j.livsci.2021.104818",
           "sourceUrl": "https://doi.org/10.1016/j.livsci.2021.104818",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 85,
           "publicationTypes": [
@@ -359,6 +392,9 @@
           "doi": "10.2131/jts.44.799",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31708536/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 85,
           "publicationTypes": [
@@ -385,6 +421,9 @@
           "doi": "10.2174/1871530320666201208110945",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33292127/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "제외",
+          "screeningPriority": "일반검토",
+          "screeningNote": "당뇨 동물모델의 GABA·glibenclamide 병용 약리시험으로, 사람의 GABA 보충제 섭취·마케팅 효능 근거가 아니므로 제외합니다.",
           "bucket": "일반검토",
           "score": 84,
           "publicationTypes": [
@@ -411,6 +450,9 @@
           "doi": "10.3923/pjn.2019.1133.1138",
           "sourceUrl": "https://doi.org/10.3923/pjn.2019.1133.1138",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 83,
           "publicationTypes": [
@@ -437,6 +479,9 @@
           "doi": "10.1007/s43032-024-01771-w",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39794617/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 82,
           "publicationTypes": [
@@ -462,6 +507,9 @@
           "doi": "10.1212/wnl.34.1.94",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/6228746/",
           "screeningRecommendation": "경계자료: GABA성 의약품·수용체 연구 또는 비경구/비보충제 가능성 확인",
+          "screeningStatus": "제외",
+          "screeningPriority": "일반검토",
+          "screeningNote": "gamma-vinyl GABA(vigabatrin) 의약품 치료시험이며 식이 GABA 자체의 경구 보충 연구가 아니므로 제외합니다.",
           "bucket": "일반검토",
           "score": 80,
           "publicationTypes": [
@@ -493,6 +541,9 @@
           "doi": "10.1186/s12917-025-05078-z",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41185009/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 79,
           "publicationTypes": [
@@ -518,6 +569,9 @@
           "doi": "10.1371/journal.pone.0247890",
           "sourceUrl": "https://doi.org/10.1371/journal.pone.0247890",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 78,
           "publicationTypes": [
@@ -545,6 +599,9 @@
           "doi": "10.1016/j.jchromb.2020.122519",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33454439/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "제외",
+          "screeningPriority": "일반검토",
+          "screeningNote": "사람 혈장 GABA 측정법 검증 연구로 섭취 개입·임상 효능을 평가하지 않으므로 마케팅 근거 인덱스에서 제외합니다.",
           "bucket": "일반검토",
           "score": 76,
           "publicationTypes": [
@@ -572,6 +629,9 @@
           "doi": "10.1038/s41598-025-26746-y",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41462371/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 75,
           "publicationTypes": [
@@ -598,6 +658,9 @@
           "doi": "10.1515/tnsci-2022-0354",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39380963/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 75,
           "publicationTypes": [
@@ -622,6 +685,9 @@
           "doi": "10.1002/prp2.1102",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37208866/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 75,
           "publicationTypes": [
@@ -650,6 +716,9 @@
           "doi": "10.1159/000480053",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/29035887/",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 75,
           "publicationTypes": [
@@ -675,6 +744,9 @@
           "doi": "",
           "sourceUrl": "https://en.cnki.com.cn/Article_en/CJFDTOTAL-DWYX201111019.htm",
           "screeningRecommendation": "일반 원문검토",
+          "screeningStatus": "미검토",
+          "screeningPriority": "",
+          "screeningNote": "",
           "bucket": "일반검토",
           "score": 75,
           "publicationTypes": [

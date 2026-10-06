@@ -651,6 +651,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-preview-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
     .candidate-preview-filter { min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 11px; font-weight: 800; cursor: pointer; }
     .candidate-preview-filter.active { border-color: var(--amber); background: var(--amber-soft); color: var(--amber); }
+    .candidate-preview-filter.review { border-color: var(--teal); }
     .candidate-preview-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
     .candidate-preview-card { min-width: 0; padding: 14px; border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 11px; background: var(--surface-2); }
     .candidate-preview-card h3 { margin: 7px 0 5px; font-size: 13px; line-height: 1.45; }
@@ -1704,6 +1705,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <button class="candidate-preview-filter active" type="button" data-candidate-filter="all" aria-pressed="true">전체</button>
         <button class="candidate-preview-filter" type="button" data-candidate-filter="priority" aria-pressed="false">우선검토</button>
         <button class="candidate-preview-filter" type="button" data-candidate-filter="followup" aria-pressed="false">출판 후속조치</button>
+        <button class="candidate-preview-filter review" type="button" data-candidate-filter="reviewed" aria-pressed="false">수동 검토됨</button>
+        <button class="candidate-preview-filter review" type="button" data-candidate-filter="unreviewed" aria-pressed="false">미검토</button>
       </div>
       <div class="candidate-preview-list" id="candidate-preview-list"></div>
       <button class="candidate-preview-more" id="candidate-preview-more" type="button" hidden>후보 더 보기</button>
@@ -2324,6 +2327,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return (Array.isArray(candidates) ? candidates : []).filter(function (candidate) {
           if (activeFilter === "priority") return candidate.bucket === "우선검토";
           if (activeFilter === "followup") return (candidate.exclusionSignals || []).length > 0 || /출판 후속조치|철회|정정|우려표명/.test(candidate.screeningRecommendation || "");
+          if (activeFilter === "reviewed") return candidate.screeningStatus && candidate.screeningStatus !== "미검토";
+          if (activeFilter === "unreviewed") return !candidate.screeningStatus || candidate.screeningStatus === "미검토";
           return true;
         });
       }
@@ -2346,7 +2351,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var activeFilter = candidatePreviewFilter;
         section.dataset.filter = activeFilter;
         var filtered = filterCandidatePreviewRecords(candidates, activeFilter);
-        var candidateFilterLabels = { all: "전체", priority: "우선검토", followup: "출판 후속조치" };
+        var candidateFilterLabels = { all: "전체", priority: "우선검토", followup: "출판 후속조치", reviewed: "수동 검토됨", unreviewed: "미검토" };
         document.querySelectorAll("[data-candidate-filter]").forEach(function (button) {
           var filterKey = button.dataset.candidateFilter || "all";
           var filterCount = filterCandidatePreviewRecords(candidates, filterKey).length;
@@ -2368,6 +2373,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var signals = (candidate.exclusionSignals || []).slice(0, 2).join(" · ")
             || (candidate.screeningRecommendation || "원문·식별자 확인 필요");
           var recommendation = candidate.screeningRecommendation || "원문·식별자 확인 필요";
+          var reviewStatus = candidate.screeningStatus || "미검토";
+          var reviewMeta = reviewStatus !== "미검토" ? " · " + (candidate.screeningPriority || "수동 판정") : "";
           var score = candidate.score == null ? "" : " · 자동 점수 " + candidate.score;
           var identifiers = [candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI" : ""].filter(Boolean);
           var types = (candidate.publicationTypes || []).slice(0, 2);
@@ -2376,6 +2383,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<h3>' + esc(candidate.title || "제목 확인 필요") + '</h3>' +
             '<p>' + esc([candidate.author, candidate.journal, candidate.year].filter(Boolean).join(" · ") || "서지정보 확인 필요") + '</p>' +
             '<div class="candidate-preview-meta">' + identifiers.concat(types).map(function (item) { return '<span>' + esc(item) + '</span>'; }).join("") + '</div>' +
+            '<p class="candidate-preview-signal"><strong>수동 검토 상태</strong> · ' + esc(reviewStatus + reviewMeta) + (candidate.screeningNote ? ' <span>· ' + esc(candidate.screeningNote) + '</span>' : '') + '</p>' +
             '<p class="candidate-preview-signal"><strong>검토 권고</strong> · ' + esc(recommendation) + '</p>' +
             '<p class="candidate-preview-signal"><strong>자동 신호</strong> · ' + esc(signals + score) + ' <span>(확정 판정 아님)</span></p>' +
             '<button class="candidate-preview-detail" type="button" data-candidate-detail="' + esc(candidate.candidateId || "") + '">후보 상세 보기</button>' +
@@ -2402,7 +2410,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("candidate-detail-title").textContent = candidate.title || "후보 상세";
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
         var screeningSignals = (candidate.exclusionSignals || []).concat(candidate.directTitleSignals || []).filter(Boolean);
-        el("candidate-detail-screening").innerHTML = '<strong>검토 신호</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>우선순위</strong> · ' + esc(candidate.bucket || "미분류") + (candidate.score != null ? " · 점수 " + esc(candidate.score) : "") + '<br><strong>후속조치 신호</strong> · ' + esc(screeningSignals.join(" · ") || "없음") + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
+        el("candidate-detail-screening").innerHTML = '<strong>검토 신호</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>수동 검토 상태</strong> · ' + esc(candidate.screeningStatus || "미검토") + (candidate.screeningPriority ? " · " + esc(candidate.screeningPriority) : "") + '<br><strong>우선순위</strong> · ' + esc(candidate.bucket || "미분류") + (candidate.score != null ? " · 점수 " + esc(candidate.score) : "") + '<br><strong>후속조치 신호</strong> · ' + esc(screeningSignals.join(" · ") || "없음") + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
         var followup = (candidate.queryLabels || []).includes("publication_followup") || (candidate.publicationTypes || []).some(function (type) { return /retract|correct/i.test(type); });
         var sourceUrl = candidateSourceUrl(candidate);
         var checklist = [
@@ -2436,7 +2444,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!candidates.length) { toast("내보낼 후보가 없습니다"); return; }
         var headers = ["후보 ID", "우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "후속조치 신호", "원문 링크", "초록"];
         var rows = candidates.map(function (candidate) {
-          return [candidate.candidateId, candidate.bucket, candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.exclusionSignals || []).join(" · "), candidateSourceUrl(candidate), candidate.abstract].map(csvCell);
+          return [candidate.candidateId, candidate.bucket, candidate.screeningStatus || "미검토", candidate.screeningPriority || "", candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.exclusionSignals || []).join(" · "), candidateSourceUrl(candidate), candidate.abstract].map(csvCell);
         });
         var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
         var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
@@ -2558,7 +2566,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function loadUrlState() {
         var params = new URLSearchParams(location.search);
         var requestedCandidateFilter = params.get("candidate") || "all";
-        candidatePreviewFilter = ["all", "priority", "followup"].includes(requestedCandidateFilter)
+        candidatePreviewFilter = ["all", "priority", "followup", "reviewed", "unreviewed"].includes(requestedCandidateFilter)
           ? requestedCandidateFilter
           : "all";
         candidatePreviewNeedsFocus = candidatePreviewFilter !== "all";

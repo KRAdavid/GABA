@@ -7,6 +7,7 @@ const outputsRoot = resolve(gabaRoot, "outputs");
 const regulatoryPath = resolve(siteRoot, "worker", "regulatory-data.json");
 const curatedPath = resolve(siteRoot, "worker", "curated-records.json");
 const annotationsPath = resolve(siteRoot, "worker", "record-annotations.json");
+const manualCandidateDecisionsPath = resolve(siteRoot, "scripts", "manual-candidate-decisions.json");
 
 async function findNamedFiles(dir, fileName) {
   const found = [];
@@ -107,6 +108,23 @@ candidateArtifactDated.sort((a, b) => b.mtime - a.mtime);
 const candidateArtifact = candidateArtifactDated.length
   ? JSON.parse(await readFile(candidateArtifactDated[0].path, "utf8"))
   : null;
+let manualCandidateDecisions = [];
+try {
+  manualCandidateDecisions = JSON.parse(await readFile(manualCandidateDecisionsPath, "utf8"));
+} catch {
+  manualCandidateDecisions = [];
+}
+function normalizedCandidateTitle(value) {
+  return clean(value).toLowerCase().replace(/[^a-z0-9가-힣]+/g, " ").trim();
+}
+function candidateDecisionFor(record) {
+  return manualCandidateDecisions.find((decision) =>
+    (clean(record.doi) && clean(record.doi).toLowerCase() === clean(decision.doi).toLowerCase())
+    || (clean(record.pmid) && clean(record.pmid) === clean(decision.pmid))
+    || (Number(record.year) && Number(record.year) === Number(decision.year)
+      && normalizedCandidateTitle(record.title) === normalizedCandidateTitle(decision.title))
+  ) || null;
+}
 const candidateBucketRank = { "우선검토": 0, "일반검토": 1, "낮은우선순위": 2 };
 const candidatePreview = Array.isArray(candidateArtifact?.candidates)
   ? candidateArtifact.candidates
@@ -115,7 +133,9 @@ const candidatePreview = Array.isArray(candidateArtifact?.candidates)
       || Number(right.score || 0) - Number(left.score || 0)
       || String(left.candidateId || "").localeCompare(String(right.candidateId || "")))
     .slice(0, 24)
-    .map((record) => ({
+    .map((record) => {
+      const decision = candidateDecisionFor(record);
+      return {
       candidateId: clean(record.candidateId),
       collectedDate: clean(record.collectedDate),
       title: clean(record.title),
@@ -127,6 +147,9 @@ const candidatePreview = Array.isArray(candidateArtifact?.candidates)
       doi: clean(record.doi),
       sourceUrl: httpUrl(record.sourceUrl),
       screeningRecommendation: clean(record.screeningRecommendation),
+      screeningStatus: clean(decision?.status || "미검토"),
+      screeningPriority: clean(decision?.priority || ""),
+      screeningNote: clean(decision?.note || ""),
       bucket: clean(record.bucket),
       score: Number(record.score) || 0,
       publicationTypes: Array.isArray(record.publicationTypes) ? record.publicationTypes.slice(0, 4).map(clean) : [],
@@ -134,7 +157,8 @@ const candidatePreview = Array.isArray(candidateArtifact?.candidates)
       exclusionSignals: Array.isArray(record.exclusionSignals) ? record.exclusionSignals.slice(0, 4).map(clean) : [],
       directTitleSignals: Array.isArray(record.directTitleSignals) ? record.directTitleSignals.slice(0, 4).map(clean) : [],
       existingRecordId: clean(record.existingRecordId)
-    }))
+      };
+    })
   : [];
 
 function enrichLiteratureNote(record) {
