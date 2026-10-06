@@ -166,6 +166,7 @@ try {
   await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]')?.classList.contains('active')"), true);
+  assert.equal(await evaluate(client, "document.activeElement?.id"), "result-count");
   await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#species-distribution [data-distribution-value=\"설치류\"]')?.getAttribute('aria-pressed')"), "false");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('species')"), false);

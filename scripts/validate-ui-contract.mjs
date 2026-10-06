@@ -183,6 +183,7 @@ const required = [
   ,["Evidence distribution selected state", "function syncDistributionSelection"]
   ,["Evidence distribution pressed state", "aria-pressed"]
   ,["Evidence distribution toggle", "state[field] === value ? \"\" : value"]
+  ,["Evidence distribution focus return", 'id="result-count" tabindex="-1"']
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));

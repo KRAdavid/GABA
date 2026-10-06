@@ -2296,7 +2296,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
         <section class="results-panel" id="results" aria-labelledby="explorer-title">
           <div class="result-top">
-            <p class="result-count" id="result-count" aria-live="polite"></p>
+            <p class="result-count" id="result-count" tabindex="-1" aria-live="polite"></p>
             <div class="result-top-actions">
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
@@ -4787,6 +4787,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var value = distribution.dataset.distributionValue;
           changeState(field, state[field] === value ? "" : value);
           document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+          var resultCount = document.getElementById("result-count");
+          if (resultCount && typeof resultCount.focus === "function") resultCount.focus({ preventScroll: true });
         }
         var chip = event.target.closest("[data-remove]");
         if (chip) {
