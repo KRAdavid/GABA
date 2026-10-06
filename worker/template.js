@@ -234,8 +234,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-shared-note[hidden] { display: none; }
     .review-queue-shared-note button { flex: 0 0 auto; min-height: 29px; padding: 5px 9px; border: 1px solid rgba(15,118,110,.32); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 800; cursor: pointer; }
     .review-queue-title:focus-visible { outline: 3px solid rgba(15,118,110,.28); outline-offset: 5px; border-radius: 4px; }
-    .review-queue-export, .review-queue-import, .review-queue-share { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-queue-export, .review-queue-import, .review-queue-share, .review-queue-more { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .review-queue-import { border-color: var(--line); background: #fff; color: var(--teal-dark); }
+    .review-queue-more { border-color: rgba(15,118,110,.28); background: var(--teal-soft); color: var(--teal-dark); }
+    .review-queue-more[hidden] { display: none; }
     .review-share-dialog { width: min(640px, calc(100% - 28px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
     .review-share-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
     .review-share-inner { padding: 22px; }
@@ -1936,6 +1938,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 내보내기</button>
         <button class="review-queue-share" id="review-queue-share" type="button">검토 큐 링크 복사</button>
         <button class="review-queue-import" id="review-queue-import" type="button">검토 기록 가져오기</button>
+        <button class="review-queue-more" id="review-queue-more" type="button" hidden>전체 큐 표시</button>
         <input id="review-queue-file" type="file" accept="application/json,.json" hidden>
         <label class="review-queue-toggle"><input id="review-hide-done" type="checkbox"> 완료 숨기기</label>
         <span class="review-queue-storage">검토 완료 표시는 현재 브라우저에만 저장되며 원본 인덱스·Sheets를 변경하지 않습니다.</span>
@@ -2326,6 +2329,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var reviewQueueFilter = "all";
       var reviewQueueFilterLabels = { all: "전체", candidate: "후보", partial: "부분추출", missing: "핵심 누락" };
       var reviewQueueHideDone = false;
+      var reviewQueueShowAll = false;
       var sharedReviewIds = [];
       var sharedReviewMissingCount = 0;
       var sharedReviewNeedsFocus = false;
@@ -3382,6 +3386,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var summaryTarget = el("review-queue-summary");
         var sharedNote = el("review-queue-shared-note");
         var sharedCopy = el("review-queue-shared-copy");
+        var moreTarget = el("review-queue-more");
         if (!target || !countTarget) return;
         var baseQueue = buildReviewQueue();
         var doneCount = baseQueue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
@@ -3390,6 +3395,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var highCount = baseQueue.filter(function (item) { return item.priority.key === "high"; }).length;
         var identifierGapCount = baseQueue.filter(function (item) { return item.missing.indexOf("식별자") >= 0; }).length;
         var queue = reviewQueueForDisplay(baseQueue);
+        if (moreTarget) {
+          moreTarget.hidden = queue.length <= 6;
+          moreTarget.textContent = reviewQueueShowAll ? "우선 6건만 보기" : "전체 큐 표시";
+          moreTarget.setAttribute("aria-expanded", String(reviewQueueShowAll));
+        }
         var visibleDoneCount = queue.filter(function (item) { return reviewDecisionState(item.record.id).status === "done"; }).length;
         var visibleHoldCount = queue.filter(function (item) { return reviewDecisionState(item.record.id).status === "hold"; }).length;
         countTarget.textContent = (sharedReviewIds.length ? "공유 큐 · " : "") + queue.length.toLocaleString("ko-KR") + "건 대기 · " + visibleDoneCount.toLocaleString("ko-KR") + "건 완료 · " + visibleHoldCount.toLocaleString("ko-KR") + "건 자료 필요";
@@ -3403,7 +3413,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         document.querySelectorAll("[data-review-filter]").forEach(function (button) {
           setActiveToggle(button, button.dataset.reviewFilter === reviewQueueFilter);
         });
-        target.innerHTML = queue.length ? queue.slice(0, 6).map(function (item) {
+        target.innerHTML = queue.length ? queue.slice(0, reviewQueueShowAll ? queue.length : 6).map(function (item) {
           var record = item.record;
           var decision = reviewDecisionState(record.id);
           var done = decision.status === "done";
@@ -4454,6 +4464,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       el("review-hide-done").addEventListener("change", function () {
         reviewQueueHideDone = el("review-hide-done").checked;
+        renderReviewQueue();
+      });
+      el("review-queue-more").addEventListener("click", function () {
+        reviewQueueShowAll = !reviewQueueShowAll;
         renderReviewQueue();
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
