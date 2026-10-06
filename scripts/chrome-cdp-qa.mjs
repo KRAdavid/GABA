@@ -151,6 +151,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('[data-intervention=\"수용체 약물·작용제\"]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "수용체 약물·작용제");
   assert.equal(await evaluate(client, "Number(document.querySelector('[data-intervention-count=\"규제·안전성 자료\"]')?.textContent || 0) > 0"), true);
+  assert.equal(await evaluate(client, "document.querySelector('[data-quick-summary=\"intervention\"]')?.textContent.includes('선택')"), true);
   await evaluate(client, "document.querySelector('[data-preset=clinical]').click()");
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-compare-toggle]').length >= 2"), true);
   await evaluate(client, "document.querySelectorAll('[data-compare-toggle]')[0].click(); document.querySelectorAll('[data-compare-toggle]')[1].click()");

@@ -844,6 +844,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .quick-more summary::-webkit-details-marker { display: none; }
     .quick-more summary::after { content: "＋"; margin-left: 6px; color: var(--muted); }
     .quick-more[open] summary { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
+    .quick-more summary.has-filter { border-color: var(--teal); color: var(--teal-dark); }
     .quick-more[open] summary::after { content: "－"; }
     .quick-more-menu {
       position: absolute;
@@ -1745,7 +1746,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="quick-button" type="button" data-category="안전성">안전성 자료</button>
           <button class="quick-button" type="button" data-effect-category="수면">수면</button>
           <details class="quick-more">
-            <summary>분야 더보기</summary>
+            <summary data-quick-summary="effectCategory">분야 더보기</summary>
             <div class="quick-more-menu" aria-label="추가 분야 빠른 필터">
               <button class="quick-button" type="button" data-effect-category="성장호르몬">성장호르몬</button>
               <button class="quick-button" type="button" data-effect-category="근육발달">근육발달</button>
@@ -1755,7 +1756,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             </div>
           </details>
           <details class="quick-more">
-            <summary>활용 판단</summary>
+            <summary data-quick-summary="marketing">활용 판단</summary>
             <div class="quick-more-menu" aria-label="마케팅 활용 판단 필터">
               <button class="quick-button" type="button" data-marketing="직접 근거 검토">직접 근거</button>
               <button class="quick-button" type="button" data-marketing="조건부 검토">조건부 검토</button>
@@ -1763,7 +1764,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             </div>
           </details>
           <details class="quick-more">
-            <summary>개입 구분</summary>
+            <summary data-quick-summary="intervention">개입 구분</summary>
             <div class="quick-more-menu" aria-label="GABA 개입 구분 필터">
               <button class="quick-button" type="button" data-intervention="순수 GABA 섭취">순수 GABA <span class="quick-count" data-intervention-count="순수 GABA 섭취">__COUNT_PURE__</span></button>
               <button class="quick-button" type="button" data-intervention="복합제·복합개입">복합제·복합개입 <span class="quick-count" data-intervention-count="복합제·복합개입">__COUNT_COMBINATION__</span></button>
@@ -2198,6 +2199,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         });
         document.querySelectorAll("[data-preset]").forEach(function (button) {
           setActiveToggle(button, button.dataset.preset === activePreset());
+        });
+        syncQuickDisclosure();
+      }
+
+      function syncQuickDisclosure() {
+        document.querySelectorAll("[data-quick-summary]").forEach(function (summary) {
+          var key = summary.dataset.quickSummary;
+          var base = { effectCategory: "분야 더보기", marketing: "활용 판단", intervention: "개입 구분" }[key] || "추가 필터";
+          var active = Boolean(state[key]);
+          summary.textContent = active ? base + " · 선택" : base;
+          summary.classList.toggle("has-filter", active);
+          summary.setAttribute("aria-label", active ? base + " 필터 선택됨" : base + " 필터");
         });
       }
 

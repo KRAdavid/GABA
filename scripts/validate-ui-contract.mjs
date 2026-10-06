@@ -69,6 +69,7 @@ const required = [
   ,["Intervention classification counts", "data-intervention-count"]
   ,["Server-rendered intervention counts", "serverInterventionClass"]
   ,["Verified snapshot label", "검증 스냅샷"]
+  ,["Collapsed filter state labels", "data-quick-summary"]
   ,["Intervention classification", "function interventionClass"]
   ,["Intervention classification URL state", "state.intervention"]
 ];
