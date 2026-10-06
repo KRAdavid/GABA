@@ -7,7 +7,7 @@ const pageResponse = await fetch(baseUrl, { headers: { "User-Agent": "GABA-evide
 assert.equal(pageResponse.status, 200, `public page status ${pageResponse.status}`);
 const page = await pageResponse.text();
 assert.equal(page.includes("docs.google.com/spreadsheets"), false, "public page exposes management Sheet URL");
-assert.equal(page.includes("릴리스 추적"), true, "public page is missing release provenance marker");
+assert.equal(page.includes("마지막 완전 검증 릴리스"), true, "public page is missing release provenance marker");
 
 const healthResponse = await fetch(`${baseUrl}/api/health`, { headers: { "User-Agent": "GABA-evidence-index-live-contract/1.0" } });
 assert.equal(healthResponse.status, 200, `health status ${healthResponse.status}`);

@@ -2450,7 +2450,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           || "자동 탐색 후보는 검증 자료와 분리하며, 최종 판정 후에만 공개 인덱스로 승격합니다.";
         el("discovery-stats").innerHTML = [
           ["탐색일", koreanDate(discovery.snapshotDate || DB.meta.snapshotDate)],
-          ["릴리스 추적", release.snapshotVersion ? "데이터 v" + Number(release.snapshotVersion) + " · Sites v" + Number(release.siteVersion || 0) + (release.publicMirrorCommit ? " · GitHub " + String(release.publicMirrorCommit).slice(0, 7) : "") : "확인 필요"],
+          ["마지막 완전 검증 릴리스", release.snapshotVersion ? "데이터 v" + Number(release.snapshotVersion) + " · Sites v" + Number(release.siteVersion || 0) + (release.publicMirrorCommit ? " · GitHub " + String(release.publicMirrorCommit).slice(0, 7) : "") : "확인 필요"],
           ["PubMed", Number(discovery.pubmedUnique || 0).toLocaleString("ko-KR") + "건"],
           ["OpenAlex", Number(discovery.openAlexRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["Crossref", Number(discovery.crossrefRetrieved || 0).toLocaleString("ko-KR") + "건"],
