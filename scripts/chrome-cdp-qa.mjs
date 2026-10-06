@@ -154,6 +154,16 @@ try {
   await evaluate(client, "document.querySelector('#compare-clear').click()");
   assert.equal(await evaluate(client, "document.querySelector('#compare-tray')?.hidden"), true);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('compare')"), false);
+  await evaluate(client, "document.querySelector('[data-reading-toggle]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-count')?.textContent"), "1");
+  assert.equal(await evaluate(client, "document.querySelector('[data-reading-toggle]')?.getAttribute('aria-pressed')"), "true");
+  await evaluate(client, "document.querySelector('#reading-list-open').focus(); document.querySelector('#reading-list-open').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-dialog')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-items')?.textContent.includes('상세 보기')"), true);
+  await evaluate(client, "document.querySelector('#reading-list-close').click()");
+  assert.equal(await evaluate(client, "document.activeElement?.id"), "reading-list-open");
+  await evaluate(client, "document.querySelector('[data-reading-toggle]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-count')?.textContent"), "0");
   assert.equal(await evaluate(client, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true);
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-intelligence-id]').length > 0"), true);
   await evaluate(client, "document.querySelector('[data-intelligence-id]').click()");

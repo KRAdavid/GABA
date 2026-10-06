@@ -264,6 +264,26 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .compare-table .compare-title { color: var(--ink); font-weight: 900; }
     .compare-table .paper-link { display: inline-flex; margin-top: 6px; color: var(--teal-dark); font-size: 11px; font-weight: 800; text-decoration: none; }
     @media (max-width: 640px) { .compare-dialog-inner { padding: 16px; } }
+    .reading-list-dialog { width: min(720px, calc(100% - 28px)); max-height: min(760px, calc(100vh - 36px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
+    .reading-list-dialog::backdrop { background: rgba(19,43,58,.46); backdrop-filter: blur(3px); }
+    .reading-list-inner { padding: 22px; overflow: auto; max-height: min(760px, calc(100vh - 36px)); }
+    .reading-list-head { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .reading-list-head h2 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
+    .reading-list-head p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
+    .reading-list-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .reading-list-items { display: grid; gap: 9px; margin-top: 16px; }
+    .reading-list-item { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 13px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-2); }
+    .reading-list-item h3 { margin: 0; font-size: 13px; line-height: 1.4; }
+    .reading-list-item p { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .reading-list-item-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 6px; }
+    .reading-list-item-actions button { min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .reading-list-item-actions button[data-reading-remove] { color: var(--muted); }
+    .reading-list-empty { margin: 16px 0 0; padding: 18px; border: 1px dashed var(--line); border-radius: 11px; background: var(--surface-2); color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .reading-list-button { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 7px 11px; border: 1px solid var(--teal); border-radius: 9px; background: #fff; color: var(--teal-dark); font-size: 12px; font-weight: 800; cursor: pointer; }
+    .reading-list-count { min-width: 18px; padding: 1px 5px; border-radius: 999px; background: var(--teal-soft); font-size: 10px; text-align: center; }
+    .paper-read-later { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 800; cursor: pointer; }
+    .paper-read-later[aria-pressed="true"] { border-color: var(--teal); background: var(--teal-soft); }
+    @media (max-width: 640px) { .reading-list-inner { padding: 16px; } .reading-list-item { grid-template-columns: 1fr; } .reading-list-item-actions { justify-content: start; } }
     .intelligence-related-list { display: grid; gap: 8px; }
     .intelligence-related-list button { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); text-align: left; font-size: 12px; font-weight: 700; line-height: 1.45; cursor: pointer; }
     .intelligence-related-list button:hover { border-color: var(--teal); background: var(--teal-soft); }
@@ -961,6 +981,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       gap: 14px;
       margin: 0 2px 12px;
     }
+    .result-top-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 6px; }
     .result-count {
       margin: 0;
       color: var(--ink-2);
@@ -1412,6 +1433,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       </nav>
       <div class="top-actions">
         <a class="top-link" id="sheet-link" hidden target="_blank" rel="noopener noreferrer">관리 원본 Sheet</a>
+        <button class="reading-list-button" id="reading-list-open" type="button" aria-haspopup="dialog">읽기 목록 <span class="reading-list-count" id="reading-list-count">0</span></button>
         <button class="share-button" id="share-button" type="button" aria-label="현재 검색 조건 링크 복사">링크 복사</button>
       </div>
     </div>
@@ -1640,6 +1662,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="compare-dialog-actions"><button id="compare-copy" type="button">비교표 복사</button></div>
       </div>
     </dialog>
+    <dialog class="reading-list-dialog" id="reading-list-dialog" aria-labelledby="reading-list-title">
+      <div class="reading-list-inner">
+        <div class="reading-list-head">
+          <div><h2 id="reading-list-title">내 읽기 목록</h2><p>현재 브라우저에만 저장됩니다. 원본 인덱스·Sheets·공개 데이터는 변경하지 않습니다.</p></div>
+          <button class="reading-list-close" id="reading-list-close" type="button" aria-label="읽기 목록 닫기">×</button>
+        </div>
+        <div class="reading-list-items" id="reading-list-items"></div>
+      </div>
+    </dialog>
 
     <section class="section" aria-labelledby="distribution-title">
       <div class="section-head">
@@ -1799,7 +1830,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <section class="results-panel" id="results" aria-labelledby="explorer-title">
           <div class="result-top">
             <p class="result-count" id="result-count" aria-live="polite"></p>
-            <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
+            <div class="result-top-actions">
+              <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
+              <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
+            </div>
           </div>
           <div class="compare-tray" id="compare-tray" hidden aria-live="polite">
             <span id="compare-summary">비교 자료를 선택하세요.</span>
@@ -1876,10 +1910,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         compareIds = JSON.parse(localStorage.getItem("gaba-compare-ids") || "[]")
           .map(String).filter(function (id) { return records.some(function (record) { return String(record.id) === id; }); }).slice(0, 4);
       } catch (_) { compareIds = []; }
+      var readingIds = [];
+      try {
+        readingIds = JSON.parse(localStorage.getItem("gaba-reading-ids") || "[]")
+          .map(String).filter(function (id) { return records.some(function (record) { return String(record.id) === id; }); });
+      } catch (_) { readingIds = []; }
       var currentDetailRecordId = null;
       var urlRecordId = "";
       var detailReturnFocus = null;
       var compareReturnFocus = null;
+      var readingReturnFocus = null;
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
       var state = {
@@ -2729,6 +2769,61 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function saveCompareIds() {
         try { localStorage.setItem("gaba-compare-ids", JSON.stringify(compareIds)); } catch (_) {}
       }
+      function saveReadingIds() {
+        try { localStorage.setItem("gaba-reading-ids", JSON.stringify(readingIds)); } catch (_) {}
+      }
+      function readingListRecords() {
+        return readingIds.map(function (id) {
+          return records.find(function (record) { return String(record.id) === String(id); });
+        }).filter(Boolean);
+      }
+      function renderReadingListButtonState() {
+        var selected = readingListRecords();
+        var count = el("reading-list-count");
+        if (count) count.textContent = String(selected.length);
+        document.querySelectorAll("[data-reading-toggle]").forEach(function (button) {
+          var active = readingIds.indexOf(String(button.dataset.readingToggle)) >= 0;
+          button.setAttribute("aria-pressed", String(active));
+          button.textContent = active ? "읽기 목록에서 제거" : "읽기 목록에 저장";
+        });
+      }
+      function renderReadingList() {
+        var target = el("reading-list-items");
+        if (!target) return;
+        var selected = readingListRecords();
+        target.innerHTML = selected.length ? selected.map(function (record) {
+          return '<article class="reading-list-item"><div><h3>' + esc(koreanTitle(record)) + '</h3><p>' + esc(compareKind(record) + " · " + (record.year || "연도 미상") + " · " + (record.journal || "저널 미상")) + '</p></div><div class="reading-list-item-actions"><button type="button" data-intelligence-id="' + esc(record.id) + '">상세 보기</button><button type="button" data-reading-remove="' + esc(record.id) + '">제거</button></div></article>';
+        }).join("") : '<p class="reading-list-empty">아직 저장한 자료가 없습니다. 검색 결과에서 <strong>읽기 목록에 저장</strong>을 누르면 나중에 한 번에 다시 확인할 수 있습니다.</p>';
+        renderReadingListButtonState();
+      }
+      function toggleReadingList(recordId) {
+        var id = String(recordId || "");
+        var index = readingIds.indexOf(id);
+        if (index >= 0) {
+          readingIds.splice(index, 1);
+          toast("읽기 목록에서 제거했습니다");
+        } else if (records.some(function (record) { return String(record.id) === id; })) {
+          readingIds.unshift(id);
+          toast("읽기 목록에 저장했습니다");
+        }
+        saveReadingIds();
+        renderReadingList();
+      }
+      function openReadingList() {
+        renderReadingList();
+        var dialog = el("reading-list-dialog");
+        readingReturnFocus = document.activeElement;
+        if (typeof dialog.showModal === "function") dialog.showModal();
+        else dialog.setAttribute("open", "");
+        el("reading-list-close").focus();
+      }
+      function closeReadingList() {
+        var dialog = el("reading-list-dialog");
+        if (dialog && typeof dialog.close === "function" && dialog.open) dialog.close();
+        else if (dialog) dialog.removeAttribute("open");
+        if (readingReturnFocus && typeof readingReturnFocus.focus === "function") readingReturnFocus.focus();
+        readingReturnFocus = null;
+      }
       function compareKind(record) {
         return record.kind === "규제" ? "규제·안전성" : record.kind === "임상" ? "인체 연구" : record.kind === "동물" ? "동물·전임상" : "근거 자료";
       }
@@ -2916,7 +3011,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '</dl>' +
           '</details>' +
           '<div class="paper-footer">' +
-            linkButton(sourcePrimary, sourceLabel, true) + pubmedExtra + doiExtra + '<button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button>' +
+            linkButton(sourcePrimary, sourceLabel, true) + pubmedExtra + doiExtra + '<button class="paper-compare" type="button" data-compare-toggle="' + esc(record.id) + '" aria-pressed="false">비교에 추가</button><button class="paper-read-later" type="button" data-reading-toggle="' + esc(record.id) + '" aria-pressed="false">읽기 목록에 저장</button>' +
             '<span class="record-id">' + esc(record.id) + '</span>' +
           '</div>' +
         '</article>';
@@ -2991,6 +3086,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("pagination").hidden = list.length <= pageSize;
         renderActiveFilters();
         renderCompareTray();
+        renderReadingListButtonState();
         syncAdvancedFilterDisclosure();
         renderResultInterpretation(list);
         syncControls();
@@ -3172,11 +3268,31 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         event.preventDefault();
         closeCompareDialog();
       });
+      el("reading-list-open").addEventListener("click", openReadingList);
+      el("result-reading-list").addEventListener("click", openReadingList);
+      el("reading-list-close").addEventListener("click", closeReadingList);
+      el("reading-list-dialog").addEventListener("click", function (event) {
+        if (event.target === el("reading-list-dialog")) closeReadingList();
+      });
+      el("reading-list-dialog").addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeReadingList();
+      });
       el("portal-lane-overview-close").addEventListener("click", function () {
         activeLane = null;
         el("portal-lane-overview").hidden = true;
       });
       document.addEventListener("click", async function (event) {
+        var readingToggle = event.target.closest("[data-reading-toggle]");
+        if (readingToggle) {
+          toggleReadingList(readingToggle.dataset.readingToggle);
+          return;
+        }
+        var readingRemove = event.target.closest("[data-reading-remove]");
+        if (readingRemove) {
+          toggleReadingList(readingRemove.dataset.readingRemove);
+          return;
+        }
         var compareButton = event.target.closest("[data-compare-toggle]");
         if (compareButton) {
           toggleCompare(compareButton.dataset.compareToggle);
@@ -3238,6 +3354,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         }
         var intelligenceButton = event.target.closest("[data-intelligence-id]");
         if (intelligenceButton) {
+          if (el("reading-list-dialog").open) closeReadingList();
           openIntelligenceDetail(intelligenceButton.dataset.intelligenceId);
           return;
         }
@@ -3284,7 +3401,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("filter-close").addEventListener("click", function () { openFilters(false); el("mobile-filter").focus(); });
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-          if (el("compare-dialog").open) closeCompareDialog();
+          if (el("reading-list-dialog").open) closeReadingList();
+          else if (el("compare-dialog").open) closeCompareDialog();
           else if (el("intelligence-detail").open) closeIntelligenceDetail();
           else openFilters(false);
         }
