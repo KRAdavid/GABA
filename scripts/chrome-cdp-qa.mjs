@@ -136,6 +136,8 @@ try {
   const health = await evaluate(client, "fetch('/api/health').then(function (response) { return response.json(); })");
   assert.equal(health.ok, true);
   assert.equal(health.records, 392);
+  assert.equal(health.release?.snapshotVersion, 457);
+  assert.equal(health.release?.sourceCommit, "49bb502eb98e7ee6a03f57b055605a517889b6ac");
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
   assert.ok(health.candidatePreviewCount > 0);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"면역 타액 IgA\"]'))"), true);

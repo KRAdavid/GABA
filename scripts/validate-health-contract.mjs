@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const data = JSON.parse(await readFile(resolve(root, "worker", "data.json"), "utf8"));
 const discovery = data.meta?.discovery;
+const release = data.meta?.release;
 const required = ["snapshotDate", "generatedAt", "pubmedUnique", "openAlexRetrieved", "crossrefRetrieved", "mergedUnique", "stagedCandidates"];
 const missing = required.filter((key) => discovery?.[key] === undefined || discovery?.[key] === null);
 const invalid = [];
@@ -13,6 +14,9 @@ for (const key of ["pubmedUnique", "openAlexRetrieved", "crossrefRetrieved", "me
 }
 if (!Array.isArray(discovery?.sourceErrors)) invalid.push("sourceErrors[]");
 if (!discovery?.screeningCounts || !Number.isFinite(Number(discovery?.manualDecisionsPreserved))) invalid.push("screeningCounts/manualDecisionsPreserved");
+if (!Number.isInteger(Number(release?.snapshotVersion)) || Number(release.snapshotVersion) < 1) invalid.push("release.snapshotVersion");
+if (!/^[0-9a-f]{40}$/i.test(String(release?.sourceCommit || ""))) invalid.push("release.sourceCommit");
+if (!release?.publishedAt) invalid.push("release.publishedAt");
 if (missing.length || invalid.length) {
   throw new Error(JSON.stringify({ valid: false, missing, invalid }));
 }
@@ -27,5 +31,6 @@ console.log(JSON.stringify({
   stagedCandidates: discovery.stagedCandidates,
   screeningCounts: discovery.screeningCounts,
   manualDecisionsPreserved: discovery.manualDecisionsPreserved,
-  sourceErrors: discovery.sourceErrors.length
+  sourceErrors: discovery.sourceErrors.length,
+  release: { snapshotVersion: release.snapshotVersion, sourceCommit: release.sourceCommit }
 }));

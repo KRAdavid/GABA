@@ -4492,6 +4492,7 @@ export default {
          candidatePreviewSnapshotDate: discovery.snapshotDate || null,
          linkAudit: DATABASE.meta.linkAudit || null,
          publicRelease: DATABASE.meta.publicRelease === true,
+         release: DATABASE.meta.release || null,
         sourceMode: "read-only public snapshot",
         syncPolicy: "management-sheet-write-gated",
         candidatePromotion: "manual-review-required"

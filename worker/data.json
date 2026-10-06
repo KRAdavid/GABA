@@ -717,6 +717,12 @@
       "note": "접근 제한·일시 응답은 원문 내용의 부재나 근거 약함을 뜻하지 않음"
     },
     "publicRelease": true,
+    "release": {
+      "snapshotVersion": 457,
+      "sourceCommit": "49bb502eb98e7ee6a03f57b055605a517889b6ac",
+      "publishedAt": "2026-10-06T15:28:08.464540Z",
+      "verification": "UI·public-surface·health·parity·Chrome CDP QA 통과"
+    },
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
   },
   "facets": {
