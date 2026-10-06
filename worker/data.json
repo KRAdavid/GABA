@@ -719,11 +719,11 @@
     "publicRelease": true,
     "release": {
       "snapshotVersion": 457,
-      "siteVersion": 464,
+      "siteVersion": 468,
       "sourceCommit": "49bb502eb98e7ee6a03f57b055605a517889b6ac",
-      "siteSourceCommit": "8fe201c01f9a988aaa90e78b99b8bfc7a038d78a",
-      "publicMirrorCommit": "7c523f53c59a4e60d2d3b343320517a44142ffeb",
-      "publishedAt": "2026-10-06T16:04:02.489015Z",
+      "siteSourceCommit": "08a6b9faa9758cb31fb5507380006d3307a60878",
+      "publicMirrorCommit": "f546951e4e5c8e5d0d44f21654143170c2e4ce91",
+      "publishedAt": "2026-10-06T16:21:59.191215Z",
       "verification": "UI·public-surface·health·parity·Chrome CDP QA 통과"
     },
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."

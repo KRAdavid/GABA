@@ -137,9 +137,9 @@ try {
   assert.equal(health.ok, true);
   assert.equal(health.records, 392);
   assert.equal(health.release?.snapshotVersion, 457);
-  assert.equal(health.release?.siteVersion, 464);
+  assert.equal(health.release?.siteVersion, 468);
   assert.equal(health.release?.sourceCommit, "49bb502eb98e7ee6a03f57b055605a517889b6ac");
-  assert.equal(health.release?.publicMirrorCommit, "7c523f53c59a4e60d2d3b343320517a44142ffeb");
+  assert.equal(health.release?.publicMirrorCommit, "f546951e4e5c8e5d0d44f21654143170c2e4ce91");
   assert.ok(health.stagedCandidates >= health.candidatePreviewCount);
   assert.ok(health.candidatePreviewCount > 0);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-query=\"면역 타액 IgA\"]'))"), true);
@@ -205,7 +205,7 @@ try {
   assert.equal(await evaluate(client, "JSON.parse(document.querySelector('script[type=\"application/ld+json\"]')?.textContent || '{}').potentialAction.target.includes('{search_term_string}')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent.includes('인체 연구')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
-  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v464 · GitHub 7c523f5')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v468 · GitHub f546951')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원천 오류')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('원문 감사')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#link-audit-note')?.textContent.includes('근거 약함')"), true);
