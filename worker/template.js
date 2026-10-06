@@ -226,6 +226,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-shared-note { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 0 12px; padding: 9px 11px; border: 1px solid rgba(15,118,110,.24); border-radius: 9px; background: var(--teal-soft); color: var(--teal-dark); font-size: 11px; line-height: 1.45; }
     .review-queue-shared-note[hidden] { display: none; }
     .review-queue-shared-note button { flex: 0 0 auto; min-height: 29px; padding: 5px 9px; border: 1px solid rgba(15,118,110,.32); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 800; cursor: pointer; }
+    .review-queue-title:focus-visible { outline: 3px solid rgba(15,118,110,.28); outline-offset: 5px; border-radius: 4px; }
     .review-queue-export, .review-queue-import, .review-queue-share { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .review-queue-import { border-color: var(--line); background: #fff; color: var(--teal-dark); }
     .review-share-dialog { width: min(640px, calc(100% - 28px)); margin: auto; padding: 0; border: 0; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px rgba(19,43,58,.24); }
@@ -1613,9 +1614,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="portal-lane-overview-list" id="portal-lane-overview-list"></div>
       <div class="portal-lane-insight" id="portal-lane-insight"></div>
     </section>
-    <section class="review-queue" aria-labelledby="review-queue-title">
+    <section class="review-queue" id="review-queue" aria-labelledby="review-queue-title">
       <div class="review-queue-head">
-        <div><h2 id="review-queue-title">추가 검토 큐</h2><p>후보·부분추출·핵심 기록 누락 자료를 다음 확인 작업으로 연결합니다.</p></div>
+        <div><h2 id="review-queue-title" tabindex="-1">추가 검토 큐</h2><p>후보·부분추출·핵심 기록 누락 자료를 다음 확인 작업으로 연결합니다.</p></div>
         <span class="review-queue-count" id="review-queue-count">-</span>
       </div>
       <div class="review-queue-controls" aria-label="추가 검토 큐 필터">
@@ -1970,6 +1971,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var reviewQueueFilter = "all";
       var reviewQueueHideDone = false;
       var sharedReviewIds = [];
+      var sharedReviewNeedsFocus = false;
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var compareIds = [];
@@ -2210,8 +2212,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           sharedReviewIds = String(params.get("review") || "").split(",").map(function (id) { return id.trim(); }).filter(Boolean).filter(function (id, index) {
             return index < 50 && records.some(function (record) { return String(record.id) === id; });
           });
+          sharedReviewNeedsFocus = sharedReviewIds.length > 0;
         } else {
           sharedReviewIds = [];
+          sharedReviewNeedsFocus = false;
         }
         urlRecordId = params.get("record") || "";
       }
@@ -3338,6 +3342,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         renderResultInterpretation(list);
         syncControls();
         persistUrl(historyMode);
+        if (sharedReviewNeedsFocus && sharedReviewIds.length) {
+          sharedReviewNeedsFocus = false;
+          window.setTimeout(function () {
+            var queueSection = el("review-queue");
+            var queueTitle = el("review-queue-title");
+            if (queueSection) queueSection.scrollIntoView({ block: "start" });
+            if (queueTitle && typeof queueTitle.focus === "function") queueTitle.focus({ preventScroll: true });
+          }, 0);
+        }
       }
 
       function changeState(key, value, historyMode) {

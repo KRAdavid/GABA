@@ -166,6 +166,8 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/?review=${encodeURIComponent(reviewShareId)}`);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('review')"), reviewShareId);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-count')?.textContent.includes('공유 큐')"), true);
+  assert.equal(await evaluate(client, "document.activeElement?.id"), "review-queue-title");
+  assert.equal(await evaluate(client, "window.scrollY > 0"), true);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-shared-note')?.hidden"), false);
   assert.equal(await evaluate(client, "document.querySelectorAll('#review-queue-list [data-review-status]').length > 0"), true);
   await evaluate(client, "document.querySelector('#review-queue-shared-clear').click()");
