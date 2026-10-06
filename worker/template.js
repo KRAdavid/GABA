@@ -716,6 +716,25 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       gap: 24px;
       padding: 20px 26px 26px;
     }
+    .distribution-context {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 16px 26px 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+    .distribution-context strong {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
     .distribution h3 {
       margin: 0 0 12px;
       color: var(--ink-2);
@@ -1923,6 +1942,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <p>상위 항목을 선택해 결과를 좁힐 수 있습니다. 나머지 항목은 전체 분포에서 확인합니다.</p>
         </div>
       </div>
+      <div class="distribution-context" role="note" aria-label="근거 분포 사용 안내">
+        <strong id="distribution-scope">전체 검증 인덱스 기준</strong>
+        <span>카드를 누르면 해당 조건으로 검색합니다. 분포 비율은 탐색용 요약이며 근거의 질·효능·규제 적합성 순위가 아닙니다.</span>
+      </div>
       <div class="distribution-grid">
         <div class="distribution">
           <h3>대상 종 그룹</h3>
@@ -2482,6 +2505,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           sheetLink.hidden = false;
         }
         el("snapshot-label").textContent = "검증 스냅샷 " + koreanDate(DB.meta.snapshotDate);
+        var distributionScope = el("distribution-scope");
+        if (distributionScope) distributionScope.textContent = "전체 검증 인덱스 " + Number(DB.meta.total || 0).toLocaleString("ko-KR") + "건 기준";
         updateFreshnessLabel(DB.meta.snapshotDate, discovery.snapshotDate);
         el("coverage-label").textContent = DB.meta.minYear + "–" + DB.meta.maxYear + "년";
         el("metric-total").textContent = countText(DB.meta.literature || DB.meta.total);
@@ -2565,9 +2590,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var colors = ["#0f766e", "#2563eb", "#b7791f", "#b42318", "#7c3aed", "#0f766e", "#2563eb", "#b7791f"];
         var renderItem = function (item, index, hidden) {
           var percent = total ? (item.value / total * 100).toFixed(1) : "0.0";
-          return '<button class="distribution-item' + (hidden ? ' distribution-item-extra' : '') + '" type="button"' + (hidden ? ' hidden' : '') + ' data-distribution-field="' + esc(field) + '" data-distribution-value="' + esc(item.label) + '" style="--distribution-color:' + colors[index % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "편, 전체의 " + percent + "% 필터") + '">' +
+          return '<button class="distribution-item' + (hidden ? ' distribution-item-extra' : '') + '" type="button"' + (hidden ? ' hidden' : '') + ' data-distribution-field="' + esc(field) + '" data-distribution-value="' + esc(item.label) + '" style="--distribution-color:' + colors[index % colors.length] + ';--distribution-percent:' + percent + '" aria-label="' + esc(item.label + " " + item.value + "건, 전체의 " + percent + "% 필터") + '">' +
             '<span class="distribution-ring" aria-hidden="true"><span class="distribution-percent">' + percent + '%</span></span>' +
-            '<span><span class="distribution-label">' + esc(item.label) + '</span><span class="distribution-value">' + item.value.toLocaleString("ko-KR") + '편</span></span></button>';
+            '<span><span class="distribution-label">' + esc(item.label) + '</span><span class="distribution-value">' + item.value.toLocaleString("ko-KR") + '건</span></span></button>';
         };
         target.innerHTML = visible.map(function (item, index) { return renderItem(item, index, false); }).join("") +
           extra.map(function (item, index) { return renderItem(item, index + visible.length, true); }).join("") +
