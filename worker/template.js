@@ -2367,6 +2367,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var sourceUrl = candidateSourceUrl(candidate);
           var signals = (candidate.exclusionSignals || []).slice(0, 2).join(" · ")
             || (candidate.screeningRecommendation || "원문·식별자 확인 필요");
+          var recommendation = candidate.screeningRecommendation || "원문·식별자 확인 필요";
+          var score = candidate.score == null ? "" : " · 자동 점수 " + candidate.score;
           var identifiers = [candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI" : ""].filter(Boolean);
           var types = (candidate.publicationTypes || []).slice(0, 2);
           return '<article class="candidate-preview-card">' +
@@ -2374,7 +2376,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<h3>' + esc(candidate.title || "제목 확인 필요") + '</h3>' +
             '<p>' + esc([candidate.author, candidate.journal, candidate.year].filter(Boolean).join(" · ") || "서지정보 확인 필요") + '</p>' +
             '<div class="candidate-preview-meta">' + identifiers.concat(types).map(function (item) { return '<span>' + esc(item) + '</span>'; }).join("") + '</div>' +
-            '<p class="candidate-preview-signal"><strong>우선 확인</strong> · ' + esc(signals) + '</p>' +
+            '<p class="candidate-preview-signal"><strong>검토 권고</strong> · ' + esc(recommendation) + '</p>' +
+            '<p class="candidate-preview-signal"><strong>자동 신호</strong> · ' + esc(signals + score) + ' <span>(확정 판정 아님)</span></p>' +
             '<button class="candidate-preview-detail" type="button" data-candidate-detail="' + esc(candidate.candidateId || "") + '">후보 상세 보기</button>' +
             (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">원문 식별자 확인 ↗</a>' : '') +
             '</article>';

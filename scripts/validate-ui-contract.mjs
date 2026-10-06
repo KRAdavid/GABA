@@ -44,6 +44,7 @@ const required = [
   ["Candidate preview", 'id="candidate-preview"'],
   ["Candidate preview renderer", "function renderCandidatePreview"],
   ["Candidate preview scope", "전체 후보"],
+  ["Candidate recommendation summary", "검토 권고"],
   ["Candidate source link guard", "function candidateSourceUrl"],
   ["Candidate preview expansion", 'id="candidate-preview-more"'],
   ["Candidate preview filters", "data-candidate-filter"],
