@@ -41,6 +41,8 @@ const required = [
   ["Evidence compare tray", 'id="compare-tray"'],
   ["Evidence compare dialog", 'id="compare-dialog"'],
   ["Evidence compare renderer", "function renderCompareTable"],
+  ["Shareable compare state", 'params.set("compare"'],
+  ["Comparison copy action", 'id="compare-copy"'],
   ["Result evidence composition", 'id="result-interpretation"'],
   ["Shareable record deep link", "urlRecordId"],
   ["Citation copy action", "data-copy-citation"],
