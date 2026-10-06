@@ -10,6 +10,7 @@
     "quality": "node scripts/data-quality.mjs",
     "quality:remote": "node scripts/data-quality.mjs --remote",
     "validate:health": "node scripts/validate-health-contract.mjs",
+    "validate:parity": "node scripts/validate-release-parity.mjs",
     "validate:pending": "node scripts/validate-pending-sheet-sync.mjs",
     "release:package": "node scripts/package-public-release.mjs",
     "check": "npm run data && npm run quality && npm run build && npm run validate"
