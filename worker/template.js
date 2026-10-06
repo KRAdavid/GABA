@@ -286,6 +286,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .compare-dialog-close { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
     .compare-dialog-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .compare-dialog-actions button { min-height: 34px; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .compare-dialog-insight { margin-top: 14px; padding: 11px 13px; border: 1px solid rgba(15,118,110,.24); border-radius: 10px; background: var(--teal-soft); color: var(--teal-dark); font-size: 12px; line-height: 1.6; }
     .compare-table-wrap { overflow-x: auto; margin-top: 16px; }
     .compare-table { min-width: 760px; width: 100%; border-collapse: collapse; font-size: 12px; }
     .compare-table th, .compare-table td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; line-height: 1.5; }
@@ -1779,6 +1780,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           </div>
           <button class="compare-dialog-close" id="compare-dialog-close" type="button" aria-label="비교 닫기">×</button>
         </div>
+        <div class="compare-dialog-insight" id="compare-dialog-insight" role="note" aria-live="polite"></div>
         <div id="compare-table" class="compare-table-wrap"></div>
         <div class="compare-dialog-actions"><button id="compare-copy" type="button">비교표 복사</button></div>
       </div>
@@ -3385,6 +3387,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         };
         return values[key] || "미보고";
       }
+      function compareSummary(selected) {
+        var counts = { "인체 연구": 0, "동물·전임상": 0, "규제·안전성": 0, "근거 자료": 0 };
+        selected.forEach(function (record) { var kind = compareKind(record); counts[kind] = (counts[kind] || 0) + 1; });
+        var parts = Object.keys(counts).filter(function (key) { return counts[key]; }).map(function (key) { return key + " " + counts[key] + "건"; });
+        var mixed = [counts["인체 연구"], counts["동물·전임상"], counts["규제·안전성"]].filter(function (value) { return value; }).length > 1;
+        return "선택 자료 " + selected.length + "건 · " + parts.join(" · ") + ". " + (mixed
+          ? "자료 유형이 다르므로 결과를 직접 합산하지 말고 연구 설계·개입·대조군·기간을 먼저 비교하세요."
+          : "연구 설계·개입·대조군·기간을 먼저 확인하세요.") + " 이 표는 근거의 우열이나 제품 효능을 자동 판정하지 않습니다.";
+      }
       function renderCompareTray() {
         var tray = el("compare-tray");
         if (!tray) return;
@@ -3413,6 +3424,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var selected = selectedCompareRecords();
         var target = el("compare-table");
         if (!target) return;
+        var insight = el("compare-dialog-insight");
+        if (insight) insight.textContent = compareSummary(selected);
         var rows = [
           ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
           ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
@@ -3433,7 +3446,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
-        return [["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
+        return [["비교 해석", compareSummary(selected)], ["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
           .concat(rows.map(function (row) { return [row[0]].concat(selected.map(function (record) { return compareValue(record, row[1]); })); }))
           .map(function (row) { return row.join("\t"); }).join("\n");
       }

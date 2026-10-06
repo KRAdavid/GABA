@@ -66,6 +66,7 @@ const required = [
   ["Evidence compare renderer", "function renderCompareTable"],
   ["Comparison study design", '["연구 설계", "design"]'],
   ["Comparison result direction", '["결과 방향", "direction"]'],
+  ["Comparison interpretation note", 'id="compare-dialog-insight"'],
   ["Shareable compare state", 'params.set("compare"'],
   ["Comparison copy action", 'id="compare-copy"'],
   ["Comparison focus return", "compareReturnFocus"],
