@@ -52,6 +52,10 @@ const required = [
   ["Exploration presets", "data-preset"],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
+  ,["Reading list dialog", 'id="reading-list-dialog"']
+  ,["Reading list state", "gaba-reading-ids"]
+  ,["Reading list toggle", "data-reading-toggle"]
+  ,["Reading list focus return", "readingReturnFocus"]
 ];
 
 const missing = required.filter(([, marker]) => !source.includes(marker));
