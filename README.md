@@ -49,6 +49,7 @@ data-quality → build → validate → build-pending-sheet-sync → UI contract
 - `node scripts/build-pending-sheet-sync.mjs`: Sheets 403 등으로 대기 중인 레코드의 36열 payload 재생성
 - `node scripts/validate-pending-sheet-sync.mjs`: 대기 payload의 36열·Record_ID·중복 상태 검증
 - `node scripts/validate-curated-notes.mjs`: 문헌별 연구 의미·마케팅 활용 방안 라벨과 비어 있지 않은 본문 검증
+- `node scripts/release-preflight.mjs [공개 미러 경로]`: 배포 전 대기 payload·데이터·문구·UI·Health·감사·공개면·parity 검사를 한 번에 실행
 - `node scripts/validate-audit-consistency.mjs`: 공개 데이터의 원문 감사 수치와 NAVI 감사 보고서의 정합성 검증
 - `node scripts/validate-health-contract.mjs`: 탐색일·PubMed·OpenAlex·Crossref·병합·후보·원천 오류 Health 지표의 데이터 계약 검증
 - `node scripts/validate-ui-contract.mjs`: 포털·Intelligence·검토 큐 UI 계약 확인

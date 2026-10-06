@@ -16,6 +16,7 @@
     "validate:pending": "node scripts/validate-pending-sheet-sync.mjs",
     "validate:audit": "node scripts/validate-audit-consistency.mjs --public",
     "validate:live": "node scripts/validate-live-release.mjs",
+    "preflight": "node scripts/release-preflight.mjs",
     "release:package": "node scripts/package-public-release.mjs",
     "check": "npm run data && npm run quality && npm run build && npm run validate"
   }
