@@ -3248,6 +3248,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           .replace(/^·|·$/g, "") || "주요 평가";
         return [kind, intervention, topic].join(" · ");
       }
+      function koreanTitleLabel(record) {
+        return record.titleKo ? "한국어 제목" : "한국어 분류 요약";
+      }
       function selectedCompareRecords() {
         return compareIds.map(function (id) {
           return records.find(function (record) { return String(record.id) === String(id); });
@@ -3507,7 +3510,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="badge">' + esc(identifierLabel) + '</span>' +
             (record.direction ? '<span class="badge ' + badgeClass("direction", record.direction) + '">' + esc(record.direction) + '</span>' : "") +
           '</div>' +
-          '<h3 class="paper-title"><span class="title-label">한국어 제목 요약</span><span class="paper-title-korean">' + esc(koreanTitle(record)) + '</span></h3>' +
+          '<h3 class="paper-title"><span class="title-label">' + esc(koreanTitleLabel(record)) + '</span><span class="paper-title-korean">' + esc(koreanTitle(record)) + '</span></h3>' +
           '<p class="original-title" lang="en"><span class="title-label">영문 원제</span>' + esc(record.title) + '</p>' +
           '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.author || "저자 미상") + ' · ' + esc(record.journal || "저널 미상") + '</p>' +
           (record.finding ? '<p class="finding"><strong>핵심결과</strong> · ' + esc(record.finding) + '</p>' : "") +
