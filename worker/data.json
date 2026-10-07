@@ -39713,9 +39713,9 @@
       "publishedAt": "2026-10-06T17:34:22.042242Z",
       "verification": "Sites v485 · UI·public-surface·health·parity·Chrome CDP QA·candidateExportCount 정합성 통과",
       "currentCodeDeployment": {
-        "siteVersion": 632,
-        "sourceCommit": "f549ad5fadc675d06f45cc62162b76e527b8a9b9",
-        "publicMirrorCommit": "a87bc96f227aa2e7e835df43403a65f6f2499afe",
+        "siteVersion": 633,
+        "sourceCommit": "ab1117fa4ffb819366411053ae86a6f4ba287986",
+        "publicMirrorCommit": "b4d247d7846e61bfef51f64f0dac285289d1dabf",
         "publishedAt": "2026-10-07T05:17:09.301626Z"
       }
     },
