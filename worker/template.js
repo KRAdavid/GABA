@@ -3297,13 +3297,24 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var statuses = DB.meta && DB.meta.linkAudit && Array.isArray(DB.meta.linkAudit.recordStatuses) ? DB.meta.linkAudit.recordStatuses : [];
         return statuses.find(function (item) { return String(item.id) === String(record.id); }) || null;
       }
+      function kstDayStart(value) {
+        var parsed = value instanceof Date ? value : new Date(String(value || ""));
+        if (Number.isNaN(parsed.getTime())) return NaN;
+        var parts = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Asia/Seoul",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).formatToParts(parsed);
+        var values = {};
+        parts.forEach(function(part) { values[part.type] = part.value; });
+        return Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day));
+      }
       function linkAuditFreshnessLabel(audit) {
         if (!audit || !audit.checkedAt) return "확인 필요";
-        var checked = new Date(audit.checkedAt);
-        if (Number.isNaN(checked.getTime())) return "확인 필요";
-        var today = new Date();
-        var startToday = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
-        var startChecked = Date.UTC(checked.getFullYear(), checked.getMonth(), checked.getDate());
+        var startToday = kstDayStart(new Date());
+        var startChecked = kstDayStart(audit.checkedAt);
+        if (Number.isNaN(startToday) || Number.isNaN(startChecked)) return "확인 필요";
         var days = Math.max(0, Math.floor((startToday - startChecked) / 86400000));
         return days <= 7 ? "최근 확인 (" + days.toLocaleString("ko-KR") + "일 전)" : "재감사 권고 (" + days.toLocaleString("ko-KR") + "일 전)";
       }
