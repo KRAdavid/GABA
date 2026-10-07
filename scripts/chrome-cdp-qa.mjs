@@ -614,6 +614,8 @@ try {
   assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('#mobile-filter')).display"), "none");
   assert.equal(await evaluate(client, "document.querySelector('#filter-panel .filter-guidance')?.textContent"), "자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.");
   assert.equal(await evaluate(client, "document.querySelector('#filter-active-count')?.textContent"), "조건 없음");
+  assert.equal(await evaluate(client, "document.querySelector('#regulatory-filter-group-count')?.textContent"), "선택 없음");
+  assert.equal(await evaluate(client, "document.querySelector('#research-filter-group-count')?.textContent"), "선택 없음");
   await evaluate(client, "document.querySelector('#mobile-filter').click()");
   assert.equal(await evaluate(client, "document.activeElement?.id"), "filter-close");
   assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('#filter-mobile-apply')).display"), "none");
@@ -624,6 +626,7 @@ try {
   await evaluate(client, "document.querySelector('#species').value = '설치류'; document.querySelector('#species').dispatchEvent(new Event('change', { bubbles: true }))");
   assert.equal(await evaluate(client, "document.querySelector('#mobile-filter-count')?.textContent"), "1");
   assert.equal(await evaluate(client, "document.querySelector('#filter-result-count')?.textContent"), "현재 114건");
+  assert.equal(await evaluate(client, "document.querySelector('#research-filter-group-count')?.textContent"), "1개 선택");
   assert.equal(await evaluate(client, "document.querySelector('#filter-reset-quick')?.hidden"), false);
   assert.match(String(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent")), /설치류/);
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-reset')?.hidden"), false);

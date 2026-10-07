@@ -1442,6 +1442,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .filter-subgroup-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 12px 0 8px; padding-top: 10px; border-top: 1px solid var(--line-soft); color: var(--ink-2); font-size: 11px; font-weight: 900; }
     .filter-subgroup-heading:first-child { margin-top: 4px; padding-top: 0; border-top: 0; }
     .filter-subgroup-heading small { color: var(--muted); font-size: 10px; font-weight: 700; }
+    .filter-subgroup-count {
+      margin-left: 5px;
+      color: var(--teal-dark);
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
     @media (max-width: 640px) {
       .result-interpretation { grid-template-columns: 1fr; gap: 8px; }
       .result-interpretation-note { grid-column: auto; }
@@ -2338,7 +2345,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           </div>
           <details class="advanced-filters" id="advanced-filters">
             <summary><span>추가 조건</span><span class="advanced-filter-count" id="advanced-filter-count">선택 없음</span></summary>
-            <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>규제·자료 분류</span><small>기관·등급·안전 영역</small></div>
+            <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>규제·자료 분류</span><small>기관·등급·안전 영역 <span class="filter-subgroup-count" id="regulatory-filter-group-count">선택 없음</span></small></div>
             <div class="filter-group">
               <label for="grade">규제 근거등급</label>
               <select id="grade"><option value="">전체</option></select>
@@ -2351,7 +2358,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <label for="safety-area">안전성 영역</label>
               <select id="safety-area"><option value="">전체</option></select>
             </div>
-            <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>연구·원문 확인</span><small>대상·결과·접근 상태</small></div>
+            <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>연구·원문 확인</span><small>대상·결과·접근 상태 <span class="filter-subgroup-count" id="research-filter-group-count">선택 없음</span></small></div>
             <div class="filter-group">
               <label for="route-group">투여 경로 분류</label>
               <select id="route-group"><option value="">전체</option></select>
@@ -4578,6 +4585,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         badge.textContent = count ? count + "개 선택" : "선택 없음";
         badge.classList.toggle("has-filters", count > 0);
         if (count) details.open = true;
+
+        var regulatoryKeys = ["grade", "agency", "safetyArea"];
+        var researchKeys = ["routeGroup", "sci", "species", "topic", "extraction", "direction", "source", "audit", "freshness"];
+        var regulatoryCount = regulatoryKeys.filter(function (key) { return Boolean(state[key]); }).length;
+        var researchCount = researchKeys.filter(function (key) { return Boolean(state[key]); }).length;
+        if (state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear) researchCount += 1;
+        var regulatoryLabel = el("regulatory-filter-group-count");
+        var researchLabel = el("research-filter-group-count");
+        if (regulatoryLabel) regulatoryLabel.textContent = regulatoryCount ? regulatoryCount + "개 선택" : "선택 없음";
+        if (researchLabel) researchLabel.textContent = researchCount ? researchCount + "개 선택" : "선택 없음";
 
         var topLevelKeys = ["kind", "category", "effectCategory", "status", "marketing", "intervention", "followup"];
         var total = count + topLevelKeys.filter(function (key) { return Boolean(state[key]); }).length + (state.q ? 1 : 0);
