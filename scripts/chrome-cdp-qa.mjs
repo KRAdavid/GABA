@@ -581,8 +581,13 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/`);
   await evaluate(client, "document.querySelector('.quick-button[data-kind=임상]').click()");
   assert.equal(await evaluate(client, "document.querySelectorAll('[data-compare-toggle]').length >= 2"), true);
-  await evaluate(client, "document.querySelectorAll('[data-compare-toggle]')[0].click(); document.querySelectorAll('[data-compare-toggle]')[1].click()");
+  await evaluate(client, "document.querySelectorAll('[data-compare-toggle]')[0].click()");
+  assert.equal(await evaluate(client, "document.querySelector('#compare-open')?.disabled"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#compare-open')?.getAttribute('aria-label')"), "선택 자료 비교, 2개 이상 선택 필요");
+  assert.equal(await evaluate(client, "document.querySelector('#compare-summary')?.getAttribute('aria-label')"), "1개 선택됨 · 2개 이상 선택해야 비교할 수 있습니다");
+  await evaluate(client, "document.querySelectorAll('[data-compare-toggle]')[1].click()");
   assert.equal(await evaluate(client, "document.querySelector('#compare-open')?.disabled"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#compare-open')?.getAttribute('aria-label')"), "선택 자료 비교, 2개 선택됨");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('compare')?.includes(',')"), true);
   await evaluate(client, "document.querySelector('#compare-open').focus(); document.querySelector('#compare-open').click()");
   assert.equal(await evaluate(client, "document.querySelector('#compare-dialog')?.open"), true);

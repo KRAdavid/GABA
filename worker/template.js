@@ -2576,7 +2576,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               </details>
             </div>
           </div>
-          <div class="compare-tray" id="compare-tray" hidden aria-live="polite">
+          <div class="compare-tray" id="compare-tray" hidden aria-live="polite" aria-atomic="true">
             <span id="compare-summary">비교 자료를 선택하세요.</span>
             <button id="compare-open" type="button" disabled>선택 자료 비교</button>
             <button class="secondary" id="compare-clear" type="button">선택 해제</button>
@@ -4628,8 +4628,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var selected = selectedCompareRecords();
         compareIds = selected.map(function (record) { return String(record.id); });
         tray.hidden = selected.length === 0;
-        el("compare-summary").textContent = selected.length + "개 선택 · 최대 4개까지 비교할 수 있습니다.";
-        el("compare-open").disabled = selected.length < 2;
+        var compareSummary = el("compare-summary");
+        compareSummary.textContent = selected.length + "개 선택 · 최대 4개까지 비교할 수 있습니다.";
+        compareSummary.setAttribute("aria-label", selected.length + "개 선택됨 · " + (selected.length < 2 ? "2개 이상 선택해야 비교할 수 있습니다" : "비교할 수 있습니다"));
+        var compareOpen = el("compare-open");
+        compareOpen.disabled = selected.length < 2;
+        compareOpen.setAttribute("aria-label", selected.length < 2 ? "선택 자료 비교, 2개 이상 선택 필요" : "선택 자료 비교, " + selected.length + "개 선택됨");
         document.querySelectorAll("[data-compare-toggle]").forEach(function (button) {
           var active = compareIds.indexOf(String(button.dataset.compareToggle)) >= 0;
           button.setAttribute("aria-pressed", String(active));
