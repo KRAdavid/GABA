@@ -466,6 +466,8 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('status')"), "포함");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "순수 GABA 섭취");
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  assert.equal(await evaluate(client, "document.querySelector('#mobile-filter-count')?.hidden"), true);
+  assert.equal(await evaluate(client, "getComputedStyle(document.querySelector('#mobile-filter-count')).display"), "none");
   assert.equal(await evaluate(client, "document.querySelector('#quick-advanced')?.open"), false);
   await evaluate(client, "document.querySelector('#quick-advanced summary').click()");
   assert.equal(await evaluate(client, "document.querySelector('#quick-advanced')?.open"), true);

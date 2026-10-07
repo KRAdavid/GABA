@@ -259,6 +259,7 @@ const required = [
   ,["Filter status reset", 'id="filter-status-reset"']
   ,["Dose query interpretation", "function queryFilterLabel"]
   ,["Mobile filter result action", 'id="filter-mobile-apply"']
+  ,["Empty mobile filter count hidden", ".mobile-filter-count[hidden]"]
   ,["Result interpretation guard", "해석 경계"]
   ,["Result evidence scope actions", 'data-result-preset="animal"']
   ,["Result evidence scope preset", 'if (name === "animal") state.kind = "동물"']

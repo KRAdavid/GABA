@@ -1025,6 +1025,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-size: 10px;
       line-height: 1;
     }
+    .mobile-filter-count[hidden] { display: none; }
     .quick-row {
       margin-top: 11px;
       display: flex;
