@@ -208,7 +208,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=animal]')?.textContent.includes('동물·전임상')"), true);
   await evaluate(client, "document.querySelector('[data-result-preset=animal]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('kind')"), "동물");
+  assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=animal]')?.getAttribute('aria-pressed')"), "true");
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=animal]')?.getAttribute('aria-pressed')"), "false");
   await evaluate(client, "document.querySelector('[data-result-preset=oral]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('routeGroup')"), "경구·섭취");
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('존재하지 않는 GABA 자료 검색어')}`);
