@@ -48,6 +48,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    section[id], h2[id] { scroll-margin-top: 84px; }
     .sr-only {
       position: absolute !important;
       width: 1px !important;

@@ -133,6 +133,7 @@ const required = [
   ["Evidence brief copy action", "data-copy-brief"],
   ["Hero search entry", "hero-primary"],
   ["Market-use navigation target", 'href="#market-use"'],
+  ["Anchor offset for sticky header", "scroll-margin-top: 84px"],
   ["Exploration presets", "data-preset"],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']
