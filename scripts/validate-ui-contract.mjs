@@ -134,6 +134,7 @@ const required = [
   ["Hero search entry", "hero-primary"],
   ["Market-use navigation target", 'href="#market-use"'],
   ["Anchor offset for sticky header", "scroll-margin-top: 84px"],
+  ["Anchor destination focus", "function focusAnchorHeading"],
   ["Exploration presets", "data-preset"],
   ["Detail opener", "function openIntelligenceDetail"],
   ["Dynamic event delegation", 'event.target.closest("[data-intelligence-id]")']

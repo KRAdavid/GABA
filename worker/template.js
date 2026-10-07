@@ -5465,6 +5465,19 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var top = el("results").getBoundingClientRect().top + window.scrollY - 150;
         window.scrollTo({ top: top, behavior: "smooth" });
       }
+      function focusAnchorHeading(target) {
+        if (!target) return;
+        var heading = target.matches("h1, h2, h3, [role='heading']") ? target : target.querySelector("h1, h2, h3, [role='heading']");
+        if (!heading) return;
+        if (!heading.hasAttribute("tabindex")) heading.setAttribute("tabindex", "-1");
+        window.setTimeout(function () { heading.focus({ preventScroll: true }); }, 120);
+      }
+      document.querySelectorAll("a[href^='#']").forEach(function (anchor) {
+        anchor.addEventListener("click", function () {
+          var href = anchor.getAttribute("href") || "";
+          if (href.length > 1) focusAnchorHeading(document.getElementById(href.slice(1)));
+        });
+      });
       document.documentElement.dataset.gabaReady = "true";
     })();
   </script>

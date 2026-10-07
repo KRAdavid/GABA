@@ -151,6 +151,10 @@ try {
   await evaluate(client, "localStorage.removeItem('gaba-candidate-decisions-v1'); location.reload()");
   await waitForExpression(client, "document.documentElement.dataset.gabaReady === 'true'");
   await waitForExpression(client, "document.querySelector('#sort')?.value === 'latest'");
+  await evaluate(client, "document.querySelector(\".portal-nav a[href='#market-use']\")?.click()");
+  await sleep(180);
+  assert.equal(await evaluate(client, "document.activeElement?.id"), "intelligence-feed-title");
+  await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('정렬: 최신 연도순')"), false);
   await evaluate(client, "document.querySelector('#sort').value = 'human-source'; document.querySelector('#sort').dispatchEvent(new Event('change', { bubbles: true }))");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('sort')"), "human-source");
