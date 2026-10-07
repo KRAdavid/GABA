@@ -1091,6 +1091,46 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       box-shadow: 0 10px 24px rgba(25, 54, 64, .12);
     }
     .quick-more-menu .quick-button { width: 100%; border-radius: 8px; text-align: left; }
+    .quick-advanced { position: relative; }
+    .quick-advanced > summary {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--ink-2);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    .quick-advanced > summary::-webkit-details-marker { display: none; }
+    .quick-advanced > summary::after { content: "＋"; margin-left: 6px; color: var(--muted); }
+    .quick-advanced[open] > summary::after { content: "－"; }
+    .quick-advanced > summary.has-filter,
+    .quick-advanced[open] > summary { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
+    .quick-advanced-menu {
+      position: absolute;
+      z-index: 3;
+      top: calc(100% + 7px);
+      left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 8px;
+      min-width: min(610px, calc(100vw - 42px));
+      max-width: calc(100vw - 42px);
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(25, 54, 64, .14);
+    }
+    .quick-advanced-menu .quick-more { flex: 0 0 auto; }
+    .quick-advanced-menu .quick-more summary { min-height: 32px; padding: 6px 10px; font-size: 11px; }
+    .quick-advanced-menu .quick-more-menu { position: static; margin-top: 6px; min-width: 170px; }
     .filter-status-strip {
       display: flex;
       align-items: center;
@@ -2311,47 +2351,52 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <button class="quick-button" type="button" data-kind="규제">규제·안전성</button>
           <button class="quick-button" type="button" data-category="안전성">안전성 자료</button>
           <button class="quick-button" type="button" data-effect-category="수면">수면</button>
-          <details class="quick-more">
-            <summary data-quick-summary="effectCategory">분야 더보기</summary>
-            <div class="quick-more-menu" aria-label="추가 분야 빠른 필터">
-              <button class="quick-button" type="button" data-effect-category="성장호르몬">성장호르몬</button>
-              <button class="quick-button" type="button" data-effect-category="근육발달">근육발달</button>
-              <button class="quick-button" type="button" data-effect-category="다이어트">다이어트</button>
-              <button class="quick-button" type="button" data-effect-category="고혈압">고혈압</button>
-              <button class="quick-button" type="button" data-effect-category="당뇨">당뇨</button>
-            </div>
-          </details>
-          <details class="quick-more">
-            <summary data-quick-summary="marketing">활용 판단</summary>
-            <div class="quick-more-menu" aria-label="마케팅 활용 판단 필터">
-              <button class="quick-button" type="button" data-marketing="직접 근거 검토">직접 근거 <span class="quick-count" data-marketing-count="직접 근거 검토">__COUNT_MARKETING_DIRECT__</span></button>
-              <button class="quick-button" type="button" data-marketing="조건부 검토">조건부 검토 <span class="quick-count" data-marketing-count="조건부 검토">__COUNT_MARKETING_CONDITIONAL__</span></button>
-              <button class="quick-button" type="button" data-marketing="마케팅 사용 금지">사용 금지 <span class="quick-count" data-marketing-count="마케팅 사용 금지">__COUNT_MARKETING_EXCLUDE__</span></button>
-            </div>
-          </details>
-          <details class="quick-more">
-            <summary data-quick-summary="intervention">개입 구분</summary>
-            <div class="quick-more-menu" aria-label="GABA 개입 구분 필터">
-              <button class="quick-button" type="button" data-intervention="순수 GABA 섭취">순수 GABA <span class="quick-count" data-intervention-count="순수 GABA 섭취">__COUNT_PURE__</span></button>
-              <button class="quick-button" type="button" data-intervention="복합제·복합개입">복합제·복합개입 <span class="quick-count" data-intervention-count="복합제·복합개입">__COUNT_COMBINATION__</span></button>
-              <button class="quick-button" type="button" data-intervention="GABA 생성 발효·프로바이오틱">발효·프로바이오틱 <span class="quick-count" data-intervention-count="GABA 생성 발효·프로바이오틱">__COUNT_FERMENTED__</span></button>
-              <button class="quick-button" type="button" data-intervention="수용체 약물·작용제">수용체 약물 <span class="quick-count" data-intervention-count="수용체 약물·작용제">__COUNT_RECEPTOR__</span></button>
-              <button class="quick-button" type="button" data-intervention="규제·안전성 자료">규제자료 <span class="quick-count" data-intervention-count="규제·안전성 자료">__COUNT_REGULATORY__</span></button>
-            </div>
-          </details>
-          <details class="quick-more">
-            <summary data-quick-summary="followup">출판 후속조치</summary>
-            <div class="quick-more-menu" aria-label="출판 후속조치 필터">
-              <button class="quick-button" type="button" data-followup="signal">철회·정정·우려표명 신호 <span class="quick-count" data-followup-count="signal">__COUNT_FOLLOWUP__</span></button>
-            </div>
-          </details>
-          <details class="quick-more">
-            <summary data-quick-summary="direction">결과 방향</summary>
-            <div class="quick-more-menu" aria-label="결과 방향 필터">
-              <button class="quick-button" type="button" data-direction="무효">무효 <span class="quick-count">__COUNT_DIRECTION_NULL__</span></button>
-              <button class="quick-button" type="button" data-direction="혼재">혼재 <span class="quick-count">__COUNT_DIRECTION_MIXED__</span></button>
-              <button class="quick-button" type="button" data-direction="유해">유해 <span class="quick-count">__COUNT_DIRECTION_HARM__</span></button>
-              <button class="quick-button" type="button" data-direction="중립">중립 <span class="quick-count">__COUNT_DIRECTION_NEUTRAL__</span></button>
+          <details class="quick-advanced" id="quick-advanced">
+            <summary data-quick-advanced-summary>추가 필터</summary>
+            <div class="quick-advanced-menu" aria-label="추가 빠른 필터">
+              <details class="quick-more">
+                <summary data-quick-summary="effectCategory">분야 더보기</summary>
+                <div class="quick-more-menu" aria-label="추가 분야 빠른 필터">
+                  <button class="quick-button" type="button" data-effect-category="성장호르몬">성장호르몬</button>
+                  <button class="quick-button" type="button" data-effect-category="근육발달">근육발달</button>
+                  <button class="quick-button" type="button" data-effect-category="다이어트">다이어트</button>
+                  <button class="quick-button" type="button" data-effect-category="고혈압">고혈압</button>
+                  <button class="quick-button" type="button" data-effect-category="당뇨">당뇨</button>
+                </div>
+              </details>
+              <details class="quick-more">
+                <summary data-quick-summary="marketing">활용 판단</summary>
+                <div class="quick-more-menu" aria-label="마케팅 활용 판단 필터">
+                  <button class="quick-button" type="button" data-marketing="직접 근거 검토">직접 근거 <span class="quick-count" data-marketing-count="직접 근거 검토">__COUNT_MARKETING_DIRECT__</span></button>
+                  <button class="quick-button" type="button" data-marketing="조건부 검토">조건부 검토 <span class="quick-count" data-marketing-count="조건부 검토">__COUNT_MARKETING_CONDITIONAL__</span></button>
+                  <button class="quick-button" type="button" data-marketing="마케팅 사용 금지">사용 금지 <span class="quick-count" data-marketing-count="마케팅 사용 금지">__COUNT_MARKETING_EXCLUDE__</span></button>
+                </div>
+              </details>
+              <details class="quick-more">
+                <summary data-quick-summary="intervention">개입 구분</summary>
+                <div class="quick-more-menu" aria-label="GABA 개입 구분 필터">
+                  <button class="quick-button" type="button" data-intervention="순수 GABA 섭취">순수 GABA <span class="quick-count" data-intervention-count="순수 GABA 섭취">__COUNT_PURE__</span></button>
+                  <button class="quick-button" type="button" data-intervention="복합제·복합개입">복합제·복합개입 <span class="quick-count" data-intervention-count="복합제·복합개입">__COUNT_COMBINATION__</span></button>
+                  <button class="quick-button" type="button" data-intervention="GABA 생성 발효·프로바이오틱">발효·프로바이오틱 <span class="quick-count" data-intervention-count="GABA 생성 발효·프로바이오틱">__COUNT_FERMENTED__</span></button>
+                  <button class="quick-button" type="button" data-intervention="수용체 약물·작용제">수용체 약물 <span class="quick-count" data-intervention-count="수용체 약물·작용제">__COUNT_RECEPTOR__</span></button>
+                  <button class="quick-button" type="button" data-intervention="규제·안전성 자료">규제자료 <span class="quick-count" data-intervention-count="규제·안전성 자료">__COUNT_REGULATORY__</span></button>
+                </div>
+              </details>
+              <details class="quick-more">
+                <summary data-quick-summary="followup">출판 후속조치</summary>
+                <div class="quick-more-menu" aria-label="출판 후속조치 필터">
+                  <button class="quick-button" type="button" data-followup="signal">철회·정정·우려표명 신호 <span class="quick-count" data-followup-count="signal">__COUNT_FOLLOWUP__</span></button>
+                </div>
+              </details>
+              <details class="quick-more">
+                <summary data-quick-summary="direction">결과 방향</summary>
+                <div class="quick-more-menu" aria-label="결과 방향 필터">
+                  <button class="quick-button" type="button" data-direction="무효">무효 <span class="quick-count">__COUNT_DIRECTION_NULL__</span></button>
+                  <button class="quick-button" type="button" data-direction="혼재">혼재 <span class="quick-count">__COUNT_DIRECTION_MIXED__</span></button>
+                  <button class="quick-button" type="button" data-direction="유해">유해 <span class="quick-count">__COUNT_DIRECTION_HARM__</span></button>
+                  <button class="quick-button" type="button" data-direction="중립">중립 <span class="quick-count">__COUNT_DIRECTION_NEUTRAL__</span></button>
+                </div>
+              </details>
             </div>
           </details>
           <span class="quick-spacer"></span>
@@ -3149,14 +3194,22 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
 
       function syncQuickDisclosure() {
+        var activeAdvanced = 0;
         document.querySelectorAll("[data-quick-summary]").forEach(function (summary) {
           var key = summary.dataset.quickSummary;
           var base = { effectCategory: "분야 더보기", marketing: "활용 판단", intervention: "개입 구분", followup: "출판 후속조치", direction: "결과 방향" }[key] || "추가 필터";
           var active = Boolean(state[key]);
+          if (active) activeAdvanced += 1;
           summary.textContent = active ? base + " · 선택" : base;
           summary.classList.toggle("has-filter", active);
           summary.setAttribute("aria-label", active ? base + " 필터 선택됨" : base + " 필터");
         });
+        var advancedSummary = document.querySelector("[data-quick-advanced-summary]");
+        if (advancedSummary) {
+          advancedSummary.textContent = activeAdvanced ? "추가 필터 · " + activeAdvanced + "개 선택" : "추가 필터";
+          advancedSummary.classList.toggle("has-filter", activeAdvanced > 0);
+          advancedSummary.setAttribute("aria-label", activeAdvanced ? "추가 필터 " + activeAdvanced + "개 선택됨" : "추가 필터, 선택 없음");
+        }
       }
 
       function activePreset() {

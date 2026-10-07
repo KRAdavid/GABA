@@ -458,6 +458,10 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('status')"), "포함");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "순수 GABA 섭취");
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  assert.equal(await evaluate(client, "document.querySelector('#quick-advanced')?.open"), false);
+  await evaluate(client, "document.querySelector('#quick-advanced summary').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#quick-advanced')?.open"), true);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-intervention=\"수용체 약물·작용제\"]'))"), true);
   await evaluate(client, "document.querySelector('[data-direction=무효]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('direction')"), "무효");
   assert.equal(await evaluate(client, "document.querySelector('[data-direction=무효]')?.getAttribute('aria-pressed')"), "true");
