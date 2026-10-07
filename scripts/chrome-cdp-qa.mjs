@@ -155,6 +155,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#sort-help')?.hidden"), false);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.querySelector('#metric-total')?.textContent.trim()"), "384편");
+  assert.equal(await evaluate(client, "document.querySelector('#page-status')?.getAttribute('aria-label')"), "현재 1페이지 / 전체 20페이지");
   assert.equal(await evaluate(client, "document.querySelector('.paper-card .fact-grid')?.textContent.includes('표본·대조군')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-card .interpretation-caution')?.textContent.includes('광고 허가·효능 입증 아님')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-card .paper-meta')?.textContent.includes('확인')"), true);

@@ -2501,7 +2501,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <div class="papers" id="papers"></div>
           <nav class="pagination" id="pagination" aria-label="검색 결과 페이지">
             <button class="page-button" id="prev" type="button" aria-label="이전 페이지">←</button>
-            <span class="page-status" id="page-status"></span>
+            <span class="page-status" id="page-status" role="status" aria-live="polite"></span>
             <button class="page-button" id="next" type="button" aria-label="다음 페이지">→</button>
           </nav>
         </section>
@@ -4712,6 +4712,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             (state.q ? '<button class="empty-action secondary" type="button" data-empty-clear-query>검색어 지우기</button>' : '') +
             '<button class="empty-action" type="button" data-empty-reset>모든 조건 초기화</button></div><div class="empty-suggestions" aria-label="추천 재탐색 경로"><span class="empty-suggestions-label">추천 재탐색</span><button class="empty-suggestion" type="button" data-empty-query="수면">수면</button><button class="empty-suggestion" type="button" data-empty-query="불안 스트레스">불안·스트레스</button><button class="empty-suggestion" type="button" data-empty-query="안전성 독성">안전성·독성</button></div></div>';
         el("page-status").textContent = state.page + " / " + totalPages;
+        el("page-status").setAttribute("aria-label", "현재 " + state.page + "페이지 / 전체 " + totalPages + "페이지");
         el("prev").disabled = state.page <= 1;
         el("next").disabled = state.page >= totalPages;
         el("pagination").hidden = list.length <= pageSize;
