@@ -4401,6 +4401,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           outcome: record.outcome || record.domain, direction: record.direction,
           dose: record.dose || record.exposure, duration: record.duration, comparator: record.comparator || record.useMatch,
           finding: record.finding || record.summaryKo || record.safetyFinding, boundary: evidenceBoundary(record),
+          grade: record.grade || record.sciGroup || record.quality, audit: sourceAuditDescription(record), checked: record.checked,
           meaning: researchMeaning(record), marketing: utilizationDirection(record)
         };
         return values[key] || "미보고";
@@ -4446,8 +4447,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (insight) insight.textContent = compareSummary(selected);
         var rows = [
           ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
-          ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
+          ["관리 상태", "status"], ["근거 등급", "grade"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
           ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
+          ["원문 접근 감사", "audit"], ["확인일", "checked"],
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
         target.innerHTML = '<table class="compare-table"><thead><tr><th scope="col">비교 항목</th>' + selected.map(function (record) {
@@ -4460,8 +4462,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var selected = selectedCompareRecords();
         var rows = [
           ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
-          ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
+          ["관리 상태", "status"], ["근거 등급", "grade"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"],
           ["기간", "duration"], ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"],
+          ["원문 접근 감사", "audit"], ["확인일", "checked"],
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
         return [["비교 해석", compareSummary(selected)], ["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
@@ -4482,8 +4485,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (selected.length < 2) { toast("비교할 자료를 2개 이상 선택하세요"); return; }
         var rows = [
           ["연구 유형", "kind"], ["연구 설계", "design"], ["개입 형태·경로", "intervention"], ["결과 영역", "outcome"], ["결과 방향", "direction"],
-          ["관리 상태", "status"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"], ["기간", "duration"],
-          ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"], ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
+          ["관리 상태", "status"], ["근거 등급", "grade"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"], ["기간", "duration"],
+          ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"], ["원문 접근 감사", "audit"], ["확인일", "checked"], ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
         var csvRows = [["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
           .concat(rows.map(function (row) { return [row[0]].concat(selected.map(function (record) { return compareValue(record, row[1]); })); }))

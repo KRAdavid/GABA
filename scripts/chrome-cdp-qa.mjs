@@ -559,6 +559,8 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('연구 유형')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('연구 설계')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('결과 방향')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('근거 등급')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('원문 접근 감사') && document.querySelector('#compare-table')?.textContent.includes('확인일')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#compare-dialog-insight')?.textContent.includes('자동 판정하지 않습니다')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-copy'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-export'))"), true);
