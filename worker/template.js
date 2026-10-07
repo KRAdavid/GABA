@@ -2555,7 +2555,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
               <button class="result-reset" id="result-share" type="button">조건 링크 복사</button>
               <details class="result-export-menu saved-search-menu" id="saved-search-menu">
-                <summary>저장 검색 <span class="saved-search-count" id="saved-search-count">0</span></summary>
+              <summary aria-label="저장 검색, 0개 저장됨">저장 검색 <span class="saved-search-count" id="saved-search-count" aria-live="polite" aria-atomic="true">0</span></summary>
                 <div class="result-export-options" aria-label="저장된 검색 조건">
                   <button class="result-reset" id="result-save-search" type="button">현재 조건 저장</button>
                   <p class="saved-search-note">이 브라우저에만 저장됩니다. 원본 Sheets와 공개 인덱스는 변경하지 않습니다.</p>
@@ -5095,7 +5095,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var count = el("saved-search-count");
         var list = el("saved-search-list");
         if (!count || !list) return;
-        count.textContent = savedSearches.length.toLocaleString("ko-KR");
+        var savedCount = savedSearches.length.toLocaleString("ko-KR");
+        count.textContent = savedCount;
+        var summary = document.querySelector("#saved-search-menu summary");
+        if (summary) summary.setAttribute("aria-label", "저장 검색, " + savedCount + "개 저장됨");
         list.innerHTML = savedSearches.length ? savedSearches.map(function (item) {
           return '<div class="saved-search-item"><button class="saved-search-load" type="button" data-saved-search-load="' + esc(item.id) + '" title="' + esc(item.label) + '">' + esc(item.label) + '</button><button class="saved-search-share" type="button" data-saved-search-share="' + esc(item.id) + '" aria-label="' + esc(item.label + " 조건 링크 복사") + '" title="조건 링크 복사">↗</button><button class="saved-search-delete" type="button" data-saved-search-delete="' + esc(item.id) + '" aria-label="' + esc(item.label + " 저장 검색 삭제") + '">×</button></div>';
         }).join("") : '<p class="saved-search-empty">저장된 검색 조건이 없습니다.</p>';

@@ -267,9 +267,11 @@ try {
   await evaluate(client, "localStorage.removeItem('gaba-saved-searches-v1'); location.reload()");
   await waitForExpression(client, "document.documentElement.dataset.gabaReady === 'true'");
   await waitForExpression(client, "Boolean(document.querySelector('#result-save-search'))");
+  assert.equal(await evaluate(client, "document.querySelector('#saved-search-menu summary')?.getAttribute('aria-label')"), "저장 검색, 0개 저장됨");
   await evaluate(client, "document.querySelector('#result-save-search').click()");
   await waitForExpression(client, "document.querySelector('#saved-search-count')?.textContent === '1'");
   assert.equal(await evaluate(client, "document.querySelector('#saved-search-count')?.textContent"), "1");
+  assert.equal(await evaluate(client, "document.querySelector('#saved-search-menu summary')?.getAttribute('aria-label')"), "저장 검색, 1개 저장됨");
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-saved-search-share]'))"), true);
   await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () {} } })");
   await evaluate(client, "document.querySelector('[data-saved-search-share]').click()");
@@ -283,6 +285,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#saved-search-count')?.textContent"), "1");
   await evaluate(client, "window.confirm = function () { return true; }; document.querySelector('#personal-workspace-clear').click()");
   assert.equal(await evaluate(client, "document.querySelector('#saved-search-count')?.textContent"), "0");
+  assert.equal(await evaluate(client, "document.querySelector('#saved-search-menu summary')?.getAttribute('aria-label')"), "저장 검색, 0개 저장됨");
   assert.equal(await evaluate(client, "!localStorage.getItem('gaba-review-decisions') && !localStorage.getItem('gaba-reading-ids')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=human-direct]')?.textContent.includes('인체 직접근거')"), true);
   await evaluate(client, "document.querySelector('[data-result-preset=human-direct]').click()");
