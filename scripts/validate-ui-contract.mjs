@@ -115,6 +115,7 @@ const required = [
   ["Comparison CSV export", 'id="compare-export"'],
   ["Search result brief", 'id="result-brief"'],
   ["Brief reproducible link", "조건 링크:"],
+  ["Brief condition summary", "현재 조건: "],
   ["Candidate promotion checklist", 'id="candidate-detail-checklist"'],
   ["Discovery health metrics", "discoveryMergedUnique"],
   ["Discovery source transparency", '["Crossref", Number(discovery.crossrefRetrieved'],

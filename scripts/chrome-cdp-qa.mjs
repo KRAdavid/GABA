@@ -495,6 +495,7 @@ try {
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('검색 결과 브리프') || document.querySelector('#copy-dialog')?.open"), true);
   assert.equal(await evaluate(client, "String(window.__qaBrief || '').includes('대표 원문:')"), true);
+  assert.equal(await evaluate(client, "String(window.__qaBrief || '').includes('현재 조건:')"), true);
   if (await evaluate(client, "document.querySelector('#copy-dialog')?.open")) await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
   await evaluate(client, "document.querySelector('#result-export-menu summary').click()");
   assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), true);

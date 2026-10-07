@@ -4140,7 +4140,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var currentLink = location.origin + location.pathname + location.search;
         var lines = [
           "GABA 검색 결과 브리프",
-          "검색·필터: " + query,
+          "검색어: " + query,
+          "현재 조건: " + currentConditionSummary(),
           "검증 스냅샷: " + String(DB.meta.snapshotDate || "미상"),
           "결과: " + list.length.toLocaleString("ko-KR") + "건 · 인체 " + clinical + "건 · 동물·전임상 " + animal + "건 · 규제·안전성 " + regulatory + "건 · 추가 확인 " + review + "건",
           "조건 링크: " + currentLink,
@@ -4668,24 +4669,32 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!plan.doseRanges.length) return text;
         return text + " · 용량 범위 " + plan.doseRanges.map(doseRangeLabel).join(", ");
       }
-      function renderActiveFilters() {
-        var chips = [];
-        var summary = [];
+      function activeConditionLabels() {
+        var labels = [];
         Object.keys(filterNames).forEach(function (key) {
           if (!state[key]) return;
           if (key === "sort" && state.sort === "latest") return;
-           var value = key === "q" ? queryFilterLabel(state[key]) : key === "source" ? sourceLabel(state[key]) : key === "audit" ? auditLabel(state[key]) : key === "freshness" ? freshnessLabel(state[key]) : key === "sort" ? sortLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
-          chips.push('<button class="filter-chip" type="button" data-remove="' + esc(key) + '">' + esc(filterNames[key] + ": " + value) + ' ×</button>');
-          summary.push(filterNames[key] + ": " + value);
+          var value = key === "q" ? queryFilterLabel(state[key]) : key === "source" ? sourceLabel(state[key]) : key === "audit" ? auditLabel(state[key]) : key === "freshness" ? freshnessLabel(state[key]) : key === "sort" ? sortLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
+          labels.push(filterNames[key] + ": " + value);
         });
-        if (state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear) {
-          chips.push('<button class="filter-chip" type="button" data-remove="year">연도: ' + state.from + "–" + state.to + ' ×</button>');
-          summary.push("연도: " + state.from + "–" + state.to);
-        }
-        if (pageSize !== 20) {
-          chips.push('<button class="filter-chip" type="button" data-remove="pageSize">표시 수: ' + pageSizeLabel(pageSize) + ' ×</button>');
-          summary.push("표시 수: " + pageSizeLabel(pageSize));
-        }
+        if (state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear) labels.push("연도: " + state.from + "–" + state.to);
+        if (pageSize !== 20) labels.push("표시 수: " + pageSizeLabel(pageSize));
+        return labels;
+      }
+      function currentConditionSummary() {
+        var labels = activeConditionLabels();
+        return labels.length ? labels.join(" · ") : "전체 검증 근거";
+      }
+      function renderActiveFilters() {
+        var chips = [];
+        var summary = activeConditionLabels();
+        Object.keys(filterNames).forEach(function (key) {
+          if (!state[key] || (key === "sort" && state.sort === "latest")) return;
+          var value = key === "q" ? queryFilterLabel(state[key]) : key === "source" ? sourceLabel(state[key]) : key === "audit" ? auditLabel(state[key]) : key === "freshness" ? freshnessLabel(state[key]) : key === "sort" ? sortLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
+          chips.push('<button class="filter-chip" type="button" data-remove="' + esc(key) + '">' + esc(filterNames[key] + ": " + value) + ' ×</button>');
+        });
+        if (state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear) chips.push('<button class="filter-chip" type="button" data-remove="year">연도: ' + state.from + "–" + state.to + ' ×</button>');
+        if (pageSize !== 20) chips.push('<button class="filter-chip" type="button" data-remove="pageSize">표시 수: ' + pageSizeLabel(pageSize) + ' ×</button>');
         el("active-filters").innerHTML = chips.join("");
         var statusText = el("filter-status-text");
         var statusReset = el("filter-status-reset");
