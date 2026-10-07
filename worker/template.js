@@ -1449,6 +1449,29 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       font-weight: 900;
       white-space: nowrap;
     }
+    .advanced-subfilters {
+      margin: 4px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .advanced-subfilters:last-child { border-bottom: 0; }
+    .advanced-subfilters summary {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 38px;
+      padding: 5px 0;
+      color: var(--ink-2);
+      font-size: 11px;
+      font-weight: 900;
+      cursor: pointer;
+      list-style: none;
+    }
+    .advanced-subfilters summary::-webkit-details-marker { display: none; }
+    .advanced-subfilters summary::after { content: "＋"; color: var(--muted); font-size: 14px; }
+    .advanced-subfilters[open] summary::after { content: "－"; }
+    .advanced-subfilters summary small { color: var(--muted); font-size: 10px; font-weight: 700; }
+    .advanced-subfilters .filter-group:first-of-type { margin-top: 2px; }
     @media (max-width: 640px) {
       .result-interpretation { grid-template-columns: 1fr; gap: 8px; }
       .result-interpretation-note { grid-column: auto; }
@@ -2345,7 +2368,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           </div>
           <details class="advanced-filters" id="advanced-filters">
             <summary><span>추가 조건</span><span class="advanced-filter-count" id="advanced-filter-count">선택 없음</span></summary>
-            <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>규제·자료 분류</span><small>기관·등급·안전 영역 <span class="filter-subgroup-count" id="regulatory-filter-group-count">선택 없음</span></small></div>
+            <details class="advanced-subfilters" id="regulatory-filters">
+              <summary><span>규제·자료 분류</span><small>기관·등급·안전 영역 <span class="filter-subgroup-count" id="regulatory-filter-group-count">선택 없음</span></small></summary>
             <div class="filter-group">
               <label for="grade">규제 근거등급</label>
               <select id="grade"><option value="">전체</option></select>
@@ -2358,7 +2382,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <label for="safety-area">안전성 영역</label>
               <select id="safety-area"><option value="">전체</option></select>
             </div>
-            <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>연구·원문 확인</span><small>대상·결과·접근 상태 <span class="filter-subgroup-count" id="research-filter-group-count">선택 없음</span></small></div>
+            </details>
+            <details class="advanced-subfilters" id="research-filters">
+              <summary><span>연구·원문 확인</span><small>대상·결과·접근 상태 <span class="filter-subgroup-count" id="research-filter-group-count">선택 없음</span></small></summary>
             <div class="filter-group">
               <label for="route-group">투여 경로 분류</label>
               <select id="route-group"><option value="">전체</option></select>
@@ -2420,6 +2446,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
                 <input id="year-to" type="number" inputmode="numeric" aria-label="종료 연도">
               </div>
             </div>
+            </details>
           </details>
           <button class="reset-button" id="reset" type="button">필터 전체 초기화</button>
           <button class="filter-mobile-apply" id="filter-mobile-apply" type="button">현재 결과 보기</button>
@@ -4595,6 +4622,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var researchLabel = el("research-filter-group-count");
         if (regulatoryLabel) regulatoryLabel.textContent = regulatoryCount ? regulatoryCount + "개 선택" : "선택 없음";
         if (researchLabel) researchLabel.textContent = researchCount ? researchCount + "개 선택" : "선택 없음";
+        var regulatoryDetails = el("regulatory-filters");
+        var researchDetails = el("research-filters");
+        if (regulatoryCount && regulatoryDetails) regulatoryDetails.open = true;
+        if (researchCount && researchDetails) researchDetails.open = true;
 
         var topLevelKeys = ["kind", "category", "effectCategory", "status", "marketing", "intervention", "followup"];
         var total = count + topLevelKeys.filter(function (key) { return Boolean(state[key]); }).length + (state.q ? 1 : 0);
@@ -4712,6 +4743,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         pageSize = 20;
         var advanced = el("advanced-filters");
         if (advanced) advanced.open = false;
+        var regulatoryDetails = el("regulatory-filters");
+        var researchDetails = el("research-filters");
+        if (regulatoryDetails) regulatoryDetails.open = false;
+        if (researchDetails) researchDetails.open = false;
         state = {
            q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", routeGroup: "", followup: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", audit: "", freshness: "", from: DB.meta.minYear,

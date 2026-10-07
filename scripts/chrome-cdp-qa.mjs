@@ -616,6 +616,8 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#filter-active-count')?.textContent"), "조건 없음");
   assert.equal(await evaluate(client, "document.querySelector('#regulatory-filter-group-count')?.textContent"), "선택 없음");
   assert.equal(await evaluate(client, "document.querySelector('#research-filter-group-count')?.textContent"), "선택 없음");
+  assert.equal(await evaluate(client, "document.querySelector('#regulatory-filters')?.open"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#research-filters')?.open"), false);
   await evaluate(client, "document.querySelector('#mobile-filter').click()");
   assert.equal(await evaluate(client, "document.activeElement?.id"), "filter-close");
   assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('#filter-mobile-apply')).display"), "none");
@@ -627,12 +629,15 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#mobile-filter-count')?.textContent"), "1");
   assert.equal(await evaluate(client, "document.querySelector('#filter-result-count')?.textContent"), "현재 114건");
   assert.equal(await evaluate(client, "document.querySelector('#research-filter-group-count')?.textContent"), "1개 선택");
+  assert.equal(await evaluate(client, "document.querySelector('#research-filters')?.open"), true);
   assert.equal(await evaluate(client, "document.querySelector('#filter-reset-quick')?.hidden"), false);
   assert.match(String(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent")), /설치류/);
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-reset')?.hidden"), false);
   assert.match(String(await evaluate(client, "document.querySelector('#mobile-filter')?.getAttribute('aria-label')")), /1개 조건 적용/);
   await evaluate(client, "document.querySelector('#filter-reset-quick').click()");
   assert.equal(await evaluate(client, "document.querySelector('#advanced-filters')?.open"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#regulatory-filters')?.open"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#research-filters')?.open"), false);
   assert.equal(await evaluate(client, "document.querySelector('#filter-active-count')?.textContent"), "조건 없음");
   await screenshot("cdp-mobile-top.png");
   await evaluate(client, "document.querySelector('#filter-mobile-apply').click()");
