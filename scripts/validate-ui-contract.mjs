@@ -164,6 +164,7 @@ const required = [
   ,["CSV extraction and review date", "추출 상태"]
   ,["CSV snapshot provenance", "검증 스냅샷"]
   ,["Export condition provenance", "currentConditionSummary()"]
+  ,["Comparison provenance", '"검증 스냅샷"']
   ,["Marketing utilization filter", "data-marketing"]
   ,["Marketing utilization URL state", "state.marketing"]
   ,["Intervention classification filter", "data-intervention"]

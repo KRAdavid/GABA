@@ -571,6 +571,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#compare-table')?.textContent.includes('원문 접근 감사') && document.querySelector('#compare-table')?.textContent.includes('확인일')"), true);
   assert.equal(await evaluate(client, "getComputedStyle(document.querySelector('#compare-table th:first-child')).position"), "sticky");
   assert.equal(await evaluate(client, "document.querySelector('#compare-dialog-insight')?.textContent.includes('자동 판정하지 않습니다')"), true);
+  await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function (value) { window.__qaCompare = value; } } })");
+  await evaluate(client, "document.querySelector('#compare-copy').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "String(window.__qaCompare || '').includes('검증 스냅샷') && String(window.__qaCompare || '').includes('현재 조건')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-copy'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-export'))"), true);
   await evaluate(client, "document.querySelector('#compare-export').click()");

@@ -4502,7 +4502,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["원문 접근 감사", "audit"], ["확인일", "checked"],
           ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
-        return [["비교 해석", compareSummary(selected)], ["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
+        return [["검증 스냅샷", DB.meta.snapshotDate], ["현재 조건", currentConditionSummary()], ["비교 해석", compareSummary(selected)], ["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
           .concat(rows.map(function (row) { return [row[0]].concat(selected.map(function (record) { return compareValue(record, row[1]); })); }))
           .map(function (row) { return row.join("\t"); }).join("\n");
       }
@@ -4523,7 +4523,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["관리 상태", "status"], ["근거 등급", "grade"], ["대상·시험계", "population"], ["GABA 용량·노출", "dose"], ["기간", "duration"],
           ["대조군·사용조건", "comparator"], ["핵심 결과", "finding"], ["해석 경계", "boundary"], ["원문 접근 감사", "audit"], ["확인일", "checked"], ["연구의 의미", "meaning"], ["마케팅 활용 방안", "marketing"]
         ];
-        var csvRows = [["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
+        var csvRows = [["검증 스냅샷", DB.meta.snapshotDate], ["현재 조건", currentConditionSummary()], [], ["비교 항목"].concat(selected.map(function (record) { return koreanTitle(record); }))]
           .concat(rows.map(function (row) { return [row[0]].concat(selected.map(function (record) { return compareValue(record, row[1]); })); }))
           .map(function (row) { return row.map(csvCell).join(","); });
         var blob = new Blob(["\uFEFF" + csvRows.join("\r\n")], { type: "text/csv;charset=utf-8" });
