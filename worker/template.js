@@ -2353,7 +2353,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             </div>
             <button class="filter-close" id="filter-close" type="button" aria-label="필터 닫기">×</button>
           </div>
-          <p class="filter-guidance">자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.</p>
+          <p class="filter-guidance">자료 카테고리와 분야부터 고른 뒤, 필요한 그룹만 여세요.</p>
           <div class="filter-group">
             <label for="category">자료 카테고리</label>
             <select id="category"><option value="">전체</option></select>

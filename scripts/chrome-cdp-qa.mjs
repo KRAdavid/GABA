@@ -612,7 +612,7 @@ try {
   assert.equal(await evaluate(client, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true);
   assert.match(String(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent")), /해석 경계/);
   assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('#mobile-filter')).display"), "none");
-  assert.equal(await evaluate(client, "document.querySelector('#filter-panel .filter-guidance')?.textContent"), "자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.");
+  assert.equal(await evaluate(client, "document.querySelector('#filter-panel .filter-guidance')?.textContent"), "자료 카테고리와 분야부터 고른 뒤, 필요한 그룹만 여세요.");
   assert.equal(await evaluate(client, "document.querySelector('#filter-active-count')?.textContent"), "조건 없음");
   assert.equal(await evaluate(client, "document.querySelector('#regulatory-filter-group-count')?.textContent"), "선택 없음");
   assert.equal(await evaluate(client, "document.querySelector('#research-filter-group-count')?.textContent"), "선택 없음");
