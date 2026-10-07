@@ -199,6 +199,7 @@ const required = [
   ,["Link audit KST date", "function koreanDateTime"]
   ,["Link audit freshness", "function linkAuditFreshnessLabel"]
   ,["Link audit freshness timezone", 'timeZone: "Asia/Seoul"']
+  ,["Link audit freshness interpretation", "감사 신선도"]
   ,["Snapshot provenance", "release.snapshotVersion"]
   ,["Release traceability", "release.siteVersion"]
   ,["Current code deployment provenance", "release.currentCodeDeployment"]
