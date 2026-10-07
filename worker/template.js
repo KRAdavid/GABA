@@ -2329,6 +2329,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             </div>
             <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>연구·원문 확인</span><small>대상·결과·접근 상태</small></div>
             <div class="filter-group">
+              <label for="route-group">투여 경로 분류</label>
+              <select id="route-group"><option value="">전체</option></select>
+            </div>
+            <div class="filter-group">
               <label for="sci">SCI/SCIE 상태</label>
               <select id="sci"><option value="">전체</option></select>
             </div>
@@ -2523,7 +2527,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var reviewDraftStatus = "pending";
       var reviewDraftNote = "";
       var state = {
-         q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", followup: "", sci: "", species: "", topic: "",
+         q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", routeGroup: "", followup: "", sci: "", species: "", topic: "",
         grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", audit: "", freshness: "", from: DB.meta.minYear,
         to: DB.meta.maxYear, sort: "latest", page: 1
       };
@@ -2534,6 +2538,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         category: el("category"),
         effectCategory: el("effect-category"),
         status: el("status"),
+        routeGroup: el("route-group"),
         grade: el("grade"),
         agency: el("agency"),
         safetyArea: el("safety-area"),
@@ -2877,6 +2882,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         addOptions(controls.status, DB.facets.status);
         addOptions(controls.category, DB.facets.category || []);
         addOptions(controls.effectCategory, DB.facets.effectCategory || []);
+        addOptions(controls.routeGroup, DB.facets.routeGroup || []);
         addOptions(controls.grade, DB.facets.grade || []);
         addOptions(controls.agency, DB.facets.agency || []);
         addOptions(controls.safetyArea, DB.facets.safetyArea || []);
@@ -2920,12 +2926,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           : "all";
         candidatePreviewNeedsFocus = candidatePreviewFilter !== "all";
         state = {
-           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", followup: "", sci: "", species: "", topic: "",
+           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", routeGroup: "", followup: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", audit: "", freshness: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
         pageSize = 20;
-        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "followup", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "audit", "freshness", "sort"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "routeGroup", "followup", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "audit", "freshness", "sort"].forEach(function (key) {
           if (params.has(key)) state[key] = params.get(key) || "";
         });
         if (params.has("from")) state.from = Math.max(DB.meta.minYear, Number(params.get("from")) || DB.meta.minYear);
@@ -3027,7 +3033,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function applyPreset(name, preserveQuery) {
         var preservedQuery = preserveQuery ? state.q : "";
-        var keys = ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "followup", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "audit", "freshness", "from", "to", "sort"];
+        var keys = ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "routeGroup", "followup", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "audit", "freshness", "from", "to", "sort"];
         keys.forEach(function (key) {
           if (key === "from") state[key] = DB.meta.minYear;
           else if (key === "to") state[key] = DB.meta.maxYear;
@@ -3052,7 +3058,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
       function persistUrl(historyMode) {
         var params = new URLSearchParams();
-        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "followup", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "audit", "freshness"].forEach(function (key) {
+        ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "routeGroup", "followup", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "audit", "freshness"].forEach(function (key) {
           if (state[key]) params.set(key, state[key]);
         });
         if (state.from !== DB.meta.minYear) params.set("from", state.from);
@@ -3262,6 +3268,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (state.status && record.status !== state.status) return false;
           if (state.marketing && marketingLabel(record) !== state.marketing) return false;
           if (state.intervention && interventionClass(record) !== state.intervention) return false;
+          if (state.routeGroup && (record.routeGroup || "미기록") !== state.routeGroup) return false;
           if (state.followup === "signal" && !publicationFollowupLabel(record)) return false;
           if (state.grade && record.grade !== state.grade) return false;
           if (state.agency && record.agency !== state.agency) return false;

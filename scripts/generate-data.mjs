@@ -453,6 +453,17 @@ const tally = (source, field) => Object.entries(source.reduce((result, record) =
   result[key] = (result[key] || 0) + 1;
   return result;
 }, {})).map(([label, value]) => ({ label, value })).sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, "ko"));
+const routeGroup = (value) => {
+  const text = clean(value);
+  if (!text) return "미기록";
+  const oral = /경구|섭취|사료|음수|식이|위관|위내|음용|gavage|oral|diet|feed|drinking/i.test(text);
+  const nonOral = /복강|정맥|피하|근육|주사|십이지장|in vitro|세포|오가노이드|발효|시험관|ex vivo/i.test(text);
+  if (oral && nonOral) return "혼합·복수 경로";
+  if (oral) return "경구·섭취";
+  if (nonOral) return "비경구·기타";
+  return "비섭취·해당 없음";
+};
+records.forEach((record) => { record.routeGroup = routeGroup(record.route); });
 
 const dates = records.map((record) => record.checked).filter(Boolean).sort();
 const years = records.map((record) => record.year).filter(Number.isFinite);
@@ -526,7 +537,8 @@ const database = {
     agency: tally(regulatoryRecords, "agency"),
     safetyArea: tally(regulatoryRecords, "safetyArea"),
     category: tally(records, "category"),
-    effectCategory: tally(records, "effectCategory")
+    effectCategory: tally(records, "effectCategory"),
+    routeGroup: tally(records, "routeGroup")
   },
   records
 };

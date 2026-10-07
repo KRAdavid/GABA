@@ -41787,6 +41787,24 @@
         "label": "GABA 유사체",
         "value": 1
       }
+    ],
+    "routeGroup": [
+      {
+        "label": "경구·섭취",
+        "value": 342
+      },
+      {
+        "label": "비섭취·해당 없음",
+        "value": 29
+      },
+      {
+        "label": "비경구·기타",
+        "value": 11
+      },
+      {
+        "label": "혼합·복수 경로",
+        "value": 10
+      }
     ]
   },
   "records": [
@@ -41831,7 +41849,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-1980-001",
@@ -41875,7 +41894,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "성장호르몬",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-1982-041",
@@ -41918,7 +41938,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-1994-042",
@@ -41961,7 +41982,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2003-201",
@@ -42005,7 +42027,8 @@
       "linkType": "PubMed·DOI",
       "category": "임상근거",
       "effectCategory": "고혈압",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2006-002",
@@ -42049,7 +42072,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2008-003",
@@ -42092,7 +42116,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "성장호르몬"
+      "effectCategory": "성장호르몬",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2009-203",
@@ -42136,7 +42161,8 @@
       "linkType": "PubMed·DOI",
       "category": "임상근거",
       "effectCategory": "스트레스·이완",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2009-206",
@@ -42180,7 +42206,8 @@
       "linkType": "PubMed·DOI·J-STAGE",
       "category": "임상근거",
       "effectCategory": "스트레스·이완",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2009-027",
@@ -42223,7 +42250,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "연구 근거",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2009-202",
@@ -42267,7 +42295,8 @@
       "linkType": "PubMed·DOI",
       "category": "임상근거",
       "effectCategory": "고혈압",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2009-043",
@@ -42311,7 +42340,8 @@
       "linkType": "PDF·PubMed",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2011-204",
@@ -42355,7 +42385,8 @@
       "linkType": "PubMed·DOI·J-STAGE",
       "category": "임상근거",
       "effectCategory": "스트레스·이완",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2012-158",
@@ -42399,7 +42430,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2012-030",
@@ -42442,7 +42474,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "체온조절"
+      "effectCategory": "체온조절",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2013-027",
@@ -42485,7 +42518,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2014-008",
@@ -42528,7 +42562,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2015-009",
@@ -42571,7 +42606,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2015-010",
@@ -42615,7 +42651,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2015-031",
@@ -42659,7 +42696,8 @@
       "linkType": "PubMed 초록·DOI",
       "category": "안전성",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2015-219",
@@ -42703,7 +42741,8 @@
       "linkType": "PubMed·DOI·PMC·철회 공지",
       "category": "안전성",
       "effectCategory": "인지·집중",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2016-011",
@@ -42747,7 +42786,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2016-032",
@@ -42790,7 +42830,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2018-159",
@@ -42834,7 +42875,8 @@
       "linkType": "PMC 원문",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2018-033",
@@ -42877,7 +42919,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2019-205",
@@ -42921,7 +42964,8 @@
       "linkType": "PubMed·DOI·출판사",
       "category": "임상근거",
       "effectCategory": "스트레스·이완",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2019-014",
@@ -42965,7 +43009,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "운동·체성분",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2019-045",
@@ -43008,7 +43053,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2021-034",
@@ -43051,7 +43097,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "성장호르몬"
+      "effectCategory": "성장호르몬",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2022-015",
@@ -43094,7 +43141,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "체온조절"
+      "effectCategory": "체온조절",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2022-016",
@@ -43138,7 +43186,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2022-035",
@@ -43181,7 +43230,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2023-017",
@@ -43225,7 +43275,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "당뇨",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2023-022",
@@ -43268,7 +43319,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2023-036",
@@ -43312,7 +43364,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2023-037",
@@ -43355,7 +43408,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-018",
@@ -43399,7 +43453,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-166",
@@ -43443,7 +43498,8 @@
       "linkType": "PubMed·원문·DOI",
       "category": "연구 근거",
       "effectCategory": "혈당",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-039",
@@ -43486,7 +43542,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-180",
@@ -43532,7 +43589,8 @@
       "effectCategory": "당뇨",
       "pmcid": "PMC11971400",
       "clinicalTrialId": "NCT03635437",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-115",
@@ -43577,7 +43635,8 @@
       "category": "연구 근거",
       "effectCategory": "스트레스",
       "clinicalTrialId": "NCT06787443",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-024",
@@ -43621,7 +43680,8 @@
       "linkType": "링크 없음",
       "category": "연구 근거",
       "effectCategory": "운동·체성분",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-132",
@@ -43665,7 +43725,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-171",
@@ -43711,7 +43772,8 @@
       "effectCategory": "스트레스·이완",
       "pmcid": "PMC11867345",
       "clinicalTrialId": "CTRI/2021/08/035694",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-021",
@@ -43756,7 +43818,8 @@
       "category": "안전성",
       "effectCategory": "기타",
       "clinicalTrialId": "NCT06755489",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-023",
@@ -43801,7 +43864,8 @@
       "category": "연구 근거",
       "effectCategory": "수면",
       "clinicalTrialId": "RBR-5ftj2fy",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-025",
@@ -43845,7 +43909,8 @@
       "linkType": "링크 없음",
       "category": "연구 근거",
       "effectCategory": "성장호르몬",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-022",
@@ -43889,7 +43954,8 @@
       "linkType": "초록·원문·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1961-030",
@@ -43932,7 +43998,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1971-044",
@@ -43975,7 +44042,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1980-031",
@@ -44018,7 +44086,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1981-045",
@@ -44061,7 +44130,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1984-032",
@@ -44104,7 +44174,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1984-046",
@@ -44147,7 +44218,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1986-033",
@@ -44190,7 +44262,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1987-257",
@@ -44234,7 +44307,8 @@
       "linkType": "PubMed·DOI",
       "category": "효능",
       "effectCategory": "장건강",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "A-1995-034",
@@ -44277,7 +44351,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1996-057",
@@ -44320,7 +44395,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1999-035",
@@ -44363,7 +44439,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2002-001",
@@ -44406,7 +44483,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "A-2002-036",
@@ -44449,7 +44527,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2003-002",
@@ -44492,7 +44571,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2003-037",
@@ -44535,7 +44615,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2004-011",
@@ -44578,7 +44659,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2004-012",
@@ -44621,7 +44703,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2004-038",
@@ -44664,7 +44747,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2005-039",
@@ -44707,7 +44791,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2007-040",
@@ -44750,7 +44835,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2007-099",
@@ -44793,7 +44879,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "성장호르몬"
+      "effectCategory": "성장호르몬",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2009-041",
@@ -44836,7 +44923,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2009-058",
@@ -44879,7 +44967,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2009-100",
@@ -44922,7 +45011,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "성장호르몬"
+      "effectCategory": "성장호르몬",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2010-042",
@@ -44965,7 +45055,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2011-003",
@@ -45008,7 +45099,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2011-013",
@@ -45051,7 +45143,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2011-043",
@@ -45094,7 +45187,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2011-101",
@@ -45137,7 +45231,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2011-102",
@@ -45180,7 +45275,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2012-059",
@@ -45223,7 +45319,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2013-004",
@@ -45266,7 +45363,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2013-060",
@@ -45309,7 +45407,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "운동·체성분"
+      "effectCategory": "운동·체성분",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2014-005",
@@ -45352,7 +45451,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2014-061",
@@ -45395,7 +45495,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2014-062",
@@ -45438,7 +45539,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2015-047",
@@ -45481,7 +45583,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "A-2015-063",
@@ -45524,7 +45627,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2015-103",
@@ -45567,7 +45671,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2015-104",
@@ -45610,7 +45715,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2016-048",
@@ -45653,7 +45759,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2016-049",
@@ -45696,7 +45803,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2016-064",
@@ -45739,7 +45847,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2016-065",
@@ -45782,7 +45891,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2016-252",
@@ -45826,7 +45936,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "열스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-006",
@@ -45869,7 +45980,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-007",
@@ -45912,7 +46024,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "A-2017-014",
@@ -45955,7 +46068,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-067",
@@ -45998,7 +46112,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-105",
@@ -46041,7 +46156,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-106",
@@ -46084,7 +46200,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-107",
@@ -46127,7 +46244,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2018-068",
@@ -46170,7 +46288,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2018-108",
@@ -46213,7 +46332,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2018-109",
@@ -46256,7 +46376,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2018-110",
@@ -46299,7 +46420,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2019-015",
@@ -46342,7 +46464,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2019-016",
@@ -46385,7 +46508,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2019-050",
@@ -46428,7 +46552,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-051",
@@ -46471,7 +46596,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-069",
@@ -46514,7 +46640,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-070",
@@ -46557,7 +46684,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-071",
@@ -46600,7 +46728,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-111",
@@ -46643,7 +46772,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-112",
@@ -46686,7 +46816,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-113",
@@ -46729,7 +46860,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "A-2020-114",
@@ -46772,7 +46904,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "성장호르몬"
+      "effectCategory": "성장호르몬",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2021-017",
@@ -46815,7 +46948,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2021-018",
@@ -46858,7 +46992,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2021-072",
@@ -46901,7 +47036,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2021-115",
@@ -46944,7 +47080,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "면역·염증"
+      "effectCategory": "면역·염증",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2021-116",
@@ -46987,7 +47124,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-019",
@@ -47030,7 +47168,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-020",
@@ -47073,7 +47212,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "A-2022-021",
@@ -47116,7 +47256,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-022",
@@ -47159,7 +47300,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-073",
@@ -47202,7 +47344,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-074",
@@ -47245,7 +47388,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-075",
@@ -47288,7 +47432,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-076",
@@ -47331,7 +47476,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-117",
@@ -47374,7 +47520,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-118",
@@ -47417,7 +47564,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "A-2022-119",
@@ -47460,7 +47608,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-008",
@@ -47503,7 +47652,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "A-2023-052",
@@ -47546,7 +47696,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-077",
@@ -47589,7 +47740,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-078",
@@ -47632,7 +47784,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "운동·체성분"
+      "effectCategory": "운동·체성분",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-079",
@@ -47675,7 +47828,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-080",
@@ -47718,7 +47872,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-081",
@@ -47761,7 +47916,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-120",
@@ -47804,7 +47960,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "기타"
+      "effectCategory": "기타",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-121",
@@ -47847,7 +48004,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-023",
@@ -47890,7 +48048,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-024",
@@ -47933,7 +48092,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "면역·염증"
+      "effectCategory": "면역·염증",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-053",
@@ -47976,7 +48136,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-054",
@@ -48019,7 +48180,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-082",
@@ -48062,7 +48224,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-083",
@@ -48105,7 +48268,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "운동·체성분"
+      "effectCategory": "운동·체성분",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-084",
@@ -48148,7 +48312,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-122",
@@ -48191,7 +48356,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-269",
@@ -48235,7 +48401,8 @@
       "linkType": "PubMed·DOI",
       "category": "효능",
       "effectCategory": "장 건강·염증",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-124",
@@ -48278,7 +48445,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-125",
@@ -48321,7 +48489,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-268",
@@ -48365,7 +48534,8 @@
       "linkType": "PubMed·Wiley·DOI",
       "category": "효능",
       "effectCategory": "지방간·대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-010",
@@ -48408,7 +48578,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "고혈압"
+      "effectCategory": "고혈압",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-025",
@@ -48451,7 +48622,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-271",
@@ -48495,7 +48667,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
       "effectCategory": "스트레스·불안",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-027",
@@ -48538,7 +48711,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "A-2025-055",
@@ -48581,7 +48755,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-085",
@@ -48624,7 +48799,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "당뇨"
+      "effectCategory": "당뇨",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-086",
@@ -48667,7 +48843,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-087",
@@ -48710,7 +48887,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "근육발달"
+      "effectCategory": "근육발달",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-088",
@@ -48753,7 +48931,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-089",
@@ -48796,7 +48975,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-093",
@@ -48839,7 +49019,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-094",
@@ -48882,7 +49063,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-095",
@@ -48925,7 +49107,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-028",
@@ -48968,7 +49151,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "인지·집중"
+      "effectCategory": "인지·집중",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-029",
@@ -49012,7 +49196,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "안전성",
       "effectCategory": "안전성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-056",
@@ -49055,7 +49240,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "운동·체성분"
+      "effectCategory": "운동·체성분",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-090",
@@ -49098,7 +49284,8 @@
       "hasDrivePdf": true,
       "linkType": "Drive PDF",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-091",
@@ -49142,7 +49329,8 @@
       "linkType": "PubMed·PMC·Drive PDF·DOI",
       "category": "안전성",
       "effectCategory": "생산성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-092",
@@ -49185,7 +49373,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "스트레스·이완"
+      "effectCategory": "스트레스·이완",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-096",
@@ -49229,7 +49418,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "안전성",
       "effectCategory": "염증",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-097",
@@ -49272,7 +49462,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "장건강·소화"
+      "effectCategory": "장건강·소화",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2014-126",
@@ -49316,7 +49507,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "고혈압",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-127",
@@ -49360,7 +49552,8 @@
       "linkType": "PubMed·원문·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-098",
@@ -49403,7 +49596,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "안전성",
-      "effectCategory": "다이어트"
+      "effectCategory": "다이어트",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2016-248",
@@ -49447,7 +49641,8 @@
       "category": "연구 근거",
       "effectCategory": "근육발달",
       "fulltextUrl": "https://doi.org/10.1007/s00484-015-1084-9",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2003-247",
@@ -49489,7 +49684,8 @@
       "category": "연구 근거",
       "effectCategory": "간·대사",
       "fulltextUrl": "https://doi.org/10.3746/jfn.2003.8.2.119",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-243",
@@ -49533,7 +49729,8 @@
       "category": "안전성",
       "effectCategory": "안전성",
       "fulltextUrl": "https://doi.org/10.1093/plphys/kiag231",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2026-244",
@@ -49577,7 +49774,8 @@
       "category": "안전성",
       "effectCategory": "안전성",
       "fulltextUrl": "https://doi.org/10.1093/plphys/kiag360",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "A-2015-245",
@@ -49621,7 +49819,8 @@
       "category": "안전성",
       "effectCategory": "안전성",
       "fulltextUrl": "https://doi.org/10.1007/s12017-014-8337-3",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "A-2026-246",
@@ -49665,7 +49864,8 @@
       "category": "안전성",
       "effectCategory": "안전성",
       "fulltextUrl": "https://doi.org/10.1007/s12017-026-08946-5",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2026-239",
@@ -49709,7 +49909,8 @@
       "category": "연구 근거",
       "effectCategory": "고혈압",
       "fulltextUrl": "https://doi.org/10.1016/j.foodres.2026.120054",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-238",
@@ -49753,7 +49954,8 @@
       "category": "연구 근거",
       "effectCategory": "수면",
       "fulltextUrl": "https://doi.org/10.1016/j.foodres.2026.119214",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-237",
@@ -49797,7 +49999,8 @@
       "category": "연구 근거",
       "effectCategory": "발효·배경",
       "fulltextUrl": "https://doi.org/10.1016/j.foodres.2026.119516",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-236",
@@ -49841,7 +50044,8 @@
       "category": "연구 근거",
       "effectCategory": "수면",
       "fulltextUrl": "https://doi.org/10.1039/d5fo04374c",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2023-235",
@@ -49885,7 +50089,8 @@
       "category": "연구 근거",
       "effectCategory": "신경계",
       "fulltextUrl": "https://doi.org/10.1186/s40035-023-00391-9",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2024-234",
@@ -49929,7 +50134,8 @@
       "linkType": "PubMed·DOI·원문",
       "category": "연구 근거",
       "effectCategory": "불안·스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-233",
@@ -49973,7 +50179,8 @@
       "category": "연구 근거",
       "effectCategory": "발효·배경",
       "fulltextUrl": "https://doi.org/10.1007/s12602-026-10941-y",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "R-2026-232",
@@ -50017,7 +50224,8 @@
       "category": "안전성",
       "effectCategory": "안전성",
       "fulltextUrl": "https://doi.org/10.1007/s12602-025-10628-w",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "R-2025-231",
@@ -50061,7 +50269,8 @@
       "linkType": "PubMed·DOI·원문",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2024-230",
@@ -50105,7 +50314,8 @@
       "category": "연구 근거",
       "effectCategory": "발효·배경",
       "fulltextUrl": "https://doi.org/10.1080/10826068.2023.2252047",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2024-229",
@@ -50149,7 +50359,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
       "effectCategory": "장내미생물",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2024-228",
@@ -50193,7 +50404,8 @@
       "category": "연구 근거",
       "effectCategory": "섭취량·배경",
       "fulltextUrl": "https://doi.org/10.33029/0042-8833-2024-93-1-120-124",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-227",
@@ -50237,7 +50449,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-226",
@@ -50281,7 +50494,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "안전성",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-225",
@@ -50325,7 +50539,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2025-224",
@@ -50369,7 +50584,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2026-223",
@@ -50413,7 +50629,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "H-2025-222",
@@ -50457,7 +50674,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "임상 근거",
       "effectCategory": "불안·스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-221",
@@ -50501,7 +50719,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "임상 근거",
       "effectCategory": "수면·회복",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2022-220",
@@ -50545,7 +50764,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "안전성",
       "effectCategory": "인지·집중",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2026-218",
@@ -50589,7 +50809,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-216",
@@ -50633,7 +50854,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2024-217",
@@ -50677,7 +50899,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "프로바이오틱·GABA",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-215",
@@ -50721,7 +50944,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2025-214",
@@ -50765,7 +50989,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2025-213",
@@ -50809,7 +51034,8 @@
       "linkType": "PubMed·DOI·PMC",
       "category": "연구 근거",
       "effectCategory": "프로바이오틱·GABA",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-212",
@@ -50853,7 +51079,8 @@
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "프로바이오틱·GABA",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-211",
@@ -50897,7 +51124,8 @@
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2024-208",
@@ -50941,7 +51169,8 @@
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2022-209",
@@ -50985,7 +51214,8 @@
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2026-210",
@@ -51029,7 +51259,8 @@
       "linkType": "PubMed·DOI·출판사",
       "category": "리뷰·배경",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2026-199",
@@ -51073,7 +51304,8 @@
       "linkType": "DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-200",
@@ -51117,7 +51349,8 @@
       "linkType": "DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-197",
@@ -51161,7 +51394,8 @@
       "linkType": "DOI-only",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-198",
@@ -51205,7 +51439,8 @@
       "linkType": "DOI-only",
       "category": "연구 근거",
       "effectCategory": "식품소재·기전",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-196",
@@ -51249,7 +51484,8 @@
       "linkType": "DOI-only",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-187",
@@ -51293,7 +51529,8 @@
       "linkType": "DOI-only",
       "category": "동물시험",
       "effectCategory": "동물·장 건강",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-195",
@@ -51337,7 +51574,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "프로바이오틱·GABA",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-196",
@@ -51381,7 +51619,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·기분",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-194",
@@ -51425,7 +51664,8 @@
       "linkType": "PubMed·DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "A-2026-185",
@@ -51469,7 +51709,8 @@
       "linkType": "PubMed·DOI",
       "category": "동물시험",
       "effectCategory": "동물·수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-186",
@@ -51513,7 +51754,8 @@
       "linkType": "PubMed·DOI",
       "category": "동물시험",
       "effectCategory": "동물·청각",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-193",
@@ -51557,7 +51799,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "R-2026-192",
@@ -51602,7 +51845,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-REG-2013-003",
@@ -51647,7 +51891,8 @@
       "linkType": "ClinicalTrials.gov",
       "category": "연구 근거",
       "effectCategory": "흡수·결과 미확인",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-REG-2025-007",
@@ -51692,7 +51937,8 @@
       "linkType": "UMIN 등록정보",
       "category": "연구 근거",
       "effectCategory": "수면·결과 미확인",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-179",
@@ -51736,7 +51982,8 @@
       "linkType": "출판사 초록·DOI",
       "category": "연구 근거",
       "effectCategory": "대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-166",
@@ -51780,7 +52027,8 @@
       "linkType": "PubMed·PMC 원문·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-102",
@@ -51824,7 +52072,8 @@
       "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
       "effectCategory": "성장·면역",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2015-158",
@@ -51868,7 +52117,8 @@
       "linkType": "PubMed·Frontiers 원문·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-167",
@@ -51912,7 +52162,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기분·스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2015-158",
@@ -51956,7 +52207,8 @@
       "linkType": "PubMed·기관 저장소·DOI",
       "category": "연구 근거",
       "effectCategory": "안전성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2018-161",
@@ -52000,7 +52252,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "안전성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-052",
@@ -52044,7 +52297,8 @@
       "linkType": "공식 초록·UMIN",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-177",
@@ -52088,7 +52342,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2026-178",
@@ -52132,7 +52387,8 @@
       "linkType": "PubMed·원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "H-2026-165",
@@ -52175,7 +52431,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "인지·집중",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-098",
@@ -52219,7 +52476,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-057",
@@ -52263,7 +52521,8 @@
       "linkType": "PubMed",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-100",
@@ -52307,7 +52566,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2022-101",
@@ -52351,7 +52611,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-102",
@@ -52395,7 +52656,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2019-103",
@@ -52439,7 +52701,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-104",
@@ -52483,7 +52746,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-105",
@@ -52527,7 +52791,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-106",
@@ -52571,7 +52836,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1985-107",
@@ -52615,7 +52881,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "A-2021-108",
@@ -52659,7 +52926,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-109",
@@ -52703,7 +52971,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "근육발달",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-110",
@@ -52747,7 +53016,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "effectCategory": "성장호르몬",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "A-2014-111",
@@ -52791,7 +53061,8 @@
       "linkType": "원문·DOI",
       "category": "안전성",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2021-112",
@@ -52835,7 +53106,8 @@
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "인지",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2022-113",
@@ -52879,7 +53151,8 @@
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "근육발달",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-114",
@@ -52923,7 +53196,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-116",
@@ -52967,7 +53241,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "당뇨",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-117",
@@ -53011,7 +53286,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-118",
@@ -53055,7 +53331,8 @@
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-119",
@@ -53099,7 +53376,8 @@
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-120",
@@ -53143,7 +53421,8 @@
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-121",
@@ -53187,7 +53466,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-126",
@@ -53231,7 +53511,8 @@
       "linkType": "원문·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "다이어트",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-127",
@@ -53275,7 +53556,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-128",
@@ -53319,7 +53601,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "당뇨",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-055",
@@ -53364,7 +53647,8 @@
       "linkType": "UMIN 등록정보",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-056",
@@ -53408,7 +53692,8 @@
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2015-147",
@@ -53452,7 +53737,8 @@
       "linkType": "J-STAGE·DOI·2차 고찰",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2019-148",
@@ -53496,7 +53782,8 @@
       "linkType": "PubMed·DOI·ISRCTN",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2015-149",
@@ -53540,7 +53827,8 @@
       "linkType": "J-GLOBAL·2차 고찰",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2015-136",
@@ -53584,7 +53872,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "고혈압",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2010-139",
@@ -53628,7 +53917,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2025-138",
@@ -53672,7 +53962,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2020-137",
@@ -53716,7 +54007,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-135",
@@ -53760,7 +54052,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-134",
@@ -53804,7 +54097,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-054",
@@ -53849,7 +54143,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2020-140",
@@ -53893,7 +54188,8 @@
       "linkType": "출판사 초록·시험등록",
       "category": "연구 근거",
       "effectCategory": "인지기능",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2020-141",
@@ -53937,7 +54233,8 @@
       "linkType": "출판사 초록·시험등록",
       "category": "연구 근거",
       "effectCategory": "인지기능",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2008-144",
@@ -53981,7 +54278,8 @@
       "linkType": "J-STAGE·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2000-145",
@@ -54025,7 +54323,8 @@
       "linkType": "국립국회도서관·2차 고찰",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2013-146",
@@ -54069,7 +54368,8 @@
       "linkType": "출판사 초록·J-GLOBAL",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-142",
@@ -54113,7 +54413,8 @@
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
       "effectCategory": "안전성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2022-130",
@@ -54157,7 +54458,8 @@
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-151",
@@ -54201,7 +54503,8 @@
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2004-155",
@@ -54245,7 +54548,8 @@
       "linkType": "J-GLOBAL·2차 자료",
       "category": "안전성",
       "effectCategory": "고혈압",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-156",
@@ -54289,7 +54593,8 @@
       "linkType": "출판사 PDF",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-157",
@@ -54333,7 +54638,8 @@
       "linkType": "PMC 원문",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2021-175",
@@ -54378,7 +54684,8 @@
       "linkType": "PMC 원문·PubMed·DOI",
       "category": "안전성",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-1980-181",
@@ -54422,7 +54729,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "성장호르몬",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "R-2023-182",
@@ -54466,7 +54774,8 @@
       "linkType": "PubMed·DOI",
       "category": "안전성",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "H-2018-160",
@@ -54510,7 +54819,8 @@
       "linkType": "J-GLOBAL·공개 초록",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-161",
@@ -54554,7 +54864,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2019-162",
@@ -54598,7 +54909,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "혈압",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2022-184",
@@ -54642,7 +54954,8 @@
       "linkType": "PubMed·DOI 원문",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-163",
@@ -54686,7 +54999,8 @@
       "linkType": "PubMed·Nature 원문",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "H-2026-164",
@@ -54730,7 +55044,8 @@
       "linkType": "bioRxiv preprint",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "A-2023-153",
@@ -54774,7 +55089,8 @@
       "linkType": "PMC 원문",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-174",
@@ -54818,7 +55134,8 @@
       "linkType": "PMC 원문",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-170",
@@ -54862,7 +55179,8 @@
       "linkType": "PMC 원문",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-171",
@@ -54906,7 +55224,8 @@
       "linkType": "PubMed 초록",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-167",
@@ -54950,7 +55269,8 @@
       "linkType": "PubMed·ScienceDirect 초록",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-166",
@@ -54994,7 +55314,8 @@
       "linkType": "Journal of Dairy Science 원문",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "A-2007-154",
@@ -55038,7 +55359,8 @@
       "linkType": "PubMed 초록",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-182",
@@ -55082,7 +55404,8 @@
       "linkType": "PMC 원문",
       "category": "연구 근거",
       "effectCategory": "장건강·대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "A-2026-183",
@@ -55126,7 +55449,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·신경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-177",
@@ -55170,7 +55494,8 @@
       "linkType": "학회 초록·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2019-176",
@@ -55214,7 +55539,8 @@
       "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-177",
@@ -55258,7 +55584,8 @@
       "linkType": "PubMed·원문·DOI",
       "category": "연구 근거",
       "effectCategory": "인지·집중",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-178",
@@ -55302,7 +55629,8 @@
       "linkType": "PubMed·ScienceDirect",
       "category": "연구 근거",
       "effectCategory": "스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-278",
@@ -55346,7 +55674,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "수면·스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-040",
@@ -55384,7 +55713,8 @@
       "duplicate": "없음",
       "category": "연구 근거",
       "species": "기타",
-      "linkType": "원문·DOI"
+      "linkType": "원문·DOI",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2017-011",
@@ -55428,7 +55758,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "notes": "PMID 29024230와 초록의 연구설계를 확인. 연구의 의미: GABA가 전신 섭취가 아니라 구강 점막에 국소적으로 작용할 가능성을 건강한 성인에서 탐색한 임상자료다. 마케팅 활용 방안: 본 사이트의 경구 섭취 근거 범위와 맞지 않으므로 검색 결과에서 제외하고, 구강 국소 제품을 별도 인덱스로 만들 때만 재활용한다. 경구 섭취 GABA의 수면·이완 효능이나 전신 진통효과로 확장하지 않는다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2021-177",
@@ -55472,7 +55803,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "notes": "PMID 34763469와 출판사 원문 전체를 확인해 총 252마리, 하위군 n=14 및 뇌 분석 n=8을 보강. 연구의 의미: GABA와 호두 펩타이드 병용이 마우스의 약물 유발 수면시간·수면률에 미치는 조합 신호를 탐색한 자료이며, 수면잠복기 단축은 호두 펩타이드 기여가 큰 것으로 해석해야 한다. 마케팅 활용 방안: 병용제품의 전임상 탐색 근거로만 활용하고 사람의 수면 개선이나 GABA 단독효과로 확대하지 않으며, 실제 제품의 호두 펩타이드 조성·GABA 용량·섭취 조건을 일치시킨다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2025-159",
@@ -55515,7 +55847,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "notes": "ScienceDirect/DOI 서지와 초록을 확인해 후보로 보존. 연구의 의미: GABA와 MSG가 장내 미생물 조성·SCFA 생성 및 MSG→GABA 전환과 연결될 수 있다는 기초 가설을 제공한다. 마케팅 활용 방안: 장-뇌 축·발효식품·프리바이오틱스 연구의 후속 탐색 근거로만 활용하고, 장내 유익·수면·이완·혈당 개선을 사람 대상 GABA 제품 효능으로 광고하지 않으며 원문 방법·농도·공여자 수를 확인한 뒤 인체시험을 별도로 검토한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "R-2023-160",
@@ -55559,7 +55892,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "notes": "PubMed·PMC 원문을 대조해 L18의 GABA 생성, Caco-2 장벽, 분변 발효 결과를 확인. 연구의 의미: 사람 유래 GABA 생성 프로바이오틱스 균주가 GABA-enriched 발효식품과 장-미생물 상호작용 연구의 후보가 될 수 있음을 보여주는 플랫폼 연구다. 마케팅 활용 방안: 균주·발효식품 개발과 인체시험 설계의 배경 근거로만 활용하고, L18 또는 GABA 생성 프로바이오틱스가 사람의 장 건강·이완·수면을 개선한다고 광고하지 않으며 실제 완제품의 균주 동일성·생존성·GABA 함량과 인체 임상자료를 별도로 확인한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "R-2026-180",
@@ -55602,7 +55936,8 @@
       "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
       "notes": "Oxford Academic 출판사 원문과 DOI를 확인. 연구의 의미: 사람 유래·발효식품 유래 균주의 조합이 장내 조건에서 GABA 생성과 SCFA 대사를 조절할 수 있다는 최신 플랫폼 근거를 제공한다. 마케팅 활용 방안: 차세대 프로바이오틱스·GABA 발효식품 개발과 후속 인체시험 설계에만 활용하고, 해당 균주 조합이 사람의 이완·수면·장 건강을 개선한다고 광고하지 않으며 실제 균주·제조공정·함량과 인체 임상자료를 별도로 확인한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비경구·기타"
     },
     {
       "id": "R-2026-181",
@@ -55645,7 +55980,8 @@
       "linkType": "출판사 DOI·초록",
       "category": "연구 근거",
       "notes": "출판사 DOI 페이지의 초록·서지정보를 확인해 ahead-of-print 후보로 보존했다. 연구의 의미: GABA 강화 식품의 원료·가공·기전·수면 문헌을 연결해, 제품 개발 시 식품 매트릭스와 용량·대상 차이를 함께 고려해야 함을 보여주는 최신 종설이다. 마케팅 활용 방안: 수면 제품 기획과 근거 공백 정리에만 활용하고, 정식 본문·출판 상태가 확정되기 전에는 효능 확정 자료로 사용하지 않으며 식품 형태·GABA 함량·대상·임상시험 결과가 일치하는 원저를 별도로 확인한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2024-019",
@@ -55688,7 +56024,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "notes": "DOI 10.3390/nutraceuticals4020015의 MDPI 원문을 확인. 연구의 의미: 경구 GABA가 뇌에 영향을 미칠 수 있는 직접·간접 경로와 수면·통증·뇌파 문헌을 한데 정리한 최신 배경 고찰이지만, BBB 통과와 임상효능의 불확실성도 명시한다. 마케팅 활용 방안: 마케팅 배경·추가 연구 필요성 설명에만 활용하고 고찰의 잠재효과를 임상효능으로 인용하지 않으며, 원저의 용량·제형·대상·결과를 별도로 확인한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2022-020",
@@ -55732,7 +56069,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "notes": "PMID 35796273·PMCID PMC9262463의 원문을 확인. 연구의 의미: 현미배아 유래 천연 GABA 75 mg을 불면 증상 환자에게 4주 투여해 저용량 조건의 객관적 수면 지표와 안전성을 탐색한 인체시험이며, 수면잠복기 개선 신호가 있었지만 위약 대비 효과는 제한적이었다. 마케팅 활용 방안: ‘75 mg·4주·불면 증상 대상’ 조건의 제한적 자료로 활용하고, 위약 대비 수면 개선이 확정됐다고 표현하거나 모든 GABA 제품·건강인에게 일반화하지 않으며 제형과 대상 일치성을 확인한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-179",
@@ -55775,7 +56113,8 @@
       "linkType": "원문·DOI",
       "category": "연구 근거",
       "notes": "DOI 10.1186/s41606-024-00122-7의 Springer 원문을 확인. 연구의 의미: GABA를 포함한 다성분 수면보조제의 6주 교차시험에서 주관적 입면·멜라토닌 신호를 탐색했지만, 객관적 Fitbit 수면지표는 유의하지 않았고 GABA의 독립효과와 성분별 기여는 평가하지 못했다. 마케팅 활용 방안: 다성분 제품의 제한적 탐색 근거로만 활용하고 GABA 단독 수면효능·불면증 치료로 광고하지 않으며, GABA 함량 비공개·다른 성분·제조사 지원 및 직원·지인 중심 모집방식을 함께 공개한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-053",
@@ -55816,7 +56155,8 @@
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
       "notes": "ScienceDirect 오픈액세스 논문 초록과 DOI 서지정보를 대조해 RG30 500 mg/day, 정량 GABA 120 mg/day, 80명·8주, SRI 보정 평균차와 신뢰구간·p값을 보강. 연구의 의미: 발효 쌀배아 추출물이라는 실제 제품 원료 조건에서 스트레스 증상과 삶의 질의 위약 대비 차이를 평가한 최신 인체 무작위시험이다. 마케팅 활용 방안: ‘RG30(500 mg, GABA 120 mg) 8주 연구에서 지각 스트레스 점수가 감소’로만 활용하고, 순수 GABA의 일반 효능·우울증 치료·모든 스트레스 상태로 확대하지 않는다. 원료·용량·대상·기간과 복합 성분 한계를 반드시 병기한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-054",
@@ -55860,7 +56200,8 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "피부",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-055",
@@ -55901,7 +56242,8 @@
       "effectCategory": "스트레스·이완",
       "topic": "신경·행동·수면",
       "notes": "J-STAGE 공식 논문 페이지의 서지정보와 초록을 확인했다. 연구의 의미: 경도 정신적 스트레스 뒤 HRV를 wavelet transform으로 분석해 GABA가 스트레스 후 부교감신경 활동 저하를 완화할 가능성을 탐색한 최신 급성 인체시험이다. 마케팅 활용 방안: ‘GABA 단회 섭취 후 특정 스트레스 과제에서 상대 HF power 감소가 관찰되지 않은 7명 연구’로만 활용하고, 일반적인 이완·불안 개선·장기 스트레스 감소로 확대하지 않는다. 정확한 용량·제형과 안전성은 원문 확인 전까지 미확정으로 표시한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2025-056",
@@ -55942,7 +56284,8 @@
       "effectCategory": "스트레스·이완",
       "topic": "신경·행동·수면",
       "notes": "Japanese Pharmacology and Therapeutics 공식 목차와 UMIN000057565 등록정보로 제목·저널·건강인 대상 무작위 교차설계를 확인하고, 공개 연구요약에서 28명·GABA 100 mg/day·3일·VAS 결과를 대조했다. 연구의 의미: GABA를 양성대조로 사용해 일시적 정신적 스트레스 관련 주관 지표를 비교한 제품 특이적 인체시험이다. 마케팅 활용 방안: GABA의 위약대조 효능자료가 아니라 ‘100 mg/day GABA 양성대조군이 포함된 SOYLAX 비교시험’으로만 활용하고, GABA의 확정적 스트레스 완화·우월성 또는 장기효과로 확대하지 않는다. 원문 전문 확인 전까지 후보·부분완료 상태를 유지한다.",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-183",
@@ -55986,7 +56329,8 @@
       "linkType": "PubMed·출판사",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-184",
@@ -56030,7 +56374,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "R-2026-185",
@@ -56074,7 +56419,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-186",
@@ -56119,7 +56465,8 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "H-2026-167",
@@ -56164,7 +56511,8 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "피부",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-168",
@@ -56209,7 +56557,8 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-169",
@@ -56254,7 +56603,8 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·이완",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-170",
@@ -56299,7 +56649,8 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "인지",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-174",
@@ -56345,7 +56696,8 @@
       "linkType": "PMC·PubMed·DOI",
       "category": "안전성",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-173",
@@ -56391,7 +56743,8 @@
       "linkType": "DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "운동·복합효과",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-125",
@@ -56436,7 +56789,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "안전성",
       "effectCategory": "면역·상호작용",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-123",
@@ -56481,7 +56835,8 @@
       "linkType": "DOI·출판사",
       "category": "동물시험",
       "effectCategory": "동물·장건강",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-124",
@@ -56526,7 +56881,8 @@
       "linkType": "DOI·출판사",
       "category": "동물시험",
       "effectCategory": "동물·근육",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "혼합·복수 경로"
     },
     {
       "id": "A-2026-122",
@@ -56571,7 +56927,8 @@
       "linkType": "PubMed·DOI",
       "category": "동물시험",
       "effectCategory": "동물·대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-120",
@@ -56616,7 +56973,8 @@
       "linkType": "DOI·출판사",
       "category": "동물시험",
       "effectCategory": "동물·대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-002",
@@ -56661,7 +57019,8 @@
       "linkType": "DOI·출판사",
       "category": "연구 근거",
       "effectCategory": "발효·배경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "H-REG-2019-002",
@@ -56706,7 +57065,8 @@
       "linkType": "ClinicalTrials.gov",
       "category": "연구 근거",
       "effectCategory": "흡수·결과 미확인",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-REG-2021-001",
@@ -56751,7 +57111,8 @@
       "linkType": "ClinicalTrials.gov",
       "category": "연구 근거",
       "effectCategory": "수면·결과 미확인",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-172",
@@ -56796,7 +57157,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "수면·간접",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-164",
@@ -56841,7 +57203,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "장-뇌축·간접",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-REG-2026-004",
@@ -56885,7 +57248,8 @@
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
       "effectCategory": "안전성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-REG-2026-003",
@@ -56929,7 +57293,8 @@
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
       "effectCategory": "수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-REG-2024-002",
@@ -56973,7 +57338,8 @@
       "linkType": "ClinicalTrials.gov 등록정보",
       "category": "연구 근거",
       "effectCategory": "안전성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-191",
@@ -57018,7 +57384,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "약물·경계 근거",
       "effectCategory": "GABA 유사체",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-187",
@@ -57063,7 +57430,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "약물·경계 근거",
       "effectCategory": "GABA 수용체 약물",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-190",
@@ -57108,7 +57476,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "연구 근거",
       "effectCategory": "다이어트",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "A-2019-249",
@@ -57152,7 +57521,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "열스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2016-250",
@@ -57196,7 +57566,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "열스트레스",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-251",
@@ -57240,7 +57611,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "철 흡수",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2017-253",
@@ -57284,7 +57656,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
       "effectCategory": "장건강",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2005-254",
@@ -57328,7 +57701,8 @@
       "linkType": "PubMed·J-STAGE PDF·DOI",
       "category": "효능",
       "effectCategory": "대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-255",
@@ -57372,7 +57746,8 @@
       "linkType": "PubMed·DOI",
       "category": "효능",
       "effectCategory": "대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2019-256",
@@ -57416,7 +57791,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-1998-258",
@@ -57460,7 +57836,8 @@
       "linkType": "PubMed",
       "category": "효능",
       "effectCategory": "장건강",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2018-262",
@@ -57504,7 +57881,8 @@
       "category": "효능",
       "effectCategory": "고혈압",
       "fulltextUrl": "https://doi.org/10.1002/tox.22565",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-263",
@@ -57548,7 +57926,8 @@
       "linkType": "PubMed·RSC·DOI",
       "category": "효능",
       "effectCategory": "고혈압",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2023-264",
@@ -57592,7 +57971,8 @@
       "linkType": "PubMed·RSC·DOI",
       "category": "효능",
       "effectCategory": "혈당·대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2015-265",
@@ -57636,7 +58016,8 @@
       "linkType": "PubMed·DOI",
       "category": "효능",
       "effectCategory": "섭식·대사",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-272",
@@ -57680,7 +58061,8 @@
       "linkType": "PubMed·PMC·DOI",
       "category": "효능",
       "effectCategory": "당뇨·신경",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-273",
@@ -57724,7 +58106,8 @@
       "category": "연구 근거",
       "effectCategory": "당뇨",
       "fulltextUrl": "https://doi.org/10.3168/jds.2019-17757",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2012-274",
@@ -57768,7 +58151,8 @@
       "category": "연구 근거",
       "effectCategory": "기타",
       "fulltextUrl": "https://doi.org/10.1111/j.1740-0929.2011.00939.x",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2020-275",
@@ -57812,7 +58196,8 @@
       "category": "연구 근거",
       "effectCategory": "기타",
       "fulltextUrl": "https://doi.org/10.1111/asj.13361",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-276",
@@ -57856,7 +58241,8 @@
       "category": "연구 근거",
       "effectCategory": "장 건강·염증",
       "fulltextUrl": "https://doi.org/10.3390/vetsci11090398",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2013-277",
@@ -57900,7 +58286,8 @@
       "category": "연구 근거",
       "effectCategory": "스트레스·불안",
       "fulltextUrl": "https://doi.org/10.1111/j.1740-0929.2012.01051.x",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2024-279",
@@ -57943,7 +58330,8 @@
       "linkType": "출판사·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·안전성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-280",
@@ -57986,7 +58374,8 @@
       "linkType": "출판사·DOI",
       "category": "연구 근거",
       "effectCategory": "스트레스·동물영양",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2026-286",
@@ -58030,7 +58419,8 @@
       "linkType": "UMIN 등록",
       "category": "리뷰·배경",
       "effectCategory": "기타",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2016-285",
@@ -58074,7 +58464,8 @@
       "linkType": "UMIN 등록",
       "category": "등록·보강",
       "effectCategory": "불안·스트레스·수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2025-283",
@@ -58118,7 +58509,8 @@
       "linkType": "UMIN 등록",
       "category": "리뷰·배경",
       "effectCategory": "불안·스트레스·수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "R-2024-282",
@@ -58162,7 +58554,8 @@
       "linkType": "DOI·출판사 원문",
       "category": "리뷰·배경",
       "effectCategory": "불안·스트레스·수면",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-180",
@@ -58205,7 +58598,8 @@
       "linkType": "출판사 PDF·DOI",
       "category": "연구 근거",
       "effectCategory": "운동·근력",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-181",
@@ -58248,7 +58642,8 @@
       "linkType": "출판사 PDF·DOI",
       "category": "연구 근거",
       "effectCategory": "수면·보류",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2026-284",
@@ -58291,7 +58686,8 @@
       "linkType": "출판사 PDF·DOI",
       "category": "연구 근거",
       "effectCategory": "열스트레스·동물영양",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-281",
@@ -58335,7 +58731,8 @@
       "linkType": "PubMed·DOI",
       "category": "연구 근거",
       "effectCategory": "대사·안전성",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2026-175",
@@ -58379,7 +58776,8 @@
       "linkType": "출판사 원문·DOI",
       "category": "연구 근거",
       "effectCategory": "성장·복합효과",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-182",
@@ -58423,7 +58821,8 @@
       "linkType": "출판사 PDF·UMIN",
       "category": "연구 근거",
       "effectCategory": "안전성·보류",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "H-2024-183",
@@ -58467,7 +58866,8 @@
       "linkType": "출판사 PDF·UMIN",
       "category": "연구 근거",
       "effectCategory": "안전성·보류",
-      "duplicate": "없음"
+      "duplicate": "없음",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-096",
@@ -58510,7 +58910,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "A-2025-097",
@@ -58553,7 +58954,8 @@
       "hasDrivePdf": false,
       "linkType": "원문·DOI",
       "category": "연구 근거",
-      "effectCategory": "수면"
+      "effectCategory": "수면",
+      "routeGroup": "경구·섭취"
     },
     {
       "id": "REG-KR-MFDS-2025-001",
@@ -58618,7 +59020,8 @@
       "effectCategory": "안전성·규제",
       "hasDrivePdf": false,
       "linkType": "공식 원문",
-      "category": "안전성"
+      "category": "안전성",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "REG-KR-MFDS-2025-002",
@@ -58683,7 +59086,8 @@
       "effectCategory": "안전성·규제",
       "hasDrivePdf": false,
       "linkType": "공식 원문",
-      "category": "안전성"
+      "category": "안전성",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "REG-KR-MFDS-2026-003",
@@ -58748,7 +59152,8 @@
       "effectCategory": "안전성·규제",
       "hasDrivePdf": false,
       "linkType": "공식 원문",
-      "category": "안전성"
+      "category": "안전성",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "REG-CA-HC-2022-001",
@@ -58813,7 +59218,8 @@
       "effectCategory": "안전성·규제",
       "hasDrivePdf": false,
       "linkType": "공식 원문",
-      "category": "안전성"
+      "category": "안전성",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "REG-CA-HC-2026-002",
@@ -58878,7 +59284,8 @@
       "effectCategory": "안전성·규제",
       "hasDrivePdf": false,
       "linkType": "공식 원문",
-      "category": "안전성"
+      "category": "안전성",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "REG-KR-MFDS-2025-004",
@@ -58943,7 +59350,8 @@
       "effectCategory": "안전성·규제",
       "hasDrivePdf": false,
       "linkType": "공식 원문",
-      "category": "안전성"
+      "category": "안전성",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "REG-CA-HC-2026-003",
@@ -59008,7 +59416,8 @@
       "effectCategory": "안전성·규제",
       "hasDrivePdf": false,
       "linkType": "공식 원문",
-      "category": "안전성"
+      "category": "안전성",
+      "routeGroup": "비섭취·해당 없음"
     },
     {
       "id": "REG-CA-HC-NHPID-2026-001",
@@ -59073,7 +59482,8 @@
       "effectCategory": "안전성·규제",
       "hasDrivePdf": false,
       "linkType": "공식 원문",
-      "category": "안전성"
+      "category": "안전성",
+      "routeGroup": "비섭취·해당 없음"
     }
   ]
 }
