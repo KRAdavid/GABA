@@ -3493,10 +3493,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
       function evidenceBriefText(record) {
         var source = primarySourceUrl(record);
+        var audit = sourceAuditRecord(record);
         return [
           "GABA 근거 브리프",
           "자료: " + koreanTitle(record),
           "연구 유형: " + (record.kind || "미분류"),
+          "근거 상태: " + (record.status || "미분류") + " · 추출 상태: " + (record.extraction || "미상"),
+          "원문 접근: " + (audit ? auditLabel(audit.status) : "감사 기록 없음") + " · 확인일: " + (record.checked || "미상"),
           "핵심 결과: " + (record.finding || record.summaryKo || "주요 결과 미추출"),
           "해석 경계: " + evidenceBoundary(record),
           "연구의 의미: " + researchMeaning(record),

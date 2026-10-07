@@ -613,6 +613,12 @@ try {
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-record-link]'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-citation]'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-brief]'))"), true);
+  await evaluate(client, "document.querySelector('[data-copy-brief]').click()");
+  await new Promise((resolve) => setTimeout(resolve, 80));
+  assert.equal(await evaluate(client, "document.querySelector('#copy-dialog')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#copy-dialog-value')?.value.includes('근거 상태:')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#copy-dialog-value')?.value.includes('원문 접근:')"), true);
+  await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
   await evaluate(client, "history.back()");
   await new Promise((resolve) => setTimeout(resolve, 180));
   assert.equal(await evaluate(client, "document.querySelector('#intelligence-detail')?.open"), false);
