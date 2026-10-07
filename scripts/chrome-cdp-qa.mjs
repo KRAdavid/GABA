@@ -628,6 +628,9 @@ try {
   assert.match(String(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent")), /설치류/);
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-reset')?.hidden"), false);
   assert.match(String(await evaluate(client, "document.querySelector('#mobile-filter')?.getAttribute('aria-label')")), /1개 조건 적용/);
+  await evaluate(client, "document.querySelector('#filter-reset-quick').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#advanced-filters')?.open"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#filter-active-count')?.textContent"), "조건 없음");
   await screenshot("cdp-mobile-top.png");
   await evaluate(client, "document.querySelector('#filter-mobile-apply').click()");
   assert.equal(await evaluate(client, "document.body.classList.contains('filter-open')"), false);

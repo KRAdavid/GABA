@@ -4693,6 +4693,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
       function resetFilters() {
         pageSize = 20;
+        var advanced = el("advanced-filters");
+        if (advanced) advanced.open = false;
         state = {
            q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", routeGroup: "", followup: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", audit: "", freshness: "", from: DB.meta.minYear,
