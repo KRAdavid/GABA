@@ -1901,7 +1901,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <a href="#results">근거 인덱스</a>
         <a href="#intelligence">Intelligence</a>
         <a href="#distribution-title">규제·안전</a>
-        <a href="#results">시장·활용</a>
+        <a href="#market-use">시장·활용</a>
       </nav>
       <div class="top-actions">
         <a class="top-link" id="sheet-link" hidden target="_blank" rel="noopener noreferrer">관리 원본 Sheet</a>
@@ -2063,7 +2063,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       </article>
     </section>
 
-    <section class="intelligence-feed" aria-labelledby="intelligence-feed-title">
+    <section class="intelligence-feed" id="market-use" aria-labelledby="intelligence-feed-title">
       <div class="intelligence-feed-head">
         <div>
           <h2 id="intelligence-feed-title">최신 인덱스에서 읽는 검토 포인트</h2>

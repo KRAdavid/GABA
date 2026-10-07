@@ -425,6 +425,7 @@ try {
   assert.equal(await waitForExpression(client, "document.activeElement?.id === 'review-queue-title'"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('Crossref')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('이번 갱신 변화')"), true);
+  assert.equal(await evaluate(client, "document.querySelector(\".portal-nav a[href='#market-use']\")?.textContent.includes('시장·활용')"), true);
   const currentDeploymentLabel = "현재 운영 코드 기준(런타임) Sites v" + health.release.currentCodeDeployment.siteVersion + " · GitHub " + health.release.currentCodeDeployment.publicMirrorCommit.slice(0, 7);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes(" + JSON.stringify(currentDeploymentLabel) + ")"), true);
   assert.equal(await evaluate(client, "document.querySelector('#discovery-stats')?.textContent.includes('마지막 완전 검증 릴리스 데이터 v457 · Sites v485 · GitHub e60d363')"), true);
