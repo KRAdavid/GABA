@@ -148,6 +148,8 @@ try {
   }
 
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  await evaluate(client, "localStorage.removeItem('gaba-candidate-decisions-v1'); location.reload()");
+  await waitForExpression(client, "document.documentElement.dataset.gabaReady === 'true'");
   await waitForExpression(client, "document.querySelector('#sort')?.value === 'latest'");
   await evaluate(client, "document.querySelector('#sort').value = 'human-source'; document.querySelector('#sort').dispatchEvent(new Event('change', { bubbles: true }))");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('sort')"), "human-source");
@@ -340,6 +342,9 @@ try {
   const candidateId = await evaluate(client, "document.querySelector('[data-candidate-detail]')?.getAttribute('data-candidate-detail')");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('candidateId')"), candidateId);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-copy-candidate-link]'))"), true);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-candidate-review-status=\"검토 완료\"]'))"), true);
+  await evaluate(client, "document.querySelector('[data-candidate-review-status=\"검토 완료\"]').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('검토 완료')"), true);
   await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () { throw new Error('candidate clipboard denied'); } } })");
   await evaluate(client, "document.querySelector('[data-copy-candidate-link]').click()");
   await sleep(80);

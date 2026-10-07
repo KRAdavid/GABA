@@ -701,6 +701,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-detail-abstract { margin-top: 16px; padding: 15px; border-radius: 11px; background: var(--surface-2); color: var(--ink-2); font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
     .candidate-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .candidate-detail-actions a, .candidate-detail-actions button { display: inline-flex; min-height: 34px; align-items: center; padding: 6px 10px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font: inherit; font-size: 11px; font-weight: 900; text-decoration: none; cursor: pointer; }
+    .candidate-detail-actions button.secondary { border-color: var(--line); background: #fff; color: var(--ink-2); }
+    .candidate-detail-actions button[aria-pressed="true"] { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
     @media (max-width: 640px) { .candidate-detail-inner { padding: 16px; } .candidate-detail-head h2 { font-size: 19px; } }
     @media (max-width: 980px) { .candidate-preview-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 640px) { .candidate-preview-head { align-items: start; flex-direction: column; gap: 5px; } .candidate-preview-list { grid-template-columns: 1fr; } }
@@ -2569,6 +2571,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var urlCandidateId = "";
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
+      var candidateDecisions = {};
+      try { candidateDecisions = JSON.parse(localStorage.getItem("gaba-candidate-decisions-v1") || "{}"); } catch (_) { candidateDecisions = {}; }
       var compareIds = [];
       try {
         compareIds = JSON.parse(localStorage.getItem("gaba-compare-ids") || "[]")
@@ -2718,13 +2722,20 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (candidate.doi) return "DOI 원문";
         return "원문 식별자";
       }
+      function candidateReviewStatus(candidate) {
+        var saved = candidateDecisions[String(candidate?.candidateId || "")];
+        return saved?.status || candidate.screeningStatus || "미검토";
+      }
+      function saveCandidateDecisions() {
+        try { localStorage.setItem("gaba-candidate-decisions-v1", JSON.stringify(candidateDecisions)); } catch (_) {}
+      }
 
       function filterCandidatePreviewRecords(candidates, activeFilter) {
         return (Array.isArray(candidates) ? candidates : []).filter(function (candidate) {
           if (activeFilter === "priority") return candidate.bucket === "우선검토";
           if (activeFilter === "followup") return (candidate.exclusionSignals || []).length > 0 || /출판 후속조치|철회|정정|우려표명/.test(candidate.screeningRecommendation || "");
-          if (activeFilter === "reviewed") return candidate.screeningStatus && candidate.screeningStatus !== "미검토";
-          if (activeFilter === "unreviewed") return !candidate.screeningStatus || candidate.screeningStatus === "미검토";
+          if (activeFilter === "reviewed") return candidateReviewStatus(candidate) !== "미검토";
+          if (activeFilter === "unreviewed") return candidateReviewStatus(candidate) === "미검토";
           return true;
         });
       }
@@ -2780,7 +2791,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var sourceUrl = candidateSourceUrl(candidate);
           var signals = candidateHumanSignals(candidate);
           var recommendation = candidate.screeningRecommendation || "원문·식별자 확인 필요";
-          var reviewStatus = candidate.screeningStatus || "미검토";
+          var reviewStatus = candidateReviewStatus(candidate);
           var reviewMeta = reviewStatus !== "미검토" ? " · " + (candidate.screeningPriority || "수동 판정") : "";
           var score = candidate.score == null ? "" : " · 자동 점수 " + candidate.score;
           var identifiers = [candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI" : ""].filter(Boolean);
@@ -2816,7 +2827,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         persistUrl(historyMode || "push");
         el("candidate-detail-title").textContent = candidate.title || "후보 상세";
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
-        el("candidate-detail-screening").innerHTML = '<strong>검토 권고</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>수동 검토 상태</strong> · ' + esc(candidate.screeningStatus || "미검토") + (candidate.screeningPriority ? " · 수동 우선순위 " + esc(candidate.screeningPriority) : "") + '<br><strong>자동 탐색 우선순위</strong> · ' + esc(candidateBucketLabel(candidate.bucket || "미분류")) + (candidate.score != null ? " · 자동 점수 " + esc(candidate.score) : "") + '<br><strong>자동 신호 요약</strong> · ' + esc(candidateHumanSignals(candidate)) + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
+        var reviewStatus = candidateReviewStatus(candidate);
+        el("candidate-detail-screening").innerHTML = '<strong>검토 권고</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>개인 검토 상태</strong> · ' + esc(reviewStatus) + (candidate.screeningPriority ? " · 수동 우선순위 " + esc(candidate.screeningPriority) : "") + '<br><strong>자동 탐색 우선순위</strong> · ' + esc(candidateBucketLabel(candidate.bucket || "미분류")) + (candidate.score != null ? " · 자동 점수 " + esc(candidate.score) : "") + '<br><strong>자동 신호 요약</strong> · ' + esc(candidateHumanSignals(candidate)) + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
         var followup = (candidate.queryLabels || []).includes("publication_followup") || (candidate.publicationTypes || []).some(function (type) { return /retract|correct/i.test(type); });
         var sourceUrl = candidateSourceUrl(candidate);
         var checklist = [
@@ -2828,7 +2840,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         ];
         el("candidate-detail-checklist").innerHTML = '<h3>공개 근거 승격 전 확인 순서</h3><ul>' + checklist.map(function (item) { return '<li><strong>' + esc(item[0]) + '</strong><span>' + esc(item[1]) + '</span></li>'; }).join("") + '</ul>';
         el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
-        el("candidate-detail-actions").innerHTML = (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(candidateSourceLabel(candidate)) + ' 확인 ↗</a>' : "") + '<button type="button" data-copy-candidate-link="' + esc(candidate.candidateId || "") + '">후보 검토 링크 복사</button>';
+        el("candidate-detail-actions").innerHTML = (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(candidateSourceLabel(candidate)) + ' 확인 ↗</a>' : "") + '<button type="button" data-copy-candidate-link="' + esc(candidate.candidateId || "") + '">후보 검토 링크 복사</button><button class="secondary" type="button" data-candidate-review-status="검토 완료" data-candidate-review-id="' + esc(candidate.candidateId || "") + '" aria-pressed="' + String(reviewStatus === "검토 완료") + '">검토 완료 표시</button><button class="secondary" type="button" data-candidate-review-status="자료 필요" data-candidate-review-id="' + esc(candidate.candidateId || "") + '" aria-pressed="' + String(reviewStatus === "자료 필요") + '">자료 필요 표시</button>';
         if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", "");
         el("candidate-detail-close").focus();
       }
@@ -2850,7 +2862,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!candidates.length) { toast("내보낼 후보가 없습니다"); return; }
         var headers = ["후보 ID", "수집일", "자동 탐색 우선순위", "수동 검토 상태", "수동 우선순위", "제목", "저자", "저널", "연도", "PMID", "DOI", "검토 권고", "경로 신호", "개입 신호", "대상 신호", "설계 신호", "자동 제외 신호", "탐색 쿼리", "원문 링크"];
         var rows = candidates.map(function (candidate) {
-          return [candidate.candidateId, candidate.collectedDate, candidate.bucket, candidate.screeningStatus || "미검토", candidate.screeningPriority || "", candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.routeSignals || []).join(" · "), (candidate.interventionSignals || []).join(" · "), (candidate.subjectSignals || []).join(" · "), (candidate.studySignals || []).join(" · "), (candidate.exclusionSignals || []).join(" · "), (candidate.queryLabels || []).join(" · "), candidateSourceUrl(candidate)].map(csvCell);
+          return [candidate.candidateId, candidate.collectedDate, candidate.bucket, candidateReviewStatus(candidate), candidate.screeningPriority || "", candidate.title, candidate.author, candidate.journal, candidate.year, candidate.pmid, candidate.doi, candidate.screeningRecommendation, (candidate.routeSignals || []).join(" · "), (candidate.interventionSignals || []).join(" · "), (candidate.subjectSignals || []).join(" · "), (candidate.studySignals || []).join(" · "), (candidate.exclusionSignals || []).join(" · "), (candidate.queryLabels || []).join(" · "), candidateSourceUrl(candidate)].map(csvCell);
         });
         var csv = "\uFEFF" + [headers.map(csvCell).join(",")].concat(rows.map(function (row) { return row.join(","); })).join("\r\n");
         var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
@@ -4842,15 +4854,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         toast("저장된 검색 조건을 삭제했습니다");
       }
       function resetPersonalWorkspace() {
-        var confirmed = window.confirm("이 브라우저에 저장된 검색 조건·읽기 목록·비교 선택·개인 검토 메모를 모두 초기화할까요? 공개 인덱스와 Sheets는 변경되지 않습니다.");
+        var confirmed = window.confirm("이 브라우저에 저장된 검색 조건·읽기 목록·비교 선택·근거·후보 개인 검토 기록을 모두 초기화할까요? 공개 인덱스와 Sheets는 변경되지 않습니다.");
         if (!confirmed) return;
-        ["gaba-saved-searches-v1", "gaba-reading-ids", "gaba-compare-ids", "gaba-review-decisions"].forEach(function (key) {
+        ["gaba-saved-searches-v1", "gaba-reading-ids", "gaba-compare-ids", "gaba-review-decisions", "gaba-candidate-decisions-v1"].forEach(function (key) {
           try { localStorage.removeItem(key); } catch (_) {}
         });
         savedSearches = [];
         readingIds = [];
         compareIds = [];
         reviewDecisions = {};
+        candidateDecisions = {};
         renderSavedSearches();
         renderReadingList();
         renderReviewQueue();
@@ -5146,6 +5159,23 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           controls.q.value = emptyQuery.dataset.emptyQuery || "";
           changeState("q", controls.q.value);
           controls.q.focus();
+          return;
+        }
+        var candidateReviewButton = event.target.closest("[data-candidate-review-status]");
+        if (candidateReviewButton) {
+          var candidateReviewId = String(candidateReviewButton.dataset.candidateReviewId || "");
+          if (candidateReviewId) {
+            candidateDecisions[candidateReviewId] = { status: candidateReviewButton.dataset.candidateReviewStatus || "미검토", updatedAt: new Date().toISOString() };
+            saveCandidateDecisions();
+            var candidateDialog = el("candidate-detail-dialog");
+            if (candidateDialog?.open) {
+              closeCandidateDetail();
+              openCandidateDetail(candidateReviewId, "replace");
+            } else {
+              renderCandidatePreview(DB.meta.discovery?.candidatePreview || []);
+            }
+            toast("후보 개인 검토 상태를 저장했습니다");
+          }
           return;
         }
         var candidateDetailButton = event.target.closest("[data-candidate-detail]");
