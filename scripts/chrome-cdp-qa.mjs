@@ -194,6 +194,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#route-group')?.value"), "경구·섭취");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('routeGroup')"), "경구·섭취");
   assert.equal(await evaluate(client, "document.querySelector('#result-count')?.textContent.includes('건')"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/`);
+  assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=oral]')?.textContent.includes('경구·섭취')"), true);
+  await evaluate(client, "document.querySelector('[data-result-preset=oral]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('routeGroup')"), "경구·섭취");
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('존재하지 않는 GABA 자료 검색어')}`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-empty-reset]'))"), true);
   await evaluate(client, "document.querySelector('[data-empty-clear-query]').click()");

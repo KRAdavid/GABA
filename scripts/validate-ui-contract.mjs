@@ -52,6 +52,7 @@ const required = [
   ["Personal workspace reset", 'id="personal-workspace-clear"'],
   ["Result next-action routes", "data-result-preset"],
   ["Result next-action renderer", "result-interpretation-actions"],
+  ["Oral route next action", 'data-result-preset="oral"'],
   ["Review priority rationale", "review-priority-reason"],
   ["Local review decision panel", 'id="review-decision-controls"'],
   ["Local review note", 'id="intelligence-detail-note"'],
