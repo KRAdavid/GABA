@@ -315,6 +315,7 @@ try {
   assert.notEqual(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.trim()"), "매주 업데이트");
   assert.equal(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.includes('탐색')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview')?.hidden"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-review-progress')?.textContent.includes('현재 미리보기')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-more')?.hidden"), false);
   assert.equal(await evaluate(client, "/^전체 \\d+$/.test(document.querySelector('[data-candidate-filter=all]')?.textContent.trim() || '')"), true);
   const automaticPriorityLabel = await evaluate(client, "document.querySelector('[data-candidate-filter=priority]')?.textContent.trim() || ''");

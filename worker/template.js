@@ -664,6 +664,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .candidate-preview-head { display: flex; align-items: end; justify-content: space-between; gap: 14px; }
     .candidate-preview-head h2 { margin: 0; font-size: 17px; letter-spacing: -.02em; }
     .candidate-preview-head p { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .candidate-review-progress { margin-top: 5px !important; color: var(--teal-dark) !important; font-size: 11px !important; font-weight: 800; }
     .candidate-preview-head-actions { display: flex; align-items: center; gap: 8px; }
     .candidate-preview-note { max-width: 560px; color: var(--amber); font-size: 11px; font-weight: 800; line-height: 1.45; text-align: right; }
     .candidate-preview-export { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 900; cursor: pointer; }
@@ -2002,7 +2003,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     </section>
     <section class="candidate-preview" id="candidate-preview" aria-labelledby="candidate-preview-title" hidden>
       <div class="candidate-preview-head">
-        <div><h2 id="candidate-preview-title">최근 자동 탐색 후보 미리보기</h2><p>아직 공개 근거로 승격되지 않은 후보입니다. 원문·섭취 경로·철회·정정 상태를 확인한 뒤 별도 판정합니다.</p></div>
+        <div><h2 id="candidate-preview-title">최근 자동 탐색 후보 미리보기</h2><p>아직 공개 근거로 승격되지 않은 후보입니다. 원문·섭취 경로·철회·정정 상태를 확인한 뒤 별도 판정합니다.</p><p class="candidate-review-progress" id="candidate-review-progress" role="status" aria-live="polite"></p></div>
         <div class="candidate-preview-head-actions"><span class="candidate-preview-note">확정 근거 아님</span><button class="candidate-preview-export" id="candidate-preview-export" type="button">전체 후보 CSV</button></div>
       </div>
       <div class="candidate-preview-filters" aria-label="후보 유형 필터">
@@ -2770,6 +2771,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var activeFilter = candidatePreviewFilter;
         section.dataset.filter = activeFilter;
         var filtered = filterCandidatePreviewRecords(candidates, activeFilter);
+        var reviewedCount = candidates.filter(function (candidate) { return candidateReviewStatus(candidate) !== "미검토"; }).length;
+        var progress = el("candidate-review-progress");
+        if (progress) {
+          progress.textContent = "현재 미리보기 " + candidates.length.toLocaleString("ko-KR") + "건 중 개인 검토 " + reviewedCount.toLocaleString("ko-KR") + "건 · 미검토 " + Math.max(0, candidates.length - reviewedCount).toLocaleString("ko-KR") + "건 · 원본·Sheets 미변경";
+        }
         var candidateFilterLabels = { all: "전체", priority: "자동 우선검토", followup: "출판 후속조치", reviewed: "수동 검토됨", unreviewed: "미검토" };
         document.querySelectorAll("[data-candidate-filter]").forEach(function (button) {
           var filterKey = button.dataset.candidateFilter || "all";

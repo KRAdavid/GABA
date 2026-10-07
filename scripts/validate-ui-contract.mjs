@@ -220,6 +220,7 @@ const required = [
   ,["Empty result recovery suggestions", 'data-empty-query="수면"']
   ,["Pagination status announcement", 'id="page-status" role="status" aria-live="polite"']
   ,["Candidate personal review actions", "data-candidate-review-status=\"검토 완료\""]
+  ,["Candidate review progress summary", 'id="candidate-review-progress"']
   ,["Empty result recovery", "data-empty-reset"]
   ,["Visible filter status", 'id="filter-status-strip"']
   ,["Filter status summary", 'id="filter-status-text"']
