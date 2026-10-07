@@ -676,6 +676,10 @@ try {
   await screenshot("cdp-desktop-top.png");
 
   await client.call("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
+  assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('.mobile-portal-jump')).display"), "none");
+  await evaluate(client, "document.querySelector('.mobile-portal-jump summary').click()");
+  assert.equal(await evaluate(client, "document.querySelector('.mobile-portal-jump')?.open"), true);
+  assert.equal(await evaluate(client, "document.querySelector(\".mobile-portal-jump-links a[href='#market-use']\")?.textContent"), "시장·활용");
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true);
   assert.match(String(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent")), /해석 경계/);

@@ -453,6 +453,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .hero-actions .hero-primary { background: #fff; color: var(--teal-dark); }
     .hero-actions .hero-secondary { border: 1px solid rgba(255,255,255,.32); background: rgba(255,255,255,.09); color: #fff; }
     .hero-actions a:hover, .hero-actions a:focus-visible { transform: translateY(-1px); }
+    .mobile-portal-jump { display: none; margin-top: 2px; color: #fff; }
+    .mobile-portal-jump summary { min-height: 34px; padding: 7px 10px; border: 1px solid rgba(255,255,255,.32); border-radius: 9px; background: rgba(255,255,255,.09); font-size: 11px; font-weight: 800; cursor: pointer; list-style: none; }
+    .mobile-portal-jump summary::-webkit-details-marker { display: none; }
+    .mobile-portal-jump summary::after { content: "＋"; float: right; }
+    .mobile-portal-jump[open] summary::after { content: "－"; }
+    .mobile-portal-jump-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+    .mobile-portal-jump-links a { padding: 5px 8px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; color: #fff; font-size: 10px; font-weight: 800; text-decoration: none; }
+    .mobile-portal-jump-links a:focus-visible, .mobile-portal-jump-links a:hover { background: rgba(255,255,255,.16); }
     .hero-proof {
       position: relative;
       z-index: 1;
@@ -1814,6 +1822,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       .page, .topbar-inner { width: min(100% - 24px, var(--max)); }
       .topbar-inner { min-height: 62px; }
       .brand-copy span, .top-link { display: none; }
+      .mobile-portal-jump { display: block; }
       .page { padding-top: 20px; }
       .hero { grid-template-columns: 1fr; gap: 24px; padding: 28px 22px; border-radius: 22px; }
       .portal-nav { display: none; }
@@ -1922,6 +1931,15 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <div class="hero-actions" aria-label="빠른 시작">
           <a class="hero-primary" href="#explorer-title">근거 검색 시작 →</a>
           <a class="hero-secondary" href="#intelligence">오늘의 검토 신호 보기</a>
+          <details class="mobile-portal-jump">
+            <summary>포털 둘러보기</summary>
+            <div class="mobile-portal-jump-links" aria-label="모바일 주요 영역">
+              <a href="#results">근거 인덱스</a>
+              <a href="#market-use">시장·활용</a>
+              <a href="#distribution-title">규제·안전</a>
+              <a href="#review-queue">추가 검토</a>
+            </div>
+          </details>
         </div>
         <div class="hero-meta">
           <span class="hero-pill"><span class="pulse" aria-hidden="true"></span><span id="snapshot-label"></span></span>
