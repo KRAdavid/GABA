@@ -189,6 +189,7 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/?intervention=${encodeURIComponent('수용체 약물·작용제')}`);
   assert.equal(await evaluate(client, "document.querySelector('[data-intervention=\"수용체 약물·작용제\"]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "수용체 약물·작용제");
+  assert.equal(await evaluate(client, "document.querySelector('#advanced-filters')?.textContent.includes('규제·자료 분류') && document.querySelector('#advanced-filters')?.textContent.includes('연구·원문 확인')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('존재하지 않는 GABA 자료 검색어')}`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-empty-reset]'))"), true);
   await evaluate(client, "document.querySelector('[data-empty-clear-query]').click()");

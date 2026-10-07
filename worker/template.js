@@ -1403,6 +1403,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .result-interpretation-actions-label { color: var(--muted); font-size: 10px; font-weight: 900; }
     .result-interpretation-route { min-height: 28px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink-2); font-size: 10px; font-weight: 850; cursor: pointer; }
     .result-interpretation-route:hover, .result-interpretation-route:focus-visible { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
+    .filter-subgroup-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 12px 0 8px; padding-top: 10px; border-top: 1px solid var(--line-soft); color: var(--ink-2); font-size: 11px; font-weight: 900; }
+    .filter-subgroup-heading:first-child { margin-top: 4px; padding-top: 0; border-top: 0; }
+    .filter-subgroup-heading small { color: var(--muted); font-size: 10px; font-weight: 700; }
     @media (max-width: 640px) {
       .result-interpretation { grid-template-columns: 1fr; gap: 8px; }
       .result-interpretation-note { grid-column: auto; }
@@ -2299,6 +2302,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           </div>
           <details class="advanced-filters" id="advanced-filters">
             <summary><span>추가 조건</span><span class="advanced-filter-count" id="advanced-filter-count">선택 없음</span></summary>
+            <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>규제·자료 분류</span><small>기관·등급·안전 영역</small></div>
             <div class="filter-group">
               <label for="grade">규제 근거등급</label>
               <select id="grade"><option value="">전체</option></select>
@@ -2311,6 +2315,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
               <label for="safety-area">안전성 영역</label>
               <select id="safety-area"><option value="">전체</option></select>
             </div>
+            <div class="filter-subgroup-heading" role="heading" aria-level="3"><span>연구·원문 확인</span><small>대상·결과·접근 상태</small></div>
             <div class="filter-group">
               <label for="sci">SCI/SCIE 상태</label>
               <select id="sci"><option value="">전체</option></select>

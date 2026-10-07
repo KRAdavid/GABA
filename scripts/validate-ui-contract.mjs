@@ -41,6 +41,8 @@ const required = [
   ["Review queue completion rate", "전체 큐 완료율"],
   ["Review queue expansion", "전체 큐 표시"],
   ["Review queue priority", "function reviewPriority"],
+  ["Advanced filter grouping", "filter-subgroup-heading"],
+  ["Advanced filter research group", "연구·원문 확인"],
   ["Result next-action routes", "data-result-preset"],
   ["Result next-action renderer", "result-interpretation-actions"],
   ["Review priority rationale", "review-priority-reason"],
