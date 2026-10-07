@@ -466,6 +466,7 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('status')"), "포함");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "순수 GABA 섭취");
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-open')?.getAttribute('aria-label')"), "읽기 목록, 0개 저장됨");
   assert.equal(await evaluate(client, "document.querySelector('#mobile-filter-count')?.hidden"), true);
   assert.equal(await evaluate(client, "getComputedStyle(document.querySelector('#mobile-filter-count')).display"), "none");
   assert.equal(await evaluate(client, "document.querySelector('#quick-advanced')?.open"), false);
@@ -605,6 +606,7 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('compare')"), false);
   await evaluate(client, "document.querySelector('[data-reading-toggle]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-count')?.textContent"), "1");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-open')?.getAttribute('aria-label')"), "읽기 목록, 1개 저장됨");
   assert.equal(await evaluate(client, "document.querySelector('[data-reading-toggle]')?.getAttribute('aria-pressed')"), "true");
   await evaluate(client, "document.querySelector('#reading-list-open').focus(); document.querySelector('#reading-list-open').click()");
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-dialog')?.open"), true);
@@ -636,6 +638,7 @@ try {
   assert.equal(await evaluate(client, "document.activeElement?.id"), "reading-list-open");
   await evaluate(client, "document.querySelector('[data-reading-toggle]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-count')?.textContent"), "0");
+  assert.equal(await evaluate(client, "document.querySelector('#reading-list-open')?.getAttribute('aria-label')"), "읽기 목록, 0개 저장됨");
   await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () { throw new Error('qa clipboard denied'); } } })");
   await evaluate(client, "document.querySelector('#share-button').click()");
   await sleep(80);

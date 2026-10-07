@@ -1965,7 +1965,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="top-actions">
         <a class="top-link" id="sheet-link" hidden target="_blank" rel="noopener noreferrer">관리 원본 Sheet</a>
         <button class="top-link" id="methodology-open" type="button" aria-haspopup="dialog">방법론</button>
-        <button class="reading-list-button" id="reading-list-open" type="button" aria-haspopup="dialog">읽기 목록 <span class="reading-list-count" id="reading-list-count">0</span></button>
+        <button class="reading-list-button" id="reading-list-open" type="button" aria-haspopup="dialog" aria-label="읽기 목록, 0개 저장됨">읽기 목록 <span class="reading-list-count" id="reading-list-count" aria-live="polite" aria-atomic="true">0</span></button>
         <button class="share-button" id="share-button" type="button" aria-label="현재 검색 조건 링크 복사">링크 복사</button>
       </div>
     </div>
@@ -4477,6 +4477,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var selected = readingListRecords();
         var count = el("reading-list-count");
         if (count) count.textContent = String(selected.length);
+        var openButton = el("reading-list-open");
+        if (openButton) openButton.setAttribute("aria-label", "읽기 목록, " + selected.length + "개 저장됨");
         document.querySelectorAll("[data-reading-toggle]").forEach(function (button) {
           var active = readingIds.indexOf(String(button.dataset.readingToggle)) >= 0;
           button.setAttribute("aria-pressed", String(active));
