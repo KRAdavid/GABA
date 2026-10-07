@@ -483,7 +483,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#result-export-menu summary')?.textContent.includes('내보내기')"), true);
   await evaluate(client, "document.querySelector('#result-export-menu summary').click()");
   assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), true);
-  assert.equal(await evaluate(client, "document.querySelectorAll('#result-export-menu .result-reset').length"), 4);
+  assert.equal(await evaluate(client, "document.querySelectorAll('#result-export-menu .result-reset').length"), 5);
   await evaluate(client, "document.querySelector('#result-export').click()");
   assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), false);
   await sleep(80);
@@ -503,6 +503,10 @@ try {
   assert.equal(await evaluate(client, "String(window.__qaBrief || '').includes('대표 원문:')"), true);
   assert.equal(await evaluate(client, "String(window.__qaBrief || '').includes('현재 조건:')"), true);
   if (await evaluate(client, "document.querySelector('#copy-dialog')?.open")) await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('#result-brief-download'))"), true);
+  await evaluate(client, "document.querySelector('#result-brief-download').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('Markdown')"), true);
   await evaluate(client, "document.querySelector('#result-export-menu summary').click()");
   assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), true);
   await evaluate(client, "document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))");

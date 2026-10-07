@@ -2511,6 +2511,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
                   <button class="result-reset" id="result-json" type="button">검색 결과 JSON</button>
                   <button class="result-reset" id="result-ris" type="button">검색 결과 RIS</button>
                   <button class="result-reset" id="result-brief" type="button">검색 결과 브리프</button>
+                  <button class="result-reset" id="result-brief-download" type="button">브리프 Markdown 저장</button>
                 </div>
               </details>
             </div>
@@ -4153,9 +4154,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         URL.revokeObjectURL(url);
         toast(list.length.toLocaleString("ko-KR") + "건의 검색 결과 RIS를 내보냈습니다");
       }
-      async function copyFilteredBrief() {
-        var list = filteredRecords();
-        if (!list.length) { toast("브리프로 만들 검색 결과가 없습니다"); return; }
+      function filteredBriefText(list) {
         var query = state.q ? state.q.trim() : "전체 근거";
         var clinical = list.filter(function (record) { return record.kind === "임상"; }).length;
         var animal = list.filter(function (record) { return record.kind === "동물"; }).length;
@@ -4178,13 +4177,33 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           lines.push((index + 1) + ". " + evidenceBriefText(record));
         });
         if (list.length > 10) lines.push("", "※ 전체 " + list.length.toLocaleString("ko-KR") + "건 중 10건만 브리프에 포함했습니다. 전체 자료는 CSV로 저장하세요.");
-        var text = lines.join("\n\n");
+        return lines.join("\n\n");
+      }
+      async function copyFilteredBrief() {
+        var list = filteredRecords();
+        if (!list.length) { toast("브리프로 만들 검색 결과가 없습니다"); return; }
+        var text = filteredBriefText(list);
         try {
           await navigator.clipboard.writeText(text);
           toast("검색 결과 브리프를 복사했습니다");
         } catch (_) {
           openCopyDialog("검색 결과 브리프", "클립보드 권한이 없으면 아래 내용을 선택해 직접 복사하세요.", text, "검색 결과 브리프를 복사했습니다");
         }
+      }
+      function exportFilteredBrief() {
+        var list = filteredRecords();
+        if (!list.length) { toast("저장할 브리프가 없습니다"); return; }
+        var text = filteredBriefText(list);
+        var blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-evidence-brief-" + String(DB.meta.snapshotDate || "snapshot") + ".md";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast("검색 결과 브리프 Markdown을 저장했습니다");
       }
       async function importReviewQueue(file) {
         if (!file) return;
@@ -5442,6 +5461,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("result-json").addEventListener("click", function () { exportFilteredJson(); closeResultExportMenu(); });
       el("result-ris").addEventListener("click", function () { exportFilteredRis(); closeResultExportMenu(); });
       el("result-brief").addEventListener("click", function () { copyFilteredBrief(); closeResultExportMenu(); });
+      el("result-brief-download").addEventListener("click", function () { exportFilteredBrief(); closeResultExportMenu(); });
       el("result-save-search").addEventListener("click", saveCurrentSearch);
       el("personal-workspace-clear").addEventListener("click", resetPersonalWorkspace);
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });

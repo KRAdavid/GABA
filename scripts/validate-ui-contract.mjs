@@ -114,6 +114,8 @@ const required = [
   ["Comparison interpretation note", 'id="compare-dialog-insight"'],
   ["Comparison CSV export", 'id="compare-export"'],
   ["Search result brief", 'id="result-brief"'],
+  ["Filtered brief Markdown export", 'id="result-brief-download"'],
+  ["Filtered brief Markdown renderer", "function exportFilteredBrief"],
   ["Brief reproducible link", "조건 링크:"],
   ["Brief condition summary", "현재 조건: "],
   ["Candidate promotion checklist", 'id="candidate-detail-checklist"'],
