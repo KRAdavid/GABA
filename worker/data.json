@@ -39730,8 +39730,8 @@
       "currentCodeDeployment": {
         "siteVersion": 653,
         "sourceCommit": "13a7927b8301caf3cc0d97ff2172e7c92ba8688b",
-        "publicMirrorCommit": "118966a0561ba63888a2a04ce045d7dadd6447b4",
-        "publishedAt": "2026-10-07T07:14:16.044489Z"
+        "publicMirrorCommit": "14934c0268ca7a9b60fba0f749d2c5e9e809a7ed",
+        "publishedAt": "2026-10-07T07:16:36.398414Z"
       }
     },
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
