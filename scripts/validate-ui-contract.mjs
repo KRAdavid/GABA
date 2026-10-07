@@ -45,6 +45,7 @@ const required = [
   ["Advanced filter research group", "연구·원문 확인"],
   ["Saved search storage", "gaba-saved-searches-v1"],
   ["Saved search renderer", "function renderSavedSearches"],
+  ["Saved search share link", "data-saved-search-share"],
   ["Result next-action routes", "data-result-preset"],
   ["Result next-action renderer", "result-interpretation-actions"],
   ["Review priority rationale", "review-priority-reason"],

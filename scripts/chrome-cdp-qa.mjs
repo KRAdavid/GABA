@@ -202,6 +202,11 @@ try {
   await evaluate(client, "document.querySelector('#result-save-search').click()");
   await waitForExpression(client, "document.querySelector('#saved-search-count')?.textContent === '1'");
   assert.equal(await evaluate(client, "document.querySelector('#saved-search-count')?.textContent"), "1");
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-saved-search-share]'))"), true);
+  await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () {} } })");
+  await evaluate(client, "document.querySelector('[data-saved-search-share]').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('저장 검색 조건 링크')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-saved-search-load]'))"), true);
   await evaluate(client, "document.querySelector('[data-saved-search-load]').click()");

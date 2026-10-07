@@ -1354,11 +1354,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .saved-search-note { margin: 4px 2px 6px; color: var(--muted); font-size: 10px; line-height: 1.45; }
     .saved-search-list { display: grid; gap: 5px; max-height: 220px; overflow: auto; }
     .saved-search-empty { margin: 2px; color: var(--muted); font-size: 10px; line-height: 1.45; }
-    .saved-search-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px; align-items: center; }
-    .saved-search-load, .saved-search-delete { min-height: 29px; border: 1px solid var(--line); border-radius: 7px; background: #fff; color: var(--ink-2); font-size: 10px; font-weight: 800; cursor: pointer; }
+    .saved-search-item { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 5px; align-items: center; }
+    .saved-search-load, .saved-search-share, .saved-search-delete { min-height: 29px; border: 1px solid var(--line); border-radius: 7px; background: #fff; color: var(--ink-2); font-size: 10px; font-weight: 800; cursor: pointer; }
     .saved-search-load { overflow: hidden; padding: 5px 7px; text-align: left; text-overflow: ellipsis; white-space: nowrap; }
+    .saved-search-share { width: 29px; color: var(--muted); }
     .saved-search-delete { width: 29px; color: var(--muted); }
-    .saved-search-load:hover, .saved-search-load:focus-visible, .saved-search-delete:hover, .saved-search-delete:focus-visible { border-color: var(--teal); color: var(--teal-dark); }
+    .saved-search-load:hover, .saved-search-load:focus-visible, .saved-search-share:hover, .saved-search-share:focus-visible, .saved-search-delete:hover, .saved-search-delete:focus-visible { border-color: var(--teal); color: var(--teal-dark); }
     .result-count {
       margin: 0;
       color: var(--ink-2);
@@ -4675,7 +4676,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (!count || !list) return;
         count.textContent = savedSearches.length.toLocaleString("ko-KR");
         list.innerHTML = savedSearches.length ? savedSearches.map(function (item) {
-          return '<div class="saved-search-item"><button class="saved-search-load" type="button" data-saved-search-load="' + esc(item.id) + '" title="' + esc(item.label) + '">' + esc(item.label) + '</button><button class="saved-search-delete" type="button" data-saved-search-delete="' + esc(item.id) + '" aria-label="' + esc(item.label + " 저장 검색 삭제") + '">×</button></div>';
+          return '<div class="saved-search-item"><button class="saved-search-load" type="button" data-saved-search-load="' + esc(item.id) + '" title="' + esc(item.label) + '">' + esc(item.label) + '</button><button class="saved-search-share" type="button" data-saved-search-share="' + esc(item.id) + '" aria-label="' + esc(item.label + " 조건 링크 복사") + '" title="조건 링크 복사">↗</button><button class="saved-search-delete" type="button" data-saved-search-delete="' + esc(item.id) + '" aria-label="' + esc(item.label + " 저장 검색 삭제") + '">×</button></div>';
         }).join("") : '<p class="saved-search-empty">저장된 검색 조건이 없습니다.</p>';
       }
       function saveCurrentSearch() {
@@ -4703,6 +4704,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (menu) menu.open = false;
         toast("저장된 검색 조건을 불러왔습니다");
         scrollToResults();
+      }
+      async function copySavedSearchLink(id) {
+        var item = savedSearches.find(function (entry) { return entry.id === id; });
+        if (!item) return;
+        var url = location.origin + location.pathname + (item.search || "");
+        try {
+          await navigator.clipboard.writeText(url);
+          toast("저장 검색 조건 링크를 복사했습니다");
+        } catch (_) {
+          openCopyDialog("저장 검색 조건 링크", "클립보드 권한이 없으면 아래 링크를 선택해 직접 복사하세요.", url, "저장 검색 조건 링크를 복사했습니다");
+        }
       }
       function deleteSavedSearch(id) {
         savedSearches = savedSearches.filter(function (item) { return item.id !== id; });
@@ -4958,6 +4970,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var savedSearchLoad = event.target.closest("[data-saved-search-load]");
         if (savedSearchLoad) {
           loadSavedSearch(savedSearchLoad.dataset.savedSearchLoad || "");
+          return;
+        }
+        var savedSearchShare = event.target.closest("[data-saved-search-share]");
+        if (savedSearchShare) {
+          await copySavedSearchLink(savedSearchShare.dataset.savedSearchShare || "");
           return;
         }
         var savedSearchDelete = event.target.closest("[data-saved-search-delete]");
