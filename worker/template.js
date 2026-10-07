@@ -1612,6 +1612,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .interpretation.action {
       background: #f7f8fc;
     }
+    .interpretation-caution {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
     .interpretation strong {
       display: block;
       margin-bottom: 3px;
@@ -4167,7 +4175,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function interpretationBlock(record) {
         return '<div class="interpretation-grid">' +
           '<div class="interpretation"><strong>연구의 의미</strong>' + esc(researchMeaning(record)) + '</div>' +
-          '<div class="interpretation action"><strong>마케팅 활용 방안</strong>: ' + esc(utilizationDirection(record)) + '</div>' +
+          '<div class="interpretation action"><strong>마케팅 활용 방안</strong>: ' + esc(utilizationDirection(record)) + '<span class="interpretation-caution">활용 방향 제시 · 광고 허가·효능 입증 아님 · 외부 검토 필요</span></div>' +
           '</div>';
       }
       function fact(label, value) {
