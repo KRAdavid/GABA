@@ -60,6 +60,8 @@ const required = [
   ["Local review completion", "data-review-done"],
   ["Review queue export", 'id="review-queue-export"'],
   ["Review queue export renderer", "function exportReviewQueue"],
+  ["Review queue Markdown export", 'id="review-queue-markdown"'],
+  ["Review queue Markdown renderer", "function reviewQueueMarkdownText"],
   ["Review queue import", 'id="review-queue-import"'],
   ["Review queue import renderer", "function importReviewQueue"],
   ["Freshness indicator", 'id="freshness-label"'],

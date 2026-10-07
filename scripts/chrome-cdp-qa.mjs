@@ -410,6 +410,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=audit]')?.classList.contains('active')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-list')?.textContent.includes('원문 접근 감사')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#review-queue-summary')?.textContent.includes('원문 접근 제한')"), true);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('#review-queue-markdown'))"), true);
+  await evaluate(client, "document.querySelector('#review-queue-markdown').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('검토 큐 Markdown')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=audit]')?.getAttribute('aria-label')?.includes('건')"), true);
   await evaluate(client, "document.querySelector('[data-review-filter=freshness]').click()");
   assert.equal(await evaluate(client, "document.querySelector('[data-review-filter=freshness]')?.hidden"), true);

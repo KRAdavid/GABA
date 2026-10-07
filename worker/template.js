@@ -2174,7 +2174,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <button class="review-queue-filter" type="button" data-review-filter="missing">핵심 누락</button>
         <button class="review-queue-filter" type="button" data-review-filter="audit">원문 접근 제한</button>
         <button class="review-queue-filter" type="button" data-review-filter="freshness">재확인 필요</button>
-        <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 내보내기</button>
+        <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 JSON</button>
+        <button class="review-queue-export" id="review-queue-markdown" type="button">검토 큐 Markdown</button>
         <button class="review-queue-share" id="review-queue-share" type="button">검토 큐 링크 복사</button>
         <button class="review-queue-import" id="review-queue-import" type="button">검토 기록 가져오기</button>
         <button class="review-queue-more" id="review-queue-more" type="button" hidden>전체 큐 표시</button>
@@ -4122,6 +4123,50 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         URL.revokeObjectURL(url);
         toast(recordsPayload.length.toLocaleString("ko-KR") + "건의 검토 큐를 내보냈습니다");
       }
+      function reviewQueueMarkdownText() {
+        var queue = reviewQueueForDisplay(buildReviewQueue());
+        if (!queue.length) return "";
+        var lines = [
+          "# GABA 추가 검토 큐",
+          "",
+          "- 표시 자료: " + queue.length.toLocaleString("ko-KR") + "건",
+          "- 검증 스냅샷: " + String(DB.meta.snapshotDate || "미상"),
+          "- 자동 탐색 기준일: " + discoverySnapshotValue(),
+          "- 현재 큐 필터: " + String(reviewQueueFilterLabels[reviewQueueFilter] || "전체"),
+          "- 공유 범위: 현재 브라우저의 필터와 공개 레코드만 포함하며 개인 메모는 문서에 포함하지 않습니다.",
+          "- 해석 주의: 우선순위는 검토 순서를 돕는 신호이며 근거의 질·효능·규제 적합성 순위가 아닙니다.",
+          "",
+          "## 확인할 자료"
+        ];
+        queue.forEach(function (item, index) {
+          var record = item.record;
+          var decision = reviewDecisionState(record.id);
+          var source = safeUrl(primarySourceUrl(record));
+          lines.push("", "### " + (index + 1) + ". " + koreanTitle(record));
+          lines.push("", "- ID: " + record.id);
+          lines.push("- 우선순위: " + item.priority.label + " · " + item.priority.reason);
+          lines.push("- 검토 상태: " + (decision.status === "done" ? "완료" : decision.status === "hold" ? "추가 자료 필요" : "대기"));
+          lines.push("- 추가 확인: " + (item.missing.join(" · ") || "원문과 사용조건 최종 대조"));
+          lines.push("- 연구 유형·연도: " + (record.kind || "자료") + " · " + (record.year || "연도 미상"));
+          if (record.checked) lines.push("- 마지막 확인일: " + record.checked);
+          if (source) lines.push("- 원문: " + source);
+        });
+        return lines.join("\n");
+      }
+      function exportReviewQueueMarkdown() {
+        var queue = reviewQueueForDisplay(buildReviewQueue());
+        if (!queue.length) { toast("저장할 검토 큐가 없습니다"); return; }
+        var blob = new Blob([reviewQueueMarkdownText()], { type: "text/markdown;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-review-queue-" + String(DB.meta.snapshotDate || "snapshot") + ".md";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast(queue.length.toLocaleString("ko-KR") + "건의 검토 큐 Markdown을 저장했습니다");
+      }
       function csvCell(value) {
         return '"' + String(value == null ? "" : value).replace(/"/g, '""').replace(/\r?\n/g, " ") + '"';
       }
@@ -5244,6 +5289,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         renderReviewQueue();
       });
       el("review-queue-export").addEventListener("click", exportReviewQueue);
+      el("review-queue-markdown").addEventListener("click", exportReviewQueueMarkdown);
       el("methodology-open").addEventListener("click", openMethodology);
       el("link-audit-methodology").addEventListener("click", openMethodology);
       el("methodology-close").addEventListener("click", closeMethodology);
