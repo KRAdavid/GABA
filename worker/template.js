@@ -1164,7 +1164,27 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       gap: 12px;
       margin-bottom: 14px;
     }
+    .filter-head-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
     .filter-head h2 { margin: 0; font-size: 17px; }
+    .filter-active-count {
+      padding: 3px 7px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .filter-active-count.has-filters {
+      border-color: #b7ded7;
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+    }
     .filter-head-actions {
       display: flex;
       align-items: center;
@@ -2296,7 +2316,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       <div class="explorer-grid">
         <aside class="filter-panel" id="filter-panel" aria-label="상세 필터">
           <div class="filter-head">
-            <h2>상세 필터</h2>
+            <div class="filter-head-title"><h2>상세 필터</h2><span class="filter-active-count" id="filter-active-count">조건 없음</span></div>
             <div class="filter-head-actions">
               <span class="filter-result-count" id="filter-result-count" aria-live="polite">전체 결과 확인 중</span>
               <button class="filter-quick-reset" id="filter-reset-quick" type="button" hidden>초기화</button>
@@ -4561,6 +4581,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
 
         var topLevelKeys = ["kind", "category", "effectCategory", "status", "marketing", "intervention", "followup"];
         var total = count + topLevelKeys.filter(function (key) { return Boolean(state[key]); }).length + (state.q ? 1 : 0);
+        var activeCount = el("filter-active-count");
+        if (activeCount) {
+          activeCount.textContent = total ? total + "개 적용" : "조건 없음";
+          activeCount.classList.toggle("has-filters", total > 0);
+          activeCount.setAttribute("aria-label", total ? total + "개 필터 조건 적용" : "적용된 필터 조건 없음");
+        }
         var mobileCount = el("mobile-filter-count");
         if (mobileCount) {
           mobileCount.textContent = total ? String(total) : "";

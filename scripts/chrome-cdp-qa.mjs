@@ -451,6 +451,7 @@ try {
   await evaluate(client, "document.querySelector('[data-marketing=\"조건부 검토\"]').click()");
   assert.equal(await evaluate(client, "document.querySelector('[data-marketing=\"조건부 검토\"]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('marketing')"), "조건부 검토");
+  assert.equal(await evaluate(client, "document.querySelector('#filter-active-count')?.textContent"), "2개 적용");
   await evaluate(client, "document.querySelector('[data-intervention=\"수용체 약물·작용제\"]').click()");
   assert.equal(await evaluate(client, "document.querySelector('[data-intervention=\"수용체 약물·작용제\"]')?.getAttribute('aria-pressed')"), "true");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('intervention')"), "수용체 약물·작용제");
@@ -612,6 +613,7 @@ try {
   assert.match(String(await evaluate(client, "document.querySelector('#result-interpretation')?.textContent")), /해석 경계/);
   assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('#mobile-filter')).display"), "none");
   assert.equal(await evaluate(client, "document.querySelector('#filter-panel .filter-guidance')?.textContent"), "자료 카테고리와 분야부터 고른 뒤, 필요한 경우에만 추가 조건을 여세요.");
+  assert.equal(await evaluate(client, "document.querySelector('#filter-active-count')?.textContent"), "조건 없음");
   await evaluate(client, "document.querySelector('#mobile-filter').click()");
   assert.equal(await evaluate(client, "document.activeElement?.id"), "filter-close");
   assert.notEqual(await evaluate(client, "getComputedStyle(document.querySelector('#filter-mobile-apply')).display"), "none");
