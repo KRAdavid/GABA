@@ -108,6 +108,7 @@ const required = [
   ["Comparison interpretation note", 'id="compare-dialog-insight"'],
   ["Comparison CSV export", 'id="compare-export"'],
   ["Search result brief", 'id="result-brief"'],
+  ["Brief reproducible link", "조건 링크:"],
   ["Candidate promotion checklist", 'id="candidate-detail-checklist"'],
   ["Discovery health metrics", "discoveryMergedUnique"],
   ["Discovery source transparency", '["Crossref", Number(discovery.crossrefRetrieved'],

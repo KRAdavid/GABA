@@ -3969,11 +3969,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var animal = list.filter(function (record) { return record.kind === "동물"; }).length;
         var regulatory = list.filter(function (record) { return record.kind === "규제"; }).length;
         var review = list.filter(function (record) { return record.status === "후보" || record.status === "보류" || record.extraction === "부분"; }).length;
+        var currentLink = location.origin + location.pathname + location.search;
         var lines = [
           "GABA 검색 결과 브리프",
           "검색·필터: " + query,
           "검증 스냅샷: " + String(DB.meta.snapshotDate || "미상"),
           "결과: " + list.length.toLocaleString("ko-KR") + "건 · 인체 " + clinical + "건 · 동물·전임상 " + animal + "건 · 규제·안전성 " + regulatory + "건 · 추가 확인 " + review + "건",
+          "조건 링크: " + currentLink,
+          "공유 범위: 공개 검증 스냅샷과 현재 조건만 포함하며 브라우저 저장 검색·개인 검토 기록은 포함하지 않습니다.",
           "해석 주의: 인체·동물·규제 자료는 범위가 다르므로 결과를 직접 합산하지 않습니다. 원문·대상·용량·기간·대조군을 먼저 확인하세요.",
           "",
           "주요 자료(최대 10건)"
