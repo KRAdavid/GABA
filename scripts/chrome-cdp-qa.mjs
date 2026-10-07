@@ -158,6 +158,22 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('.paper-card .fact-grid')?.textContent.includes('표본·대조군')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-card .interpretation-caution')?.textContent.includes('광고 허가·효능 입증 아님')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-card .paper-meta')?.textContent.includes('확인')"), true);
+  const accessibility = await evaluate(client, `(() => {
+    const visible = (node) => !node.hidden && !node.closest('[hidden]') && node.getAttribute('aria-hidden') !== 'true';
+    const name = (node) => {
+      const labelledBy = node.getAttribute('aria-labelledby');
+      const labelledText = labelledBy ? labelledBy.split(/\\s+/).map((id) => document.getElementById(id)?.textContent || '').join(' ') : '';
+      const explicitLabel = node.id ? [...document.querySelectorAll('label')].find((label) => label.htmlFor === node.id)?.textContent || '' : '';
+      const implicitLabel = node.closest('label')?.textContent || '';
+      return String(node.getAttribute('aria-label') || labelledText || explicitLabel || implicitLabel || node.textContent || node.getAttribute('placeholder') || '').replace(/\\s+/g, ' ').trim();
+    };
+    const unlabeledControls = [...document.querySelectorAll('button, a, input, select, textarea, [role="button"]')]
+      .filter(visible).filter((node) => !name(node)).map((node) => node.id || node.className || node.tagName);
+    const seen = new Set();
+    const duplicateIds = [...document.querySelectorAll('[id]')].map((node) => node.id).filter((id) => seen.has(id) || (seen.add(id), false));
+    return { unlabeledControls, duplicateIds: [...new Set(duplicateIds)] };
+  })()`);
+  assert.deepEqual(accessibility, { unlabeledControls: [], duplicateIds: [] });
   const health = await evaluate(client, "fetch('/api/health').then(function (response) { return response.json(); })");
   assert.equal(health.ok, true);
   assert.equal(health.records, 392);

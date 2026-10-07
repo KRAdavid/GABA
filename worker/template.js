@@ -2211,7 +2211,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <div><h2 id="copy-dialog-title">복사할 내용</h2><p id="copy-dialog-description">클립보드 권한이 없을 때 아래 내용을 선택해 직접 복사할 수 있습니다.</p></div>
           <button class="copy-dialog-close" id="copy-dialog-close" type="button" aria-label="복사 패널 닫기">×</button>
         </div>
-        <textarea class="copy-dialog-value" id="copy-dialog-value" readonly></textarea>
+        <textarea class="copy-dialog-value" id="copy-dialog-value" aria-labelledby="copy-dialog-title" aria-describedby="copy-dialog-description" readonly></textarea>
         <div class="copy-dialog-actions"><button id="copy-dialog-copy" type="button">다시 복사</button><button class="secondary" id="copy-dialog-close-secondary" type="button">닫기</button></div>
       </div>
     </dialog>
