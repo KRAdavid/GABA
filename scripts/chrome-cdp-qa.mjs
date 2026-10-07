@@ -506,6 +506,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('검색 결과 브리프') || document.querySelector('#copy-dialog')?.open"), true);
   assert.equal(await evaluate(client, "String(window.__qaBrief || '').includes('대표 원문:')"), true);
   assert.equal(await evaluate(client, "String(window.__qaBrief || '').includes('현재 조건:')"), true);
+  assert.equal(await evaluate(client, "String(window.__qaBrief || '').includes('자동 탐색 기준일:')"), true);
   if (await evaluate(client, "document.querySelector('#copy-dialog')?.open")) await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#result-brief-download'))"), true);
   await evaluate(client, "document.querySelector('#result-brief-download').click()");
@@ -582,7 +583,7 @@ try {
   await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function (value) { window.__qaCompare = value; } } })");
   await evaluate(client, "document.querySelector('#compare-copy').click()");
   await sleep(80);
-  assert.equal(await evaluate(client, "String(window.__qaCompare || '').includes('검증 스냅샷') && String(window.__qaCompare || '').includes('현재 조건')"), true);
+  assert.equal(await evaluate(client, "String(window.__qaCompare || '').includes('검증 스냅샷') && String(window.__qaCompare || '').includes('자동 탐색 기준일') && String(window.__qaCompare || '').includes('현재 조건')"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-copy'))"), true);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('#compare-export'))"), true);
   await evaluate(client, "document.querySelector('#compare-export').click()");

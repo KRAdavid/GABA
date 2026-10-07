@@ -167,6 +167,8 @@ const required = [
   ,["CSV evidence boundaries", "SCI/SCIE"]
   ,["CSV extraction and review date", "추출 상태"]
   ,["CSV snapshot provenance", "검증 스냅샷"]
+  ,["Discovery snapshot provenance", "자동 탐색 기준일"]
+  ,["Discovery snapshot export value", "function discoverySnapshotValue"]
   ,["Export condition provenance", "currentConditionSummary()"]
   ,["Comparison provenance", '"검증 스냅샷"']
   ,["Marketing utilization filter", "data-marketing"]
