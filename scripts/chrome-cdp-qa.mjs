@@ -358,7 +358,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('자동 선별 상태')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-checklist')?.textContent.includes('경구·섭취 여부')"), true);
   await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
+  await new Promise((resolve) => setTimeout(resolve, 30));
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), false);
+  assert.equal(await evaluate(client, "document.activeElement?.getAttribute('data-candidate-detail')"), candidateId);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('candidateId')"), false);
   await navigate(`http://127.0.0.1:${httpPort}/?candidateId=${encodeURIComponent(candidateId)}`);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), true);

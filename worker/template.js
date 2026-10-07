@@ -2570,6 +2570,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var candidatePreviewFilter = "all";
       var candidatePreviewNeedsFocus = false;
       var urlCandidateId = "";
+      var candidateDetailReturnFocus = null;
+      var candidateDetailReturnFocusId = "";
       var reviewDecisions = {};
       try { reviewDecisions = JSON.parse(localStorage.getItem("gaba-review-decisions") || "{}"); } catch (_) { reviewDecisions = {}; }
       var candidateDecisions = {};
@@ -2851,6 +2853,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("candidate-detail-checklist").innerHTML = '<h3>공개 근거 승격 전 확인 순서</h3><ul>' + checklist.map(function (item) { return '<li><strong>' + esc(item[0]) + '</strong><span>' + esc(item[1]) + '</span></li>'; }).join("") + '</ul>';
         el("candidate-detail-abstract").textContent = candidate.abstract || "초록이 수집되지 않았습니다. 원문 식별자를 통해 확인하세요.";
         el("candidate-detail-actions").innerHTML = (sourceUrl ? '<a href="' + esc(sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(candidateSourceLabel(candidate)) + ' 확인 ↗</a>' : "") + '<button type="button" data-copy-candidate-link="' + esc(candidate.candidateId || "") + '">후보 검토 링크 복사</button><button class="secondary" type="button" data-candidate-review-status="검토 완료" data-candidate-review-id="' + esc(candidate.candidateId || "") + '" aria-pressed="' + String(reviewStatus === "검토 완료") + '">검토 완료 표시</button><button class="secondary" type="button" data-candidate-review-status="자료 필요" data-candidate-review-id="' + esc(candidate.candidateId || "") + '" aria-pressed="' + String(reviewStatus === "자료 필요") + '">자료 필요 표시</button>';
+        candidateDetailReturnFocus = document.activeElement && typeof document.activeElement.matches === "function" && document.activeElement.matches("[data-candidate-detail]") ? document.activeElement : null;
+        candidateDetailReturnFocusId = String(candidate.candidateId || candidateId || "");
         if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", "");
         el("candidate-detail-close").focus();
       }
@@ -2863,6 +2867,17 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           urlCandidateId = "";
           persistUrl("replace");
         }
+        var returnFocus = candidateDetailReturnFocus;
+        var returnFocusId = candidateDetailReturnFocusId;
+        candidateDetailReturnFocus = null;
+        candidateDetailReturnFocusId = "";
+        if ((!returnFocus || !returnFocus.isConnected) && returnFocusId) {
+          var fallbackFocus = Array.prototype.find.call(document.querySelectorAll("[data-candidate-detail]"), function (button) {
+            return String(button.dataset.candidateDetail || "") === returnFocusId;
+          });
+          returnFocus = fallbackFocus || null;
+        }
+        if (returnFocus && returnFocus.isConnected && typeof returnFocus.focus === "function") returnFocus.focus();
       }
 
       function exportCandidatePreview() {
