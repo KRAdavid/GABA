@@ -225,6 +225,7 @@ const required = [
   ,["Card study condition summary", 'fact("표본·대조군"']
   ,["Evidence scope selection state", "result-interpretation-stat-action[aria-pressed"]
   ,["Card verification date", "record.checked ? ' · 확인 '"]
+  ,["Review queue verification meta", 'class="review-priority-meta"']
   ,["Review checklist action summary", 'id="review-check-summary"']
   ,["Verification next action wording", "원문에서 확인한 뒤 활용 범위를 판단"]
   ,["Balanced direction quick filter", 'data-direction="무효"']

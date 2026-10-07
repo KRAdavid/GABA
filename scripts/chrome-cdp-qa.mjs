@@ -366,6 +366,7 @@ try {
   await evaluate(client, "document.querySelector('[data-review-filter=all]').click()");
   assert.equal(await evaluate(client, "Boolean(document.querySelector('.review-priority-reason'))"), true);
   assert.equal(await evaluate(client, "document.querySelector('.review-priority-reason')?.textContent.includes('우선순위 근거')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('.review-priority-meta')?.textContent.includes('확인일') && document.querySelector('.review-priority-meta')?.textContent.includes('원문')"), true);
   assert.equal(await evaluate(client, "/원문|PubMed|DOI|Drive/.test(document.querySelector('.review-card-source')?.textContent || '')"), true);
   assert.equal(await evaluate(client, "document.querySelector('.paper-review')?.textContent.includes('상세 검토')"), true);
   await evaluate(client, "document.querySelector('.paper-review').click()");
