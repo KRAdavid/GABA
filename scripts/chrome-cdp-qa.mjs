@@ -223,6 +223,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('캐나다 모노그래프')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('인지기능 제품 모노그래프')"), true);
+  assert.equal(await evaluate(client, "Array.from(document.querySelectorAll('.paper-card')).some(function (card) { return card.textContent.includes('인지기능 제품 모노그래프') && card.textContent.includes('규제'); })"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('현수교 스트레스')}`);
   await evaluate(client, "localStorage.removeItem('gaba-saved-searches-v1'); location.reload()");
   await waitForExpression(client, "document.documentElement.dataset.gabaReady === 'true'");
