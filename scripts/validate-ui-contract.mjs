@@ -62,6 +62,8 @@ const required = [
   ["Review queue export renderer", "function exportReviewQueue"],
   ["Review queue Markdown export", 'id="review-queue-markdown"'],
   ["Review queue Markdown renderer", "function reviewQueueMarkdownText"],
+  ["Review queue tools disclosure", 'id="review-queue-tools"'],
+  ["Review queue tools label", "data-review-tools-summary"],
   ["Review queue import", 'id="review-queue-import"'],
   ["Review queue import renderer", "function importReviewQueue"],
   ["Freshness indicator", 'id="freshness-label"'],

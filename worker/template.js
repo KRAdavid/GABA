@@ -237,6 +237,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .review-queue-shared-note button { flex: 0 0 auto; min-height: 29px; padding: 5px 9px; border: 1px solid rgba(15,118,110,.32); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 10px; font-weight: 800; cursor: pointer; }
     .review-queue-title:focus-visible { outline: 3px solid rgba(15,118,110,.28); outline-offset: 5px; border-radius: 4px; }
     .review-queue-export, .review-queue-import, .review-queue-share, .review-queue-more { min-height: 30px; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .review-queue-tools { position: relative; }
+    .review-queue-tools > summary { min-height: 30px; display: inline-flex; align-items: center; padding: 5px 9px; border: 1px solid var(--teal); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 800; cursor: pointer; list-style: none; }
+    .review-queue-tools > summary::-webkit-details-marker { display: none; }
+    .review-queue-tools > summary::after { content: "＋"; margin-left: 5px; color: var(--muted); }
+    .review-queue-tools[open] > summary { background: var(--teal-soft); }
+    .review-queue-tools[open] > summary::after { content: "－"; }
+    .review-queue-tools-menu { position: absolute; z-index: 4; top: calc(100% + 6px); left: 0; display: flex; flex-wrap: wrap; gap: 6px; min-width: 190px; padding: 8px; border: 1px solid var(--line); border-radius: 10px; background: #fff; box-shadow: 0 10px 24px rgba(25, 54, 64, .14); }
+    .review-queue-tools-menu .review-queue-export, .review-queue-tools-menu .review-queue-import, .review-queue-tools-menu .review-queue-share, .review-queue-tools-menu .review-queue-more { width: 100%; text-align: left; }
     .review-queue-import { border-color: var(--line); background: #fff; color: var(--teal-dark); }
     .review-queue-more { border-color: rgba(15,118,110,.28); background: var(--teal-soft); color: var(--teal-dark); }
     .review-queue-more[hidden] { display: none; }
@@ -2174,11 +2182,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         <button class="review-queue-filter" type="button" data-review-filter="missing">핵심 누락</button>
         <button class="review-queue-filter" type="button" data-review-filter="audit">원문 접근 제한</button>
         <button class="review-queue-filter" type="button" data-review-filter="freshness">재확인 필요</button>
-        <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 JSON</button>
-        <button class="review-queue-export" id="review-queue-markdown" type="button">검토 큐 Markdown</button>
-        <button class="review-queue-share" id="review-queue-share" type="button">검토 큐 링크 복사</button>
-        <button class="review-queue-import" id="review-queue-import" type="button">검토 기록 가져오기</button>
-        <button class="review-queue-more" id="review-queue-more" type="button" hidden>전체 큐 표시</button>
+        <details class="review-queue-tools" id="review-queue-tools">
+          <summary data-review-tools-summary>검토 도구</summary>
+          <div class="review-queue-tools-menu" aria-label="검토 큐 도구">
+            <button class="review-queue-export" id="review-queue-export" type="button">검토 큐 JSON</button>
+            <button class="review-queue-export" id="review-queue-markdown" type="button">검토 큐 Markdown</button>
+            <button class="review-queue-share" id="review-queue-share" type="button">검토 큐 링크 복사</button>
+            <button class="review-queue-import" id="review-queue-import" type="button">검토 기록 가져오기</button>
+            <button class="review-queue-more" id="review-queue-more" type="button" hidden>전체 큐 표시</button>
+          </div>
+        </details>
         <input id="review-queue-file" type="file" accept="application/json,.json" hidden>
         <label class="review-queue-toggle"><input id="review-hide-done" type="checkbox"> 완료 숨기기</label>
         <span class="review-queue-storage">검토 완료 표시는 현재 브라우저에만 저장되며 원본 인덱스·Sheets를 변경하지 않습니다.</span>
