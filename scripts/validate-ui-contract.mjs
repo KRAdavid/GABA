@@ -220,6 +220,8 @@ const required = [
   ,["Dose query interpretation", "function queryFilterLabel"]
   ,["Mobile filter result action", 'id="filter-mobile-apply"']
   ,["Result interpretation guard", "해석 경계"]
+  ,["Result evidence scope actions", 'data-result-preset="animal"']
+  ,["Result evidence scope preset", 'if (name === "animal") state.kind = "동물"']
   ,["Review checklist action summary", 'id="review-check-summary"']
   ,["Verification next action wording", "원문에서 확인한 뒤 활용 범위를 판단"]
   ,["Balanced direction quick filter", 'data-direction="무효"']

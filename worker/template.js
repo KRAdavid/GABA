@@ -1405,6 +1405,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .result-interpretation-query { overflow: hidden; color: var(--ink); font-size: 14px; font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
     .result-interpretation-stats { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
     .result-interpretation-stat { padding: 5px 8px; border-radius: 7px; background: #fff; color: var(--ink-2); font-size: 11px; font-weight: 800; }
+    .result-interpretation-stat-action { border: 1px solid transparent; cursor: pointer; font: inherit; text-align: left; }
+    .result-interpretation-stat-action:hover, .result-interpretation-stat-action:focus-visible { border-color: rgba(15,118,110,.28); background: var(--teal-soft); color: var(--teal-dark); outline: none; }
     .result-interpretation-stat strong { color: var(--teal-dark); }
     .result-interpretation-note { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
     .result-interpretation-guard { grid-column: 1 / -1; margin: 0; padding: 8px 10px; border-left: 3px solid var(--amber); border-radius: 6px; background: var(--amber-soft); color: var(--ink-2); font-size: 11px; line-height: 1.5; }
@@ -3047,6 +3049,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           state.status = "포함";
           state.intervention = "순수 GABA 섭취";
         }
+        if (name === "animal") state.kind = "동물";
         if (name === "oral") state.routeGroup = "경구·섭취";
         if (name === "regulatory") state.kind = "규제";
         if (name === "source") state.source = "available";
@@ -4577,6 +4580,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var regulatory = list.filter(function (record) { return record.kind === "규제"; }).length;
         var review = list.filter(function (record) { return record.status === "후보" || record.status === "보류" || record.extraction === "부분"; }).length;
         var oral = list.filter(function (record) { return record.routeGroup === "경구·섭취"; }).length;
+        var clinicalAction = clinical ? '<button class="result-interpretation-stat result-interpretation-stat-action" type="button" data-result-preset="clinical" aria-label="인체 연구 ' + clinical.toLocaleString("ko-KR") + '건만 보기">인체 연구 <strong>' + clinical.toLocaleString("ko-KR") + '</strong></button>' : '<span class="result-interpretation-stat">인체 연구 <strong>0</strong></span>';
+        var animalAction = animal ? '<button class="result-interpretation-stat result-interpretation-stat-action" type="button" data-result-preset="animal" aria-label="동물·전임상 ' + animal.toLocaleString("ko-KR") + '건만 보기">동물·전임상 <strong>' + animal.toLocaleString("ko-KR") + '</strong></button>' : '<span class="result-interpretation-stat">동물·전임상 <strong>0</strong></span>';
+        var regulatoryAction = regulatory ? '<button class="result-interpretation-stat result-interpretation-stat-action" type="button" data-result-preset="regulatory" aria-label="규제·안전성 ' + regulatory.toLocaleString("ko-KR") + '건만 보기">규제·안전성 <strong>' + regulatory.toLocaleString("ko-KR") + '</strong></button>' : '<span class="result-interpretation-stat">규제·안전성 <strong>0</strong></span>';
         var oralAction = oral ? '<button class="result-interpretation-route" type="button" data-result-preset="oral">경구·섭취만 보기 · ' + oral.toLocaleString("ko-KR") + '건</button>' : '';
         var query = state.q ? state.q.trim() : "전체 근거";
         var guard = state.audit === "unavailable"
@@ -4586,9 +4592,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           : "검색 결과 요약은 효능 등급·규제 승인·광고 허가를 뜻하지 않습니다. 원문에서 대상·용량·기간·대조군을 확인하세요.";
         target.innerHTML = '<div class="result-interpretation-head"><span class="result-interpretation-label">현재 탐색</span><strong class="result-interpretation-query" title="' + esc(query) + '">' + esc(query) + '</strong></div>' +
           '<div class="result-interpretation-stats" aria-label="현재 결과의 근거 구성">' +
-            '<span class="result-interpretation-stat">인체 연구 <strong>' + clinical.toLocaleString("ko-KR") + '</strong></span>' +
-            '<span class="result-interpretation-stat">동물·전임상 <strong>' + animal.toLocaleString("ko-KR") + '</strong></span>' +
-            '<span class="result-interpretation-stat">규제·안전성 <strong>' + regulatory.toLocaleString("ko-KR") + '</strong></span>' +
+            clinicalAction +
+            animalAction +
+            regulatoryAction +
             '<span class="result-interpretation-stat">추가 확인 <strong>' + review.toLocaleString("ko-KR") + '</strong></span>' +
           '</div>' +
           '<p class="result-interpretation-note">인체·동물·규제 자료는 근거의 범위가 다릅니다. <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>을 확인할 때 인체 연구와 원문 상태를 먼저 비교하세요.</p>' +
