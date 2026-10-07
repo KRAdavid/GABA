@@ -4397,7 +4397,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '</div>' +
           '<h3 class="paper-title"><span class="title-label">한국어 제목</span><span class="paper-title-korean">' + esc(koreanTitle(record)) + '</span></h3>' +
           originalTitle +
-          '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.agency) + ' · ' + esc(record.country) + ' · ' + esc(record.documentType) + '</p>' +
+          '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.agency) + ' · ' + esc(record.country) + ' · ' + esc(record.documentType) + (record.checked ? ' · 확인 ' + esc(record.checked) : '') + '</p>' +
           '<p class="finding"><strong>한국어 요약</strong> · ' + esc(record.summaryKo || record.finding) + '</p>' +
           interpretationBlock(record) +
           '<dl class="fact-grid">' +
@@ -4451,7 +4451,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           '</div>' +
           '<h3 class="paper-title"><span class="title-label">' + esc(koreanTitleLabel(record)) + '</span><span class="paper-title-korean">' + esc(koreanTitle(record)) + '</span></h3>' +
           '<p class="original-title" lang="en"><span class="title-label">영문 원제</span>' + esc(record.title) + '</p>' +
-          '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.author || "저자 미상") + ' · ' + esc(record.journal || "저널 미상") + '</p>' +
+          '<p class="paper-meta"><strong>' + esc(record.year) + '</strong> · ' + esc(record.author || "저자 미상") + ' · ' + esc(record.journal || "저널 미상") + (record.checked ? ' · 확인 ' + esc(record.checked) : '') + '</p>' +
           (record.finding ? '<p class="finding"><strong>핵심결과</strong> · ' + esc(record.finding) + '</p>' : "") +
           interpretationBlock(record) +
           '<dl class="fact-grid">' +
