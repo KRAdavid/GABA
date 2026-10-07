@@ -4455,7 +4455,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           interpretationBlock(record) +
           '<dl class="fact-grid">' +
             fact("대상", record.population || record.species) +
-            fact("표본수", record.n) +
+            fact("표본·대조군", [record.n ? "n=" + record.n : "", record.comparator].filter(Boolean).join(" · ")) +
             fact("GABA 용량", record.dose) +
             fact("기간", record.duration) +
           '</dl>' +

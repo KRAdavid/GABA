@@ -155,6 +155,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#sort-help')?.hidden"), false);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.querySelector('#metric-total')?.textContent.trim()"), "384편");
+  assert.equal(await evaluate(client, "document.querySelector('.paper-card .fact-grid')?.textContent.includes('표본·대조군')"), true);
   const health = await evaluate(client, "fetch('/api/health').then(function (response) { return response.json(); })");
   assert.equal(health.ok, true);
   assert.equal(health.records, 392);
