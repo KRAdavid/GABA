@@ -2964,7 +2964,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["원천 오류", Number((discovery.sourceErrors || []).length).toLocaleString("ko-KR") + "건"],
           ["중복 식별자", Number((quality.duplicateDois || 0) + (quality.duplicatePmids || 0)).toLocaleString("ko-KR") + "건"],
           ["원문 감사", DB.meta.linkAudit ? "해소 " + Number(DB.meta.linkAudit.resolved || 0).toLocaleString("ko-KR") + "건 · 제한 " + Number(DB.meta.linkAudit.blockedCount || 0).toLocaleString("ko-KR") + "건 · 실패 " + Number(DB.meta.linkAudit.failed || 0).toLocaleString("ko-KR") + "건" : "실행 기록 없음"],
-          ["감사 시점", DB.meta.linkAudit ? koreanDateTime(DB.meta.linkAudit.checkedAt) : "확인 필요"]
+          ["감사 시점", DB.meta.linkAudit ? koreanDateTime(DB.meta.linkAudit.checkedAt) : "확인 필요"],
+          ["감사 신선도", linkAuditFreshnessLabel(DB.meta.linkAudit)]
         ].map(function (item) {
           return '<span class="discovery-stat">' + esc(item[0]) + " " + esc(item[1]) + '</span>';
         }).join("");
@@ -3295,6 +3296,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function sourceAuditRecord(record) {
         var statuses = DB.meta && DB.meta.linkAudit && Array.isArray(DB.meta.linkAudit.recordStatuses) ? DB.meta.linkAudit.recordStatuses : [];
         return statuses.find(function (item) { return String(item.id) === String(record.id); }) || null;
+      }
+      function linkAuditFreshnessLabel(audit) {
+        if (!audit || !audit.checkedAt) return "확인 필요";
+        var checked = new Date(audit.checkedAt);
+        if (Number.isNaN(checked.getTime())) return "확인 필요";
+        var today = new Date();
+        var startToday = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+        var startChecked = Date.UTC(checked.getFullYear(), checked.getMonth(), checked.getDate());
+        var days = Math.max(0, Math.floor((startToday - startChecked) / 86400000));
+        return days <= 7 ? "최근 확인 (" + days.toLocaleString("ko-KR") + "일 전)" : "재감사 권고 (" + days.toLocaleString("ko-KR") + "일 전)";
       }
       function syncAuditFilterOptions() {
         var select = el("audit");

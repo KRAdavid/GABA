@@ -197,6 +197,7 @@ const required = [
   ,["Per-record link audit status", "function sourceAuditRecord"]
   ,["Per-record link audit guard", "sourceAuditDescription"]
   ,["Link audit KST date", "function koreanDateTime"]
+  ,["Link audit freshness", "function linkAuditFreshnessLabel"]
   ,["Snapshot provenance", "release.snapshotVersion"]
   ,["Release traceability", "release.siteVersion"]
   ,["Current code deployment provenance", "release.currentCodeDeployment"]
