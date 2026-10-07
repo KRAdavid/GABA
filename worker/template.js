@@ -2668,19 +2668,18 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function updateFreshnessLabel(snapshotDate, discoveryDate) {
         var target = el("freshness-label");
         if (!target) return;
-        var parsed = new Date(String(snapshotDate || "") + "T00:00:00");
-        var discoveryParsed = new Date(String(discoveryDate || "") + "T00:00:00");
-        if (Number.isNaN(parsed.getTime())) {
+        var startToday = kstDayStart(new Date());
+        var startSnapshot = kstDayStart(snapshotDate);
+        var startDiscovery = kstDayStart(discoveryDate);
+        if (Number.isNaN(startSnapshot)) {
           target.textContent = "갱신일 확인 필요";
           target.classList.add("freshness-stale");
           return;
         }
-        var today = new Date();
-        today.setHours(0, 0, 0, 0);
-        var age = Math.max(0, Math.floor((today.getTime() - parsed.getTime()) / 86400000));
-        var discoveryAge = Number.isNaN(discoveryParsed.getTime())
+        var age = Math.max(0, Math.floor((startToday - startSnapshot) / 86400000));
+        var discoveryAge = Number.isNaN(startDiscovery)
           ? null
-          : Math.max(0, Math.floor((today.getTime() - discoveryParsed.getTime()) / 86400000));
+          : Math.max(0, Math.floor((startToday - startDiscovery) / 86400000));
         var discoveryText = discoveryAge == null ? "탐색일 확인 필요" : "자동 탐색 " + discoveryAge + "일 전";
         if (age <= 7) {
           target.textContent = "검증 최신 · 탐색 " + (discoveryAge == null ? "확인 필요" : discoveryAge + "일 전");
@@ -3298,7 +3297,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return statuses.find(function (item) { return String(item.id) === String(record.id); }) || null;
       }
       function kstDayStart(value) {
-        var parsed = value instanceof Date ? value : new Date(String(value || ""));
+        var raw = String(value || "");
+        var parsed = value instanceof Date ? value : new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw) ? raw + "T00:00:00+09:00" : raw);
         if (Number.isNaN(parsed.getTime())) return NaN;
         var parts = new Intl.DateTimeFormat("en-CA", {
           timeZone: "Asia/Seoul",
