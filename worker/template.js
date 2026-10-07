@@ -2336,7 +2336,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           </details>
           <span class="quick-spacer"></span>
           <label class="sr-only" for="sort">정렬</label>
-          <select class="sort-select" id="sort">
+          <select class="sort-select" id="sort" aria-describedby="sort-help">
             <option value="latest">최신 연도순</option>
             <option value="oldest">과거 연도순</option>
             <option value="title">제목 가나다순</option>

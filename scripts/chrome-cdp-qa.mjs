@@ -155,6 +155,7 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('sort')"), "human-source");
   assert.equal(await evaluate(client, "document.querySelector('#sort').value"), "human-source");
   assert.equal(await evaluate(client, "document.querySelector('#sort-help')?.hidden"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#sort')?.getAttribute('aria-describedby')"), "sort-help");
   await evaluate(client, "document.querySelector('#sort').value = 'review-priority'; document.querySelector('#sort').dispatchEvent(new Event('change', { bubbles: true }))");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('sort')"), "review-priority");
   assert.equal(await evaluate(client, "document.querySelector('#sort-help')?.hidden"), false);

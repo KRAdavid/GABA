@@ -225,6 +225,7 @@ const required = [
   ,["Brief verification status", "원문 접근:"]
   ,["Candidate detail focus return", "candidateDetailReturnFocus"]
   ,["Review priority sort", 'value="review-priority"']
+  ,["Sort guidance association", 'id="sort" aria-describedby="sort-help"']
   ,["Empty result recovery", "data-empty-reset"]
   ,["Visible filter status", 'id="filter-status-strip"']
   ,["Filter status summary", 'id="filter-status-text"']
