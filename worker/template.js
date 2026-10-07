@@ -1351,6 +1351,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       box-shadow: 0 12px 28px rgba(18, 43, 55, .14);
     }
     .result-export-options .result-reset { width: 100%; text-align: left; }
+    .saved-search-note { margin: 4px 2px 6px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .saved-search-list { display: grid; gap: 5px; max-height: 220px; overflow: auto; }
+    .saved-search-empty { margin: 2px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .saved-search-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px; align-items: center; }
+    .saved-search-load, .saved-search-delete { min-height: 29px; border: 1px solid var(--line); border-radius: 7px; background: #fff; color: var(--ink-2); font-size: 10px; font-weight: 800; cursor: pointer; }
+    .saved-search-load { overflow: hidden; padding: 5px 7px; text-align: left; text-overflow: ellipsis; white-space: nowrap; }
+    .saved-search-delete { width: 29px; color: var(--muted); }
+    .saved-search-load:hover, .saved-search-load:focus-visible, .saved-search-delete:hover, .saved-search-delete:focus-visible { border-color: var(--teal); color: var(--teal-dark); }
     .result-count {
       margin: 0;
       color: var(--ink-2);
@@ -2384,6 +2392,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <div class="result-top-actions">
               <button class="result-reset" id="result-reset" type="button">필터 초기화</button>
               <button class="result-reset" id="result-share" type="button">조건 링크 복사</button>
+              <details class="result-export-menu saved-search-menu" id="saved-search-menu">
+                <summary>저장 검색 <span class="saved-search-count" id="saved-search-count">0</span></summary>
+                <div class="result-export-options" aria-label="저장된 검색 조건">
+                  <button class="result-reset" id="result-save-search" type="button">현재 조건 저장</button>
+                  <p class="saved-search-note">이 브라우저에만 저장됩니다. 원본 Sheets와 공개 인덱스는 변경하지 않습니다.</p>
+                  <div class="saved-search-list" id="saved-search-list"></div>
+                </div>
+              </details>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
               <details class="result-export-menu" id="result-export-menu">
                 <summary>내보내기</summary>
@@ -2484,6 +2500,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         readingIds = JSON.parse(localStorage.getItem("gaba-reading-ids") || "[]")
           .map(String).filter(function (id) { return records.some(function (record) { return String(record.id) === id; }); });
       } catch (_) { readingIds = []; }
+      var savedSearches = [];
+      try {
+        savedSearches = JSON.parse(localStorage.getItem("gaba-saved-searches-v1") || "[]")
+          .filter(function (item) { return item && item.id && typeof item.search === "string"; })
+          .slice(0, 10);
+      } catch (_) { savedSearches = []; }
       var currentDetailRecordId = null;
       var urlRecordId = "";
       var detailReturnFocus = null;
@@ -4635,9 +4657,60 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("toast").classList.add("show");
         toastTimer = setTimeout(function () { el("toast").classList.remove("show"); }, 1800);
       }
+      function persistSavedSearches() {
+        try { localStorage.setItem("gaba-saved-searches-v1", JSON.stringify(savedSearches.slice(0, 10))); } catch (_) {}
+      }
+      function savedSearchLabel() {
+        var label = state.q ? state.q.trim() : "전체 검증 근거";
+        var status = el("filter-status-text")?.textContent || "";
+        if (!state.q && status && status !== "전체 검증 근거") label = status;
+        return label.length > 52 ? label.slice(0, 52) + "…" : label;
+      }
+      function renderSavedSearches() {
+        var count = el("saved-search-count");
+        var list = el("saved-search-list");
+        if (!count || !list) return;
+        count.textContent = savedSearches.length.toLocaleString("ko-KR");
+        list.innerHTML = savedSearches.length ? savedSearches.map(function (item) {
+          return '<div class="saved-search-item"><button class="saved-search-load" type="button" data-saved-search-load="' + esc(item.id) + '" title="' + esc(item.label) + '">' + esc(item.label) + '</button><button class="saved-search-delete" type="button" data-saved-search-delete="' + esc(item.id) + '" aria-label="' + esc(item.label + " 저장 검색 삭제") + '">×</button></div>';
+        }).join("") : '<p class="saved-search-empty">저장된 검색 조건이 없습니다.</p>';
+      }
+      function saveCurrentSearch() {
+        var search = location.search || "";
+        var existing = savedSearches.find(function (item) { return item.search === search; });
+        if (existing) {
+          savedSearches = [existing].concat(savedSearches.filter(function (item) { return item !== existing; }));
+          toast("이미 저장된 조건을 위로 올렸습니다");
+        } else {
+          savedSearches.unshift({ id: "search-" + Date.now().toString(36), label: savedSearchLabel(), search: search, savedAt: new Date().toISOString() });
+          savedSearches = savedSearches.slice(0, 10);
+          toast("검색 조건을 저장했습니다");
+        }
+        persistSavedSearches();
+        renderSavedSearches();
+      }
+      function loadSavedSearch(id) {
+        var item = savedSearches.find(function (entry) { return entry.id === id; });
+        if (!item) return;
+        history.pushState({}, "", item.search || location.pathname);
+        loadUrlState();
+        syncControls();
+        render();
+        var menu = el("saved-search-menu");
+        if (menu) menu.open = false;
+        toast("저장된 검색 조건을 불러왔습니다");
+        scrollToResults();
+      }
+      function deleteSavedSearch(id) {
+        savedSearches = savedSearches.filter(function (item) { return item.id !== id; });
+        persistSavedSearches();
+        renderSavedSearches();
+        toast("저장된 검색 조건을 삭제했습니다");
+      }
 
       loadUrlState();
       initMeta();
+      renderSavedSearches();
        renderInterventionCounts();
        renderFollowupCounts();
       renderDistribution("species-distribution", DB.facets.species, "species");
@@ -4879,6 +4952,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       document.addEventListener("click", async function (event) {
         if (!event.target.closest("#result-export-menu")) closeResultExportMenu();
+        var savedSearchLoad = event.target.closest("[data-saved-search-load]");
+        if (savedSearchLoad) {
+          loadSavedSearch(savedSearchLoad.dataset.savedSearchLoad || "");
+          return;
+        }
+        var savedSearchDelete = event.target.closest("[data-saved-search-delete]");
+        if (savedSearchDelete) {
+          deleteSavedSearch(savedSearchDelete.dataset.savedSearchDelete || "");
+          return;
+        }
         var resultPreset = event.target.closest("[data-result-preset]");
         if (resultPreset) {
           applyPreset(resultPreset.dataset.resultPreset || "", true);
@@ -5051,6 +5134,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("result-json").addEventListener("click", function () { exportFilteredJson(); closeResultExportMenu(); });
       el("result-ris").addEventListener("click", function () { exportFilteredRis(); closeResultExportMenu(); });
       el("result-brief").addEventListener("click", function () { copyFilteredBrief(); closeResultExportMenu(); });
+      el("result-save-search").addEventListener("click", saveCurrentSearch);
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });

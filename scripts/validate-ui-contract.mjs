@@ -43,6 +43,8 @@ const required = [
   ["Review queue priority", "function reviewPriority"],
   ["Advanced filter grouping", "filter-subgroup-heading"],
   ["Advanced filter research group", "연구·원문 확인"],
+  ["Saved search storage", "gaba-saved-searches-v1"],
+  ["Saved search renderer", "function renderSavedSearches"],
   ["Result next-action routes", "data-result-preset"],
   ["Result next-action renderer", "result-interpretation-actions"],
   ["Review priority rationale", "review-priority-reason"],

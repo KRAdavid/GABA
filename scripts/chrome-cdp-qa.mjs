@@ -197,6 +197,14 @@ try {
   assert.equal(await evaluate(client, "document.querySelectorAll('.paper-card').length > 0"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('현수교 스트레스')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
+  await evaluate(client, "localStorage.removeItem('gaba-saved-searches-v1'); location.reload()");
+  await waitForExpression(client, "Boolean(document.querySelector('#result-save-search'))");
+  await evaluate(client, "document.querySelector('#result-save-search').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#saved-search-count')?.textContent"), "1");
+  await navigate(`http://127.0.0.1:${httpPort}/`);
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-saved-search-load]'))"), true);
+  await evaluate(client, "document.querySelector('[data-saved-search-load]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('q')"), "현수교 스트레스");
   assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=human-direct]')?.textContent.includes('인체 직접근거')"), true);
   await evaluate(client, "document.querySelector('[data-result-preset=human-direct]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('q')"), "현수교 스트레스");
