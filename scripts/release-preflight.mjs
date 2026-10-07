@@ -10,6 +10,7 @@ const steps = [
   ["validate-pending-sheet-sync", "scripts/validate-pending-sheet-sync.mjs", []],
   ["build", "scripts/build.mjs", []],
   ["validate-curated-notes", "scripts/validate-curated-notes.mjs", []],
+  ["validate-regulatory-boundaries", "scripts/validate-regulatory-boundaries.mjs", []],
   ["validate-data-and-surface", "scripts/validate.mjs", []],
   ["validate-ui-contract", "scripts/validate-ui-contract.mjs", []],
   ["validate-health-contract", "scripts/validate-health-contract.mjs", []],
