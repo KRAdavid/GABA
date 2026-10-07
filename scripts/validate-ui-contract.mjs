@@ -201,6 +201,7 @@ const required = [
   ,["Link audit freshness timezone", 'timeZone: "Asia/Seoul"']
   ,["Link audit freshness interpretation", "감사 신선도"]
   ,["Snapshot freshness KST", "function updateFreshnessLabel"]
+  ,["Comparison sticky context", "position: sticky; left: 0"]
   ,["Snapshot provenance", "release.snapshotVersion"]
   ,["Release traceability", "release.siteVersion"]
   ,["Current code deployment provenance", "release.currentCodeDeployment"]

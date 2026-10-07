@@ -320,7 +320,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .compare-table-wrap { overflow-x: auto; margin-top: 16px; }
     .compare-table { min-width: 760px; width: 100%; border-collapse: collapse; font-size: 12px; }
     .compare-table th, .compare-table td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; line-height: 1.5; }
-    .compare-table th:first-child, .compare-table td:first-child { width: 130px; background: var(--surface-2); color: var(--muted); font-weight: 800; }
+    .compare-table th:first-child, .compare-table td:first-child { position: sticky; left: 0; z-index: 2; width: 130px; background: var(--surface-2); color: var(--muted); font-weight: 800; box-shadow: 4px 0 8px rgba(19,43,58,.08); }
+    .compare-table thead th:first-child { z-index: 3; }
     .compare-table th { color: var(--ink); font-size: 13px; }
     .compare-table td { color: var(--ink-2); }
     .compare-table .compare-title { color: var(--ink); font-weight: 900; }
