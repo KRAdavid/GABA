@@ -48,6 +48,7 @@ const required = [
   ["Saved search share link", "data-saved-search-share"],
   ["Brief primary source link", "대표 원문:"],
   ["App ready marker", "dataset.gabaReady"],
+  ["Personal workspace reset", 'id="personal-workspace-clear"'],
   ["Result next-action routes", "data-result-preset"],
   ["Result next-action renderer", "result-interpretation-actions"],
   ["Review priority rationale", "review-priority-reason"],

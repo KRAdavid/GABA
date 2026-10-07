@@ -1352,6 +1352,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     }
     .result-export-options .result-reset { width: 100%; text-align: left; }
     .saved-search-note { margin: 4px 2px 6px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .saved-search-manage { display: flex; justify-content: flex-end; margin: 6px 0 2px; }
+    .saved-search-clear { border: 0; padding: 2px 0; background: transparent; color: var(--muted); font-size: 10px; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+    .saved-search-clear:hover, .saved-search-clear:focus-visible { color: #a33b39; }
     .saved-search-list { display: grid; gap: 5px; max-height: 220px; overflow: auto; }
     .saved-search-empty { margin: 2px; color: var(--muted); font-size: 10px; line-height: 1.45; }
     .saved-search-item { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 5px; align-items: center; }
@@ -2399,6 +2402,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
                   <button class="result-reset" id="result-save-search" type="button">현재 조건 저장</button>
                   <p class="saved-search-note">이 브라우저에만 저장됩니다. 원본 Sheets와 공개 인덱스는 변경하지 않습니다.</p>
                   <div class="saved-search-list" id="saved-search-list"></div>
+                  <div class="saved-search-manage"><button class="saved-search-clear" id="personal-workspace-clear" type="button">개인 작업 초기화</button></div>
                 </div>
               </details>
               <button class="result-reset" id="result-reading-list" type="button">읽기 목록 열기</button>
@@ -4724,6 +4728,22 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         renderSavedSearches();
         toast("저장된 검색 조건을 삭제했습니다");
       }
+      function resetPersonalWorkspace() {
+        var confirmed = window.confirm("이 브라우저에 저장된 검색 조건·읽기 목록·비교 선택·개인 검토 메모를 모두 초기화할까요? 공개 인덱스와 Sheets는 변경되지 않습니다.");
+        if (!confirmed) return;
+        ["gaba-saved-searches-v1", "gaba-reading-ids", "gaba-compare-ids", "gaba-review-decisions"].forEach(function (key) {
+          try { localStorage.removeItem(key); } catch (_) {}
+        });
+        savedSearches = [];
+        readingIds = [];
+        compareIds = [];
+        reviewDecisions = {};
+        renderSavedSearches();
+        renderReadingList();
+        renderReviewQueue();
+        renderCompareTray();
+        toast("개인 작업을 초기화했습니다");
+      }
 
       loadUrlState();
       initMeta();
@@ -5157,6 +5177,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("result-ris").addEventListener("click", function () { exportFilteredRis(); closeResultExportMenu(); });
       el("result-brief").addEventListener("click", function () { copyFilteredBrief(); closeResultExportMenu(); });
       el("result-save-search").addEventListener("click", saveCurrentSearch);
+      el("personal-workspace-clear").addEventListener("click", resetPersonalWorkspace);
       el("prev").addEventListener("click", function () { state.page -= 1; render("push"); scrollToResults(); });
       el("next").addEventListener("click", function () { state.page += 1; render("push"); scrollToResults(); });
       el("mobile-filter").addEventListener("click", function () { openFilters(true); });

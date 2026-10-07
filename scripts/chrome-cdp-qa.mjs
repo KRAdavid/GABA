@@ -212,6 +212,11 @@ try {
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-saved-search-load]'))"), true);
   await evaluate(client, "document.querySelector('[data-saved-search-load]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('q')"), "현수교 스트레스");
+  await evaluate(client, "window.confirm = function () { return false; }; document.querySelector('#personal-workspace-clear').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#saved-search-count')?.textContent"), "1");
+  await evaluate(client, "window.confirm = function () { return true; }; document.querySelector('#personal-workspace-clear').click()");
+  assert.equal(await evaluate(client, "document.querySelector('#saved-search-count')?.textContent"), "0");
+  assert.equal(await evaluate(client, "!localStorage.getItem('gaba-review-decisions') && !localStorage.getItem('gaba-reading-ids')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=human-direct]')?.textContent.includes('인체 직접근거')"), true);
   await evaluate(client, "document.querySelector('[data-result-preset=human-direct]').click()");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('q')"), "현수교 스트레스");
