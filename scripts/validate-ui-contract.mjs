@@ -228,6 +228,7 @@ const required = [
   ,["Sort guidance association", 'id="sort" aria-describedby="sort-help"']
   ,["Sort condition visibility", "sortLabel"]
   ,["Page size condition visibility", "pageSizeLabel"]
+  ,["Default sort condition guard", 'state.sort === "latest"']
   ,["Empty result recovery", "data-empty-reset"]
   ,["Visible filter status", 'id="filter-status-strip"']
   ,["Filter status summary", 'id="filter-status-text"']

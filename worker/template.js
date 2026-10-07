@@ -4638,6 +4638,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var summary = [];
         Object.keys(filterNames).forEach(function (key) {
           if (!state[key]) return;
+          if (key === "sort" && state.sort === "latest") return;
            var value = key === "q" ? queryFilterLabel(state[key]) : key === "source" ? sourceLabel(state[key]) : key === "audit" ? auditLabel(state[key]) : key === "freshness" ? freshnessLabel(state[key]) : key === "sort" ? sortLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
           chips.push('<button class="filter-chip" type="button" data-remove="' + esc(key) + '">' + esc(filterNames[key] + ": " + value) + ' ×</button>');
           summary.push(filterNames[key] + ": " + value);
