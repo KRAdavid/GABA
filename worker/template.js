@@ -1722,6 +1722,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .empty-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
     .empty-action { min-height: 36px; padding: 7px 11px; border: 1px solid var(--teal); border-radius: 9px; background: var(--teal); color: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
     .empty-action.secondary { border-color: var(--line); background: #fff; color: var(--teal-dark); }
+    .empty-suggestions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 7px; margin-top: 14px; }
+    .empty-suggestions-label { color: var(--muted); font-size: 11px; font-weight: 800; }
+    .empty-suggestion { min-height: 30px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink-2); font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; }
+    .empty-suggestion:hover, .empty-suggestion:focus-visible { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); outline: none; }
     .pagination {
       display: flex;
       align-items: center;
@@ -4706,7 +4710,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ? pageRecords.map(paperCard).join("")
           : '<div class="empty-state"><h3>조건에 맞는 자료가 없습니다</h3><p>현재 조건을 완화하면 다시 탐색할 수 있습니다.</p><div class="empty-actions">' +
             (state.q ? '<button class="empty-action secondary" type="button" data-empty-clear-query>검색어 지우기</button>' : '') +
-            '<button class="empty-action" type="button" data-empty-reset>모든 조건 초기화</button></div></div>';
+            '<button class="empty-action" type="button" data-empty-reset>모든 조건 초기화</button></div><div class="empty-suggestions" aria-label="추천 재탐색 경로"><span class="empty-suggestions-label">추천 재탐색</span><button class="empty-suggestion" type="button" data-empty-query="수면">수면</button><button class="empty-suggestion" type="button" data-empty-query="불안 스트레스">불안·스트레스</button><button class="empty-suggestion" type="button" data-empty-query="안전성 독성">안전성·독성</button></div></div>';
         el("page-status").textContent = state.page + " / " + totalPages;
         el("prev").disabled = state.page <= 1;
         el("next").disabled = state.page >= totalPages;
@@ -5133,6 +5137,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var emptyClearQuery = event.target.closest("[data-empty-clear-query]");
         if (emptyClearQuery) {
           changeState("q", "");
+          controls.q.focus();
+          return;
+        }
+        var emptyQuery = event.target.closest("[data-empty-query]");
+        if (emptyQuery) {
+          controls.q.value = emptyQuery.dataset.emptyQuery || "";
+          changeState("q", controls.q.value);
           controls.q.focus();
           return;
         }
