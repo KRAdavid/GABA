@@ -39712,10 +39712,10 @@
       "publishedAt": "2026-10-06T17:34:22.042242Z",
       "verification": "Sites v485 · UI·public-surface·health·parity·Chrome CDP QA·candidateExportCount 정합성 통과",
       "currentCodeDeployment": {
-        "siteVersion": 591,
+        "siteVersion": 592,
         "sourceCommit": "6a7e35faa03e3ef4b8ec342b99de1012080b739c",
         "publicMirrorCommit": "c87563e7d14931fbb8b8c9b11f8f78ac79a1e5a8",
-        "publishedAt": "2026-10-07T09:25:00+09:00"
+        "publishedAt": "2026-10-07T09:30:00+09:00"
       }
     },
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
