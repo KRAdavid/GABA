@@ -18,6 +18,7 @@
     "validate:parity": "node scripts/validate-release-parity.mjs",
     "audit:links": "node scripts/audit-public-links.mjs",
     "validate:pending": "node scripts/validate-pending-sheet-sync.mjs",
+    "validate:pending-sheet-sync": "node scripts/validate-pending-sheet-sync.mjs",
     "validate:audit": "node scripts/validate-audit-consistency.mjs --public",
     "validate:live": "node scripts/validate-live-release.mjs",
     "qa:chrome": "node scripts/chrome-cdp-qa.mjs",
