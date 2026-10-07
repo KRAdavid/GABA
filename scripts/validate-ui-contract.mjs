@@ -46,6 +46,8 @@ const required = [
   ["Saved search storage", "gaba-saved-searches-v1"],
   ["Saved search renderer", "function renderSavedSearches"],
   ["Saved search share link", "data-saved-search-share"],
+  ["Brief primary source link", "대표 원문:"],
+  ["App ready marker", "dataset.gabaReady"],
   ["Result next-action routes", "data-result-preset"],
   ["Result next-action renderer", "result-interpretation-actions"],
   ["Review priority rationale", "review-priority-reason"],

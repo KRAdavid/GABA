@@ -3387,6 +3387,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return parts.join(". ") + (identifiers.length ? ". " + identifiers.join(" · ") : "") + ".";
       }
       function evidenceBriefText(record) {
+        var source = primarySourceUrl(record);
         return [
           "GABA 근거 브리프",
           "자료: " + koreanTitle(record),
@@ -3395,7 +3396,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           "해석 경계: " + evidenceBoundary(record),
           "연구의 의미: " + researchMeaning(record),
           "마케팅 활용 방안: " + utilizationDirection(record),
-          citationText(record)
+          citationText(record),
+          "대표 원문: " + (source ? primarySourceLabel(record) + " · " + source : "확인된 대표 원문 링크 없음")
         ].join("\n\n");
       }
       function utilizationDirection(record) {
@@ -5197,6 +5199,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var top = el("results").getBoundingClientRect().top + window.scrollY - 150;
         window.scrollTo({ top: top, behavior: "smooth" });
       }
+      document.documentElement.dataset.gabaReady = "true";
     })();
   </script>
 </body>

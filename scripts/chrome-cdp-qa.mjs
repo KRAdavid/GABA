@@ -198,6 +198,7 @@ try {
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('현수교 스트레스')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
   await evaluate(client, "localStorage.removeItem('gaba-saved-searches-v1'); location.reload()");
+  await waitForExpression(client, "document.documentElement.dataset.gabaReady === 'true'");
   await waitForExpression(client, "Boolean(document.querySelector('#result-save-search'))");
   await evaluate(client, "document.querySelector('#result-save-search').click()");
   await waitForExpression(client, "document.querySelector('#saved-search-count')?.textContent === '1'");
@@ -407,9 +408,11 @@ try {
   await evaluate(client, "document.querySelector('#result-ris').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('RIS')"), true);
+  await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function (value) { window.__qaBrief = value; } } })");
   await evaluate(client, "document.querySelector('#result-brief').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('검색 결과 브리프') || document.querySelector('#copy-dialog')?.open"), true);
+  assert.equal(await evaluate(client, "String(window.__qaBrief || '').includes('대표 원문:')"), true);
   if (await evaluate(client, "document.querySelector('#copy-dialog')?.open")) await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
   await evaluate(client, "document.querySelector('#result-export-menu summary').click()");
   assert.equal(await evaluate(client, "document.querySelector('#result-export-menu')?.open"), true);
