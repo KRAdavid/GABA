@@ -221,6 +221,9 @@ try {
   assert.equal(await evaluate(client, "document.querySelectorAll('.paper-card').length > 0"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('현수교 스트레스')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('캐나다 모노그래프')}`);
+  assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('인지기능 제품 모노그래프')"), true);
+  await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('현수교 스트레스')}`);
   await evaluate(client, "localStorage.removeItem('gaba-saved-searches-v1'); location.reload()");
   await waitForExpression(client, "document.documentElement.dataset.gabaReady === 'true'");
   await waitForExpression(client, "Boolean(document.querySelector('#result-save-search'))");
