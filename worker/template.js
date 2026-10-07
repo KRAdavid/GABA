@@ -2342,8 +2342,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             <option value="title">제목 가나다순</option>
             <option value="updated">최근 확인순</option>
             <option value="human-source">인체·원문 우선</option>
+            <option value="review-priority">검토 우선순위</option>
           </select>
-          <span class="sort-help" id="sort-help" hidden>검토 시작점을 돕는 정렬이며 근거의 우열·효능 순위가 아닙니다.</span>
+          <span class="sort-help" id="sort-help" hidden>검토 시작점을 돕는 정렬이며 근거의 우열·효능 순위가 아닙니다. 검토 우선순위는 누락·접근성·최신성 신호를 먼저 보여줍니다.</span>
           <label class="sr-only" for="page-size">페이지당 결과 수</label>
           <select class="page-size-select" id="page-size">
             <option value="20">20개씩</option>
@@ -3406,9 +3407,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           if (state.sort === "title") return aTitle.localeCompare(bTitle, "ko") || b.year - a.year;
           if (state.sort === "updated") return String(b.checked).localeCompare(String(a.checked)) || b.year - a.year;
           if (state.sort === "human-source") return humanSourcePriority(b) - humanSourcePriority(a) || b.year - a.year || aTitle.localeCompare(bTitle, "ko");
+          if (state.sort === "review-priority") return recordReviewPriorityScore(b) - recordReviewPriorityScore(a) || String(a.checked || "").localeCompare(String(b.checked || "")) || b.year - a.year || aTitle.localeCompare(bTitle, "ko");
           return b.year - a.year || aTitle.localeCompare(bTitle, "ko");
         });
         return list;
+      }
+
+      function recordReviewPriorityScore(record) {
+        var missing = reviewChecklist(record).filter(function (item) { return !item[1]; }).map(function (item) { return item[0]; });
+        var priority = reviewPriority({ record: record, missing: missing });
+        return priority.key === "high" ? 3 : priority.key === "medium" ? 2 : 1;
       }
 
       function badgeClass(type, value) {
@@ -4647,7 +4655,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function syncSortHelp() {
         var note = el("sort-help");
         if (!note) return;
-        note.hidden = state.sort !== "human-source";
+        note.hidden = !["human-source", "review-priority"].includes(state.sort);
       }
       function closeResultExportMenu() {
         var menu = el("result-export-menu");

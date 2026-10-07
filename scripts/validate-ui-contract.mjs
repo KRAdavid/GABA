@@ -224,6 +224,7 @@ const required = [
   ,["Candidate status separation", "자동 선별 상태"]
   ,["Brief verification status", "원문 접근:"]
   ,["Candidate detail focus return", "candidateDetailReturnFocus"]
+  ,["Review priority sort", 'value="review-priority"']
   ,["Empty result recovery", "data-empty-reset"]
   ,["Visible filter status", 'id="filter-status-strip"']
   ,["Filter status summary", 'id="filter-status-text"']
