@@ -316,6 +316,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#freshness-label')?.textContent.includes('탐색')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview')?.hidden"), false);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-review-progress')?.textContent.includes('현재 미리보기')"), true);
+  assert.equal(await evaluate(client, "/수동 검토됨 0/.test(document.querySelector('[data-candidate-filter=reviewed]')?.textContent.trim() || '')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-more')?.hidden"), false);
   assert.equal(await evaluate(client, "/^전체 \\d+$/.test(document.querySelector('[data-candidate-filter=all]')?.textContent.trim() || '')"), true);
   const automaticPriorityLabel = await evaluate(client, "document.querySelector('[data-candidate-filter=priority]')?.textContent.trim() || ''");
@@ -333,7 +334,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('.candidate-preview-note')?.textContent.includes('전체 큐:')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('검토 권고')"), true);
   assert.equal(await evaluate(client, "document.querySelector('[data-candidate-filter=reviewed]')?.textContent.includes('수동 검토됨')"), true);
-  assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('수동 검토 상태')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('개인 검토 상태')"), true);
   assert.equal(await evaluate(client, "/PubMed 원문|DOI 원문/.test(document.querySelector('#candidate-preview-list a')?.textContent || '')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-list')?.textContent.includes('경로·섭취 표현')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-preview-export')?.textContent.includes('전체 후보 CSV')"), true);
@@ -354,6 +355,7 @@ try {
   await evaluate(client, "document.querySelector('#copy-dialog-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-abstract')?.textContent.length > 0"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('검토 권고')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-screening')?.textContent.includes('자동 선별 상태')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-checklist')?.textContent.includes('경구·섭취 여부')"), true);
   await evaluate(client, "document.querySelector('#candidate-detail-close').click()");
   assert.equal(await evaluate(client, "document.querySelector('#candidate-detail-dialog')?.open"), false);

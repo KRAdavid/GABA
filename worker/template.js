@@ -2725,7 +2725,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
       function candidateReviewStatus(candidate) {
         var saved = candidateDecisions[String(candidate?.candidateId || "")];
-        return saved?.status || candidate.screeningStatus || "미검토";
+        return saved?.status || "미검토";
+      }
+      function candidateScreeningStatus(candidate) {
+        return candidate.screeningStatus || "미분류";
       }
       function saveCandidateDecisions() {
         try { localStorage.setItem("gaba-candidate-decisions-v1", JSON.stringify(candidateDecisions)); } catch (_) {}
@@ -2798,7 +2801,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var signals = candidateHumanSignals(candidate);
           var recommendation = candidate.screeningRecommendation || "원문·식별자 확인 필요";
           var reviewStatus = candidateReviewStatus(candidate);
-          var reviewMeta = reviewStatus !== "미검토" ? " · " + (candidate.screeningPriority || "수동 판정") : "";
+          var screeningStatus = candidateScreeningStatus(candidate);
           var score = candidate.score == null ? "" : " · 자동 점수 " + candidate.score;
           var identifiers = [candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI" : ""].filter(Boolean);
           var types = (candidate.publicationTypes || []).slice(0, 2);
@@ -2807,7 +2810,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<h3>' + esc(candidate.title || "제목 확인 필요") + '</h3>' +
             '<p>' + esc([candidate.author, candidate.journal, candidate.year].filter(Boolean).join(" · ") || "서지정보 확인 필요") + '</p>' +
             '<div class="candidate-preview-meta">' + identifiers.concat(types).map(function (item) { return '<span>' + esc(item) + '</span>'; }).join("") + '</div>' +
-            '<p class="candidate-preview-signal"><strong>수동 검토 상태</strong> · ' + esc(reviewStatus + reviewMeta) + (candidate.screeningNote ? ' <span>· ' + esc(candidate.screeningNote) + '</span>' : '') + '</p>' +
+            '<p class="candidate-preview-signal"><strong>개인 검토 상태</strong> · ' + esc(reviewStatus) + '</p>' +
+            '<p class="candidate-preview-signal"><strong>자동 선별 상태</strong> · ' + esc(screeningStatus) + (candidate.screeningPriority ? ' · 자동 우선순위 ' + esc(candidate.screeningPriority) : '') + (candidate.screeningNote ? ' <span>· ' + esc(candidate.screeningNote) + '</span>' : '') + '</p>' +
             '<p class="candidate-preview-signal"><strong>검토 권고</strong> · ' + esc(recommendation) + '</p>' +
             '<p class="candidate-preview-signal"><strong>자동 신호</strong> · ' + esc(signals + score) + ' <span>(확정 판정 아님)</span></p>' +
             '<button class="candidate-preview-detail" type="button" data-candidate-detail="' + esc(candidate.candidateId || "") + '">후보 상세 보기</button>' +
@@ -2834,7 +2838,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         el("candidate-detail-title").textContent = candidate.title || "후보 상세";
         el("candidate-detail-meta").textContent = [candidate.candidateId, candidate.author, candidate.journal, candidate.year, candidate.pmid ? "PMID " + candidate.pmid : "", candidate.doi ? "DOI " + candidate.doi : ""].filter(Boolean).join(" · ");
         var reviewStatus = candidateReviewStatus(candidate);
-        el("candidate-detail-screening").innerHTML = '<strong>검토 권고</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>개인 검토 상태</strong> · ' + esc(reviewStatus) + (candidate.screeningPriority ? " · 수동 우선순위 " + esc(candidate.screeningPriority) : "") + '<br><strong>자동 탐색 우선순위</strong> · ' + esc(candidateBucketLabel(candidate.bucket || "미분류")) + (candidate.score != null ? " · 자동 점수 " + esc(candidate.score) : "") + '<br><strong>자동 신호 요약</strong> · ' + esc(candidateHumanSignals(candidate)) + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
+        el("candidate-detail-screening").innerHTML = '<strong>검토 권고</strong> · ' + esc(candidate.screeningRecommendation || "원문·식별자 확인 필요") + '<br><strong>개인 검토 상태</strong> · ' + esc(reviewStatus) + '<br><strong>자동 선별 상태</strong> · ' + esc(candidateScreeningStatus(candidate)) + (candidate.screeningPriority ? " · 자동 우선순위 " + esc(candidate.screeningPriority) : "") + '<br><strong>자동 탐색 우선순위</strong> · ' + esc(candidateBucketLabel(candidate.bucket || "미분류")) + (candidate.score != null ? " · 자동 점수 " + esc(candidate.score) : "") + '<br><strong>자동 신호 요약</strong> · ' + esc(candidateHumanSignals(candidate)) + '<br><strong>탐색 쿼리</strong> · ' + esc((candidate.queryLabels || []).join(" · ") || "자동 탐색") ;
         var followup = (candidate.queryLabels || []).includes("publication_followup") || (candidate.publicationTypes || []).some(function (type) { return /retract|correct/i.test(type); });
         var sourceUrl = candidateSourceUrl(candidate);
         var checklist = [
