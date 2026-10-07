@@ -1399,6 +1399,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
     .result-interpretation-guard strong { color: var(--amber); }
     .result-interpretation-action { justify-self: start; min-height: 30px; padding: 5px 9px; border: 1px solid rgba(15,118,110,.3); border-radius: 8px; background: #fff; color: var(--teal-dark); font-size: 11px; font-weight: 900; cursor: pointer; }
     .result-interpretation-action:hover, .result-interpretation-action:focus-visible { border-color: var(--teal); background: var(--teal-soft); }
+    .result-interpretation-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; grid-column: 1 / -1; }
+    .result-interpretation-actions-label { color: var(--muted); font-size: 10px; font-weight: 900; }
+    .result-interpretation-route { min-height: 28px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink-2); font-size: 10px; font-weight: 850; cursor: pointer; }
+    .result-interpretation-route:hover, .result-interpretation-route:focus-visible { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
     @media (max-width: 640px) {
       .result-interpretation { grid-template-columns: 1fr; gap: 8px; }
       .result-interpretation-note { grid-column: auto; }
@@ -2989,7 +2993,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         return "";
       }
 
-      function applyPreset(name) {
+      function applyPreset(name, preserveQuery) {
+        var preservedQuery = preserveQuery ? state.q : "";
         var keys = ["q", "kind", "category", "effectCategory", "status", "marketing", "intervention", "followup", "sci", "species", "topic", "grade", "agency", "safetyArea", "extraction", "direction", "source", "audit", "freshness", "from", "to", "sort"];
         keys.forEach(function (key) {
           if (key === "from") state[key] = DB.meta.minYear;
@@ -2997,6 +3002,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           else if (key === "sort") state[key] = "latest";
           else state[key] = "";
         });
+        if (preserveQuery) state.q = preservedQuery;
         if (name === "clinical") state.kind = "임상";
         if (name === "human-direct") {
           state.kind = "임상";
@@ -4539,6 +4545,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="result-interpretation-stat">추가 확인 <strong>' + review.toLocaleString("ko-KR") + '</strong></span>' +
           '</div>' +
           '<p class="result-interpretation-note">인체·동물·규제 자료는 근거의 범위가 다릅니다. <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>을 확인할 때 인체 연구와 원문 상태를 먼저 비교하세요.</p>' +
+          '<div class="result-interpretation-actions" aria-label="현재 결과에서 다음 행동"><span class="result-interpretation-actions-label">다음 행동</span><button class="result-interpretation-route" type="button" data-result-preset="human-direct">인체 직접근거만 보기</button><button class="result-interpretation-route" type="button" data-result-preset="source">원문 연결 자료만 보기</button>' + (review ? '<button class="result-interpretation-route" type="button" data-result-preset="review">추가 검토 큐 보기</button>' : '') + '</div>' +
           '<p class="result-interpretation-guard"><strong>해석 경계</strong> ' + esc(guard) + '</p>' +
           (review ? '<button class="result-interpretation-action" id="result-review-jump" type="button">추가 확인 큐 보기 · ' + review.toLocaleString("ko-KR") + '건</button>' : '');
       }
@@ -4867,6 +4874,11 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       });
       document.addEventListener("click", async function (event) {
         if (!event.target.closest("#result-export-menu")) closeResultExportMenu();
+        var resultPreset = event.target.closest("[data-result-preset]");
+        if (resultPreset) {
+          applyPreset(resultPreset.dataset.resultPreset || "", true);
+          return;
+        }
         var reviewJump = event.target.closest("#result-review-jump");
         if (reviewJump) {
           var reviewTitle = el("review-queue-title");

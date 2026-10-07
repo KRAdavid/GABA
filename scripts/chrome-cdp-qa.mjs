@@ -196,6 +196,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelectorAll('.paper-card').length > 0"), true);
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('현수교 스트레스')}`);
   assert.equal(await evaluate(client, "document.querySelector('#papers')?.textContent.includes('Relaxation and immunity')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=human-direct]')?.textContent.includes('인체 직접근거')"), true);
+  await evaluate(client, "document.querySelector('[data-result-preset=human-direct]').click()");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('q')"), "현수교 스트레스");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('kind')"), "임상");
   await navigate(`http://127.0.0.1:${httpPort}/?q=${encodeURIComponent('50~3000 mg/day')}`);
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('용량 범위 50–3,000 mg/day')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
