@@ -9,6 +9,7 @@
     "validate": "node scripts/validate.mjs",
     "validate:curated-notes": "node scripts/validate-curated-notes.mjs",
     "validate:regulatory": "node scripts/validate-regulatory-boundaries.mjs",
+    "validate:candidates": "node scripts/data-quality.mjs",
     "validate:ui": "node scripts/validate-ui-contract.mjs",
     "validate:surface": "node scripts/validate-public-surface.mjs",
     "quality": "node scripts/data-quality.mjs",
