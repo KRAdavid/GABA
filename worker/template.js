@@ -2030,7 +2030,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <section class="methodology-dialog-section"><h3>2. 연구 유형과 개입을 섞지 않습니다</h3><ul><li>인체 섭취, 동물시험, 규제·안전성 자료를 별도 레인으로 표시합니다.</li><li>순수 GABA, 복합제·식품 매트릭스, GABA 생성 프로바이오틱, 수용체 약물을 구분합니다.</li><li>투여경로·용량·기간·대조군·평가변수와 안전성 정보를 원문 기준으로 확인합니다.</li></ul></section>
           <section class="methodology-dialog-section"><h3>3. 출판 후속조치를 확인합니다</h3><p>철회·정정·Expression of Concern과 출판사 후속 공지를 원 논문과 연결합니다. 후속조치 자료는 효능 근거로 재사용하지 않습니다.</p></section>
           <section class="methodology-dialog-section"><h3>4. 연구 의미와 마케팅 활용을 분리합니다</h3><p>연구의 의미는 해당 연구가 제공하는 과학적 정보로, 마케팅 활용 방안은 조건부 활용 방향으로만 작성합니다. 이는 제품 효능 입증, 허가, 표시 적합성을 대신하지 않습니다.</p></section>
-          <section class="methodology-dialog-section"><h3>5. 공개·갱신 원칙</h3><p>PubMed·OpenAlex·Crossref 등 자동 탐색과 원문 링크 감사를 반복하고, 중복·품질·빌드·브라우저 QA 후 공개합니다. 공개면은 읽기 전용이며 관리용 Sheets URL과 자격증명을 노출하지 않습니다.</p></section>
+          <section class="methodology-dialog-section"><h3>5. 공개·갱신·동기화 원칙</h3><p>검증 스냅샷 기준일과 자동 탐색 후보 기준일을 구분해 표시합니다. 후보는 원문 확인 전 자동 승격하지 않습니다. Google Sheets 쓰기 권한이 정상일 때만 검증된 레코드를 동기화하며, 403이면 재시도하지 않고 동기화 대기목록과 36열 payload를 갱신해 기록합니다. PubMed·OpenAlex·Crossref 등 자동 탐색과 원문 링크 감사를 반복하고, 중복·품질·빌드·UI·브라우저 QA 후 공개합니다. 공개면은 읽기 전용이며 관리용 Sheets URL과 자격증명을 노출하지 않습니다.</p></section>
         </div>
       </div>
     </dialog>

@@ -419,6 +419,7 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#methodology-dialog')?.open"), true);
   assert.equal(await evaluate(client, "document.querySelector('#methodology-dialog')?.textContent.includes('순수 GABA')"), true);
   assert.equal(await evaluate(client, "document.querySelector('#methodology-dialog')?.textContent.includes('출판 후속조치')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('#methodology-dialog')?.textContent.includes('403이면 재시도하지 않고 동기화 대기목록')"), true);
   await evaluate(client, "document.querySelector('#methodology-close').click()");
   await sleep(180);
   assert.equal(await evaluate(client, "document.querySelector('#methodology-dialog')?.open"), false);

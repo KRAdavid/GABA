@@ -214,6 +214,8 @@ const required = [
   ,["Audit interpretation guard", "원문 재확인·대체 경로 검토 대상"]
   ,["Methodology dialog", "id=\"methodology-dialog\""]
   ,["Methodology rules", "출판 후속조치를 확인합니다"]
+  ,["Methodology refresh and sync policy", "공개·갱신·동기화 원칙"]
+  ,["Methodology Sheets 403 policy", "403이면 재시도하지 않고 동기화 대기목록"]
   ,["Empty result recovery", "data-empty-reset"]
   ,["Visible filter status", 'id="filter-status-strip"']
   ,["Filter status summary", 'id="filter-status-text"']
