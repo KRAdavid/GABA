@@ -600,6 +600,9 @@ try {
   assert.equal(await evaluate(client, "getComputedStyle(document.querySelector('#compare-table th:first-child')).position"), "sticky");
   assert.equal(await evaluate(client, "document.querySelector('#compare-dialog-insight')?.textContent.includes('자동 판정하지 않습니다')"), true);
   await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function (value) { window.__qaCompare = value; } } })");
+  await evaluate(client, "document.querySelector('.paper-card [data-copy-citation]')?.click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('인용 정보')"), true);
   await evaluate(client, "document.querySelector('#compare-copy').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "String(window.__qaCompare || '').includes('검증 스냅샷') && String(window.__qaCompare || '').includes('자동 탐색 기준일') && String(window.__qaCompare || '').includes('현재 조건')"), true);

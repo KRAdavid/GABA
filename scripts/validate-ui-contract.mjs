@@ -269,6 +269,8 @@ const required = [
   ,["Compare live atomic state", 'id="compare-tray" hidden aria-live="polite" aria-atomic="true"']
   ,["Compare summary accessible state", 'compareSummary.setAttribute("aria-label", selected.length + "개 선택됨']
   ,["Compare action accessible state", 'compareOpen.setAttribute("aria-label", selected.length < 2 ? "선택 자료 비교, 2개 이상 선택 필요"']
+  ,["Result card citation action", 'class="paper-citation" type="button" data-copy-citation=']
+  ,["Result card citation fallback", 'openCopyDialog("인용 정보"']
   ,["Result interpretation guard", "해석 경계"]
   ,["Result evidence scope actions", 'data-result-preset="animal"']
   ,["Result evidence scope preset", 'if (name === "animal") state.kind = "동물"']
