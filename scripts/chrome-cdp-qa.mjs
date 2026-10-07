@@ -200,6 +200,7 @@ try {
   await evaluate(client, "localStorage.removeItem('gaba-saved-searches-v1'); location.reload()");
   await waitForExpression(client, "Boolean(document.querySelector('#result-save-search'))");
   await evaluate(client, "document.querySelector('#result-save-search').click()");
+  await waitForExpression(client, "document.querySelector('#saved-search-count')?.textContent === '1'");
   assert.equal(await evaluate(client, "document.querySelector('#saved-search-count')?.textContent"), "1");
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "Boolean(document.querySelector('[data-saved-search-load]'))"), true);
