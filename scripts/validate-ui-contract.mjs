@@ -202,6 +202,7 @@ const required = [
   ,["Link audit freshness interpretation", "감사 신선도"]
   ,["Snapshot freshness KST", "function updateFreshnessLabel"]
   ,["Comparison sticky context", "position: sticky; left: 0"]
+  ,["Discovery delta helper", "function discoveryDeltaLabel"]
   ,["Snapshot provenance", "release.snapshotVersion"]
   ,["Release traceability", "release.siteVersion"]
   ,["Current code deployment provenance", "release.currentCodeDeployment"]

@@ -39,6 +39,11 @@
       "sourceErrors": [],
       "mergedUnique": 5135,
       "stagedCandidates": 1000,
+      "delta": {
+        "pubmedUnique": 2,
+        "mergedUnique": -1,
+        "stagedCandidates": 0
+      },
       "priority": 5,
       "general": 945,
       "low": 50,

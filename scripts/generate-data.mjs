@@ -64,6 +64,16 @@ const latestSearchMtime = searchDated[0]?.mtime ?? 0;
 const discovery = latestSearchMtime >= latestCandidateSheetMtime
   ? searchDiscovery
   : (candidateSheetPayload?.summary || searchDiscovery);
+const previousDiscovery = previousData?.meta?.discovery || null;
+const discoveryDelta = previousDiscovery && discovery
+  ? previousDiscovery.generatedAt === discovery.generatedAt && previousDiscovery.delta
+    ? previousDiscovery.delta
+    : {
+      pubmedUnique: (discovery.pubmed?.uniqueRetrieved || 0) - Number(previousDiscovery.pubmedUnique || 0),
+      mergedUnique: (discovery.mergedUnique || 0) - Number(previousDiscovery.mergedUnique || 0),
+      stagedCandidates: (discovery.newCandidates ?? candidateSheetPayload?.rows ?? 0) - Number(previousDiscovery.stagedCandidates || 0)
+    }
+  : null;
 
 const indexWrite = payload.requests.find((request) => {
   const update = request.updateCells;
@@ -508,6 +518,7 @@ const database = {
       sourceErrors: Array.isArray(discovery.sourceErrors) ? discovery.sourceErrors : [],
       mergedUnique: discovery.mergedUnique || 0,
       stagedCandidates: discovery.newCandidates ?? candidateSheetPayload?.rows ?? 0,
+      delta: discoveryDelta,
       priority: discovery.stagedPriority ?? discovery.priority ?? 0,
       general: discovery.stagedGeneral ?? discovery.general ?? 0,
       low: discovery.stagedLow ?? discovery.low ?? 0,

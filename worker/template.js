@@ -2666,6 +2666,14 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         formatted.forEach(function(part) { values[part.type] = part.value; });
         return values.year + "년 " + Number(values.month) + "월 " + Number(values.day) + "일";
       }
+      function signedDelta(value) {
+        var number = Number(value || 0);
+        return (number > 0 ? "+" : "") + number.toLocaleString("ko-KR");
+      }
+      function discoveryDeltaLabel(delta) {
+        if (!delta) return "이전 탐색과 비교 불가";
+        return "PubMed " + signedDelta(delta.pubmedUnique) + " · 통합 " + signedDelta(delta.mergedUnique) + " · 후보 " + signedDelta(delta.stagedCandidates);
+      }
       function updateFreshnessLabel(snapshotDate, discoveryDate) {
         var target = el("freshness-label");
         if (!target) return;
@@ -2958,6 +2966,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ["OpenAlex", Number(discovery.openAlexRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["Crossref", Number(discovery.crossrefRetrieved || 0).toLocaleString("ko-KR") + "건"],
           ["통합 고유", Number(discovery.mergedUnique || 0).toLocaleString("ko-KR") + "건"],
+          ["이번 갱신 변화", discoveryDeltaLabel(discovery.delta) + " (총량 변화 · 확정 인덱스 아님)"],
           ["자동 우선검토", Number(discovery.priority || 0).toLocaleString("ko-KR") + "건"],
           ["수동 검토 상태", discovery.screeningCounts ? screeningSummary : "확인 필요"],
           ["수동 판정 연결 / 보존", Number(discovery.manualDecisionsMatched || 0).toLocaleString("ko-KR") + " / " + Number(discovery.manualDecisionsPreserved || 0).toLocaleString("ko-KR") + "건"],
