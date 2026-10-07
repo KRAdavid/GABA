@@ -3984,7 +3984,6 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var animal = list.filter(function (record) { return record.kind === "동물"; }).length;
         var regulatory = list.filter(function (record) { return record.kind === "규제"; }).length;
         var review = list.filter(function (record) { return record.status === "후보" || record.status === "보류" || record.extraction === "부분"; }).length;
-        var oral = list.filter(function (record) { return record.routeGroup === "경구·섭취"; }).length;
         var currentLink = location.origin + location.pathname + location.search;
         var lines = [
           "GABA 검색 결과 브리프",
@@ -4577,6 +4576,8 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var animal = list.filter(function (record) { return record.kind === "동물"; }).length;
         var regulatory = list.filter(function (record) { return record.kind === "규제"; }).length;
         var review = list.filter(function (record) { return record.status === "후보" || record.status === "보류" || record.extraction === "부분"; }).length;
+        var oral = list.filter(function (record) { return record.routeGroup === "경구·섭취"; }).length;
+        var oralAction = oral ? '<button class="result-interpretation-route" type="button" data-result-preset="oral">경구·섭취만 보기 · ' + oral.toLocaleString("ko-KR") + '건</button>' : '';
         var query = state.q ? state.q.trim() : "전체 근거";
         var guard = state.audit === "unavailable"
           ? "접근 제한·일시 응답은 근거 약함이 아니라 원문 재확인·대체 경로 검토 대상입니다."
@@ -4591,7 +4592,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
             '<span class="result-interpretation-stat">추가 확인 <strong>' + review.toLocaleString("ko-KR") + '</strong></span>' +
           '</div>' +
           '<p class="result-interpretation-note">인체·동물·규제 자료는 근거의 범위가 다릅니다. <strong>' + list.length.toLocaleString("ko-KR") + '건</strong>을 확인할 때 인체 연구와 원문 상태를 먼저 비교하세요.</p>' +
-          '<div class="result-interpretation-actions" aria-label="현재 결과에서 다음 행동"><span class="result-interpretation-actions-label">다음 행동</span><button class="result-interpretation-route" type="button" data-result-preset="human-direct">인체 직접근거만 보기</button><button class="result-interpretation-route" type="button" data-result-preset="oral">경구·섭취만 보기</button><button class="result-interpretation-route" type="button" data-result-preset="source">원문 연결 자료만 보기</button>' + (review ? '<button class="result-interpretation-route" type="button" data-result-preset="review">추가 검토 큐 보기</button>' : '') + '</div>' +
+          '<div class="result-interpretation-actions" aria-label="현재 결과에서 다음 행동"><span class="result-interpretation-actions-label">다음 행동</span><button class="result-interpretation-route" type="button" data-result-preset="human-direct">인체 직접근거만 보기</button>' + oralAction + '<button class="result-interpretation-route" type="button" data-result-preset="source">원문 연결 자료만 보기</button>' + (review ? '<button class="result-interpretation-route" type="button" data-result-preset="review">추가 검토 큐 보기</button>' : '') + '</div>' +
           '<p class="result-interpretation-guard"><strong>해석 경계</strong> ' + esc(guard) + '</p>' +
           (review ? '<button class="result-interpretation-action" id="result-review-jump" type="button">추가 확인 큐 보기 · ' + review.toLocaleString("ko-KR") + '건</button>' : '');
       }
@@ -4657,7 +4658,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function resetFilters() {
         pageSize = 20;
         state = {
-           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", followup: "", sci: "", species: "", topic: "",
+           q: "", kind: "", category: "", effectCategory: "", status: "", marketing: "", intervention: "", routeGroup: "", followup: "", sci: "", species: "", topic: "",
           grade: "", agency: "", safetyArea: "", extraction: "", direction: "", source: "", audit: "", freshness: "", from: DB.meta.minYear,
           to: DB.meta.maxYear, sort: "latest", page: 1
         };
@@ -4782,7 +4783,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         clearTimeout(searchTimer);
         searchTimer = setTimeout(function () { changeState("q", controls.q.value, "replace"); }, 120);
       });
-      ["category", "effectCategory", "status", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "audit", "freshness", "sort"].forEach(function (key) {
+      ["category", "effectCategory", "status", "routeGroup", "grade", "agency", "safetyArea", "sci", "species", "topic", "extraction", "direction", "source", "audit", "freshness", "sort"].forEach(function (key) {
         controls[key].addEventListener("change", function () { changeState(key, controls[key].value); });
       });
       controls.pageSize.addEventListener("change", function () {

@@ -127,6 +127,9 @@ try {
   await client.connect();
   await client.call("Page.enable");
   await client.call("Runtime.enable");
+  client.events.set("Runtime.exceptionThrown", [...(client.events.get("Runtime.exceptionThrown") || []), (params) => {
+    console.error(JSON.stringify({ runtimeException: params.exceptionDetails?.text, description: params.exceptionDetails?.exception?.description }));
+  }]);
 
   async function navigate(url) {
     const loaded = client.once("Page.loadEventFired");
@@ -134,6 +137,8 @@ try {
     await client.call("Page.navigate", { url: targetUrl });
     await loaded;
     await sleep(150);
+    const ready = await waitForExpression(client, "document.documentElement.dataset.gabaReady === 'true'");
+    if (!ready) throw new Error(`GABA app did not become ready at ${targetUrl}`);
   }
   async function screenshot(name) {
     const shot = await client.call("Page.captureScreenshot", { format: "png", captureBeyondViewport: false });
@@ -143,6 +148,7 @@ try {
   }
 
   await navigate(`http://127.0.0.1:${httpPort}/`);
+  await waitForExpression(client, "document.querySelector('#sort')?.value === 'latest'");
   await evaluate(client, "document.querySelector('#sort').value = 'human-source'; document.querySelector('#sort').dispatchEvent(new Event('change', { bubbles: true }))");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('sort')"), "human-source");
   assert.equal(await evaluate(client, "document.querySelector('#sort').value"), "human-source");
@@ -194,6 +200,8 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#route-group')?.value"), "경구·섭취");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('routeGroup')"), "경구·섭취");
   assert.equal(await evaluate(client, "document.querySelector('#result-count')?.textContent.includes('건')"), true);
+  await evaluate(client, "document.querySelector('#route-group').value = '비경구·기타'; document.querySelector('#route-group').dispatchEvent(new Event('change', { bubbles: true }))");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('routeGroup')"), "비경구·기타");
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.querySelector('[data-result-preset=oral]')?.textContent.includes('경구·섭취')"), true);
   await evaluate(client, "document.querySelector('[data-result-preset=oral]').click()");
