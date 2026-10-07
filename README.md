@@ -42,11 +42,12 @@ Google Sheet로 관리되는 GABA 섭취 임상·동물시험 문헌을 한국�
 ## 검증 순서
 
 ```text
-data-quality → build → validate → build-pending-sheet-sync → UI contract
+data-quality → build → built-provenance → validate → build-pending-sheet-sync → UI contract
 ```
 
 - `node scripts/data-quality.mjs`: 원본·후보·식별자·중복 상태 확인
 - `node scripts/build.mjs`: 검증된 스냅샷을 `dist/server/index.js`에 임베드
+- `node scripts/validate-built-provenance.mjs`: 생성 번들이 현재 release provenance를 포함하는지 확인해 오래된 `dist` 패키징을 차단
 - `node scripts/validate.mjs`: 레코드 유형·수량·프로젝트 연결 검증
 - `node scripts/build-pending-sheet-sync.mjs`: Sheets 403 등으로 대기 중인 레코드의 36열 payload 재생성
 - `node scripts/validate-pending-sheet-sync.mjs`: 대기 payload의 36열·Record_ID·중복 상태 검증
