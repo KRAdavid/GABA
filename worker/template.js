@@ -2725,10 +2725,13 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function focusDiscoveryStatus() {
         var target = el("discovery-banner");
         var heading = el("discovery-title");
-        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (target) target.scrollIntoView({ behavior: preferredScrollBehavior(), block: "start" });
         if (heading) window.setTimeout(function () { heading.focus(); }, 120);
       }
       function countText(value) { return Number(value || 0).toLocaleString("ko-KR") + "편"; }
+      function preferredScrollBehavior() {
+        return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+      }
       function optionLabel(item) { return item.label + " (" + item.value.toLocaleString("ko-KR") + ")"; }
       function addOptions(select, items) {
         items.forEach(function (item) {
@@ -3670,7 +3673,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           : '<article class="portal-lane-overview-card"><h4>추가 자료를 확보해야 합니다</h4><p>현재 검색 인덱스에 충분한 직접 연결 자료가 없어 후보 큐와 원문 검색을 우선 확인하세요.</p></article>';
         renderPortalLaneInsight(lane);
         panel.hidden = false;
-        panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        panel.scrollIntoView({ behavior: preferredScrollBehavior(), block: "nearest" });
       }
       function renderPortalLaneInsight(lane) {
         var target = el("portal-lane-insight");
@@ -5250,7 +5253,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var reviewJump = event.target.closest("#result-review-jump");
         if (reviewJump) {
           var reviewTitle = el("review-queue-title");
-          reviewTitle.scrollIntoView({ behavior: "smooth", block: "start" });
+          reviewTitle.scrollIntoView({ behavior: preferredScrollBehavior(), block: "start" });
           setTimeout(function () { reviewTitle.focus(); }, 120);
           return;
         }
@@ -5414,7 +5417,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           var field = distribution.dataset.distributionField;
           var value = distribution.dataset.distributionValue;
           changeState(field, state[field] === value ? "" : value);
-          document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+          document.getElementById("results").scrollIntoView({ behavior: preferredScrollBehavior(), block: "start" });
           var resultCount = document.getElementById("result-count");
           if (resultCount && typeof resultCount.focus === "function") resultCount.focus({ preventScroll: true });
         }
@@ -5449,7 +5452,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         openFilters(false);
         var resultCount = el("result-count");
         if (resultCount && typeof resultCount.focus === "function") resultCount.focus({ preventScroll: true });
-        el("results").scrollIntoView({ behavior: "smooth", block: "start" });
+        el("results").scrollIntoView({ behavior: preferredScrollBehavior(), block: "start" });
       });
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
@@ -5481,7 +5484,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("freshness-label").addEventListener("click", focusDiscoveryStatus);
       function scrollToResults() {
         var top = el("results").getBoundingClientRect().top + window.scrollY - 150;
-        window.scrollTo({ top: top, behavior: "smooth" });
+        window.scrollTo({ top: top, behavior: preferredScrollBehavior() });
       }
       function focusAnchorHeading(target) {
         if (!target) return;
