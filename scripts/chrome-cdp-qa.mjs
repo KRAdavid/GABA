@@ -637,6 +637,9 @@ try {
   await evaluate(client, "document.querySelector('#reading-list-copy').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('브리프')"), true);
+  await evaluate(client, "document.querySelector('#reading-list-citations').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('인용 목록')"), true);
   await evaluate(client, "document.querySelector('#reading-list-share').click()");
   await sleep(80);
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).has('read')"), true);

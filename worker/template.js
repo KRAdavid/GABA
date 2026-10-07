@@ -2274,7 +2274,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <div><h2 id="reading-list-title">내 읽기 목록</h2><p>현재 브라우저에만 저장됩니다. 원본 인덱스·Sheets·공개 데이터는 변경하지 않습니다.</p></div>
           <button class="reading-list-close" id="reading-list-close" type="button" aria-label="읽기 목록 닫기">×</button>
         </div>
-        <div class="reading-list-actions"><button id="reading-list-copy" type="button">전체 근거 브리프 복사</button><button id="reading-list-download" type="button">Markdown 저장</button><button id="reading-list-share" type="button">읽기 목록 링크 복사</button><button class="secondary" id="reading-list-clear" type="button">전체 비우기</button></div>
+        <div class="reading-list-actions"><button id="reading-list-copy" type="button">전체 근거 브리프 복사</button><button id="reading-list-citations" type="button">인용 목록 복사</button><button id="reading-list-download" type="button">Markdown 저장</button><button id="reading-list-share" type="button">읽기 목록 링크 복사</button><button class="secondary" id="reading-list-clear" type="button">전체 비우기</button></div>
         <div class="reading-list-items" id="reading-list-items"></div>
       </div>
     </dialog>
@@ -4504,6 +4504,12 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ? selected.map(function (record, index) { return "[" + (index + 1) + "]\n" + evidenceBriefText(record); }).join("\n\n--------------------\n\n")
           : "저장한 자료가 없습니다.";
       }
+      function readingListCitationText() {
+        var selected = readingListRecords();
+        return selected.length
+          ? selected.map(function (record, index) { return (index + 1) + ". " + citationText(record); }).join("\n")
+          : "저장한 자료가 없습니다.";
+      }
       function readingListMarkdownText() {
         var selected = readingListRecords();
         if (!selected.length) return "";
@@ -4849,6 +4855,16 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       };
       function sourceLabel(value) {
         return { available: "원문·식별자 링크 있음", drive: "Drive 원문", link: "외부 링크", none: "링크 없음" }[value] || value;
+      }
+      async function copyReadingListCitations() {
+        if (!readingListRecords().length) { toast("복사할 읽기 목록 인용이 없습니다"); return; }
+        var text = readingListCitationText();
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("인용 목록을 복사했습니다");
+        } catch (_) {
+          openCopyDialog("읽기 목록 인용", "클립보드 권한이 없으면 아래 인용 목록을 선택해 직접 복사하세요.", text, "인용 목록을 복사했습니다");
+        }
       }
       function auditLabel(value) {
         return { ok: "감사 시점 접근 확인", unavailable: "접근 제한·일시 응답·페이지 오류", missing: "개별 감사 기록 없음" }[value] || value;
@@ -5399,6 +5415,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("reading-list-open").addEventListener("click", openReadingList);
       el("result-reading-list").addEventListener("click", openReadingList);
       el("reading-list-copy").addEventListener("click", copyReadingList);
+      el("reading-list-citations").addEventListener("click", copyReadingListCitations);
       el("reading-list-download").addEventListener("click", downloadReadingList);
       el("reading-list-share").addEventListener("click", shareReadingList);
       el("reading-list-clear").addEventListener("click", clearReadingList);
