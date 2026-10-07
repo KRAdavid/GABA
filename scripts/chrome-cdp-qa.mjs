@@ -605,6 +605,10 @@ try {
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-items [data-compare-toggle]')?.textContent"), "비교에서 제거");
   await evaluate(client, "document.querySelector('#reading-list-items [data-compare-toggle]').click()");
   assert.equal(await evaluate(client, "document.querySelector('#reading-list-items [data-compare-toggle]')?.getAttribute('aria-pressed')"), "false");
+  assert.equal(await evaluate(client, "Boolean(document.querySelector('#reading-list-download'))"), true);
+  await evaluate(client, "document.querySelector('#reading-list-download').click()");
+  await sleep(80);
+  assert.equal(await evaluate(client, "document.querySelector('#toast')?.textContent.includes('Markdown')"), true);
   await evaluate(client, "Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async function () {} } })");
   await evaluate(client, "document.querySelector('#reading-list-copy').click()");
   await sleep(80);

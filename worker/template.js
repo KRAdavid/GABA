@@ -2257,7 +2257,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           <div><h2 id="reading-list-title">내 읽기 목록</h2><p>현재 브라우저에만 저장됩니다. 원본 인덱스·Sheets·공개 데이터는 변경하지 않습니다.</p></div>
           <button class="reading-list-close" id="reading-list-close" type="button" aria-label="읽기 목록 닫기">×</button>
         </div>
-        <div class="reading-list-actions"><button id="reading-list-copy" type="button">전체 근거 브리프 복사</button><button id="reading-list-share" type="button">읽기 목록 링크 복사</button><button class="secondary" id="reading-list-clear" type="button">전체 비우기</button></div>
+        <div class="reading-list-actions"><button id="reading-list-copy" type="button">전체 근거 브리프 복사</button><button id="reading-list-download" type="button">Markdown 저장</button><button id="reading-list-share" type="button">읽기 목록 링크 복사</button><button class="secondary" id="reading-list-clear" type="button">전체 비우기</button></div>
         <div class="reading-list-items" id="reading-list-items"></div>
       </div>
     </dialog>
@@ -4438,6 +4438,41 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
           ? selected.map(function (record, index) { return "[" + (index + 1) + "]\n" + evidenceBriefText(record); }).join("\n\n--------------------\n\n")
           : "저장한 자료가 없습니다.";
       }
+      function readingListMarkdownText() {
+        var selected = readingListRecords();
+        if (!selected.length) return "";
+        var shareUrl = new URL(location.href);
+        shareUrl.searchParams.set("read", readingIds.slice(0, 50).join(","));
+        var lines = [
+          "# GABA 읽기 목록",
+          "",
+          "- 선택 자료: " + selected.length.toLocaleString("ko-KR") + "건",
+          "- 검증 스냅샷: " + String(DB.meta.snapshotDate || "미상"),
+          "- 읽기 목록 링크: " + shareUrl.toString(),
+          "- 공유 범위: 공개 검증 스냅샷에서 브라우저에 저장한 자료와 현재 읽기 목록 링크만 포함합니다.",
+          "- 해석 주의: 인체·동물·규제 자료는 범위가 다르므로 결과를 직접 합산하지 않습니다. 원문·대상·용량·기간·대조군을 먼저 확인하세요.",
+          "",
+          "## 선택 자료"
+        ];
+        selected.forEach(function (record, index) {
+          lines.push("", "### " + (index + 1) + ". " + koreanTitle(record), "", evidenceBriefText(record));
+        });
+        return lines.join("\n");
+      }
+      function downloadReadingList() {
+        var selected = readingListRecords();
+        if (!selected.length) { toast("저장할 읽기 목록이 없습니다"); return; }
+        var blob = new Blob([readingListMarkdownText()], { type: "text/markdown;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "gaba-reading-list-" + String(DB.meta.snapshotDate || "snapshot") + ".md";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+        toast("읽기 목록 Markdown을 저장했습니다");
+      }
       async function shareReadingList() {
         if (!readingListRecords().length) { toast("공유할 읽기 목록이 없습니다"); return; }
         urlReadingIds = readingIds.slice(0, 50);
@@ -5286,6 +5321,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       el("reading-list-open").addEventListener("click", openReadingList);
       el("result-reading-list").addEventListener("click", openReadingList);
       el("reading-list-copy").addEventListener("click", copyReadingList);
+      el("reading-list-download").addEventListener("click", downloadReadingList);
       el("reading-list-share").addEventListener("click", shareReadingList);
       el("reading-list-clear").addEventListener("click", clearReadingList);
       el("reading-list-close").addEventListener("click", closeReadingList);

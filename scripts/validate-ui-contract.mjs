@@ -147,6 +147,8 @@ const required = [
   ,["Reading list toggle", "data-reading-toggle"]
   ,["Reading list focus return", "readingReturnFocus"]
   ,["Reading list brief copy", 'id="reading-list-copy"']
+  ,["Reading list Markdown export", 'id="reading-list-download"']
+  ,["Reading list Markdown renderer", "function readingListMarkdownText"]
   ,["Reading list clear", 'id="reading-list-clear"']
   ,["Reading list brief renderer", "function readingListBriefText"]
   ,["Reading list share", 'id="reading-list-share"']
