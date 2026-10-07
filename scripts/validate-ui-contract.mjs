@@ -226,6 +226,7 @@ const required = [
   ,["Candidate detail focus return", "candidateDetailReturnFocus"]
   ,["Review priority sort", 'value="review-priority"']
   ,["Sort guidance association", 'id="sort" aria-describedby="sort-help"']
+  ,["Sort condition visibility", "sortLabel"]
   ,["Empty result recovery", "data-empty-reset"]
   ,["Visible filter status", 'id="filter-status-strip"']
   ,["Filter status summary", 'id="filter-status-text"']

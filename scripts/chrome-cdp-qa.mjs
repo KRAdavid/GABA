@@ -159,6 +159,7 @@ try {
   await evaluate(client, "document.querySelector('#sort').value = 'review-priority'; document.querySelector('#sort').dispatchEvent(new Event('change', { bubbles: true }))");
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('sort')"), "review-priority");
   assert.equal(await evaluate(client, "document.querySelector('#sort-help')?.hidden"), false);
+  assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('정렬: 검토 우선순위')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.querySelector('#metric-total')?.textContent.trim()"), "384편");
   assert.equal(await evaluate(client, "document.querySelector('#page-status')?.getAttribute('aria-label')"), "현재 1페이지 / 전체 20페이지");

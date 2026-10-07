@@ -4607,7 +4607,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       var filterNames = {
          q: "검색", kind: "구분", category: "자료 카테고리", effectCategory: "효과·적용 분야", status: "상태", marketing: "마케팅 활용", intervention: "개입 구분", followup: "출판 후속조치", grade: "규제등급", agency: "규제기관",
         safetyArea: "안전성영역", sci: "SCI", species: "종",
-        topic: "주제", extraction: "추출", direction: "결과", source: "원문", audit: "원문 접근 감사", freshness: "재확인 상태"
+        topic: "주제", extraction: "추출", direction: "결과", source: "원문", audit: "원문 접근 감사", freshness: "재확인 상태", sort: "정렬"
       };
       function sourceLabel(value) {
         return { available: "원문·식별자 링크 있음", drive: "Drive 원문", link: "외부 링크", none: "링크 없음" }[value] || value;
@@ -4617,6 +4617,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       }
       function freshnessLabel(value) {
         return { recent: "최근 확인 (90일 이내)", stale: "재확인 권고 (90일 초과)", unknown: "확인일 미상" }[value] || value;
+      }
+      function sortLabel(value) {
+        return { latest: "최신 연도순", oldest: "과거 연도순", title: "제목 가나다순", updated: "최근 확인순", "human-source": "인체·원문 우선", "review-priority": "검토 우선순위" }[value] || value;
       }
       function doseRangeLabel(range) {
         return Number(range.from).toLocaleString("ko-KR") + "–" + Number(range.to).toLocaleString("ko-KR") + " mg/day";
@@ -4632,7 +4635,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         var summary = [];
         Object.keys(filterNames).forEach(function (key) {
           if (!state[key]) return;
-           var value = key === "q" ? queryFilterLabel(state[key]) : key === "source" ? sourceLabel(state[key]) : key === "audit" ? auditLabel(state[key]) : key === "freshness" ? freshnessLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
+           var value = key === "q" ? queryFilterLabel(state[key]) : key === "source" ? sourceLabel(state[key]) : key === "audit" ? auditLabel(state[key]) : key === "freshness" ? freshnessLabel(state[key]) : key === "sort" ? sortLabel(state[key]) : key === "followup" ? "철회·정정·우려표명 신호" : state[key];
           chips.push('<button class="filter-chip" type="button" data-remove="' + esc(key) + '">' + esc(filterNames[key] + ": " + value) + ' ×</button>');
           summary.push(filterNames[key] + ": " + value);
         });
