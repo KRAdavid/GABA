@@ -160,6 +160,10 @@ try {
   assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('sort')"), "review-priority");
   assert.equal(await evaluate(client, "document.querySelector('#sort-help')?.hidden"), false);
   assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('정렬: 검토 우선순위')"), true);
+  await evaluate(client, "document.querySelector('#page-size').value = '50'; document.querySelector('#page-size').dispatchEvent(new Event('change', { bubbles: true }))");
+  assert.equal(await evaluate(client, "new URLSearchParams(location.search).get('pageSize')"), "50");
+  assert.equal(await evaluate(client, "document.querySelector('#filter-status-text')?.textContent.includes('표시 수: 50개씩')"), true);
+  assert.equal(await evaluate(client, "document.querySelector('[data-remove=pageSize]')?.textContent.includes('표시 수: 50개씩')"), true);
   await navigate(`http://127.0.0.1:${httpPort}/`);
   assert.equal(await evaluate(client, "document.querySelector('#metric-total')?.textContent.trim()"), "384편");
   assert.equal(await evaluate(client, "document.querySelector('#page-status')?.getAttribute('aria-label')"), "현재 1페이지 / 전체 20페이지");

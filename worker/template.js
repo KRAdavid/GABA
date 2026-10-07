@@ -4621,6 +4621,9 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
       function sortLabel(value) {
         return { latest: "최신 연도순", oldest: "과거 연도순", title: "제목 가나다순", updated: "최근 확인순", "human-source": "인체·원문 우선", "review-priority": "검토 우선순위" }[value] || value;
       }
+      function pageSizeLabel(value) {
+        return Number(value || 20).toLocaleString("ko-KR") + "개씩";
+      }
       function doseRangeLabel(range) {
         return Number(range.from).toLocaleString("ko-KR") + "–" + Number(range.to).toLocaleString("ko-KR") + " mg/day";
       }
@@ -4642,6 +4645,10 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (state.from !== DB.meta.minYear || state.to !== DB.meta.maxYear) {
           chips.push('<button class="filter-chip" type="button" data-remove="year">연도: ' + state.from + "–" + state.to + ' ×</button>');
           summary.push("연도: " + state.from + "–" + state.to);
+        }
+        if (pageSize !== 20) {
+          chips.push('<button class="filter-chip" type="button" data-remove="pageSize">표시 수: ' + pageSizeLabel(pageSize) + ' ×</button>');
+          summary.push("표시 수: " + pageSizeLabel(pageSize));
         }
         el("active-filters").innerHTML = chips.join("");
         var statusText = el("filter-status-text");
@@ -5349,6 +5356,7 @@ const PAGE_TEMPLATE = String.raw`<!doctype html>
         if (chip) {
           var key = chip.dataset.remove;
           if (key === "year") { state.from = DB.meta.minYear; state.to = DB.meta.maxYear; }
+          else if (key === "pageSize") { pageSize = 20; if (controls.pageSize) controls.pageSize.value = "20"; }
           else state[key] = "";
           state.page = 1; render("push");
         }

@@ -39713,10 +39713,10 @@
       "publishedAt": "2026-10-06T17:34:22.042242Z",
       "verification": "Sites v485 · UI·public-surface·health·parity·Chrome CDP QA·candidateExportCount 정합성 통과",
       "currentCodeDeployment": {
-        "siteVersion": 628,
-        "sourceCommit": "1640708e2d8c64b7d464b638902d19892d7270ae",
-        "publicMirrorCommit": "38be021f61d2f3c4549ce1b3711d67354f70ce7c",
-        "publishedAt": "2026-10-07T05:28:00.000000Z"
+        "siteVersion": 629,
+        "sourceCommit": "52cc3c67b5dd9d852f9339d149b0de8745f89593",
+        "publicMirrorCommit": "5f816ffb4446d7c6fe2097ce09c0f3699bc599e4",
+        "publishedAt": "2026-10-07T05:38:00.000000Z"
       }
     },
     "notice": "이 웹 인덱스는 배포 시점의 읽기 전용 스냅샷입니다."
