@@ -26,6 +26,7 @@
     "preflight": "node scripts/release-preflight.mjs --public",
     "release:package": "node scripts/package-public-release.mjs",
     "sync:public": "node scripts/sync-public-release.mjs",
-    "check": "pnpm data && pnpm quality && pnpm build && pnpm validate"
+    "check": "pnpm data && pnpm quality && pnpm build && pnpm validate",
+    "package:sites": "node scripts/package-sites-archive.mjs"
   }
 }
